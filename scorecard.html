@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Readiness Scorecard — Alice Bazdikian</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    :root {
+      --eggshell: #F7F3EE;
+      --charcoal: #1C1C1C;
+      --burgundy: #7D2240;
+      --burgundy-dark: #651B33;
+      --burgundy-deeper: #3D1020;
+      --gold: #C9A847;
+      --gold-dark: #B8952E;
+      --surface: #FFFFFF;
+      --muted: #6B6560;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { background-color: var(--eggshell); color: var(--charcoal); font-family: 'Inter', system-ui, sans-serif; line-height: 1.7; -webkit-font-smoothing: antialiased; margin: 0; }
+
+    /* NAV */
+    .nav { position: sticky; top: 0; z-index: 50; background: var(--eggshell); border-bottom: 1px solid rgba(125,34,64,0.12); display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; height: 68px; }
+    .nav-brand { display: flex; flex-direction: column; line-height: 1.2; text-decoration: none; }
+    .nav-brand-name { font-family: 'Playfair Display', serif; font-size: 1.125rem; font-weight: 600; color: var(--charcoal); letter-spacing: -0.01em; }
+    .nav-brand-tag { font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); font-weight: 400; }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; margin: 0; padding: 0; }
+    .nav-links a { font-size: 0.875rem; font-weight: 400; color: var(--charcoal); text-decoration: none; letter-spacing: 0.01em; transition: color 0.2s ease; }
+    .nav-links a:hover { color: var(--burgundy); }
+    .nav-links a.active { color: var(--burgundy); font-weight: 500; }
+    .btn-nav { display: inline-flex; align-items: center; background: var(--gold); color: var(--charcoal); font-family: 'Inter', sans-serif; font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.02em; padding: 0.5rem 1.25rem; border-radius: 100px; border: none; cursor: pointer; text-decoration: none; transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease; box-shadow: 0 2px 8px rgba(201,168,71,0.3); }
+    .btn-nav:hover { background: var(--gold-dark); transform: translateY(-1px); }
+
+    /* PAGE HEADER */
+    .page-header { background: var(--charcoal); padding: 5rem 4rem 4rem; position: relative; overflow: hidden; }
+    .page-header::before { content: ''; position: absolute; bottom: -80px; right: -80px; width: 300px; height: 300px; border-radius: 50%; background: rgba(201,168,71,0.05); pointer-events: none; }
+    .page-header-inner { max-width: 720px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
+
+    .eyebrow { font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; display: flex; align-items: center; justify-content: center; gap: 0.625rem; }
+    .eyebrow::before, .eyebrow::after { content: ''; display: inline-block; width: 20px; height: 1.5px; background: var(--gold); flex-shrink: 0; }
+
+    .page-heading { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 3.5vw, 3rem); font-weight: 600; line-height: 1.15; letter-spacing: -0.03em; color: #fff; margin: 0 0 1.25rem; }
+    .page-sub { font-size: 1rem; line-height: 1.75; color: rgba(255,255,255,0.6); margin: 0 0 2.5rem; }
+
+    /* PROGRESS BAR */
+    .progress-section {
+      display: flex;
+      gap: 0.375rem;
+      justify-content: center;
+      margin-top: 0.5rem;
+    }
+
+    .progress-pip {
+      height: 3px;
+      flex: 1;
+      max-width: 80px;
+      border-radius: 100px;
+      background: rgba(255,255,255,0.15);
+      transition: background 0.3s ease;
+    }
+
+    .progress-pip.active { background: var(--gold); }
+    .progress-pip.done { background: rgba(201,168,71,0.4); }
+
+    /* FORM WRAPPER */
+    .scorecard-wrapper {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 4rem 2rem 6rem;
+    }
+
+    /* STEPS */
+    .step {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .step.active { display: block; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* STEP HEADER */
+    .step-header {
+      margin-bottom: 2.5rem;
+    }
+
+    .step-tag {
+      display: inline-block;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: rgba(201,168,71,0.1);
+      border: 1px solid rgba(201,168,71,0.2);
+      padding: 0.25rem 0.75rem;
+      border-radius: 100px;
+      margin-bottom: 1rem;
+    }
+
+    .step-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 2.5vw, 1.875rem);
+      font-weight: 600;
+      color: var(--charcoal);
+      letter-spacing: -0.025em;
+      line-height: 1.25;
+      margin: 0 0 0.625rem;
+    }
+
+    .step-desc {
+      font-size: 0.9375rem;
+      color: var(--muted);
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* INFO FIELDS */
+    .field-group {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .field-group.full { grid-template-columns: 1fr; }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.375rem;
+    }
+
+    .field label {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--charcoal);
+      letter-spacing: 0.01em;
+    }
+
+    .field input,
+    .field select {
+      background: var(--surface);
+      border: 1px solid rgba(28,28,28,0.15);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9375rem;
+      color: var(--charcoal);
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .field select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236B6560' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+      cursor: pointer;
+    }
+
+    .field input:focus,
+    .field select:focus {
+      border-color: var(--burgundy);
+      box-shadow: 0 0 0 3px rgba(125,34,64,0.08);
+    }
+
+    /* SCALE QUESTIONS */
+    .question-block {
+      background: var(--surface);
+      border-radius: 10px;
+      padding: 1.5rem 1.75rem;
+      margin-bottom: 1rem;
+      border: 1px solid rgba(28,28,28,0.07);
+      box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+    }
+
+    .question-text {
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--charcoal);
+      line-height: 1.55;
+      margin-bottom: 1.125rem;
+    }
+
+    .scale-options {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .scale-option {
+      flex: 1;
+      position: relative;
+    }
+
+    .scale-option input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .scale-option label {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.375rem;
+      padding: 0.75rem 0.25rem 0.625rem;
+      border-radius: 8px;
+      border: 1px solid rgba(28,28,28,0.1);
+      background: var(--eggshell);
+      cursor: pointer;
+      transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .scale-option label:hover {
+      border-color: var(--gold);
+      background: rgba(201,168,71,0.05);
+      color: var(--charcoal);
+    }
+
+    .scale-option input:checked + label {
+      border-color: var(--burgundy);
+      background: rgba(125,34,64,0.06);
+      color: var(--burgundy);
+      box-shadow: 0 0 0 2px rgba(125,34,64,0.15);
+      font-weight: 700;
+    }
+
+    .scale-label-text {
+      font-size: 0.625rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.2;
+    }
+
+    .scale-option input:checked + label .scale-label-text { color: var(--burgundy); }
+
+    .scale-endpoints {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 0.5rem;
+      padding: 0 2px;
+    }
+
+    .scale-end-label {
+      font-size: 0.6875rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    /* BUTTONS */
+    .step-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 2.5rem;
+    }
+
+    .btn-prev {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      background: transparent;
+      color: var(--muted);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 0.75rem 1.25rem;
+      border-radius: 100px;
+      border: 1px solid rgba(28,28,28,0.15);
+      cursor: pointer;
+      text-decoration: none;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn-prev:hover { color: var(--charcoal); border-color: rgba(28,28,28,0.3); }
+
+    .btn-next {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--burgundy);
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 0.875rem 2rem;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s ease;
+      box-shadow: 0 3px 12px rgba(125,34,64,0.25);
+    }
+
+    .btn-next:hover { background: var(--burgundy-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(125,34,64,0.35); }
+    .btn-next:active { transform: translateY(0); }
+    .btn-next:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+    .btn-submit {
+      background: var(--gold);
+      color: var(--charcoal);
+      box-shadow: 0 3px 12px rgba(201,168,71,0.3);
+    }
+
+    .btn-submit:hover { background: var(--gold-dark); box-shadow: 0 6px 20px rgba(201,168,71,0.4); }
+
+    /* RESULTS */
+    #step-results {
+      text-align: center;
+    }
+
+    .results-score-circle {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: var(--charcoal);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 2rem;
+      border: 3px solid var(--gold);
+      box-shadow: 0 0 0 8px rgba(201,168,71,0.08);
+    }
+
+    .results-score-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .results-score-label {
+      font-size: 0.6875rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-top: 0.25rem;
+    }
+
+    .results-tier {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.375rem 1rem;
+      border-radius: 100px;
+      margin-bottom: 1.25rem;
+    }
+
+    .tier-high { background: rgba(201,168,71,0.12); color: #8A6F20; border: 1px solid rgba(201,168,71,0.3); }
+    .tier-mid { background: rgba(125,34,64,0.08); color: var(--burgundy); border: 1px solid rgba(125,34,64,0.2); }
+    .tier-low { background: rgba(220,50,50,0.08); color: #C03030; border: 1px solid rgba(220,50,50,0.2); }
+
+    .results-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 2.5vw, 2.1rem);
+      font-weight: 600;
+      color: var(--charcoal);
+      letter-spacing: -0.025em;
+      line-height: 1.25;
+      margin: 0 0 1rem;
+    }
+
+    .results-body {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--muted);
+      max-width: 52ch;
+      margin: 0 auto 2.5rem;
+    }
+
+    .results-recommendation {
+      background: var(--surface);
+      border-radius: 12px;
+      padding: 2rem 2.25rem;
+      text-align: left;
+      border-top: 3px solid var(--gold);
+      box-shadow: 0 4px 24px rgba(125,34,64,0.07);
+      margin-bottom: 2rem;
+    }
+
+    .results-rec-label {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+
+    .results-rec-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 0.625rem;
+    }
+
+    .results-rec-desc {
+      font-size: 0.9375rem;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn-gold {
+      display: inline-flex;
+      align-items: center;
+      background: var(--gold);
+      color: var(--charcoal);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 0.875rem 1.875rem;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: background 0.2s ease, transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s ease;
+      box-shadow: 0 4px 16px rgba(201,168,71,0.3);
+    }
+
+    .btn-gold:hover { background: var(--gold-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,168,71,0.4); }
+
+    /* FOOTER */
+    footer { background: var(--charcoal); padding: 3.5rem 4rem 2rem; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 1.5rem; }
+    .footer-brand-name { font-family: 'Playfair Display', serif; font-size: 1.0625rem; font-weight: 600; color: #fff; margin-bottom: 0.25rem; }
+    .footer-brand-tag { font-size: 0.75rem; color: rgba(255,255,255,0.45); letter-spacing: 0.1em; text-transform: uppercase; }
+    .footer-nav { display: flex; align-items: center; gap: 2rem; }
+    .footer-nav a { font-size: 0.8125rem; color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s ease; }
+    .footer-nav a:hover { color: var(--gold); }
+    .footer-linkedin { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.55); text-decoration: none; transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease; }
+    .footer-linkedin:hover { border-color: var(--gold); color: var(--gold); background: rgba(201,168,71,0.07); }
+    .footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.3); }
+
+    @media (max-width: 700px) {
+      .field-group { grid-template-columns: 1fr; }
+      .scale-options { gap: 0.25rem; }
+      .scorecard-wrapper { padding: 3rem 1.25rem 4rem; }
+      .page-header { padding: 4rem 1.5rem 3rem; }
+      footer { padding: 3rem 1.5rem 1.5rem; }
+      .footer-inner { flex-direction: column; gap: 2rem; }
+      .nav { padding: 0 1.25rem; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="index.html" class="nav-brand">
+      <span class="nav-brand-name">Alice Bazdikian</span>
+      <span class="nav-brand-tag">AI Strategist</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="workshops.html">Workshops</a></li>
+      <li><a href="scorecard.html" class="active">Scorecard</a></li>
+      <li><a href="mailto:alice@alicebazdikian.com" class="btn-nav">Book a Diagnostic</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="page-header-inner">
+      <p class="eyebrow">Free Assessment</p>
+      <h1 class="page-heading">AI Readiness Scorecard</h1>
+      <p class="page-sub">5 minutes · 4 categories · Instant results. Find out exactly where your business stands — and what to do next.</p>
+      <div class="progress-section" id="progress-pips">
+        <div class="progress-pip active" data-step="1"></div>
+        <div class="progress-pip" data-step="2"></div>
+        <div class="progress-pip" data-step="3"></div>
+        <div class="progress-pip" data-step="4"></div>
+        <div class="progress-pip" data-step="5"></div>
+        <div class="progress-pip" data-step="results"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCORECARD FORM -->
+  <div class="scorecard-wrapper">
+
+    <!-- STEP 1: User Info -->
+    <div class="step active" id="step-1">
+      <div class="step-header">
+        <div class="step-tag">Step 1 of 5</div>
+        <h2 class="step-title">Tell us a bit about you and your business</h2>
+        <p class="step-desc">This helps us tailor your results and recommendations to your specific context.</p>
+      </div>
+
+      <div class="field-group">
+        <div class="field">
+          <label for="first-name">First Name *</label>
+          <input type="text" id="first-name" placeholder="Alice" required />
+        </div>
+        <div class="field">
+          <label for="company">Company Name *</label>
+          <input type="text" id="company" placeholder="Acme Co." required />
+        </div>
+      </div>
+
+      <div class="field-group full">
+        <div class="field">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" placeholder="alice@company.com" required />
+        </div>
+      </div>
+
+      <div class="field-group">
+        <div class="field">
+          <label for="industry">Industry</label>
+          <select id="industry">
+            <option value="">Select industry</option>
+            <option>Retail / E-commerce</option>
+            <option>Professional Services</option>
+            <option>Healthcare</option>
+            <option>Financial Services</option>
+            <option>Manufacturing</option>
+            <option>Technology</option>
+            <option>Food & Beverage</option>
+            <option>Real Estate</option>
+            <option>Marketing / Agency</option>
+            <option>Non-profit</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="role">Your Role</label>
+          <select id="role">
+            <option value="">Select role</option>
+            <option>Owner / Founder</option>
+            <option>CEO / President</option>
+            <option>COO / Operations</option>
+            <option>CMO / Marketing</option>
+            <option>HR / People Ops</option>
+            <option>Finance / CFO</option>
+            <option>Department Head</option>
+            <option>Team Lead</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <div class="field">
+          <label for="company-size">Company Size</label>
+          <select id="company-size">
+            <option value="">Select size</option>
+            <option>1–10 employees</option>
+            <option>11–50 employees</option>
+            <option>51–200 employees</option>
+            <option>201–500 employees</option>
+            <option>500+ employees</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="concern">Biggest AI concern</label>
+          <select id="concern">
+            <option value="">Select concern</option>
+            <option>Data security and privacy</option>
+            <option>Employees using AI unsafely</option>
+            <option>Not knowing where to start</option>
+            <option>Staying competitive</option>
+            <option>Resistance from my team</option>
+            <option>Cost and ROI</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="step-nav">
+        <span></span>
+        <button class="btn-next" onclick="goToStep(2)">Continue <span>→</span></button>
+      </div>
+    </div>
+
+    <!-- STEP 2: AI Usage Awareness -->
+    <div class="step" id="step-2">
+      <div class="step-header">
+        <div class="step-tag">Step 2 of 5 — AI Awareness</div>
+        <h2 class="step-title">AI Usage Awareness</h2>
+        <p class="step-desc">Rate each statement from 1 (strongly disagree) to 5 (strongly agree).</p>
+      </div>
+
+      <div class="question-block">
+        <div class="question-text">I have a clear understanding of which AI tools my employees are currently using at work.</div>
+        <div class="scale-options" id="q1">
+          <div class="scale-option"><input type="radio" name="q1" id="q1-1" value="1"><label for="q1-1">1<span class="scale-label-text">Strongly Disagree</span></label></div>
+          <div class="scale-option"><input type="radio" name="q1" id="q1-2" value="2"><label for="q1-2">2<span class="scale-label-text"></span></label></div>
+          <div class="scale-option"><input type="radio" name="q1" id="q1-3" value="3"><label for="q1-3">3<span class="scale-label-text">Neutral</span></label></div>
+          <div class="scale-option"><input type="radio" name="q1" id="q1-4" value="4"><label for="q1-4">4<span class="scale-label-text"></span></label></div>
+          <div class="scale-option"><input type="radio" name="q1" id="q1-5" value="5"><label for="q1-5">5<span class="scale-label-text">Strongly Agree</span></label></div>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <div class="question-text">My organization has a defined policy or guidelines for how AI tools should be used at work.</div>
+        <div class="scale-options" id="q2">
+          <div class="scale-option"><input type="radio" name="q2" id="q2-1" value="1"><label for="q2-1">1<span class="scale-label-text">Strongly Disagree</span></label></div>
+          <div class="scale-option"><input type="radio" name="q2" id="q2-2" value="2"><label for="q2-2">2<span class="scale-label-text"></span></label></div>
+          <div class="scale-option"><input type="radio" name="q2" id="q2-3" value="3"><label for="q2-3">3<span class="scale-label-text">Neutral</span></label></div>
+          <div class="scale-option"><input type="radio" name="q2" id="q2-4" value="4"><label for="q2-4">4<span class="scale-label-text"></span></label></div>
+          <div class="scale-option"><input type="radio" name="q2" id="q2-5" value="5"><label for="q2-5">5<span class="scale-label-text">Strongly Agree</span></label></div>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <div class="question-text">Leadership in my organization has discussed AI strategy in the last 6 months.</div>
+        <div class="scale-options" id="q3">
+          <div class="scale-option"><input type="radio" name="q3" id="q3-1" value="1"><label for="q3-1">1<span class="scale-label-text">Strongly Disagree</span></label></div>
+          <div class="scale-option"><input type="radio" name="q3" id="q3-2" value="2"><label for="q3-2">2<span class="scale-label-text"></span></label></div>
+          <div class="scale-option"><input type="radio" name="q3" id="q3-3" value="3"><label for="q3-3">3<span class="scale-label-text">Neutral</span></label></div>
+          <div class="scale-option"><input type="radio" name="q3" id="q3-4" value="4"><label for="q3-4">4<span class="scale-label-text"></span></label></div>
+          <div class="scale-option"><input type="radio" name="q3" id="q3-5" value="5"><label for="q3-5">5<span class="scale-label-text">Strongly Agree</span></label></div>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <div class="question-text">I could confidently explain to my team why AI adoption matters for our business right now.</div>
+        <div class="scale-options" id="q4">
+          <div class="scale-option"><input type="radio" name="q4" id="q4-1" value="1"><label for="q4-1">1<span class="scale-label-text">Strongly Disagree</span></label></div>
+          <div class="scale-option"><input type="radio" name="q4" id="q4-2" value="2"><label for="q4-2">2<span class="scale-label-text"></span></label></div>
+          <div class="scale-option"><input type="radio" name="q4" id="q4-3" value="3"><label for="q4-3">3<span class="scale-label-text">Neutral</span></label></div>
+          <div class="scale-option"><input type="radio" name="q4" id="q4-4" value="4"><label for="q4-4">4<span class="scale-label-text"></span></label></div>
+          <div class="scale-option"><input type="radio" name="q4" id="q4-5" value="5"><label for="q4-5">5<span class="scale-label-text">Strongly Agree</span></label></div>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <div class="question-text">My business has a clear point of view on how AI will impact our industry in the next 2 years.</div>
+        <div class="scale-options" id="q5">
+          <div class="scale-option"><input type="radio" name="q5" id="q5-1" value="1"><label for="q5-1">1<span class="scale-label-text">Strongly Disagree</span></label></div>
+          <div class="scale-option"><input type="radio" name="q5" id="q5-2" value="2"><label for="q5-2">2<span class="scale-label-text"></span></label></div>
+          <div class="scale-option"><input type="radio" name="q5" id="q5-3" value="3"><label for="q5-3">3<span class="scale-label-text">Neutral</span></label></div>
+          <div class="scale-option"><input type="radio" name="q5" id="q5-4" value="4"><label for="q5-4">4<span class="scale-label-text"></span></label></div>
+          <div class="scale-option"><input type="radio" name="q5" id="q5-5" value="5"><label for="q5-5">5<span class="scale-label-text">Strongly Agree</span></label></div>
+        </div>
+      </div>
+
+      <div class="step-nav">
+        <button class="btn-prev" onclick="goToStep(1)">← Back</button>
+        <button class="btn-next" onclick="goToStep(3)">Continue →</button>
+      </div>
+    </div>
+
+    <!-- STEP 3: Data Security -->
+    <div class="step" id="step-3">
+      <div class="step-header">
+        <div class="step-tag">Step 3 of 5 — Data Security</div>
+        <h2 class="step-title">Data Security &amp; Confidentiality</h2>
+        <p class="step-desc">Rate each statement from 1 (strongly disagree) to 5 (strongly agree).</p>
+      </div>
+
+      <div class="question-block">
+        <div class="question-text">My employees know what type of company information should never be shared with AI tools.</div>
+        <div class="scale-options">
+          <div class="scale-option"><input type="radio" name="q6" id="q6-1" value="1"><label for="q6-1">1<span class="scale-label-text">Strongly Disagree</span></label></div>
+          <div class="scale-option"><input type="radio" name="q6" id="q6-2" value="2"><label for="q6-2">2</label></div>
+          <div class="scale-option"><input type="radio" name="q6" id="q6-3" value="3"><label for="q6-3">3<span class="scale-label-text">Neutral</span></label></div>
+          <div class="scale-option"><input type="radio" name="q6" id="q6-4" value="4"><label for="q6-4">4</label></div>
+          <div class="scale-option"><input type="radio" name="q6" id="q6-5" value="5"><label for="q6-5">5<span class="scale-label-text">Strongly Agree</span></label></div>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <div class="question-text">We have reviewed which AI tools our employees use for their data handling and storage practices.</div>
+        <div class="scale-options">
+          <div class="scale-option"><input type="radio" name="q7" id="q7-1" value="1"><label for="q7-1">1<span class="scale-label-text">Strongly Disagree</span></label></div>
+          <div class="scale-option"><input type="radio" name="q7" id="q7-2" value="2"><label for="q7-2">2</label></div>
+          <div class="scale-option"><input type="radio" name="q7" id="q7-3" value="3"><label for="q7-3">3<span class="scale-label-text">Neutral</span></label></div>
+          <div class="scale-option"><input type="radio" name="q7" id="q7-4" value="4"><label for="q7-4">4</label></div>
+          <div class="scale-option"><input type="radio" name="q7" id="q7-5" value="5"><label for="q7-5">5<span class="scale-label-text">Strongly Agree</span></label></div>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <div class="question-text">Our organization has considered the liability implications of employees using AI tools with client data.</div>
+        <div class="scale-options">
+          <div class="scale-option"><input type="radio" name="q8" id="q8-1" value="1"><label for="q8-1">1<span class="scale-label-text">Strongly Disagree</span></label></div>
+          <div class="scale-option"><input type="radio" name="q8" id="q8-2" value="2"><label for="q8-2">2</label></div>
+          <div class="scale-option"><input type="radio" name="q8" id="q8-3" value="3"><label for="q8-3">3<span class="scale-label-text">Neutral</span></label></div>
+          <div class="scale-option"><input type="radio" name="q8" id="q8-4" value="4"><label for="q8-4">4</label></div>
+          <div class="scale-option"><input type="radio" name="q8" id="q8-5" value="5"><label for="q8-5">5<span class="scale-label-text">Strongly Agree</span></label></div>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <div class="question-text">We have clear guidelines on which AI tools are approved for use within our organization.</div>
+        <div class="scale-options">
+          <div class="scale-option"><input type="radio" name="q9" id="q9-1" value="1"><label for="q9-1">1<span class="scale-label-text">Strongly Disagree</span></label></div>
+          <div class="scale-option"><input type="radio" name="q9" id="q9-2" value="2"><label for="q9-2">2</label></div>
+          <div class="scale-option"><input type="radio" name="q9" id="q9-3" value="3"><label for="q9-3">3<span class="scale-label-text">Neutral</span></label></div>
+          <div class="scale-option"><input type="radio" name="q9" id="q9-4" value="4"><label for="q9-4">4</label></div>
+          <div class="scale-option"><input type="radio" name="q9" id="q9-5" value="5"><label for="q9-5">5<span class="scale-label-text">Strongly Agree</span></label></div>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <div class="question-text">I am confident we would know if an employee accidentally exposed confidential data through an AI tool.</div>
+        <div class="scale-options">
+          <div class="scale-option"><input type="radio" name="q10" id="q10-1" value="1"><label for="q10-1">1<span class="scale-label-text">Strongly Disagree</span></label></div>
+          <div class="scale-option"><input type="radio" name="q10" id="q10-2" value="2"><label for="q10-2">2</label></div>
+          <div class="scale-option"><input type="radio" name="q10" id="q10-3" value="3"><label for="q10-3">3<span class="scale-label-text">Neutral</span></label></div>
+          <div class="scale-option"><input type="radio" name="q10" id="q10-4" value="4"><label for="q10-4">4</label></div>
+          <div class="scale-option"><input type="radio" name="q10" id="q10-5" value="5"><label for="q10-5">5<span class="scale-label-text">Strongly Agree</span></label></div>
+        </div>
+      </div>
+
+      <div class="step-nav">
+        <button class="btn-prev" onclick="goToStep(2)">← Back</button>
+        <button class="btn-next" onclick="goToStep(4)">Continue →</button>
+      </div>
+    </div>
+
+    <!-- STEP 4: Training & Awareness -->
+    <div class="step" id="step-4">
+      <div class="step-header">
+        <div class="step-tag">Step 4 of 5 — Training</div>
+        <h2 class="step-title">Employee Training &amp; Awareness</h2>
+        <p class="step-desc">Rate each statement from 1 (strongly disagree) to 5 (strongly agree).</p>
+      </div>
+
+      <div class="question-block">
+        <div class="question-text">My employees have received formal training or guidance on using AI tools responsibly.</div>
+        <div class="scale-options">
+          <div class="scale-option"><input type="radio" name="q11" id="q11-1" value="1"><label for="q11-1">1<span class="scale-label-text">Strongly Disagree</span></label></div>
+          <div class="scale-option"><input type="radio" name="q11" id="q11-2" value="2"><label for="q11-2">2</label></div>
+          <div class="scale-option"><input type="radio" name="q11" id="q11-3" value="3"><label for="q11-3">3<span class="scale-label-text">Neutral</span></label></div>
+          <div class="scale-option"><input type="radio" name="q11" id="q11-4" value="4"><label for="q11-4">4</label></div>
+          <div class="scale-option"><input type="radio" name="q11" id="q11-5" value="5"><label for="q11-5">5<span class="scale-label-text">Strongly Agree</span></label></div>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <div class="question-text">My team feels confident, rather than fearful or confused, about AI and its role in their work.</div>
+        <div class="scale-options">
+          <div class="scale-option"><input type="radio" name="q12" id="q12-1" value="1"><label for="q12-1">1<span class="scale-label-text">Strongly Disagree</span></label></div>
+          <div class="scale-option"><input type="radio" name="q12" id="q12-2" value="2"><label for="q12-2">2</label></div>
+          <div class="scale-option"><input type="radio" name="q12" id="q12-3" value="3"><label for="q12-3">3<span class="scale-label-text">Neutral</span></label></div>
+          <div class="scale-option"><input type="radio" name="q12" id="q12-4" value="4"><label for="q12-4">4</label></div>
+          <div class="scale-option"><input type="radio" name="q12" id="q12-5" value="5"><label for="q12-5">5<span class="scale-label-text">Strongly Agree</span></label></div>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <div class="question-text">We have a shared vocabulary around AI — my team understands the key terms and concepts relevant to our work.</div>
+        <div class="scale-options">
+          <div class="scale-option"><input type="radio" name="q13" id="q13-1" value="1"><label for="q13-1">1<span class="scale-label-text">Strongly Disagree</span></label></div>
+          <div class="scale-option"><input type="radio" name="q13" id="q13-2" value="2"><label for="q13-2">2</label></div>
+          <div class="scale-option"><input type="radio" name="q13" id="q13-3" value="3"><label for="q13-3">3<span class="scale-label-text">Neutral</span></label></div>
+          <div class="scale-option"><input type="radio" name="q13" id="q13-4" value="4"><label for="q13-4">4</label></div>
+          <div class="scale-option"><input type="radio" name="q13" id="q13-5" value="5"><label for="q13-5">5<span class="scale-label-text">Strongly Agree</span></label></div>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <div class="question-text">Employees in my organization feel comfortable asking questions about AI or raising concerns about its use.</div>
+        <div class="scale-options">
+          <div class="scale-option"><input type="radio" name="q14" id="q14-1" value="1"><label for="q14-1">1<span class="scale-label-text">Strongly Disagree</span></label></div>
+          <div class="scale-option"><input type="radio" name="q14" id="q14-2" value="2"><label for="q14-2">2</label></div>
+          <div class="scale-option"><input type="radio" name="q14" id="q14-3" value="3"><label for="q14-3">3<span class="scale-label-text">Neutral</span></label></div>
+          <div class="scale-option"><input type="radio" name="q14" id="q14-4" value="4"><label for="q14-4">4</label></div>
+          <div class="scale-option"><input type="radio" name="q14" id="q14-5" value="5"><label for="q14-5">5<span class="scale-label-text">Strongly Agree</span></label></div>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <div class="question-text">AI training and upskilling is part of our people development strategy.</div>
+        <div class="scale-options">
+          <div class="scale-option"><input type="radio" name="q15" id="q15-1" value="1"><label for="q15-1">1<span class="scale-label-text">Strongly Disagree</span></label></div>
+          <div class="scale-option"><input type="radio" name="q15" id="q15-2" value="2"><label for="q15-2">2</label></div>
+          <div class="scale-option"><input type="radio" name="q15" id="q15-3" value="3"><label for="q15-3">3<span class="scale-label-text">Neutral</span></label></div>
+          <div class="scale-option"><input type="radio" name="q15" id="q15-4" value="4"><label for="q15-4">4</label></div>
+          <div class="scale-option"><input type="radio" name="q15" id="q15-5" value="5"><label for="q15-5">5<span class="scale-label-text">Strongly Agree</span></label></div>
+        </div>
+      </div>
+
+      <div class="step-nav">
+        <button class="btn-prev" onclick="goToStep(3)">← Back</button>
+        <button class="btn-next" onclick="goToStep(5)">Continue →</button>
+      </div>
+    </div>
+
+    <!-- STEP 5: Productivity -->
+    <div class="step" id="step-5">
+      <div class="step-header">
+        <div class="step-tag">Step 5 of 5 — Productivity</div>
+        <h2 class="step-title">Productivity Opportunities</h2>
+        <p class="step-desc">Rate each statement from 1 (strongly disagree) to 5 (strongly agree).</p>
+      </div>
+
+      <div class="question-block">
+        <div class="question-text">I can identify at least 3 specific tasks or workflows where AI could save my team significant time.</div>
+        <div class="scale-options">
+          <div class="scale-option"><input type="radio" name="q16" id="q16-1" value="1"><label for="q16-1">1<span class="scale-label-text">Strongly Disagree</span></label></div>
+          <div class="scale-option"><input type="radio" name="q16" id="q16-2" value="2"><label for="q16-2">2</label></div>
+          <div class="scale-option"><input type="radio" name="q16" id="q16-3" value="3"><label for="q16-3">3<span class="scale-label-text">Neutral</span></label></div>
+          <div class="scale-option"><input type="radio" name="q16" id="q16-4" value="4"><label for="q16-4">4</label></div>
+          <div class="scale-option"><input type="radio" name="q16" id="q16-5" value="5"><label for="q16-5">5<span class="scale-label-text">Strongly Agree</span></label></div>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <div class="question-text">My team actively experiments with AI tools to improve how they work — with or without formal direction.</div>
+        <div class="scale-options">
+          <div class="scale-option"><input type="radio" name="q17" id="q17-1" value="1"><label for="q17-1">1<span class="scale-label-text">Strongly Disagree</span></label></div>
+          <div class="scale-option"><input type="radio" name="q17" id="q17-2" value="2"><label for="q17-2">2</label></div>
+          <div class="scale-option"><input type="radio" name="q17" id="q17-3" value="3"><label for="q17-3">3<span class="scale-label-text">Neutral</span></label></div>
+          <div class="scale-option"><input type="radio" name="q17" id="q17-4" value="4"><label for="q17-4">4</label></div>
+          <div class="scale-option"><input type="radio" name="q17" id="q17-5" value="5"><label for="q17-5">5<span class="scale-label-text">Strongly Agree</span></label></div>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <div class="question-text">We measure or track time spent on repetitive tasks that AI could potentially automate.</div>
+        <div class="scale-options">
+          <div class="scale-option"><input type="radio" name="q18" id="q18-1" value="1"><label for="q18-1">1<span class="scale-label-text">Strongly Disagree</span></label></div>
+          <div class="scale-option"><input type="radio" name="q18" id="q18-2" value="2"><label for="q18-2">2</label></div>
+          <div class="scale-option"><input type="radio" name="q18" id="q18-3" value="3"><label for="q18-3">3<span class="scale-label-text">Neutral</span></label></div>
+          <div class="scale-option"><input type="radio" name="q18" id="q18-4" value="4"><label for="q18-4">4</label></div>
+          <div class="scale-option"><input type="radio" name="q18" id="q18-5" value="5"><label for="q18-5">5<span class="scale-label-text">Strongly Agree</span></label></div>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <div class="question-text">My organization has evaluated or piloted AI tools for at least one business process in the past year.</div>
+        <div class="scale-options">
+          <div class="scale-option"><input type="radio" name="q19" id="q19-1" value="1"><label for="q19-1">1<span class="scale-label-text">Strongly Disagree</span></label></div>
+          <div class="scale-option"><input type="radio" name="q19" id="q19-2" value="2"><label for="q19-2">2</label></div>
+          <div class="scale-option"><input type="radio" name="q19" id="q19-3" value="3"><label for="q19-3">3<span class="scale-label-text">Neutral</span></label></div>
+          <div class="scale-option"><input type="radio" name="q19" id="q19-4" value="4"><label for="q19-4">4</label></div>
+          <div class="scale-option"><input type="radio" name="q19" id="q19-5" value="5"><label for="q19-5">5<span class="scale-label-text">Strongly Agree</span></label></div>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <div class="question-text">I have a clear idea of how AI adoption would improve our team's output or quality of work within 90 days.</div>
+        <div class="scale-options">
+          <div class="scale-option"><input type="radio" name="q20" id="q20-1" value="1"><label for="q20-1">1<span class="scale-label-text">Strongly Disagree</span></label></div>
+          <div class="scale-option"><input type="radio" name="q20" id="q20-2" value="2"><label for="q20-2">2</label></div>
+          <div class="scale-option"><input type="radio" name="q20" id="q20-3" value="3"><label for="q20-3">3<span class="scale-label-text">Neutral</span></label></div>
+          <div class="scale-option"><input type="radio" name="q20" id="q20-4" value="4"><label for="q20-4">4</label></div>
+          <div class="scale-option"><input type="radio" name="q20" id="q20-5" value="5"><label for="q20-5">5<span class="scale-label-text">Strongly Agree</span></label></div>
+        </div>
+      </div>
+
+      <div class="step-nav">
+        <button class="btn-prev" onclick="goToStep(4)">← Back</button>
+        <button class="btn-next btn-submit" onclick="showResults()">Get My Results →</button>
+      </div>
+    </div>
+
+    <!-- RESULTS -->
+    <div class="step" id="step-results">
+      <div style="margin-bottom: 2.5rem;">
+        <div class="results-score-circle" id="results-circle">
+          <div class="results-score-num" id="results-score">72</div>
+          <div class="results-score-label">out of 100</div>
+        </div>
+        <div style="text-align:center;">
+          <div class="results-tier" id="results-tier"></div>
+          <h2 class="results-heading" id="results-heading"></h2>
+          <p class="results-body" id="results-body"></p>
+        </div>
+      </div>
+
+      <div class="results-recommendation" id="results-rec">
+        <div class="results-rec-label">Recommended Next Step</div>
+        <div class="results-rec-title" id="rec-title"></div>
+        <p class="results-rec-desc" id="rec-desc"></p>
+        <a href="#" class="btn-gold" id="rec-cta"></a>
+      </div>
+
+      <div style="text-align:center; margin-top: 1rem;">
+        <p style="font-size: 0.875rem; color: var(--muted); margin-bottom: 1rem;">Want a personalized interpretation of your results?</p>
+        <a href="mailto:alice@alicebazdikian.com" class="btn-gold">Book a Free Diagnostic Call</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand-name">Alice Bazdikian</div>
+        <div class="footer-brand-tag">AI Strategist + Educator</div>
+      </div>
+      <nav class="footer-nav">
+        <a href="about.html">About</a>
+        <a href="workshops.html">Workshops</a>
+        <a href="scorecard.html">Scorecard</a>
+        <a href="mailto:alice@alicebazdikian.com">Book a Diagnostic</a>
+        <a href="https://www.linkedin.com/in/alicebazdikian" class="footer-linkedin" aria-label="LinkedIn" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+      </nav>
+    </div>
+    <p class="footer-copy">© 2026 Alice Bazdikian · All rights reserved</p>
+  </footer>
+
+  <script>
+    let currentStep = 1;
+
+    function goToStep(step) {
+      // Hide current
+      document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+      // Show target
+      const target = document.getElementById(`step-${step}`);
+      if (target) {
+        target.classList.add('active');
+        currentStep = step;
+        updateProgress(step);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    function updateProgress(step) {
+      const pips = document.querySelectorAll('.progress-pip');
+      const stepMap = { 1: 0, 2: 1, 3: 2, 4: 3, 5: 4, results: 5 };
+      const idx = typeof step === 'number' ? stepMap[step] : 5;
+
+      pips.forEach((pip, i) => {
+        pip.classList.remove('active', 'done');
+        if (i < idx) pip.classList.add('done');
+        else if (i === idx) pip.classList.add('active');
+      });
+    }
+
+    function getRadioValue(name) {
+      const checked = document.querySelector(`input[name="${name}"]:checked`);
+      return checked ? parseInt(checked.value) : 0;
+    }
+
+    function showResults() {
+      // Tally scores
+      let total = 0;
+      for (let i = 1; i <= 20; i++) {
+        total += getRadioValue(`q${i}`);
+      }
+      const score = Math.round((total / 100) * 100);
+
+      // Display score
+      document.getElementById('results-score').textContent = score;
+
+      // Tier logic
+      const tierEl = document.getElementById('results-tier');
+      const headingEl = document.getElementById('results-heading');
+      const bodyEl = document.getElementById('results-body');
+      const recTitle = document.getElementById('rec-title');
+      const recDesc = document.getElementById('rec-desc');
+      const recCta = document.getElementById('rec-cta');
+
+      if (score >= 80) {
+        tierEl.textContent = '🟡 Advanced — AI Ready';
+        tierEl.className = 'results-tier tier-high';
+        headingEl.textContent = "You're ahead of the curve.";
+        bodyEl.textContent = "Your organization has strong AI awareness and solid foundations in place. The opportunity now is to go deeper — building systematic integration across all departments and turning your early edge into a sustained competitive advantage.";
+        recTitle.textContent = 'AI Productivity Lab (Half-Day Workshop)';
+        recDesc.textContent = "You're ready to move beyond basics. The AI Productivity Lab is designed to create deep workflow integration and build a 90-day organizational action plan tailored to your team.";
+        recCta.textContent = 'Book the Productivity Lab →';
+        recCta.href = 'workshops.html';
+      } else if (score >= 50) {
+        tierEl.textContent = '🟠 Opportunity Zone';
+        tierEl.className = 'results-tier tier-mid';
+        headingEl.textContent = "You're in the gap — and it's closeable.";
+        bodyEl.textContent = "Your business has some awareness, but significant gaps remain in policy, training, and consistent practice. The good news: you're in the zone where focused intervention delivers the highest return. A structured approach now will put you ahead of the majority of SMBs.";
+        recTitle.textContent = 'AI in Action: Practical Tools Workshop';
+        recDesc.textContent = "The 2-hour hands-on session is the perfect next step — bringing your team from scattered, informal AI use to structured, confident, and safe adoption.";
+        recCta.textContent = 'Book the Workshop →';
+        recCta.href = 'workshops.html';
+      } else {
+        tierEl.textContent = '🔴 High Risk — Immediate Action Needed';
+        tierEl.className = 'results-tier tier-low';
+        headingEl.textContent = "Your team is likely already using AI — without guardrails.";
+        bodyEl.textContent = "The data is clear: most employees use AI tools regardless of company policy. With a score in this range, your business has significant exposure around data security, liability, and competitive positioning. The first step is a clear-eyed diagnostic — not a technology investment.";
+        recTitle.textContent = 'Start with the AI Readiness Diagnostic';
+        recDesc.textContent = "Before any training, let's map exactly where you stand. A 30-minute 1-on-1 diagnostic call will identify your top 3 risks and give you a clear prioritized action plan — at no cost.";
+        recCta.textContent = 'Book a Free Diagnostic →';
+        recCta.href = 'index.html#diagnostic';
+      }
+
+      // Show results step
+      document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+      document.getElementById('step-results').classList.add('active');
+      updateProgress('results');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Workshops — Alice Bazdikian</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    :root {
+      --eggshell: #F7F3EE;
+      --charcoal: #1C1C1C;
+      --burgundy: #7D2240;
+      --burgundy-dark: #651B33;
+      --burgundy-deeper: #3D1020;
+      --gold: #C9A847;
+      --gold-dark: #B8952E;
+      --surface: #FFFFFF;
+      --muted: #6B6560;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { background-color: var(--eggshell); color: var(--charcoal); font-family: 'Inter', system-ui, sans-serif; line-height: 1.7; -webkit-font-smoothing: antialiased; margin: 0; }
+
+    /* NAV */
+    .nav { position: sticky; top: 0; z-index: 50; background: var(--eggshell); border-bottom: 1px solid rgba(125,34,64,0.12); display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; height: 68px; }
+    .nav-brand { display: flex; flex-direction: column; line-height: 1.2; text-decoration: none; }
+    .nav-brand-name { font-family: 'Playfair Display', serif; font-size: 1.125rem; font-weight: 600; color: var(--charcoal); letter-spacing: -0.01em; }
+    .nav-brand-tag { font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); font-weight: 400; }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; margin: 0; padding: 0; }
+    .nav-links a { font-size: 0.875rem; font-weight: 400; color: var(--charcoal); text-decoration: none; letter-spacing: 0.01em; transition: color 0.2s ease; }
+    .nav-links a:hover { color: var(--burgundy); }
+    .nav-links a.active { color: var(--burgundy); font-weight: 500; }
+    .btn-nav { display: inline-flex; align-items: center; background: var(--gold); color: var(--charcoal); font-family: 'Inter', sans-serif; font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.02em; padding: 0.5rem 1.25rem; border-radius: 100px; border: none; cursor: pointer; text-decoration: none; transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease; box-shadow: 0 2px 8px rgba(201,168,71,0.3); }
+    .btn-nav:hover { background: var(--gold-dark); transform: translateY(-1px); box-shadow: 0 4px 14px rgba(201,168,71,0.4); }
+
+    /* PAGE HEADER */
+    .page-header {
+      background: var(--charcoal);
+      padding: 5.5rem 4rem 4.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-header::before {
+      content: '';
+      position: absolute;
+      bottom: -100px;
+      right: -100px;
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      background: rgba(201, 168, 71, 0.05);
+      pointer-events: none;
+    }
+
+    .page-header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.625rem;
+    }
+    .eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1.5px; background: var(--gold); flex-shrink: 0; }
+
+    .page-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 4vw, 3.6rem);
+      font-weight: 600;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      color: #fff;
+      margin: 0 0 1.25rem;
+      max-width: 20ch;
+    }
+
+    .page-heading em { font-style: italic; color: var(--gold); }
+
+    .page-sub {
+      font-size: 1.0625rem;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.65);
+      max-width: 56ch;
+      margin: 0;
+    }
+
+    /* AVAILABILITY BADGE */
+    .avail-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(201,168,71,0.12);
+      border: 1px solid rgba(201,168,71,0.3);
+      color: var(--gold);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      padding: 0.4375rem 1rem;
+      border-radius: 100px;
+      margin-top: 2rem;
+    }
+
+    .avail-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    /* WORKSHOPS GRID */
+    .section { padding: 6rem 4rem; }
+    .section-alt { background: var(--surface); }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+
+    .section-eyebrow { font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.625rem; }
+    .section-eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1.5px; background: var(--gold); flex-shrink: 0; }
+
+    .section-heading { font-family: 'Playfair Display', serif; font-size: clamp(1.9rem, 2.8vw, 2.5rem); font-weight: 600; line-height: 1.2; letter-spacing: -0.025em; color: var(--charcoal); margin: 0 0 3.5rem; }
+
+    /* WORKSHOP CARDS */
+    .workshops-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .workshop-card {
+      background: var(--surface);
+      border-radius: 12px;
+      border: 1px solid rgba(28,28,28,0.08);
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(28,28,28,0.05);
+      transition: box-shadow 0.25s ease, transform 0.25s cubic-bezier(0.34,1.56,0.64,1);
+    }
+
+    .workshop-card:hover {
+      box-shadow: 0 8px 32px rgba(125,34,64,0.1), 0 2px 8px rgba(0,0,0,0.06);
+      transform: translateY(-3px);
+    }
+
+    .workshop-card-sidebar {
+      background: var(--charcoal);
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .workshop-card-sidebar::after {
+      content: '';
+      position: absolute;
+      bottom: -40px;
+      right: -40px;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: rgba(201,168,71,0.07);
+    }
+
+    .workshop-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: rgba(201,168,71,0.18);
+      line-height: 1;
+      margin-bottom: auto;
+    }
+
+    .workshop-duration {
+      display: inline-block;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--gold);
+      margin-top: 1rem;
+    }
+
+    .workshop-duration-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-top: 0.25rem;
+    }
+
+    .workshop-format {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(201,168,71,0.1);
+      border: 1px solid rgba(201,168,71,0.2);
+      color: var(--gold);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.75rem;
+      border-radius: 100px;
+      margin-top: 1rem;
+      width: fit-content;
+    }
+
+    .workshop-card-body {
+      padding: 2.5rem 2.5rem 2.5rem 2.5rem;
+    }
+
+    .workshop-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      margin: 0 0 0.75rem;
+    }
+
+    .workshop-tagline {
+      font-size: 0.9375rem;
+      color: var(--muted);
+      line-height: 1.65;
+      margin: 0 0 1.5rem;
+    }
+
+    .workshop-details {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-bottom: 2rem;
+    }
+
+    .detail-heading {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+      margin-bottom: 0.625rem;
+    }
+
+    .detail-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .detail-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.625rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .detail-list li::before {
+      content: '';
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+      margin-top: 0.5rem;
+      flex-shrink: 0;
+    }
+
+    .workshop-footer {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(28,28,28,0.07);
+    }
+
+    .btn-book {
+      display: inline-flex;
+      align-items: center;
+      background: var(--burgundy);
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 0.75rem 1.5rem;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: background 0.2s ease, transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s ease;
+      box-shadow: 0 3px 12px rgba(125,34,64,0.25);
+    }
+
+    .btn-book:hover { background: var(--burgundy-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(125,34,64,0.35); }
+    .btn-book:active { transform: translateY(0); }
+    .btn-book:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+    .workshop-audience {
+      font-size: 0.8125rem;
+      color: var(--muted);
+    }
+
+    .workshop-audience strong { color: var(--charcoal); }
+
+    /* WHO IT'S FOR */
+    .who-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .who-card {
+      background: var(--eggshell);
+      border-radius: 10px;
+      padding: 1.75rem;
+      border: 1px solid rgba(28,28,28,0.07);
+    }
+
+    .who-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.875rem;
+    }
+
+    .who-title {
+      font-weight: 600;
+      font-size: 0.9375rem;
+      color: var(--charcoal);
+      margin-bottom: 0.375rem;
+    }
+
+    .who-desc {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* HOW IT WORKS */
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+      position: relative;
+    }
+
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 22px;
+      left: calc(12.5% + 22px);
+      right: calc(12.5% + 22px);
+      height: 1px;
+      background: linear-gradient(to right, var(--gold), rgba(201,168,71,0.2));
+    }
+
+    .process-step { text-align: center; }
+
+    .process-step-num {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: var(--charcoal);
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.25rem;
+    }
+
+    .process-step-title {
+      font-weight: 600;
+      font-size: 0.9375rem;
+      color: var(--charcoal);
+      margin-bottom: 0.375rem;
+    }
+
+    .process-step-desc {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* CTA BAND */
+    .cta-band { position: relative; background: linear-gradient(135deg, #7D2240 0%, #3D1020 55%, #1C1C1C 100%); padding: 5rem 4rem; overflow: hidden; }
+    .cta-band::before { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E"); background-size: 200px; pointer-events: none; }
+    .cta-band-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr auto; gap: 4rem; align-items: center; max-width: 1100px; margin: 0 auto; }
+    .cta-band-heading { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 2.5vw, 2.4rem); font-weight: 600; color: #fff; line-height: 1.2; letter-spacing: -0.025em; margin: 0 0 0.75rem; }
+    .cta-band-body { font-size: 1rem; color: rgba(255,255,255,0.65); line-height: 1.7; margin: 0; }
+    .cta-band-right { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; flex-shrink: 0; }
+    .cta-band-note { font-size: 0.75rem; color: rgba(255,255,255,0.4); text-align: center; }
+    .btn-gold { display: inline-flex; align-items: center; background: var(--gold); color: var(--charcoal); font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600; padding: 0.9375rem 2rem; border-radius: 100px; text-decoration: none; white-space: nowrap; transition: background 0.2s ease, transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s ease; box-shadow: 0 4px 20px rgba(201,168,71,0.35); }
+    .btn-gold:hover { background: var(--gold-dark); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(201,168,71,0.45); }
+
+    /* FOOTER */
+    footer { background: var(--charcoal); padding: 3.5rem 4rem 2rem; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 1.5rem; }
+    .footer-brand-name { font-family: 'Playfair Display', serif; font-size: 1.0625rem; font-weight: 600; color: #fff; margin-bottom: 0.25rem; }
+    .footer-brand-tag { font-size: 0.75rem; color: rgba(255,255,255,0.45); letter-spacing: 0.1em; text-transform: uppercase; }
+    .footer-nav { display: flex; align-items: center; gap: 2rem; }
+    .footer-nav a { font-size: 0.8125rem; color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s ease; }
+    .footer-nav a:hover { color: var(--gold); }
+    .footer-linkedin { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.55); text-decoration: none; transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease; }
+    .footer-linkedin:hover { border-color: var(--gold); color: var(--gold); background: rgba(201,168,71,0.07); }
+    .footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.3); }
+
+    @media (max-width: 900px) {
+      .workshop-card { grid-template-columns: 1fr; }
+      .workshop-card-sidebar { padding: 1.75rem; }
+      .who-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: repeat(2,1fr); }
+      .process-steps::before { display: none; }
+      .section { padding: 4rem 2rem; }
+      .page-header { padding: 4rem 2rem 3rem; }
+      .cta-band { padding: 4rem 2rem; }
+      .cta-band-inner { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; gap: 2rem; }
+      .nav { padding: 0 1.5rem; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="index.html" class="nav-brand">
+      <span class="nav-brand-name">Alice Bazdikian</span>
+      <span class="nav-brand-tag">AI Strategist</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="workshops.html" class="active">Workshops</a></li>
+      <li><a href="scorecard.html">Scorecard</a></li>
+      <li><a href="mailto:alice@alicebazdikian.com" class="btn-nav">Book a Diagnostic</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="page-header-inner">
+      <p class="eyebrow">AI Workshops</p>
+      <h1 class="page-heading">
+        Three Formats.<br>
+        One Goal: <em>Clarity.</em>
+      </h1>
+      <p class="page-sub">
+        Practical, human-centered AI training built for real teams — not engineers. From a 90-minute overview to a half-day deep dive, every format ends with tools your team can use immediately.
+      </p>
+      <div class="avail-badge">
+        <span class="avail-dot"></span>
+        Limited availability — booking now for Q2 2026
+      </div>
+    </div>
+  </div>
+
+  <!-- WORKSHOPS -->
+  <section class="section">
+    <div class="section-inner">
+      <p class="section-eyebrow">The Formats</p>
+      <h2 class="section-heading">Choose the Format That Fits Your Team</h2>
+
+      <div class="workshops-list">
+
+        <!-- Workshop 1 -->
+        <div class="workshop-card">
+          <div class="workshop-card-sidebar">
+            <div class="workshop-number">01</div>
+            <div>
+              <div class="workshop-duration">1.5 hrs</div>
+              <div class="workshop-duration-label">Duration</div>
+              <div class="workshop-format">Leadership Overview</div>
+            </div>
+          </div>
+          <div class="workshop-card-body">
+            <h2 class="workshop-title">AI for Business Fundamentals</h2>
+            <p class="workshop-tagline">
+              A strategic orientation for leadership teams — covering what AI actually is, what your business risks are today, and how to build a clear, responsible adoption framework.
+            </p>
+            <div class="workshop-details">
+              <div class="detail-heading">What's covered</div>
+              <ul class="detail-list">
+                <li>What AI tools your employees are already using (and why it matters)</li>
+                <li>The top 5 data security and confidentiality risks SMBs face right now</li>
+                <li>How to create a simple, practical AI usage policy for your organization</li>
+                <li>The AI opportunity map — where your business can gain the most, fastest</li>
+                <li>Live Q&amp;A and leadership alignment session</li>
+              </ul>
+            </div>
+            <div class="workshop-footer">
+              <a href="mailto:alice@alicebazdikian.com" class="btn-book">Book This Workshop</a>
+              <span class="workshop-audience"><strong>Best for:</strong> Leadership teams, founders, department heads</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Workshop 2 -->
+        <div class="workshop-card">
+          <div class="workshop-card-sidebar">
+            <div class="workshop-number">02</div>
+            <div>
+              <div class="workshop-duration">2 hrs</div>
+              <div class="workshop-duration-label">Duration</div>
+              <div class="workshop-format">Hands-On Team Training</div>
+            </div>
+          </div>
+          <div class="workshop-card-body">
+            <h2 class="workshop-title">AI in Action: Practical Tools for Your Team</h2>
+            <p class="workshop-tagline">
+              A hands-on working session for employees — exploring the AI tools most relevant to their day-to-day roles, with guided practice and immediate takeaways.
+            </p>
+            <div class="workshop-details">
+              <div class="detail-heading">What's covered</div>
+              <ul class="detail-list">
+                <li>Live demos of AI tools relevant to your team's specific workflows</li>
+                <li>How to write effective prompts for real work tasks (email, reports, analysis)</li>
+                <li>What to share with AI — and what to never share (data hygiene basics)</li>
+                <li>Hands-on practice time with guided exercises</li>
+                <li>A personal AI Action Plan for each participant to take home</li>
+              </ul>
+            </div>
+            <div class="workshop-footer">
+              <a href="mailto:alice@alicebazdikian.com" class="btn-book">Book This Workshop</a>
+              <span class="workshop-audience"><strong>Best for:</strong> Employee teams, operations, marketing, sales</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Workshop 3 -->
+        <div class="workshop-card">
+          <div class="workshop-card-sidebar">
+            <div class="workshop-number">03</div>
+            <div>
+              <div class="workshop-duration">3 hrs</div>
+              <div class="workshop-duration-label">Half-Day</div>
+              <div class="workshop-format">Deep Integration</div>
+            </div>
+          </div>
+          <div class="workshop-card-body">
+            <h2 class="workshop-title">AI Productivity Lab</h2>
+            <p class="workshop-tagline">
+              A comprehensive half-day workshop that combines strategic orientation with deep hands-on practice — designed to create lasting behavioral change across your organization.
+            </p>
+            <div class="workshop-details">
+              <div class="detail-heading">What's covered</div>
+              <ul class="detail-list">
+                <li>Full AI landscape orientation tailored to your industry and team size</li>
+                <li>Deep-dive workflow integration: identify and automate your highest-leverage tasks</li>
+                <li>Build a custom AI usage policy live during the session</li>
+                <li>Department breakouts: customized practice for each team's real work</li>
+                <li>Team AI Readiness Action Plan — a 90-day roadmap for your organization</li>
+                <li>30-day follow-up check-in call included</li>
+              </ul>
+            </div>
+            <div class="workshop-footer">
+              <a href="mailto:alice@alicebazdikian.com" class="btn-book">Book This Workshop</a>
+              <span class="workshop-audience"><strong>Best for:</strong> Cross-functional teams, organization-wide rollouts</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO IT'S FOR -->
+  <section class="section section-alt">
+    <div class="section-inner">
+      <p class="section-eyebrow">Who It's For</p>
+      <h2 class="section-heading">Built for Business Leaders, Not Engineers</h2>
+      <div class="who-grid">
+        <div class="who-card">
+          <div class="who-icon">🏢</div>
+          <div class="who-title">SMB Owners &amp; Founders</div>
+          <div class="who-desc">You know AI matters but aren't sure where to start — or what the actual risks are for your business.</div>
+        </div>
+        <div class="who-card">
+          <div class="who-icon">👥</div>
+          <div class="who-title">Department Leaders</div>
+          <div class="who-desc">Your team is already using AI tools informally. You need a structured approach before it becomes a liability.</div>
+        </div>
+        <div class="who-card">
+          <div class="who-icon">⚙️</div>
+          <div class="who-title">Operations Leaders</div>
+          <div class="who-desc">You see the productivity opportunity in AI but need practical tools your team can adopt without disrupting workflows.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section">
+    <div class="section-inner">
+      <p class="section-eyebrow">How It Works</p>
+      <h2 class="section-heading">Simple Process, Clear Outcome</h2>
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="process-step-num">1</div>
+          <div class="process-step-title">Book a Diagnostic Call</div>
+          <div class="process-step-desc">We spend 30 minutes understanding your team, your concerns, and your goals.</div>
+        </div>
+        <div class="process-step">
+          <div class="process-step-num">2</div>
+          <div class="process-step-title">Choose Your Format</div>
+          <div class="process-step-desc">Together we select the workshop that fits your team size, timeline, and objectives.</div>
+        </div>
+        <div class="process-step">
+          <div class="process-step-num">3</div>
+          <div class="process-step-title">We Customize It</div>
+          <div class="process-step-desc">I tailor the content to your industry, team roles, and specific risk areas before delivery.</div>
+        </div>
+        <div class="process-step">
+          <div class="process-step-num">4</div>
+          <div class="process-step-title">Your Team Leaves Ready</div>
+          <div class="process-step-desc">Every participant gets tools, frameworks, and a clear next step — not just information.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="cta-band">
+    <div class="cta-band-inner">
+      <div>
+        <h2 class="cta-band-heading">Not Sure Which Workshop Is Right?</h2>
+        <p class="cta-band-body">Book a free 30-minute AI Readiness Diagnostic — I'll help you identify exactly where your team needs the most support and which format fits best.</p>
+      </div>
+      <div class="cta-band-right">
+        <a href="mailto:alice@alicebazdikian.com" class="btn-gold">Book a Free Diagnostic</a>
+        <span class="cta-band-note">30 minutes · No commitment · Fully customized</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand-name">Alice Bazdikian</div>
+        <div class="footer-brand-tag">AI Strategist + Educator</div>
+      </div>
+      <nav class="footer-nav">
+        <a href="about.html">About</a>
+        <a href="workshops.html">Workshops</a>
+        <a href="scorecard.html">Scorecard</a>
+        <a href="mailto:alice@alicebazdikian.com">Book a Diagnostic</a>
+        <a href="https://www.linkedin.com/in/alicebazdikian" class="footer-linkedin" aria-label="LinkedIn" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+      </nav>
+    </div>
+    <p class="footer-copy">© 2026 Alice Bazdikian · All rights reserved</p>
+  </footer>
+
+</body>
+</html>

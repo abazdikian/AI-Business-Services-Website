@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Alice Bazdikian, AI Strategist + Educator</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    :root {
+      --eggshell: #F7F3EE;
+      --charcoal: #1C1C1C;
+      --burgundy: #7D2240;
+      --burgundy-dark: #651B33;
+      --burgundy-deeper: #3D1020;
+      --gold: #C9A847;
+      --gold-dark: #B8952E;
+      --surface: #FFFFFF;
+      --muted: #6B6560;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--eggshell);
+      color: var(--charcoal);
+      font-family: 'Inter', system-ui, sans-serif;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      margin: 0;
+    }
+
+    /* ── NAV ── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--eggshell);
+      border-bottom: 1px solid rgba(125, 34, 64, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2.5rem;
+      height: 68px;
+    }
+
+    .nav-brand { display: flex; flex-direction: column; line-height: 1.2; text-decoration: none; }
+    .nav-brand-name { font-family: 'Playfair Display', serif; font-size: 1.125rem; font-weight: 600; color: var(--charcoal); letter-spacing: -0.01em; }
+    .nav-brand-tag { font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); font-weight: 400; }
+
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; margin: 0; padding: 0; }
+    .nav-links a { font-size: 0.875rem; font-weight: 400; color: var(--charcoal); text-decoration: none; letter-spacing: 0.01em; transition: color 0.2s ease; }
+    .nav-links a:hover { color: var(--burgundy); }
+    .nav-links a.active { color: var(--burgundy); font-weight: 500; }
+
+    .btn-nav {
+      display: inline-flex;
+      align-items: center;
+      background: var(--gold);
+      color: var(--charcoal);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      padding: 0.5rem 1.25rem;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+      box-shadow: 0 2px 8px rgba(201, 168, 71, 0.3);
+    }
+    .btn-nav:hover { background: var(--gold-dark); transform: translateY(-1px); box-shadow: 0 4px 14px rgba(201, 168, 71, 0.4); }
+    .btn-nav:active { transform: translateY(0); }
+    .btn-nav:focus-visible { outline: 2px solid var(--burgundy); outline-offset: 3px; }
+
+    /* ── ABOUT HERO ── */
+    .about-hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 70vh;
+    }
+
+    .about-hero-content {
+      background: var(--charcoal);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 5rem 4.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-hero-content::before {
+      content: '';
+      position: absolute;
+      top: -80px;
+      left: -80px;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: rgba(201, 168, 71, 0.05);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.625rem;
+    }
+    .eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 1.5px;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .about-hero-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 3.2vw, 3.2rem);
+      font-weight: 600;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      color: #fff;
+      margin: 0 0 1.5rem;
+    }
+
+    .about-hero-heading em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .about-hero-sub {
+      font-size: 1.0625rem;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.65);
+      margin: 0;
+      max-width: 46ch;
+    }
+
+    .about-hero-photo {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+
+    .about-hero-photo-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(28,28,28,0.25) 0%, transparent 60%);
+    }
+
+    /* ── SECTION STYLES ── */
+    .section { padding: 6rem 4rem; }
+    .section-alt { background: var(--surface); }
+    .section-dark { background: var(--charcoal); }
+
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+
+    .section-eyebrow {
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.625rem;
+    }
+    .section-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 1.5px;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .section-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.9rem, 2.8vw, 2.6rem);
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.025em;
+      color: var(--charcoal);
+      margin: 0 0 1.25rem;
+    }
+
+    .section-heading-light { color: #fff; }
+
+    .section-body {
+      font-size: 1.0625rem;
+      line-height: 1.78;
+      color: var(--muted);
+      max-width: 68ch;
+    }
+
+    .section-body-light { color: rgba(255,255,255,0.7); }
+
+    /* ── WHY ALICE TWO-COL ── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .two-col-text .section-body { margin-bottom: 1.25rem; }
+
+    /* ── DIFFERENTIATORS ── */
+    .diff-list {
+      list-style: none;
+      margin: 2rem 0 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .diff-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .diff-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: rgba(201, 168, 71, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .diff-icon svg { width: 16px; height: 16px; stroke: var(--gold); }
+
+    .diff-title {
+      font-weight: 600;
+      font-size: 0.9375rem;
+      color: var(--charcoal);
+      margin-bottom: 0.25rem;
+    }
+
+    .diff-desc {
+      font-size: 0.9rem;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    /* ── PHOTO SIDE ── */
+    .about-photo-block {
+      position: relative;
+    }
+
+    .about-photo-block img {
+      width: 100%;
+      border-radius: 12px;
+      display: block;
+      object-fit: cover;
+      object-position: top center;
+      aspect-ratio: 4/5;
+    }
+
+    .about-photo-block::before {
+      content: '';
+      position: absolute;
+      top: -16px;
+      left: -16px;
+      right: 16px;
+      bottom: 16px;
+      border: 2px solid var(--gold);
+      border-radius: 14px;
+      z-index: -1;
+      opacity: 0.4;
+    }
+
+    /* ── CAREER TIMELINE ── */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 3rem;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 120px 1px 1fr;
+      gap: 0 2rem;
+      padding-bottom: 2.5rem;
+    }
+
+    .timeline-item:last-child { padding-bottom: 0; }
+
+    .timeline-year {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--gold);
+      padding-top: 2px;
+      text-align: right;
+    }
+
+    .timeline-line {
+      width: 1px;
+      background: rgba(201, 168, 71, 0.25);
+      position: relative;
+    }
+
+    .timeline-line::before {
+      content: '';
+      position: absolute;
+      top: 6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    .timeline-content {
+      padding-top: 0;
+    }
+
+    .timeline-company {
+      font-weight: 600;
+      font-size: 0.9375rem;
+      color: var(--charcoal);
+      margin-bottom: 0.25rem;
+    }
+
+    .timeline-role {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    /* ── VALUES GRID ── */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .value-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 2rem 1.75rem;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .value-card:hover {
+      background: rgba(255,255,255,0.09);
+      border-color: rgba(201,168,71,0.35);
+    }
+
+    .value-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: rgba(201, 168, 71, 0.25);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .value-title {
+      font-weight: 600;
+      font-size: 1rem;
+      color: #fff;
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+
+    .value-desc {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.65;
+    }
+
+    /* ── CTA BAND ── */
+    .cta-band {
+      position: relative;
+      background: linear-gradient(135deg, #7D2240 0%, #3D1020 55%, #1C1C1C 100%);
+      padding: 5rem 4rem;
+      overflow: hidden;
+    }
+
+    .cta-band::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+      background-size: 200px;
+      pointer-events: none;
+    }
+
+    .cta-band-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 4rem;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .cta-band-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+      font-weight: 600;
+      color: #fff;
+      line-height: 1.2;
+      letter-spacing: -0.025em;
+      margin: 0 0 0.75rem;
+    }
+
+    .cta-band-body {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .cta-band-right { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; flex-shrink: 0; }
+    .cta-band-note { font-size: 0.75rem; color: rgba(255,255,255,0.4); text-align: center; }
+
+    .btn-gold {
+      display: inline-flex;
+      align-items: center;
+      background: var(--gold);
+      color: var(--charcoal);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 0.9375rem 2rem;
+      border-radius: 100px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.2s ease, transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s ease;
+      box-shadow: 0 4px 20px rgba(201, 168, 71, 0.35);
+    }
+
+    .btn-gold:hover { background: var(--gold-dark); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(201, 168, 71, 0.45); }
+    .btn-gold:active { transform: translateY(0); }
+    .btn-gold:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--charcoal); padding: 3.5rem 4rem 2rem; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 1.5rem; }
+    .footer-brand-name { font-family: 'Playfair Display', serif; font-size: 1.0625rem; font-weight: 600; color: #fff; margin-bottom: 0.25rem; }
+    .footer-brand-tag { font-size: 0.75rem; color: rgba(255,255,255,0.45); letter-spacing: 0.1em; text-transform: uppercase; }
+    .footer-nav { display: flex; align-items: center; gap: 2rem; }
+    .footer-nav a { font-size: 0.8125rem; color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s ease; }
+    .footer-nav a:hover { color: var(--gold); }
+    .footer-linkedin { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.55); text-decoration: none; transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease; }
+    .footer-linkedin:hover { border-color: var(--gold); color: var(--gold); background: rgba(201,168,71,0.07); }
+    .footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.3); }
+
+    @media (max-width: 900px) {
+      .about-hero { grid-template-columns: 1fr; }
+      .about-hero-photo { min-height: 50vh; order: -1; }
+      .about-hero-content { padding: 3rem 2rem; }
+      .two-col { grid-template-columns: 1fr; gap: 3rem; }
+      .values-grid { grid-template-columns: 1fr; }
+      .section { padding: 4rem 2rem; }
+      .cta-band { padding: 4rem 2rem; }
+      .cta-band-inner { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; gap: 2rem; }
+      .nav { padding: 0 1.5rem; }
+      .nav-links { display: none; }
+      .timeline-item { grid-template-columns: 90px 1px 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="index.html" class="nav-brand">
+      <span class="nav-brand-name">Alice Bazdikian</span>
+      <span class="nav-brand-tag">AI Strategist</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="workshops.html">Workshops</a></li>
+      <li><a href="scorecard.html">Scorecard</a></li>
+      <li><a href="mailto:alice@alicebazdikian.com" class="btn-nav">Book a Diagnostic</a></li>
+    </ul>
+  </nav>
+
+  <!-- ABOUT HERO -->
+  <section class="about-hero">
+    <div class="about-hero-content">
+      <p class="eyebrow">About Alice</p>
+      <h1 class="about-hero-heading">
+        I'm Not a Tech Person.<br>
+        I'm a <em>Business Person</em><br>
+        Who Speaks AI.
+      </h1>
+      <p class="about-hero-sub">
+        With 15+ years leading business transformation across global organizations, I bridge the gap between complex technology and the real humans who need to use it.
+      </p>
+    </div>
+    <div class="about-hero-photo">
+      <img src="Brand Assets/_MCK3991.jpg" alt="Alice Bazdikian" />
+      <div class="about-hero-photo-overlay"></div>
+    </div>
+  </section>
+
+  <!-- WHY ALICE -->
+  <section class="section section-alt">
+    <div class="section-inner two-col">
+      <div class="two-col-text">
+        <p class="section-eyebrow">Why Alice</p>
+        <h2 class="section-heading">The Translator Your Business Has Been Missing</h2>
+        <p class="section-body">
+          Most AI consultants come from the technical side. They understand the technology deeply — but struggle to translate it into something a marketing manager, an operations lead, or a frontline employee can actually use.
+        </p>
+        <p class="section-body">
+          I come from the business side. I've led teams, driven growth, and navigated organizational change at companies like AB InBev, PostBeyond, Ample Organics, and Nulogy. When I learned AI, I learned it the same way your team will — as a business leader trying to figure out what's real, what's hype, and what I actually need to do.
+        </p>
+        <p class="section-body">
+          That's what makes my approach different. I don't talk about AI in the abstract. I talk about it in terms of your team, your workflows, and your specific risks.
+        </p>
+
+        <ul class="diff-list">
+          <li class="diff-item">
+            <div class="diff-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
+            <div>
+              <div class="diff-title">Business-first lens, not tech-first</div>
+              <div class="diff-desc">I translate AI into the language of strategy, risk, productivity, and real team workflows.</div>
+            </div>
+          </li>
+          <li class="diff-item">
+            <div class="diff-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
+            <div>
+              <div class="diff-title">Fear-to-clarity approach</div>
+              <div class="diff-desc">I meet people where they are — overwhelmed, skeptical, or just unsure — and walk them to confident action.</div>
+            </div>
+          </li>
+          <li class="diff-item">
+            <div class="diff-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
+            <div>
+              <div class="diff-title">Practical, not theoretical</div>
+              <div class="diff-desc">Every workshop ends with tools your team can use tomorrow. No fluff. No jargon. Just clear next steps.</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="about-photo-block">
+        <img src="Brand Assets/_MCK3991.jpg" alt="Alice Bazdikian — AI Strategist + Educator" />
+      </div>
+    </div>
+  </section>
+
+  <!-- CAREER TIMELINE -->
+  <section class="section">
+    <div class="section-inner">
+      <p class="section-eyebrow">Experience</p>
+      <h2 class="section-heading">15+ Years at the Intersection of Business &amp; Growth</h2>
+      <p class="section-body" style="margin-bottom:0">
+        Before AI, I spent over a decade driving business transformation across industries — which is exactly why I know what it takes to get real people to actually change how they work.
+      </p>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">Present</div>
+          <div class="timeline-line"></div>
+          <div class="timeline-content">
+            <div class="timeline-company">Independent AI Strategist + Educator</div>
+            <div class="timeline-role">Helping SMBs build AI-ready teams through workshops, diagnostics, and ongoing strategic advisory.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">Nulogy</div>
+          <div class="timeline-line"></div>
+          <div class="timeline-content">
+            <div class="timeline-company">Nulogy</div>
+            <div class="timeline-role">Supply chain SaaS — led business development and partnerships, helping enterprise teams adopt new technology at scale.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">PostBeyond</div>
+          <div class="timeline-line"></div>
+          <div class="timeline-content">
+            <div class="timeline-company">PostBeyond</div>
+            <div class="timeline-role">Employee advocacy platform — drove growth strategy and helped organizations activate their internal teams as brand ambassadors.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">Ample Organics</div>
+          <div class="timeline-line"></div>
+          <div class="timeline-content">
+            <div class="timeline-company">Ample Organics</div>
+            <div class="timeline-role">Cannabis tech startup — built enterprise sales motion and scaled revenue through regulated-industry relationships.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">AB InBev</div>
+          <div class="timeline-line"></div>
+          <div class="timeline-content">
+            <div class="timeline-company">AB InBev</div>
+            <div class="timeline-role">World's largest brewer — drove regional revenue programs, commercial strategy, and cross-functional team leadership.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CORE BELIEFS / VALUES -->
+  <section class="section section-dark">
+    <div class="section-inner">
+      <p class="section-eyebrow">What I Believe</p>
+      <h2 class="section-heading section-heading-light">My Approach to AI Education</h2>
+      <p class="section-body section-body-light">
+        Three principles that shape every workshop, diagnostic, and conversation I have with business leaders.
+      </p>
+
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-number">01</div>
+          <div class="value-title">The barrier is fear, not technology</div>
+          <div class="value-desc">Most businesses aren't held back by a lack of tools — they're held back by not knowing where to start safely. Clarity comes before adoption.</div>
+        </div>
+        <div class="value-card">
+          <div class="value-number">02</div>
+          <div class="value-title">Practical over theoretical, always</div>
+          <div class="value-desc">AI education that doesn't end in tangible next steps isn't education — it's entertainment. Every session I deliver is built for immediate application.</div>
+        </div>
+        <div class="value-card">
+          <div class="value-number">03</div>
+          <div class="value-title">Your employees deserve to know</div>
+          <div class="value-desc">The best AI strategy starts with your team — not with leadership mandates. When employees understand AI, adoption happens naturally and sustainably.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="cta-band">
+    <div class="cta-band-inner">
+      <div>
+        <h2 class="cta-band-heading">Ready to See Where Your Business Stands?</h2>
+        <p class="cta-band-body">Take the free 5-minute AI Readiness Scorecard — and get a clear picture of where your biggest risks and opportunities are.</p>
+      </div>
+      <div class="cta-band-right">
+        <a href="scorecard.html" class="btn-gold">Take the AI Readiness Scorecard</a>
+        <span class="cta-band-note">Free · 5 minutes · Instant results</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand-name">Alice Bazdikian</div>
+        <div class="footer-brand-tag">AI Strategist + Educator</div>
+      </div>
+      <nav class="footer-nav">
+        <a href="about.html">About</a>
+        <a href="workshops.html">Workshops</a>
+        <a href="scorecard.html">Scorecard</a>
+        <a href="mailto:alice@alicebazdikian.com">Book a Diagnostic</a>
+        <a href="https://www.linkedin.com/in/alicebazdikian" class="footer-linkedin" aria-label="LinkedIn" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+      </nav>
+    </div>
+    <p class="footer-copy">© 2026 Alice Bazdikian · All rights reserved</p>
+  </footer>
+
+</body>
+</html>

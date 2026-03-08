@@ -1,0 +1,4 @@
+.DS_Store
+.playwright-mcp/
+temporary screenshots/
+node_modules/
