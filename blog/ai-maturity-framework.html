@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The 4 Stages of AI Maturity — Alice Bazdikian</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    :root {
+      --eggshell: #F7F3EE;
+      --charcoal: #1C1C1C;
+      --burgundy: #7D2240;
+      --burgundy-dark: #651B33;
+      --gold: #C9A847;
+      --gold-dark: #B8952E;
+      --surface: #FFFFFF;
+      --muted: #6B6560;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { background-color: var(--eggshell); color: var(--charcoal); font-family: 'Inter', system-ui, sans-serif; line-height: 1.7; -webkit-font-smoothing: antialiased; margin: 0; }
+
+    /* NAV */
+    .nav { position: sticky; top: 0; z-index: 50; background: var(--eggshell); border-bottom: 1px solid rgba(125,34,64,0.12); display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; height: 68px; }
+    .nav-brand { display: flex; flex-direction: column; line-height: 1.2; text-decoration: none; }
+    .nav-brand-name { font-family: 'Playfair Display', serif; font-size: 1.125rem; font-weight: 600; color: var(--charcoal); letter-spacing: -0.01em; }
+    .nav-brand-tag { font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); font-weight: 400; }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; margin: 0; padding: 0; }
+    .nav-links a { font-size: 0.875rem; font-weight: 400; color: var(--charcoal); text-decoration: none; letter-spacing: 0.01em; transition: color 0.2s ease; }
+    .nav-links a:hover { color: var(--burgundy); }
+    .nav-links a.active { color: var(--burgundy); font-weight: 500; }
+    .btn-nav { display: inline-flex; align-items: center; background: var(--gold); color: var(--charcoal); font-family: 'Inter', sans-serif; font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.02em; padding: 0.5rem 1.25rem; border-radius: 100px; border: none; cursor: pointer; text-decoration: none; transition: background 0.2s ease, transform 0.15s ease; box-shadow: 0 2px 8px rgba(201,168,71,0.3); }
+    .btn-nav:hover { background: var(--gold-dark); transform: translateY(-1px); }
+
+    /* ARTICLE HEADER */
+    .article-header {
+      background: var(--charcoal);
+      padding: 5rem 4rem 4.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .article-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(125,34,64,0.6) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .article-header::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+      background-size: 200px;
+      pointer-events: none;
+    }
+    .article-header-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8125rem;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 1.75rem;
+    }
+    .breadcrumb a { color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s ease; }
+    .breadcrumb a:hover { color: var(--gold); }
+    .breadcrumb-sep { color: rgba(255,255,255,0.2); }
+
+    .article-tag {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: rgba(201,168,71,0.12);
+      border: 1px solid rgba(201,168,71,0.25);
+      padding: 0.3rem 0.75rem;
+      border-radius: 100px;
+      margin-bottom: 1.25rem;
+    }
+
+    .article-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      color: #fff;
+      margin: 0 0 1.5rem;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.5);
+    }
+    .article-meta-dot { color: rgba(201,168,71,0.5); }
+
+    /* ARTICLE BODY */
+    .article-layout {
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      gap: 4rem;
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 4rem 4rem 6rem;
+      align-items: start;
+    }
+
+    /* PROSE */
+    .prose { max-width: 680px; }
+
+    .prose p {
+      font-size: 1.0625rem;
+      line-height: 1.82;
+      color: #2E2A27;
+      margin: 0 0 1.5rem;
+    }
+
+    .prose h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      letter-spacing: -0.025em;
+      line-height: 1.25;
+      margin: 3rem 0 1.125rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(28,28,28,0.08);
+    }
+
+    .prose h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      letter-spacing: -0.015em;
+      line-height: 1.3;
+      margin: 2rem 0 0.875rem;
+    }
+
+    .prose ul {
+      margin: 0 0 1.5rem;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .prose ul li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      color: #2E2A27;
+    }
+
+    .prose ul li::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      margin-top: 0.6rem;
+      flex-shrink: 0;
+    }
+
+    /* STAGE CARDS */
+    .stage-card {
+      background: var(--surface);
+      border-radius: 12px;
+      border-left: 4px solid var(--gold);
+      padding: 2rem 2.25rem;
+      margin: 2rem 0;
+      box-shadow: 0 2px 16px rgba(125,34,64,0.06), 0 1px 4px rgba(0,0,0,0.04);
+    }
+
+    .stage-card-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .stage-number {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--charcoal);
+      color: var(--gold);
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .stage-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1875rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      letter-spacing: -0.015em;
+      line-height: 1.2;
+    }
+
+    .stage-desc {
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+    }
+
+    /* BENEFITS/CHALLENGES TABLE */
+    .bc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+
+    .bc-col { }
+
+    .bc-col-head {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding-bottom: 0.5rem;
+      margin-bottom: 0.625rem;
+    }
+
+    .bc-col-head.benefits { color: #3A7D44; border-bottom: 2px solid rgba(58,125,68,0.3); }
+    .bc-col-head.challenges { color: var(--burgundy); border-bottom: 2px solid rgba(125,34,64,0.25); }
+
+    .bc-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.375rem; }
+    .bc-list li { font-size: 0.875rem; color: var(--muted); line-height: 1.5; padding-left: 1rem; position: relative; }
+    .bc-list li::before { content: ''; position: absolute; left: 0; top: 0.55em; width: 5px; height: 5px; border-radius: 50%; }
+    .bc-col-head.benefits ~ .bc-list li::before { background: #3A7D44; }
+    .bc-col-head.challenges ~ .bc-list li::before { background: var(--burgundy); }
+
+    /* PULL QUOTE */
+    .pull-quote {
+      border-left: 3px solid var(--gold);
+      padding: 1.5rem 2rem;
+      margin: 2.5rem 0;
+      background: rgba(201,168,71,0.04);
+      border-radius: 0 8px 8px 0;
+    }
+
+    .pull-quote p {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem !important;
+      font-style: italic;
+      line-height: 1.6 !important;
+      color: var(--charcoal) !important;
+      margin: 0 !important;
+    }
+
+    /* STAT CALLOUT */
+    .stat-callout {
+      background: var(--charcoal);
+      border-radius: 10px;
+      padding: 1.75rem 2rem;
+      margin: 2rem 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+    }
+
+    .stat-callout-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .stat-callout-text {
+      font-size: 0.9375rem;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* MYTH CARD */
+    .myth-card {
+      background: var(--surface);
+      border-radius: 10px;
+      padding: 1.75rem 2rem;
+      margin: 1.5rem 0;
+      border: 1px solid rgba(28,28,28,0.07);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    }
+
+    .myth-label {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--burgundy);
+      margin-bottom: 0.5rem;
+    }
+
+    .myth-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.0625rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+
+    .myth-reality-label {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #3A7D44;
+      margin-bottom: 0.375rem;
+    }
+
+    .myth-reality-text {
+      font-size: 0.9375rem;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    /* SIDEBAR */
+    .sidebar { position: sticky; top: 88px; }
+
+    .sidebar-card {
+      background: var(--surface);
+      border-radius: 10px;
+      padding: 1.5rem;
+      border: 1px solid rgba(28,28,28,0.07);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+      margin-bottom: 1.25rem;
+    }
+
+    .sidebar-label {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .toc-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.125rem; }
+
+    .toc-list a {
+      display: block;
+      font-size: 0.8125rem;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 0.375rem 0.625rem;
+      border-radius: 6px;
+      transition: background 0.15s ease, color 0.15s ease;
+      line-height: 1.4;
+    }
+
+    .toc-list a:hover { background: rgba(125,34,64,0.05); color: var(--burgundy); }
+
+    .sidebar-cta {
+      background: linear-gradient(135deg, #7D2240 0%, #3D1020 100%);
+      border-radius: 10px;
+      padding: 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .sidebar-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+      background-size: 120px;
+    }
+    .sidebar-cta-heading { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 600; color: #fff; line-height: 1.3; margin-bottom: 0.625rem; position: relative; z-index: 1; }
+    .sidebar-cta-sub { font-size: 0.8125rem; color: rgba(255,255,255,0.6); line-height: 1.55; margin-bottom: 1.25rem; position: relative; z-index: 1; }
+    .btn-gold-sm { display: inline-flex; align-items: center; background: var(--gold); color: var(--charcoal); font-family: 'Inter', sans-serif; font-size: 0.8125rem; font-weight: 600; padding: 0.625rem 1.25rem; border-radius: 100px; text-decoration: none; width: 100%; justify-content: center; transition: background 0.2s ease, transform 0.2s cubic-bezier(0.34,1.56,0.64,1); position: relative; z-index: 1; box-shadow: 0 3px 12px rgba(201,168,71,0.3); }
+    .btn-gold-sm:hover { background: var(--gold-dark); transform: translateY(-1px); }
+
+    /* CTA BAND */
+    .cta-band { position: relative; background: linear-gradient(135deg, #7D2240 0%, #3D1020 55%, #1C1C1C 100%); padding: 5rem 4rem; overflow: hidden; }
+    .cta-band::before { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E"); background-size: 200px; pointer-events: none; }
+    .cta-band-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr auto; gap: 4rem; align-items: center; max-width: 1100px; margin: 0 auto; }
+    .cta-band-heading { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 2.5vw, 2.4rem); font-weight: 600; color: #fff; line-height: 1.2; letter-spacing: -0.025em; margin: 0 0 0.75rem; }
+    .cta-band-body { font-size: 1rem; color: rgba(255,255,255,0.65); line-height: 1.7; margin: 0; }
+    .cta-band-right { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; flex-shrink: 0; }
+    .cta-band-note { font-size: 0.75rem; color: rgba(255,255,255,0.4); text-align: center; }
+    .btn-gold { display: inline-flex; align-items: center; background: var(--gold); color: var(--charcoal); font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600; padding: 0.9375rem 2rem; border-radius: 100px; text-decoration: none; white-space: nowrap; transition: background 0.2s ease, transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s ease; box-shadow: 0 4px 20px rgba(201,168,71,0.35); }
+    .btn-gold:hover { background: var(--gold-dark); transform: translateY(-2px); }
+
+    /* FOOTER */
+    footer { background: var(--charcoal); padding: 3.5rem 4rem 2rem; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 1.5rem; }
+    .footer-brand-name { font-family: 'Playfair Display', serif; font-size: 1.0625rem; font-weight: 600; color: #fff; margin-bottom: 0.25rem; }
+    .footer-brand-tag { font-size: 0.75rem; color: rgba(255,255,255,0.45); letter-spacing: 0.1em; text-transform: uppercase; }
+    .footer-nav { display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+    .footer-nav a { font-size: 0.8125rem; color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s ease; }
+    .footer-nav a:hover { color: var(--gold); }
+    .footer-linkedin { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.55); text-decoration: none; transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease; }
+    .footer-linkedin:hover { border-color: var(--gold); color: var(--gold); background: rgba(201,168,71,0.07); }
+    .footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.3); }
+
+    @media (max-width: 1000px) {
+      .article-layout { grid-template-columns: 1fr; padding: 3rem 1.5rem 4rem; }
+      .sidebar { display: none; }
+      .article-header { padding: 4rem 1.5rem 3.5rem; }
+      .bc-grid { grid-template-columns: 1fr; }
+      .cta-band { padding: 4rem 1.5rem; }
+      .cta-band-inner { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; gap: 2rem; }
+      .nav { padding: 0 1.25rem; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="../index.html" class="nav-brand">
+      <span class="nav-brand-name">Alice Bazdikian</span>
+      <span class="nav-brand-tag">AI Strategist</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../workshops.html">Workshops</a></li>
+      <li><a href="../scorecard.html">Scorecard</a></li>
+      <li><a href="../blog.html" class="active">Blog</a></li>
+      <li><a href="mailto:alice@alicebazdikian.com" class="btn-nav">Book a Diagnostic</a></li>
+    </ul>
+  </nav>
+
+  <!-- ARTICLE HEADER -->
+  <div class="article-header">
+    <div class="article-header-inner">
+      <div class="breadcrumb">
+        <a href="../blog.html">Blog</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>AI Strategy</span>
+      </div>
+      <div class="article-tag">AI Strategy</div>
+      <h1 class="article-title">The 4 Stages of AI Maturity:<br>A Framework for Business Leaders</h1>
+      <div class="article-meta">
+        <span>March 9, 2026</span>
+        <span class="article-meta-dot">·</span>
+        <span>8 min read</span>
+        <span class="article-meta-dot">·</span>
+        <span>AI Adoption</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ARTICLE LAYOUT -->
+  <div class="article-layout">
+
+    <!-- MAIN PROSE -->
+    <article class="prose">
+
+      <p>Most companies know they should be doing more with AI. What's harder to define is what "more" actually means in practice.</p>
+
+      <p>Looking at how organizations have rolled out AI over the past few years, there's a recognizable pattern: it often starts with scattered experiments, expands into AI-powered workflows across connected systems, and eventually becomes embedded into core operations. What's clear is that the key to achieving real AI transformation isn't simply moving faster — it's recognizing where your business is in its journey and building the capabilities that come next.</p>
+
+      <p>Here, I'll break down the four stages of AI maturity, how to recognize where your business lands, and what it takes to move forward.</p>
+
+      <div class="pull-quote">
+        <p>"The key to AI transformation isn't moving faster. It's recognizing where your business is in its journey and building the capabilities that come next."</p>
+      </div>
+
+      <!-- STAGE 1 -->
+      <h2 id="stage-1">Stage 1: Individual AI Experiments</h2>
+
+      <p>For most organizations, this is where AI adoption begins — individual experimentation. It's a fast, low-friction way to learn what AI can actually do for your business workflows.</p>
+
+      <p>Early AI adoption typically follows a similar pattern: individual teams experiment with AI-generated content, support summaries, and automation logic before those efforts are coordinated across the company. This type of early experimentation allows all employees, regardless of their technical skills, to build AI fluency.</p>
+
+      <div class="stage-card">
+        <div class="stage-card-header">
+          <div class="stage-number">1</div>
+          <div class="stage-title">What Stage 1 looks like</div>
+        </div>
+        <div class="stage-desc">Individuals and teams experimenting with AI tools independently, without central coordination or oversight.</div>
+        <ul style="margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:0.375rem;">
+          <li style="display:flex;align-items:flex-start;gap:0.625rem;font-size:0.9rem;line-height:1.55;color:var(--muted)"><span style="display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--gold);margin-top:0.55em;flex-shrink:0"></span>Individuals and teams using AI tools independently</li>
+          <li style="display:flex;align-items:flex-start;gap:0.625rem;font-size:0.9rem;line-height:1.55;color:var(--muted)"><span style="display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--gold);margin-top:0.55em;flex-shrink:0"></span>No central visibility into which tools are in use</li>
+          <li style="display:flex;align-items:flex-start;gap:0.625rem;font-size:0.9rem;line-height:1.55;color:var(--muted)"><span style="display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--gold);margin-top:0.55em;flex-shrink:0"></span>Point solutions that don't connect to each other</li>
+          <li style="display:flex;align-items:flex-start;gap:0.625rem;font-size:0.9rem;line-height:1.55;color:var(--muted)"><span style="display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--gold);margin-top:0.55em;flex-shrink:0"></span>Bottom-up adoption through individual purchase decisions</li>
+          <li style="display:flex;align-items:flex-start;gap:0.625rem;font-size:0.9rem;line-height:1.55;color:var(--muted)"><span style="display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--gold);margin-top:0.55em;flex-shrink:0"></span>Informal governance — general reminders not to share sensitive data</li>
+          <li style="display:flex;align-items:flex-start;gap:0.625rem;font-size:0.9rem;line-height:1.55;color:var(--muted)"><span style="display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--gold);margin-top:0.55em;flex-shrink:0"></span>Manual copy-paste between tools</li>
+        </ul>
+        <div class="bc-grid" style="margin-top:1.5rem">
+          <div class="bc-col">
+            <div class="bc-col-head benefits">Benefits</div>
+            <ul class="bc-list">
+              <li>Experimentation is cheap and fast</li>
+              <li>Teams build AI literacy organically</li>
+              <li>High-value use cases surface through trial and error</li>
+              <li>Low financial risk without enterprise contracts</li>
+            </ul>
+          </div>
+          <div class="bc-col">
+            <div class="bc-col-head challenges">Challenges</div>
+            <ul class="bc-list">
+              <li>Knowledge stays siloed within individual users</li>
+              <li>Similar problems get solved multiple ways</li>
+              <li>ROI is difficult to measure beyond anecdotes</li>
+              <li>Shadow AI introduces compliance and security risks</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <h3>Signs you're ready for Stage 2</h3>
+      <ul>
+        <li>Multiple teams want to connect AI tools to existing systems</li>
+        <li>You're manually moving data between tools multiple times per week</li>
+        <li>The majority of your teams have tested one or more AI tools</li>
+        <li>Leadership is asking what the organization is getting from AI investments</li>
+        <li>Success stories aren't spreading beyond the teams that discovered them</li>
+      </ul>
+
+      <h3>How to move to Stage 2</h3>
+      <ul>
+        <li>Acknowledge AI as part of your operating model, not just experimentation</li>
+        <li>Create a simple inventory of which teams are using which AI tools and for what use cases</li>
+        <li>Identify high-value workflows worth connecting across systems</li>
+        <li>Introduce an integration layer to reduce manual handoffs between tools</li>
+      </ul>
+
+      <!-- STAGE 2 -->
+      <h2 id="stage-2">Stage 2: Connected AI Workflows</h2>
+
+      <p>At this stage, AI stops living in side projects and starts showing up in core systems. The shift often happens when early experiments prove valuable enough to formalize.</p>
+
+      <p>A useful example: after early AI wins are demonstrated, individual successes move out of Slack threads and into department-wide workflows. A support team might build an AI coaching system that automatically reviews chats and delivers feedback — turning what could have been a one-off experiment into a consistent operational tool.</p>
+
+      <div class="stage-card">
+        <div class="stage-card-header">
+          <div class="stage-number">2</div>
+          <div class="stage-title">What Stage 2 looks like</div>
+        </div>
+        <div class="stage-desc">AI tools integrated with core systems, with automated workflows replacing manual handoffs.</div>
+        <ul style="margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:0.375rem;">
+          <li style="display:flex;align-items:flex-start;gap:0.625rem;font-size:0.9rem;line-height:1.55;color:var(--muted)"><span style="display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--gold);margin-top:0.55em;flex-shrink:0"></span>AI tools integrated with core systems like your CRM, support, and project management apps</li>
+          <li style="display:flex;align-items:flex-start;gap:0.625rem;font-size:0.9rem;line-height:1.55;color:var(--muted)"><span style="display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--gold);margin-top:0.55em;flex-shrink:0"></span>Automated workflows that trigger AI actions based on defined events</li>
+          <li style="display:flex;align-items:flex-start;gap:0.625rem;font-size:0.9rem;line-height:1.55;color:var(--muted)"><span style="display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--gold);margin-top:0.55em;flex-shrink:0"></span>Shared use cases across teams instead of isolated experiments</li>
+          <li style="display:flex;align-items:flex-start;gap:0.625rem;font-size:0.9rem;line-height:1.55;color:var(--muted)"><span style="display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--gold);margin-top:0.55em;flex-shrink:0"></span>Early efforts to standardize prompts, processes, or templates</li>
+          <li style="display:flex;align-items:flex-start;gap:0.625rem;font-size:0.9rem;line-height:1.55;color:var(--muted)"><span style="display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--gold);margin-top:0.55em;flex-shrink:0"></span>Growing visibility into where AI is being used</li>
+        </ul>
+        <div class="bc-grid" style="margin-top:1.5rem">
+          <div class="bc-col">
+            <div class="bc-col-head benefits">Benefits</div>
+            <ul class="bc-list">
+              <li>Connected systems reduce manual work</li>
+              <li>Successful use cases spread across teams</li>
+              <li>Time savings become measurable</li>
+              <li>AI becomes part of real business processes</li>
+            </ul>
+          </div>
+          <div class="bc-col">
+            <div class="bc-col-head challenges">Challenges</div>
+            <ul class="bc-list">
+              <li>Workflow logic becomes harder to manage</li>
+              <li>Inconsistent standards create uneven output quality</li>
+              <li>Limited governance creates risk</li>
+              <li>Ownership and accountability may be unclear</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <h3>Signs you're ready for Stage 3</h3>
+      <ul>
+        <li>AI workflows are running across multiple teams</li>
+        <li>You're relying on AI outputs for customer-facing or revenue-impacting work</li>
+        <li>Security or compliance teams are asking for clearer guardrails</li>
+        <li>Leadership wants reporting on performance, risk, and ROI</li>
+        <li>Workflow complexity is increasing faster than documentation</li>
+      </ul>
+
+      <h3>How to move to Stage 3</h3>
+      <ul>
+        <li>Define ownership for AI-powered workflows</li>
+        <li>Establish governance guidelines and access controls</li>
+        <li>Add audit trails and documentation for key processes</li>
+        <li>Standardize how AI prompts, models, and workflow logic are managed</li>
+      </ul>
+
+      <!-- STAGE 3 -->
+      <h2 id="stage-3">Stage 3: Governed AI Workflows</h2>
+
+      <p>This stage is where AI becomes formalized. Workflows span departments, ownership is defined, and guardrails are no longer optional. As AI becomes embedded in core operations, reliability and governance take center stage.</p>
+
+      <div class="stat-callout">
+        <div class="stat-callout-num">78%</div>
+        <div class="stat-callout-text">of enterprises report struggling to integrate AI with existing systems — underscoring how critical that middle layer of connection and coordination really is.</div>
+      </div>
+
+      <div class="stage-card">
+        <div class="stage-card-header">
+          <div class="stage-number">3</div>
+          <div class="stage-title">What Stage 3 looks like</div>
+        </div>
+        <div class="stage-desc">AI orchestration becomes formalized with clear ownership, defined governance, and audit trails across departments.</div>
+        <ul style="margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:0.375rem;">
+          <li style="display:flex;align-items:flex-start;gap:0.625rem;font-size:0.9rem;line-height:1.55;color:var(--muted)"><span style="display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--gold);margin-top:0.55em;flex-shrink:0"></span>AI workflows running across multiple departments</li>
+          <li style="display:flex;align-items:flex-start;gap:0.625rem;font-size:0.9rem;line-height:1.55;color:var(--muted)"><span style="display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--gold);margin-top:0.55em;flex-shrink:0"></span>Clear ownership for AI-powered processes and automation logic</li>
+          <li style="display:flex;align-items:flex-start;gap:0.625rem;font-size:0.9rem;line-height:1.55;color:var(--muted)"><span style="display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--gold);margin-top:0.55em;flex-shrink:0"></span>Defined governance policies for model usage, data access, and approvals</li>
+          <li style="display:flex;align-items:flex-start;gap:0.625rem;font-size:0.9rem;line-height:1.55;color:var(--muted)"><span style="display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--gold);margin-top:0.55em;flex-shrink:0"></span>Role-based access controls and permission management</li>
+          <li style="display:flex;align-items:flex-start;gap:0.625rem;font-size:0.9rem;line-height:1.55;color:var(--muted)"><span style="display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--gold);margin-top:0.55em;flex-shrink:0"></span>Audit trails for AI-generated outputs and workflow activity</li>
+          <li style="display:flex;align-items:flex-start;gap:0.625rem;font-size:0.9rem;line-height:1.55;color:var(--muted)"><span style="display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--gold);margin-top:0.55em;flex-shrink:0"></span>Standardized prompts, documentation, and version control practices</li>
+        </ul>
+        <div class="bc-grid" style="margin-top:1.5rem">
+          <div class="bc-col">
+            <div class="bc-col-head benefits">Benefits</div>
+            <ul class="bc-list">
+              <li>Clear governance reduces compliance risk</li>
+              <li>Standardization improves output consistency</li>
+              <li>Auditability builds trust with leadership</li>
+              <li>Defined ownership increases accountability</li>
+            </ul>
+          </div>
+          <div class="bc-col">
+            <div class="bc-col-head challenges">Challenges</div>
+            <ul class="bc-list">
+              <li>Governance processes can slow experimentation</li>
+              <li>Over-standardization may limit team flexibility</li>
+              <li>Maintaining documentation requires ongoing effort</li>
+              <li>Cross-team coordination becomes more complex</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <h3>Signs you're ready for Stage 4</h3>
+      <ul>
+        <li>AI is embedded in mission-critical or revenue-driving workflows</li>
+        <li>Leadership is asking how AI can proactively optimize operations</li>
+        <li>Teams want AI-powered systems that adapt dynamically rather than follow fixed logic</li>
+        <li>You're measuring AI performance but not yet optimizing in real time</li>
+      </ul>
+
+      <!-- STAGE 4 -->
+      <h2 id="stage-4">Stage 4: Adaptive AI Systems</h2>
+
+      <p>This is the stage where AI becomes adaptive. Work isn't just automated — it's continuously refined based on outcomes. Instead of asking how to automate a task, teams focus on how to improve how the entire system performs over time.</p>
+
+      <div class="stage-card">
+        <div class="stage-card-header">
+          <div class="stage-number">4</div>
+          <div class="stage-title">What Stage 4 looks like</div>
+        </div>
+        <div class="stage-desc">AI orchestration is fully adaptive, with systems that learn, refine, and align directly to strategic business goals.</div>
+        <ul style="margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:0.375rem;">
+          <li style="display:flex;align-items:flex-start;gap:0.625rem;font-size:0.9rem;line-height:1.55;color:var(--muted)"><span style="display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--gold);margin-top:0.55em;flex-shrink:0"></span>AI workflows that adjust dynamically based on inputs, outcomes, or performance data</li>
+          <li style="display:flex;align-items:flex-start;gap:0.625rem;font-size:0.9rem;line-height:1.55;color:var(--muted)"><span style="display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--gold);margin-top:0.55em;flex-shrink:0"></span>Cross-system AI orchestration spanning departments, data sources, and tools</li>
+          <li style="display:flex;align-items:flex-start;gap:0.625rem;font-size:0.9rem;line-height:1.55;color:var(--muted)"><span style="display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--gold);margin-top:0.55em;flex-shrink:0"></span>Real-time monitoring of workflow performance and business impact</li>
+          <li style="display:flex;align-items:flex-start;gap:0.625rem;font-size:0.9rem;line-height:1.55;color:var(--muted)"><span style="display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--gold);margin-top:0.55em;flex-shrink:0"></span>Feedback loops that retrain, refine, or adjust logic automatically</li>
+          <li style="display:flex;align-items:flex-start;gap:0.625rem;font-size:0.9rem;line-height:1.55;color:var(--muted)"><span style="display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--gold);margin-top:0.55em;flex-shrink:0"></span>AI-informed prioritization of tasks, leads, tickets, or opportunities</li>
+          <li style="display:flex;align-items:flex-start;gap:0.625rem;font-size:0.9rem;line-height:1.55;color:var(--muted)"><span style="display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--gold);margin-top:0.55em;flex-shrink:0"></span>Clear alignment between AI systems and strategic business goals</li>
+        </ul>
+      </div>
+
+      <!-- WHY YOU CAN'T SKIP -->
+      <h2 id="why-no-skipping">Why You Can't Skip Stages</h2>
+
+      <p>It's natural to want to accelerate progress. But AI maturity builds cumulatively — each stage develops capabilities that the next one depends on:</p>
+
+      <ul>
+        <li><strong>Stage 1</strong> builds AI literacy and clarifies which problems are actually worth solving.</li>
+        <li><strong>Stage 2</strong> develops integration muscle and reveals where governance is required.</li>
+        <li><strong>Stage 3</strong> establishes the monitoring, trust, and accountability needed before AI can influence higher-stakes decisions.</li>
+        <li><strong>Stage 4</strong> is only possible once the first three are genuinely in place.</li>
+      </ul>
+
+      <div class="stat-callout">
+        <div class="stat-callout-num">35%</div>
+        <div class="stat-callout-text">of enterprises cite AI skill gaps as a top barrier to adoption — highlighting that capability, not tooling, is often the real constraint.</div>
+      </div>
+
+      <!-- MYTHS -->
+      <h2 id="myths">4 Common Myths About AI Maturity</h2>
+
+      <p>Understanding where you are is only half the battle. The other half is avoiding the assumptions that derail progress or create unnecessary pressure to advance faster than makes sense for your organization.</p>
+
+      <div class="myth-card">
+        <div class="myth-label">Myth #1</div>
+        <div class="myth-title">The highest stage is the goal</div>
+        <div class="myth-reality-label">Reality</div>
+        <div class="myth-reality-text">AI maturity is about fit, not climbing the ladder. A mid-sized company running AI-powered workflows that reliably save time and generate measurable ROI may be exactly where they need to be at stage two. Forcing a move into heavier governance structures could introduce overhead without improving performance. Context changes what "best" looks like.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-label">Myth #2</div>
+        <div class="myth-title">Every team should be at the same stage</div>
+        <div class="myth-reality-label">Reality</div>
+        <div class="myth-reality-text">Progress doesn't need to be uniform to be strategic. A customer support team handling sensitive billing data may require stage three governance controls, while a marketing team with a lower risk profile can move quickly at stage two. Forcing lockstep creates bottlenecks. Align within functions first, then build cross-functional consistency over time.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-label">Myth #3</div>
+        <div class="myth-title">AI maturity only applies to large enterprises</div>
+        <div class="myth-reality-label">Reality</div>
+        <div class="myth-reality-text">This framework applies to any company size. Scale changes the pace, not the principles. A 25-person startup can experiment, connect workflows, and introduce guardrails much faster than a 5,000-person organization — but they still move through the same stages in sequence.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-label">Myth #4</div>
+        <div class="myth-title">AI maturity is just about choosing the right platform</div>
+        <div class="myth-reality-label">Reality</div>
+        <div class="myth-reality-text">Tools can enable orchestration, but they're not a substitute for operational clarity. If teams don't have shared standards for prompts, clear workflow ownership, or agreement on when AI should involve a human, the organization will continue operating like it's in stage one or two — just on more expensive software.</div>
+      </div>
+
+      <!-- CLOSING -->
+      <h2 id="where-to-start">Where Does Your Business Stand?</h2>
+
+      <p>Most SMBs are operating somewhere between Stage 1 and Stage 2 — which is exactly where the most important decisions get made. The businesses that pull ahead aren't the ones spending the most on AI tools. They're the ones that take the time to understand where they are, close the gaps in awareness and governance, and build from there.</p>
+
+      <p>The first step is honest self-assessment. If you're not sure where your organization stands — across AI awareness, data security, employee training, and productivity readiness — the AI Readiness Scorecard takes five minutes and gives you a clear picture.</p>
+
+    </article>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-label">In this article</div>
+        <ul class="toc-list">
+          <li><a href="#stage-1">Stage 1: Individual Experiments</a></li>
+          <li><a href="#stage-2">Stage 2: Connected Workflows</a></li>
+          <li><a href="#stage-3">Stage 3: Governed Workflows</a></li>
+          <li><a href="#stage-4">Stage 4: Adaptive Systems</a></li>
+          <li><a href="#why-no-skipping">Why You Can't Skip Stages</a></li>
+          <li><a href="#myths">4 Common Myths</a></li>
+          <li><a href="#where-to-start">Where Does Your Business Stand?</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-cta">
+        <div class="sidebar-cta-heading">Find out your AI maturity stage</div>
+        <div class="sidebar-cta-sub">The free AI Readiness Scorecard takes 5 minutes and tells you exactly where you stand.</div>
+        <a href="../scorecard.html" class="btn-gold-sm">Take the Scorecard →</a>
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- CTA BAND -->
+  <section class="cta-band">
+    <div class="cta-band-inner">
+      <div>
+        <h2 class="cta-band-heading">Ready to Know Your AI Maturity Stage?</h2>
+        <p class="cta-band-body">Take the free 5-minute AI Readiness Scorecard — you'll get a clear score across awareness, data security, training, and productivity readiness, plus a recommended next step.</p>
+      </div>
+      <div class="cta-band-right">
+        <a href="../scorecard.html" class="btn-gold">Take the AI Readiness Scorecard</a>
+        <span class="cta-band-note">Free · 5 minutes · Instant results</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand-name">Alice Bazdikian</div>
+        <div class="footer-brand-tag">AI Strategist + Educator</div>
+      </div>
+      <nav class="footer-nav">
+        <a href="../about.html">About</a>
+        <a href="../workshops.html">Workshops</a>
+        <a href="../scorecard.html">Scorecard</a>
+        <a href="../blog.html">Blog</a>
+        <a href="mailto:alice@alicebazdikian.com">Book a Diagnostic</a>
+        <a href="https://www.linkedin.com/in/alicebazdikian" class="footer-linkedin" aria-label="LinkedIn" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+      </nav>
+    </div>
+    <p class="footer-copy">© 2026 Alice Bazdikian · All rights reserved</p>
+  </footer>
+
+</body>
+</html>

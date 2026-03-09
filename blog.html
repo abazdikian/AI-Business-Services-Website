@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog — Alice Bazdikian, AI Strategist + Educator</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    :root {
+      --eggshell: #F7F3EE;
+      --charcoal: #1C1C1C;
+      --burgundy: #7D2240;
+      --burgundy-dark: #651B33;
+      --gold: #C9A847;
+      --gold-dark: #B8952E;
+      --surface: #FFFFFF;
+      --muted: #6B6560;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { background-color: var(--eggshell); color: var(--charcoal); font-family: 'Inter', system-ui, sans-serif; line-height: 1.7; -webkit-font-smoothing: antialiased; margin: 0; }
+
+    /* NAV */
+    .nav { position: sticky; top: 0; z-index: 50; background: var(--eggshell); border-bottom: 1px solid rgba(125,34,64,0.12); display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; height: 68px; }
+    .nav-brand { display: flex; flex-direction: column; line-height: 1.2; text-decoration: none; }
+    .nav-brand-name { font-family: 'Playfair Display', serif; font-size: 1.125rem; font-weight: 600; color: var(--charcoal); letter-spacing: -0.01em; }
+    .nav-brand-tag { font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); font-weight: 400; }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; margin: 0; padding: 0; }
+    .nav-links a { font-size: 0.875rem; font-weight: 400; color: var(--charcoal); text-decoration: none; letter-spacing: 0.01em; transition: color 0.2s ease; }
+    .nav-links a:hover { color: var(--burgundy); }
+    .nav-links a.active { color: var(--burgundy); font-weight: 500; }
+    .btn-nav { display: inline-flex; align-items: center; background: var(--gold); color: var(--charcoal); font-family: 'Inter', sans-serif; font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.02em; padding: 0.5rem 1.25rem; border-radius: 100px; border: none; cursor: pointer; text-decoration: none; transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease; box-shadow: 0 2px 8px rgba(201,168,71,0.3); }
+    .btn-nav:hover { background: var(--gold-dark); transform: translateY(-1px); }
+
+    /* PAGE HEADER */
+    .page-header {
+      background: var(--charcoal);
+      padding: 5rem 4rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-header::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 280px; height: 280px;
+      border-radius: 50%;
+      background: rgba(201,168,71,0.05);
+      pointer-events: none;
+    }
+    .page-header-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+
+    .eyebrow { font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.625rem; }
+    .eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1.5px; background: var(--gold); flex-shrink: 0; }
+
+    .page-heading { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem, 4vw, 3.5rem); font-weight: 600; line-height: 1.15; letter-spacing: -0.03em; color: #fff; margin: 0 0 1rem; }
+    .page-sub { font-size: 1rem; line-height: 1.75; color: rgba(255,255,255,0.6); max-width: 50ch; margin: 0; }
+
+    /* BLOG GRID */
+    .blog-section { padding: 5rem 4rem; max-width: 1100px; margin: 0 auto; }
+
+    /* FEATURED POST */
+    .post-featured {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      background: var(--surface);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(28,28,28,0.07);
+      box-shadow: 0 4px 32px rgba(125,34,64,0.08), 0 1px 6px rgba(0,0,0,0.04);
+      margin-bottom: 3rem;
+      transition: box-shadow 0.25s ease, transform 0.25s cubic-bezier(0.34,1.56,0.64,1);
+      text-decoration: none;
+      color: inherit;
+    }
+    .post-featured:hover {
+      box-shadow: 0 12px 48px rgba(125,34,64,0.14), 0 4px 12px rgba(0,0,0,0.06);
+      transform: translateY(-3px);
+    }
+
+    .post-featured-visual {
+      background: var(--charcoal);
+      position: relative;
+      overflow: hidden;
+      min-height: 340px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .post-featured-visual::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #7D2240 0%, #1C1C1C 100%);
+    }
+
+    .post-featured-visual::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+      background-size: 200px;
+      pointer-events: none;
+    }
+
+    .post-featured-number {
+      position: relative;
+      z-index: 1;
+      font-family: 'Playfair Display', serif;
+      font-size: 8rem;
+      font-weight: 700;
+      color: rgba(201,168,71,0.18);
+      line-height: 1;
+      user-select: none;
+    }
+
+    .post-featured-body {
+      padding: 2.5rem 2.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .post-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--burgundy);
+      background: rgba(125,34,64,0.07);
+      border: 1px solid rgba(125,34,64,0.15);
+      padding: 0.3rem 0.75rem;
+      border-radius: 100px;
+      margin-bottom: 1.25rem;
+      width: fit-content;
+    }
+
+    .post-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.4rem, 2vw, 1.75rem);
+      font-weight: 600;
+      color: var(--charcoal);
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+      margin: 0 0 1rem;
+    }
+
+    .post-excerpt {
+      font-size: 0.9375rem;
+      line-height: 1.72;
+      color: var(--muted);
+      margin: 0 0 1.75rem;
+    }
+
+    .post-meta {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      font-size: 0.8125rem;
+      color: var(--muted);
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(28,28,28,0.07);
+    }
+
+    .post-meta-dot { color: var(--gold); }
+
+    .post-read-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--burgundy);
+      text-decoration: none;
+      transition: gap 0.2s ease;
+    }
+    .post-read-more:hover { gap: 0.625rem; }
+    .post-read-more::after { content: '→'; }
+
+    /* SECONDARY POSTS GRID */
+    .posts-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+    }
+
+    .post-card {
+      background: var(--surface);
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(28,28,28,0.07);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s ease, transform 0.25s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .post-card:hover {
+      box-shadow: 0 8px 28px rgba(125,34,64,0.1), 0 2px 6px rgba(0,0,0,0.05);
+      transform: translateY(-4px);
+    }
+
+    .post-card-visual {
+      height: 140px;
+      background: var(--charcoal);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .post-card-visual-coming {
+      background: rgba(28,28,28,0.04);
+      border-bottom: 1px solid rgba(28,28,28,0.07);
+    }
+
+    .coming-soon-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(107,101,96,0.5);
+    }
+
+    .post-card-body { padding: 1.5rem 1.625rem 1.75rem; flex: 1; display: flex; flex-direction: column; }
+
+    .post-card-tag {
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--burgundy);
+      margin-bottom: 0.75rem;
+    }
+
+    .post-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.0625rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      line-height: 1.3;
+      letter-spacing: -0.015em;
+      margin: 0 0 0.625rem;
+      flex: 1;
+    }
+
+    .post-card-excerpt {
+      font-size: 0.875rem;
+      line-height: 1.65;
+      color: var(--muted);
+      margin: 0 0 1.25rem;
+    }
+
+    .post-card-meta {
+      font-size: 0.75rem;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    /* CTA BAND */
+    .cta-band { position: relative; background: linear-gradient(135deg, #7D2240 0%, #3D1020 55%, #1C1C1C 100%); padding: 5rem 4rem; overflow: hidden; }
+    .cta-band::before { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E"); background-size: 200px; pointer-events: none; }
+    .cta-band-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr auto; gap: 4rem; align-items: center; max-width: 1100px; margin: 0 auto; }
+    .cta-band-heading { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 2.5vw, 2.4rem); font-weight: 600; color: #fff; line-height: 1.2; letter-spacing: -0.025em; margin: 0 0 0.75rem; }
+    .cta-band-body { font-size: 1rem; color: rgba(255,255,255,0.65); line-height: 1.7; margin: 0; }
+    .cta-band-right { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; flex-shrink: 0; }
+    .cta-band-note { font-size: 0.75rem; color: rgba(255,255,255,0.4); text-align: center; }
+    .btn-gold { display: inline-flex; align-items: center; background: var(--gold); color: var(--charcoal); font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600; padding: 0.9375rem 2rem; border-radius: 100px; text-decoration: none; white-space: nowrap; transition: background 0.2s ease, transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s ease; box-shadow: 0 4px 20px rgba(201,168,71,0.35); }
+    .btn-gold:hover { background: var(--gold-dark); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(201,168,71,0.45); }
+
+    /* FOOTER */
+    footer { background: var(--charcoal); padding: 3.5rem 4rem 2rem; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 1.5rem; }
+    .footer-brand-name { font-family: 'Playfair Display', serif; font-size: 1.0625rem; font-weight: 600; color: #fff; margin-bottom: 0.25rem; }
+    .footer-brand-tag { font-size: 0.75rem; color: rgba(255,255,255,0.45); letter-spacing: 0.1em; text-transform: uppercase; }
+    .footer-nav { display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+    .footer-nav a { font-size: 0.8125rem; color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s ease; }
+    .footer-nav a:hover { color: var(--gold); }
+    .footer-linkedin { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.55); text-decoration: none; transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease; }
+    .footer-linkedin:hover { border-color: var(--gold); color: var(--gold); background: rgba(201,168,71,0.07); }
+    .footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.3); }
+
+    @media (max-width: 900px) {
+      .post-featured { grid-template-columns: 1fr; }
+      .post-featured-visual { min-height: 200px; }
+      .posts-grid { grid-template-columns: 1fr; }
+      .blog-section { padding: 3.5rem 1.5rem; }
+      .page-header { padding: 4rem 1.5rem 3rem; }
+      .cta-band { padding: 4rem 1.5rem; }
+      .cta-band-inner { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; gap: 2rem; }
+      .nav { padding: 0 1.25rem; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="index.html" class="nav-brand">
+      <span class="nav-brand-name">Alice Bazdikian</span>
+      <span class="nav-brand-tag">AI Strategist</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="workshops.html">Workshops</a></li>
+      <li><a href="scorecard.html">Scorecard</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+      <li><a href="mailto:alice@alicebazdikian.com" class="btn-nav">Book a Diagnostic</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="page-header-inner">
+      <p class="eyebrow">Perspectives</p>
+      <h1 class="page-heading">Practical AI Thinking<br>for Business Leaders</h1>
+      <p class="page-sub">No hype. No jargon. Just clear, actionable perspectives on what AI means for your business — and what to do about it.</p>
+    </div>
+  </div>
+
+  <!-- BLOG CONTENT -->
+  <div class="blog-section">
+
+    <!-- FEATURED POST -->
+    <a href="blog/ai-maturity-framework.html" class="post-featured">
+      <div class="post-featured-visual">
+        <div class="post-featured-number">4</div>
+      </div>
+      <div class="post-featured-body">
+        <div class="post-tag">AI Strategy</div>
+        <h2 class="post-title">The 4 Stages of AI Maturity: A Framework for Business Leaders</h2>
+        <p class="post-excerpt">
+          Most companies know they should be doing more with AI. What's harder to define is what "more" actually means in practice. This framework maps the four stages organizations move through — from scattered experiments to adaptive, organization-wide systems.
+        </p>
+        <div class="post-meta">
+          <span>March 9, 2026</span>
+          <span class="post-meta-dot">·</span>
+          <span>8 min read</span>
+          <span class="post-meta-dot">·</span>
+          <span class="post-read-more">Read article</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- COMING SOON CARDS -->
+    <div class="posts-grid">
+      <div class="post-card" style="opacity:0.55; cursor:default;">
+        <div class="post-card-visual post-card-visual-coming">
+          <span class="coming-soon-label">Coming Soon</span>
+        </div>
+        <div class="post-card-body">
+          <div class="post-card-tag">Data Security</div>
+          <div class="post-card-title">The 5 AI Data Risks Every SMB Leader Needs to Understand</div>
+          <p class="post-card-excerpt">Your employees are sharing more than you think. Here's what's at stake and how to protect your business.</p>
+          <div class="post-card-meta">Coming soon</div>
+        </div>
+      </div>
+
+      <div class="post-card" style="opacity:0.55; cursor:default;">
+        <div class="post-card-visual post-card-visual-coming">
+          <span class="coming-soon-label">Coming Soon</span>
+        </div>
+        <div class="post-card-body">
+          <div class="post-card-tag">Adoption</div>
+          <div class="post-card-title">How to Build an AI Usage Policy Your Team Will Actually Follow</div>
+          <p class="post-card-excerpt">The difference between a policy that collects dust and one that creates lasting behavioral change.</p>
+          <div class="post-card-meta">Coming soon</div>
+        </div>
+      </div>
+
+      <div class="post-card" style="opacity:0.55; cursor:default;">
+        <div class="post-card-visual post-card-visual-coming">
+          <span class="coming-soon-label">Coming Soon</span>
+        </div>
+        <div class="post-card-body">
+          <div class="post-card-tag">Leadership</div>
+          <div class="post-card-title">Why Your Employees Are Ahead of You on AI — and What to Do About It</div>
+          <p class="post-card-excerpt">The AI adoption gap between leadership and frontline teams is real. Here's how to close it strategically.</p>
+          <div class="post-card-meta">Coming soon</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CTA BAND -->
+  <section class="cta-band">
+    <div class="cta-band-inner">
+      <div>
+        <h2 class="cta-band-heading">Find Out Where Your Business Stands on AI</h2>
+        <p class="cta-band-body">Take the free 5-minute AI Readiness Scorecard and get a clear picture of your organization's maturity level — and your most important next step.</p>
+      </div>
+      <div class="cta-band-right">
+        <a href="scorecard.html" class="btn-gold">Take the AI Readiness Scorecard</a>
+        <span class="cta-band-note">Free · 5 minutes · Instant results</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand-name">Alice Bazdikian</div>
+        <div class="footer-brand-tag">AI Strategist + Educator</div>
+      </div>
+      <nav class="footer-nav">
+        <a href="about.html">About</a>
+        <a href="workshops.html">Workshops</a>
+        <a href="scorecard.html">Scorecard</a>
+        <a href="blog.html">Blog</a>
+        <a href="mailto:alice@alicebazdikian.com">Book a Diagnostic</a>
+        <a href="https://www.linkedin.com/in/alicebazdikian" class="footer-linkedin" aria-label="LinkedIn" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+      </nav>
+    </div>
+    <p class="footer-copy">© 2026 Alice Bazdikian · All rights reserved</p>
+  </footer>
+
+</body>
+</html>
