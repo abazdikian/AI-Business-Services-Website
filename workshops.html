@@ -3,7 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Workshops — Alice Bazdikian</title>
+  <title>AI Workshops for Teams | Alice Bazdikian — Toronto & Montreal</title>
+  <!-- SEO -->
+  <meta name="description" content="Practical AI workshops for business teams in Toronto, Montreal, and across Ontario. 90-minute to half-day sessions. Hands-on, jargon-free, and immediately applicable." />
+  <meta name="keywords" content="AI workshops Toronto, AI training for teams, corporate AI workshop, business AI training Ontario, AI workshop Montreal, hands-on AI training Canada" />
+  <link rel="canonical" href="https://www.smallbusinessaicoach.com/workshops.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="AI Workshops for Teams | Alice Bazdikian — Toronto & Montreal" />
+  <meta property="og:description" content="Practical AI workshops for business teams in Toronto, Montreal, and across Ontario. Hands-on, jargon-free, and immediately applicable." />
+  <meta property="og:url" content="https://www.smallbusinessaicoach.com/workshops.html" />
+  <meta property="og:image" content="https://www.smallbusinessaicoach.com/Brand%20Assets/_MCK3991.jpg" />
+  <meta property="og:site_name" content="Alice Bazdikian — Small Business AI Coach" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AI Workshops for Teams | Alice Bazdikian" />
+  <meta name="twitter:description" content="Practical AI workshops for business teams in Toronto, Montreal, and across Ontario." />
+  <meta name="twitter:image" content="https://www.smallbusinessaicoach.com/Brand%20Assets/_MCK3991.jpg" />
+  <meta name="geo.region" content="CA-ON" />
+  <meta name="geo.placename" content="Toronto, Ontario, Canada" />
+  <meta name="geo.position" content="43.6532;-79.3832" />
+  <meta name="ICBM" content="43.6532, -79.3832" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -41,9 +59,143 @@
     .btn-nav { display: inline-flex; align-items: center; background: var(--gold); color: var(--charcoal); font-family: 'Inter', sans-serif; font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.02em; padding: 0.5rem 1.25rem; border-radius: 100px; border: none; cursor: pointer; text-decoration: none; transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease; box-shadow: 0 2px 8px rgba(201,168,71,0.3); }
     .btn-nav:hover { background: var(--gold-dark); transform: translateY(-1px); box-shadow: 0 4px 14px rgba(201,168,71,0.4); }
 
+    /* ── WORKSHOP INTRO ── */
+    .ws-intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .ws-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.25rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .ws-list li {
+      padding-left: 1.25rem;
+      position: relative;
+      font-size: 0.9375rem;
+      line-height: 1.6;
+      color: var(--charcoal);
+    }
+
+    .ws-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--burgundy);
+      font-weight: 600;
+    }
+
+    .ws-list-warn li::before {
+      content: '⚠';
+      font-size: 0.75rem;
+      top: 2px;
+    }
+
+    .ws-callout {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--burgundy);
+      margin: 1.5rem 0 0.75rem;
+      font-style: italic;
+    }
+
+    .ws-body {
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      color: var(--muted);
+      margin: 0.75rem 0 0;
+    }
+
+    /* ── RISK CARD ── */
+    .ws-risk-card {
+      background: linear-gradient(160deg, #7D2240 0%, #5a1830 55%, #3d1022 100%);
+      border-radius: 16px;
+      padding: 2.25rem;
+      color: #fff;
+    }
+
+    .ws-risk-eyebrow {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin: 0 0 1rem;
+      line-height: 1.3;
+    }
+
+    .ws-risk-intro {
+      font-size: 0.9rem;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.75);
+      margin: 0 0 0.625rem;
+    }
+
+    .ws-risk-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.5rem 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .ws-risk-list li {
+      padding-left: 1.25rem;
+      position: relative;
+      font-size: 0.875rem;
+      line-height: 1.55;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .ws-risk-list li::before {
+      content: '·';
+      position: absolute;
+      left: 0.25rem;
+      color: var(--gold);
+      font-size: 1.2rem;
+      line-height: 1.2;
+    }
+
+    .ws-risk-list-warn li::before {
+      content: '✕';
+      font-size: 0.65rem;
+      top: 3px;
+      left: 0.1rem;
+      color: rgba(201,168,71,0.8);
+    }
+
+    .ws-risk-divider {
+      height: 1px;
+      background: rgba(255,255,255,0.12);
+      margin: 1.25rem 0;
+    }
+
+    .ws-risk-footer {
+      font-size: 0.9rem;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.8);
+      margin: 0.75rem 0 0;
+      border-top: 1px solid rgba(201,168,71,0.3);
+      padding-top: 1rem;
+    }
+
+    @media (max-width: 900px) {
+      .ws-intro-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+
     /* PAGE HEADER */
     .page-header {
-      background: var(--charcoal);
+      background-image: url('Brand%20Assets/workshop_hero.png');
+      background-size: cover;
+      background-position: center;
       padding: 5.5rem 4rem 4.5rem;
       position: relative;
       overflow: hidden;
@@ -52,12 +204,8 @@
     .page-header::before {
       content: '';
       position: absolute;
-      bottom: -100px;
-      right: -100px;
-      width: 350px;
-      height: 350px;
-      border-radius: 50%;
-      background: rgba(201, 168, 71, 0.05);
+      inset: 0;
+      background: linear-gradient(135deg, rgba(61,16,32,0.82) 0%, rgba(28,28,28,0.7) 100%);
       pointer-events: none;
     }
 
@@ -327,6 +475,34 @@
 
     .workshop-audience strong { color: var(--charcoal); }
 
+    .ws-customize-note {
+      font-size: 0.9rem;
+      color: var(--muted);
+      font-style: italic;
+      margin: 0 0 2rem;
+    }
+
+    .workshop-outcome {
+      background: rgba(201,168,71,0.08);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 8px 8px 0;
+      padding: 0.875rem 1.125rem;
+      font-size: 0.875rem;
+      line-height: 1.65;
+      color: var(--charcoal);
+      margin: 1.25rem 0 0;
+    }
+
+    .outcome-label {
+      display: block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.3rem;
+    }
+
     /* WHO IT'S FOR */
     .who-grid {
       display: grid;
@@ -432,6 +608,146 @@
     .footer-linkedin:hover { border-color: var(--gold); color: var(--gold); background: rgba(201,168,71,0.07); }
     .footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.3); }
 
+    /* BOOKING MODAL */
+    .modal-overlay { position: fixed; inset: 0; background: rgba(28,28,28,0.65); backdrop-filter: blur(6px); z-index: 200; display: flex; align-items: center; justify-content: center; padding: 1.5rem; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+    .modal-overlay.open { opacity: 1; pointer-events: auto; }
+    .modal-card { background: #fff; border-radius: 16px; width: 100%; max-width: 520px; padding: 2.5rem; box-shadow: 0 24px 64px rgba(0,0,0,0.2), 0 4px 16px rgba(0,0,0,0.08); transform: translateY(24px); transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1); position: relative; max-height: 90vh; overflow-y: auto; }
+    .modal-overlay.open .modal-card { transform: translateY(0); }
+    .modal-close-btn { position: absolute; top: 1.125rem; right: 1.125rem; background: none; border: none; cursor: pointer; color: var(--muted); font-size: 1.375rem; line-height: 1; padding: 0.25rem 0.5rem; border-radius: 6px; transition: color 0.2s ease, background 0.2s ease; }
+    .modal-close-btn:hover { color: var(--charcoal); background: rgba(28,28,28,0.06); }
+    .modal-eyebrow { font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--burgundy); background: rgba(125,34,64,0.07); border-radius: 6px; display: inline-block; padding: 0.375rem 0.75rem; margin-bottom: 1rem; }
+    .modal-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 600; color: var(--charcoal); letter-spacing: -0.02em; margin: 0 0 0.375rem; }
+    .modal-subtitle { font-size: 0.875rem; color: var(--muted); line-height: 1.6; margin: 0 0 1.75rem; }
+    .form-group { margin-bottom: 1.125rem; }
+    .form-label { display: block; font-size: 0.8125rem; font-weight: 500; color: var(--charcoal); margin-bottom: 0.375rem; }
+    .form-input { width: 100%; padding: 0.6875rem 1rem; border: 1.5px solid rgba(28,28,28,0.14); border-radius: 8px; font-family: 'Inter', sans-serif; font-size: 0.9375rem; color: var(--charcoal); background: #fff; transition: border-color 0.2s ease, box-shadow 0.2s ease; outline: none; box-sizing: border-box; }
+    .form-input:focus { border-color: var(--burgundy); box-shadow: 0 0 0 3px rgba(125,34,64,0.1); }
+    .form-input::placeholder { color: rgba(107,101,96,0.45); }
+    .modal-actions { display: flex; gap: 0.875rem; align-items: center; margin-top: 1.5rem; }
+    .btn-modal-submit { flex: 1; background: var(--burgundy); color: #fff; border: none; border-radius: 100px; padding: 0.875rem 1.5rem; font-family: 'Inter', sans-serif; font-size: 0.9375rem; font-weight: 600; cursor: pointer; transition: background 0.2s ease, transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s ease; box-shadow: 0 3px 14px rgba(125,34,64,0.25); }
+    .btn-modal-submit:hover:not(:disabled) { background: var(--burgundy-dark); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(125,34,64,0.35); }
+    .btn-modal-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+    .btn-modal-cancel { background: none; border: none; color: var(--muted); font-family: 'Inter', sans-serif; font-size: 0.875rem; cursor: pointer; padding: 0.5rem 0.75rem; border-radius: 6px; transition: color 0.2s ease; }
+    .btn-modal-cancel:hover { color: var(--charcoal); }
+    .modal-error-msg { margin-top: 1rem; padding: 0.75rem 1rem; background: rgba(200,50,50,0.07); border-radius: 8px; font-size: 0.875rem; color: #c0392b; display: none; }
+    .modal-success-view { text-align: center; padding: 0.5rem 0; display: none; }
+    .modal-success-icon { width: 60px; height: 60px; background: rgba(74,124,89,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; font-size: 1.75rem; }
+    .modal-success-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 600; color: var(--charcoal); margin: 0 0 0.625rem; }
+    .modal-success-text { font-size: 0.9375rem; color: var(--muted); line-height: 1.65; margin: 0 0 1.75rem; }
+
+    /* SCORECARD BAND */
+    .scorecard-band { position: fixed; bottom: 0; left: 0; right: 0; z-index: 99; background: var(--eggshell); border-top: 1px solid rgba(125,34,64,0.15); display: flex; align-items: center; justify-content: center; gap: 1.5rem; padding: 1rem 4rem; box-shadow: 0 -4px 24px rgba(0,0,0,0.08); }
+    .scorecard-band-text { margin: 0; font-size: 0.9375rem; color: var(--charcoal); }
+    .scorecard-band-text strong { color: var(--burgundy); }
+    .btn-band { display: inline-flex; align-items: center; background: var(--burgundy); color: #fff; font-family: 'Inter', sans-serif; font-size: 0.8125rem; font-weight: 600; padding: 0.5625rem 1.25rem; border-radius: 100px; text-decoration: none; white-space: nowrap; box-shadow: 0 2px 10px rgba(125,34,64,0.3); transition: background 0.2s ease, transform 0.15s ease; }
+    .btn-band:hover { background: var(--burgundy-dark); transform: translateY(-1px); }
+    .scorecard-band-close { position: absolute; right: 1.5rem; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: var(--muted); font-size: 1.25rem; line-height: 1; padding: 0.25rem 0.5rem; border-radius: 4px; transition: color 0.2s ease; }
+    .scorecard-band-close:hover { color: var(--charcoal); }
+
+    .btn-nav-outline {
+      display: inline-flex;
+      align-items: center;
+      background: transparent;
+      color: #C9A847;
+      border: 1.5px solid #C9A847;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      padding: 0.45rem 1.2rem;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+    }
+    .btn-nav-outline:hover {
+      background: #C9A847;
+      color: #1C1C1C;
+      transform: translateY(-1px);
+    }
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 6px;
+      transition: background 0.2s ease;
+    }
+    .nav-hamburger:hover { background: rgba(125,34,64,0.08); }
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #1C1C1C;
+      border-radius: 2px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .nav-hamburger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.is-open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 68px;
+      left: 0;
+      right: 0;
+      background: #F7F3EE;
+      border-bottom: 2px solid rgba(125,34,64,0.15);
+      padding: 0.25rem 2rem 1.25rem;
+      z-index: 48;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.1);
+      flex-direction: column;
+    }
+    .mobile-menu.is-open { display: flex; }
+    .mobile-menu a {
+      font-size: 0.9375rem;
+      font-weight: 400;
+      color: #1C1C1C;
+      text-decoration: none;
+      padding: 0.875rem 0.25rem;
+      border-bottom: 1px solid rgba(28,28,28,0.07);
+      transition: color 0.2s ease;
+    }
+    .mobile-menu a:hover { color: #7D2240; }
+    .mobile-menu .mob-cta {
+      background: #C9A847;
+      color: #1C1C1C !important;
+      font-weight: 600;
+      border-radius: 100px;
+      text-align: center;
+      justify-content: center;
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      border: none !important;
+      box-shadow: 0 2px 8px rgba(201,168,71,0.3);
+      display: inline-flex;
+    }
+    .mobile-menu .mob-cta:hover { background: #B8952E; }
+
+    .announce-band {
+      background: #7D2240;
+      padding: 0.5rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+    .announce-band-text {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.92);
+    }
+    .announce-band-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: #C9A847;
+      flex-shrink: 0;
+    }
+
     @media (max-width: 900px) {
       .workshop-card { grid-template-columns: 1fr; }
       .workshop-card-sidebar { padding: 1.75rem; }
@@ -445,6 +761,7 @@
       .footer-inner { flex-direction: column; gap: 2rem; }
       .nav { padding: 0 1.5rem; }
       .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
     }
   </style>
 </head>
@@ -458,12 +775,31 @@
     </a>
     <ul class="nav-links">
       <li><a href="about.html">About</a></li>
-      <li><a href="workshops.html" class="active">Workshops</a></li>
+      <li><a href="workshops.html" class="active btn-nav-outline">Work With Me</a></li>
       <li><a href="scorecard.html">Scorecard</a></li>
       <li><a href="blog.html">Blog</a></li>
-      <li><a href="mailto:alice@alicebazdikian.com" class="btn-nav">Book a Diagnostic</a></li>
+      <li><a href="https://calendly.com/abazdikian/15min-catch-up" class="btn-nav">Book a Diagnostic</a></li>
     </ul>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <a href="about.html">About</a>
+    <a href="workshops.html">Work With Me</a>
+    <a href="scorecard.html">Scorecard</a>
+    <a href="blog.html">Blog</a>
+    <a href="https://calendly.com/abazdikian/15min-catch-up" class="mob-cta">Book a Diagnostic</a>
+  </div>
+
+  <!-- ANNOUNCEMENT BAND -->
+  <div class="announce-band">
+    <span class="announce-band-dot"></span>
+    <span class="announce-band-text">AI without the Overwhelm</span>
+    <span class="announce-band-dot"></span>
+  </div>
 
   <!-- PAGE HEADER -->
   <div class="page-header">
@@ -483,11 +819,67 @@
     </div>
   </div>
 
+  <!-- INTRO + RISK SECTIONS -->
+  <section class="section section-alt">
+    <div class="section-inner">
+      <div class="ws-intro-grid">
+        <div>
+          <p class="section-eyebrow">AI Workshops for Businesses</p>
+          <h2 class="section-heading">Turn AI Anxiety Into AI Confidence — Safely</h2>
+          <ul class="ws-list">
+            <li>AI is already entering your workplace.</li>
+            <li>Your employees are experimenting with tools like ChatGPT.</li>
+            <li>Your competitors are exploring automation.</li>
+            <li>Your leadership team knows AI will impact the business.</li>
+          </ul>
+          <p class="ws-callout">But most organizations are facing a new and unexpected problem.</p>
+          <ul class="ws-list ws-list-warn">
+            <li>Employees are already using AI — <strong>without training.</strong></li>
+            <li>Sensitive company information can accidentally be shared.</li>
+            <li>Confidential documents can be uploaded to public AI tools.</li>
+            <li>Employees may unknowingly expose proprietary processes or customer data.</li>
+          </ul>
+          <p class="ws-body">At the same time, organizations don't want to ban AI — because the productivity benefits are enormous. The challenge is learning how to use AI <strong>safely, responsibly, and effectively.</strong></p>
+          <p class="ws-body">That's where I come in. I help organizations understand AI, manage the risks, and give teams the confidence to use it productively.</p>
+        </div>
+        <div class="ws-risk-card">
+          <p class="ws-risk-eyebrow">The Hidden Risk Most Companies Are Facing</p>
+          <p class="ws-risk-intro">Right now, in most organizations, employees are secretly experimenting with AI tools to help them work faster — using it for:</p>
+          <ul class="ws-risk-list">
+            <li>Writing emails</li>
+            <li>Summarizing documents</li>
+            <li>Brainstorming ideas</li>
+            <li>Analyzing data</li>
+            <li>Generating marketing content</li>
+          </ul>
+          <p class="ws-risk-intro" style="margin-top:1.25rem;">But without training, employees often don't know:</p>
+          <ul class="ws-risk-list ws-risk-list-warn">
+            <li>What information is safe to share with AI</li>
+            <li>What tools store data or learn from inputs</li>
+            <li>How to protect confidential company information</li>
+            <li>How to avoid exposing intellectual property</li>
+          </ul>
+          <div class="ws-risk-divider"></div>
+          <p class="ws-risk-intro"><strong>Many organizations are already experiencing:</strong></p>
+          <ul class="ws-risk-list ws-risk-list-warn">
+            <li>Unintentional data exposure</li>
+            <li>Confidential document uploads</li>
+            <li>Internal policy violations</li>
+            <li>Unreliable AI outputs used in business decisions</li>
+          </ul>
+          <p class="ws-risk-footer">The goal should not be to block AI. The goal should be to <strong>train your team to use it responsibly.</strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- WORKSHOPS -->
   <section class="section">
     <div class="section-inner">
       <p class="section-eyebrow">The Formats</p>
       <h2 class="section-heading">Choose the Format That Fits Your Team</h2>
+
+      <p class="ws-customize-note">All workshops can be customized for your organization and industry.</p>
 
       <div class="workshops-list">
 
@@ -498,27 +890,30 @@
             <div>
               <div class="workshop-duration">1.5 hrs</div>
               <div class="workshop-duration-label">Duration</div>
-              <div class="workshop-format">Leadership Overview</div>
+              <div class="workshop-format">Department Teams</div>
             </div>
           </div>
           <div class="workshop-card-body">
             <h2 class="workshop-title">AI for Business Fundamentals</h2>
             <p class="workshop-tagline">
-              A strategic orientation for leadership teams — covering what AI actually is, what your business risks are today, and how to build a clear, responsible adoption framework.
+              Perfect for department teams wanting a clear overview of AI and its impact on their business processes.
             </p>
             <div class="workshop-details">
-              <div class="detail-heading">What's covered</div>
+              <div class="detail-heading">Participants learn</div>
               <ul class="detail-list">
-                <li>What AI tools your employees are already using (and why it matters)</li>
-                <li>The top 5 data security and confidentiality risks SMBs face right now</li>
-                <li>How to create a simple, practical AI usage policy for your organization</li>
-                <li>The AI opportunity map — where your business can gain the most, fastest</li>
-                <li>Live Q&amp;A and leadership alignment session</li>
+                <li>What AI actually is (without technical jargon)</li>
+                <li>Where to start with AI: Claude, Gemini, ChatGPT, etc.</li>
+                <li>Prompting 101: How to talk to AI effectively to get the best results</li>
+                <li>Practical ways to use AI to save time and money in your role</li>
+                <li>The biggest risks and misconceptions about using AI in a business context</li>
               </ul>
             </div>
+            <div class="workshop-outcome">
+              <span class="outcome-label">Outcome</span>
+              Your team leaves with clarity about where to start with AI and awareness of both risks and opportunities to save up to 10 hours a week.
+            </div>
             <div class="workshop-footer">
-              <a href="mailto:alice@alicebazdikian.com" class="btn-book">Book This Workshop</a>
-              <span class="workshop-audience"><strong>Best for:</strong> Leadership teams, founders, department heads</span>
+              <button type="button" class="btn-book" onclick="openBookingModal('AI for Business Fundamentals')">Book This Workshop</button>
             </div>
           </div>
         </div>
@@ -536,21 +931,27 @@
           <div class="workshop-card-body">
             <h2 class="workshop-title">AI in Action: Practical Tools for Your Team</h2>
             <p class="workshop-tagline">
-              A hands-on working session for employees — exploring the AI tools most relevant to their day-to-day roles, with guided practice and immediate takeaways.
+              This hands-on workshop helps employees learn how to use AI tools safely and productively.
             </p>
             <div class="workshop-details">
-              <div class="detail-heading">What's covered</div>
+              <div class="detail-heading">Participants learn</div>
               <ul class="detail-list">
-                <li>Live demos of AI tools relevant to your team's specific workflows</li>
-                <li>How to write effective prompts for real work tasks (email, reports, analysis)</li>
-                <li>What to share with AI — and what to never share (data hygiene basics)</li>
-                <li>Hands-on practice time with guided exercises</li>
-                <li>A personal AI Action Plan for each participant to take home</li>
+                <li>What AI actually is (without technical jargon)</li>
+                <li>Where to start with AI: Claude, Gemini, ChatGPT, etc.</li>
+                <li>Prompting 101: How to talk to AI effectively to get the best results</li>
+                <li>How to use AI to save time and money in your role</li>
+                <li>The biggest risks and misconceptions about using AI in a business context</li>
+                <li>How to save hours per week with AI — integrations and automations (Claude, Claude Cowork)</li>
+                <li>Where AI fits into marketing, operations, and communication</li>
+                <li>How to evaluate AI outputs before using them in business decisions</li>
               </ul>
             </div>
+            <div class="workshop-outcome">
+              <span class="outcome-label">Outcome</span>
+              Employees leave with tools they can use immediately and a clear understanding of security boundaries.
+            </div>
             <div class="workshop-footer">
-              <a href="mailto:alice@alicebazdikian.com" class="btn-book">Book This Workshop</a>
-              <span class="workshop-audience"><strong>Best for:</strong> Employee teams, operations, marketing, sales</span>
+              <button type="button" class="btn-book" onclick="openBookingModal('AI in Action: Practical Tools for Your Team')">Book This Workshop</button>
             </div>
           </div>
         </div>
@@ -566,24 +967,25 @@
             </div>
           </div>
           <div class="workshop-card-body">
-            <h2 class="workshop-title">AI Productivity Lab</h2>
+            <h2 class="workshop-title">AI Productivity Lab with Claude Code</h2>
             <p class="workshop-tagline">
-              A comprehensive half-day workshop that combines strategic orientation with deep hands-on practice — designed to create lasting behavioral change across your organization.
+              A deeper workshop designed to help teams integrate AI into their workflows and start saving hours weekly right away while maintaining strong governance and security practices.
             </p>
             <div class="workshop-details">
-              <div class="detail-heading">What's covered</div>
+              <div class="detail-heading">Includes</div>
               <ul class="detail-list">
-                <li>Full AI landscape orientation tailored to your industry and team size</li>
-                <li>Deep-dive workflow integration: identify and automate your highest-leverage tasks</li>
-                <li>Build a custom AI usage policy live during the session</li>
-                <li>Department breakouts: customized practice for each team's real work</li>
-                <li>Team AI Readiness Action Plan — a 90-day roadmap for your organization</li>
-                <li>30-day follow-up check-in call included</li>
+                <li>Live demonstrations of how to set up Claude Code to automate workflows</li>
+                <li>Hands-on exercises using real workplace scenarios</li>
+                <li>Guidelines for safe and responsible AI usage</li>
+                <li>Practical AI workflows employees can immediately automate</li>
               </ul>
             </div>
+            <div class="workshop-outcome">
+              <span class="outcome-label">Outcome</span>
+              Your team leaves with clear AI productivity workflows and guardrails for safe adoption.
+            </div>
             <div class="workshop-footer">
-              <a href="mailto:alice@alicebazdikian.com" class="btn-book">Book This Workshop</a>
-              <span class="workshop-audience"><strong>Best for:</strong> Cross-functional teams, organization-wide rollouts</span>
+              <button type="button" class="btn-book" onclick="openBookingModal('AI Productivity Lab with Claude Code')">Book This Workshop</button>
             </div>
           </div>
         </div>
@@ -670,7 +1072,7 @@
       </div>
       <nav class="footer-nav">
         <a href="about.html">About</a>
-        <a href="workshops.html">Workshops</a>
+        <a href="workshops.html">Work With Me</a>
         <a href="scorecard.html">Scorecard</a>
         <a href="mailto:alice@alicebazdikian.com">Book a Diagnostic</a>
         <a href="https://www.linkedin.com/in/alicebazdikian" class="footer-linkedin" aria-label="LinkedIn" target="_blank" rel="noopener">
@@ -680,6 +1082,159 @@
     </div>
     <p class="footer-copy">© 2026 Alice Bazdikian · All rights reserved</p>
   </footer>
+
+  <!-- BOOKING MODAL -->
+  <div id="booking-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-card">
+      <button class="modal-close-btn" onclick="closeBookingModal()" aria-label="Close">×</button>
+
+      <!-- Form view -->
+      <div id="modal-form-view">
+        <div class="modal-eyebrow" id="modal-workshop-badge"></div>
+        <h2 class="modal-title" id="modal-title">Book This Workshop</h2>
+        <p class="modal-subtitle">Fill in your details and Alice will be in touch within 24 hours to confirm.</p>
+
+        <form id="booking-form" onsubmit="submitBookingForm(event)">
+          <div class="form-group">
+            <label class="form-label" for="b-name">Name *</label>
+            <input class="form-input" type="text" id="b-name" name="name" placeholder="Your full name" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="b-email">Email *</label>
+            <input class="form-input" type="email" id="b-email" name="email" placeholder="you@company.com" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="b-org">Organization *</label>
+            <input class="form-input" type="text" id="b-org" name="organization" placeholder="Your company or team name" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="b-people">How many people to train? *</label>
+            <input class="form-input" type="number" id="b-people" name="people_count" placeholder="e.g. 15" min="1" required />
+          </div>
+          <div class="modal-actions">
+            <button type="submit" class="btn-modal-submit" id="modal-submit-btn">Send Booking Request</button>
+            <button type="button" class="btn-modal-cancel" onclick="closeBookingModal()">Cancel</button>
+          </div>
+        </form>
+        <div class="modal-error-msg" id="modal-error"></div>
+      </div>
+
+      <!-- Success view -->
+      <div class="modal-success-view" id="modal-success-view">
+        <div class="modal-success-icon">✓</div>
+        <h3 class="modal-success-title">Request Sent!</h3>
+        <p class="modal-success-text">Thank you! Alice will review your booking request and get back to you within 24 hours to discuss the details.</p>
+        <button class="btn-modal-submit" style="max-width:160px;margin:0 auto;display:block;" onclick="closeBookingModal()">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCORECARD BAND -->
+  <div id="scorecard-band" class="scorecard-band">
+    <p class="scorecard-band-text">Is your business <strong>AI-ready?</strong> Find out in 5 minutes.</p>
+    <a href="scorecard.html" class="btn-band">Take the Scorecard →</a>
+    <button class="scorecard-band-close" onclick="dismissScorecardBand()" aria-label="Close">×</button>
+  </div>
+
+  <script>
+    // Scorecard band
+    (function() {
+      if (localStorage.getItem('scorecardBandDismissed')) {
+        document.getElementById('scorecard-band').style.display = 'none';
+      }
+    })();
+    function dismissScorecardBand() {
+      document.getElementById('scorecard-band').style.display = 'none';
+      localStorage.setItem('scorecardBandDismissed', '1');
+    }
+
+    // Booking modal
+    const SUPABASE_URL = 'https://krownfpcgaybmgneddia.supabase.co';
+    const ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtyb3duZnBjZ2F5Ym1nbmVkZGlhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI2NTA2NzMsImV4cCI6MjA4ODIyNjY3M30.Y_fqwUOl0xi_AAxKMl--ah-k3emn2DnC8EneG5ocJsY';
+
+    function openBookingModal(workshopTitle) {
+      document.getElementById('modal-workshop-badge').textContent = workshopTitle;
+      document.getElementById('modal-form-view').style.display = '';
+      document.getElementById('modal-success-view').style.display = 'none';
+      document.getElementById('modal-error').style.display = 'none';
+      document.getElementById('booking-form').reset();
+      document.getElementById('modal-submit-btn').disabled = false;
+      document.getElementById('modal-submit-btn').textContent = 'Send Booking Request';
+      document.getElementById('booking-modal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeBookingModal() {
+      document.getElementById('booking-modal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('booking-modal').addEventListener('click', function(e) {
+      if (e.target === this) closeBookingModal();
+    });
+
+    async function submitBookingForm(e) {
+      e.preventDefault();
+      const form = e.target;
+      const btn = document.getElementById('modal-submit-btn');
+      const errorDiv = document.getElementById('modal-error');
+
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      errorDiv.style.display = 'none';
+
+      const payload = {
+        name: form.querySelector('[name="name"]').value.trim(),
+        email: form.querySelector('[name="email"]').value.trim(),
+        organization: form.querySelector('[name="organization"]').value.trim(),
+        people_count: parseInt(form.querySelector('[name="people_count"]').value),
+        workshop_title: document.getElementById('modal-workshop-badge').textContent,
+      };
+
+      try {
+        const res = await fetch(`${SUPABASE_URL}/functions/v1/book-workshop`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${ANON_KEY}` },
+          body: JSON.stringify(payload),
+        });
+
+        if (!res.ok) {
+          const err = await res.json().catch(() => ({}));
+          throw new Error(err.error || 'Submission failed');
+        }
+
+        document.getElementById('modal-form-view').style.display = 'none';
+        document.getElementById('modal-success-view').style.display = 'block';
+      } catch (err) {
+        errorDiv.textContent = 'Something went wrong. Please try again or email abazdikian@gmail.com directly.';
+        errorDiv.style.display = 'block';
+        btn.disabled = false;
+        btn.textContent = 'Send Booking Request';
+      }
+    }
+  </script>
+
+  <script>
+    (function() {
+      var btn = document.getElementById('nav-hamburger');
+      var menu = document.getElementById('mobile-menu');
+      if (!btn || !menu) return;
+      btn.addEventListener('click', function() {
+        var open = menu.classList.toggle('is-open');
+        btn.classList.toggle('is-open', open);
+        btn.setAttribute('aria-expanded', open);
+        menu.setAttribute('aria-hidden', !open);
+      });
+      document.addEventListener('click', function(e) {
+        if (!btn.contains(e.target) && !menu.contains(e.target)) {
+          menu.classList.remove('is-open');
+          btn.classList.remove('is-open');
+          btn.setAttribute('aria-expanded', 'false');
+          menu.setAttribute('aria-hidden', 'true');
+        }
+      });
+    })();
+  </script>
 
 </body>
 </html>

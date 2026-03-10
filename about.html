@@ -3,7 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About — Alice Bazdikian, AI Strategist + Educator</title>
+  <title>About Alice Bazdikian | AI Coach for Small Business — Toronto</title>
+  <!-- SEO -->
+  <meta name="description" content="Meet Alice Bazdikian — 15+ years in business transformation, now helping SMBs in Toronto, Montreal, and across North America adopt AI safely and confidently." />
+  <meta name="keywords" content="Alice Bazdikian, AI coach Toronto, AI consultant Ontario, small business AI trainer, AI educator Canada, Montreal AI coach" />
+  <link rel="canonical" href="https://www.smallbusinessaicoach.com/about.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="About Alice Bazdikian | AI Coach for Small Business — Toronto" />
+  <meta property="og:description" content="15+ years in business transformation. Now helping SMBs in Toronto, Montreal, and across North America adopt AI without the overwhelm." />
+  <meta property="og:url" content="https://www.smallbusinessaicoach.com/about.html" />
+  <meta property="og:image" content="https://www.smallbusinessaicoach.com/Brand%20Assets/_MCK3991.jpg" />
+  <meta property="og:site_name" content="Alice Bazdikian — Small Business AI Coach" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="About Alice Bazdikian | AI Coach for Small Business" />
+  <meta name="twitter:description" content="15+ years in business transformation. Now helping SMBs adopt AI without the overwhelm." />
+  <meta name="twitter:image" content="https://www.smallbusinessaicoach.com/Brand%20Assets/_MCK3991.jpg" />
+  <meta name="geo.region" content="CA-ON" />
+  <meta name="geo.placename" content="Toronto, Ontario, Canada" />
+  <meta name="geo.position" content="43.6532;-79.3832" />
+  <meta name="ICBM" content="43.6532, -79.3832" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -175,7 +193,7 @@
     /* ── SECTION STYLES ── */
     .section { padding: 6rem 4rem; }
     .section-alt { background: var(--surface); }
-    .section-dark { background: var(--charcoal); }
+    .section-dark { background: linear-gradient(160deg, #7D2240 0%, #5a1830 55%, #3d1022 100%); }
 
     .section-inner { max-width: 1100px; margin: 0 auto; }
 
@@ -273,6 +291,72 @@
       color: var(--muted);
     }
 
+    /* ── PHILOSOPHY CARD ── */
+    .philosophy-card {
+      background: linear-gradient(160deg, #7D2240 0%, #5a1830 55%, #3d1022 100%);
+      border-radius: 16px;
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+      align-self: flex-start;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .philosophy-card::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,168,71,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .philosophy-eyebrow {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: -0.01em;
+      margin: 0 0 0.25rem;
+    }
+
+    .philosophy-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .philosophy-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: rgba(201, 168, 71, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+      color: var(--gold);
+    }
+
+    .philosophy-title {
+      font-weight: 700;
+      font-size: 0.9375rem;
+      color: #fff;
+      margin-bottom: 0.35rem;
+    }
+
+    .philosophy-desc {
+      font-size: 0.875rem;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.65);
+    }
+
     /* ── PHOTO SIDE ── */
     .about-photo-block {
       position: relative;
@@ -298,6 +382,32 @@
       border-radius: 14px;
       z-index: -1;
       opacity: 0.4;
+    }
+
+    /* ── TRUSTED BAND ── */
+    .trusted-band {
+      margin: 2rem 0 2.5rem;
+      padding: 1.75rem 2rem;
+      border-left: 3px solid var(--gold);
+      background: rgba(201, 168, 71, 0.06);
+      border-radius: 0 10px 10px 0;
+    }
+
+    .trusted-label {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin: 0 0 0.75rem;
+    }
+
+    .trusted-body {
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      color: var(--muted);
+      margin: 0 0 0.5rem;
     }
 
     /* ── CAREER TIMELINE ── */
@@ -485,6 +595,110 @@
     .footer-linkedin:hover { border-color: var(--gold); color: var(--gold); background: rgba(201,168,71,0.07); }
     .footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.3); }
 
+    .btn-nav-outline {
+      display: inline-flex;
+      align-items: center;
+      background: transparent;
+      color: #C9A847;
+      border: 1.5px solid #C9A847;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      padding: 0.45rem 1.2rem;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+    }
+    .btn-nav-outline:hover {
+      background: #C9A847;
+      color: #1C1C1C;
+      transform: translateY(-1px);
+    }
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 6px;
+      transition: background 0.2s ease;
+    }
+    .nav-hamburger:hover { background: rgba(125,34,64,0.08); }
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #1C1C1C;
+      border-radius: 2px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .nav-hamburger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.is-open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 68px;
+      left: 0;
+      right: 0;
+      background: #F7F3EE;
+      border-bottom: 2px solid rgba(125,34,64,0.15);
+      padding: 0.25rem 2rem 1.25rem;
+      z-index: 48;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.1);
+      flex-direction: column;
+    }
+    .mobile-menu.is-open { display: flex; }
+    .mobile-menu a {
+      font-size: 0.9375rem;
+      font-weight: 400;
+      color: #1C1C1C;
+      text-decoration: none;
+      padding: 0.875rem 0.25rem;
+      border-bottom: 1px solid rgba(28,28,28,0.07);
+      transition: color 0.2s ease;
+    }
+    .mobile-menu a:hover { color: #7D2240; }
+    .mobile-menu .mob-cta {
+      background: #C9A847;
+      color: #1C1C1C !important;
+      font-weight: 600;
+      border-radius: 100px;
+      text-align: center;
+      justify-content: center;
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      border: none !important;
+      box-shadow: 0 2px 8px rgba(201,168,71,0.3);
+      display: inline-flex;
+    }
+    .mobile-menu .mob-cta:hover { background: #B8952E; }
+
+    .announce-band {
+      background: #7D2240;
+      padding: 0.5rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+    .announce-band-text {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.92);
+    }
+    .announce-band-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: #C9A847;
+      flex-shrink: 0;
+    }
+
     @media (max-width: 900px) {
       .about-hero { grid-template-columns: 1fr; }
       .about-hero-photo { min-height: 50vh; order: -1; }
@@ -497,6 +711,7 @@
       .footer-inner { flex-direction: column; gap: 2rem; }
       .nav { padding: 0 1.5rem; }
       .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
       .timeline-item { grid-template-columns: 90px 1px 1fr; }
     }
   </style>
@@ -511,12 +726,31 @@
     </a>
     <ul class="nav-links">
       <li><a href="about.html" class="active">About</a></li>
-      <li><a href="workshops.html">Workshops</a></li>
+      <li><a href="workshops.html" class="btn-nav-outline">Work With Me</a></li>
       <li><a href="scorecard.html">Scorecard</a></li>
       <li><a href="blog.html">Blog</a></li>
-      <li><a href="mailto:alice@alicebazdikian.com" class="btn-nav">Book a Diagnostic</a></li>
+      <li><a href="https://calendly.com/abazdikian/15min-catch-up" class="btn-nav">Book a Diagnostic</a></li>
     </ul>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <a href="about.html">About</a>
+    <a href="workshops.html">Work With Me</a>
+    <a href="scorecard.html">Scorecard</a>
+    <a href="blog.html">Blog</a>
+    <a href="https://calendly.com/abazdikian/15min-catch-up" class="mob-cta">Book a Diagnostic</a>
+  </div>
+
+  <!-- ANNOUNCEMENT BAND -->
+  <div class="announce-band">
+    <span class="announce-band-dot"></span>
+    <span class="announce-band-text">AI without the Overwhelm</span>
+    <span class="announce-band-dot"></span>
+  </div>
 
   <!-- ABOUT HERO -->
   <section class="about-hero">
@@ -590,9 +824,44 @@
         </ul>
       </div>
 
-      <div class="about-photo-block">
-        <img src="Brand Assets/_MCK3991.jpg" alt="Alice Bazdikian — AI Strategist + Educator" />
+      <!-- MY PHILOSOPHY CARD -->
+      <div class="philosophy-card">
+        <p class="philosophy-eyebrow">My Philosophy</p>
+        <div class="philosophy-item">
+          <div class="philosophy-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+              <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
+          </div>
+          <div>
+            <div class="philosophy-title">Teach What Works NOW</div>
+            <div class="philosophy-desc">Not what worked years ago. Every framework, every guide, every workshop is built from current market realities and tested across real businesses. The AI landscape moves fast — my content moves with it.</div>
+          </div>
+        </div>
+        <div class="philosophy-item">
+          <div class="philosophy-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <div>
+            <div class="philosophy-title">Human Trust in the AI Era</div>
+            <div class="philosophy-desc">As AI becomes more prevalent, human connection becomes more valuable. That's why I show up face-on-camera, authentically, consistently. People don't just want information — they want someone they can trust to guide them through the noise.</div>
+          </div>
+        </div>
+        <div class="philosophy-item">
+          <div class="philosophy-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+            </svg>
+          </div>
+          <div>
+            <div class="philosophy-title">Action Over Perfection</div>
+            <div class="philosophy-desc">I wasn't born a natural speaker. I had a speech impediment. I was terrified of cameras. But I started anyway. Imperfectly. Consistently. That's what I teach — take action, learn, iterate, improve.</div>
+          </div>
+        </div>
       </div>
+
     </div>
   </section>
 
@@ -601,9 +870,14 @@
     <div class="section-inner">
       <p class="section-eyebrow">Experience</p>
       <h2 class="section-heading">15+ Years at the Intersection of Business &amp; Growth</h2>
-      <p class="section-body" style="margin-bottom:0">
+      <p class="section-body">
         Before AI, I spent over a decade driving business transformation across industries — which is exactly why I know what it takes to get real people to actually change how they work.
       </p>
+      <div class="trusted-band">
+        <p class="trusted-label">Trusted by Business Leaders</p>
+        <p class="trusted-body">I've spent more than 15 years helping organizations adopt technology and analytics that improve decision-making and operational performance.</p>
+        <p class="trusted-body" style="margin-bottom:0">Today, I help organizations translate the complexity of AI into practical tools their teams can use safely and productively.</p>
+      </div>
 
       <div class="timeline">
         <div class="timeline-item">
@@ -702,7 +976,7 @@
       </div>
       <nav class="footer-nav">
         <a href="about.html">About</a>
-        <a href="workshops.html">Workshops</a>
+        <a href="workshops.html">Work With Me</a>
         <a href="scorecard.html">Scorecard</a>
         <a href="mailto:alice@alicebazdikian.com">Book a Diagnostic</a>
         <a href="https://www.linkedin.com/in/alicebazdikian" class="footer-linkedin" aria-label="LinkedIn" target="_blank" rel="noopener">
@@ -712,6 +986,36 @@
     </div>
     <p class="footer-copy">© 2026 Alice Bazdikian · All rights reserved</p>
   </footer>
+
+  <!-- SCORECARD BAND -->
+  <div id="scorecard-band" style="position:fixed;bottom:0;left:0;right:0;z-index:99;background:#F7F3EE;border-top:1px solid rgba(125,34,64,0.15);display:flex;align-items:center;justify-content:center;gap:1.5rem;padding:0.875rem 4rem;box-shadow:0 -4px 24px rgba(0,0,0,0.08);">
+    <p style="margin:0;font-family:'Inter',sans-serif;font-size:0.9375rem;color:#1C1C1C;">Is your business <strong style="color:#7D2240;">AI-ready?</strong> Find out in 5 minutes.</p>
+    <a href="scorecard.html" style="display:inline-flex;align-items:center;background:#7D2240;color:#fff;font-family:'Inter',sans-serif;font-size:0.8125rem;font-weight:600;padding:0.5625rem 1.25rem;border-radius:100px;text-decoration:none;white-space:nowrap;box-shadow:0 2px 10px rgba(125,34,64,0.3);">Take the Scorecard →</a>
+    <button onclick="document.getElementById('scorecard-band').style.display='none';localStorage.setItem('scorecardBandDismissed','1')" style="position:absolute;right:1.5rem;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:#6B6560;font-size:1.375rem;line-height:1;padding:0.25rem 0.5rem;" aria-label="Close">×</button>
+  </div>
+  <script>(function(){if(localStorage.getItem('scorecardBandDismissed'))document.getElementById('scorecard-band').style.display='none';})();</script>
+
+  <script>
+    (function() {
+      var btn = document.getElementById('nav-hamburger');
+      var menu = document.getElementById('mobile-menu');
+      if (!btn || !menu) return;
+      btn.addEventListener('click', function() {
+        var open = menu.classList.toggle('is-open');
+        btn.classList.toggle('is-open', open);
+        btn.setAttribute('aria-expanded', open);
+        menu.setAttribute('aria-hidden', !open);
+      });
+      document.addEventListener('click', function(e) {
+        if (!btn.contains(e.target) && !menu.contains(e.target)) {
+          menu.classList.remove('is-open');
+          btn.classList.remove('is-open');
+          btn.setAttribute('aria-expanded', 'false');
+          menu.setAttribute('aria-hidden', 'true');
+        }
+      });
+    })();
+  </script>
 
 </body>
 </html>

@@ -3,7 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Alice Bazdikian — AI Strategist + Educator</title>
+  <title>Alice Bazdikian | Small Business AI Coach — Toronto, Montreal & Ontario</title>
+  <!-- SEO -->
+  <meta name="description" content="Alice Bazdikian helps small business owners and entrepreneurs in Toronto, Montreal, and across North America navigate AI with confidence. Practical AI workshops, diagnostics, and strategy — no jargon." />
+  <meta name="keywords" content="small business AI coach, AI workshops Toronto, AI strategy consultant, AI readiness, business AI training, Montreal AI consultant, Ontario AI coach, Alice Bazdikian" />
+  <link rel="canonical" href="https://www.smallbusinessaicoach.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Alice Bazdikian | Small Business AI Coach — Toronto, Montreal & Ontario" />
+  <meta property="og:description" content="Helping entrepreneurs and businesses in Toronto, Montreal, and across North America navigate the AI revolution — without the overwhelm." />
+  <meta property="og:url" content="https://www.smallbusinessaicoach.com/" />
+  <meta property="og:image" content="https://www.smallbusinessaicoach.com/Brand%20Assets/_MCK3991.jpg" />
+  <meta property="og:site_name" content="Alice Bazdikian — Small Business AI Coach" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Alice Bazdikian | Small Business AI Coach" />
+  <meta name="twitter:description" content="Helping entrepreneurs and businesses navigate the AI revolution — without the overwhelm." />
+  <meta name="twitter:image" content="https://www.smallbusinessaicoach.com/Brand%20Assets/_MCK3991.jpg" />
+  <meta name="geo.region" content="CA-ON" />
+  <meta name="geo.placename" content="Toronto, Ontario, Canada" />
+  <meta name="geo.position" content="43.6532;-79.3832" />
+  <meta name="ICBM" content="43.6532, -79.3832" />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -319,7 +337,7 @@
 
     /* ── STATS BAR ── */
     .stats-bar {
-      background: var(--charcoal);
+      background: var(--burgundy);
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       padding: 3rem 4rem;
@@ -522,6 +540,106 @@
       font-size: 1rem;
     }
 
+    /* ── PDF DOWNLOAD CARD ── */
+    .pdf-card {
+      margin-top: 1.25rem;
+      background: #fff;
+      border: 1px solid rgba(201,168,71,0.35);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+
+    .pdf-card-top {
+      display: flex;
+      align-items: center;
+      gap: 0.875rem;
+      margin-bottom: 1rem;
+    }
+
+    .pdf-card-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: rgba(201,168,71,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--gold);
+    }
+
+    .pdf-card-eyebrow {
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin: 0 0 0.2rem;
+    }
+
+    .pdf-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.9375rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin: 0;
+    }
+
+    .pdf-card-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.625rem;
+    }
+
+    .pdf-card-input {
+      background: var(--surface);
+      border: 1px solid rgba(28,28,28,0.15);
+      border-radius: 7px;
+      padding: 0.625rem 0.875rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      color: var(--charcoal);
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .pdf-card-input::placeholder { color: rgba(28,28,28,0.4); }
+    .pdf-card-input:focus { border-color: var(--gold); }
+
+    .pdf-card-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      background: var(--gold);
+      color: var(--charcoal);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 700;
+      padding: 0.675rem 1.25rem;
+      border-radius: 7px;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.15s;
+      width: 100%;
+    }
+
+    .pdf-card-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+    .pdf-card-btn:active { transform: translateY(0); }
+    .pdf-card-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+    .pdf-card-success {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--gold);
+      font-size: 0.875rem;
+      font-weight: 600;
+      padding: 0.5rem 0;
+    }
+
     /* ── GRADIENT CTA SECTION ── */
     .cta-band {
       position: relative;
@@ -697,6 +815,618 @@
       letter-spacing: 0.01em;
     }
 
+    /* ── TESTIMONIALS ── */
+    .testimonials-section {
+      padding: 6rem 4rem;
+      background: var(--surface);
+    }
+
+    .testimonials-section .section-eyebrow {
+      color: var(--gold);
+    }
+
+    .testimonials-section .section-heading {
+      color: var(--charcoal);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+      margin-top: 3rem;
+    }
+
+    .testimonial-card {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      min-height: 320px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      cursor: default;
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.45);
+    }
+
+    .testimonial-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.5s ease;
+    }
+
+    .testimonial-card:hover .testimonial-bg {
+      transform: scale(1.04);
+    }
+
+    .testimonial-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(20,55,20,0.82) 0%, rgba(20,55,20,0.45) 55%, rgba(20,55,20,0.1) 100%);
+    }
+
+    .testimonial-tint {
+      position: absolute;
+      inset: 0;
+      background: rgba(30, 80, 30, 0.15);
+      mix-blend-mode: multiply;
+    }
+
+    .testimonial-content {
+      position: relative;
+      z-index: 2;
+      padding: 2rem 1.75rem 1.875rem;
+    }
+
+    .testimonial-quote-mark {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      line-height: 1;
+      color: var(--gold);
+      opacity: 0.7;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .testimonial-text {
+      font-size: 0.9375rem;
+      line-height: 1.72;
+      color: rgba(255,255,255,0.92);
+      font-style: italic;
+      margin: 0 0 1.25rem;
+    }
+
+    .testimonial-divider {
+      width: 28px;
+      height: 1.5px;
+      background: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+
+    .testimonial-attribution {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* ── AI-FIRST MINDSET SECTION ── */
+    .mindset-section {
+      padding: 6rem 4rem;
+      background: var(--eggshell);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mindset-section::before {
+      content: '';
+      position: absolute;
+      top: -120px;
+      right: -80px;
+      width: 480px;
+      height: 480px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,168,71,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .mindset-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .mindset-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-top: 0;
+    }
+
+    .mindset-step {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+    }
+
+    .mindset-step-num {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--burgundy);
+      color: #fff;
+      font-family: 'Playfair Display', serif;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+
+    .mindset-step-body {
+      flex: 1;
+    }
+
+    .mindset-step-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.0625rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin: 0 0 0.375rem;
+      letter-spacing: -0.01em;
+    }
+
+    .mindset-step-text {
+      font-size: 0.9375rem;
+      line-height: 1.72;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .mindset-highlight {
+      background: var(--surface);
+      border-radius: 12px;
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(125,34,64,0.12);
+      box-shadow: 0 4px 24px rgba(125,34,64,0.07), 0 1px 4px rgba(0,0,0,0.04);
+    }
+
+    .mindset-highlight::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--burgundy), var(--gold));
+    }
+
+    .mindset-highlight-eyebrow {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--burgundy);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .mindset-highlight-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 1.5px;
+      background: var(--burgundy);
+    }
+
+    .mindset-highlight-q {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      font-style: italic;
+      color: var(--burgundy);
+      line-height: 1.35;
+      margin: 0 0 1.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    .mindset-highlight-body {
+      font-size: 0.9375rem;
+      line-height: 1.75;
+      color: var(--muted);
+    }
+
+    .mindset-ai-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 1.75rem;
+      padding: 0.5rem 1rem;
+      background: rgba(125,34,64,0.06);
+      border: 1px solid rgba(125,34,64,0.18);
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--burgundy);
+    }
+
+    /* ── POPUP ── */
+    .quiz-popup-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(28,28,28,0.55);
+      backdrop-filter: blur(4px);
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+    }
+
+    .quiz-popup-overlay.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .quiz-popup-card {
+      background: var(--eggshell);
+      border-radius: 16px;
+      padding: 3rem 2.75rem 2.5rem;
+      max-width: 460px;
+      width: 90%;
+      position: relative;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.22), 0 4px 16px rgba(0,0,0,0.1);
+      transform: translateY(20px);
+      transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+      border-top: 4px solid var(--gold);
+    }
+
+    .quiz-popup-overlay.visible .quiz-popup-card {
+      transform: translateY(0);
+    }
+
+    .quiz-popup-close {
+      position: absolute;
+      top: 1rem;
+      right: 1.25rem;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--muted);
+      cursor: pointer;
+      line-height: 1;
+      padding: 0.25rem;
+      transition: color 0.2s ease;
+    }
+
+    .quiz-popup-close:hover { color: var(--charcoal); }
+
+    .quiz-popup-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.625rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+      margin: 0.75rem 0 0.875rem;
+    }
+
+    .quiz-popup-body {
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      color: var(--muted);
+      margin: 0 0 1.75rem;
+    }
+
+    .quiz-popup-dismiss {
+      display: block;
+      margin-top: 1rem;
+      background: none;
+      border: none;
+      font-size: 0.8125rem;
+      color: var(--muted);
+      cursor: pointer;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.2s ease;
+    }
+
+    .quiz-popup-dismiss:hover { color: var(--charcoal); }
+
+    /* ── WAYS TO WORK WITH ME ── */
+    .workwithme-section {
+      padding: 6rem 4rem;
+      background: var(--eggshell);
+    }
+
+    .workwithme-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+      margin-top: 3rem;
+    }
+
+    .workwithme-card {
+      background: var(--surface);
+      border-radius: 12px;
+      padding: 2.5rem 2rem 2.25rem;
+      border: 1px solid rgba(28,28,28,0.07);
+      box-shadow: 0 4px 20px rgba(125,34,64,0.06), 0 1px 3px rgba(0,0,0,0.04);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.25s ease;
+    }
+
+    .workwithme-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 36px rgba(125,34,64,0.11), 0 4px 10px rgba(0,0,0,0.06);
+    }
+
+    .workwithme-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.3rem 0.75rem;
+      border-radius: 100px;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+      width: fit-content;
+    }
+
+    .workwithme-tag-workshop {
+      background: rgba(125,34,64,0.08);
+      color: var(--burgundy);
+    }
+
+    .workwithme-tag-diagnostic {
+      background: rgba(201,168,71,0.12);
+      color: var(--gold-dark);
+    }
+
+    .workwithme-tag-scorecard {
+      background: rgba(45,90,39,0.09);
+      color: #2d5a27;
+    }
+
+    .workwithme-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3125rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin: 0 0 0.75rem;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+    }
+
+    .workwithme-body {
+      font-size: 0.9375rem;
+      line-height: 1.72;
+      color: var(--muted);
+      margin: 0 0 1.75rem;
+      flex: 1;
+    }
+
+    .workwithme-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--burgundy);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: gap 0.2s ease, color 0.2s ease;
+    }
+
+    .workwithme-link:hover {
+      gap: 0.625rem;
+      color: var(--burgundy-dark);
+    }
+
+    .workwithme-link::after { content: '→'; }
+
+    /* ── ANNOUNCEMENT BAND ── */
+    .announce-band {
+      background: var(--burgundy);
+      padding: 0.5rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+    .announce-band-text {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.92);
+    }
+    .announce-band-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    /* ── HERO TAGLINE ── */
+    .hero-tagline {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 2.5rem;
+      right: 2rem;
+      z-index: 3;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.2rem, 2vw, 1.75rem);
+      font-style: italic;
+      font-weight: 500;
+      color: var(--gold);
+      line-height: 1.35;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.75);
+    }
+
+    /* ── WORK WITH ME OUTLINE BUTTON ── */
+    .btn-nav-outline {
+      display: inline-flex;
+      align-items: center;
+      background: transparent;
+      color: var(--gold);
+      border: 1.5px solid var(--gold);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      padding: 0.45rem 1.2rem;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+    }
+    .btn-nav-outline:hover {
+      background: var(--gold);
+      color: var(--charcoal);
+      transform: translateY(-1px);
+    }
+
+    /* ── HAMBURGER ── */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 6px;
+      transition: background 0.2s ease;
+    }
+    .nav-hamburger:hover { background: rgba(125,34,64,0.08); }
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--charcoal);
+      border-radius: 2px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .nav-hamburger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.is-open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ── MOBILE MENU ── */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 68px;
+      left: 0;
+      right: 0;
+      background: var(--eggshell);
+      border-bottom: 2px solid rgba(125,34,64,0.15);
+      padding: 0.25rem 2rem 1.25rem;
+      z-index: 48;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.1);
+      flex-direction: column;
+    }
+    .mobile-menu.is-open { display: flex; }
+    .mobile-menu a {
+      font-size: 0.9375rem;
+      font-weight: 400;
+      color: var(--charcoal);
+      text-decoration: none;
+      padding: 0.875rem 0.25rem;
+      border-bottom: 1px solid rgba(28,28,28,0.07);
+      transition: color 0.2s ease;
+    }
+    .mobile-menu a:hover { color: var(--burgundy); }
+    .mobile-menu .mob-cta {
+      background: var(--gold);
+      color: var(--charcoal) !important;
+      font-weight: 600;
+      border-radius: 100px;
+      text-align: center;
+      justify-content: center;
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      border: none !important;
+      box-shadow: 0 2px 8px rgba(201,168,71,0.3);
+      display: inline-flex;
+    }
+    .mobile-menu .mob-cta:hover { background: var(--gold-dark); }
+
+    /* ── PUZZLE TESTIMONIALS ── */
+    .puzzle-row {
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      margin-top: 2.5rem;
+    }
+    .puzzle-piece-1 {
+      width: 320px;
+      height: 230px;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 3;
+      background: #2D5A4F;
+      clip-path: path('M 0,0 L 280,0 L 280,85 Q 320,85 320,115 Q 320,145 280,145 L 280,230 L 0,230 Z');
+      filter: drop-shadow(3px 4px 12px rgba(0,0,0,0.25));
+    }
+    .puzzle-piece-2 {
+      width: 360px;
+      height: 230px;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 2;
+      margin-left: -40px;
+      background: #7D2240;
+      clip-path: path('M 0,0 L 320,0 L 320,85 Q 360,85 360,115 Q 360,145 320,145 L 320,230 L 0,230 L 0,145 Q 40,145 40,115 Q 40,85 0,85 Z');
+      filter: drop-shadow(3px 4px 12px rgba(0,0,0,0.25));
+    }
+    .puzzle-piece-3 {
+      width: 320px;
+      height: 230px;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+      margin-left: -40px;
+      background: #2B3A52;
+      clip-path: path('M 0,0 L 320,0 L 320,230 L 0,230 L 0,145 Q 40,145 40,115 Q 40,85 0,85 Z');
+      filter: drop-shadow(3px 4px 12px rgba(0,0,0,0.25));
+    }
+    .pp-inner {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+    }
+    .puzzle-piece-1 .pp-inner { padding: 1.5rem 2.75rem 1.5rem 1.75rem; }
+    .puzzle-piece-2 .pp-inner { padding: 1.5rem 2.75rem 1.5rem 3rem; }
+    .puzzle-piece-3 .pp-inner { padding: 1.5rem 1.75rem 1.5rem 3rem; }
+    .pp-quote { font-family: 'Playfair Display', serif; font-size: 2.25rem; font-weight: 700; color: var(--gold); line-height: 1; opacity: 0.8; margin-bottom: 0.125rem; }
+    .pp-text { font-size: 0.875rem; line-height: 1.65; color: rgba(255,255,255,0.9); margin: 0.25rem 0 0.75rem; }
+    .pp-divider { width: 20px; height: 1.5px; background: var(--gold); opacity: 0.55; margin-bottom: 0.5rem; }
+    .pp-attr { font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.42); }
+
     /* ── MOBILE ── */
     @media (max-width: 900px) {
       .hero { grid-template-columns: 1fr; }
@@ -712,6 +1442,16 @@
       .footer-nav { flex-wrap: wrap; gap: 1rem; }
       .nav { padding: 0 1.5rem; }
       .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .puzzle-row { flex-direction: column; align-items: stretch; gap: 1rem; margin-top: 1.5rem; }
+      .puzzle-piece-1, .puzzle-piece-2, .puzzle-piece-3 { clip-path: none; width: 100%; height: auto; margin-left: 0; border-radius: 10px; filter: none; }
+      .puzzle-piece-1 .pp-inner, .puzzle-piece-2 .pp-inner, .puzzle-piece-3 .pp-inner { padding: 1.5rem 1.75rem; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .testimonials-section { padding: 4rem 2rem; }
+      .mindset-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .mindset-section { padding: 4rem 2rem; }
+      .workwithme-grid { grid-template-columns: 1fr; }
+      .workwithme-section { padding: 4rem 2rem; }
     }
   </style>
 </head>
@@ -727,14 +1467,33 @@
     </a>
     <ul class="nav-links">
       <li><a href="about.html">About</a></li>
-      <li><a href="workshops.html">Workshops</a></li>
+      <li><a href="workshops.html" class="btn-nav-outline">Work With Me</a></li>
       <li><a href="scorecard.html">Scorecard</a></li>
       <li><a href="blog.html">Blog</a></li>
       <li>
-        <a href="mailto:alice@alicebazdikian.com" class="btn-nav">Book a Diagnostic</a>
+        <a href="https://calendly.com/abazdikian/15min-catch-up" class="btn-nav">Book a Diagnostic</a>
       </li>
     </ul>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <a href="about.html">About</a>
+    <a href="workshops.html">Work With Me</a>
+    <a href="scorecard.html">Scorecard</a>
+    <a href="blog.html">Blog</a>
+    <a href="https://calendly.com/abazdikian/15min-catch-up" class="mob-cta">Book a Diagnostic</a>
+  </div>
+
+  <!-- ═══════════ ANNOUNCEMENT BAND ═══════════ -->
+  <div class="announce-band">
+    <span class="announce-band-dot"></span>
+    <span class="announce-band-text">AI without the Overwhelm</span>
+    <span class="announce-band-dot"></span>
+  </div>
 
   <!-- ═══════════ HERO ═══════════ -->
   <section class="hero">
@@ -747,6 +1506,7 @@
       />
       <div class="hero-photo-overlay"></div>
       <div class="hero-photo-tint"></div>
+      <p class="hero-tagline">Helping entrepreneurs and businesses<br>navigate the AI revolution.</p>
     </div>
 
     <!-- Right: Content -->
@@ -766,8 +1526,8 @@
         <a href="scorecard.html" class="btn-primary">
           Take the AI Readiness Scorecard
         </a>
-        <a href="mailto:alice@alicebazdikian.com" class="btn-secondary">
-          Book an AI Readiness Diagnostic
+        <a href="https://calendly.com/abazdikian/15min-catch-up" target="_blank" rel="noopener" class="btn-secondary">
+          Work with Me — Book a Free AI Diagnostic
         </a>
       </div>
     </div>
@@ -776,89 +1536,191 @@
   <!-- ═══════════ STATS BAR ═══════════ -->
   <div class="stats-bar">
     <div class="stat-item">
-      <span class="stat-number">15+</span>
-      <span class="stat-label">Years of Business Experience</span>
+      <span class="stat-number">500+</span>
+      <span class="stat-label">Users of Technology Trained</span>
     </div>
     <div class="stat-item">
-      <span class="stat-number">3</span>
-      <span class="stat-label">Workshop Formats</span>
+      <span class="stat-number">100+</span>
+      <span class="stat-label">Entrepreneurs Trained on AI</span>
     </div>
     <div class="stat-item">
-      <span class="stat-number">4</span>
-      <span class="stat-label">Industries Transformed</span>
+      <span class="stat-number">20</span>
+      <span class="stat-label">Years Cross-Functional Business Experience</span>
     </div>
     <div class="stat-item">
-      <span class="stat-number">5 min</span>
-      <span class="stat-label">AI Readiness Scorecard</span>
+      <span class="stat-number" style="font-size:1.75rem; line-height:1.2;">Entrepreneur<br><span style="color:rgba(255,255,255,0.55); font-size:1.1rem;">+ Author</span></span>
     </div>
   </div>
 
-  <!-- ═══════════ CREDENTIALS STRIP ═══════════ -->
-  <div class="credentials-strip">
-    <span class="credentials-label">15+ years transforming organizations at</span>
-    <div class="credentials-divider"></div>
-    <div class="credentials-companies">
-      <span class="credentials-company">AB InBev</span>
-      <span class="credentials-dot">·</span>
-      <span class="credentials-company">PostBeyond</span>
-      <span class="credentials-dot">·</span>
-      <span class="credentials-company">Ample Organics</span>
-      <span class="credentials-dot">·</span>
-      <span class="credentials-company">Nulogy</span>
-    </div>
-  </div>
-
-  <!-- ═══════════ WHY IT MATTERS / CARDS ═══════════ -->
+  <!-- ═══════════ WAYS TO WORK WITH ME ═══════════ -->
   <section class="section-gap" id="workshops">
     <div style="max-width: 1100px; margin: 0 auto;">
-      <p class="section-eyebrow">Why It Matters</p>
-      <h2 class="section-heading">The AI Gap Is Already Forming</h2>
-      <p class="section-body">
-        Your employees are already using AI tools — often without guidelines, training, or any awareness of the risks. Every day without a clear strategy is a day your business falls further behind and exposes itself to real data security and liability concerns. The barrier to AI adoption isn't technology. It's fear and confusion — and that's exactly where I come in.
-      </p>
+      <div style="text-align: center; margin-bottom: 2.5rem;">
+        <p class="section-eyebrow" style="justify-content: center;">Work With Me</p>
+        <h2 class="section-heading" style="max-width: 100%;">Three Ways to Get Started</h2>
+      </div>
 
-      <div class="cards-grid">
-        <!-- Card 1: Scorecard -->
-        <div class="card" id="scorecard">
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/>
-              <rect x="9" y="3" width="6" height="4" rx="2"/>
-              <path d="M9 12l2 2 4-4"/>
-            </svg>
-          </div>
-          <h3 class="card-title">AI Readiness Scorecard</h3>
-          <p class="card-body">Find out where your business stands in 5 minutes — across AI awareness, data security, employee training, and productivity opportunities.</p>
-          <a href="scorecard.html" class="card-link">Take the Scorecard</a>
+      <div class="workwithme-grid">
+        <div class="workwithme-card">
+          <span class="workwithme-tag workwithme-tag-workshop">Workshops</span>
+          <h3 class="workwithme-title">AI Workshops for Your Team</h3>
+          <p class="workwithme-body">Three formats from 90 minutes to a half-day. Built for real employees and leadership teams — not engineers. Practical, hands-on, and immediately applicable.</p>
+          <a href="workshops.html" class="workwithme-link">Explore Workshops</a>
         </div>
 
-        <!-- Card 2: Workshops -->
-        <div class="card">
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
-              <circle cx="9" cy="7" r="4"/>
-              <path d="M23 21v-2a4 4 0 00-3-3.87"/>
-              <path d="M16 3.13a4 4 0 010 7.75"/>
-            </svg>
-          </div>
-          <h3 class="card-title">AI Workshops for Your Team</h3>
-          <p class="card-body">Three formats from 90 minutes to a half-day. Built for real employees and leadership teams — not engineers. Practical, hands-on, and immediately applicable.</p>
-          <a href="workshops.html" class="card-link">Explore Workshops</a>
+        <div class="workwithme-card">
+          <span class="workwithme-tag workwithme-tag-diagnostic">1-on-1 Diagnostic</span>
+          <h3 class="workwithme-title">Free AI Readiness Diagnostic</h3>
+          <p class="workwithme-body">A focused 15-minute session to map your current AI exposure, identify your biggest risks, and surface your most immediate opportunities for safe adoption.</p>
+          <a href="https://calendly.com/abazdikian/15min-catch-up" target="_blank" rel="noopener" class="workwithme-link">Book a Free Session</a>
         </div>
 
-        <!-- Card 3: Diagnostic -->
-        <div class="card" id="diagnostic">
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="11" cy="11" r="8"/>
-              <path d="M21 21l-4.35-4.35"/>
-              <path d="M11 8v6M8 11h6"/>
-            </svg>
+        <div class="workwithme-card">
+          <span class="workwithme-tag workwithme-tag-scorecard">Free · 5 min</span>
+          <h3 class="workwithme-title">AI Readiness Scorecard</h3>
+          <p class="workwithme-body">Find out exactly where your business stands across AI awareness, data security, employee training, and productivity — in under 5 minutes.</p>
+          <a href="scorecard.html" class="workwithme-link">Take the Scorecard</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ TESTIMONIALS ═══════════ -->
+  <section class="testimonials-section">
+    <div style="max-width: 1100px; margin: 0 auto;">
+      <p class="section-eyebrow" style="color: var(--gold);">What People Say</p>
+      <h2 class="section-heading" style="max-width: 28ch;">Real Feedback from Real Participants</h2>
+
+      <!-- ROW 1 -->
+      <div class="puzzle-row" style="margin-top: 2.5rem;">
+        <div class="puzzle-piece-1">
+          <div class="pp-inner">
+            <span class="pp-quote">"</span>
+            <p class="pp-text">Please pass on my thanks to Alice. It was a great session. Very useful in so many ways.</p>
+            <div class="pp-divider"></div>
+            <span class="pp-attr">Workshop Participant</span>
           </div>
-          <h3 class="card-title">AI Readiness Diagnostic</h3>
-          <p class="card-body">A focused 1-on-1 session to map your current AI exposure, identify the biggest risks, and surface your most immediate opportunities for safe adoption.</p>
-          <a href="mailto:alice@alicebazdikian.com" class="card-link">Book a Session</a>
+        </div>
+        <div class="puzzle-piece-2">
+          <div class="pp-inner">
+            <span class="pp-quote">"</span>
+            <p class="pp-text">Well Done Alice! I needed this today. Now I need practice. Thanks again.</p>
+            <div class="pp-divider"></div>
+            <span class="pp-attr">Workshop Participant</span>
+          </div>
+        </div>
+        <div class="puzzle-piece-3">
+          <div class="pp-inner">
+            <span class="pp-quote">"</span>
+            <p class="pp-text">Alice was very good at helping attendees gain an understanding with questions.</p>
+            <div class="pp-divider"></div>
+            <span class="pp-attr">Workshop Participant</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROW 2 -->
+      <div class="puzzle-row" style="margin-top: 0.625rem;">
+        <div class="puzzle-piece-1" style="background:#3A4A2A;">
+          <div class="pp-inner">
+            <span class="pp-quote">"</span>
+            <p class="pp-text">Well knowledgeable instructor, Excellent presentation</p>
+            <div class="pp-divider"></div>
+            <span class="pp-attr">Workshop Participant</span>
+          </div>
+        </div>
+        <div class="puzzle-piece-2" style="background:#4A2535;">
+          <div class="pp-inner">
+            <span class="pp-quote">"</span>
+            <p class="pp-text">The different strategies the facilitator offered to use AI and get the maximum results to support business activities</p>
+            <div class="pp-divider"></div>
+            <span class="pp-attr">Workshop Participant</span>
+          </div>
+        </div>
+        <div class="puzzle-piece-3" style="background:#1A3045;">
+          <div class="pp-inner">
+            <span class="pp-quote">"</span>
+            <p class="pp-text">Everything was valuable learning all you can do about a business with AI</p>
+            <div class="pp-divider"></div>
+            <span class="pp-attr">Workshop Participant</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════ AI-FIRST MINDSET ═══════════ -->
+  <section class="mindset-section">
+    <div class="mindset-inner">
+      <div>
+        <p class="section-eyebrow">Mindset Shift</p>
+        <h2 class="section-heading">Adopt an AI&#8209;First Mindset</h2>
+        <p class="section-body" style="margin-bottom: 2.5rem;">
+          Building an AI-First mindset involves transitioning from a manual-first approach to one where technology is leveraged at the start of a process.
+        </p>
+
+        <div class="mindset-steps">
+          <div class="mindset-step">
+            <div class="mindset-step-num">1</div>
+            <div class="mindset-step-body">
+              <h3 class="mindset-step-title">Ask the Core Question</h3>
+              <p class="mindset-step-text">For every task, begin by asking, "Can AI help with this?" or "Could this be done faster or smarter with AI?"</p>
+            </div>
+          </div>
+          <div class="mindset-step">
+            <div class="mindset-step-num">2</div>
+            <div class="mindset-step-body">
+              <h3 class="mindset-step-title">Let AI Handle the First Draft</h3>
+              <p class="mindset-step-text">Let AI handle the initial step while you focus on finessing the output — your expertise shapes the result, AI accelerates it.</p>
+            </div>
+          </div>
+          <div class="mindset-step">
+            <div class="mindset-step-num">3</div>
+            <div class="mindset-step-body">
+              <h3 class="mindset-step-title">Finesse &amp; Own the Output</h3>
+              <p class="mindset-step-text">Review, refine, and apply your judgment. AI gives you the starting line — you bring the finish.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="mindset-highlight">
+          <p class="mindset-highlight-eyebrow">The Core Shift</p>
+          <p class="mindset-highlight-q">"Can AI help with this?"</p>
+          <p class="mindset-highlight-body">
+            That single question is the foundation of an AI-First mindset. Ask it before every task — meetings, emails, research, planning — and watch how your relationship with work transforms.
+          </p>
+          <div class="mindset-ai-badge">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+            Start with AI · Finesse the output
+          </div>
+        </div>
+
+        <!-- PDF DOWNLOAD CARD -->
+        <div class="pdf-card">
+          <div class="pdf-card-top">
+            <div class="pdf-card-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+            </div>
+            <div>
+              <p class="pdf-card-eyebrow">Free Download</p>
+              <p class="pdf-card-title">The AI-First Business Deck</p>
+            </div>
+          </div>
+          <form class="pdf-card-form" id="pdf-download-form">
+            <input type="text" id="pdf-name" placeholder="Your name" required class="pdf-card-input" />
+            <input type="email" id="pdf-email" placeholder="Your email" required class="pdf-card-input" />
+            <button type="submit" class="pdf-card-btn" id="pdf-submit-btn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download Free
+            </button>
+          </form>
+          <div class="pdf-card-success" id="pdf-success" style="display:none;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Download started!
+          </div>
         </div>
       </div>
     </div>
@@ -887,7 +1749,7 @@
       </div>
       <nav class="footer-nav">
         <a href="about.html">About</a>
-        <a href="workshops.html">Workshops</a>
+        <a href="workshops.html">Work With Me</a>
         <a href="scorecard.html">Scorecard</a>
         <a href="mailto:alice@alicebazdikian.com">Book a Diagnostic</a>
         <a
@@ -907,6 +1769,114 @@
     </div>
     <p class="footer-copy">© 2026 Alice Bazdikian · All rights reserved</p>
   </footer>
+
+  <!-- ═══════════ QUIZ POPUP ═══════════ -->
+  <div id="quiz-popup" class="quiz-popup-overlay" role="dialog" aria-modal="true" aria-labelledby="popup-heading">
+    <div class="quiz-popup-card">
+      <button class="quiz-popup-close" onclick="closeQuizPopup()" aria-label="Close">×</button>
+      <p class="eyebrow" style="margin-bottom:0.5rem;">Free Assessment</p>
+      <h3 id="popup-heading" class="quiz-popup-heading">Where Does Your Business Stand with AI?</h3>
+      <p class="quiz-popup-body">Take the 5-minute AI Readiness Scorecard and get an instant picture of your risks, gaps, and opportunities — at no cost.</p>
+      <a href="scorecard.html" class="btn-primary" style="width:100%; justify-content:center;" onclick="closeQuizPopup()">
+        Take the Scorecard — It's Free
+      </a>
+      <button class="quiz-popup-dismiss" onclick="closeQuizPopup()">No thanks, I'll skip for now</button>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      if (sessionStorage.getItem('quizPopupDismissed')) return;
+      var delay = Math.floor(Math.random() * 5000) + 5000; // 5–10 seconds
+      setTimeout(function() {
+        var popup = document.getElementById('quiz-popup');
+        if (popup) popup.classList.add('visible');
+      }, delay);
+    })();
+
+    function closeQuizPopup() {
+      var popup = document.getElementById('quiz-popup');
+      if (popup) popup.classList.remove('visible');
+      sessionStorage.setItem('quizPopupDismissed', '1');
+    }
+
+    document.getElementById('quiz-popup').addEventListener('click', function(e) {
+      if (e.target === this) closeQuizPopup();
+    });
+  </script>
+
+  <!-- PDF DOWNLOAD SCRIPT -->
+  <script>
+    (function() {
+      const SUPABASE_URL = 'https://krownfpcgaybmgneddia.supabase.co';
+      const ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtyb3duZnBjZ2F5Ym1nbmVkZGlhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI2NTA2NzMsImV4cCI6MjA4ODIyNjY3M30.Y_fqwUOl0xi_AAxKMl--ah-k3emn2DnC8EneG5ocJsY';
+      const PDF_URL = 'https://krownfpcgaybmgneddia.supabase.co/storage/v1/object/public/Downloads/The_AI_First_Business_deck.pdf';
+
+      document.getElementById('pdf-download-form').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const btn = document.getElementById('pdf-submit-btn');
+        const name = document.getElementById('pdf-name').value.trim();
+        const email = document.getElementById('pdf-email').value.trim();
+
+        btn.disabled = true;
+        btn.textContent = 'Saving…';
+
+        try {
+          await fetch(`${SUPABASE_URL}/rest/v1/ai_first_pdf_downloads`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'apikey': ANON_KEY,
+              'Authorization': `Bearer ${ANON_KEY}`
+            },
+            body: JSON.stringify({ name, email })
+          });
+        } catch(err) {
+          // Don't block the download if the DB call fails
+        }
+
+        // Trigger download
+        const a = document.createElement('a');
+        a.href = PDF_URL;
+        a.download = 'The_AI_First_Business_deck.pdf';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+
+        document.getElementById('pdf-download-form').style.display = 'none';
+        document.getElementById('pdf-success').style.display = 'flex';
+      });
+    })();
+  </script>
+
+  <!-- SCORECARD BAND -->
+  <div id="scorecard-band" style="position:fixed;bottom:0;left:0;right:0;z-index:99;background:#F7F3EE;border-top:1px solid rgba(125,34,64,0.15);display:flex;align-items:center;justify-content:center;gap:1.5rem;padding:0.875rem 4rem;box-shadow:0 -4px 24px rgba(0,0,0,0.08);">
+    <p style="margin:0;font-family:'Inter',sans-serif;font-size:0.9375rem;color:#1C1C1C;">Is your business <strong style="color:#7D2240;">AI-ready?</strong> Find out in 5 minutes.</p>
+    <a href="scorecard.html" style="display:inline-flex;align-items:center;background:#7D2240;color:#fff;font-family:'Inter',sans-serif;font-size:0.8125rem;font-weight:600;padding:0.5625rem 1.25rem;border-radius:100px;text-decoration:none;white-space:nowrap;box-shadow:0 2px 10px rgba(125,34,64,0.3);">Take the Scorecard →</a>
+    <button onclick="document.getElementById('scorecard-band').style.display='none';localStorage.setItem('scorecardBandDismissed','1')" style="position:absolute;right:1.5rem;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:#6B6560;font-size:1.375rem;line-height:1;padding:0.25rem 0.5rem;" aria-label="Close">×</button>
+  </div>
+  <script>(function(){if(localStorage.getItem('scorecardBandDismissed'))document.getElementById('scorecard-band').style.display='none';})();</script>
+  <script>
+    (function() {
+      var btn = document.getElementById('nav-hamburger');
+      var menu = document.getElementById('mobile-menu');
+      if (!btn || !menu) return;
+      btn.addEventListener('click', function() {
+        var open = menu.classList.toggle('is-open');
+        btn.classList.toggle('is-open', open);
+        btn.setAttribute('aria-expanded', open);
+        menu.setAttribute('aria-hidden', !open);
+      });
+      document.addEventListener('click', function(e) {
+        if (!btn.contains(e.target) && !menu.contains(e.target)) {
+          menu.classList.remove('is-open');
+          btn.classList.remove('is-open');
+          btn.setAttribute('aria-expanded', 'false');
+          menu.setAttribute('aria-hidden', 'true');
+        }
+      });
+    })();
+  </script>
 
 </body>
 </html>
