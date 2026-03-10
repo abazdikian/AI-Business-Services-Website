@@ -479,8 +479,80 @@
       font-size: 0.9rem;
       color: var(--muted);
       font-style: italic;
-      margin: 0 0 2rem;
+      margin: 0 0 1.5rem;
     }
+
+    /* ── ACCORDIONS ── */
+    .accordion {
+      border: 1px solid rgba(125,34,64,0.15);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .accordion-header {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 1.75rem;
+      background: var(--surface);
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      transition: background 0.2s;
+    }
+
+    .accordion-header:hover { background: rgba(125,34,64,0.05); }
+
+    .accordion-title {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--charcoal);
+    }
+
+    .accordion-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--burgundy);
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .accordion-icon {
+      color: var(--burgundy);
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .accordion-header[aria-expanded="true"] .accordion-icon {
+      transform: rotate(180deg);
+    }
+
+    .accordion-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      background: #fff;
+      padding: 0 1.75rem;
+    }
+
+    .accordion-body.open {
+      max-height: 3000px;
+      padding: 1.75rem;
+    }
+
+    .workshop-card-coming-soon { opacity: 0.65; }
 
     .workshop-outcome {
       background: rgba(201,168,71,0.08);
@@ -881,7 +953,19 @@
 
       <p class="ws-customize-note">All workshops can be customized for your organization and industry.</p>
 
-      <div class="workshops-list">
+      <!-- ACCORDION 1: EMPLOYEE WORKSHOPS -->
+      <div class="accordion">
+        <button class="accordion-header" onclick="toggleAccordion(this)" aria-expanded="false">
+          <span class="accordion-title">
+            <span class="accordion-num">01</span>
+            Employee Workshops
+          </span>
+          <span class="accordion-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </button>
+        <div class="accordion-body">
+          <div class="workshops-list">
 
         <!-- Workshop 1 -->
         <div class="workshop-card">
@@ -990,7 +1074,66 @@
           </div>
         </div>
 
-      </div>
+          </div><!-- end workshops-list -->
+        </div><!-- end accordion-body -->
+      </div><!-- end accordion -->
+
+      <!-- ACCORDION 2: LEADERSHIP WORKSHOPS -->
+      <div class="accordion" style="margin-top: 1rem;">
+        <button class="accordion-header" onclick="toggleAccordion(this)" aria-expanded="false">
+          <span class="accordion-title">
+            <span class="accordion-num">02</span>
+            Leadership Workshops
+          </span>
+          <span class="accordion-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </button>
+        <div class="accordion-body">
+          <div class="workshops-list">
+
+            <!-- Leadership Workshop 1 (placeholder) -->
+            <div class="workshop-card workshop-card-coming-soon">
+              <div class="workshop-card-sidebar">
+                <div class="workshop-number">01</div>
+                <div>
+                  <div class="workshop-duration">TBD</div>
+                  <div class="workshop-duration-label">Duration</div>
+                  <div class="workshop-format">Leadership</div>
+                </div>
+              </div>
+              <div class="workshop-card-body">
+                <h2 class="workshop-title">Coming Soon</h2>
+                <p class="workshop-tagline">This leadership workshop is currently being developed. Check back soon or book a diagnostic to learn more.</p>
+                <div class="workshop-footer">
+                  <a href="https://calendly.com/abazdikian/diagnostic" target="_blank" rel="noopener" class="btn-book">Book a Diagnostic</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Leadership Workshop 2 (placeholder) -->
+            <div class="workshop-card workshop-card-coming-soon">
+              <div class="workshop-card-sidebar">
+                <div class="workshop-number">02</div>
+                <div>
+                  <div class="workshop-duration">TBD</div>
+                  <div class="workshop-duration-label">Duration</div>
+                  <div class="workshop-format">Leadership</div>
+                </div>
+              </div>
+              <div class="workshop-card-body">
+                <h2 class="workshop-title">Coming Soon</h2>
+                <p class="workshop-tagline">This leadership workshop is currently being developed. Check back soon or book a diagnostic to learn more.</p>
+                <div class="workshop-footer">
+                  <a href="https://calendly.com/abazdikian/diagnostic" target="_blank" rel="noopener" class="btn-book">Book a Diagnostic</a>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- end workshops-list -->
+        </div><!-- end accordion-body -->
+      </div><!-- end accordion -->
+
     </div>
   </section>
 
@@ -998,7 +1141,7 @@
   <section class="section section-alt">
     <div class="section-inner">
       <p class="section-eyebrow">Who It's For</p>
-      <h2 class="section-heading">Built for Business Leaders, Not Engineers</h2>
+      <h2 class="section-heading">Built for Business Value, Not Engineers</h2>
       <div class="who-grid">
         <div class="who-card">
           <div class="who-icon">🏢</div>
@@ -1234,6 +1377,15 @@
         }
       });
     })();
+  </script>
+
+  <script>
+    function toggleAccordion(btn) {
+      var body = btn.nextElementSibling;
+      var isOpen = body.classList.contains('open');
+      body.classList.toggle('open', !isOpen);
+      btn.setAttribute('aria-expanded', !isOpen);
+    }
   </script>
 
 </body>
