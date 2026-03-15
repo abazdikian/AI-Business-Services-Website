@@ -256,6 +256,22 @@
       color: var(--burgundy);
     }
 
+    /* Typewriter cursor */
+    .tw-cursor {
+      display: inline-block;
+      width: 3px;
+      height: 0.85em;
+      background: var(--burgundy);
+      margin-left: 2px;
+      vertical-align: middle;
+      border-radius: 1px;
+      animation: tw-blink 0.8s step-end infinite;
+    }
+    @keyframes tw-blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0; }
+    }
+
     .hero-sub {
       font-size: 1.0625rem;
       line-height: 1.75;
@@ -1515,7 +1531,7 @@
 
       <h1 class="hero-headline">
         Your Employees Are Already Using AI. The Question Is Whether They're Doing It
-        <em>Safely.</em>
+        <em id="hero-typewriter">Safely.</em>
       </h1>
 
       <p class="hero-sub">
@@ -1875,6 +1891,51 @@
           menu.setAttribute('aria-hidden', 'true');
         }
       });
+    })();
+  </script>
+
+  <script>
+    /* ── TYPEWRITER: homepage hero rotating words ── */
+    (function() {
+      var el = document.getElementById('hero-typewriter');
+      if (!el) return;
+
+      var words = ['Safely.', 'Effectively.', 'Confidently.'];
+      var cursor = document.createElement('span');
+      cursor.className = 'tw-cursor';
+      el.after(cursor);
+
+      var wordIdx = 0;
+      var charIdx = 0;
+      var deleting = false;
+      var PAUSE_AFTER_WORD = 2200;
+      var TYPE_SPEED = 80;
+      var DELETE_SPEED = 45;
+
+      function tick() {
+        var word = words[wordIdx];
+        if (!deleting) {
+          charIdx++;
+          el.textContent = word.slice(0, charIdx);
+          if (charIdx === word.length) {
+            deleting = true;
+            setTimeout(tick, PAUSE_AFTER_WORD);
+            return;
+          }
+        } else {
+          charIdx--;
+          el.textContent = word.slice(0, charIdx);
+          if (charIdx === 0) {
+            deleting = false;
+            wordIdx = (wordIdx + 1) % words.length;
+          }
+        }
+        setTimeout(tick, deleting ? DELETE_SPEED : TYPE_SPEED);
+      }
+
+      /* Start after a short initial delay */
+      el.textContent = '';
+      setTimeout(tick, 600);
     })();
   </script>
 

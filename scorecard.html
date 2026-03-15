@@ -469,6 +469,22 @@
       margin-bottom: 0.625rem;
     }
 
+    .tw-cursor-sc {
+      display: inline-block;
+      width: 2px;
+      height: 1em;
+      background: var(--burgundy);
+      margin-left: 2px;
+      vertical-align: middle;
+      border-radius: 1px;
+      animation: tw-blink-sc 0.8s step-end infinite;
+    }
+    @keyframes tw-blink-sc {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0; }
+    }
+    .tw-cursor-sc.tw-done { animation: none; opacity: 0; }
+
     .results-rec-desc {
       font-size: 0.9375rem;
       color: var(--muted);
@@ -1143,6 +1159,24 @@
       'sb_publishable_jNaU8majQrnRge0TTUAJsw_t8ssBDw2'
     );
 
+    function typewriterReveal(el, text) {
+      el.textContent = '';
+      var cursor = document.createElement('span');
+      cursor.className = 'tw-cursor-sc';
+      el.after(cursor);
+      var i = 0;
+      function tick() {
+        i++;
+        el.textContent = text.slice(0, i);
+        if (i < text.length) {
+          setTimeout(tick, 35);
+        } else {
+          setTimeout(function() { cursor.classList.add('tw-done'); }, 1000);
+        }
+      }
+      setTimeout(tick, 400);
+    }
+
     let currentStep = 1;
 
     function goToStep(step) {
@@ -1191,12 +1225,13 @@
       const recDesc = document.getElementById('rec-desc');
       const recCta = document.getElementById('rec-cta');
 
+      let recTitleText = '';
       if (score >= 80) {
         tierEl.textContent = '🟡 Advanced — AI Ready';
         tierEl.className = 'results-tier tier-high';
         headingEl.textContent = "You're ahead of the curve.";
         bodyEl.textContent = "Your organization has strong AI awareness and solid foundations in place. The opportunity now is to go deeper — building systematic integration across all departments and turning your early edge into a sustained competitive advantage.";
-        recTitle.textContent = 'AI Productivity Lab with Claude Code (Half-Day Workshop)';
+        recTitleText = 'AI Productivity Lab with Claude Code (Half-Day Workshop)';
         recDesc.textContent = "You're ready to move beyond basics. The AI Productivity Lab is designed to create deep workflow integration and help teams start saving hours weekly right away with strong governance in place.";
         recCta.textContent = 'Book the Productivity Lab →';
         recCta.className = 'btn-burgundy';
@@ -1208,7 +1243,7 @@
         tierEl.className = 'results-tier tier-mid';
         headingEl.textContent = "You're in the gap — and it's closeable.";
         bodyEl.textContent = "Your business has some awareness, but significant gaps remain in policy, training, and consistent practice. The good news: you're in the zone where focused intervention delivers the highest return. A structured approach now will put you ahead of the majority of SMBs.";
-        recTitle.textContent = 'AI in Action: Practical Tools for Your Team (2-Hour Workshop)';
+        recTitleText = 'AI in Action: Practical Tools for Your Team (2-Hour Workshop)';
         recDesc.textContent = "The 2-hour hands-on session is the perfect next step — bringing your team from scattered, informal AI use to structured, confident, and safe adoption.";
         recCta.textContent = 'Book the Workshop →';
         recCta.className = 'btn-burgundy';
@@ -1220,7 +1255,7 @@
         tierEl.className = 'results-tier tier-low';
         headingEl.textContent = "Your team is likely already using AI — without guardrails.";
         bodyEl.textContent = "The data is clear: most employees use AI tools regardless of company policy. With a score in this range, your business has significant exposure around data security, liability, and competitive positioning. The first step is a clear-eyed diagnostic — not a technology investment.";
-        recTitle.textContent = 'Start with the AI Readiness Diagnostic';
+        recTitleText = 'Start with the AI Readiness Diagnostic';
         recDesc.textContent = "Before any training, let's map exactly where you stand. A 30-minute 1-on-1 diagnostic call will identify your top 3 risks and give you a clear prioritized action plan — at no cost.";
         recCta.textContent = 'Book a Free Diagnostic →';
         recCta.className = 'btn-gold';
@@ -1228,6 +1263,9 @@
         recCta.target = '_blank';
         recCta.onclick = null;
       }
+
+      // Typewriter reveal for recommendation title
+      typewriterReveal(recTitle, recTitleText);
 
       // Submit to Supabase (non-blocking — show results regardless)
       const tierKey = score >= 80 ? 'advanced' : score >= 50 ? 'opportunity' : 'high_risk';

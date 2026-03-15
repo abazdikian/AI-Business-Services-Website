@@ -242,6 +242,22 @@
 
     .page-heading em { font-style: italic; color: var(--gold); }
 
+    .tw-cursor {
+      display: inline-block;
+      width: 3px;
+      height: 0.8em;
+      background: var(--gold);
+      margin-left: 2px;
+      vertical-align: middle;
+      border-radius: 1px;
+      animation: tw-blink 0.8s step-end infinite;
+    }
+    @keyframes tw-blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0; }
+    }
+    .tw-cursor.tw-done { animation: none; opacity: 0; }
+
     .page-sub {
       font-size: 1.0625rem;
       line-height: 1.75;
@@ -879,7 +895,7 @@
       <p class="eyebrow">AI Workshops</p>
       <h1 class="page-heading">
         Three Formats.<br>
-        One Goal: <em>Clarity.</em>
+        One Goal: <em id="ws-typewriter">Clarity.</em>
       </h1>
       <p class="page-sub">
         Practical, human-centered AI training built for real teams — not engineers. From a 90-minute overview to a half-day deep dive, every format ends with tools your team can use immediately.
@@ -1386,6 +1402,28 @@
       body.classList.toggle('open', !isOpen);
       btn.setAttribute('aria-expanded', !isOpen);
     }
+
+    /* ── TYPEWRITER: workshops hero one-shot reveal ── */
+    (function() {
+      var el = document.getElementById('ws-typewriter');
+      if (!el) return;
+      var word = 'Clarity.';
+      var cursor = document.createElement('span');
+      cursor.className = 'tw-cursor';
+      el.after(cursor);
+      el.textContent = '';
+      var i = 0;
+      function tick() {
+        i++;
+        el.textContent = word.slice(0, i);
+        if (i < word.length) {
+          setTimeout(tick, 85);
+        } else {
+          setTimeout(function() { cursor.classList.add('tw-done'); }, 1200);
+        }
+      }
+      setTimeout(tick, 500);
+    })();
   </script>
 
 </body>
