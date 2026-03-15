@@ -893,10 +893,7 @@
   <div class="page-header">
     <div class="page-header-inner">
       <p class="eyebrow">AI Workshops</p>
-      <h1 class="page-heading">
-        Three Formats.<br>
-        One Goal: <em id="ws-typewriter">Clarity.</em>
-      </h1>
+      <h1 class="page-heading" id="ws-hero-heading" style="visibility:hidden;"></h1>
       <p class="page-sub">
         Practical, human-centered AI training built for real teams — not engineers. From a 90-minute overview to a half-day deep dive, every format ends with tools your team can use immediately.
       </p>
@@ -1403,25 +1400,70 @@
       btn.setAttribute('aria-expanded', !isOpen);
     }
 
-    /* ── TYPEWRITER: workshops hero one-shot reveal ── */
+    /* ── TYPEWRITER: workshops hero full title ── */
     (function() {
-      var el = document.getElementById('ws-typewriter');
-      if (!el) return;
-      var word = 'Clarity.';
+      var h1 = document.getElementById('ws-hero-heading');
+      if (!h1) return;
+
+      // Segments: { text, tag } — tag null = plain text, 'br' = line break, 'em' = italic gold
+      var segments = [
+        { text: 'Three Formats.', tag: null },
+        { text: '',               tag: 'br' },
+        { text: 'One Goal: ',    tag: null },
+        { text: 'Clarity.',      tag: 'em'  },
+      ];
+
+      // Flatten into a sequence of typed characters, each knowing which node to append to
+      var nodes = [];   // { node, chars[] }
+      var flat  = [];   // { nodeIdx, char } — ordered typing queue
+
+      segments.forEach(function(seg) {
+        if (seg.tag === 'br') {
+          nodes.push({ node: document.createElement('br'), chars: [] });
+          flat.push({ nodeIdx: nodes.length - 1, char: null });
+          return;
+        }
+        var node = seg.tag === 'em' ? document.createElement('em') : document.createTextNode('');
+        nodes.push({ node: node, chars: seg.text.split('') });
+        seg.text.split('').forEach(function(c) {
+          flat.push({ nodeIdx: nodes.length - 1, char: c });
+        });
+      });
+
+      // Build cursor
       var cursor = document.createElement('span');
       cursor.className = 'tw-cursor';
-      el.after(cursor);
-      el.textContent = '';
-      var i = 0;
+
+      // Reveal h1 and append all (empty) nodes + cursor
+      h1.style.visibility = 'visible';
+      nodes.forEach(function(n) { h1.appendChild(n.node); });
+      h1.appendChild(cursor);
+
+      // Initialize text nodes
+      nodes.forEach(function(n) {
+        if (n.node.nodeType === Node.TEXT_NODE) n.node.nodeValue = '';
+        else if (n.node.tagName !== 'BR')       n.node.textContent = '';
+      });
+
+      var idx = 0;
       function tick() {
-        i++;
-        el.textContent = word.slice(0, i);
-        if (i < word.length) {
-          setTimeout(tick, 85);
-        } else {
+        if (idx >= flat.length) {
           setTimeout(function() { cursor.classList.add('tw-done'); }, 1200);
+          return;
         }
+        var item = flat[idx];
+        var n = nodes[item.nodeIdx];
+        if (n.node.tagName === 'BR') {
+          // br already in DOM — just move on
+        } else if (n.node.nodeType === Node.TEXT_NODE) {
+          n.node.nodeValue += item.char;
+        } else {
+          n.node.textContent += item.char;
+        }
+        idx++;
+        setTimeout(tick, 70);
       }
+
       setTimeout(tick, 500);
     })();
   </script>
