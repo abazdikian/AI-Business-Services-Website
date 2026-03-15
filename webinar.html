@@ -82,20 +82,37 @@
     display: grid; grid-template-columns: 1fr 400px;
     gap: 4rem; align-items: center;
   }
-  .hero-badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: rgba(201,168,71,0.15);
-    border: 1px solid rgba(201,168,71,0.4);
-    padding: 5px 16px; border-radius: 100px;
+  .hero-eyebrow {
     font-size: 0.6875rem; font-weight: 600; color: var(--gold);
-    letter-spacing: 0.12em; text-transform: uppercase;
-    margin-bottom: 1.25rem;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    display: flex; align-items: center; gap: 8px;
+    margin-bottom: 0.75rem;
   }
-  .hero-badge::before {
+  .hero-eyebrow::before {
     content: ''; width: 6px; height: 6px;
     background: var(--gold); border-radius: 50%;
     animation: pulse 2s ease infinite;
   }
+  .hero-free {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3.5rem, 6vw, 5.5rem);
+    font-weight: 900; line-height: 0.95;
+    letter-spacing: -0.04em;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 1rem;
+    text-shadow: 0 4px 32px rgba(201,168,71,0.35);
+  }
+  .tw-cursor-hero {
+    display: inline-block; width: 4px; height: 0.85em;
+    background: var(--gold); margin-left: 3px;
+    vertical-align: middle; border-radius: 2px;
+    animation: tw-blink-h 0.8s step-end infinite;
+  }
+  @keyframes tw-blink-h {
+    0%,100% { opacity: 1; } 50% { opacity: 0; }
+  }
+  .tw-cursor-hero.tw-done { animation: none; opacity: 0; }
   @keyframes pulse {
     0%,100% { opacity: 1; transform: scale(1); }
     50%      { opacity: 0.4; transform: scale(0.75); }
@@ -526,21 +543,22 @@
     <span class="nav-brand-name">Alice Bazdikian</span>
     <span class="nav-brand-tag">AI Strategist + Educator</span>
   </a>
-  <a href="#register" class="nav-cta">Save My Seat →</a>
+  <a href="#hero-form" class="nav-cta" onclick="document.getElementById('hero-form').scrollIntoView({behavior:'smooth',block:'center'});return false;">Save My Seat →</a>
 </nav>
 
 <!-- HERO -->
 <div class="hero">
   <div class="hero-inner">
     <div>
-      <div class="hero-badge">Free Live Webinar</div>
+      <div class="hero-eyebrow">Live Webinar · March 27th</div>
+      <span class="hero-free" id="hero-free-tw" aria-label="Free."></span>
       <h1>
         Claude Cowork:<br>
-        Your <em>$100/Month</em><br>
-        AI Business Analyst
+        Your Personal Custom<br>
+        <em>$100/Month</em> Business Analyst
       </h1>
       <p class="hero-sub">
-        The practical, no-hype playbook for entrepreneurs who want Claude to actually work for their business — not just sound impressive at dinner parties.
+        You Ask… &amp; <span id="hero-sub-tw" style="color:var(--gold);font-weight:600;"></span>
       </p>
       <div class="hero-meta">
         <div class="hero-meta-item">📅 <strong>Thursday, March 27th · 6:30 PM ET</strong></div>
@@ -560,23 +578,23 @@
         <label for="h-role">Your Role</label>
         <select id="h-role" required>
           <option value="" disabled selected>Select your role…</option>
-          <option>Founder / CEO</option>
-          <option>Consultant / Freelancer</option>
-          <option>Coach / Trainer</option>
-          <option>Creative / Designer / Writer</option>
-          <option>Sales / Business Development</option>
-          <option>Marketing / Communications</option>
-          <option>Operations / Admin</option>
-          <option>Other</option>
+          <option value="founder">Founder / CEO</option>
+          <option value="consultant">Consultant / Freelancer</option>
+          <option value="coach">Coach / Trainer</option>
+          <option value="creative">Creative / Designer / Writer</option>
+          <option value="sales">Sales / Business Development</option>
+          <option value="marketing">Marketing / Communications</option>
+          <option value="ops">Operations / Admin</option>
+          <option value="other">Other</option>
         </select>
         <label for="h-size">Team Size</label>
         <select id="h-size" required>
           <option value="" disabled selected>Select org size…</option>
-          <option>Just me (solopreneur)</option>
-          <option>2–5 people</option>
-          <option>6–15 people</option>
-          <option>16–50 people</option>
-          <option>50+ people</option>
+          <option value="solo">Just me (solopreneur)</option>
+          <option value="2-5">2–5 people</option>
+          <option value="6-15">6–15 people</option>
+          <option value="16-50">16–50 people</option>
+          <option value="50+">50+ people</option>
         </select>
         <button type="submit" class="btn-primary">🎯 Reserve My Free Seat</button>
       </form>
@@ -728,14 +746,31 @@
 <div class="cta-section" id="register">
   <h2>This is the webinar you've been<br><em>waiting for someone to build.</em></h2>
   <p>Free. Live. Practical. Thursday March 27th · 6:30 PM ET.</p>
-  <form id="bottom-form" onsubmit="handleSubmit(event,'bottom')">
-    <div class="reg-form-inline">
-      <input type="text" placeholder="Your first name" required>
-      <input type="email" placeholder="Your best email" required>
-      <button type="submit" class="btn-cta">Save My Seat →</button>
-    </div>
+  <form id="bottom-form" onsubmit="handleSubmit(event,'bottom')" style="max-width:460px;margin:0 auto;">
+    <input type="text" id="b-name" placeholder="Your first name" required style="width:100%;padding:0.8rem 1rem;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:8px;color:#fff;font-family:'Inter',sans-serif;font-size:0.9375rem;margin-bottom:0.75rem;outline:none;transition:border-color 0.2s;">
+    <input type="email" id="b-email" placeholder="you@yourbusiness.com" required style="width:100%;padding:0.8rem 1rem;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:8px;color:#fff;font-family:'Inter',sans-serif;font-size:0.9375rem;margin-bottom:0.75rem;outline:none;transition:border-color 0.2s;">
+    <select id="b-role" required style="width:100%;padding:0.8rem 1rem;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:8px;color:#fff;font-family:'Inter',sans-serif;font-size:0.9375rem;margin-bottom:0.75rem;outline:none;appearance:none;cursor:pointer;">
+      <option value="" disabled selected style="background:#1C1C1C;">Select your role…</option>
+      <option value="founder" style="background:#1C1C1C;">Founder / CEO</option>
+      <option value="consultant" style="background:#1C1C1C;">Consultant / Freelancer</option>
+      <option value="coach" style="background:#1C1C1C;">Coach / Trainer</option>
+      <option value="creative" style="background:#1C1C1C;">Creative / Designer / Writer</option>
+      <option value="sales" style="background:#1C1C1C;">Sales / Business Development</option>
+      <option value="marketing" style="background:#1C1C1C;">Marketing / Communications</option>
+      <option value="ops" style="background:#1C1C1C;">Operations / Admin</option>
+      <option value="other" style="background:#1C1C1C;">Other</option>
+    </select>
+    <select id="b-size" required style="width:100%;padding:0.8rem 1rem;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:8px;color:#fff;font-family:'Inter',sans-serif;font-size:0.9375rem;margin-bottom:1rem;outline:none;appearance:none;cursor:pointer;">
+      <option value="" disabled selected style="background:#1C1C1C;">Select team size…</option>
+      <option value="solo" style="background:#1C1C1C;">Just me (solopreneur)</option>
+      <option value="2-5" style="background:#1C1C1C;">2–5 people</option>
+      <option value="6-15" style="background:#1C1C1C;">6–15 people</option>
+      <option value="16-50" style="background:#1C1C1C;">16–50 people</option>
+      <option value="50+" style="background:#1C1C1C;">50+ people</option>
+    </select>
+    <button type="submit" class="btn-cta" style="width:100%;">🎯 Reserve My Free Seat</button>
   </form>
-  <div class="success-msg" id="bottom-success" style="max-width:460px;margin:0 auto 1rem;background:rgba(201,168,71,0.12);border-color:rgba(201,168,71,0.3);color:var(--gold);">✓ You're in! Check your inbox for confirmation.</div>
+  <div class="success-msg" id="bottom-success" style="max-width:460px;margin:1rem auto 0;background:rgba(201,168,71,0.12);border-color:rgba(201,168,71,0.3);color:var(--gold);">✓ You're in! Check your inbox for confirmation.</div>
   <p class="cta-trust">🔒 Free forever. No upsell on the call. No pushy sales pitch.</p>
 </div>
 
@@ -766,7 +801,15 @@
   </p>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
+// ── SUPABASE ──
+var _sb = supabase.createClient(
+  'https://krownfpcgaybmgneddia.supabase.co',
+  'sb_publishable_jNaU8majQrnRge0TTUAJsw_t8ssBDw2'
+);
+
+// ── COUNTDOWN ──
 (function() {
   var end = new Date('2026-03-27T23:30:00Z');
   function tick() {
@@ -781,13 +824,25 @@
 
 setTimeout(function() { document.getElementById('spots-fill').style.width = '73%'; }, 700);
 
-function handleSubmit(e, id) {
+// ── FORM SUBMIT → SUPABASE ──
+async function handleSubmit(e, id) {
   e.preventDefault();
+  var prefix = id === 'hero' ? 'h' : 'b';
+  var payload = {
+    first_name:  document.getElementById(prefix+'-name').value.trim(),
+    email:       document.getElementById(prefix+'-email').value.trim(),
+    role:        document.getElementById(prefix+'-role').value,
+    team_size:   document.getElementById(prefix+'-size').value,
+    registered_at: new Date().toISOString()
+  };
+  try {
+    await _sb.from('claudecowork-webinar-march').insert(payload);
+  } catch(err) { /* non-blocking */ }
   document.getElementById(id+'-form').style.display = 'none';
   document.getElementById(id+'-success').style.display = 'block';
-  // TODO: wire to Mailchimp / ConvertKit
 }
 
+// ── FAQ ──
 function toggleFaq(el) {
   var item = el.parentElement;
   var open = item.classList.contains('open');
@@ -795,13 +850,57 @@ function toggleFaq(el) {
   if (!open) item.classList.add('open');
 }
 
-document.querySelectorAll('a[href^="#"]').forEach(function(a) {
-  a.addEventListener('click', function(e) {
-    e.preventDefault();
-    var t = document.querySelector(a.getAttribute('href'));
-    if (t) t.scrollIntoView({ behavior:'smooth', block:'start' });
-  });
-});
+// ── TYPEWRITER: "Free." ──
+(function() {
+  var el = document.getElementById('hero-free-tw');
+  if (!el) return;
+  var word = 'Free.';
+  var cursor = document.createElement('span');
+  cursor.className = 'tw-cursor-hero';
+  el.after(cursor);
+  var i = 0;
+  function tick() {
+    i++;
+    el.textContent = word.slice(0, i);
+    if (i < word.length) { setTimeout(tick, 90); }
+    else { setTimeout(function(){ cursor.classList.add('tw-done'); }, 1400); }
+  }
+  setTimeout(tick, 400);
+})();
+
+// ── TYPEWRITER: subtitle rotating phrases ──
+(function() {
+  var el = document.getElementById('hero-sub-tw');
+  if (!el) return;
+  var phrases = [
+    'Claude Cowork delivers.',
+    'your analyst is ready.',
+    'insights in seconds.',
+    'strategy without the overwhelm.',
+    'your business thinks smarter.'
+  ];
+  var cursor = document.createElement('span');
+  cursor.className = 'tw-cursor-hero';
+  cursor.style.width = '2px';
+  cursor.style.height = '0.75em';
+  el.after(cursor);
+  var pi = 0, ci = 0, deleting = false;
+  var TYPE_SPEED = 55, DEL_SPEED = 30, PAUSE = 2000;
+  function tick() {
+    var phrase = phrases[pi];
+    if (!deleting) {
+      ci++;
+      el.textContent = phrase.slice(0, ci);
+      if (ci === phrase.length) { deleting = true; setTimeout(tick, PAUSE); return; }
+    } else {
+      ci--;
+      el.textContent = phrase.slice(0, ci);
+      if (ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; }
+    }
+    setTimeout(tick, deleting ? DEL_SPEED : TYPE_SPEED);
+  }
+  setTimeout(tick, 1800);
+})();
 </script>
 </body>
 </html>
