@@ -14,606 +14,524 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --deep:    #120810;
-    --mid:     #1c0e17;
-    --card:    #241220;
-    --border:  #3d2232;
-    --burgundy:#7D2240;
-    --burg-glow: rgba(125,34,64,0.14);
-    --gold:    #C9A847;
-    --gold-dk: #B8952E;
-    --gold-glow: rgba(201,168,71,0.14);
-    --cream:   #F7F3EE;
-    --light:   #E8D0C0;
-    --muted:   #9A8070;
-  }
-
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
 
-  body {
-    background: var(--deep);
-    color: var(--cream);
-    font-family: 'Inter', system-ui, sans-serif;
-    font-size: 17px;
-    line-height: 1.75;
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
+  :root {
+    --eggshell: #F7F3EE;
+    --surface:  #FFFFFF;
+    --charcoal: #1C1C1C;
+    --burgundy: #7D2240;
+    --burg-dk:  #651B33;
+    --gold:     #C9A847;
+    --gold-dk:  #B8952E;
+    --muted:    #6B6560;
+    --border:   rgba(28,28,28,0.09);
   }
 
-  /* ─── NAV ─── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    padding: 1rem 2.5rem;
-    display: flex; align-items: center; justify-content: space-between;
-    background: rgba(18, 8, 16, 0.95);
-    backdrop-filter: blur(14px);
+  body {
+    background: var(--eggshell);
+    color: var(--charcoal);
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    background: var(--eggshell);
     border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2.5rem; height: 68px;
   }
-  .nav-logo {
-    font-family: 'Playfair Display', serif;
-    font-weight: 600; font-size: 1rem;
-    color: var(--cream); text-decoration: none;
-    letter-spacing: -0.01em;
-  }
-  .nav-logo span {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.7rem; font-weight: 400;
-    color: var(--muted); display: block;
-    letter-spacing: 0.12em; text-transform: uppercase;
-  }
-  .nav-right { display: flex; align-items: center; gap: 1.5rem; }
-  .nav-link {
-    font-size: 0.8125rem; color: var(--muted);
-    text-decoration: none; transition: color 0.2s;
-  }
-  .nav-link:hover { color: var(--cream); }
-  .btn-nav-gold {
-    background: var(--gold); color: #1C0A0A;
+  .nav-brand { text-decoration: none; }
+  .nav-brand-name { font-family: 'Playfair Display', serif; font-size: 1.125rem; font-weight: 600; color: var(--charcoal); letter-spacing: -0.01em; display: block; }
+  .nav-brand-tag  { font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+  .nav-cta {
+    background: var(--gold); color: var(--charcoal);
     padding: 0.55rem 1.4rem; border-radius: 100px;
     font-size: 0.8125rem; font-weight: 700;
-    text-decoration: none; transition: background 0.2s, transform 0.15s;
-    white-space: nowrap; letter-spacing: 0.01em;
-    box-shadow: 0 2px 16px rgba(201,168,71,0.25);
+    text-decoration: none; letter-spacing: 0.01em;
+    transition: background 0.2s, transform 0.15s;
+    box-shadow: 0 2px 12px rgba(201,168,71,0.3);
   }
-  .btn-nav-gold:hover { background: var(--gold-dk); transform: translateY(-1px); }
+  .nav-cta:hover { background: var(--gold-dk); transform: translateY(-1px); }
 
-  /* ─── HERO ─── */
+  /* ── HERO ── */
   .hero {
-    min-height: 100vh;
-    display: flex; align-items: center;
-    padding: 7rem 2rem 5rem;
+    background-image: url('Brand%20Assets/Bloghero.png');
+    background-size: cover;
+    background-position: center;
     position: relative; overflow: hidden;
+    padding: 5rem 4rem 4.5rem;
+    min-height: 480px;
+    display: flex; align-items: center;
   }
   .hero::before {
     content: '';
     position: absolute; inset: 0;
-    background:
-      radial-gradient(ellipse 70% 55% at 20% 50%, rgba(125,34,64,0.22) 0%, transparent 65%),
-      radial-gradient(ellipse 50% 60% at 90% 30%, rgba(201,168,71,0.07) 0%, transparent 60%);
+    background: rgba(14, 5, 10, 0.62);
     pointer-events: none;
   }
-  .hero-grid {
-    max-width: 1100px; margin: 0 auto;
-    display: grid; grid-template-columns: 1fr 420px;
-    gap: 4.5rem; align-items: center; position: relative; z-index: 1;
+  .hero-inner {
+    max-width: 1100px; margin: 0 auto; width: 100%;
+    position: relative; z-index: 1;
+    display: grid; grid-template-columns: 1fr 400px;
+    gap: 4rem; align-items: center;
   }
   .hero-badge {
-    display: inline-flex; align-items: center; gap: 9px;
-    background: var(--gold-glow);
-    border: 1px solid rgba(201,168,71,0.3);
-    padding: 6px 18px; border-radius: 100px;
-    font-size: 0.75rem; font-weight: 600; color: var(--gold);
-    letter-spacing: 0.1em; text-transform: uppercase;
-    margin-bottom: 1.75rem;
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(201,168,71,0.15);
+    border: 1px solid rgba(201,168,71,0.4);
+    padding: 5px 16px; border-radius: 100px;
+    font-size: 0.6875rem; font-weight: 600; color: var(--gold);
+    letter-spacing: 0.12em; text-transform: uppercase;
+    margin-bottom: 1.25rem;
   }
   .hero-badge::before {
-    content: ''; width: 7px; height: 7px;
+    content: ''; width: 6px; height: 6px;
     background: var(--gold); border-radius: 50%;
     animation: pulse 2s ease infinite;
   }
   @keyframes pulse {
     0%,100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.45; transform: scale(0.75); }
+    50%      { opacity: 0.4; transform: scale(0.75); }
   }
   .hero h1 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(2.4rem, 4.2vw, 3.7rem);
+    font-size: clamp(2.2rem, 3.8vw, 3.4rem);
     font-weight: 900; line-height: 1.08;
-    letter-spacing: -0.03em;
-    margin-bottom: 1.5rem;
+    letter-spacing: -0.03em; color: #fff;
+    margin-bottom: 1.25rem;
   }
   .hero h1 em { font-style: italic; color: var(--gold); }
   .hero-sub {
-    font-size: 1.075rem; color: var(--light);
-    max-width: 520px; margin-bottom: 2.25rem;
-    line-height: 1.85;
+    font-size: 1rem; color: rgba(255,255,255,0.75);
+    max-width: 500px; line-height: 1.8;
+    margin-bottom: 2rem;
   }
-  .hero-details {
-    display: flex; gap: 1.75rem; flex-wrap: wrap;
-    margin-bottom: 2.5rem;
+  .hero-meta {
+    display: flex; flex-wrap: wrap; gap: 1.25rem;
   }
-  .hero-detail {
-    display: flex; align-items: center; gap: 10px;
-    font-size: 0.875rem; color: var(--muted);
+  .hero-meta-item {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 0.8125rem; color: rgba(255,255,255,0.6);
   }
-  .hero-detail-icon {
-    width: 34px; height: 34px; border-radius: 8px;
-    background: var(--card); border: 1px solid var(--border);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 15px; flex-shrink: 0;
-  }
-  .hero-detail strong {
-    color: var(--cream); display: block;
-    font-size: 0.8125rem; font-weight: 600;
-  }
-  .hero-detail span { font-size: 0.75rem; }
+  .hero-meta-item strong { color: #fff; font-weight: 500; }
 
-  /* ─── REGISTRATION CARD ─── */
+  /* ── REG CARD ── */
   .reg-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 18px; padding: 2.25rem;
+    background: var(--surface);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.35), 0 4px 16px rgba(0,0,0,0.15);
     position: relative; overflow: hidden;
-    box-shadow: 0 24px 64px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,168,71,0.06);
   }
   .reg-card::before {
     content: '';
     position: absolute; top: 0; left: 0; right: 0; height: 3px;
-    background: linear-gradient(90deg, var(--gold), #e8d06a, var(--gold-dk));
+    background: linear-gradient(90deg, var(--burgundy), var(--gold));
   }
   .reg-card h3 {
     font-family: 'Playfair Display', serif;
-    font-size: 1.5rem; font-weight: 700;
-    margin-bottom: 0.35rem; letter-spacing: -0.02em;
+    font-size: 1.375rem; font-weight: 700;
+    color: var(--charcoal); margin-bottom: 0.25rem;
+    letter-spacing: -0.02em;
   }
   .reg-card > p {
-    font-size: 0.875rem; color: var(--muted);
-    margin-bottom: 1.5rem;
+    font-size: 0.8125rem; color: var(--muted);
+    margin-bottom: 1.25rem;
   }
   .reg-card label {
     display: block; font-size: 0.6875rem; font-weight: 600;
     color: var(--muted); text-transform: uppercase;
-    letter-spacing: 0.1em; margin-bottom: 6px;
+    letter-spacing: 0.1em; margin-bottom: 5px;
   }
   .reg-card input, .reg-card select {
-    width: 100%; padding: 0.875rem 1rem;
-    background: var(--mid); border: 1px solid var(--border);
-    border-radius: 8px; color: var(--cream);
+    width: 100%; padding: 0.8rem 1rem;
+    background: var(--eggshell); border: 1px solid rgba(28,28,28,0.12);
+    border-radius: 8px; color: var(--charcoal);
     font-family: 'Inter', sans-serif; font-size: 0.9375rem;
-    margin-bottom: 1rem; outline: none;
+    margin-bottom: 0.875rem; outline: none;
     transition: border-color 0.2s;
     appearance: none;
   }
   .reg-card select {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239A8070' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236B6560' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 1rem center;
-    background-color: var(--mid);
+    background-color: var(--eggshell);
     cursor: pointer;
   }
-  .reg-card select option { background: var(--mid); color: var(--cream); }
-  .reg-card input:focus, .reg-card select:focus { border-color: var(--gold); }
-  .reg-card input::placeholder { color: var(--muted); }
-
+  .reg-card input:focus, .reg-card select:focus {
+    border-color: var(--burgundy);
+    background: #fff;
+  }
+  .reg-card input::placeholder { color: #b0a8a0; }
   .btn-primary {
-    width: 100%; padding: 1rem 1.5rem;
-    background: var(--gold); color: #1C0A0A;
+    width: 100%; padding: 0.9rem 1.5rem;
+    background: var(--burgundy); color: #fff;
     border: none; border-radius: 8px;
     font-family: 'Inter', sans-serif;
-    font-size: 1rem; font-weight: 700;
-    cursor: pointer;
+    font-size: 0.9375rem; font-weight: 700;
+    cursor: pointer; margin-bottom: 0.75rem;
     transition: background 0.2s, transform 0.1s;
-    margin-bottom: 0.9rem;
+    box-shadow: 0 4px 16px rgba(125,34,64,0.3);
     letter-spacing: 0.01em;
-    box-shadow: 0 4px 20px rgba(201,168,71,0.3);
   }
-  .btn-primary:hover { background: var(--gold-dk); }
+  .btn-primary:hover { background: var(--burg-dk); }
   .btn-primary:active { transform: scale(0.99); }
-
   .reg-trust {
-    font-size: 0.75rem; color: var(--muted);
-    text-align: center; line-height: 1.7;
+    font-size: 0.6875rem; color: var(--muted);
+    text-align: center; line-height: 1.65;
+  }
+  .success-msg {
+    display: none; text-align: center; padding: 1.25rem;
+    background: rgba(125,34,64,0.06);
+    border: 1px solid rgba(125,34,64,0.2);
+    border-radius: 8px; color: var(--burgundy);
+    font-weight: 600; font-size: 0.9375rem;
   }
 
-  /* ─── COUNTDOWN ─── */
-  .countdown-wrap {
-    background: var(--mid);
-    border: 1px solid var(--border);
-    border-radius: 10px; padding: 1rem;
-    margin-bottom: 1.5rem; text-align: center;
+  /* ── COUNTDOWN BAND ── */
+  .countdown-band {
+    background: var(--charcoal);
+    padding: 1.125rem 2rem;
+    display: flex; align-items: center; justify-content: center;
+    gap: 2.5rem; flex-wrap: wrap;
   }
-  .countdown-label {
-    font-size: 0.6875rem; color: var(--muted);
+  .countdown-band-label {
+    font-size: 0.75rem; font-weight: 600;
+    color: rgba(255,255,255,0.55);
     text-transform: uppercase; letter-spacing: 0.12em;
-    margin-bottom: 0.75rem;
   }
   .countdown-timer {
-    display: flex; justify-content: center; gap: 8px; align-items: flex-start;
+    display: flex; align-items: flex-start; gap: 8px;
   }
-  .countdown-unit { text-align: center; }
+  .countdown-unit { text-align: center; min-width: 44px; }
   .countdown-num {
     font-family: 'Playfair Display', serif;
-    font-size: 2.1rem; font-weight: 700; color: var(--gold);
+    font-size: 1.75rem; font-weight: 700; color: var(--gold);
     display: block; line-height: 1;
   }
   .countdown-text {
-    font-size: 0.625rem; color: var(--muted);
+    font-size: 0.5625rem; color: rgba(255,255,255,0.4);
     text-transform: uppercase; letter-spacing: 0.08em;
   }
   .countdown-colon {
-    font-size: 1.9rem; color: var(--border);
-    line-height: 1.05; padding-top: 1px;
+    font-size: 1.5rem; color: rgba(255,255,255,0.2);
+    line-height: 1.1; padding-top: 1px;
   }
-
-  /* ─── SPOTS BAR ─── */
-  .spots-bar { margin-bottom: 1.5rem; }
-  .spots-label {
-    display: flex; justify-content: space-between;
-    font-size: 0.75rem; margin-bottom: 6px;
+  .spots-wrap {
+    display: flex; align-items: center; gap: 0.875rem;
   }
-  .spots-label span:first-child { color: var(--muted); }
-  .spots-label span:last-child { color: var(--gold); font-weight: 600; }
   .spots-track {
-    background: var(--mid); border-radius: 100px;
-    height: 6px; overflow: hidden;
+    width: 120px; height: 5px;
+    background: rgba(255,255,255,0.12); border-radius: 100px; overflow: hidden;
   }
   .spots-fill {
     background: linear-gradient(90deg, var(--burgundy), var(--gold));
     border-radius: 100px; height: 100%; width: 0%;
     transition: width 1s ease;
   }
+  .spots-label {
+    font-size: 0.75rem; color: var(--gold); font-weight: 600;
+    white-space: nowrap;
+  }
 
-  /* ─── SECTION SHELL ─── */
-  section { padding: 5.5rem 2rem; }
-  .container { max-width: 1100px; margin: 0 auto; }
-  .section-label {
-    font-size: 0.6875rem; font-weight: 600; color: var(--gold);
-    text-transform: uppercase; letter-spacing: 0.14em;
-    margin-bottom: 1rem;
+  /* ── SECTIONS ── */
+  .section { padding: 4rem 4rem; }
+  .section-alt { background: var(--surface); }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+
+  .eyebrow {
+    font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 0.75rem;
     display: flex; align-items: center; gap: 0.625rem;
   }
-  .section-label::before {
+  .eyebrow::before {
     content: ''; display: inline-block;
     width: 22px; height: 1.5px; background: var(--gold); flex-shrink: 0;
   }
-  h2.section-title {
+  .section-heading {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(1.9rem, 3.2vw, 2.7rem);
-    font-weight: 900; line-height: 1.12;
-    letter-spacing: -0.03em; margin-bottom: 1.2rem;
+    font-size: clamp(1.75rem, 2.6vw, 2.25rem);
+    font-weight: 700; line-height: 1.18;
+    letter-spacing: -0.025em; color: var(--charcoal);
+    margin-bottom: 2rem;
   }
-  h2.section-title em { font-style: italic; color: var(--gold); }
-  .divider {
-    width: 48px; height: 2px;
-    background: linear-gradient(90deg, var(--burgundy), var(--gold));
-    border-radius: 100px; margin: 1.25rem 0 2.25rem;
-  }
+  .section-heading em { font-style: italic; color: var(--burgundy); }
 
-  /* ─── PAIN SECTION ─── */
-  .pain-section { background: var(--mid); }
-  .pain-intro {
-    max-width: 660px; color: var(--light);
-    margin-bottom: 3rem; font-size: 1.025rem; line-height: 1.85;
-  }
+  /* ── PAIN GRID ── */
   .pain-grid {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.2rem;
+    gap: 1rem; margin-top: 1.5rem;
   }
   .pain-card {
-    background: var(--card);
+    background: var(--eggshell);
     border: 1px solid var(--border);
-    border-radius: 12px; padding: 1.5rem;
-    display: flex; gap: 1rem; align-items: flex-start;
-    transition: border-color 0.2s;
+    border-radius: 10px; padding: 1.25rem;
+    display: flex; gap: 0.875rem; align-items: flex-start;
+    transition: border-color 0.2s, transform 0.2s;
   }
-  .pain-card:hover { border-color: rgba(201,168,71,0.25); }
+  .pain-card:hover { border-color: rgba(125,34,64,0.2); transform: translateY(-2px); }
   .pain-icon {
-    width: 40px; height: 40px; border-radius: 10px;
-    background: var(--gold-glow);
+    width: 36px; height: 36px; border-radius: 8px;
+    background: rgba(201,168,71,0.1);
     border: 1px solid rgba(201,168,71,0.2);
     display: flex; align-items: center; justify-content: center;
-    font-size: 18px; flex-shrink: 0; margin-top: 2px;
+    font-size: 16px; flex-shrink: 0;
   }
-  .pain-card h4 {
-    font-size: 0.9375rem; font-weight: 600; margin-bottom: 5px;
-    color: var(--cream);
-  }
-  .pain-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.65; }
+  .pain-card h4 { font-size: 0.875rem; font-weight: 600; margin-bottom: 4px; }
+  .pain-card p  { font-size: 0.8125rem; color: var(--muted); line-height: 1.6; }
 
-  /* ─── WHAT YOU'LL LEARN ─── */
+  /* ── LEARN GRID ── */
   .learn-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 1.5rem; margin-top: 3rem;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    gap: 1.125rem; margin-top: 1.5rem;
   }
   .learn-card {
-    background: var(--card);
+    background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 14px; padding: 1.875rem;
+    border-radius: 12px; padding: 1.625rem;
     position: relative; overflow: hidden;
-    transition: border-color 0.25s, transform 0.2s;
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
   }
   .learn-card:hover {
-    border-color: rgba(201,168,71,0.3);
-    transform: translateY(-3px);
+    border-color: rgba(125,34,64,0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(125,34,64,0.08);
   }
   .learn-number {
     font-family: 'Playfair Display', serif;
-    font-size: 3.5rem; font-weight: 900;
-    color: rgba(201,168,71,0.09);
-    position: absolute; top: 10px; right: 18px;
+    font-size: 3rem; font-weight: 900;
+    color: rgba(201,168,71,0.1);
+    position: absolute; top: 8px; right: 16px;
     line-height: 1;
   }
   .learn-card h4 {
-    font-size: 1rem; font-weight: 600;
-    margin-bottom: 0.6rem; position: relative;
-    color: var(--cream); line-height: 1.4;
+    font-size: 0.9375rem; font-weight: 600;
+    margin-bottom: 0.5rem; line-height: 1.4;
+    color: var(--charcoal); position: relative;
   }
-  .learn-card p {
-    font-size: 0.875rem; color: var(--muted);
-    line-height: 1.7; position: relative;
-  }
+  .learn-card p { font-size: 0.8125rem; color: var(--muted); line-height: 1.65; position: relative; }
 
-  /* ─── WHO IT'S FOR ─── */
-  .who-section { background: var(--mid); }
-  .who-layout {
+  /* ── WHO ── */
+  .who-grid {
     display: grid; grid-template-columns: 1fr 1fr;
-    gap: 4rem; align-items: start; margin-top: 2.5rem;
+    gap: 3rem; margin-top: 1.5rem;
   }
   .who-list { list-style: none; }
   .who-list li {
-    display: flex; gap: 14px; align-items: flex-start;
-    padding: 1.25rem 0;
-    border-bottom: 1px solid var(--border);
+    display: flex; gap: 12px; align-items: flex-start;
+    padding: 1rem 0; border-bottom: 1px solid var(--border);
   }
   .who-list li:last-child { border-bottom: none; }
   .who-check {
-    width: 24px; height: 24px; border-radius: 50%;
-    background: var(--burg-glow); border: 1px solid rgba(125,34,64,0.4);
+    width: 22px; height: 22px; border-radius: 50%;
+    background: rgba(125,34,64,0.08); border: 1px solid rgba(125,34,64,0.25);
     display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0; margin-top: 3px;
-    font-size: 11px; color: var(--gold); font-weight: 700;
+    flex-shrink: 0; margin-top: 2px;
+    font-size: 10px; color: var(--burgundy); font-weight: 700;
   }
-  .who-text strong { display: block; font-size: 0.9375rem; margin-bottom: 3px; color: var(--cream); }
-  .who-text span { font-size: 0.875rem; color: var(--muted); }
-
+  .who-text strong { display: block; font-size: 0.875rem; margin-bottom: 2px; }
+  .who-text span   { font-size: 0.8125rem; color: var(--muted); }
   .who-not {
-    background: var(--card);
+    background: var(--eggshell);
     border: 1px solid var(--border);
-    border-radius: 14px; padding: 2rem; margin-bottom: 1.5rem;
+    border-radius: 12px; padding: 1.5rem; margin-bottom: 1.25rem;
   }
   .who-not h4 {
     font-size: 0.6875rem; font-weight: 600; color: var(--muted);
-    text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 1.25rem;
+    text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem;
   }
   .not-item {
     display: flex; gap: 10px; align-items: flex-start;
-    margin-bottom: 0.9rem; font-size: 0.875rem; color: var(--muted);
+    margin-bottom: 0.75rem; font-size: 0.8125rem; color: var(--muted);
   }
-  .not-x { color: #e05555; flex-shrink: 0; margin-top: 3px; font-weight: 700; }
+  .not-x { color: #c0392b; flex-shrink: 0; font-weight: 700; margin-top: 1px; }
+  .who-quote {
+    background: rgba(125,34,64,0.05);
+    border-left: 3px solid var(--burgundy);
+    border-radius: 0 10px 10px 0;
+    padding: 1.25rem 1.5rem;
+  }
+  .who-quote p { font-style: italic; color: var(--charcoal); font-size: 0.9375rem; line-height: 1.75; }
+  .who-quote span { color: var(--burgundy); font-style: normal; font-weight: 600; }
+  .who-quote cite { font-size: 0.75rem; color: var(--muted); font-style: normal; display: block; margin-top: 0.75rem; }
 
-  .who-also {
-    background: var(--burg-glow);
-    border: 1px solid rgba(125,34,64,0.3);
-    border-radius: 14px; padding: 2rem;
-  }
-  .who-also p {
-    font-style: italic; color: var(--light);
-    font-size: 1.025rem; line-height: 1.75;
-  }
-  .who-also span { color: var(--gold); font-style: normal; font-weight: 600; }
-
-  /* ─── SOCIAL PROOF ─── */
+  /* ── TESTIMONIALS ── */
   .proof-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.25rem; margin-top: 3rem;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 1.125rem; margin-top: 1.5rem;
   }
   .proof-card {
-    background: var(--card);
+    background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 14px; padding: 1.875rem;
-    transition: border-color 0.2s;
+    border-radius: 12px; padding: 1.625rem;
   }
-  .proof-card:hover { border-color: rgba(201,168,71,0.2); }
-  .proof-stars { color: var(--gold); font-size: 0.875rem; margin-bottom: 1rem; letter-spacing: 2px; }
-  .proof-text {
-    font-size: 0.9375rem; color: var(--light);
-    line-height: 1.75; margin-bottom: 1.25rem;
-    font-style: italic;
-  }
+  .proof-stars { color: var(--gold); font-size: 0.75rem; letter-spacing: 2px; margin-bottom: 0.875rem; }
+  .proof-text { font-size: 0.875rem; color: var(--charcoal); line-height: 1.75; font-style: italic; margin-bottom: 1.125rem; }
   .proof-author { display: flex; align-items: center; gap: 10px; }
   .proof-avatar {
-    width: 36px; height: 36px; border-radius: 50%;
-    background: var(--burg-glow); border: 1px solid rgba(125,34,64,0.4);
+    width: 34px; height: 34px; border-radius: 50%;
+    background: rgba(125,34,64,0.08); border: 1px solid rgba(125,34,64,0.2);
     display: flex; align-items: center; justify-content: center;
-    font-size: 0.75rem; font-weight: 700; color: var(--gold);
-    flex-shrink: 0;
+    font-size: 0.6875rem; font-weight: 700; color: var(--burgundy); flex-shrink: 0;
   }
   .proof-name { font-size: 0.8125rem; font-weight: 600; }
   .proof-role { font-size: 0.75rem; color: var(--muted); }
 
   .stats-row {
-    margin-top: 3.5rem;
-    display: flex; gap: 3.5rem; flex-wrap: wrap;
+    display: flex; gap: 3rem; flex-wrap: wrap; margin-top: 2.5rem;
+    padding-top: 2rem; border-top: 1px solid var(--border);
   }
-  .stat-item { text-align: center; }
   .stat-num {
     font-family: 'Playfair Display', serif;
-    font-size: 3rem; font-weight: 900; color: var(--gold);
-    display: block; line-height: 1.05;
+    font-size: 2.5rem; font-weight: 700; color: var(--burgundy);
+    display: block; line-height: 1.1;
   }
-  .stat-label { font-size: 0.8125rem; color: var(--muted); margin-top: 4px; }
+  .stat-label { font-size: 0.8125rem; color: var(--muted); }
 
-  /* ─── ABOUT ALICE ─── */
-  .about-section { background: var(--mid); }
+  /* ── ABOUT ── */
   .about-layout {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 4.5rem; align-items: center;
+    display: grid; grid-template-columns: 1fr 380px;
+    gap: 4rem; align-items: center;
   }
   .about-body p {
-    color: var(--light); margin-bottom: 1.1rem;
-    font-size: 0.9375rem; line-height: 1.85;
+    font-size: 0.9375rem; color: var(--muted);
+    margin-bottom: 1rem; line-height: 1.8;
   }
   .about-stats {
     display: grid; grid-template-columns: 1fr 1fr;
-    gap: 1rem; margin: 2rem 0;
+    gap: 0.875rem; margin: 1.5rem 0;
   }
   .about-stat {
-    background: var(--card);
+    background: var(--eggshell);
     border: 1px solid var(--border);
-    border-radius: 10px; padding: 1.25rem;
+    border-radius: 10px; padding: 1.125rem;
   }
   .about-stat-num {
     font-family: 'Playfair Display', serif;
-    font-size: 2.2rem; font-weight: 900; color: var(--gold);
+    font-size: 2rem; font-weight: 700; color: var(--burgundy);
     display: block; line-height: 1.1;
   }
-  .about-stat-label { font-size: 0.8125rem; color: var(--muted); }
+  .about-stat-label { font-size: 0.75rem; color: var(--muted); }
   .about-img {
-    border-radius: 16px; overflow: hidden;
+    border-radius: 14px; overflow: hidden;
     border: 1px solid var(--border);
     aspect-ratio: 4/5;
-    box-shadow: 0 32px 80px rgba(0,0,0,0.5);
-    position: relative;
+    box-shadow: 0 20px 60px rgba(28,28,28,0.12);
   }
-  .about-img img {
-    width: 100%; height: 100%; object-fit: cover; display: block;
-  }
-  .about-img::after {
-    content: '';
-    position: absolute; inset: 0;
-    background: linear-gradient(to top, rgba(18,8,16,0.5) 0%, transparent 50%);
-    pointer-events: none;
-  }
+  .about-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .credentials {
-    display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1.5rem;
+    display: flex; flex-wrap: wrap; gap: 7px; margin-top: 1.25rem;
   }
   .credential-tag {
-    background: var(--card); border: 1px solid var(--border);
-    border-radius: 100px; padding: 5px 14px;
-    font-size: 0.75rem; color: var(--light);
+    background: var(--eggshell); border: 1px solid var(--border);
+    border-radius: 100px; padding: 4px 13px;
+    font-size: 0.6875rem; color: var(--muted);
   }
 
-  /* ─── REGISTER CTA SECTION ─── */
-  .register-section {
-    background: linear-gradient(145deg, var(--card) 0%, var(--deep) 100%);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    text-align: center;
+  /* ── CTA BAND ── */
+  .cta-section {
+    background: var(--charcoal);
+    padding: 3.5rem 4rem; text-align: center;
   }
-  .register-inner { max-width: 660px; margin: 0 auto; }
-  .register-section h2 {
+  .cta-section h2 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(1.9rem, 3.2vw, 2.7rem);
-    font-weight: 900; margin-bottom: 1rem;
-    letter-spacing: -0.03em;
+    font-size: clamp(1.75rem, 2.6vw, 2.25rem);
+    font-weight: 700; letter-spacing: -0.025em;
+    color: #fff; margin-bottom: 0.75rem;
   }
-  .register-section h2 em { font-style: italic; color: var(--gold); }
-  .register-section > .container > p { color: var(--light); margin-bottom: 2.5rem; }
+  .cta-section h2 em { font-style: italic; color: var(--gold); }
+  .cta-section p { color: rgba(255,255,255,0.55); margin-bottom: 2rem; font-size: 0.9375rem; }
   .reg-form-inline {
-    display: flex; gap: 0.875rem; max-width: 520px; margin: 0 auto 1rem;
+    display: flex; gap: 0.75rem; max-width: 500px; margin: 0 auto 1rem;
     flex-wrap: wrap;
   }
   .reg-form-inline input {
-    flex: 1; min-width: 180px;
-    padding: 0.9rem 1.1rem;
-    background: var(--mid); border: 1px solid var(--border);
-    border-radius: 8px; color: var(--cream);
+    flex: 1; min-width: 170px;
+    padding: 0.8rem 1rem;
+    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 8px; color: #fff;
     font-family: 'Inter', sans-serif; font-size: 0.9375rem;
     outline: none; transition: border-color 0.2s;
   }
   .reg-form-inline input:focus { border-color: var(--gold); }
-  .reg-form-inline input::placeholder { color: var(--muted); }
-  .btn-cta-inline {
-    background: var(--gold); color: #1C0A0A;
-    border: none; border-radius: 8px; padding: 0.9rem 1.75rem;
+  .reg-form-inline input::placeholder { color: rgba(255,255,255,0.35); }
+  .btn-cta {
+    background: var(--gold); color: var(--charcoal);
+    border: none; border-radius: 8px; padding: 0.8rem 1.75rem;
     font-family: 'Inter', sans-serif; font-size: 0.9375rem; font-weight: 700;
-    cursor: pointer; white-space: nowrap; transition: background 0.2s;
-    box-shadow: 0 4px 18px rgba(201,168,71,0.28);
+    cursor: pointer; white-space: nowrap;
+    transition: background 0.2s;
+    box-shadow: 0 4px 16px rgba(201,168,71,0.25);
   }
-  .btn-cta-inline:hover { background: var(--gold-dk); }
-  .register-trust { font-size: 0.8125rem; color: var(--muted); line-height: 1.65; }
+  .btn-cta:hover { background: var(--gold-dk); }
+  .cta-trust { font-size: 0.75rem; color: rgba(255,255,255,0.35); }
 
-  /* ─── FAQ ─── */
-  .faq-list { max-width: 700px; margin-top: 2.5rem; }
-  .faq-item { border-bottom: 1px solid var(--border); padding: 1.5rem 0; }
+  /* ── FAQ ── */
+  .faq-list { max-width: 680px; margin-top: 1.5rem; }
+  .faq-item { border-bottom: 1px solid var(--border); padding: 1.25rem 0; }
   .faq-q {
-    font-size: 1rem; font-weight: 600;
+    font-size: 0.9375rem; font-weight: 600; color: var(--charcoal);
     cursor: pointer; display: flex;
     justify-content: space-between; align-items: center; gap: 1rem;
-    list-style: none; color: var(--cream);
     transition: color 0.2s;
   }
-  .faq-q:hover { color: var(--gold); }
-  .faq-q::after {
-    content: '+'; font-size: 1.375rem; color: var(--gold);
-    flex-shrink: 0; transition: transform 0.25s;
-    font-weight: 300;
-  }
+  .faq-q:hover { color: var(--burgundy); }
+  .faq-q::after { content: '+'; font-size: 1.25rem; color: var(--gold); flex-shrink: 0; transition: transform 0.25s; font-weight: 300; }
   .faq-item.open .faq-q::after { transform: rotate(45deg); }
-  .faq-a {
-    font-size: 0.9375rem; color: var(--muted);
-    margin-top: 0.875rem; line-height: 1.75;
-    display: none;
-  }
+  .faq-a { font-size: 0.875rem; color: var(--muted); margin-top: 0.75rem; line-height: 1.75; display: none; }
   .faq-item.open .faq-a { display: block; }
 
-  /* ─── FOOTER ─── */
+  /* ── FOOTER ── */
   footer {
-    background: var(--mid);
+    background: var(--eggshell);
     border-top: 1px solid var(--border);
-    padding: 2.5rem 2rem;
-    text-align: center;
+    padding: 2rem 4rem; text-align: center;
   }
-  footer a { color: var(--gold); text-decoration: none; transition: opacity 0.2s; }
-  footer a:hover { opacity: 0.75; }
-  footer p { font-size: 0.8125rem; color: var(--muted); margin-top: 0.5rem; }
+  footer a { color: var(--burgundy); text-decoration: none; transition: opacity 0.2s; }
+  footer a:hover { opacity: 0.7; }
+  .footer-brand { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 600; color: var(--charcoal); margin-bottom: 0.5rem; }
+  footer p { font-size: 0.75rem; color: var(--muted); margin-top: 0.375rem; }
 
-  /* ─── SUCCESS STATE ─── */
-  .success-msg {
-    display: none; text-align: center; padding: 1.5rem;
-    background: var(--gold-glow);
-    border: 1px solid rgba(201,168,71,0.35);
-    border-radius: 10px; color: var(--gold);
-    font-weight: 600; font-size: 0.9375rem;
-  }
-
-  /* ─── RESPONSIVE ─── */
+  /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
-    .hero-grid, .who-layout, .about-layout { grid-template-columns: 1fr; }
-    .hero-grid { gap: 3rem; }
-    .who-layout, .about-layout { gap: 2.5rem; }
-    .about-img { aspect-ratio: 3/2; max-height: 340px; }
+    .hero-inner, .who-grid, .about-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+    .section { padding: 3rem 2rem; }
+    .hero { padding: 4rem 2rem; }
+    .about-img { aspect-ratio: 3/2; max-height: 320px; }
+    .about-layout { grid-template-columns: 1fr; }
   }
   @media (max-width: 600px) {
-    nav { padding: 1rem 1.25rem; }
-    section { padding: 3.5rem 1.25rem; }
-    .hero { padding: 6rem 1.25rem 3.5rem; }
+    .nav { padding: 0 1.25rem; }
+    .countdown-band { gap: 1.5rem; padding: 1rem 1.25rem; }
     .reg-form-inline { flex-direction: column; }
-    .reg-form-inline input { min-width: unset; }
-    .about-stats { grid-template-columns: 1fr 1fr; }
-    .stats-row { gap: 2rem; }
+    .cta-section { padding: 3rem 1.5rem; }
+    footer { padding: 1.5rem; }
   }
 </style>
 </head>
 <body>
 
 <!-- NAV -->
-<nav>
-  <a href="index.html" class="nav-logo">
-    Alice Bazdikian
-    <span>AI Strategist + Educator</span>
+<nav class="nav">
+  <a href="index.html" class="nav-brand">
+    <span class="nav-brand-name">Alice Bazdikian</span>
+    <span class="nav-brand-tag">AI Strategist + Educator</span>
   </a>
-  <div class="nav-right">
-    <a href="workshops.html" class="nav-link">Work With Me</a>
-    <a href="#register" class="btn-nav-gold">Save My Seat →</a>
-  </div>
+  <a href="#register" class="nav-cta">Save My Seat →</a>
 </nav>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-grid container">
+<div class="hero">
+  <div class="hero-inner">
     <div>
       <div class="hero-badge">Free Live Webinar</div>
       <h1>
@@ -624,70 +542,17 @@
       <p class="hero-sub">
         The practical, no-hype playbook for entrepreneurs who want Claude to actually work for their business — not just sound impressive at dinner parties.
       </p>
-      <div class="hero-details">
-        <div class="hero-detail">
-          <div class="hero-detail-icon">📅</div>
-          <div>
-            <strong>Thursday, March 27th · 6:30 PM ET</strong>
-            <span>6:30 – 8:00 PM Eastern · 3:30 PM Pacific</span>
-          </div>
-        </div>
-        <div class="hero-detail">
-          <div class="hero-detail-icon">⏱</div>
-          <div>
-            <strong>Duration</strong>
-            <span>90 minutes + live Q&A</span>
-          </div>
-        </div>
-        <div class="hero-detail">
-          <div class="hero-detail-icon">💻</div>
-          <div>
-            <strong>Format</strong>
-            <span>Live on Zoom · Replay available</span>
-          </div>
-        </div>
+      <div class="hero-meta">
+        <div class="hero-meta-item">📅 <strong>Thursday, March 27th · 6:30 PM ET</strong></div>
+        <div class="hero-meta-item">⏱ <strong>90 min + live Q&A</strong></div>
+        <div class="hero-meta-item">💻 <strong>Live on Zoom · Replay available</strong></div>
       </div>
     </div>
 
-    <!-- REGISTRATION CARD -->
     <div class="reg-card">
       <h3>Claim Your Free Seat</h3>
       <p>Limited spots. Don't leave this page without registering.</p>
-
-      <div class="countdown-wrap">
-        <div class="countdown-label">Registration closes in</div>
-        <div class="countdown-timer">
-          <div class="countdown-unit">
-            <span class="countdown-num" id="cd-days">05</span>
-            <span class="countdown-text">Days</span>
-          </div>
-          <span class="countdown-colon">:</span>
-          <div class="countdown-unit">
-            <span class="countdown-num" id="cd-hrs">14</span>
-            <span class="countdown-text">Hrs</span>
-          </div>
-          <span class="countdown-colon">:</span>
-          <div class="countdown-unit">
-            <span class="countdown-num" id="cd-min">32</span>
-            <span class="countdown-text">Min</span>
-          </div>
-          <span class="countdown-colon">:</span>
-          <div class="countdown-unit">
-            <span class="countdown-num" id="cd-sec">09</span>
-            <span class="countdown-text">Sec</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="spots-bar">
-        <div class="spots-label">
-          <span>Seats filled</span>
-          <span id="spots-pct">73% claimed</span>
-        </div>
-        <div class="spots-track"><div class="spots-fill" id="spots-fill"></div></div>
-      </div>
-
-      <form id="hero-form" onsubmit="handleSubmit(event, 'hero')">
+      <form id="hero-form" onsubmit="handleSubmit(event,'hero')">
         <label for="h-name">First Name</label>
         <input type="text" id="h-name" placeholder="Your first name" required>
         <label for="h-email">Email Address</label>
@@ -695,295 +560,160 @@
         <label for="h-role">Your Role</label>
         <select id="h-role" required>
           <option value="" disabled selected>Select your role…</option>
-          <option value="founder">Founder / CEO</option>
-          <option value="consultant">Consultant / Freelancer</option>
-          <option value="coach">Coach / Trainer</option>
-          <option value="creative">Creative / Designer / Writer</option>
-          <option value="sales">Sales / Business Development</option>
-          <option value="marketing">Marketing / Communications</option>
-          <option value="ops">Operations / Admin</option>
-          <option value="other">Other</option>
+          <option>Founder / CEO</option>
+          <option>Consultant / Freelancer</option>
+          <option>Coach / Trainer</option>
+          <option>Creative / Designer / Writer</option>
+          <option>Sales / Business Development</option>
+          <option>Marketing / Communications</option>
+          <option>Operations / Admin</option>
+          <option>Other</option>
         </select>
-        <label for="h-size">Team / Organization Size</label>
+        <label for="h-size">Team Size</label>
         <select id="h-size" required>
           <option value="" disabled selected>Select org size…</option>
-          <option value="solo">Just me (solopreneur)</option>
-          <option value="2-5">2–5 people</option>
-          <option value="6-15">6–15 people</option>
-          <option value="16-50">16–50 people</option>
-          <option value="50+">50+ people</option>
+          <option>Just me (solopreneur)</option>
+          <option>2–5 people</option>
+          <option>6–15 people</option>
+          <option>16–50 people</option>
+          <option>50+ people</option>
         </select>
         <button type="submit" class="btn-primary">🎯 Reserve My Free Seat</button>
       </form>
-      <div class="success-msg" id="hero-success">
-        ✓ You're in! Check your inbox for your confirmation.
-      </div>
-      <p class="reg-trust">🔒 No spam. No credit card. Unsubscribe anytime.<br>Hosted by Alice Bazdikian · smallbusinessaicoach.com</p>
+      <div class="success-msg" id="hero-success">✓ You're in! Check your inbox for confirmation.</div>
+      <p class="reg-trust">🔒 No spam. No credit card. Unsubscribe anytime.</p>
     </div>
   </div>
-</section>
+</div>
+
+<!-- COUNTDOWN BAND -->
+<div class="countdown-band">
+  <span class="countdown-band-label">Registration closes in</span>
+  <div class="countdown-timer">
+    <div class="countdown-unit">
+      <span class="countdown-num" id="cd-days">05</span>
+      <span class="countdown-text">Days</span>
+    </div>
+    <span class="countdown-colon">:</span>
+    <div class="countdown-unit">
+      <span class="countdown-num" id="cd-hrs">14</span>
+      <span class="countdown-text">Hrs</span>
+    </div>
+    <span class="countdown-colon">:</span>
+    <div class="countdown-unit">
+      <span class="countdown-num" id="cd-min">32</span>
+      <span class="countdown-text">Min</span>
+    </div>
+    <span class="countdown-colon">:</span>
+    <div class="countdown-unit">
+      <span class="countdown-num" id="cd-sec">09</span>
+      <span class="countdown-text">Sec</span>
+    </div>
+  </div>
+  <div class="spots-wrap">
+    <div class="spots-track"><div class="spots-fill" id="spots-fill"></div></div>
+    <span class="spots-label">73% of seats claimed</span>
+  </div>
+</div>
 
 <!-- PAIN SECTION -->
-<section class="pain-section">
-  <div class="container">
-    <div class="section-label">Sound familiar?</div>
-    <h2 class="section-title">You're smart. You're capable.<br>So why does AI still feel like <em>homework?</em></h2>
-    <div class="divider"></div>
-    <p class="pain-intro">
-      You've tried ChatGPT. You've watched the YouTube tutorials. You maybe even paid for a course. But you're still not getting the traction you expected — and honestly? It's not your fault. Nobody's teaching entrepreneurs the strategic layer that makes AI genuinely useful.
-    </p>
+<div class="section section-alt">
+  <div class="section-inner">
+    <p class="eyebrow">Sound familiar?</p>
+    <h2 class="section-heading">You're smart. You're capable.<br>So why does AI still feel like <em>homework?</em></h2>
     <div class="pain-grid">
-      <div class="pain-card">
-        <div class="pain-icon">😤</div>
-        <div>
-          <h4>"It doesn't sound like me."</h4>
-          <p>Generic outputs. Fluffy content. Responses so beige they make oatmeal look edgy. You need real business intelligence — not corporate lorem ipsum.</p>
-        </div>
-      </div>
-      <div class="pain-card">
-        <div class="pain-icon">🤯</div>
-        <div>
-          <h4>"I don't know what to ask it."</h4>
-          <p>You open Claude. You stare at the blank box. You close the tab. The tool is only as powerful as the strategy behind it — and nobody gave you the strategy.</p>
-        </div>
-      </div>
-      <div class="pain-card">
-        <div class="pain-icon">⏰</div>
-        <div>
-          <h4>"I'm still doing everything manually."</h4>
-          <p>You bought the Claude Pro subscription. It's been three months. You use it to rewrite emails occasionally. This is not what the brochure promised.</p>
-        </div>
-      </div>
-      <div class="pain-card">
-        <div class="pain-icon">💸</div>
-        <div>
-          <h4>"I'm paying for something I don't fully use."</h4>
-          <p>$20/month feels fine. But the gap between what you're getting and what's possible is costing you far more in time, decisions, and missed opportunities.</p>
-        </div>
-      </div>
-      <div class="pain-card">
-        <div class="pain-icon">🧠</div>
-        <div>
-          <h4>"The complexity is overwhelming."</h4>
-          <p>New models. New features. New hype every Tuesday. You're a business owner, not a developer. You need a filter, not more information.</p>
-        </div>
-      </div>
-      <div class="pain-card">
-        <div class="pain-icon">🪞</div>
-        <div>
-          <h4>"I feel behind everyone else."</h4>
-          <p>Everyone's talking about AI like it's already changed their business. You're nodding along while still manually building your quarterly report in Excel.</p>
-        </div>
-      </div>
+      <div class="pain-card"><div class="pain-icon">😤</div><div><h4>"It doesn't sound like me."</h4><p>Generic outputs. Fluffy content. You need real business intelligence — not corporate lorem ipsum.</p></div></div>
+      <div class="pain-card"><div class="pain-icon">🤯</div><div><h4>"I don't know what to ask it."</h4><p>You open Claude. You stare at the blank box. You close the tab. Nobody gave you the strategy.</p></div></div>
+      <div class="pain-card"><div class="pain-icon">⏰</div><div><h4>"I'm still doing everything manually."</h4><p>You bought the Claude Pro subscription. Three months in, you use it to rewrite emails occasionally.</p></div></div>
+      <div class="pain-card"><div class="pain-icon">💸</div><div><h4>"I'm paying for something I don't fully use."</h4><p>The gap between what you're getting and what's possible is costing you more than $20/month in lost time.</p></div></div>
+      <div class="pain-card"><div class="pain-icon">🧠</div><div><h4>"The complexity is overwhelming."</h4><p>New models. New features. New hype every Tuesday. You're a business owner — you need a filter.</p></div></div>
+      <div class="pain-card"><div class="pain-icon">🪞</div><div><h4>"I feel behind everyone else."</h4><p>Everyone's talking about AI like it changed their business. You're still building quarterly reports manually.</p></div></div>
     </div>
   </div>
-</section>
+</div>
 
 <!-- WHAT YOU'LL LEARN -->
-<section>
-  <div class="container">
-    <div class="section-label">What you'll walk away with</div>
-    <h2 class="section-title">90 minutes. A completely<br><em>new relationship with Claude.</em></h2>
-    <div class="divider"></div>
+<div class="section">
+  <div class="section-inner">
+    <p class="eyebrow">What you'll walk away with</p>
+    <h2 class="section-heading">90 minutes. A completely<br><em>new relationship with Claude.</em></h2>
     <div class="learn-grid">
-      <div class="learn-card">
-        <div class="learn-number">01</div>
-        <h4>The Claude Cowork Setup That Replaces a Part-Time Analyst</h4>
-        <p>The exact configuration — projects, memory, custom instructions — that turns a $20 subscription into a strategic business intelligence layer. Competitor research, financial summaries, decision frameworks, weekly business reviews. All automated.</p>
-      </div>
-      <div class="learn-card">
-        <div class="learn-number">02</div>
-        <h4>The 5 Prompts Every Entrepreneur Should Use Weekly</h4>
-        <p>Not generic prompts from a blog post. The precise prompts tested with real solo founders to get the clearest strategic thinking, the sharpest competitive analysis, and the most useful "what should I do next" outputs. Copy, paste, adapt.</p>
-      </div>
-      <div class="learn-card">
-        <div class="learn-number">03</div>
-        <h4>How to Train Claude to Think Like Your Business</h4>
-        <p>The difference between Claude giving generic answers and Claude giving advice specific to your market, your clients, your constraints. We'll build your business context document live on the call.</p>
-      </div>
-      <div class="learn-card">
-        <div class="learn-number">04</div>
-        <h4>The Neurodivergent-Friendly AI Workflow</h4>
-        <p>If AI tools were designed for someone with a very different brain than yours — this section is for you. We'll design a system that works with how you actually think, not against it. Structure without rigidity. Flexibility without chaos.</p>
-      </div>
-      <div class="learn-card">
-        <div class="learn-number">05</div>
-        <h4>Decisions, Not Data Dumps</h4>
-        <p>How to ask Claude the right questions so you get clear decisions instead of overwhelming information. The FILTER framework for cutting through AI noise and getting to the one thing you need to know right now.</p>
-      </div>
-      <div class="learn-card">
-        <div class="learn-number">06</div>
-        <h4>Your 30-Day AI Integration Roadmap</h4>
-        <p>You'll leave with a custom 30-day plan based on your business type — not a generic checklist. Specific, prioritized, and actually completable for a person running a real company solo.</p>
-      </div>
+      <div class="learn-card"><div class="learn-number">01</div><h4>The Claude Cowork Setup That Replaces a Part-Time Analyst</h4><p>Projects, memory, custom instructions — the exact configuration that turns a $20 subscription into a strategic business intelligence layer.</p></div>
+      <div class="learn-card"><div class="learn-number">02</div><h4>The 5 Prompts Every Entrepreneur Should Use Weekly</h4><p>Tested with real solo founders. The precise prompts for strategic thinking, competitive analysis, and clear "what to do next" outputs. Copy, paste, adapt.</p></div>
+      <div class="learn-card"><div class="learn-number">03</div><h4>How to Train Claude to Think Like Your Business</h4><p>The difference between generic answers and advice specific to your market, clients, and constraints. We'll build your business context document live.</p></div>
+      <div class="learn-card"><div class="learn-number">04</div><h4>The Neurodivergent-Friendly AI Workflow</h4><p>A system that works with how you actually think. Structure without rigidity. Flexibility without chaos. Designed for brains that don't fit the default mould.</p></div>
+      <div class="learn-card"><div class="learn-number">05</div><h4>Decisions, Not Data Dumps</h4><p>The FILTER framework for cutting through AI noise and getting to the one thing you need to know right now — every time.</p></div>
+      <div class="learn-card"><div class="learn-number">06</div><h4>Your 30-Day AI Integration Roadmap</h4><p>A custom plan based on your business type. Specific, prioritized, and actually completable for someone running a real company solo.</p></div>
     </div>
   </div>
-</section>
+</div>
 
 <!-- WHO IT'S FOR -->
-<section class="who-section">
-  <div class="container">
-    <div class="section-label">This is for you if…</div>
-    <h2 class="section-title">You're doing well.<br>You could just be doing it <em>smarter.</em></h2>
-    <div class="divider"></div>
-    <div class="who-layout">
-      <div>
-        <ul class="who-list">
-          <li>
-            <div class="who-check">✓</div>
-            <div class="who-text">
-              <strong>Solo founders, consultants & creatives</strong>
-              <span>You're running a real business. You have clients, revenue, and a brain that never fully clocks off. AI should be your leverage, not your extra job.</span>
-            </div>
-          </li>
-          <li>
-            <div class="who-check">✓</div>
-            <div class="who-text">
-              <strong>Values-led & neurodivergent business owners</strong>
-              <span>You want systems that feel aligned, not chaotic. You need clarity, not more complexity. And you're done with tools designed for people who think in straight lines.</span>
-            </div>
-          </li>
-          <li>
-            <div class="who-check">✓</div>
-            <div class="who-text">
-              <strong>Leaders working harder than they need to</strong>
-              <span>You're good at what you do. But you're doing $20/hour tasks when your time is worth 10x that. The right AI strategy comes close to fixing that.</span>
-            </div>
-          </li>
-          <li>
-            <div class="who-check">✓</div>
-            <div class="who-text">
-              <strong>AI-curious but strategically lost</strong>
-              <span>You've dabbled. You're not a complete beginner. But you need someone to show you the strategic lens that makes all the tools actually make sense.</span>
-            </div>
-          </li>
-        </ul>
-      </div>
+<div class="section section-alt">
+  <div class="section-inner">
+    <p class="eyebrow">This is for you if…</p>
+    <h2 class="section-heading">You're doing well.<br>You could just be doing it <em>smarter.</em></h2>
+    <div class="who-grid">
+      <ul class="who-list">
+        <li><div class="who-check">✓</div><div class="who-text"><strong>Solo founders, consultants & creatives</strong><span>You have clients, revenue, and a brain that never clocks off. AI should be your leverage, not your extra job.</span></div></li>
+        <li><div class="who-check">✓</div><div class="who-text"><strong>Values-led & neurodivergent business owners</strong><span>You want systems that feel aligned, not chaotic. Clarity over complexity — and tools designed for how you actually think.</span></div></li>
+        <li><div class="who-check">✓</div><div class="who-text"><strong>Leaders working harder than they need to</strong><span>You're doing $20/hour tasks when your time is worth 10x that. The right AI strategy comes close to fixing that.</span></div></li>
+        <li><div class="who-check">✓</div><div class="who-text"><strong>AI-curious but strategically lost</strong><span>You've dabbled but need the strategic lens that makes all the tools actually make sense for your specific business.</span></div></li>
+      </ul>
       <div>
         <div class="who-not">
           <h4>This is NOT for you if…</h4>
-          <div class="not-item">
-            <span class="not-x">✗</span>
-            <span>You're looking for a get-rich-quick AI scheme with zero effort involved</span>
-          </div>
-          <div class="not-item">
-            <span class="not-x">✗</span>
-            <span>You want someone to build your entire AI system for you in one session</span>
-          </div>
-          <div class="not-item">
-            <span class="not-x">✗</span>
-            <span>You're not actually running a business yet — this assumes you have clients or customers already</span>
-          </div>
-          <div class="not-item">
-            <span class="not-x">✗</span>
-            <span>You think AI will replace your judgment, your relationships, or your expertise</span>
-          </div>
+          <div class="not-item"><span class="not-x">✗</span><span>You're looking for a get-rich-quick AI scheme with zero effort</span></div>
+          <div class="not-item"><span class="not-x">✗</span><span>You want someone to build your entire system in one session</span></div>
+          <div class="not-item"><span class="not-x">✗</span><span>You're not running a business yet — this assumes real clients or customers</span></div>
+          <div class="not-item"><span class="not-x">✗</span><span>You think AI will replace your judgment, relationships, or expertise</span></div>
         </div>
-        <div class="who-also">
-          <p>
-            "The best investment in AI isn't the tool. It's learning to ask <span>smarter questions.</span> That skill compounds forever — and no model update can take it away."
-          </p>
-          <p style="font-size:0.8125rem; color: var(--muted); margin-top: 1rem; font-style: normal;">— Alice Bazdikian, AI Strategist</p>
+        <div class="who-quote">
+          <p>"The best investment in AI isn't the tool. It's learning to ask <span>smarter questions.</span> That skill compounds forever — and no model update can take it away."</p>
+          <cite>— Alice Bazdikian, AI Strategist</cite>
         </div>
       </div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- SOCIAL PROOF -->
-<section>
-  <div class="container">
-    <div class="section-label">What people are saying</div>
-    <h2 class="section-title">Real results from <em>real workshops.</em></h2>
-    <div class="divider"></div>
+<!-- TESTIMONIALS -->
+<div class="section">
+  <div class="section-inner">
+    <p class="eyebrow">What people are saying</p>
+    <h2 class="section-heading">Real results from <em>real workshops.</em></h2>
     <div class="proof-grid">
-      <div class="proof-card">
-        <div class="proof-stars">★★★★★</div>
-        <p class="proof-text">"Alice was very good at helping attendees gain an understanding through questions. I came in skeptical and left with three immediate action items I could implement that week."</p>
-        <div class="proof-author">
-          <div class="proof-avatar">WP</div>
-          <div>
-            <div class="proof-name">Workshop Participant</div>
-            <div class="proof-role">Small Business Owner</div>
-          </div>
-        </div>
-      </div>
-      <div class="proof-card">
-        <div class="proof-stars">★★★★★</div>
-        <p class="proof-text">"Well done Alice! I needed this today. The different strategies for how to use AI and get maximum results to support business activities was exactly what was missing for me."</p>
-        <div class="proof-author">
-          <div class="proof-avatar">WP</div>
-          <div>
-            <div class="proof-name">Workshop Participant</div>
-            <div class="proof-role">Entrepreneur</div>
-          </div>
-        </div>
-      </div>
-      <div class="proof-card">
-        <div class="proof-stars">★★★★★</div>
-        <p class="proof-text">"Most practical workshop I've attended in years. No fluff, no buzzwords. Everything was valuable — learning all you can do for a business with AI. Just real strategy I could use."</p>
-        <div class="proof-author">
-          <div class="proof-avatar">WP</div>
-          <div>
-            <div class="proof-name">Workshop Participant</div>
-            <div class="proof-role">Consultant</div>
-          </div>
-        </div>
-      </div>
+      <div class="proof-card"><div class="proof-stars">★★★★★</div><p class="proof-text">"Alice was very good at helping attendees gain an understanding through questions. I came in skeptical and left with three immediate action items I could implement that week."</p><div class="proof-author"><div class="proof-avatar">WP</div><div><div class="proof-name">Workshop Participant</div><div class="proof-role">Small Business Owner</div></div></div></div>
+      <div class="proof-card"><div class="proof-stars">★★★★★</div><p class="proof-text">"Well done Alice! The different strategies for how to use AI and get maximum results was exactly what was missing for me. I needed this today."</p><div class="proof-author"><div class="proof-avatar">WP</div><div><div class="proof-name">Workshop Participant</div><div class="proof-role">Entrepreneur</div></div></div></div>
+      <div class="proof-card"><div class="proof-stars">★★★★★</div><p class="proof-text">"Most practical workshop I've attended in years. No fluff, no buzzwords. Just real strategy I could use — and I left using it that afternoon."</p><div class="proof-author"><div class="proof-avatar">WP</div><div><div class="proof-name">Workshop Participant</div><div class="proof-role">Consultant</div></div></div></div>
     </div>
     <div class="stats-row">
-      <div class="stat-item">
-        <span class="stat-num">500+</span>
-        <div class="stat-label">Business owners trained</div>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num">100+</span>
-        <div class="stat-label">Entrepreneurs coached on AI</div>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num">20yr</span>
-        <div class="stat-label">Cross-functional experience</div>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num">4.9★</span>
-        <div class="stat-label">Average workshop rating</div>
-      </div>
+      <div><span class="stat-num">500+</span><div class="stat-label">Business owners trained</div></div>
+      <div><span class="stat-num">100+</span><div class="stat-label">Entrepreneurs coached on AI</div></div>
+      <div><span class="stat-num">20yr</span><div class="stat-label">Cross-functional experience</div></div>
+      <div><span class="stat-num">4.9★</span><div class="stat-label">Average workshop rating</div></div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- ABOUT ALICE -->
-<section class="about-section">
-  <div class="container">
+<!-- ABOUT -->
+<div class="section section-alt">
+  <div class="section-inner">
     <div class="about-layout">
       <div class="about-body">
-        <div class="section-label">Your host</div>
-        <h2 class="section-title">Hi, I'm <em>Alice.</em></h2>
-        <div class="divider"></div>
-        <p>
-          I'm an AI Strategist and Educator based in the Greater Toronto Area. For the last two decades, I've been at the intersection of technology and business — training teams, advising entrepreneurs, and translating complex tech into things people can actually use.
-        </p>
-        <p>
-          I didn't get into AI because it was trendy. I got into it because I watched brilliant business owners waste hours on tasks that a well-configured Claude could handle in minutes — and nobody was showing them how.
-        </p>
-        <p>
-          My approach? No jargon. No tech-bro hype. No pretending AI is magic. Just practical strategy that makes your business run smarter, faster, and more aligned with how you actually want to work.
-        </p>
+        <p class="eyebrow">Your host</p>
+        <h2 class="section-heading">Hi, I'm <em>Alice.</em></h2>
+        <p>I'm an AI Strategist and Educator based in the Greater Toronto Area. For the last two decades, I've been at the intersection of technology and business — training teams, advising entrepreneurs, and translating complex tech into things people can actually use.</p>
+        <p>I didn't get into AI because it was trendy. I got into it because I watched brilliant business owners waste hours on tasks that a well-configured Claude could handle in minutes — and nobody was showing them how.</p>
+        <p>No jargon. No tech-bro hype. No pretending AI is magic. Just practical strategy that makes your business run smarter, faster, and more aligned with how you actually want to work.</p>
         <div class="about-stats">
-          <div class="about-stat">
-            <span class="about-stat-num">500+</span>
-            <span class="about-stat-label">Users trained on technology</span>
-          </div>
-          <div class="about-stat">
-            <span class="about-stat-num">20yr</span>
-            <span class="about-stat-label">Cross-functional business experience</span>
-          </div>
+          <div class="about-stat"><span class="about-stat-num">500+</span><span class="about-stat-label">Users trained on technology</span></div>
+          <div class="about-stat"><span class="about-stat-num">20yr</span><span class="about-stat-label">Cross-functional experience</span></div>
         </div>
         <div class="credentials">
           <span class="credential-tag">AI Strategist</span>
           <span class="credential-tag">Educator</span>
           <span class="credential-tag">Author</span>
-          <span class="credential-tag">Solar Energy Consultant</span>
           <span class="credential-tag">GTA-based</span>
         </div>
       </div>
@@ -992,69 +722,44 @@
       </div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- REGISTER CTA SECTION -->
-<section class="register-section" id="register">
-  <div class="container register-inner">
-    <div class="section-label" style="justify-content: center;">Don't leave without registering</div>
-    <h2>This is the webinar you've been<br><em>waiting for someone to build.</em></h2>
-    <p style="color: var(--light); margin-bottom: 2.5rem;">Free. Live. Practical. Thursday March 27th · 6:30 PM ET. And honestly — long overdue.</p>
-
-    <form id="bottom-form" onsubmit="handleSubmit(event, 'bottom')">
-      <div class="reg-form-inline">
-        <input type="text" placeholder="Your first name" required>
-        <input type="email" placeholder="Your best email" required>
-        <button type="submit" class="btn-cta-inline">Save My Seat →</button>
-      </div>
-    </form>
-    <div class="success-msg" id="bottom-success" style="max-width: 500px; margin: 0 auto 1rem;">
-      ✓ You're in! Check your inbox for confirmation.
+<!-- REGISTER CTA -->
+<div class="cta-section" id="register">
+  <h2>This is the webinar you've been<br><em>waiting for someone to build.</em></h2>
+  <p>Free. Live. Practical. Thursday March 27th · 6:30 PM ET.</p>
+  <form id="bottom-form" onsubmit="handleSubmit(event,'bottom')">
+    <div class="reg-form-inline">
+      <input type="text" placeholder="Your first name" required>
+      <input type="email" placeholder="Your best email" required>
+      <button type="submit" class="btn-cta">Save My Seat →</button>
     </div>
-    <p class="register-trust">🔒 Free forever. No upsell on the call. No pushy sales pitch. Just 90 minutes of the clearest AI strategy you've attended — or your time back (and it's free, so.)</p>
-  </div>
-</section>
+  </form>
+  <div class="success-msg" id="bottom-success" style="max-width:460px;margin:0 auto 1rem;background:rgba(201,168,71,0.12);border-color:rgba(201,168,71,0.3);color:var(--gold);">✓ You're in! Check your inbox for confirmation.</div>
+  <p class="cta-trust">🔒 Free forever. No upsell on the call. No pushy sales pitch.</p>
+</div>
 
 <!-- FAQ -->
-<section>
-  <div class="container">
-    <div class="section-label">Questions</div>
-    <h2 class="section-title">The stuff you're<br>probably wondering.</h2>
-    <div class="divider"></div>
+<div class="section">
+  <div class="section-inner">
+    <p class="eyebrow">Questions</p>
+    <h2 class="section-heading">The stuff you're probably wondering.</h2>
     <div class="faq-list">
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">Do I need to already have Claude or know how to use it?</div>
-        <div class="faq-a">No — you just need to be curious. We'll cover the setup from the beginning. If you've been using Claude casually, you'll walk away with a completely different relationship with it. If you haven't started yet, you'll leave ready to.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">Is this actually free? What's the catch?</div>
-        <div class="faq-a">It's genuinely free. I do workshops and coaching for a living, so yes — at the end I'll mention ways to work with me more deeply. But the webinar delivers complete value on its own. You don't need to buy anything to get results from what we cover.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">What does "Claude Cowork" mean exactly?</div>
-        <div class="faq-a">It's the strategy of setting Claude up as an ongoing business collaborator — not just a one-off tool. We use Claude's Projects feature, persistent memory, and custom context to build something that actually understands your business over time. Think of it as onboarding an AI analyst who gets smarter the more you work with them.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">What if I can't make it live?</div>
-        <div class="faq-a">A replay will be available for everyone who registers. You'll receive it within 24 hours of the live session. Register regardless of whether you can make the live time — you won't miss the content.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">Is this relevant if my business isn't in tech?</div>
-        <div class="faq-a">Especially relevant. This is built for consultants, coaches, creatives, service providers, and retailers — not software companies. Every example and framework is designed for businesses that sell expertise, services, or products — not code.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">I'm neurodivergent. Will this be accessible and actually useful for me?</div>
-        <div class="faq-a">Yes — explicitly. There's an entire section designed for how neurodivergent entrepreneurs can configure Claude to work with their cognitive style, not against it. The goal is to give you more clarity, less overwhelm, and systems that feel aligned rather than forced.</div>
-      </div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Do I need to already have Claude or know how to use it?</div><div class="faq-a">No — you just need to be curious. We'll cover the setup from the beginning. If you've been using Claude casually, you'll walk away with a completely different relationship with it.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Is this actually free? What's the catch?</div><div class="faq-a">It's genuinely free. I do workshops and coaching for a living, so at the end I'll mention ways to work with me more deeply. But the webinar delivers complete value on its own. You don't need to buy anything to get results.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What does "Claude Cowork" mean exactly?</div><div class="faq-a">It's the strategy of setting Claude up as an ongoing business collaborator — not just a one-off tool. We use Claude's Projects feature, persistent memory, and custom context to build something that actually understands your business over time.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What if I can't make it live?</div><div class="faq-a">A replay will be available for everyone who registers. You'll receive it within 24 hours. Register regardless of whether you can make the live time — you won't miss the content.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Is this relevant if my business isn't in tech?</div><div class="faq-a">Especially relevant. This is built for consultants, coaches, creatives, service providers, and retailers — not software companies. Every example is designed for businesses that sell expertise, services, or products.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">I'm neurodivergent. Will this actually be useful for me?</div><div class="faq-a">Yes — explicitly. There's an entire section on how neurodivergent entrepreneurs can configure Claude to work with their cognitive style. The goal is more clarity, less overwhelm, and systems that feel aligned.</div></div>
     </div>
   </div>
-</section>
+</div>
 
 <!-- FOOTER -->
 <footer>
-  <a href="https://www.smallbusinessaicoach.com">smallbusinessaicoach.com</a>
+  <div class="footer-brand">Alice Bazdikian</div>
   <p>© 2026 Alice Bazdikian · AI Strategist + Educator · Toronto, Ontario</p>
-  <p style="margin-top: 0.75rem;">
+  <p style="margin-top:0.75rem;">
     <a href="about.html">About</a> &nbsp;·&nbsp;
     <a href="workshops.html">Work With Me</a> &nbsp;·&nbsp;
     <a href="https://calendly.com/abazdikian/diagnostic">Book a Diagnostic</a>
@@ -1062,51 +767,39 @@
 </footer>
 
 <script>
-// ── COUNTDOWN ──
 (function() {
   var end = new Date('2026-03-27T23:30:00Z');
   function tick() {
     var diff = Math.max(0, end - new Date());
-    var days = Math.floor(diff / 86400000);
-    var hrs  = Math.floor((diff % 86400000) / 3600000);
-    var min  = Math.floor((diff % 3600000) / 60000);
-    var sec  = Math.floor((diff % 60000) / 1000);
-    document.getElementById('cd-days').textContent = String(days).padStart(2,'0');
-    document.getElementById('cd-hrs').textContent  = String(hrs).padStart(2,'0');
-    document.getElementById('cd-min').textContent  = String(min).padStart(2,'0');
-    document.getElementById('cd-sec').textContent  = String(sec).padStart(2,'0');
+    document.getElementById('cd-days').textContent = String(Math.floor(diff/86400000)).padStart(2,'0');
+    document.getElementById('cd-hrs').textContent  = String(Math.floor((diff%86400000)/3600000)).padStart(2,'0');
+    document.getElementById('cd-min').textContent  = String(Math.floor((diff%3600000)/60000)).padStart(2,'0');
+    document.getElementById('cd-sec').textContent  = String(Math.floor((diff%60000)/1000)).padStart(2,'0');
   }
-  tick();
-  setInterval(tick, 1000);
+  tick(); setInterval(tick, 1000);
 })();
 
-// ── SPOTS BAR ──
-setTimeout(function() {
-  document.getElementById('spots-fill').style.width = '73%';
-}, 700);
+setTimeout(function() { document.getElementById('spots-fill').style.width = '73%'; }, 700);
 
-// ── FORM SUBMIT ──
 function handleSubmit(e, id) {
   e.preventDefault();
-  document.getElementById(id + '-form').style.display = 'none';
-  document.getElementById(id + '-success').style.display = 'block';
-  // TODO: wire to email provider (Mailchimp, ConvertKit, etc.)
+  document.getElementById(id+'-form').style.display = 'none';
+  document.getElementById(id+'-success').style.display = 'block';
+  // TODO: wire to Mailchimp / ConvertKit
 }
 
-// ── FAQ ──
 function toggleFaq(el) {
   var item = el.parentElement;
-  var isOpen = item.classList.contains('open');
-  document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
-  if (!isOpen) item.classList.add('open');
+  var open = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('open'); });
+  if (!open) item.classList.add('open');
 }
 
-// ── SMOOTH SCROLL ──
 document.querySelectorAll('a[href^="#"]').forEach(function(a) {
   a.addEventListener('click', function(e) {
     e.preventDefault();
-    var target = document.querySelector(a.getAttribute('href'));
-    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    var t = document.querySelector(a.getAttribute('href'));
+    if (t) t.scrollIntoView({ behavior:'smooth', block:'start' });
   });
 });
 </script>

@@ -52,3 +52,4 @@
 - Do not stop after one screenshot pass
 - Do not use `transition-all`
 - Do not use default Tailwind blue/indigo as primary color
+- **Never use dark backgrounds** — all pages must use white or eggshell (`#F7F3EE`) as the page background. Dark backgrounds are not part of this brand.
