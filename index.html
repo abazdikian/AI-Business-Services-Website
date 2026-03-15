@@ -1520,6 +1520,13 @@
 </head>
 <body>
 
+  <!-- ═══════════ WEBINAR BANNER ═══════════ -->
+  <div id="webinar-banner" style="background:var(--burgundy);color:#fff;text-align:center;padding:0.6rem 1.5rem;font-size:0.8125rem;font-weight:500;letter-spacing:0.01em;display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;position:sticky;top:0;z-index:100;">
+    <span>🎙 <strong>Free Live Webinar:</strong> Claude Cowork — Your AI Business Analyst &nbsp;·&nbsp; Thursday March 27th · 6:30 PM ET</span>
+    <button onclick="openWebinarModal()" style="background:var(--gold);color:var(--charcoal);border:none;padding:0.35rem 1.1rem;border-radius:100px;font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:700;cursor:pointer;letter-spacing:0.02em;white-space:nowrap;transition:background 0.2s;">Register Free →</button>
+    <button onclick="document.getElementById('webinar-banner').style.display='none'" aria-label="Dismiss" style="background:none;border:none;color:rgba(255,255,255,0.5);font-size:1.1rem;cursor:pointer;padding:0;line-height:1;margin-left:0.25rem;">&times;</button>
+  </div>
+
   <!-- ═══════════ NAVIGATION ═══════════ -->
   <nav class="nav">
     <a href="/" style="text-decoration:none">
@@ -1916,6 +1923,18 @@
   </style>
 
   <script>
+    function openWebinarModal() {
+      document.getElementById('webinar-modal').style.display = 'flex';
+    }
+
+    // Auto-pop after 5s — once per session
+    if (!sessionStorage.getItem('webinar-modal-shown')) {
+      setTimeout(function() {
+        openWebinarModal();
+        sessionStorage.setItem('webinar-modal-shown', '1');
+      }, 5000);
+    }
+
     async function handleModalWebinarSubmit(e) {
       e.preventDefault();
       const btn = e.target.querySelector('button[type="submit"]');
