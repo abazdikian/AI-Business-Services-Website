@@ -1720,6 +1720,44 @@
     </div>
   </section>
 
+  <!-- ═══════════ WHO I WORK WITH ═══════════ -->
+  <section style="padding:4.5rem 4rem;background:#fff;">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:2.5rem;">
+        <p class="section-eyebrow" style="justify-content:center;">Who This Is For</p>
+        <h2 class="section-heading" style="max-width:100%;">Three types of people who find their way here</h2>
+        <p style="color:var(--muted,#6B6560);font-size:0.9375rem;max-width:560px;margin:0.75rem auto 0;line-height:1.7;">Whether you're a solopreneur, a founder hitting a ceiling, or a leader with a team — there's a clear next step for you.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;">
+
+        <div style="background:var(--eggshell,#F7F3EE);border:1px solid rgba(28,28,28,0.08);border-radius:14px;padding:2rem;position:relative;overflow:hidden;">
+          <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#7D2240,#C9A847);"></div>
+          <div style="font-size:2rem;margin-bottom:1rem;">👩‍💼</div>
+          <h3 style="font-family:'Playfair Display',Georgia,serif;font-size:1.125rem;font-weight:700;color:#1C1C1C;margin:0 0 0.625rem;letter-spacing:-0.02em;">Solo service providers &amp; creatives</h3>
+          <p style="font-size:0.875rem;color:#6B6560;line-height:1.7;margin:0 0 1.25rem;">Coaches, consultants, designers, and therapists drowning in admin instead of doing the work they love. You want your time back — and a system that handles the grunt work so you can focus on growth.</p>
+          <a href="webinar.html" style="font-size:0.8125rem;font-weight:600;color:#7D2240;text-decoration:none;display:inline-flex;align-items:center;gap:4px;">Join the free webinar <span style="font-size:1rem;">→</span></a>
+        </div>
+
+        <div style="background:var(--eggshell,#F7F3EE);border:1px solid rgba(28,28,28,0.08);border-radius:14px;padding:2rem;position:relative;overflow:hidden;">
+          <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#7D2240,#C9A847);"></div>
+          <div style="font-size:2rem;margin-bottom:1rem;">🚀</div>
+          <h3 style="font-family:'Playfair Display',Georgia,serif;font-size:1.125rem;font-weight:700;color:#1C1C1C;margin:0 0 0.625rem;letter-spacing:-0.02em;">Solopreneurs &amp; founders hitting a ceiling</h3>
+          <p style="font-size:0.875rem;color:#6B6560;line-height:1.7;margin:0 0 1.25rem;">Revenue is there. The model works. But your time is the bottleneck and hiring feels premature. I help you build AI workflows that give you leverage before you make your first hire.</p>
+          <a href="webinar.html" style="font-size:0.8125rem;font-weight:600;color:#7D2240;text-decoration:none;display:inline-flex;align-items:center;gap:4px;">See how it works <span style="font-size:1rem;">→</span></a>
+        </div>
+
+        <div style="background:var(--eggshell,#F7F3EE);border:1px solid rgba(28,28,28,0.08);border-radius:14px;padding:2rem;position:relative;overflow:hidden;">
+          <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#7D2240,#C9A847);"></div>
+          <div style="font-size:2rem;margin-bottom:1rem;">🏢</div>
+          <h3 style="font-family:'Playfair Display',Georgia,serif;font-size:1.125rem;font-weight:700;color:#1C1C1C;margin:0 0 0.625rem;letter-spacing:-0.02em;">Business leaders &amp; managers</h3>
+          <p style="font-size:0.875rem;color:#6B6560;line-height:1.7;margin:0 0 1.25rem;">Your team is already using AI informally — and that's what concerns you. You need structured training, clear policies, and a practical rollout that gets everyone using AI safely without months of chaos.</p>
+          <a href="workshops.html" style="font-size:0.8125rem;font-weight:600;color:#7D2240;text-decoration:none;display:inline-flex;align-items:center;gap:4px;">Explore team workshops <span style="font-size:1rem;">→</span></a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- ═══════════ AI-FIRST MINDSET ═══════════ -->
   <section class="mindset-section">
     <div class="mindset-inner">
@@ -1840,40 +1878,6 @@
     <p class="footer-copy">© 2026 Alice Bazdikian · All rights reserved</p>
   </footer>
 
-  <!-- ═══════════ QUIZ POPUP ═══════════ -->
-  <div id="quiz-popup" class="quiz-popup-overlay" role="dialog" aria-modal="true" aria-labelledby="popup-heading">
-    <div class="quiz-popup-card">
-      <button class="quiz-popup-close" onclick="closeQuizPopup()" aria-label="Close">×</button>
-      <p class="eyebrow" style="margin-bottom:0.5rem;">Free Assessment</p>
-      <h3 id="popup-heading" class="quiz-popup-heading">Where Does Your Business Stand with AI?</h3>
-      <p class="quiz-popup-body">Take the 5-minute AI Readiness Scorecard and get an instant picture of your risks, gaps, and opportunities — at no cost.</p>
-      <a href="scorecard.html" class="btn-primary" style="width:100%; justify-content:center;" onclick="closeQuizPopup()">
-        Take the Scorecard — It's Free
-      </a>
-      <button class="quiz-popup-dismiss" onclick="closeQuizPopup()">No thanks, I'll skip for now</button>
-    </div>
-  </div>
-
-  <script>
-    (function() {
-      if (sessionStorage.getItem('quizPopupDismissed')) return;
-      var delay = Math.floor(Math.random() * 5000) + 5000; // 5–10 seconds
-      setTimeout(function() {
-        var popup = document.getElementById('quiz-popup');
-        if (popup) popup.classList.add('visible');
-      }, delay);
-    })();
-
-    function closeQuizPopup() {
-      var popup = document.getElementById('quiz-popup');
-      if (popup) popup.classList.remove('visible');
-      sessionStorage.setItem('quizPopupDismissed', '1');
-    }
-
-    document.getElementById('quiz-popup').addEventListener('click', function(e) {
-      if (e.target === this) closeQuizPopup();
-    });
-  </script>
 
   <!-- PDF DOWNLOAD SCRIPT -->
   <!-- WEBINAR REGISTRATION MODAL -->
@@ -1882,36 +1886,13 @@
       <button onclick="document.getElementById('webinar-modal').style.display='none'" style="position:absolute;top:1rem;right:1.25rem;background:none;border:none;font-size:1.4rem;cursor:pointer;color:#6B6560;line-height:1;" aria-label="Close">&times;</button>
       <p style="font-size:0.65rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#C9A847;margin-bottom:0.5rem;">Free Live Webinar · March 27th · 6:30 PM ET</p>
       <h2 style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:#1C1C1C;line-height:1.3;margin-bottom:0.5rem;">Claude Cowork:<br><em style="color:#7D2240;">Your AI Business Analyst</em></h2>
-      <p style="font-size:0.875rem;color:#6B6560;line-height:1.6;margin-bottom:1.5rem;">90 minutes. Practical. Free. And no — you don't have to be a techie.</p>
-      <div id="modal-form-wrap">
-        <form id="modal-webinar-form" onsubmit="handleModalWebinarSubmit(event)" style="display:flex;flex-direction:column;gap:0.75rem;">
-          <input type="text" id="mw-name" placeholder="Your first name" required style="width:100%;padding:0.8rem 1rem;background:#F7F3EE;border:1.5px solid rgba(28,28,28,0.1);border-radius:8px;font-family:'Inter',sans-serif;font-size:0.9375rem;color:#1C1C1C;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#7D2240'" onblur="this.style.borderColor='rgba(28,28,28,0.1)'">
-          <input type="email" id="mw-email" placeholder="you@yourbusiness.com" required style="width:100%;padding:0.8rem 1rem;background:#F7F3EE;border:1.5px solid rgba(28,28,28,0.1);border-radius:8px;font-family:'Inter',sans-serif;font-size:0.9375rem;color:#1C1C1C;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#7D2240'" onblur="this.style.borderColor='rgba(28,28,28,0.1)'">
-          <select id="mw-role" required style="width:100%;padding:0.8rem 1rem;background:#F7F3EE;border:1.5px solid rgba(28,28,28,0.1);border-radius:8px;font-family:'Inter',sans-serif;font-size:0.9375rem;color:#1C1C1C;outline:none;appearance:none;cursor:pointer;">
-            <option value="" disabled selected>Select your role…</option>
-            <option value="founder">Founder / CEO</option>
-            <option value="consultant">Consultant / Freelancer</option>
-            <option value="coach">Coach / Trainer</option>
-            <option value="manager">Manager / Director</option>
-            <option value="solopreneur">Solopreneur</option>
-            <option value="other">Other</option>
-          </select>
-          <select id="mw-size" required style="width:100%;padding:0.8rem 1rem;background:#F7F3EE;border:1.5px solid rgba(28,28,28,0.1);border-radius:8px;font-family:'Inter',sans-serif;font-size:0.9375rem;color:#1C1C1C;outline:none;appearance:none;cursor:pointer;">
-            <option value="" disabled selected>Team size…</option>
-            <option value="solo">Just me</option>
-            <option value="2-10">2–10 people</option>
-            <option value="11-50">11–50 people</option>
-            <option value="51+">51+ people</option>
-          </select>
-          <button type="submit" style="background:#7D2240;color:#fff;padding:0.9rem;border:none;border-radius:100px;font-family:'Inter',sans-serif;font-weight:700;font-size:1rem;cursor:pointer;transition:background 0.2s,transform 0.15s;box-shadow:0 4px 16px rgba(125,34,64,0.3);" onmouseover="this.style.background='#651B33'" onmouseout="this.style.background='#7D2240'">Save My Free Seat →</button>
-        </form>
-      </div>
-      <div id="modal-success" style="display:none;text-align:center;padding:1rem 0;">
-        <div style="font-size:2.5rem;margin-bottom:0.75rem;">🎉</div>
-        <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;color:#1C1C1C;margin-bottom:0.5rem;">You're in!</h3>
-        <p style="font-size:0.9rem;color:#6B6560;line-height:1.6;">See you Thursday March 27th at 6:30 PM ET. Check your inbox — a confirmation is on its way.</p>
-        <a href="webinar.html" style="display:inline-block;margin-top:1.25rem;font-size:0.85rem;color:#7D2240;font-weight:600;text-decoration:none;">View full webinar details →</a>
-      </div>
+      <ul style="list-style:none;padding:0;margin:0 0 1.5rem;display:flex;flex-direction:column;gap:0.5rem;">
+        <li style="display:flex;align-items:flex-start;gap:0.5rem;font-size:0.875rem;color:#6B6560;line-height:1.5;"><span style="color:#7D2240;font-weight:700;flex-shrink:0;">✓</span>90 minutes, live on Zoom — replay available</li>
+        <li style="display:flex;align-items:flex-start;gap:0.5rem;font-size:0.875rem;color:#6B6560;line-height:1.5;"><span style="color:#7D2240;font-weight:700;flex-shrink:0;">✓</span>Practical setup you can use the same day</li>
+        <li style="display:flex;align-items:flex-start;gap:0.5rem;font-size:0.875rem;color:#6B6560;line-height:1.5;"><span style="color:#7D2240;font-weight:700;flex-shrink:0;">✓</span>No tech skills needed. Completely free.</li>
+      </ul>
+      <a href="webinar.html" style="display:block;text-align:center;background:#7D2240;color:#fff;padding:0.9rem 1.5rem;border-radius:100px;font-family:'Inter',sans-serif;font-weight:700;font-size:1rem;text-decoration:none;transition:background 0.2s;box-shadow:0 4px 16px rgba(125,34,64,0.3);margin-bottom:0.75rem;" onmouseover="this.style.background='#651B33'" onmouseout="this.style.background='#7D2240'">Save My Free Seat →</a>
+      <p style="text-align:center;font-size:0.75rem;color:#b0a8a0;">🔒 Free. No credit card. No spam.</p>
     </div>
   </div>
 
@@ -1935,33 +1916,6 @@
       }, 5000);
     }
 
-    async function handleModalWebinarSubmit(e) {
-      e.preventDefault();
-      const btn = e.target.querySelector('button[type="submit"]');
-      btn.textContent = 'Saving your seat…';
-      btn.disabled = true;
-      try {
-        const SUPABASE_URL = 'https://krownfpcgaybmgneddia.supabase.co';
-        const ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtyb3duZnBjZ2F5Ym1nbmVkZGlhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI2NTA2NzMsImV4cCI6MjA4ODIyNjY3M30.Y_fqwUOl0xi_AAxKMl--ah-k3emn2DnC8EneG5ocJsY';
-        await fetch(SUPABASE_URL+'/rest/v1/claudecowork-webinar-march', {
-          method: 'POST',
-          headers: { 'apikey': ANON_KEY, 'Authorization': 'Bearer '+ANON_KEY, 'Content-Type': 'application/json', 'Prefer': 'return=minimal' },
-          body: JSON.stringify({
-            first_name: document.getElementById('mw-name').value.trim(),
-            email: document.getElementById('mw-email').value.trim(),
-            role: document.getElementById('mw-role').value,
-            team_size: document.getElementById('mw-size').value,
-            registered_at: new Date().toISOString()
-          })
-        });
-        document.getElementById('modal-form-wrap').style.display = 'none';
-        document.getElementById('modal-success').style.display = '';
-      } catch(err) {
-        btn.textContent = 'Save My Free Seat →';
-        btn.disabled = false;
-        alert('Something went wrong. Please try again.');
-      }
-    }
   </script>
 
   <script>
@@ -2007,13 +1961,6 @@
     })();
   </script>
 
-  <!-- SCORECARD BAND -->
-  <div id="scorecard-band" style="position:fixed;bottom:0;left:0;right:0;z-index:99;background:#F7F3EE;border-top:1px solid rgba(125,34,64,0.15);display:flex;align-items:center;justify-content:center;gap:1.5rem;padding:0.875rem 4rem;box-shadow:0 -4px 24px rgba(0,0,0,0.08);">
-    <p style="margin:0;font-family:'Inter',sans-serif;font-size:0.9375rem;color:#1C1C1C;">Is your business <strong style="color:#7D2240;">AI-ready?</strong> Find out in 5 minutes.</p>
-    <a href="scorecard.html" style="display:inline-flex;align-items:center;background:#7D2240;color:#fff;font-family:'Inter',sans-serif;font-size:0.8125rem;font-weight:600;padding:0.5625rem 1.25rem;border-radius:100px;text-decoration:none;white-space:nowrap;box-shadow:0 2px 10px rgba(125,34,64,0.3);">Take the Scorecard →</a>
-    <button onclick="document.getElementById('scorecard-band').style.display='none';localStorage.setItem('scorecardBandDismissed','1')" style="position:absolute;right:1.5rem;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:#6B6560;font-size:1.375rem;line-height:1;padding:0.25rem 0.5rem;" aria-label="Close">×</button>
-  </div>
-  <script>(function(){if(localStorage.getItem('scorecardBandDismissed'))document.getElementById('scorecard-band').style.display='none';})();</script>
   <script>
     (function() {
       var btn = document.getElementById('nav-hamburger');
