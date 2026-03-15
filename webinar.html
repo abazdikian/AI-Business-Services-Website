@@ -215,47 +215,56 @@
 
   /* ── COUNTDOWN BAND ── */
   .countdown-band {
-    background: var(--charcoal);
-    padding: 1.125rem 2rem;
+    background: var(--burgundy);
+    padding: 1.75rem 2rem;
     display: flex; align-items: center; justify-content: center;
-    gap: 2.5rem; flex-wrap: wrap;
+    gap: 3rem; flex-wrap: wrap;
+    position: relative; overflow: hidden;
+  }
+  .countdown-band::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 120% at 50% 50%, rgba(201,168,71,0.12) 0%, transparent 70%);
+    pointer-events: none;
   }
   .countdown-band-label {
-    font-size: 0.75rem; font-weight: 600;
-    color: rgba(255,255,255,0.55);
-    text-transform: uppercase; letter-spacing: 0.12em;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.125rem; font-weight: 600; font-style: italic;
+    color: rgba(255,255,255,0.85);
+    letter-spacing: -0.01em;
   }
   .countdown-timer {
-    display: flex; align-items: flex-start; gap: 8px;
+    display: flex; align-items: flex-start; gap: 4px;
   }
-  .countdown-unit { text-align: center; min-width: 44px; }
+  .countdown-unit { text-align: center; min-width: 56px; }
   .countdown-num {
     font-family: 'Playfair Display', serif;
-    font-size: 1.75rem; font-weight: 700; color: var(--gold);
+    font-size: 3rem; font-weight: 900; color: var(--gold);
     display: block; line-height: 1;
+    text-shadow: 0 2px 16px rgba(201,168,71,0.4);
   }
   .countdown-text {
-    font-size: 0.5625rem; color: rgba(255,255,255,0.4);
-    text-transform: uppercase; letter-spacing: 0.08em;
+    font-size: 0.625rem; color: rgba(255,255,255,0.5);
+    text-transform: uppercase; letter-spacing: 0.1em; margin-top: 3px;
   }
   .countdown-colon {
-    font-size: 1.5rem; color: rgba(255,255,255,0.2);
-    line-height: 1.1; padding-top: 1px;
+    font-size: 2.5rem; color: rgba(255,255,255,0.25);
+    line-height: 1; padding-top: 2px; font-weight: 300;
   }
   .spots-wrap {
     display: flex; align-items: center; gap: 0.875rem;
   }
   .spots-track {
-    width: 120px; height: 5px;
-    background: rgba(255,255,255,0.12); border-radius: 100px; overflow: hidden;
+    width: 130px; height: 5px;
+    background: rgba(255,255,255,0.18); border-radius: 100px; overflow: hidden;
   }
   .spots-fill {
-    background: linear-gradient(90deg, var(--burgundy), var(--gold));
+    background: var(--gold);
     border-radius: 100px; height: 100%; width: 0%;
     transition: width 1s ease;
   }
   .spots-label {
-    font-size: 0.75rem; color: var(--gold); font-weight: 600;
+    font-size: 0.8125rem; color: rgba(255,255,255,0.8); font-weight: 600;
     white-space: nowrap;
   }
 
