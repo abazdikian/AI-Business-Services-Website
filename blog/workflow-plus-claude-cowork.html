@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Workflow + Claude Cowork = 10x Productivity | Alice Bazdikian</title>
+  <meta name="description" content="Stop using AI as a fancy search engine. Learn how mapping your workflow and pairing it with Claude Cowork creates compounding productivity gains — without any technical skills." />
+  <link rel="canonical" href="https://www.smallbusinessaicoach.com/blog/workflow-plus-claude-cowork.html" />
+  <meta property="og:title" content="Workflow + Claude Cowork = 10x Productivity" />
+  <meta property="og:description" content="Stop using AI as a fancy search engine. Map your workflow, hand the mechanics to Claude, and get back to the work only you can do." />
+  <meta property="og:url" content="https://www.smallbusinessaicoach.com/blog/workflow-plus-claude-cowork.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    :root {
+      --eggshell: #F7F3EE;
+      --charcoal: #1C1C1C;
+      --burgundy: #7D2240;
+      --burgundy-dark: #651B33;
+      --gold: #C9A847;
+      --gold-dark: #B8952E;
+      --surface: #FFFFFF;
+      --muted: #6B6560;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { background-color: var(--eggshell); color: var(--charcoal); font-family: 'Inter', system-ui, sans-serif; line-height: 1.7; -webkit-font-smoothing: antialiased; margin: 0; }
+
+    /* NAV */
+    .nav { position: sticky; top: 0; z-index: 50; background: var(--eggshell); border-bottom: 1px solid rgba(125,34,64,0.12); display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; height: 68px; }
+    .nav-brand { display: flex; flex-direction: column; line-height: 1.2; text-decoration: none; }
+    .nav-brand-name { font-family: 'Playfair Display', serif; font-size: 1.125rem; font-weight: 600; color: var(--charcoal); letter-spacing: -0.01em; }
+    .nav-brand-tag { font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); font-weight: 400; }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; margin: 0; padding: 0; }
+    .nav-links a { font-size: 0.875rem; font-weight: 400; color: var(--charcoal); text-decoration: none; letter-spacing: 0.01em; transition: color 0.2s ease; }
+    .nav-links a:hover { color: var(--burgundy); }
+    .btn-nav { display: inline-flex; align-items: center; background: var(--gold); color: var(--charcoal); font-family: 'Inter', sans-serif; font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.02em; padding: 0.5rem 1.25rem; border-radius: 100px; border: none; cursor: pointer; text-decoration: none; transition: background 0.2s ease, transform 0.15s ease; box-shadow: 0 2px 8px rgba(201,168,71,0.3); }
+    .btn-nav:hover { background: var(--gold-dark); transform: translateY(-1px); }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; border-radius: 6px; transition: background 0.2s ease; }
+    .nav-hamburger:hover { background: rgba(125,34,64,0.08); }
+    .nav-hamburger span { display: block; width: 22px; height: 2px; background: #1C1C1C; border-radius: 2px; transition: transform 0.3s ease, opacity 0.3s ease; }
+    .nav-hamburger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.is-open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu { display: none; position: fixed; top: 68px; left: 0; right: 0; background: #F7F3EE; border-bottom: 2px solid rgba(125,34,64,0.15); padding: 0.25rem 2rem 1.25rem; z-index: 48; box-shadow: 0 8px 28px rgba(0,0,0,0.1); flex-direction: column; }
+    .mobile-menu.is-open { display: flex; }
+    .mobile-menu a { font-size: 0.9375rem; color: #1C1C1C; text-decoration: none; padding: 0.875rem 0.25rem; border-bottom: 1px solid rgba(28,28,28,0.07); transition: color 0.2s ease; }
+    .mobile-menu a:hover { color: #7D2240; }
+    .mobile-menu .mob-cta { background: #C9A847; color: #1C1C1C !important; border-radius: 8px; padding: 0.75rem 1rem; text-align: center; margin-top: 0.75rem; border-bottom: none !important; font-weight: 600; }
+
+    /* ARTICLE HEADER */
+    .article-header { background: var(--charcoal); padding: 5rem 4rem 4.5rem; position: relative; overflow: hidden; }
+    .article-header::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(125,34,64,0.6) 0%, transparent 60%); pointer-events: none; }
+    .article-header::after { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E"); background-size: 200px; pointer-events: none; }
+    .article-header-inner { max-width: 760px; margin: 0 auto; position: relative; z-index: 1; }
+    .breadcrumb { display: flex; align-items: center; gap: 0.5rem; font-size: 0.8125rem; color: rgba(255,255,255,0.45); margin-bottom: 1.75rem; }
+    .breadcrumb a { color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s ease; }
+    .breadcrumb a:hover { color: var(--gold); }
+    .breadcrumb-sep { color: rgba(255,255,255,0.2); }
+    .article-tag { display: inline-flex; align-items: center; font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); background: rgba(201,168,71,0.12); border: 1px solid rgba(201,168,71,0.25); padding: 0.3rem 0.75rem; border-radius: 100px; margin-bottom: 1.25rem; }
+    .article-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; line-height: 1.15; letter-spacing: -0.03em; color: #fff; margin: 0 0 1.5rem; }
+    .article-meta { display: flex; align-items: center; gap: 1.25rem; font-size: 0.875rem; color: rgba(255,255,255,0.5); }
+    .article-meta-dot { color: rgba(201,168,71,0.5); }
+
+    /* ARTICLE BODY */
+    .article-layout { display: grid; grid-template-columns: 1fr 260px; gap: 4rem; max-width: 1060px; margin: 0 auto; padding: 4rem 4rem 6rem; align-items: start; }
+
+    /* PROSE */
+    .prose { max-width: 680px; }
+    .prose p { font-size: 1.0625rem; line-height: 1.82; color: #2E2A27; margin: 0 0 1.5rem; }
+    .prose h2 { font-family: 'Playfair Display', serif; font-size: 1.75rem; font-weight: 700; color: var(--charcoal); letter-spacing: -0.025em; line-height: 1.25; margin: 3rem 0 1.125rem; padding-top: 1rem; border-top: 1px solid rgba(28,28,28,0.08); }
+    .prose h3 { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 600; color: var(--charcoal); letter-spacing: -0.015em; line-height: 1.3; margin: 2rem 0 0.875rem; }
+    .prose ul { margin: 0 0 1.5rem; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .prose ul li { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 1.0625rem; line-height: 1.65; color: #2E2A27; }
+    .prose ul li::before { content: ''; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); margin-top: 0.6rem; flex-shrink: 0; }
+
+    /* STEP CARD */
+    .step-card { background: var(--surface); border-radius: 12px; border-left: 4px solid var(--burgundy); padding: 1.75rem 2rem; margin: 2rem 0; box-shadow: 0 2px 16px rgba(125,34,64,0.06), 0 1px 4px rgba(0,0,0,0.04); }
+    .step-card-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.875rem; }
+    .step-number { width: 38px; height: 38px; border-radius: 50%; background: var(--charcoal); color: var(--gold); font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .step-title { font-family: 'Playfair Display', serif; font-size: 1.125rem; font-weight: 700; color: var(--charcoal); letter-spacing: -0.015em; line-height: 1.2; }
+    .step-desc { font-size: 0.9375rem; line-height: 1.7; color: var(--muted); }
+
+    /* PULL QUOTE */
+    .pull-quote { border-left: 3px solid var(--gold); padding: 1.5rem 2rem; margin: 2.5rem 0; background: rgba(201,168,71,0.04); border-radius: 0 8px 8px 0; }
+    .pull-quote p { font-family: 'Playfair Display', serif; font-size: 1.25rem !important; font-style: italic; line-height: 1.6 !important; color: var(--charcoal) !important; margin: 0 !important; }
+
+    /* STAT CALLOUT */
+    .stat-callout { background: var(--charcoal); border-radius: 10px; padding: 1.75rem 2rem; margin: 2rem 0; display: flex; align-items: flex-start; gap: 1.5rem; }
+    .stat-callout-num { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; color: var(--gold); line-height: 1; flex-shrink: 0; }
+    .stat-callout-text { font-size: 0.9375rem; line-height: 1.65; color: rgba(255,255,255,0.7); }
+
+    /* TWO COLUMN COMPARE */
+    .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0; }
+    .compare-col { background: var(--surface); border-radius: 10px; padding: 1.25rem 1.5rem; border: 1px solid rgba(28,28,28,0.07); }
+    .compare-col-head { font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding-bottom: 0.5rem; margin-bottom: 0.75rem; border-bottom: 2px solid; }
+    .compare-col-head.mechanical { color: var(--burgundy); border-color: rgba(125,34,64,0.25); }
+    .compare-col-head.judgment  { color: #3A7D44; border-color: rgba(58,125,68,0.25); }
+    .compare-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.375rem; }
+    .compare-list li { font-size: 0.875rem; color: var(--muted); line-height: 1.5; padding-left: 1rem; position: relative; }
+    .compare-list li::before { content: ''; position: absolute; left: 0; top: 0.55em; width: 5px; height: 5px; border-radius: 50%; }
+    .mechanical .compare-list li::before { background: var(--burgundy); }
+    .judgment  .compare-list li::before { background: #3A7D44; }
+
+    /* SIDEBAR */
+    .sidebar { position: sticky; top: 88px; }
+    .sidebar-card { background: var(--surface); border-radius: 10px; padding: 1.5rem; border: 1px solid rgba(28,28,28,0.07); box-shadow: 0 2px 12px rgba(0,0,0,0.04); margin-bottom: 1.25rem; }
+    .sidebar-label { font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
+    .toc-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.125rem; }
+    .toc-list a { display: block; font-size: 0.8125rem; color: var(--muted); text-decoration: none; padding: 0.375rem 0.625rem; border-radius: 6px; transition: background 0.15s ease, color 0.15s ease; line-height: 1.4; }
+    .toc-list a:hover { background: rgba(125,34,64,0.05); color: var(--burgundy); }
+    .sidebar-cta { background: linear-gradient(135deg, #7D2240 0%, #3D1020 100%); border-radius: 10px; padding: 1.5rem; position: relative; overflow: hidden; }
+    .sidebar-cta::before { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E"); background-size: 120px; }
+    .sidebar-cta-heading { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 600; color: #fff; line-height: 1.3; margin-bottom: 0.625rem; position: relative; z-index: 1; }
+    .sidebar-cta-sub { font-size: 0.8125rem; color: rgba(255,255,255,0.6); line-height: 1.55; margin-bottom: 1.25rem; position: relative; z-index: 1; }
+    .btn-gold-sm { display: inline-flex; align-items: center; background: var(--gold); color: var(--charcoal); font-family: 'Inter', sans-serif; font-size: 0.8125rem; font-weight: 600; padding: 0.625rem 1.25rem; border-radius: 100px; text-decoration: none; width: 100%; justify-content: center; transition: background 0.2s ease, transform 0.2s cubic-bezier(0.34,1.56,0.64,1); position: relative; z-index: 1; box-shadow: 0 3px 12px rgba(201,168,71,0.3); }
+    .btn-gold-sm:hover { background: var(--gold-dark); transform: translateY(-1px); }
+
+    /* CTA BAND */
+    .cta-band { position: relative; background: linear-gradient(135deg, #7D2240 0%, #3D1020 55%, #1C1C1C 100%); padding: 5rem 4rem; overflow: hidden; }
+    .cta-band::before { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E"); background-size: 200px; pointer-events: none; }
+    .cta-band-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr auto; gap: 4rem; align-items: center; max-width: 1100px; margin: 0 auto; }
+    .cta-band-heading { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 2.5vw, 2.4rem); font-weight: 600; color: #fff; line-height: 1.2; letter-spacing: -0.025em; margin: 0 0 0.75rem; }
+    .cta-band-body { font-size: 1rem; color: rgba(255,255,255,0.65); line-height: 1.7; margin: 0; }
+    .cta-band-right { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; flex-shrink: 0; }
+    .cta-band-note { font-size: 0.75rem; color: rgba(255,255,255,0.4); text-align: center; }
+    .btn-gold { display: inline-flex; align-items: center; background: var(--gold); color: var(--charcoal); font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600; padding: 0.9375rem 2rem; border-radius: 100px; text-decoration: none; white-space: nowrap; transition: background 0.2s ease, transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s ease; box-shadow: 0 4px 20px rgba(201,168,71,0.35); }
+    .btn-gold:hover { background: var(--gold-dark); transform: translateY(-2px); }
+
+    /* FOOTER */
+    footer { background: var(--charcoal); padding: 3.5rem 4rem 2rem; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 1.5rem; }
+    .footer-brand-name { font-family: 'Playfair Display', serif; font-size: 1.0625rem; font-weight: 600; color: #fff; margin-bottom: 0.25rem; }
+    .footer-brand-tag { font-size: 0.75rem; color: rgba(255,255,255,0.45); letter-spacing: 0.1em; text-transform: uppercase; }
+    .footer-nav { display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+    .footer-nav a { font-size: 0.8125rem; color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s ease; }
+    .footer-nav a:hover { color: var(--gold); }
+    .footer-linkedin { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.55); text-decoration: none; transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease; }
+    .footer-linkedin:hover { border-color: var(--gold); color: var(--gold); background: rgba(201,168,71,0.07); }
+    .footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.3); }
+
+    @media (max-width: 900px) {
+      .article-layout { grid-template-columns: 1fr; padding: 3rem 2rem 4rem; }
+      .sidebar { position: static; }
+      .article-header { padding: 4rem 2rem 3.5rem; }
+      .cta-band { padding: 3.5rem 2rem; }
+      .cta-band-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .nav-links, .btn-nav { display: none; }
+      .nav-hamburger { display: flex; }
+      .compare-grid { grid-template-columns: 1fr; }
+      footer { padding: 2.5rem 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="../index.html" class="nav-brand">
+    <span class="nav-brand-name">Alice Bazdikian</span>
+    <span class="nav-brand-tag">AI Strategist + Educator</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../about.html">About</a></li>
+    <li><a href="../workshops.html">Work With Me</a></li>
+    <li><a href="../scorecard.html">Scorecard</a></li>
+    <li><a href="../blog.html" class="active">Blog</a></li>
+  </ul>
+  <a href="https://calendly.com/abazdikian/diagnostic" target="_blank" rel="noopener" class="btn-nav">Book a Diagnostic</a>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <a href="../about.html">About</a>
+  <a href="../workshops.html">Work With Me</a>
+  <a href="../scorecard.html">Scorecard</a>
+  <a href="../blog.html">Blog</a>
+  <a href="https://calendly.com/abazdikian/diagnostic" class="mob-cta">Book a Diagnostic</a>
+</div>
+
+<!-- ARTICLE HEADER -->
+<div class="article-header">
+  <div class="article-header-inner">
+    <div class="breadcrumb">
+      <a href="../index.html">Home</a>
+      <span class="breadcrumb-sep">/</span>
+      <a href="../blog.html">Blog</a>
+      <span class="breadcrumb-sep">/</span>
+      <span>Workflow + Claude Cowork</span>
+    </div>
+    <div class="article-tag">Productivity · Claude Cowork</div>
+    <h1 class="article-title">Workflow + Claude Cowork<br>= 10x Productivity</h1>
+    <div class="article-meta">
+      <span>Alice Bazdikian</span>
+      <span class="article-meta-dot">·</span>
+      <span>March 2026</span>
+      <span class="article-meta-dot">·</span>
+      <span>6 min read</span>
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE BODY -->
+<div class="article-layout">
+  <article class="prose">
+
+    <p>
+      Most business owners are using Claude the same way they use Google: ask a question, read the answer, close the tab. It's useful, sure. But it's nowhere near what's possible.
+    </p>
+
+    <p>
+      The 10x productivity jump doesn't come from using Claude more. It comes from pairing it with something most people skip entirely: <strong>a mapped workflow.</strong>
+    </p>
+
+    <div class="pull-quote">
+      <p>"The tool is only as powerful as the system it operates inside. Claude Cowork isn't a feature — it's a methodology."</p>
+    </div>
+
+    <h2 id="map">Step 1: Map Your Workflow End-to-End</h2>
+
+    <p>
+      Before Claude can help you scale, it needs to understand how your business actually works. That means writing down every step of a recurring process — not at a high level, but in granular detail.
+    </p>
+
+    <p>Pick one workflow you do repeatedly. Then answer these questions:</p>
+
+    <ul>
+      <li>Where does this work begin, and what triggers it?</li>
+      <li>Which systems or documents feed into it?</li>
+      <li>Who touches the process at each stage?</li>
+      <li>Where do approvals or decisions happen?</li>
+      <li>What does the final output look like, and how is it delivered?</li>
+    </ul>
+
+    <p>
+      Most founders skip this and jump straight to prompting. That almost always leads to shallow, one-off results — automating one small step while the rest of the workflow stays manual.
+    </p>
+
+    <div class="step-card">
+      <div class="step-card-header">
+        <div class="step-number">1</div>
+        <div class="step-title">Write It Down Before You Prompt</div>
+      </div>
+      <p class="step-desc">A workflow map takes 30 minutes. It saves you dozens of hours by making Claude's outputs precise, repeatable, and actually useful — instead of generic and disposable.</p>
+    </div>
+
+    <h2 id="separate">Step 2: Separate Judgment from Mechanics</h2>
+
+    <p>
+      Once your workflow is mapped, a pattern emerges immediately: most of the steps are mechanical, and only a handful require real human judgment.
+    </p>
+
+    <div class="compare-grid">
+      <div class="compare-col mechanical">
+        <div class="compare-col-head mechanical">Claude handles this</div>
+        <ul class="compare-list">
+          <li>Collecting and formatting data</li>
+          <li>Drafting documents and reports</li>
+          <li>Summarizing research</li>
+          <li>Sending reminders and follow-ups</li>
+          <li>Updating records and logs</li>
+          <li>Generating first-draft communications</li>
+        </ul>
+      </div>
+      <div class="compare-col judgment">
+        <div class="compare-col-head judgment">You handle this</div>
+        <ul class="compare-list">
+          <li>Negotiating terms with clients</li>
+          <li>Making strategic decisions</li>
+          <li>Reading the room in relationships</li>
+          <li>Approving final outputs</li>
+          <li>Setting direction and priorities</li>
+          <li>The work only you can do</li>
+        </ul>
+      </div>
+    </div>
+
+    <p>
+      The opportunity with Claude Cowork is to absorb as much of the mechanical layer as possible, so your time is almost entirely spent on judgment — the work that compounds and the work only you can do.
+    </p>
+
+    <div class="stat-callout">
+      <div class="stat-callout-num">80%</div>
+      <div class="stat-callout-text">In most business workflows, roughly 80% of the steps are mechanical — predictable, repeatable tasks that follow rules. Claude can run these autonomously once the context is established.</div>
+    </div>
+
+    <h2 id="cowork">Step 3: Set Up Claude Cowork — Not Just Claude</h2>
+
+    <p>
+      Here's the difference most people miss. Using Claude as a chat tool means starting from scratch every single time. You re-explain your business, your tone, your clients, your constraints — every conversation.
+    </p>
+
+    <p>
+      Claude Cowork changes that. Using Claude's Projects feature, you give Claude persistent context about your business once, and it carries that understanding into every session automatically.
+    </p>
+
+    <div class="step-card">
+      <div class="step-card-header">
+        <div class="step-number">2</div>
+        <div class="step-title">Build Your Business Context Document</div>
+      </div>
+      <p class="step-desc">This is a plain-text document you add to your Claude Project — your business model, your clients, your tone of voice, your key decisions, your recurring workflows. It turns Claude from a generic assistant into something that thinks like your business.</p>
+    </div>
+
+    <div class="step-card">
+      <div class="step-card-header">
+        <div class="step-number">3</div>
+        <div class="step-title">Run Your Workflows as Repeatable Prompts</div>
+      </div>
+      <p class="step-desc">Once your context is set, each workflow becomes a saved prompt. Weekly report? One prompt. Client proposal? One prompt. Competitive analysis? One prompt. You stop recreating work from scratch and start operating like a team of one with the output of a team of five.</p>
+    </div>
+
+    <h2 id="results">What 10x Actually Looks Like</h2>
+
+    <p>
+      This isn't about working faster at the same tasks. It's about changing which tasks you're doing at all.
+    </p>
+
+    <p>
+      When Claude handles the mechanical layer of your workflows — drafting, formatting, summarizing, reminding — your week looks fundamentally different. The hours you spent producing outputs shift toward the decisions that drive growth.
+    </p>
+
+    <div class="pull-quote">
+      <p>"You don't scale by working harder at the same things. You scale by getting the mechanical work off your plate entirely — and Claude Cowork is the clearest path to that I've found."</p>
+    </div>
+
+    <p>
+      A founder spending 10 hours a week on mechanical tasks — at a time value of $200/hour — is losing $2,000/week to work Claude can do in minutes. That's $100,000 a year in founder time redirected away from growth.
+    </p>
+
+    <div class="stat-callout">
+      <div class="stat-callout-num">$100k</div>
+      <div class="stat-callout-text">The approximate annual value of founder time lost to mechanical work for someone billing at $200/hr spending 10 hours/week on tasks Claude can handle. This isn't a productivity problem — it's a systems problem.</div>
+    </div>
+
+    <h2 id="start">Where to Start Today</h2>
+
+    <p>
+      You don't need to automate everything at once. Start with one workflow. Pick the one you do most often or dislike the most, map it, and build your first Claude Cowork prompt around it.
+    </p>
+
+    <ul>
+      <li>Identify one recurring workflow that takes 2+ hours per week</li>
+      <li>Write out every step — don't summarize, detail it</li>
+      <li>Create a Claude Project and add your business context</li>
+      <li>Build a saved prompt for that workflow and run it once</li>
+      <li>Refine it based on the output, then save the final version</li>
+    </ul>
+
+    <p>
+      That's your first Claude Cowork loop. Once it runs reliably, move to the next workflow. Within a month, you'll have a system that operates like a part-time analyst — for $20/month.
+    </p>
+
+    <p>
+      The founders who move fastest in the next few years won't be the ones who work the longest hours. They'll be the ones who figure out, workflow by workflow, what only they can do — and hand everything else to Claude.
+    </p>
+
+  </article>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-label">In this article</div>
+      <ul class="toc-list">
+        <li><a href="#map">Map your workflow end-to-end</a></li>
+        <li><a href="#separate">Separate judgment from mechanics</a></li>
+        <li><a href="#cowork">Set up Claude Cowork</a></li>
+        <li><a href="#results">What 10x actually looks like</a></li>
+        <li><a href="#start">Where to start today</a></li>
+      </ul>
+    </div>
+
+    <div class="sidebar-cta">
+      <div class="sidebar-cta-heading">Free Webinar: Claude Cowork in Action</div>
+      <div class="sidebar-cta-sub">See this framework applied live to a real business workflow. 90 minutes. No tech skills required.</div>
+      <a href="../webinar.html" class="btn-gold-sm">Save My Free Seat →</a>
+    </div>
+
+    <div class="sidebar-card">
+      <div class="sidebar-label">Take the Scorecard</div>
+      <p style="font-size:0.8125rem;color:var(--muted);line-height:1.6;margin:0 0 1rem;">Find out exactly where your business stands on AI readiness before building your first workflow.</p>
+      <a href="../scorecard.html" class="btn-gold-sm" style="background:var(--charcoal);color:#fff;box-shadow:none;">Take the Free Scorecard →</a>
+    </div>
+  </aside>
+</div>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <div class="cta-band-inner">
+    <div>
+      <h2 class="cta-band-heading">Ready to build your first Claude Cowork loop?</h2>
+      <p class="cta-band-body">Join the free live webinar — March 27th at 6:30 PM ET. See the workflow mapping framework applied in real time, and leave with a 30-day implementation plan for your business.</p>
+    </div>
+    <div class="cta-band-right">
+      <a href="../webinar.html" class="btn-gold">Save My Free Seat →</a>
+      <span class="cta-band-note">Free · Live · No tech skills required</span>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand-name">Alice Bazdikian</div>
+      <div class="footer-brand-tag">AI Strategist + Educator</div>
+    </div>
+    <nav class="footer-nav">
+      <a href="../about.html">About</a>
+      <a href="../workshops.html">Work With Me</a>
+      <a href="../scorecard.html">Scorecard</a>
+      <a href="../blog.html">Blog</a>
+      <a href="https://calendly.com/abazdikian/diagnostic">Book a Diagnostic</a>
+      <a href="https://www.linkedin.com/in/alicebazdikian" class="footer-linkedin" aria-label="LinkedIn" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
+    </nav>
+  </div>
+  <p class="footer-copy">© 2026 Alice Bazdikian · All rights reserved</p>
+</footer>
+
+<script>
+  (function() {
+    var btn = document.getElementById('nav-hamburger');
+    var menu = document.getElementById('mobile-menu');
+    if (!btn || !menu) return;
+    btn.addEventListener('click', function() {
+      var open = menu.classList.toggle('is-open');
+      btn.classList.toggle('is-open', open);
+      btn.setAttribute('aria-expanded', open);
+      menu.setAttribute('aria-hidden', !open);
+    });
+    document.addEventListener('click', function(e) {
+      if (!btn.contains(e.target) && !menu.contains(e.target)) {
+        menu.classList.remove('is-open');
+        btn.classList.remove('is-open');
+        btn.setAttribute('aria-expanded', 'false');
+        menu.setAttribute('aria-hidden', 'true');
+      }
+    });
+  })();
+</script>
+</body>
+</html>
