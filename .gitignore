@@ -2,3 +2,4 @@
 .playwright-mcp/
 temporary screenshots/
 node_modules/
+.env

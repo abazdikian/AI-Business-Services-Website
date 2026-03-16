@@ -2,6 +2,12 @@ import http from 'http';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { createRequire } from 'module';
+
+const require = createRequire(import.meta.url);
+require('dotenv').config();
+const Stripe = require('stripe');
+const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PORT = 3000;
@@ -24,7 +30,28 @@ const MIME_TYPES = {
   '.webp': 'image/webp',
 };
 
-const server = http.createServer((req, res) => {
+const server = http.createServer(async (req, res) => {
+  // ── Stripe Checkout session ──
+  if (req.method === 'POST' && req.url === '/create-checkout-session') {
+    try {
+      const session = await stripe.checkout.sessions.create({
+        payment_method_types: ['card'],
+        line_items: [{ price: process.env.STRIPE_PRICE_ID, quantity: 1 }],
+        mode: 'payment',
+        success_url: `http://localhost:${PORT}/thank-you.html?session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `http://localhost:${PORT}/claudepoweruser.html`,
+      });
+      res.writeHead(200, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ url: session.url }));
+    } catch (err) {
+      console.error('Stripe error:', err.message);
+      res.writeHead(500, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ error: err.message }));
+    }
+    return;
+  }
+
+  // ── Static file serving ──
   let urlPath = req.url.split('?')[0];
   if (urlPath === '/') urlPath = '/index.html';
 

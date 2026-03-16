@@ -354,7 +354,7 @@
       <span class="hero-meta-pill">⏱ 90 minutes live</span>
       <span class="hero-meta-pill">🔄 Replay included</span>
     </div>
-    <a href="https://zylvie.com/Brookewright/cart/add/j4AWq3mX" target="_blank" rel="noopener" class="btn-primary-hero">Grab Your Spot — $45 USD</a>
+    <a href="#" onclick="startCheckout(event)" class="btn-primary-hero">Grab Your Spot — $45 USD</a>
   </div>
 </section>
 
@@ -467,7 +467,7 @@
           <div class="price-line">
             <span class="price-currency">$</span>45 <span style="font-family:'Inter',sans-serif;font-size:1rem;font-weight:500;color:var(--muted);letter-spacing:0;margin-left:2px;">USD</span>
           </div>
-          <a href="https://zylvie.com/Brookewright/cart/add/j4AWq3mX" target="_blank" rel="noopener" class="btn-buy">I'm In — Let's Go</a>
+          <a href="#" onclick="startCheckout(event)" class="btn-buy">I'm In — Let's Go</a>
           <p class="cant-make-it"><strong>Can't make it live?</strong> No worries — you'll get the full replay. Plus, submit your questions before the session and I'll answer them live.</p>
         </div>
       </div>
@@ -513,7 +513,7 @@
 <div class="final-cta">
   <div class="final-cta-inner">
     <h2>90 minutes. <em>You'll walk out knowing more than people who've used Claude for months.</em></h2>
-    <a href="https://zylvie.com/Brookewright/cart/add/j4AWq3mX" target="_blank" rel="noopener" class="btn-primary-hero">Grab Your Spot — $45 USD</a>
+    <a href="#" onclick="startCheckout(event)" class="btn-primary-hero">Grab Your Spot — $45 USD</a>
   </div>
 </div>
 
@@ -523,6 +523,29 @@
 </footer>
 
 <script>
+async function startCheckout(e) {
+  e.preventDefault();
+  const btn = e.currentTarget;
+  const original = btn.textContent;
+  btn.textContent = 'Loading...';
+  btn.style.opacity = '0.7';
+  try {
+    const res = await fetch('/create-checkout-session', { method: 'POST' });
+    const data = await res.json();
+    if (data.url) {
+      window.location.href = data.url;
+    } else {
+      alert('Something went wrong. Please try again.');
+      btn.textContent = original;
+      btn.style.opacity = '1';
+    }
+  } catch (err) {
+    alert('Something went wrong. Please try again.');
+    btn.textContent = original;
+    btn.style.opacity = '1';
+  }
+}
+
 function toggleFaq(el) {
   var item = el.parentElement;
   var open = item.classList.contains('open');

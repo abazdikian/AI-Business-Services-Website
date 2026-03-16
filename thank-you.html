@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You're In! | Alice Bazdikian</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --burgundy: #7D2240;
+    --gold: #C9A847;
+    --eggshell: #F7F3EE;
+    --charcoal: #1C1C1C;
+    --muted: #6B6560;
+  }
+  body {
+    background: var(--eggshell);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 3rem 1.5rem;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+  }
+  .icon {
+    width: 72px; height: 72px;
+    background: linear-gradient(135deg, var(--burgundy), #9e2d52);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 2rem;
+    font-size: 2rem;
+    box-shadow: 0 8px 32px rgba(125,34,64,0.3);
+  }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    font-weight: 900;
+    color: var(--charcoal);
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 1.25rem;
+  }
+  h1 em { font-style: italic; color: var(--burgundy); }
+  p {
+    font-size: 1.0625rem;
+    color: var(--muted);
+    line-height: 1.75;
+    max-width: 480px;
+    margin: 0 auto 1rem;
+  }
+  .divider {
+    width: 48px; height: 2px;
+    background: var(--gold);
+    margin: 2rem auto;
+    border-radius: 2px;
+  }
+  .next-steps {
+    background: #fff;
+    border: 1px solid rgba(28,28,28,0.09);
+    border-radius: 16px;
+    padding: 2rem 2.5rem;
+    max-width: 480px;
+    margin: 0 auto 2.5rem;
+    text-align: left;
+  }
+  .next-steps h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--charcoal);
+    margin-bottom: 1.25rem;
+  }
+  .step {
+    display: flex; gap: 1rem; align-items: flex-start;
+    margin-bottom: 1rem;
+  }
+  .step-num {
+    width: 28px; height: 28px; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--burgundy), #9e2d52);
+    color: #fff; font-size: 0.75rem; font-weight: 700;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin-top: 1px;
+  }
+  .step p { font-size: 0.9rem; color: var(--charcoal); margin: 0; }
+  .step p span { color: var(--muted); font-size: 0.8375rem; display: block; margin-top: 2px; }
+  .btn-back {
+    display: inline-block;
+    color: var(--burgundy);
+    font-size: 0.875rem; font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1.5px solid rgba(125,34,64,0.3);
+    padding-bottom: 1px;
+    transition: opacity 0.2s;
+  }
+  .btn-back:hover { opacity: 0.7; }
+</style>
+</head>
+<body>
+  <div class="icon">✓</div>
+  <h1>You're in. <em>Let's go.</em></h1>
+  <p>Payment confirmed — check your inbox for a receipt and joining details from Stripe.</p>
+  <div class="divider"></div>
+  <div class="next-steps">
+    <h2>What happens next</h2>
+    <div class="step">
+      <div class="step-num">1</div>
+      <p>Check your email<span>You'll receive a confirmation with the Zoom link and any prep materials.</span></p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <p>Add it to your calendar<span>Wednesday 18 March · 9:30am AWST · 90 min live on Zoom.</span></p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <p>Show up ready to implement<span>No prep needed — just bring Claude open in another tab.</span></p>
+    </div>
+  </div>
+  <a href="claudepoweruser.html" class="btn-back">← Back to the workshop page</a>
+</body>
+</html>
