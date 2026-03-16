@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>30 Claude Code Concepts Every Entrepreneur Needs to Know | Alice Bazdikian</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="apple-touch-icon" href="../favicon.svg">
+  <!-- SEO -->
+  <meta name="description" content="A practical, no-jargon guide to using Claude Code as your AI business analyst — from installation to full automation. 30 concepts every entrepreneur needs to know." />
+  <meta name="keywords" content="Claude Code guide, Claude Code for entrepreneurs, Claude Code tutorial, AI business tools, Claude Code concepts, how to use Claude Code, Claude Code setup, AI automation for business" />
+  <link rel="canonical" href="https://www.smallbusinessaicoach.com/blog/30-claude-code-concepts.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="30 Claude Code Concepts Every Entrepreneur Needs to Know" />
+  <meta property="og:description" content="A practical, no-jargon guide to using Claude Code as your AI business analyst — from installation to full automation." />
+  <meta property="og:url" content="https://www.smallbusinessaicoach.com/blog/30-claude-code-concepts.html" />
+  <meta property="og:image" content="https://www.smallbusinessaicoach.com/Brand%20Assets/_MCK3991.jpg" />
+  <meta property="og:site_name" content="Alice Bazdikian — Claude Code Educator" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="30 Claude Code Concepts Every Entrepreneur Needs to Know" />
+  <meta name="twitter:description" content="A practical, no-jargon guide to using Claude Code as your AI business analyst — from installation to full automation." />
+  <meta name="twitter:image" content="https://www.smallbusinessaicoach.com/Brand%20Assets/_MCK3991.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    :root {
+      --eggshell: #F7F3EE;
+      --charcoal: #1C1C1C;
+      --burgundy: #7D2240;
+      --burgundy-dark: #651B33;
+      --gold: #C9A847;
+      --gold-dark: #B8952E;
+      --surface: #FFFFFF;
+      --muted: #6B6560;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { background-color: var(--eggshell); color: var(--charcoal); font-family: 'Inter', system-ui, sans-serif; line-height: 1.7; -webkit-font-smoothing: antialiased; margin: 0; }
+
+    /* NAV */
+    .nav { position: sticky; top: 0; z-index: 50; background: var(--eggshell); border-bottom: 1px solid rgba(125,34,64,0.12); display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; height: 68px; }
+    .nav-brand { display: flex; flex-direction: column; line-height: 1.2; text-decoration: none; }
+    .nav-brand-name { font-family: 'Playfair Display', serif; font-size: 1.125rem; font-weight: 600; color: var(--charcoal); letter-spacing: -0.01em; }
+    .nav-brand-tag { font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); font-weight: 400; }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; margin: 0; padding: 0; }
+    .nav-links a { font-size: 0.875rem; font-weight: 400; color: var(--charcoal); text-decoration: none; letter-spacing: 0.01em; transition: color 0.2s ease; }
+    .nav-links a:hover { color: var(--burgundy); }
+    .nav-links a.active { color: var(--burgundy); font-weight: 500; }
+    .btn-nav { display: inline-flex; align-items: center; background: var(--gold); color: var(--charcoal); font-family: 'Inter', sans-serif; font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.02em; padding: 0.5rem 1.25rem; border-radius: 100px; border: none; cursor: pointer; text-decoration: none; transition: background 0.2s ease, transform 0.15s ease; box-shadow: 0 2px 8px rgba(201,168,71,0.3); }
+    .btn-nav:hover { background: var(--gold-dark); transform: translateY(-1px); }
+
+    /* ARTICLE HEADER */
+    .article-header {
+      background: var(--charcoal);
+      padding: 5rem 4rem 4.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .article-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(125,34,64,0.6) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .article-header::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+      background-size: 200px;
+      pointer-events: none;
+    }
+    .article-header-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8125rem;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 1.75rem;
+    }
+    .breadcrumb a { color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s ease; }
+    .breadcrumb a:hover { color: var(--gold); }
+    .breadcrumb-sep { color: rgba(255,255,255,0.2); }
+
+    .article-tag {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: rgba(201,168,71,0.12);
+      border: 1px solid rgba(201,168,71,0.25);
+      padding: 0.3rem 0.75rem;
+      border-radius: 100px;
+      margin-bottom: 1.25rem;
+    }
+
+    .article-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      color: #fff;
+      margin: 0 0 1.5rem;
+    }
+
+    .article-subtitle {
+      font-size: 1.125rem;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.6);
+      margin: 0 0 1.5rem;
+      max-width: 620px;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.5);
+    }
+    .article-meta-dot { color: rgba(201,168,71,0.5); }
+
+    /* ARTICLE BODY */
+    .article-layout {
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      gap: 4rem;
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 4rem 4rem 6rem;
+      align-items: start;
+    }
+
+    /* PROSE */
+    .prose { max-width: 680px; }
+
+    .prose p {
+      font-size: 1.0625rem;
+      line-height: 1.82;
+      color: #2E2A27;
+      margin: 0 0 1.5rem;
+    }
+
+    .prose h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      letter-spacing: -0.025em;
+      line-height: 1.25;
+      margin: 3rem 0 1.125rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(28,28,28,0.08);
+    }
+
+    .prose h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      letter-spacing: -0.015em;
+      line-height: 1.3;
+      margin: 2rem 0 0.875rem;
+    }
+
+    .prose ul {
+      margin: 0 0 1.5rem;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .prose ul li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      color: #2E2A27;
+    }
+
+    .prose ul li::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      margin-top: 0.6rem;
+      flex-shrink: 0;
+    }
+
+    /* STEP CARDS */
+    .step-card {
+      background: var(--surface);
+      border-radius: 12px;
+      border-left: 4px solid var(--gold);
+      padding: 2rem 2.25rem;
+      margin: 2rem 0;
+      box-shadow: 0 2px 16px rgba(125,34,64,0.06), 0 1px 4px rgba(0,0,0,0.04);
+    }
+
+    .step-card-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .step-number {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--charcoal);
+      color: var(--gold);
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .step-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1875rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      letter-spacing: -0.015em;
+      line-height: 1.2;
+    }
+
+    .step-desc {
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .step-detail {
+      font-size: 0.9rem;
+      line-height: 1.65;
+      color: #2E2A27;
+      margin: 0.75rem 0 0;
+    }
+
+    /* CODE BLOCK */
+    .code-block {
+      background: var(--charcoal);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin: 1rem 0 1.5rem;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.875rem;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.85);
+      overflow-x: auto;
+    }
+
+    .code-block .highlight { color: var(--gold); }
+
+    /* PULL QUOTE */
+    .pull-quote {
+      border-left: 3px solid var(--gold);
+      padding: 1.5rem 2rem;
+      margin: 2.5rem 0;
+      background: rgba(201,168,71,0.04);
+      border-radius: 0 8px 8px 0;
+    }
+
+    .pull-quote p {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem !important;
+      font-style: italic;
+      line-height: 1.6 !important;
+      color: var(--charcoal) !important;
+      margin: 0 !important;
+    }
+
+    /* STAT CALLOUT */
+    .stat-callout {
+      background: var(--charcoal);
+      border-radius: 10px;
+      padding: 1.75rem 2rem;
+      margin: 2rem 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+    }
+
+    .stat-callout-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .stat-callout-text {
+      font-size: 0.9375rem;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* CALLOUT BOX */
+    .callout-box {
+      background: rgba(125,34,64,0.05);
+      border: 1px solid rgba(125,34,64,0.15);
+      border-radius: 10px;
+      padding: 1.75rem 2rem;
+      margin: 2rem 0;
+    }
+
+    .callout-box-label {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--burgundy);
+      margin-bottom: 0.5rem;
+    }
+
+    .callout-box p {
+      font-size: 0.9375rem !important;
+      line-height: 1.7 !important;
+      color: var(--charcoal) !important;
+      margin: 0 !important;
+    }
+
+    /* LIMITATIONS LIST */
+    .limits-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.875rem;
+      margin: 1.25rem 0;
+    }
+
+    .limit-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.625rem;
+      font-size: 0.9rem;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+
+    .limit-icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: rgba(125,34,64,0.1);
+      color: var(--burgundy);
+      font-size: 0.65rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 0.15rem;
+    }
+
+    /* SIDEBAR */
+    .sidebar { position: sticky; top: 88px; }
+
+    .sidebar-card {
+      background: var(--surface);
+      border-radius: 10px;
+      padding: 1.5rem;
+      border: 1px solid rgba(28,28,28,0.07);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+      margin-bottom: 1.25rem;
+    }
+
+    .sidebar-label {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .toc-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.125rem; }
+
+    .toc-list a {
+      display: block;
+      font-size: 0.8125rem;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 0.375rem 0.625rem;
+      border-radius: 6px;
+      transition: background 0.15s ease, color 0.15s ease;
+      line-height: 1.4;
+    }
+
+    .toc-list a:hover { background: rgba(125,34,64,0.05); color: var(--burgundy); }
+
+    .sidebar-cta {
+      background: linear-gradient(135deg, #7D2240 0%, #3D1020 100%);
+      border-radius: 10px;
+      padding: 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .sidebar-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+      background-size: 120px;
+    }
+    .sidebar-cta-heading { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 600; color: #fff; line-height: 1.3; margin-bottom: 0.625rem; position: relative; z-index: 1; }
+    .sidebar-cta-sub { font-size: 0.8125rem; color: rgba(255,255,255,0.6); line-height: 1.55; margin-bottom: 1.25rem; position: relative; z-index: 1; }
+    .btn-gold-sm { display: inline-flex; align-items: center; background: var(--gold); color: var(--charcoal); font-family: 'Inter', sans-serif; font-size: 0.8125rem; font-weight: 600; padding: 0.625rem 1.25rem; border-radius: 100px; text-decoration: none; width: 100%; justify-content: center; transition: background 0.2s ease, transform 0.2s cubic-bezier(0.34,1.56,0.64,1); position: relative; z-index: 1; box-shadow: 0 3px 12px rgba(201,168,71,0.3); }
+    .btn-gold-sm:hover { background: var(--gold-dark); transform: translateY(-1px); }
+
+    /* CTA BAND */
+    .cta-band { position: relative; background: linear-gradient(135deg, #7D2240 0%, #3D1020 55%, #1C1C1C 100%); padding: 5rem 4rem; overflow: hidden; }
+    .cta-band::before { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E"); background-size: 200px; pointer-events: none; }
+    .cta-band-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr auto; gap: 4rem; align-items: center; max-width: 1100px; margin: 0 auto; }
+    .cta-band-heading { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 2.5vw, 2.4rem); font-weight: 600; color: #fff; line-height: 1.2; letter-spacing: -0.025em; margin: 0 0 0.75rem; }
+    .cta-band-body { font-size: 1rem; color: rgba(255,255,255,0.65); line-height: 1.7; margin: 0; }
+    .cta-band-right { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; flex-shrink: 0; }
+    .cta-band-note { font-size: 0.75rem; color: rgba(255,255,255,0.4); text-align: center; }
+    .btn-gold { display: inline-flex; align-items: center; background: var(--gold); color: var(--charcoal); font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600; padding: 0.9375rem 2rem; border-radius: 100px; text-decoration: none; white-space: nowrap; transition: background 0.2s ease, transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s ease; box-shadow: 0 4px 20px rgba(201,168,71,0.35); }
+    .btn-gold:hover { background: var(--gold-dark); transform: translateY(-2px); }
+
+    /* FOOTER */
+    footer { background: var(--charcoal); padding: 3.5rem 4rem 2rem; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 1.5rem; }
+    .footer-brand-name { font-family: 'Playfair Display', serif; font-size: 1.0625rem; font-weight: 600; color: #fff; margin-bottom: 0.25rem; }
+    .footer-brand-tag { font-size: 0.75rem; color: rgba(255,255,255,0.45); letter-spacing: 0.1em; text-transform: uppercase; }
+    .footer-nav { display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+    .footer-nav a { font-size: 0.8125rem; color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s ease; }
+    .footer-nav a:hover { color: var(--gold); }
+    .footer-linkedin { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.55); text-decoration: none; transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease; }
+    .footer-linkedin:hover { border-color: var(--gold); color: var(--gold); background: rgba(201,168,71,0.07); }
+    .footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.3); }
+
+    .btn-nav-outline { display: inline-flex; align-items: center; background: transparent; color: var(--gold); border: 1.5px solid var(--gold); font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.02em; padding: 0.45rem 1.2rem; border-radius: 100px; text-decoration: none; transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease; }
+    .btn-nav-outline:hover { background: var(--gold); color: var(--charcoal); transform: translateY(-1px); }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; border-radius: 6px; transition: background 0.2s ease; }
+    .nav-hamburger:hover { background: rgba(125,34,64,0.08); }
+    .nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--charcoal); border-radius: 2px; transition: transform 0.3s ease, opacity 0.3s ease; }
+    .nav-hamburger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.is-open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu { display: none; position: fixed; top: 68px; left: 0; right: 0; background: var(--eggshell); border-bottom: 2px solid rgba(125,34,64,0.15); padding: 0.25rem 2rem 1.25rem; z-index: 48; box-shadow: 0 8px 28px rgba(0,0,0,0.1); flex-direction: column; }
+    .mobile-menu.is-open { display: flex; }
+    .mobile-menu a { font-size: 0.9375rem; font-weight: 400; color: var(--charcoal); text-decoration: none; padding: 0.875rem 0.25rem; border-bottom: 1px solid rgba(28,28,28,0.07); transition: color 0.2s ease; }
+    .mobile-menu a:hover { color: var(--burgundy); }
+    .mobile-menu .mob-cta { background: var(--gold); color: var(--charcoal) !important; font-weight: 600; border-radius: 100px; text-align: center; justify-content: center; margin-top: 1rem; padding: 0.75rem 1.5rem; border: none !important; box-shadow: 0 2px 8px rgba(201,168,71,0.3); display: inline-flex; }
+    .mobile-menu .mob-cta:hover { background: var(--gold-dark); }
+
+    .announce-band {
+      background: #7D2240;
+      padding: 0.5rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+    .announce-band-text {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.92);
+    }
+    .announce-band-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: #C9A847;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 1000px) {
+      .article-layout { grid-template-columns: 1fr; padding: 3rem 1.5rem 4rem; }
+      .sidebar { display: none; }
+      .nav-hamburger { display: flex; }
+      .article-header { padding: 4rem 1.5rem 3.5rem; }
+      .limits-grid { grid-template-columns: 1fr; }
+      .cta-band { padding: 4rem 1.5rem; }
+      .cta-band-inner { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; gap: 2rem; }
+      .nav { padding: 0 1.25rem; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="../index.html" class="nav-brand">
+      <span class="nav-brand-name">Alice Bazdikian</span>
+      <span class="nav-brand-tag">AI Strategist</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../workshops.html" class="btn-nav-outline">Work With Me</a></li>
+      <li><a href="../scorecard.html">Scorecard</a></li>
+      <li><a href="../blog.html" class="active">Blog</a></li>
+      <li><a href="https://calendly.com/abazdikian/diagnostic" class="btn-nav">Book a Diagnostic</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <a href="../about.html">About</a>
+    <a href="../workshops.html">Work With Me</a>
+    <a href="../scorecard.html">Scorecard</a>
+    <a href="../blog.html">Blog</a>
+    <a href="https://calendly.com/abazdikian/diagnostic" class="mob-cta">Book a Diagnostic</a>
+  </div>
+
+  <!-- ANNOUNCEMENT BAND -->
+  <div class="announce-band">
+    <span class="announce-band-dot"></span>
+    <span class="announce-band-text">AI without the Overwhelm</span>
+    <span class="announce-band-dot"></span>
+  </div>
+
+  <!-- ARTICLE HEADER -->
+  <div class="article-header">
+    <div class="article-header-inner">
+      <div class="breadcrumb">
+        <a href="../blog.html">Blog</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>Claude Code Guide</span>
+      </div>
+      <div class="article-tag">Claude Code Guide</div>
+      <h1 class="article-title">30 Claude Code Concepts Every<br>Entrepreneur Needs to Know</h1>
+      <p class="article-subtitle">A practical, no-jargon guide to using Claude Code as your AI business analyst — from installation to full automation.</p>
+      <div class="article-meta">
+        <span>March 16, 2026</span>
+        <span class="article-meta-dot">&middot;</span>
+        <span>25 min read</span>
+        <span class="article-meta-dot">&middot;</span>
+        <span>Claude Code Guide</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ARTICLE LAYOUT -->
+  <div class="article-layout">
+
+    <!-- MAIN PROSE -->
+    <article class="prose">
+
+      <p>If you have been hearing about Claude Code and thinking "that sounds like something a developer would use" — I want to challenge that assumption right now.</p>
+
+      <p>Claude Code is one of the most powerful AI tools available today, and it was not built just for engineers. It is a direct line between your ideas and execution. You type a sentence. Claude acts on your files, your documents, your entire computer. No browser tab. No copy-pasting. No middleman.</p>
+
+      <p>The problem? Most of the tutorials out there are written by developers, for developers. They assume you know what a terminal is, what tokens mean, or why anyone would care about a "context window."</p>
+
+      <p>This guide is different. I have broken down the 30 most important Claude Code concepts into plain language, organized them into eight sections, and written them specifically for entrepreneurs and business owners who want to use AI as a strategic advantage — not a science experiment.</p>
+
+      <div class="pull-quote">
+        <p>"Claude Code does not chat with you. It works for you. And once you understand these 30 concepts, you will never go back to copy-pasting into a chatbot again."</p>
+      </div>
+
+      <p>Let us get into it.</p>
+
+      <!-- SECTION 1 -->
+      <h2 id="getting-started">Section 1: Getting Started</h2>
+
+      <p>Before you can do anything powerful with Claude Code, you need to understand the basics: where it lives, how to install it, and what makes it fundamentally different from every other AI tool you have used. These four concepts are your foundation.</p>
+
+      <h3>1. The Terminal</h3>
+
+      <p>Here is the first thing that trips people up: Claude Code does not live in a browser. There is no website to visit, no app to download from an app store. Claude Code lives in your computer's terminal — that black-and-white text window that most people have never opened.</p>
+
+      <p>Think of the terminal as a direct conversation with your computer. Instead of clicking buttons and navigating menus, you type a command and your computer executes it. Claude Code uses this same channel, which means it has direct access to your files, your folders, and your entire system.</p>
+
+      <div class="step-card">
+        <div class="step-card-header">
+          <div class="step-number">1</div>
+          <div class="step-title">Open Your Terminal</div>
+        </div>
+        <div class="step-desc">On a Mac, open Launchpad and search for "Terminal." On Windows, search for "Command Prompt" or "PowerShell." That is it — you are in.</div>
+        <div class="code-block">
+          <span class="highlight"># Create a practice folder and navigate into it</span><br>
+          mkdir ~/playground && cd ~/playground
+        </div>
+        <p class="step-detail">This creates a safe sandbox folder called "playground" in your home directory. It is the perfect place to experiment with Claude Code without worrying about touching important files.</p>
+      </div>
+
+      <h3>2. Installation and Pricing</h3>
+
+      <p>Installing Claude Code takes about 60 seconds. You paste a single line into your terminal and it handles the rest. No downloads, no installers, no configuration screens.</p>
+
+      <div class="code-block">
+        <span class="highlight"># Mac / Linux installation</span><br>
+        curl -fsSL https://claude.ai/install.sh | bash<br><br>
+        <span class="highlight"># Windows installation (PowerShell)</span><br>
+        irm https://claude.ai/install.ps1 | iex
+      </div>
+
+      <p>Now, pricing. Anthropic offers three tiers:</p>
+
+      <ul>
+        <li><strong>Free:</strong> Very limited. Good for seeing what Claude Code looks like, not for doing real work.</li>
+        <li><strong>Pro ($20/month):</strong> Gets you started with a reasonable amount of usage. Fine for experimenting.</li>
+        <li><strong>Max ($100-200/month):</strong> Unlimited usage of the most powerful models. This is what I recommend for any business owner who is serious about using AI as a daily tool.</li>
+      </ul>
+
+      <div class="callout-box">
+        <div class="callout-box-label">My Recommendation</div>
+        <p>If you are running a business and plan to use Claude Code regularly, go straight to the Max plan. The Pro plan will run out mid-project and leave you waiting. The Max plan means you never have to think about limits — you just work.</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-card-header">
+          <div class="step-number">2</div>
+          <div class="step-title">Your First Prompt</div>
+        </div>
+        <div class="step-desc">Once installed, type <code>claude</code> in your terminal and hit Enter. Then try this as your very first prompt:</div>
+        <div class="code-block">
+          <span class="highlight">What are you and what do you have access to on my computer? Give me the 30-second version.</span>
+        </div>
+        <p class="step-detail">This is a brilliant way to orient yourself. Claude will tell you exactly what it can see and do, in plain language. No guessing.</p>
+      </div>
+
+      <h3>3. File Access</h3>
+
+      <p>This is where Claude Code becomes a completely different animal from ChatGPT, Gemini, or even the regular Claude chat. Claude Code can read AND edit files directly on your computer. No copy-pasting into a chat window. No uploading documents. No downloading outputs and manually replacing files.</p>
+
+      <p>You say "read my proposal and tighten the executive summary" — and Claude opens the file, reads it, rewrites the section, and saves it. Done. The change is in your actual document.</p>
+
+      <div class="stat-callout">
+        <div class="stat-callout-num">0</div>
+        <div class="stat-callout-text">That is the number of copy-paste steps required when using Claude Code. It reads your files directly, edits them in place, and saves the changes. The friction between your idea and the finished work is essentially zero.</div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-card-header">
+          <div class="step-number">3</div>
+          <div class="step-title">Try This: Analyze a File</div>
+        </div>
+        <div class="step-desc">Point Claude at any file on your computer and watch it work:</div>
+        <div class="code-block">
+          <span class="highlight">Analyze the latest CSV in my downloads folder. Tell me what is in it, flag anything unusual, and suggest three things I could do with this data.</span>
+        </div>
+        <p class="step-detail">Claude will find the file, read every row and column, and give you a genuine analysis — not a generic summary. This is the moment most people realize this tool is different.</p>
+      </div>
+
+      <h3>4. Image and PDF Reading</h3>
+
+      <p>Claude Code is not limited to text files. It can see images, read PDFs, interpret screenshots, parse diagrams, and even read receipts. If you can see it on your screen, Claude can probably read it.</p>
+
+      <p>This means you can drop a screenshot of a competitor's pricing page and say "analyze this." You can hand it a scanned receipt and say "add this to my expense tracker." You can show it a whiteboard photo from your last strategy session and say "turn this into an action plan."</p>
+
+      <div class="callout-box">
+        <div class="callout-box-label">Business Use Case</div>
+        <p>One of my clients had 200+ receipt images from a business trip. She pointed Claude Code at the folder and said "read every receipt, create a spreadsheet with date, vendor, amount, and category, then flag anything over $500." It processed all 200 in under three minutes. That is hours of manual data entry, eliminated.</p>
+      </div>
+
+      <!-- SECTION 2 -->
+      <h2 id="first-tasks">Section 2: Your First Real Tasks</h2>
+
+      <p>Now that you understand the basics, it is time to actually put Claude Code to work. These four concepts cover what makes Claude Code an agent (not a chatbot), how to communicate with it effectively, and two features that will dramatically improve your results.</p>
+
+      <h3>5. Tool Use</h3>
+
+      <p>Here is the fundamental shift you need to make in your mental model: Claude Code does not just chat with you. It acts. Every time you give it a prompt, it uses "tools" — specific capabilities like reading files, editing documents, running commands, searching folders, and fetching web pages.</p>
+
+      <p>You can actually see these tools being used in real time as Claude works. It is like watching an employee at their desk — you see them open a file, read it, make edits, save it, open another file. That transparency is powerful because it means you always know what Claude is doing and can redirect it if needed.</p>
+
+      <div class="step-card">
+        <div class="step-card-header">
+          <div class="step-number">5</div>
+          <div class="step-title">Try This: Full Folder Audit</div>
+        </div>
+        <div class="step-desc">Give Claude a task that requires multiple tools at once:</div>
+        <div class="code-block">
+          <span class="highlight">Look through my Downloads folder, list every file by type, count them, and create a summary.md file on my desktop with your findings.</span>
+        </div>
+        <p class="step-detail">Watch the terminal as Claude works. You will see it searching the folder, categorizing files, counting them, and then writing the summary file. Each of those is a different "tool" being used automatically.</p>
+      </div>
+
+      <h3>6. How to Talk to Claude</h3>
+
+      <p>The quality of what you get from Claude Code is directly proportional to the specificity of what you ask for. Vague prompts produce vague results. Specific prompts produce genuinely useful outputs.</p>
+
+      <p>The biggest mistake I see entrepreneurs make is treating Claude Code like a search engine: "help me with marketing." That is too vague. Instead, name specific files, describe the exact outcome you want, and give context about why.</p>
+
+      <p>Here is a power move most people do not know about: let Claude help you write a better prompt. Seriously. Claude is excellent at asking clarifying questions that sharpen your request before it starts working.</p>
+
+      <div class="step-card">
+        <div class="step-card-header">
+          <div class="step-number">6</div>
+          <div class="step-title">Try This: The Clarification Prompt</div>
+        </div>
+        <div class="step-desc">Instead of giving Claude a finished prompt, give it a rough idea and ask it to sharpen the brief:</div>
+        <div class="code-block">
+          <span class="highlight">I need you to write a cold outreach email to a potential corporate client for my consulting business. Before you write anything, ask me clarifying questions until you are 95% confident you can nail this.</span>
+        </div>
+        <p class="step-detail">Claude will ask about your target, your value proposition, the tone you want, the specific offer, and more. By the time it writes the email, it will be tailored — not template.</p>
+      </div>
+
+      <h3>7. CLAUDE.md — Your AI's Instruction Manual</h3>
+
+      <p>This is one of the most underrated features in Claude Code, and it is the one that separates casual users from power users.</p>
+
+      <p>CLAUDE.md is a file you create once, and Claude reads it automatically at the start of every single conversation. Think of it as a standing brief — your business rules, your brand voice, your preferences, what to always do, what to never do.</p>
+
+      <p>Without a CLAUDE.md, you spend the first five minutes of every session re-explaining who you are and what you need. With one, Claude starts every conversation already knowing your business, your style, and your standards.</p>
+
+      <div class="step-card">
+        <div class="step-card-header">
+          <div class="step-number">7</div>
+          <div class="step-title">Try This: Auto-Generate Your CLAUDE.md</div>
+        </div>
+        <div class="step-desc">After you have had a few conversations with Claude, ask it to create the instruction file for you:</div>
+        <div class="code-block">
+          <span class="highlight">Based on everything you have learned about my preferences, my business, and how I like to work — create a CLAUDE.md file that you should read at the start of every future conversation. Include my brand voice, key business details, and any rules or preferences you have picked up.</span>
+        </div>
+        <p class="step-detail">Claude will synthesize everything it has observed and produce a comprehensive instruction file. Review it, tweak it, and save it. From that point forward, every conversation starts with context.</p>
+      </div>
+
+      <h3>8. Plan Mode</h3>
+
+      <p>Plan Mode is your safety net and your quality control system rolled into one. When activated, Claude writes out its full approach before making any changes. You review the plan, adjust anything that is off, approve it, and then Claude builds.</p>
+
+      <p>This is how the best operators work: 90% planning, 10% building. Plan Mode enforces that discipline automatically.</p>
+
+      <div class="callout-box">
+        <div class="callout-box-label">How to Activate</div>
+        <p>Press <strong>Shift+Tab</strong> to toggle Plan Mode on and off. When it is on, Claude will outline every step before executing. When it is off, Claude will act immediately. Start with Plan Mode on until you trust the process, then turn it off for routine tasks.</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-card-header">
+          <div class="step-number">8</div>
+          <div class="step-title">Try This: Organized Cleanup</div>
+        </div>
+        <div class="step-desc">Give Claude a task and let it plan first:</div>
+        <div class="code-block">
+          <span class="highlight">Reorganize all the files in my Downloads folder into subfolders by file type. Plan your approach first — show me what folders you will create and how you will categorize everything before you move anything.</span>
+        </div>
+        <p class="step-detail">You will see Claude's plan laid out clearly. You can approve it, modify it ("actually, put all the PDFs in a folder called 'Documents' instead"), and then let it execute. No surprises.</p>
+      </div>
+
+      <!-- SECTION 3 -->
+      <h2 id="brain">Section 3: How Claude's Brain Works</h2>
+
+      <p>Understanding these three concepts will save you money, improve your results, and help you work with Claude Code more strategically. This is the "how it actually works under the hood" section — explained without any technical jargon.</p>
+
+      <h3>9. The Context Window</h3>
+
+      <p>Think of Claude's memory as a whiteboard. Every message you send, every file it reads, every response it generates — all of it goes on the whiteboard. The whiteboard is large, but it is not infinite.</p>
+
+      <p>When the whiteboard fills up, Claude starts summarizing older content to make room for new information. This means that in very long conversations, early details can get compressed or lost.</p>
+
+      <div class="pull-quote">
+        <p>"Short, focused sessions beat long, rambling ones every single time. Think of each Claude Code session like a focused meeting — have a clear agenda, get the work done, and wrap up."</p>
+      </div>
+
+      <p>The practical takeaway: instead of one marathon session where you ask Claude to do ten different things, run five focused sessions where you tackle two things each. Your results will be dramatically better.</p>
+
+      <div class="callout-box">
+        <div class="callout-box-label">Quick Check</div>
+        <p>Type <strong>/usage</strong> at any time to see how much of your context window is being used. If it is getting full, wrap up the current task and start a fresh session for the next one.</p>
+      </div>
+
+      <h3>10. Tokens and Cost Management</h3>
+
+      <p>Every word Claude reads and writes costs "tokens." Tokens are the currency of AI — and if you are on a metered plan, they directly affect your bill. Even on the Max plan, understanding tokens helps you work more efficiently.</p>
+
+      <p>Here are four strategies to keep your costs in check:</p>
+
+      <ul>
+        <li><strong>Use a cheaper model for simple tasks.</strong> Not every question needs the most powerful brain. Quick lookups and simple edits can use a lighter model.</li>
+        <li><strong>Use /clear between tasks.</strong> This wipes the whiteboard so you are not carrying unnecessary context from a previous task.</li>
+        <li><strong>Use /compact during long sessions.</strong> This summarizes your conversation to free up whiteboard space while keeping the key points.</li>
+        <li><strong>Be concise in your prompts.</strong> Wordy prompts cost more tokens. Say what you need clearly and directly.</li>
+      </ul>
+
+      <h3>11. Model Selection</h3>
+
+      <p>Claude Code gives you access to three different "brains," each with a different balance of power, speed, and cost:</p>
+
+      <div class="step-card">
+        <div class="step-card-header">
+          <div class="step-number">O</div>
+          <div class="step-title">Opus — The Strategist</div>
+        </div>
+        <div class="step-desc">The most powerful and most expensive model. Use Opus for complex analysis, strategic planning, nuanced writing, and anything where quality matters more than speed. This is your senior consultant.</div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-card-header">
+          <div class="step-number">S</div>
+          <div class="step-title">Sonnet — The Daily Driver</div>
+        </div>
+        <div class="step-desc">Balanced power and speed. Sonnet handles 80% of everyday tasks beautifully — writing emails, organizing files, summarizing documents, creating templates. This is your reliable right hand.</div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-card-header">
+          <div class="step-number">H</div>
+          <div class="step-title">Haiku — The Quick Responder</div>
+        </div>
+        <div class="step-desc">The fastest and cheapest model. Perfect for quick questions, simple lookups, and basic formatting tasks. This is your intern — fast and affordable for straightforward work.</div>
+      </div>
+
+      <div class="callout-box">
+        <div class="callout-box-label">How to Switch</div>
+        <p>Type <strong>/model</strong> at any time to switch between Opus, Sonnet, and Haiku. You can even switch mid-conversation — start a complex analysis with Opus, then switch to Haiku for quick follow-up questions. For maximum reasoning power, type "ultrathink" in your prompt to push the model into its deepest thinking mode.</p>
+      </div>
+
+      <!-- SECTION 4 -->
+      <h2 id="conversations">Section 4: Managing Conversations</h2>
+
+      <p>These three concepts are small but mighty. Master them and you will keep your Claude Code sessions fast, focused, and affordable.</p>
+
+      <h3>12. /compact — Summarize and Continue</h3>
+
+      <p>As your conversation grows, the whiteboard fills up. The /compact command is like having an assistant take notes and erase the board. It summarizes everything important, frees up space, and lets you keep working without starting over.</p>
+
+      <p>Use /compact when you notice Claude getting slower, when you have been working on a task for a while and want to shift focus, or when you are hitting context limits on a metered plan.</p>
+
+      <div class="code-block">
+        <span class="highlight">/compact</span>
+      </div>
+
+      <h3>13. /clear — Fresh Start</h3>
+
+      <p>The /clear command wipes the whiteboard completely. Use it when you are switching to a completely different task. There is no point carrying context from "reorganize my files" into "write a client proposal" — it just wastes space and can confuse the output.</p>
+
+      <div class="code-block">
+        <span class="highlight">/clear</span>
+      </div>
+
+      <p>Think of /compact as "save my notes and clean up" and /clear as "new meeting, new agenda."</p>
+
+      <h3>14. Session Management</h3>
+
+      <p>Life happens. You close your laptop, step away for a meeting, come back the next day. With Claude Code, that is not a problem.</p>
+
+      <div class="code-block">
+        <span class="highlight"># Pick up where you left off</span><br>
+        claude --resume
+      </div>
+
+      <p>The <code>--resume</code> flag reopens your last session with all context intact. No re-explaining what you were working on. No lost progress. Just pick up and keep going.</p>
+
+      <div class="callout-box">
+        <div class="callout-box-label">Pro Tip</div>
+        <p>Before closing a long session, use /compact to summarize the state of your work. That way, when you resume the next day, Claude has a clean, focused summary instead of a cluttered conversation history.</p>
+      </div>
+
+      <!-- SECTION 5 -->
+      <h2 id="controlling">Section 5: Controlling Claude</h2>
+
+      <p>Claude Code is powerful — and with power comes the need for control. These three concepts let you decide exactly how much freedom Claude has, how hard it thinks, and how to redirect it instantly when needed.</p>
+
+      <h3>15. Permission Modes</h3>
+
+      <p>Permission modes let you control how much autonomy Claude has when working on your files. Think of it like managing an employee's access levels:</p>
+
+      <ul>
+        <li><strong>Strict mode:</strong> Claude asks permission before every single action. Best when you are learning or working with sensitive files.</li>
+        <li><strong>Standard mode:</strong> Claude asks for permission on significant changes but handles routine tasks independently.</li>
+        <li><strong>Permissive mode:</strong> Claude acts freely, only checking in for major decisions. Best when you trust the process and want maximum speed.</li>
+      </ul>
+
+      <div class="callout-box">
+        <div class="callout-box-label">How to Switch</div>
+        <p>Press <strong>Shift+Tab</strong> to cycle through permission modes. Start tight when you are learning. Loosen up as you build trust. There is no wrong answer — it depends on the task and your comfort level.</p>
+      </div>
+
+      <h3>16. Effort Levels</h3>
+
+      <p>Not every question deserves the same amount of thinking time. Effort levels let you tell Claude how deeply to think about a task:</p>
+
+      <ul>
+        <li><strong>Low effort:</strong> Quick, surface-level answers. Perfect for "what is the capital of France" type questions.</li>
+        <li><strong>Medium effort:</strong> Thoughtful, well-structured responses. Your default for most business tasks.</li>
+        <li><strong>High effort:</strong> Deep analysis, comprehensive reasoning, multiple angles considered. Use for strategy, complex writing, or critical decisions.</li>
+      </ul>
+
+      <p>Use <strong>/model</strong> to adjust effort levels. For the absolute maximum reasoning power, include the word "ultrathink" in your prompt — this pushes Claude into its deepest analytical mode.</p>
+
+      <h3>17. Interrupt and Redirect</h3>
+
+      <p>Sometimes Claude starts heading in the wrong direction. Maybe it misunderstood your prompt, or you realize mid-task that you want something different. You do not have to wait for it to finish.</p>
+
+      <div class="stat-callout">
+        <div class="stat-callout-num">Esc</div>
+        <div class="stat-callout-text">Press the Escape key to stop Claude mid-task. It halts immediately. Then you can redirect, refine your prompt, or start a different approach entirely. No wasted time, no wasted tokens. Instant pivot.</div>
+      </div>
+
+      <p>This is one of those small things that makes a huge difference in daily use. You are always in control of the conversation.</p>
+
+      <!-- SECTION 6 -->
+      <h2 id="reviewing">Section 6: Reviewing Work and Teaching Claude</h2>
+
+      <p>Claude Code is not a "set it and forget it" tool. The best results come from reviewing its work, giving feedback, and teaching it your preferences over time. These three concepts help you do exactly that.</p>
+
+      <h3>18. Visual Studio Code for Review</h3>
+
+      <p>Visual Studio Code (VS Code) is a free application that gives you the best way to review Claude's changes. When Claude edits a file, VS Code shows you exactly what changed — additions in green, deletions in red, modifications highlighted line by line.</p>
+
+      <p>You do not need to be a developer to use VS Code. Think of it as a "track changes" view for everything on your computer, not just Word documents. Download it free from <strong>code.visualstudio.com</strong>.</p>
+
+      <div class="callout-box">
+        <div class="callout-box-label">Why This Matters</div>
+        <p>When Claude edits a 20-page proposal, you do not want to reread all 20 pages to find what changed. VS Code shows you exactly the three paragraphs that were modified, so you can review efficiently and catch anything that needs adjustment.</p>
+      </div>
+
+      <h3>19. Memory</h3>
+
+      <p>Memory is different from CLAUDE.md. While CLAUDE.md is a file you write and maintain manually, Memory is Claude's personal notebook — a place where it stores corrections, preferences, and facts you tell it during conversations.</p>
+
+      <p>When you say "remember: I prefer short, casual emails" or "remember: my business is a consulting firm with 12 employees" — Claude stores that. It persists across sessions, meaning Claude gets smarter about you over time.</p>
+
+      <div class="step-card">
+        <div class="step-card-header">
+          <div class="step-number">19</div>
+          <div class="step-title">Build Your Memory Over Time</div>
+        </div>
+        <div class="step-desc">Every time Claude gets something wrong or you have a preference, tell it explicitly:</div>
+        <div class="code-block">
+          <span class="highlight">Remember: My brand voice is warm and direct, never corporate or stiff. I always sign off client emails with "Talk soon" not "Best regards."</span>
+        </div>
+        <p class="step-detail">Over weeks and months, Claude builds a rich profile of how you work. The result is outputs that feel less like AI-generated content and more like something you actually wrote.</p>
+      </div>
+
+      <h3>20. Project Scope vs. Global Scope</h3>
+
+      <p>Claude Code lets you set instructions at two levels:</p>
+
+      <ul>
+        <li><strong>Project scope:</strong> Rules that apply to one specific project or folder. Example: "In this client project, always use formal British English and reference the contract terms in Section 4."</li>
+        <li><strong>Global scope:</strong> Rules that apply everywhere, in every session. Example: "My name is Alice. I run an AI consulting business. I prefer bullet points over paragraphs."</li>
+      </ul>
+
+      <p>Think of it like running a company: global scope is your company-wide policy manual. Project scope is the specific playbook for each department or client. Different contexts, different rules, all managed cleanly.</p>
+
+      <div class="pull-quote">
+        <p>"The entrepreneurs who get the most from Claude Code are the ones who invest time in teaching it. Every correction, every preference, every 'remember this' makes the next session better."</p>
+      </div>
+
+      <!-- SECTION 7 -->
+      <h2 id="automation">Section 7: Skills and Automation</h2>
+
+      <p>This is where Claude Code goes from being a helpful tool to being a genuine system in your business. These three concepts let you build repeatable workflows, trigger custom actions, and set guardrails that run automatically.</p>
+
+      <h3>21. Slash Commands</h3>
+
+      <p>Type "/" in Claude Code and a menu appears with quick actions. You have already seen some of them — /compact, /clear, /model. But there are hidden gems that most people never discover:</p>
+
+      <ul>
+        <li><strong>/help</strong> — Shows all available commands and what they do.</li>
+        <li><strong>/usage</strong> — Shows how much of your context window and token budget you have used.</li>
+      </ul>
+
+      <p>Slash commands are your keyboard shortcuts for Claude Code. They save time and eliminate repetitive typing.</p>
+
+      <h3>22. Custom Skills</h3>
+
+      <p>This is where things get truly exciting for business owners. Skills are custom workflows that you save as files. You trigger them by name, and an entire multi-step process runs automatically.</p>
+
+      <div class="step-card">
+        <div class="step-card-header">
+          <div class="step-number">22</div>
+          <div class="step-title">Example: Weekly Recap Skill</div>
+        </div>
+        <div class="step-desc">Imagine building a skill called "weekly-recap" that does all of this in one command:</div>
+        <div class="code-block">
+          <span class="highlight"># When you type /weekly-recap, Claude automatically:</span><br>
+          1. Reads all files modified in the last 7 days<br>
+          2. Identifies key themes and completed tasks<br>
+          3. Summarizes progress by project<br>
+          4. Flags anything overdue or stalled<br>
+          5. Drafts a weekly update email for your team
+        </div>
+        <p class="step-detail">Build the skill once. Use it every Friday. What used to take 45 minutes of manual review now happens in under two minutes. This is the kind of leverage that compounds week over week.</p>
+      </div>
+
+      <p>Other skill ideas for business owners:</p>
+
+      <ul>
+        <li>A "client-onboarding" skill that generates all necessary documents from a single intake form</li>
+        <li>A "content-brief" skill that researches a topic and produces a structured outline</li>
+        <li>An "invoice-review" skill that checks invoices against your rate card and flags discrepancies</li>
+        <li>A "meeting-prep" skill that pulls relevant files and creates a briefing document</li>
+      </ul>
+
+      <h3>23. Hooks — Automated Guardrails</h3>
+
+      <p>Hooks are scripts that run automatically before or after Claude takes an action. Think of them as quality control checkpoints that you set once and never have to manage again.</p>
+
+      <p>For example, you could create a hook that:</p>
+
+      <ul>
+        <li>Checks every email draft for banned words or phrases before Claude saves it</li>
+        <li>Ensures all client-facing documents stay under a specific word count</li>
+        <li>Verifies that brand guidelines are followed in every piece of content</li>
+        <li>Runs a formatting check on any spreadsheet Claude creates</li>
+      </ul>
+
+      <div class="callout-box">
+        <div class="callout-box-label">Think of It This Way</div>
+        <p>Skills are "do this workflow." Hooks are "enforce these rules." Together, they give you automation with built-in quality control — like having a virtual assistant who not only does the work but also checks their own output before handing it to you.</p>
+      </div>
+
+      <!-- SECTION 8 -->
+      <h2 id="real-world">Section 8: Connecting Claude to the Real World</h2>
+
+      <p>Everything so far has been about Claude working with files on your computer. These final concepts unlock Claude's ability to interact with the internet, external tools, and real-time data — turning it from a local assistant into a connected business operator.</p>
+
+      <h3>24. Web Browsing</h3>
+
+      <p>Claude Code can fetch and read web pages. Paste a URL into your prompt, and Claude does not just summarize it — it can create files, run comparisons, extract data, and build analyses from what it finds.</p>
+
+      <div class="step-card">
+        <div class="step-card-header">
+          <div class="step-number">24</div>
+          <div class="step-title">Try This: Competitive Analysis</div>
+        </div>
+        <div class="step-desc">Give Claude a competitor's website and watch it go to work:</div>
+        <div class="code-block">
+          <span class="highlight">Read this page: [competitor URL]. Compare their service offerings, pricing structure, and positioning to my business. Create a competitive analysis document with strengths, weaknesses, and opportunities I should consider.</span>
+        </div>
+        <p class="step-detail">Claude fetches the page, reads every section, and produces a structured analysis — complete with recommendations. What would take a junior analyst half a day takes Claude about five minutes.</p>
+      </div>
+
+      <h3>25. MCP Servers — Connecting Your Tools</h3>
+
+      <p>MCP (Model Context Protocol) is what allows Claude Code to connect directly to the tools you already use: Google Drive, Slack, Airtable, Stripe, your CRM, your project management system.</p>
+
+      <p>Without MCP, you would have to say "go update Airtable" and Claude would respond "I cannot access Airtable directly." With MCP configured, Claude opens Airtable, makes the changes, and confirms it is done.</p>
+
+      <div class="stat-callout">
+        <div class="stat-callout-num">50+</div>
+        <div class="stat-callout-text">Over 50 tools and platforms can be connected to Claude Code through MCP servers — including Google Drive, Slack, Notion, Airtable, Stripe, GitHub, and many more. Each connection turns Claude from a local tool into an integrated part of your business stack.</div>
+      </div>
+
+      <p>Setting up MCP connections requires some initial configuration, but once done, it is permanent. Claude can then interact with your tools as naturally as it interacts with files on your computer.</p>
+
+      <h3>26. AI-Powered Research with MCP</h3>
+
+      <p>One of the most powerful MCP integrations is connecting Claude Code to an AI-powered search engine like Perplexity. This gives Claude the ability to do real-time web research with verified sources and citations.</p>
+
+      <p>The difference is dramatic: without research integration, Claude works with what it already knows. With it, Claude can read 50 articles, synthesize findings, verify facts, and cite sources — like having a research assistant who never gets tired and reads faster than any human.</p>
+
+      <div class="step-card">
+        <div class="step-card-header">
+          <div class="step-number">26</div>
+          <div class="step-title">What This Looks Like in Practice</div>
+        </div>
+        <div class="step-desc">With research MCP connected, you can run prompts like:</div>
+        <div class="code-block">
+          <span class="highlight">Research the current state of AI adoption in the professional services industry. Find the latest statistics, identify the top three trends, and create a briefing document with sources I can share with my team.</span>
+        </div>
+        <p class="step-detail">Claude searches the web in real time, reads multiple sources, cross-references findings, and produces a professional briefing with citations. This is genuine research — not AI-generated guesswork.</p>
+      </div>
+
+      <div class="callout-box">
+        <div class="callout-box-label">The Bigger Picture</div>
+        <p>Concepts 24 through 26 represent the trajectory of where AI tools are heading: from isolated chatbots to fully connected operators that can access, analyze, and act on information from anywhere in your business. The entrepreneurs who learn to set up these connections now will have a significant advantage as these capabilities continue to expand.</p>
+      </div>
+
+      <!-- FINAL CTA SECTION -->
+      <h2 id="next-steps" style="border-top:none;padding-top:0;margin-top:4rem;">What to Do Next</h2>
+
+      <p>You now have a clear map of the 30 most important concepts in Claude Code. But reading about these concepts and actually implementing them are two very different things.</p>
+
+      <p>Here is my honest advice: start with Section 1. Install Claude Code, open your terminal, and run your first prompt today. Do not try to master all 30 concepts at once — pick one section per week and actually practice it.</p>
+
+      <div class="pull-quote">
+        <p>"The gap between knowing about AI and using AI is where most entrepreneurs get stuck. Do not let that be you. Open the terminal, type one sentence, and watch what happens."</p>
+      </div>
+
+      <p>If you want hands-on help getting Claude Code set up for your specific business — with your files, your workflows, and your goals — there are two ways I can help:</p>
+
+      <ul>
+        <li><strong>Free Webinar:</strong> Join my next live session where I walk through these concepts in real time, answer your questions, and show you exactly how I use Claude Code in my own business.</li>
+        <li><strong>Private Workshop:</strong> Book a one-on-one session where we set up Claude Code for your specific workflows, build your CLAUDE.md file, configure your tools, and create your first custom skills — all in a single session.</li>
+      </ul>
+
+      <p>The tools are here. The only question is whether you will learn to use them.</p>
+
+    </article>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+      <div class="sidebar-card">
+        <div class="sidebar-label">In This Article</div>
+        <ul class="toc-list">
+          <li><a href="#getting-started">Getting Started</a></li>
+          <li><a href="#first-tasks">Your First Real Tasks</a></li>
+          <li><a href="#brain">How Claude's Brain Works</a></li>
+          <li><a href="#conversations">Managing Conversations</a></li>
+          <li><a href="#controlling">Controlling Claude</a></li>
+          <li><a href="#reviewing">Reviewing Work &amp; Teaching</a></li>
+          <li><a href="#automation">Skills &amp; Automation</a></li>
+          <li><a href="#real-world">Connecting to the Real World</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-cta">
+        <div class="sidebar-cta-heading">Want to see Claude Code in action — live?</div>
+        <div class="sidebar-cta-sub">Join my free webinar and watch me set up Claude Code for a real business in real time.</div>
+        <a href="../webinar.html" class="btn-gold-sm">Register for the Webinar →</a>
+      </div>
+
+      <div class="sidebar-card" style="margin-top:0;">
+        <div class="sidebar-label">Key Tools</div>
+        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0.75rem;">
+          <li style="font-size:0.8125rem;color:var(--muted);line-height:1.5;"><strong style="color:var(--charcoal);display:block;margin-bottom:0.125rem;">Claude Code (Terminal)</strong>Free to install — runs in your computer's terminal</li>
+          <li style="font-size:0.8125rem;color:var(--muted);line-height:1.5;"><strong style="color:var(--charcoal);display:block;margin-bottom:0.125rem;">Max Plan ($100-200/mo)</strong>Recommended for business owners — unlimited usage</li>
+          <li style="font-size:0.8125rem;color:var(--muted);line-height:1.5;"><strong style="color:var(--charcoal);display:block;margin-bottom:0.125rem;">VS Code (Free)</strong>Best way to review Claude's file changes</li>
+        </ul>
+      </div>
+
+    </aside>
+
+  </div>
+
+  <!-- CTA BAND -->
+  <section class="cta-band">
+    <div class="cta-band-inner">
+      <div>
+        <h2 class="cta-band-heading">Ready to put Claude Code to work in your business?</h2>
+        <p class="cta-band-body">I help entrepreneurs and business leaders go from "I have heard about AI" to "AI runs part of my business." Book a free diagnostic call to see what is possible for you specifically.</p>
+      </div>
+      <div class="cta-band-right">
+        <a href="https://calendly.com/abazdikian/diagnostic" class="btn-gold">Book a Free Diagnostic Call</a>
+        <span class="cta-band-note">Free · 30 minutes · No pitch</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand-name">Alice Bazdikian</div>
+        <div class="footer-brand-tag">AI Strategist + Educator</div>
+      </div>
+      <nav class="footer-nav">
+        <a href="../about.html">About</a>
+        <a href="../workshops.html">Work With Me</a>
+        <a href="../scorecard.html">Scorecard</a>
+        <a href="../blog.html">Blog</a>
+        <a href="https://calendly.com/abazdikian/diagnostic">Book a Diagnostic</a>
+        <a href="https://www.linkedin.com/in/alicebazdikian" class="footer-linkedin" aria-label="LinkedIn" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+      </nav>
+    </div>
+    <p class="footer-copy">&copy; 2026 Alice Bazdikian · All rights reserved</p>
+  </footer>
+
+  <!-- SCORECARD BAND -->
+  <div id="scorecard-band" style="position:fixed;bottom:0;left:0;right:0;z-index:99;background:#F7F3EE;border-top:1px solid rgba(125,34,64,0.15);display:flex;align-items:center;justify-content:center;gap:1.5rem;padding:0.875rem 4rem;box-shadow:0 -4px 24px rgba(0,0,0,0.08);">
+    <p style="margin:0;font-family:'Inter',sans-serif;font-size:0.9375rem;color:#1C1C1C;">Is your business <strong style="color:#7D2240;">AI-ready?</strong> Find out in 5 minutes.</p>
+    <a href="../scorecard.html" style="display:inline-flex;align-items:center;background:#7D2240;color:#fff;font-family:'Inter',sans-serif;font-size:0.8125rem;font-weight:600;padding:0.5625rem 1.25rem;border-radius:100px;text-decoration:none;white-space:nowrap;box-shadow:0 2px 10px rgba(125,34,64,0.3);">Take the Scorecard →</a>
+    <button onclick="document.getElementById('scorecard-band').style.display='none';localStorage.setItem('scorecardBandDismissed','1')" style="position:absolute;right:1.5rem;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:#6B6560;font-size:1.375rem;line-height:1;padding:0.25rem 0.5rem;" aria-label="Close">&times;</button>
+  </div>
+  <script>(function(){if(localStorage.getItem('scorecardBandDismissed'))document.getElementById('scorecard-band').style.display='none';})();</script>
+  <script>
+    (function() {
+      var btn = document.getElementById('nav-hamburger');
+      var menu = document.getElementById('mobile-menu');
+      if (!btn || !menu) return;
+      btn.addEventListener('click', function() {
+        var open = menu.classList.toggle('is-open');
+        btn.classList.toggle('is-open', open);
+        btn.setAttribute('aria-expanded', open);
+        menu.setAttribute('aria-hidden', !open);
+      });
+      document.addEventListener('click', function(e) {
+        if (!btn.contains(e.target) && !menu.contains(e.target)) {
+          menu.classList.remove('is-open');
+          btn.classList.remove('is-open');
+          btn.setAttribute('aria-expanded', 'false');
+          menu.setAttribute('aria-hidden', 'true');
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>
