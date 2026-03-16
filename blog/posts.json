@@ -1,5 +1,14 @@
 [
   {
+    "slug": "my-come-to-jesus-moment-with-ai",
+    "title": "My Come-to-Jesus Moment with AI",
+    "tag": "Personal",
+    "excerpt": "I followed AI for over a year without going all in. Then one live session with Claude changed everything \u2014 and I haven\u2019t looked back since.",
+    "date": "March 16, 2026",
+    "readTime": "5 min read",
+    "featured": true
+  },
+  {
     "slug": "ai-maturity-framework",
     "title": "The 4 Stages of AI Maturity: A Framework for Business Leaders",
     "tag": "AI Strategy",

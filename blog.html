@@ -482,18 +482,36 @@
         posts.forEach(function(p){
           var card = document.createElement('a');
           card.href = 'blog/' + p.slug + '.html';
-          card.className = 'post-card';
-          card.innerHTML =
-            '<div class="post-card-body">' +
-              '<div class="post-card-tag">' + p.tag + '</div>' +
-              '<div class="post-card-title">' + p.title + '</div>' +
-              '<p class="post-card-excerpt">' + p.excerpt + '</p>' +
-              '<div class="post-card-meta">' +
-                '<span>' + p.date + '</span>' +
-                '<span style="color:var(--gold)">·</span>' +
-                '<span>' + p.readTime + '</span>' +
-              '</div>' +
-            '</div>';
+          if (p.featured) {
+            card.className = 'post-card';
+            card.style.cssText = 'grid-column:1/-1;border-left:4px solid var(--burgundy);';
+            card.innerHTML =
+              '<div class="post-card-body">' +
+                '<div class="post-card-tag" style="color:var(--gold);">Featured</div>' +
+                '<div class="post-card-title" style="font-size:1.35rem;">' + p.title + '</div>' +
+                '<p class="post-card-excerpt">' + p.excerpt + '</p>' +
+                '<div class="post-card-meta">' +
+                  '<span>' + p.date + '</span>' +
+                  '<span style="color:var(--gold)">·</span>' +
+                  '<span>' + p.readTime + '</span>' +
+                  '<span style="color:var(--gold)">·</span>' +
+                  '<span style="color:var(--burgundy);font-weight:500;">Read article →</span>' +
+                '</div>' +
+              '</div>';
+          } else {
+            card.className = 'post-card';
+            card.innerHTML =
+              '<div class="post-card-body">' +
+                '<div class="post-card-tag">' + p.tag + '</div>' +
+                '<div class="post-card-title">' + p.title + '</div>' +
+                '<p class="post-card-excerpt">' + p.excerpt + '</p>' +
+                '<div class="post-card-meta">' +
+                  '<span>' + p.date + '</span>' +
+                  '<span style="color:var(--gold)">·</span>' +
+                  '<span>' + p.readTime + '</span>' +
+                '</div>' +
+              '</div>';
+          }
           grid.appendChild(card);
         });
       });
