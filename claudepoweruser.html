@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Become a Claude Power User in 90 Minutes | Alice Bazdikian</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="description" content="Everyone's talking about Claude. Almost nobody's using it properly. Let's fix that. Live 90-minute workshop with Alice Bazdikian." />
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600;1,700;1,900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  :root {
+    --eggshell: #F7F3EE;
+    --surface:  #FFFFFF;
+    --charcoal: #1C1C1C;
+    --burgundy: #7D2240;
+    --burg-dk:  #651B33;
+    --burg-lt:  #9e2d52;
+    --gold:     #C9A847;
+    --gold-dk:  #B8952E;
+    --muted:    #6B6560;
+    --border:   rgba(28,28,28,0.09);
+  }
+
+  body {
+    background: var(--eggshell);
+    color: var(--charcoal);
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(145deg, #1a0810 0%, #2d0d1c 45%, #3d1022 100%);
+    padding: 5rem 4rem 5rem;
+    min-height: 520px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+    text-align: center;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 60% at 50% 40%, rgba(201,168,71,0.10) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner { max-width: 760px; margin: 0 auto; position: relative; z-index: 1; }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold);
+    background: rgba(201,168,71,0.10); border: 1px solid rgba(201,168,71,0.25);
+    padding: 0.375rem 1rem; border-radius: 100px;
+    margin-bottom: 2rem;
+  }
+  .hero-eyebrow::before {
+    content: ''; width: 6px; height: 6px; background: var(--gold);
+    border-radius: 50%; animation: pulse 2s ease infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.75)} }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 900; line-height: 1.05;
+    letter-spacing: -0.04em; color: #fff;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 em { font-style: italic; color: var(--gold); }
+  .hero-sub {
+    font-size: 1.1875rem; color: rgba(255,255,255,0.7);
+    max-width: 540px; margin: 0 auto 2.5rem;
+    line-height: 1.7;
+  }
+  .hero-meta {
+    display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 1rem; margin-bottom: 2.5rem;
+  }
+  .hero-meta-pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 100px; padding: 0.4rem 1rem;
+    font-size: 0.8125rem; color: rgba(255,255,255,0.75); font-weight: 500;
+  }
+  .btn-primary-hero {
+    display: inline-block;
+    background: var(--gold); color: var(--charcoal);
+    padding: 1rem 2.5rem; border-radius: 100px;
+    font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 700;
+    text-decoration: none; letter-spacing: 0.01em;
+    box-shadow: 0 6px 30px rgba(201,168,71,0.4);
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  }
+  .btn-primary-hero:hover {
+    background: var(--gold-dk); transform: translateY(-2px);
+    box-shadow: 0 10px 36px rgba(201,168,71,0.5);
+  }
+  .btn-primary-hero:active { transform: translateY(0); }
+
+  /* ── SECTIONS ── */
+  .section { padding: 5rem 4rem; }
+  .section-alt { background: var(--surface); }
+  .section-dark {
+    background: linear-gradient(145deg, #7D2240 0%, #5a1830 55%, #3d1022 100%);
+  }
+  .section-inner { max-width: 780px; margin: 0 auto; }
+  .section-inner-wide { max-width: 1100px; margin: 0 auto; }
+
+  .eyebrow {
+    font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 0.875rem;
+    display: flex; align-items: center; gap: 0.625rem;
+  }
+  .eyebrow::before {
+    content: ''; display: inline-block;
+    width: 22px; height: 1.5px; background: var(--gold); flex-shrink: 0;
+  }
+  .eyebrow-light { color: rgba(201,168,71,0.85); }
+  .eyebrow-light::before { background: rgba(201,168,71,0.85); }
+
+  .section-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.875rem, 3vw, 2.75rem);
+    font-weight: 700; line-height: 1.15;
+    letter-spacing: -0.03em; color: var(--charcoal);
+    margin-bottom: 1.25rem;
+  }
+  .section-heading em { font-style: italic; color: var(--burgundy); }
+  .section-heading-light { color: #fff; }
+  .section-heading-light em { color: var(--gold); }
+
+  .section-body {
+    font-size: 0.9375rem; color: var(--muted);
+    line-height: 1.8; margin-bottom: 1rem;
+  }
+  .section-body-light { color: rgba(255,255,255,0.7); }
+
+  /* ── PAIN BULLETS ── */
+  .pain-list { list-style: none; margin-top: 1.75rem; display: flex; flex-direction: column; gap: 1rem; }
+  .pain-item {
+    display: flex; gap: 1rem; align-items: flex-start;
+    padding: 1.25rem 1.5rem;
+    background: var(--eggshell); border: 1px solid var(--border);
+    border-radius: 12px;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .pain-item:hover { border-color: rgba(125,34,64,0.2); transform: translateX(4px); }
+  .pain-arrow {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem; color: var(--burgundy); font-weight: 700;
+    flex-shrink: 0; margin-top: 1px; line-height: 1.5;
+  }
+  .pain-item p { font-size: 0.9375rem; color: var(--charcoal); line-height: 1.65; }
+
+  /* ── MODULE GRID ── */
+  .module-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.125rem; margin-top: 2rem;
+  }
+  .module-card {
+    background: var(--eggshell);
+    border: 1px solid var(--border);
+    border-radius: 12px; padding: 1.75rem;
+    position: relative; overflow: hidden;
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  }
+  .module-card:hover {
+    border-color: rgba(125,34,64,0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(125,34,64,0.08);
+  }
+  .module-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem; font-weight: 900;
+    color: rgba(201,168,71,0.12);
+    position: absolute; top: 6px; right: 14px;
+    line-height: 1;
+  }
+  .module-card h3 { font-size: 1rem; font-weight: 700; color: var(--charcoal); margin-bottom: 0.5rem; line-height: 1.35; }
+  .module-card p { font-size: 0.8375rem; color: var(--muted); line-height: 1.65; }
+
+  .bonus-card {
+    background: rgba(125,34,64,0.06);
+    border: 1.5px dashed rgba(125,34,64,0.25);
+    border-radius: 12px; padding: 1.5rem 1.75rem;
+    margin-top: 1rem;
+    display: flex; gap: 1rem; align-items: flex-start;
+  }
+  .bonus-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 2px; }
+  .bonus-card h3 { font-size: 0.9375rem; font-weight: 700; color: var(--burgundy); margin-bottom: 0.375rem; }
+  .bonus-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.65; }
+
+  /* ── FOR YOU LIST ── */
+  .for-you-list { list-style: none; margin-top: 1.75rem; display: flex; flex-direction: column; gap: 1rem; }
+  .for-you-item {
+    display: flex; gap: 1rem; align-items: flex-start;
+    padding: 1.125rem 1.5rem;
+    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 12px;
+  }
+  .for-you-arrow {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem; color: var(--gold); font-weight: 700;
+    flex-shrink: 0; margin-top: 1px; line-height: 1.5;
+  }
+  .for-you-item p { font-size: 0.9375rem; color: rgba(255,255,255,0.85); line-height: 1.65; }
+
+  /* ── HOST ── */
+  .host-box {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 14px; padding: 2.5rem;
+    position: relative; overflow: hidden;
+  }
+  .host-box::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--burgundy), var(--gold));
+  }
+  .host-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; font-weight: 700;
+    color: var(--burgundy); margin-bottom: 0.875rem;
+  }
+  .host-text { font-size: 0.9375rem; color: var(--muted); line-height: 1.8; }
+  .host-text strong { color: var(--charcoal); }
+
+  /* ── PRICING BOX ── */
+  .pricing-wrap { max-width: 580px; margin: 0 auto; }
+  .pricing-box {
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: 20px; overflow: hidden;
+    box-shadow: 0 20px 60px rgba(28,28,28,0.1), 0 4px 16px rgba(28,28,28,0.06);
+  }
+  .pricing-header {
+    background: linear-gradient(135deg, var(--burgundy) 0%, var(--burg-dk) 100%);
+    padding: 2rem 2.5rem;
+  }
+  .pricing-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.625rem; font-weight: 700;
+    color: #fff; letter-spacing: -0.02em; margin-bottom: 0.375rem;
+  }
+  .pricing-header p { font-size: 0.8375rem; color: rgba(255,255,255,0.65); }
+  .pricing-body { padding: 2rem 2.5rem; }
+  .checklist { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem; }
+  .checklist li { display: flex; gap: 0.75rem; align-items: flex-start; font-size: 0.9375rem; color: var(--charcoal); }
+  .check-icon { color: var(--burgundy); font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+  .price-line {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem; font-weight: 900;
+    color: var(--charcoal); letter-spacing: -0.04em;
+    line-height: 1; margin-bottom: 1.25rem;
+    display: flex; align-items: baseline; gap: 0.5rem;
+  }
+  .price-currency { font-size: 1.5rem; font-family: 'Inter', sans-serif; font-weight: 600; color: var(--muted); }
+  .btn-buy {
+    display: block; width: 100%; text-align: center;
+    background: var(--burgundy); color: #fff;
+    padding: 1rem 1.5rem; border-radius: 100px;
+    font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 700;
+    text-decoration: none; letter-spacing: 0.01em;
+    box-shadow: 0 6px 24px rgba(125,34,64,0.35);
+    transition: background 0.2s, transform 0.15s;
+    margin-bottom: 1rem;
+  }
+  .btn-buy:hover { background: var(--burg-dk); transform: translateY(-2px); }
+  .cant-make-it {
+    font-size: 0.8125rem; color: var(--muted);
+    line-height: 1.65; text-align: center;
+  }
+  .cant-make-it strong { color: var(--charcoal); }
+
+  /* ── FAQ ── */
+  .faq-list { margin-top: 2rem; }
+  .faq-item { border-bottom: 1px solid var(--border); }
+  .faq-q {
+    font-size: 0.9375rem; font-weight: 600; color: var(--charcoal);
+    cursor: pointer; display: flex;
+    justify-content: space-between; align-items: center; gap: 1rem;
+    padding: 1.25rem 0;
+    transition: color 0.2s;
+  }
+  .faq-q:hover { color: var(--burgundy); }
+  .faq-q::after { content: '+'; font-size: 1.25rem; color: var(--gold); flex-shrink: 0; transition: transform 0.25s; font-weight: 300; }
+  .faq-item.open .faq-q::after { transform: rotate(45deg); }
+  .faq-a { font-size: 0.875rem; color: var(--muted); padding-bottom: 1.25rem; line-height: 1.75; display: none; }
+  .faq-item.open .faq-a { display: block; }
+
+  /* ── FINAL CTA ── */
+  .final-cta {
+    background: var(--charcoal);
+    padding: 6rem 4rem; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .final-cta::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(125,34,64,0.3) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .final-cta-inner { max-width: 680px; margin: 0 auto; position: relative; z-index: 1; }
+  .final-cta h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.875rem, 3.5vw, 3rem);
+    font-weight: 900; line-height: 1.15;
+    letter-spacing: -0.03em; color: #fff; margin-bottom: 2.5rem;
+  }
+  .final-cta h2 em { font-style: italic; color: var(--gold); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--eggshell); border-top: 1px solid var(--border);
+    padding: 1.75rem 4rem; text-align: center;
+  }
+  footer p { font-size: 0.75rem; color: var(--muted); }
+  footer a { color: var(--burgundy); text-decoration: none; }
+  footer a:hover { opacity: 0.7; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .hero { padding: 4rem 1.5rem; }
+    .section { padding: 3.5rem 1.5rem; }
+    .final-cta { padding: 4rem 1.5rem; }
+    footer { padding: 1.5rem; }
+    .hero-meta { gap: 0.625rem; }
+    .module-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 480px) {
+    .hero-meta-pill { font-size: 0.75rem; padding: 0.3rem 0.75rem; }
+    .price-line { font-size: 2.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Live Workshop</div>
+    <h1>Become a Claude<br><em>Power User</em><br>in 90 Minutes</h1>
+    <p class="hero-sub">Everyone's talking about Claude. Almost nobody's using it properly. Let's fix that.</p>
+    <div class="hero-meta">
+      <span class="hero-meta-pill">📅 Wednesday 18 March</span>
+      <span class="hero-meta-pill">🕤 9:30am AWST</span>
+      <span class="hero-meta-pill">⏱ 90 minutes live</span>
+      <span class="hero-meta-pill">🔄 Replay included</span>
+    </div>
+    <a href="https://zylvie.com/Brookewright/cart/add/j4AWq3mX" target="_blank" rel="noopener" class="btn-primary-hero">Grab Your Spot — $147 AUD</a>
+  </div>
+</section>
+
+<!-- ── HERE'S THE THING ── -->
+<section class="section section-alt">
+  <div class="section-inner">
+    <p class="eyebrow">Here's the thing</p>
+    <h2 class="section-heading">You're paying for Claude.<br>You're using maybe <em>10% of it.</em></h2>
+    <p class="section-body">Copy-pasting prompts. Getting "meh" outputs. Missing the features that actually make it worth the money.</p>
+    <ul class="pain-list">
+      <li class="pain-item"><span class="pain-arrow">→</span><p>You don't know the difference between Chat, Projects, Cowork, and Claude Code (or which one you should actually be using)</p></li>
+      <li class="pain-item"><span class="pain-arrow">→</span><p>You've never touched Artifacts and have no idea why they matter</p></li>
+      <li class="pain-item"><span class="pain-arrow">→</span><p>You're not using custom styles, system prompts, or memory — so Claude sounds generic every single time</p></li>
+      <li class="pain-item"><span class="pain-arrow">→</span><p>You're still copy-pasting between tabs instead of letting Claude work inside your docs, data, and workflows</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ── WHAT WE'LL COVER ── -->
+<section class="section">
+  <div class="section-inner-wide">
+    <p class="eyebrow">What we'll cover</p>
+    <h2 class="section-heading">90 minutes. <em>Everything you need.</em></h2>
+    <p class="section-body" style="max-width:580px;">No filler. No "what is AI" intro slides. We're going straight to the features that make Claude actually useful.</p>
+    <div class="module-grid">
+      <div class="module-card">
+        <div class="module-num">01</div>
+        <h3>The Claude Ecosystem</h3>
+        <p>Stop guessing which Claude feature to use. Know instantly which one fits the job.</p>
+      </div>
+      <div class="module-card">
+        <div class="module-num">02</div>
+        <h3>Artifacts That Actually Work</h3>
+        <p>Build dashboards, docs, and tools inside Claude. The feature most people don't know exists.</p>
+      </div>
+      <div class="module-card">
+        <div class="module-num">03</div>
+        <h3>Custom Styles &amp; Memory</h3>
+        <p>Your voice. Your context. Every time. Set it once, never repeat yourself.</p>
+      </div>
+      <div class="module-card">
+        <div class="module-num">04</div>
+        <h3>Claude Skills &amp; Projects</h3>
+        <p>Turn Claude into your copywriter, researcher, or strategist — on demand.</p>
+      </div>
+      <div class="module-card">
+        <div class="module-num">05</div>
+        <h3>Prompting Like a Pro</h3>
+        <p>The difference between "meh" and "holy shit" outputs. It's in the prompt structure.</p>
+      </div>
+      <div class="module-card">
+        <div class="module-num">06</div>
+        <h3>Real Business Workflows</h3>
+        <p>Content, research, client systems, admin. Real workflows you can steal.</p>
+      </div>
+    </div>
+    <div class="bonus-card">
+      <div class="bonus-icon">🔄</div>
+      <div>
+        <h3>Switching from ChatGPT? We've got you.</h3>
+        <p>I'll walk you through migrating your ChatGPT memory, history, and custom instructions into Claude. No starting from scratch.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── THIS IS FOR YOU ── -->
+<section class="section section-dark">
+  <div class="section-inner">
+    <p class="eyebrow eyebrow-light">This is for you if</p>
+    <h2 class="section-heading section-heading-light">For Claude users who know they're <em>leaving money on the table.</em></h2>
+    <ul class="for-you-list">
+      <li class="for-you-item"><span class="for-you-arrow">→</span><p>You've got Claude Pro but you're barely scratching the surface</p></li>
+      <li class="for-you-item"><span class="for-you-arrow">→</span><p>You want AI to save you time — not create more work</p></li>
+      <li class="for-you-item"><span class="for-you-arrow">→</span><p>You learn better live than from a 47-part YouTube playlist</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ── YOUR HOST ── -->
+<section class="section section-alt">
+  <div class="section-inner">
+    <p class="eyebrow">Your host</p>
+    <div class="host-box">
+      <div class="host-name">Alice Bazdikian</div>
+      <p class="host-text">I'm <strong>Alice Bazdikian</strong>. I help entrepreneurs and business owners actually use AI — not just talk about it. I use Claude every day to run my business: content, research, client systems, automations. This isn't theory. It's what I do.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHAT YOU GET ── -->
+<section class="section">
+  <div class="section-inner">
+    <p class="eyebrow">What you get</p>
+    <div class="pricing-wrap">
+      <div class="pricing-box">
+        <div class="pricing-header">
+          <h2>Claude Power User Workshop</h2>
+          <p>Wednesday 18 March · 9:30am AWST · 90 min live on Zoom</p>
+        </div>
+        <div class="pricing-body">
+          <ul class="checklist">
+            <li><span class="check-icon">✓</span>90-minute live workshop (not pre-recorded)</li>
+            <li><span class="check-icon">✓</span>Full replay access — watch it back anytime</li>
+            <li><span class="check-icon">✓</span>Live demos with real business workflows</li>
+            <li><span class="check-icon">✓</span>ChatGPT → Claude migration walkthrough</li>
+            <li><span class="check-icon">✓</span>Ask questions in real time</li>
+            <li><span class="check-icon">✓</span>Prompt templates and cheat sheets</li>
+          </ul>
+          <div class="price-line">
+            <span class="price-currency">$</span>147 <span style="font-family:'Inter',sans-serif;font-size:1rem;font-weight:500;color:var(--muted);letter-spacing:0;margin-left:2px;">AUD</span>
+          </div>
+          <a href="https://zylvie.com/Brookewright/cart/add/j4AWq3mX" target="_blank" rel="noopener" class="btn-buy">I'm In — Let's Go</a>
+          <p class="cant-make-it"><strong>Can't make it live?</strong> No worries — you'll get the full replay. Plus, submit your questions before the session and I'll answer them live.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section class="section section-alt">
+  <div class="section-inner">
+    <p class="eyebrow">Questions</p>
+    <h2 class="section-heading">Quick answers.</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Do I need a Claude subscription already?</div>
+        <div class="faq-a">Nope. Free plan, Pro, or Teams — you'll get value regardless. If you're paying for Pro, you'll finally learn how to use what you're paying for.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">I'm still using ChatGPT — is this relevant?</div>
+        <div class="faq-a">Especially. You'll see what Claude does differently and how to migrate your setup so you're not starting from zero.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What if I can't make it live?</div>
+        <div class="faq-a">You'll get the full replay. But live is always better — you can ask questions, get real-time answers, and actually do things alongside me.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">I'm not techy at all. Will I keep up?</div>
+        <div class="faq-a">If you can use Google Docs, you can do this. Plain English, no jargon.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Is this just for solopreneurs?</div>
+        <div class="faq-a">Nope. Solo, team, or corporate — Claude works the same. DM me about group rates.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What's the refund policy?</div>
+        <div class="faq-a">Due to the digital nature of this workshop (including instant replay access), all sales are final. If you have questions before purchasing, flick me a DM and I'll help you figure out if it's the right fit.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FINAL CTA ── -->
+<div class="final-cta">
+  <div class="final-cta-inner">
+    <h2>Wednesday morning. 90 minutes.<br><em>You'll walk out knowing more than people who've used Claude for months.</em></h2>
+    <a href="https://zylvie.com/Brookewright/cart/add/j4AWq3mX" target="_blank" rel="noopener" class="btn-primary-hero">Grab Your Spot — $147 AUD</a>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <p>© 2026 Alice Bazdikian · <a href="index.html">smallbusinessaicoach.com</a></p>
+</footer>
+
+<script>
+function toggleFaq(el) {
+  var item = el.parentElement;
+  var open = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('open'); });
+  if (!open) item.classList.add('open');
+}
+</script>
+
+</body>
+</html>
