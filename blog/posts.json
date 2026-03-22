@@ -1,12 +1,20 @@
 [
   {
+    "slug": "ready-to-use-ai-like-the-top-17",
+    "title": "Ready to Use AI Like the Top 17%?",
+    "tag": "AI Insights",
+    "excerpt": "Anthropic surveyed 81,000 people about AI. The findings reveal a massive untapped advantage for small business owners \u2014 and most are missing it.",
+    "date": "March 20, 2026",
+    "readTime": "7 min read",
+    "featured": true
+  },
+  {
     "slug": "my-come-to-jesus-moment-with-ai",
     "title": "My Come-to-Jesus Moment with AI",
     "tag": "Personal",
     "excerpt": "I followed AI for over a year without going all in. Then one live session with Claude changed everything \u2014 and I haven\u2019t looked back since.",
     "date": "March 16, 2026",
-    "readTime": "5 min read",
-    "featured": true
+    "readTime": "5 min read"
   },
   {
     "slug": "ai-maturity-framework",

@@ -51,7 +51,7 @@
     body { background-color: var(--eggshell); color: var(--charcoal); font-family: 'Inter', system-ui, sans-serif; line-height: 1.7; -webkit-font-smoothing: antialiased; margin: 0; }
 
     /* NAV */
-    .nav { position: sticky; top: 0; z-index: 50; background: var(--eggshell); border-bottom: 1px solid rgba(125,34,64,0.12); display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; height: 68px; }
+    .nav { position: sticky; top: 0; z-index: 50; background: var(--eggshell); border-bottom: 1px solid rgba(125,34,64,0.12); display: flex; align-items: center; justify-content: space-between; padding: 0 max(2.5rem, calc((100vw - 1400px) / 2 + 2.5rem)); height: 68px; }
     .nav-brand { display: flex; flex-direction: column; line-height: 1.2; text-decoration: none; }
     .nav-brand-name { font-family: 'Playfair Display', serif; font-size: 1.125rem; font-weight: 600; color: var(--charcoal); letter-spacing: -0.01em; }
     .nav-brand-tag { font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); font-weight: 400; }
@@ -199,7 +199,7 @@
       background-image: url('Brand%20Assets/workshop_hero.png');
       background-size: cover;
       background-position: center;
-      padding: 5.5rem 4rem 4.5rem;
+      padding: 5.5rem max(4rem, calc((100vw - 1400px) / 2 + 4rem)) 4.5rem;
       position: relative;
       overflow: hidden;
     }
@@ -213,7 +213,7 @@
     }
 
     .page-header-inner {
-      max-width: 1100px;
+      max-width: 1400px;
       margin: 0 auto;
       position: relative;
       z-index: 1;
@@ -299,14 +299,14 @@
     }
 
     /* WORKSHOPS GRID */
-    .section { padding: 6rem 4rem; }
+    .section { padding: 6rem max(4rem, calc((100vw - 1400px) / 2 + 4rem)); }
     .section-alt { background: var(--surface); }
-    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-inner { max-width: 1300px; margin: 0 auto; }
 
-    .section-eyebrow { font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.625rem; }
+    .section-eyebrow { font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.625rem; justify-content: center; }
     .section-eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1.5px; background: var(--gold); flex-shrink: 0; }
 
-    .section-heading { font-family: 'Playfair Display', serif; font-size: clamp(1.9rem, 2.8vw, 2.5rem); font-weight: 600; line-height: 1.2; letter-spacing: -0.025em; color: var(--charcoal); margin: 0 0 3.5rem; }
+    .section-heading { font-family: 'Playfair Display', serif; font-size: clamp(1.9rem, 2.8vw, 2.5rem); font-weight: 600; line-height: 1.2; letter-spacing: -0.025em; color: var(--charcoal); margin: 0 0 3.5rem; text-align: center; }
 
     /* WORKSHOP CARDS */
     .workshops-list {
@@ -320,7 +320,7 @@
       border-radius: 12px;
       border: 1px solid rgba(28,28,28,0.08);
       display: grid;
-      grid-template-columns: 280px 1fr;
+      grid-template-columns: minmax(280px, 320px) 1fr;
       overflow: hidden;
       box-shadow: 0 2px 16px rgba(28,28,28,0.05);
       transition: box-shadow 0.25s ease, transform 0.25s cubic-bezier(0.34,1.56,0.64,1);
@@ -594,7 +594,169 @@
       margin-bottom: 0.3rem;
     }
 
+    /* SERVICE CARDS GRID */
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      background: var(--surface);
+      border: 1px solid rgba(28,28,28,0.08);
+      border-radius: 14px;
+      padding: 2rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease, border-color 0.3s ease;
+      position: relative;
+    }
+
+    .service-card:hover {
+      transform: scale(1.04);
+      box-shadow: 0 12px 40px rgba(125,34,64,0.12), 0 4px 12px rgba(0,0,0,0.06);
+      border-color: rgba(201,168,71,0.4);
+      z-index: 2;
+    }
+
+    .service-card-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: rgba(201,168,71,0.15);
+      line-height: 1;
+      margin-bottom: 0.75rem;
+    }
+
+    .service-card-duration {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .service-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+      margin: 0 0 0.75rem;
+    }
+
+    .service-card-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.65;
+      margin: 0 0 1.25rem;
+    }
+
+    .service-card-divider {
+      height: 1px;
+      background: linear-gradient(to right, rgba(201,168,71,0.4), transparent);
+      margin-bottom: 1.25rem;
+    }
+
+    .service-card-heading {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+      margin-bottom: 0.625rem;
+    }
+
+    .service-card-list {
+      list-style: none;
+      margin: 0 0 1.25rem;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .service-card-list li {
+      padding-left: 1rem;
+      position: relative;
+      font-size: 0.825rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .service-card-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.5em;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    .service-card-outcome {
+      background: rgba(201,168,71,0.08);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 8px 8px 0;
+      padding: 0.75rem 1rem;
+      font-size: 0.825rem;
+      line-height: 1.6;
+      color: var(--charcoal);
+      margin-bottom: 1rem;
+    }
+
+    .service-card-perfect {
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-style: italic;
+      line-height: 1.6;
+      margin: 0 0 1rem;
+    }
+
+    .service-card-footer {
+      margin-top: auto;
+      padding-top: 1rem;
+    }
+
+    @media (max-width: 1200px) {
+      .service-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 640px) {
+      .service-grid { grid-template-columns: 1fr; }
+    }
+
     /* WHO IT'S FOR */
+    /* TICKER TESTIMONIALS */
+    .testi-header { display:flex; align-items:center; justify-content:center; gap:3rem; text-align:center; }
+    .testi-stat-num { font-family:'Playfair Display',serif; font-size:clamp(3rem,5vw,4rem); font-weight:700; color:var(--charcoal); line-height:1; letter-spacing:-0.03em; }
+    .testi-stat-label { font-size:0.8125rem; color:var(--muted); margin-top:0.25rem; line-height:1.4; }
+    .testi-divider { width:1px; height:60px; background:rgba(28,28,28,0.12); flex-shrink:0; }
+    .testi-right { text-align:left; }
+    .testi-right p { font-size:0.875rem; color:var(--muted); line-height:1.65; max-width:400px; margin-bottom:1rem; }
+    .testi-buttons { display:flex; gap:0.75rem; }
+    .testi-btn-primary { display:inline-flex; align-items:center; padding:0.625rem 1.5rem; background:transparent; color:var(--gold); font-size:0.8125rem; font-weight:600; border-radius:100px; border:1.5px solid var(--gold); text-decoration:none; transition:background 0.2s,transform 0.15s,color 0.2s; }
+    .testi-btn-primary:hover { background:var(--gold); color:var(--charcoal); transform:translateY(-1px); }
+    .testi-btn-secondary { display:inline-flex; align-items:center; padding:0.625rem 1.5rem; background:var(--gold); color:var(--charcoal); font-size:0.8125rem; font-weight:600; border-radius:100px; border:1.5px solid var(--gold); text-decoration:none; transition:background 0.2s,transform 0.15s; }
+    .testi-btn-secondary:hover { background:#B8952E; border-color:#B8952E; transform:translateY(-1px); }
+    .ticker-track { display:flex; width:max-content; }
+    .ticker-row { overflow:hidden; margin-bottom:1rem; }
+    .ticker-row .ticker-track { animation:tickerScroll 45s linear infinite; }
+    .ticker-row.reverse .ticker-track { animation:tickerScrollReverse 50s linear infinite; }
+    @keyframes tickerScroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+    @keyframes tickerScrollReverse { 0%{transform:translateX(-50%)} 100%{transform:translateX(0)} }
+    .ticker-card { flex-shrink:0; width:380px; background:#fff; border:1px solid rgba(201,168,71,0.3); border-radius:12px; padding:1.75rem; margin-right:1rem; display:flex; flex-direction:column; }
+    .ticker-card-stars { display:flex; gap:1px; margin-bottom:0.75rem; }
+    .ticker-card-stars svg { width:14px; height:14px; fill:var(--gold); }
+    .ticker-card-text { font-size:0.9rem; line-height:1.7; color:var(--charcoal); margin:0 0 1.25rem; flex:1; }
+    .ticker-card-footer { display:flex; align-items:center; gap:0.75rem; }
+    .ticker-card-avatar { width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg,var(--burgundy),var(--gold)); display:flex; align-items:center; justify-content:center; font-size:0.75rem; font-weight:700; color:#fff; flex-shrink:0; }
+    .ticker-card-name { font-size:0.8125rem; font-weight:600; color:var(--charcoal); }
+    .ticker-card-role { font-size:0.7rem; color:var(--muted); margin-top:1px; }
+
     .who-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -677,9 +839,9 @@
     }
 
     /* CTA BAND */
-    .cta-band { position: relative; background: linear-gradient(135deg, #7D2240 0%, #3D1020 55%, #1C1C1C 100%); padding: 5rem 4rem; overflow: hidden; }
+    .cta-band { position: relative; background: linear-gradient(135deg, #7D2240 0%, #3D1020 55%, #1C1C1C 100%); padding: 5rem max(4rem, calc((100vw - 1400px) / 2 + 4rem)); overflow: hidden; }
     .cta-band::before { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E"); background-size: 200px; pointer-events: none; }
-    .cta-band-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr auto; gap: 4rem; align-items: center; max-width: 1100px; margin: 0 auto; }
+    .cta-band-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr auto; gap: 4rem; align-items: center; max-width: 1300px; margin: 0 auto; }
     .cta-band-heading { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 2.5vw, 2.4rem); font-weight: 600; color: #fff; line-height: 1.2; letter-spacing: -0.025em; margin: 0 0 0.75rem; }
     .cta-band-body { font-size: 1rem; color: rgba(255,255,255,0.65); line-height: 1.7; margin: 0; }
     .cta-band-right { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; flex-shrink: 0; }
@@ -688,8 +850,8 @@
     .btn-gold:hover { background: var(--gold-dark); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(201,168,71,0.45); }
 
     /* FOOTER */
-    footer { background: var(--charcoal); padding: 3.5rem 4rem 2rem; }
-    .footer-inner { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 1.5rem; }
+    footer { background: var(--charcoal); padding: 3.5rem max(4rem, calc((100vw - 1400px) / 2 + 4rem)) 2rem; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 1.5rem; max-width: 1300px; margin-left: auto; margin-right: auto; }
     .footer-brand-name { font-family: 'Playfair Display', serif; font-size: 1.0625rem; font-weight: 600; color: #fff; margin-bottom: 0.25rem; }
     .footer-brand-tag { font-size: 0.75rem; color: rgba(255,255,255,0.45); letter-spacing: 0.1em; text-transform: uppercase; }
     .footer-nav { display: flex; align-items: center; gap: 2rem; }
@@ -697,7 +859,7 @@
     .footer-nav a:hover { color: var(--gold); }
     .footer-linkedin { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.55); text-decoration: none; transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease; }
     .footer-linkedin:hover { border-color: var(--gold); color: var(--gold); background: rgba(201,168,71,0.07); }
-    .footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.3); }
+    .footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.3); max-width: 1300px; margin-left: auto; margin-right: auto; }
 
     /* BOOKING MODAL */
     .modal-overlay { position: fixed; inset: 0; background: rgba(28,28,28,0.65); backdrop-filter: blur(6px); z-index: 200; display: flex; align-items: center; justify-content: center; padding: 1.5rem; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
@@ -727,7 +889,7 @@
     .modal-success-text { font-size: 0.9375rem; color: var(--muted); line-height: 1.65; margin: 0 0 1.75rem; }
 
     /* SCORECARD BAND */
-    .scorecard-band { position: fixed; bottom: 0; left: 0; right: 0; z-index: 99; background: var(--eggshell); border-top: 1px solid rgba(125,34,64,0.15); display: flex; align-items: center; justify-content: center; gap: 1.5rem; padding: 1rem 4rem; box-shadow: 0 -4px 24px rgba(0,0,0,0.08); }
+    .scorecard-band { position: fixed; bottom: 0; left: 0; right: 0; z-index: 99; background: var(--eggshell); border-top: 1px solid rgba(125,34,64,0.15); display: flex; align-items: center; justify-content: center; gap: 1.5rem; padding: 1rem max(4rem, calc((100vw - 1400px) / 2 + 4rem)); box-shadow: 0 -4px 24px rgba(0,0,0,0.08); }
     .scorecard-band-text { margin: 0; font-size: 0.9375rem; color: var(--charcoal); }
     .scorecard-band-text strong { color: var(--burgundy); }
     .btn-band { display: inline-flex; align-items: center; background: var(--burgundy); color: #fff; font-family: 'Inter', sans-serif; font-size: 0.8125rem; font-weight: 600; padding: 0.5625rem 1.25rem; border-radius: 100px; text-decoration: none; white-space: nowrap; box-shadow: 0 2px 10px rgba(125,34,64,0.3); transition: background 0.2s ease, transform 0.15s ease; }
@@ -816,6 +978,25 @@
     }
     .mobile-menu .mob-cta:hover { background: #B8952E; }
 
+    /* LARGE SCREENS */
+    @media (min-width: 1600px) {
+      .section-inner { max-width: 1400px; }
+      .cta-band-inner { max-width: 1400px; }
+      .page-header-inner { max-width: 1500px; }
+      .page-heading { max-width: 24ch; }
+      .page-sub { max-width: 62ch; }
+      .section { padding-top: 7rem; padding-bottom: 7rem; }
+      .page-header { padding-top: 6.5rem; padding-bottom: 5.5rem; }
+      .workshop-card { grid-template-columns: minmax(300px, 340px) 1fr; }
+      .workshop-card-body { padding: 3rem; }
+      .who-grid { gap: 2rem; }
+      .who-card { padding: 2rem; }
+      .process-steps { gap: 2.5rem; }
+      .ws-intro-grid { gap: 5rem; }
+      .footer-inner { max-width: 1400px; }
+      .footer-copy { max-width: 1400px; }
+    }
+
     .announce-band {
       background: #7D2240;
       padding: 0.5rem 2.5rem;
@@ -843,13 +1024,20 @@
       .workshop-card { grid-template-columns: 1fr; }
       .workshop-card-sidebar { padding: 1.75rem; }
       .who-grid { grid-template-columns: 1fr; }
+      .testi-header { flex-direction:column; align-items:center; gap:1.5rem; text-align:center; }
+      .testi-divider { width:40px; height:1px; }
+      .testi-right { text-align:center; }
+      .testi-right p { margin:0 auto 1rem; }
+      .testi-buttons { justify-content:center; }
+      .ticker-card { width:300px; }
       .process-steps { grid-template-columns: repeat(2,1fr); }
       .process-steps::before { display: none; }
       .section { padding: 4rem 2rem; }
       .page-header { padding: 4rem 2rem 3rem; }
       .cta-band { padding: 4rem 2rem; }
       .cta-band-inner { grid-template-columns: 1fr; }
-      .footer-inner { flex-direction: column; gap: 2rem; }
+      .footer-inner { flex-direction: column; gap: 2rem; max-width: none; }
+      footer { padding: 3.5rem 2rem 2rem; }
       .nav { padding: 0 1.5rem; }
       .nav-links { display: none; }
       .nav-hamburger { display: flex; }
@@ -951,220 +1139,105 @@
   <!-- WORKSHOPS -->
   <section class="section">
     <div class="section-inner">
-      <!-- ═══════════ SOLOPRENEURS & FOUNDERS ═══════════ -->
-      <p class="section-eyebrow">For Solopreneurs &amp; Founders</p>
-      <h2 class="section-heading">What if you had a business analyst who worked 24/7 <em>for $100/month?</em></h2>
-      <p style="color:var(--muted);max-width:720px;margin-bottom:2.5rem;line-height:1.7;font-size:0.9375rem;">You don't need to hire. You don't need to learn to code. You need someone to sit down with you, set up AI for your specific business, and hand it to you running. That's what these sessions do.</p>
+      <p class="section-eyebrow">Workshops</p>
+      <h2 class="section-heading">Choose Your Starting Point</h2>
 
-      <div class="workshops-list">
+      <div class="service-grid">
 
-        <!-- Solo Workshop 1 -->
-        <div class="workshop-card">
-          <div class="workshop-card-sidebar" style="background:linear-gradient(145deg,#7D2240 0%,#3d1022 100%);padding:2.5rem 2rem;">
-            <div class="workshop-number" style="color:rgba(201,168,71,0.22);">01</div>
-            <div>
-              <div class="workshop-duration">90 min</div>
-              <div class="workshop-duration-label">Duration</div>
-              <div class="workshop-format">Group · Virtual</div>
-            </div>
+        <!-- Card 1 -->
+        <div class="service-card">
+          <h3 class="service-card-title">AI Fundamentals for Businesses &amp; Entrepreneurs</h3>
+          <div class="service-card-duration">1.5–2 hrs</div>
+          <p class="service-card-desc">The starting point for anyone who knows AI matters but needs alignment on what it actually is, where the risks are, and how to use it responsibly. No prior experience necessary.</p>
+          <div class="service-card-divider"></div>
+          <div class="service-card-heading">Participants learn</div>
+          <ul class="service-card-list">
+            <li>What AI actually is — without technical jargon</li>
+            <li>Where to start: Claude, Gemini, ChatGPT — and which to use when</li>
+            <li>Prompting 101: how to talk to AI effectively</li>
+            <li>The biggest security risks and misconceptions about AI at work</li>
+            <li>What information is safe to share — and what should never touch an AI tool</li>
+          </ul>
+          <div class="service-card-outcome">
+            <span class="outcome-label">Outcome</span>
+            Your team leaves aligned on where to start with AI and aware of both the opportunities and the risks.
           </div>
-          <div class="workshop-card-body">
-            <h2 class="workshop-title">Set Up Claude as Your Business Analyst</h2>
-            <p class="workshop-tagline">
-              Walk in curious. Walk out with a fully configured AI business analyst that knows your voice, your clients, and your workflows — ready to use the same day.
-            </p>
-            <div class="workshop-details">
-              <div class="detail-heading">What you'll do</div>
-              <ul class="detail-list">
-                <li>Set up Claude Cowork with your business context, tone of voice, and goals — so it stops giving generic answers</li>
-                <li>Learn the 5 prompts every entrepreneur should use weekly for strategy, content, and decision-making</li>
-                <li>Build your first AI workflow live: emails, proposals, reports, or whatever costs you the most time</li>
-                <li>Understand what AI can and can't do — so you use it with confidence, not confusion</li>
-              </ul>
-            </div>
-            <div class="workshop-outcome">
-              <span class="outcome-label">Outcome</span>
-              You leave with a working AI setup — not a to-do list. Most attendees save 5–8 hours in their first week.
-            </div>
-            <div style="background:rgba(125,34,64,0.05);border-left:3px solid var(--burgundy);border-radius:0 8px 8px 0;padding:1rem 1.25rem;margin:1.25rem 0;font-size:0.875rem;color:var(--muted);line-height:1.7;">
-              <strong style="color:var(--charcoal);display:block;margin-bottom:4px;">Perfect for:</strong>
-              You've been meaning to "figure out AI" but haven't had time. Or you tried ChatGPT and it felt generic. This is where you actually start.
-            </div>
-            <div class="workshop-footer">
-              <button type="button" class="btn-book" onclick="openBookingModal('Set Up Claude as Your Business Analyst')">Book This Workshop</button>
-            </div>
+          <div class="service-card-footer">
+            <button type="button" class="btn-book" onclick="openBookingModal('AI Fundamentals for Businesses & Entrepreneurs')">Book This Workshop</button>
           </div>
         </div>
 
-        <!-- Solo Workshop 2 -->
-        <div class="workshop-card">
-          <div class="workshop-card-sidebar" style="background:linear-gradient(145deg,#7D2240 0%,#3d1022 100%);padding:2.5rem 2rem;">
-            <div class="workshop-number" style="color:rgba(201,168,71,0.22);">02</div>
-            <div>
-              <div class="workshop-duration">90 min</div>
-              <div class="workshop-duration-label">Duration</div>
-              <div class="workshop-format">1-on-1 · Virtual</div>
-            </div>
+        <!-- Card 2 -->
+        <div class="service-card">
+          <h3 class="service-card-title">Claude Cowork Is Your Business Analyst</h3>
+          <div class="service-card-duration">90 min · Group · Virtual</div>
+          <p class="service-card-desc">Walk in curious. Walk out with a fully configured AI business analyst that knows your voice, your clients, and your workflows — ready to use the same day.</p>
+          <div class="service-card-divider"></div>
+          <div class="service-card-heading">What you'll do</div>
+          <ul class="service-card-list">
+            <li>Set up Claude Cowork with your business context, tone, and goals</li>
+            <li>Learn the 5 prompts every entrepreneur should use weekly</li>
+            <li>Build your first AI workflow live: emails, proposals, reports</li>
+            <li>Understand what AI can and can't do — with confidence, not confusion</li>
+          </ul>
+          <div class="service-card-outcome">
+            <span class="outcome-label">Outcome</span>
+            You leave with a working AI setup — not a to-do list. Most attendees save 5–8 hours in their first week.
           </div>
-          <div class="workshop-card-body">
-            <h2 class="workshop-title">AI Workflow Blueprint — Strategy Audit &amp; Setup</h2>
-            <p class="workshop-tagline">
-              A private consulting session where I audit your workflows, identify your highest-leverage automations, and build them with you — so you leave with systems running, not just recommendations.
-            </p>
-            <div class="workshop-details">
-              <div class="detail-heading">What we do together</div>
-              <ul class="detail-list">
-                <li>Audit your current week: where your hours are going and what doesn't need your brain</li>
-                <li>Identify the 3 repetitive processes costing you the most time and energy</li>
-                <li>Configure Claude as your personal business analyst — trained on your voice, clients, and goals</li>
-                <li>Build your top AI workflows live: client comms, reports, proposals, content, operations</li>
-                <li>Create a 30-day AI integration roadmap specific to your business type and stage</li>
-              </ul>
-            </div>
-            <div class="workshop-outcome">
-              <span class="outcome-label">Outcome</span>
-              You leave with working automations — not homework. Most founders reclaim 8–12 hours per week within the first month.
-            </div>
-            <div style="background:rgba(125,34,64,0.05);border-left:3px solid var(--burgundy);border-radius:0 8px 8px 0;padding:1rem 1.25rem;margin:1.25rem 0;font-size:0.875rem;color:var(--muted);line-height:1.7;">
-              <strong style="color:var(--charcoal);display:block;margin-bottom:4px;">Perfect for:</strong>
-              Coaches · Consultants · Copywriters · Designers · Photographers · Virtual Assistants · Therapists · E-commerce founders · Freelancers of any kind
-            </div>
-            <div class="workshop-footer">
-              <button type="button" class="btn-book" onclick="openBookingModal('AI Workflow Blueprint — Strategy Audit & Setup')">Book My 1:1 Session</button>
-            </div>
+          <p class="service-card-perfect">Perfect for: You've been meaning to "figure out AI" but haven't had time. Or you tried ChatGPT and it felt generic.</p>
+          <div class="service-card-footer">
+            <button type="button" class="btn-book" onclick="openBookingModal('Claude Cowork Is Your Business Analyst')">Book This Workshop</button>
           </div>
         </div>
 
-      </div><!-- end workshops-list -->
-
-      <div style="height:3.5rem;"></div>
-
-      <!-- ═══════════ TEAMS & LEADERS ═══════════ -->
-      <p class="section-eyebrow">For Teams &amp; Leaders</p>
-      <h2 class="section-heading">Your team is already using AI. <em>The question is whether they're doing it safely.</em></h2>
-      <p style="color:var(--muted);max-width:720px;margin-bottom:2.5rem;line-height:1.7;font-size:0.9375rem;">While you're still evaluating, your competitors are training their teams. These workshops give your organization the clarity, confidence, and guardrails to adopt AI responsibly — before the gap becomes impossible to close.</p>
-
-      <div class="workshops-list">
-
-        <!-- Team Workshop 1 -->
-        <div class="workshop-card">
-          <div class="workshop-card-sidebar" style="background:none;padding:0;">
-            <img src="Brand%20Assets/ChatGPT%20Image%20Mar%2015%2C%202026%2C%2001_04_24%20PM.png" alt="AI Fundamentals for Business" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;">
-            <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(28,28,28,0.85) 0%,rgba(28,28,28,0.2) 60%,transparent 100%);z-index:1;"></div>
-            <div style="position:relative;z-index:2;padding:2.5rem 2rem;height:100%;display:flex;flex-direction:column;justify-content:space-between;">
-              <div class="workshop-number">01</div>
-              <div>
-                <div class="workshop-duration">1.5 hrs</div>
-                <div class="workshop-duration-label">Duration</div>
-                <div class="workshop-format">Department Teams</div>
-              </div>
-            </div>
+        <!-- Card 3 -->
+        <div class="service-card">
+          <h3 class="service-card-title">Claude Code for Business Teams: Automate Without Engineers</h3>
+          <div class="service-card-duration">2–3 hrs · Hands-On</div>
+          <p class="service-card-desc">A hands-on session where your team learns to use Claude Code to automate real workflows — no coding background required. AI goes from concept to daily productivity.</p>
+          <div class="service-card-divider"></div>
+          <div class="service-card-heading">Participants learn</div>
+          <ul class="service-card-list">
+            <li>How Claude Code works — and why it's different from ChatGPT</li>
+            <li>Live demonstrations using real workplace scenarios from your industry</li>
+            <li>How to automate repetitive tasks: reports, emails, data analysis</li>
+            <li>Guidelines for safe AI usage — what's safe to automate and what isn't</li>
+            <li>How to evaluate AI outputs before using them in business decisions</li>
+          </ul>
+          <div class="service-card-outcome">
+            <span class="outcome-label">Outcome</span>
+            Your team leaves with practical AI workflows they can use immediately — and clear guardrails for safe adoption.
           </div>
-          <div class="workshop-card-body">
-            <h2 class="workshop-title">AI Fundamentals for Business</h2>
-            <p class="workshop-tagline">
-              The starting point for organizations that know AI matters but need their team aligned on what it actually is, where the risks are, and how to use it responsibly.
-            </p>
-            <div class="workshop-details">
-              <div class="detail-heading">Participants learn</div>
-              <ul class="detail-list">
-                <li>What AI actually is — without technical jargon</li>
-                <li>Where to start with AI: Claude, Gemini, ChatGPT — and which to use when</li>
-                <li>Prompting 101: How to talk to AI effectively to get the best results</li>
-                <li>The biggest security risks and misconceptions about using AI at work</li>
-                <li>What information is safe to share — and what should never touch an AI tool</li>
-              </ul>
-            </div>
-            <div class="workshop-outcome">
-              <span class="outcome-label">Outcome</span>
-              Your team leaves aligned on where to start with AI and aware of both the opportunities and the risks.
-            </div>
-            <div class="workshop-footer">
-              <button type="button" class="btn-book" onclick="openBookingModal('AI Fundamentals for Business')">Book This Workshop</button>
-            </div>
+          <div class="service-card-footer">
+            <button type="button" class="btn-book" onclick="openBookingModal('Claude Code for Business Teams')">Book This Workshop</button>
           </div>
         </div>
 
-        <!-- Team Workshop 2 -->
-        <div class="workshop-card">
-          <div class="workshop-card-sidebar" style="background:none;padding:0;">
-            <img src="Brand%20Assets/Gemini_Generated_Image_3mec693mec693mec.png" alt="Claude Code for Business Teams" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;">
-            <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(28,28,28,0.85) 0%,rgba(28,28,28,0.2) 60%,transparent 100%);z-index:1;"></div>
-            <div style="position:relative;z-index:2;padding:2.5rem 2rem;height:100%;display:flex;flex-direction:column;justify-content:space-between;">
-              <div class="workshop-number">02</div>
-              <div>
-                <div class="workshop-duration">2–3 hrs</div>
-                <div class="workshop-duration-label">Duration</div>
-                <div class="workshop-format">Hands-On Team Training</div>
-              </div>
-            </div>
+        <!-- Card 4 -->
+        <div class="service-card">
+          <h3 class="service-card-title">AI Workflow Audit &amp; Strategy</h3>
+          <div class="service-card-duration">90 min · 1-on-1</div>
+          <p class="service-card-desc">A private consulting session where I audit your workflows, identify your highest-leverage automations, and build them with you — systems running, not just recommendations.</p>
+          <div class="service-card-divider"></div>
+          <div class="service-card-heading">What we do together</div>
+          <ul class="service-card-list">
+            <li>Audit your current week: where your hours go and what doesn't need your brain</li>
+            <li>Identify the 3 repetitive processes costing you the most time and energy</li>
+            <li>Configure Claude as your personal business analyst — your voice, clients, goals</li>
+            <li>Build your top AI workflows live: client comms, reports, proposals, content</li>
+            <li>Create a 30-day AI integration roadmap specific to your business</li>
+          </ul>
+          <div class="service-card-outcome">
+            <span class="outcome-label">Outcome</span>
+            You leave with working automations — not homework. Most founders reclaim 8–12 hours per week within the first month.
           </div>
-          <div class="workshop-card-body">
-            <h2 class="workshop-title">Claude Code for Business Teams — Automate Without Engineers</h2>
-            <p class="workshop-tagline">
-              A hands-on session where your team learns to use Claude Code to automate real workflows — no coding background required. This is where AI goes from concept to daily productivity.
-            </p>
-            <div class="workshop-details">
-              <div class="detail-heading">Participants learn</div>
-              <ul class="detail-list">
-                <li>How Claude Code works — and why it's different from ChatGPT or basic AI tools</li>
-                <li>Live demonstrations using real workplace scenarios from your industry</li>
-                <li>How to automate repetitive tasks: reports, emails, data analysis, documentation</li>
-                <li>Guidelines for safe and responsible AI usage — what's safe to automate and what isn't</li>
-                <li>How to evaluate AI outputs before using them in business decisions</li>
-              </ul>
-            </div>
-            <div class="workshop-outcome">
-              <span class="outcome-label">Outcome</span>
-              Your team leaves with practical AI workflows they can use immediately — and clear guardrails for safe adoption.
-            </div>
-            <div class="workshop-footer">
-              <button type="button" class="btn-book" onclick="openBookingModal('Claude Code for Business Teams')">Book This Workshop</button>
-            </div>
+          <p class="service-card-perfect">Perfect for: Entrepreneurs, solopreneurs, and business teams.</p>
+          <div class="service-card-footer">
+            <button type="button" class="btn-book" onclick="openBookingModal('AI Workflow Audit & Strategy')">Book My 1:1 Session</button>
           </div>
         </div>
 
-        <!-- Team Workshop 3 -->
-        <div class="workshop-card">
-          <div class="workshop-card-sidebar" style="background:linear-gradient(145deg,#7D2240 0%,#3d1022 100%);padding:2.5rem 2rem;">
-            <div class="workshop-number" style="color:rgba(201,168,71,0.22);">03</div>
-            <div>
-              <div class="workshop-duration">Custom</div>
-              <div class="workshop-duration-label">Duration</div>
-              <div class="workshop-format">Tailored to Your Org</div>
-            </div>
-          </div>
-          <div class="workshop-card-body">
-            <h2 class="workshop-title">Custom AI Strategy Engagement</h2>
-            <p class="workshop-tagline">
-              Not every organization fits a standard format. This is a fully tailored engagement — designed around your team size, industry, risk profile, and goals.
-            </p>
-            <div class="workshop-details">
-              <div class="detail-heading">May include</div>
-              <ul class="detail-list">
-                <li>AI readiness assessment across departments</li>
-                <li>Custom workflow automation design for your specific processes</li>
-                <li>AI governance guidelines and safe-use policy development</li>
-                <li>Leadership briefing on AI strategy, ROI, and competitive positioning</li>
-                <li>Multi-session training programs with follow-up support</li>
-              </ul>
-            </div>
-            <div class="workshop-outcome">
-              <span class="outcome-label">Outcome</span>
-              A bespoke AI adoption plan — with training, tools, and guardrails built specifically for your organization.
-            </div>
-            <div style="background:rgba(125,34,64,0.05);border-left:3px solid var(--burgundy);border-radius:0 8px 8px 0;padding:1rem 1.25rem;margin:1.25rem 0;font-size:0.875rem;color:var(--muted);line-height:1.7;">
-              <strong style="color:var(--charcoal);display:block;margin-bottom:4px;">Ideal for:</strong>
-              Organizations with 10+ employees · Companies with compliance requirements · Leadership teams building an AI strategy from scratch
-            </div>
-            <div class="workshop-footer">
-              <a href="https://calendly.com/abazdikian/diagnostic" target="_blank" rel="noopener" class="btn-book">Book a Free Diagnostic</a>
-            </div>
-          </div>
-        </div>
-
-      </div><!-- end workshops-list -->
-
+      </div>
     </div>
   </section>
 
@@ -1188,6 +1261,52 @@
           <div class="who-icon">🏢</div>
           <div class="who-title">Team Leaders &amp; Ops Managers</div>
           <div class="who-desc">Your team is already using AI without guardrails. You need a structured approach before it becomes a liability.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section style="padding:5rem 4rem;background:#fff;overflow:hidden;">
+    <div style="max-width:1300px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:2.5rem;">
+        <p class="section-eyebrow" style="justify-content:center;">What People Say</p>
+        <h2 class="section-heading" style="max-width:100%;">Real Feedback from Real Participants</h2>
+      </div>
+    </div>
+    <div style="max-width:1100px;margin:0 auto;overflow:hidden;border-radius:16px;background:var(--eggshell);border:1px solid rgba(28,28,28,0.06);padding:3rem 3rem 2rem;">
+      <div class="testi-header" style="margin-bottom:2.5rem;">
+        <div class="testi-stat">
+          <div class="testi-stat-num">200+</div>
+          <div class="testi-stat-label">Entrepreneurs trained<br>on AI in the last year</div>
+        </div>
+        <div class="testi-divider"></div>
+        <div class="testi-right">
+          <p>Hear from people who've transformed their businesses using AI strategies from our workshops.</p>
+          <div class="testi-buttons">
+            <a href="workshops.html" class="testi-btn-primary">Work With Me</a>
+            <a href="webinar.html" class="testi-btn-secondary">Join Free Webinar</a>
+          </div>
+        </div>
+      </div>
+      <div class="ticker-row">
+        <div class="ticker-track">
+          <div class="ticker-card"><div class="ticker-card-stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg></div><p class="ticker-card-text">"Please pass on my thanks to Alice. It was a great session. Very useful in so many ways."</p><div class="ticker-card-footer"><div class="ticker-card-avatar">WP</div><div><div class="ticker-card-name">Workshop Participant</div><div class="ticker-card-role">AI Fundamentals Session</div></div></div></div>
+          <div class="ticker-card"><div class="ticker-card-stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg></div><p class="ticker-card-text">"Alice was very good at helping attendees gain an understanding with questions."</p><div class="ticker-card-footer"><div class="ticker-card-avatar">WP</div><div><div class="ticker-card-name">Workshop Participant</div><div class="ticker-card-role">AI Fundamentals Session</div></div></div></div>
+          <div class="ticker-card"><div class="ticker-card-stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg></div><p class="ticker-card-text">"The different strategies the facilitator offered to use AI and get the maximum results to support business activities."</p><div class="ticker-card-footer"><div class="ticker-card-avatar">WP</div><div><div class="ticker-card-name">Workshop Participant</div><div class="ticker-card-role">AI for Business Teams</div></div></div></div>
+          <div class="ticker-card"><div class="ticker-card-stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg></div><p class="ticker-card-text">"Please pass on my thanks to Alice. It was a great session. Very useful in so many ways."</p><div class="ticker-card-footer"><div class="ticker-card-avatar">WP</div><div><div class="ticker-card-name">Workshop Participant</div><div class="ticker-card-role">AI Fundamentals Session</div></div></div></div>
+          <div class="ticker-card"><div class="ticker-card-stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg></div><p class="ticker-card-text">"Alice was very good at helping attendees gain an understanding with questions."</p><div class="ticker-card-footer"><div class="ticker-card-avatar">WP</div><div><div class="ticker-card-name">Workshop Participant</div><div class="ticker-card-role">AI Fundamentals Session</div></div></div></div>
+          <div class="ticker-card"><div class="ticker-card-stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg></div><p class="ticker-card-text">"The different strategies the facilitator offered to use AI and get the maximum results to support business activities."</p><div class="ticker-card-footer"><div class="ticker-card-avatar">WP</div><div><div class="ticker-card-name">Workshop Participant</div><div class="ticker-card-role">AI for Business Teams</div></div></div></div>
+        </div>
+      </div>
+      <div class="ticker-row reverse">
+        <div class="ticker-track">
+          <div class="ticker-card"><div class="ticker-card-stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg></div><p class="ticker-card-text">"Well Done Alice! I needed this today. Now I need practice. Thanks again."</p><div class="ticker-card-footer"><div class="ticker-card-avatar">WP</div><div><div class="ticker-card-name">Workshop Participant</div><div class="ticker-card-role">AI Fundamentals Session</div></div></div></div>
+          <div class="ticker-card"><div class="ticker-card-stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg></div><p class="ticker-card-text">"Well knowledgeable instructor. Excellent presentation."</p><div class="ticker-card-footer"><div class="ticker-card-avatar">WP</div><div><div class="ticker-card-name">Workshop Participant</div><div class="ticker-card-role">AI for Business Teams</div></div></div></div>
+          <div class="ticker-card"><div class="ticker-card-stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg></div><p class="ticker-card-text">"Everything was valuable — learning all you can do about a business with AI."</p><div class="ticker-card-footer"><div class="ticker-card-avatar">WP</div><div><div class="ticker-card-name">Workshop Participant</div><div class="ticker-card-role">AI for Business Teams</div></div></div></div>
+          <div class="ticker-card"><div class="ticker-card-stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg></div><p class="ticker-card-text">"Well Done Alice! I needed this today. Now I need practice. Thanks again."</p><div class="ticker-card-footer"><div class="ticker-card-avatar">WP</div><div><div class="ticker-card-name">Workshop Participant</div><div class="ticker-card-role">AI Fundamentals Session</div></div></div></div>
+          <div class="ticker-card"><div class="ticker-card-stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg></div><p class="ticker-card-text">"Well knowledgeable instructor. Excellent presentation."</p><div class="ticker-card-footer"><div class="ticker-card-avatar">WP</div><div><div class="ticker-card-name">Workshop Participant</div><div class="ticker-card-role">AI for Business Teams</div></div></div></div>
+          <div class="ticker-card"><div class="ticker-card-stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg></div><p class="ticker-card-text">"Everything was valuable — learning all you can do about a business with AI."</p><div class="ticker-card-footer"><div class="ticker-card-avatar">WP</div><div><div class="ticker-card-name">Workshop Participant</div><div class="ticker-card-role">AI for Business Teams</div></div></div></div>
         </div>
       </div>
     </div>

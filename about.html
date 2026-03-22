@@ -70,6 +70,22 @@
       justify-content: space-between;
       padding: 0 2.5rem;
       height: 68px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* Sticky wrapper so nav background goes full-width */
+    .nav-wrapper {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--eggshell);
+      border-bottom: 1px solid rgba(125, 34, 64, 0.12);
+    }
+
+    .nav-wrapper .nav {
+      position: static;
+      border-bottom: none;
     }
 
     .nav-brand { display: flex; flex-direction: column; line-height: 1.2; text-decoration: none; }
@@ -198,7 +214,7 @@
     .section-alt { background: var(--surface); }
     .section-dark { background: linear-gradient(160deg, #7D2240 0%, #5a1830 55%, #3d1022 100%); }
 
-    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-inner { max-width: 1300px; margin: 0 auto; }
 
     .section-eyebrow {
       font-size: 0.6875rem;
@@ -542,7 +558,7 @@
       grid-template-columns: 1fr auto;
       gap: 4rem;
       align-items: center;
-      max-width: 1100px;
+      max-width: 1300px;
       margin: 0 auto;
     }
 
@@ -588,6 +604,7 @@
 
     /* ── FOOTER ── */
     footer { background: var(--charcoal); padding: 3.5rem 4rem 2rem; }
+    .footer-container { max-width: 1300px; margin: 0 auto; }
     .footer-inner { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 1.5rem; }
     .footer-brand-name { font-family: 'Playfair Display', serif; font-size: 1.0625rem; font-weight: 600; color: #fff; margin-bottom: 0.25rem; }
     .footer-brand-tag { font-size: 0.75rem; color: rgba(255,255,255,0.45); letter-spacing: 0.1em; text-transform: uppercase; }
@@ -686,6 +703,7 @@
       align-items: center;
       justify-content: center;
       gap: 0.75rem;
+      width: 100%;
     }
     .announce-band-text {
       font-size: 0.8125rem;
@@ -700,6 +718,30 @@
       border-radius: 50%;
       background: #C9A847;
       flex-shrink: 0;
+    }
+
+    /* ── LARGE SCREENS ── */
+    @media (min-width: 1400px) {
+      .about-hero-content {
+        padding-left: calc((100vw - 1400px) / 2 + 4.5rem);
+      }
+    }
+
+    @media (min-width: 1600px) {
+      .nav { max-width: 1500px; padding: 0 3.5rem; }
+      .section-inner { max-width: 1400px; }
+      .section { padding: 7rem 5rem; }
+      .cta-band { padding: 5.5rem 5rem; }
+      .cta-band-inner { max-width: 1400px; }
+      .about-hero-content { padding: 6rem 5rem 6rem calc((100vw - 1500px) / 2 + 5rem); }
+      .about-hero-heading { font-size: clamp(2.4rem, 3.5vw, 3.6rem); }
+      .about-hero-sub { max-width: 52ch; }
+      .two-col { gap: 6rem; }
+      .values-grid { gap: 2rem; }
+      .value-card { padding: 2.5rem 2rem; }
+      .timeline-item { grid-template-columns: 140px 1px 1fr; gap: 0 2.5rem; }
+      footer { padding: 4rem 5rem 2.5rem; }
+      .footer-container { max-width: 1400px; }
     }
 
     @media (max-width: 900px) {
@@ -722,6 +764,7 @@
 <body>
 
   <!-- NAV -->
+  <div class="nav-wrapper">
   <nav class="nav">
     <a href="index.html" class="nav-brand">
       <span class="nav-brand-name">Alice Bazdikian</span>
@@ -738,6 +781,7 @@
       <span></span><span></span><span></span>
     </button>
   </nav>
+  </div>
 
   <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
@@ -1015,22 +1059,24 @@
 
   <!-- FOOTER -->
   <footer>
-    <div class="footer-inner">
-      <div>
-        <div class="footer-brand-name">Alice Bazdikian</div>
-        <div class="footer-brand-tag">AI Strategist + Educator</div>
+    <div class="footer-container">
+      <div class="footer-inner">
+        <div>
+          <div class="footer-brand-name">Alice Bazdikian</div>
+          <div class="footer-brand-tag">AI Strategist + Educator</div>
+        </div>
+        <nav class="footer-nav">
+          <a href="about.html">About</a>
+          <a href="workshops.html">Work With Me</a>
+          <a href="scorecard.html">Scorecard</a>
+          <a href="mailto:alice@alicebazdikian.com">Book a Diagnostic</a>
+          <a href="https://www.linkedin.com/in/alicebazdikian" class="footer-linkedin" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </nav>
       </div>
-      <nav class="footer-nav">
-        <a href="about.html">About</a>
-        <a href="workshops.html">Work With Me</a>
-        <a href="scorecard.html">Scorecard</a>
-        <a href="mailto:alice@alicebazdikian.com">Book a Diagnostic</a>
-        <a href="https://www.linkedin.com/in/alicebazdikian" class="footer-linkedin" aria-label="LinkedIn" target="_blank" rel="noopener">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-        </a>
-      </nav>
+      <p class="footer-copy">© 2026 Alice Bazdikian · All rights reserved</p>
     </div>
-    <p class="footer-copy">© 2026 Alice Bazdikian · All rights reserved</p>
   </footer>
 
   <!-- SCORECARD BAND -->

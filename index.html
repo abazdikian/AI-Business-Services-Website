@@ -432,7 +432,7 @@
       text-transform: uppercase;
       color: rgba(255,255,255,0.6);
       line-height: 1.4;
-      max-width: 120px;
+      max-width: 160px;
     }
 
     /* ── WHY IT MATTERS SECTION ── */
@@ -739,7 +739,7 @@
       grid-template-columns: 1fr auto;
       gap: 4rem;
       align-items: center;
-      max-width: 1100px;
+      max-width: 1400px;
       margin: 0 auto;
     }
 
@@ -880,105 +880,194 @@
 
     /* ── TESTIMONIALS ── */
     .testimonials-section {
-      padding: 6rem 4rem;
+      padding: 5rem 4rem;
       background: var(--surface);
+      overflow: hidden;
     }
 
-    .testimonials-section .section-eyebrow {
+    .testi-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3rem;
+      text-align: center;
+    }
+
+    .testi-stat {
+      flex-shrink: 0;
+    }
+
+    .testi-stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 5vw, 4rem);
+      font-weight: 700;
+      color: var(--charcoal);
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+
+    .testi-stat-label {
+      font-size: 0.8125rem;
+      color: var(--muted);
+      margin-top: 0.25rem;
+      line-height: 1.4;
+    }
+
+    .testi-divider {
+      width: 1px;
+      height: 60px;
+      background: rgba(28,28,28,0.12);
+      flex-shrink: 0;
+    }
+
+    .testi-right {
+      text-align: left;
+    }
+
+    .testi-right p {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.65;
+      max-width: 400px;
+      margin-bottom: 1rem;
+    }
+
+    .testi-buttons {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .testi-btn-primary {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.625rem 1.5rem;
+      background: transparent;
       color: var(--gold);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      border-radius: 100px;
+      border: 1.5px solid var(--gold);
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s, color 0.2s;
     }
 
-    .testimonials-section .section-heading {
+    .testi-btn-primary:hover {
+      background: var(--gold);
+      color: var(--charcoal);
+      transform: translateY(-1px);
+    }
+
+    .testi-btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.625rem 1.5rem;
+      background: var(--gold);
+      color: var(--charcoal);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      border-radius: 100px;
+      border: 1.5px solid var(--gold);
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .testi-btn-secondary:hover {
+      background: #B8952E;
+      border-color: #B8952E;
+      transform: translateY(-1px);
+    }
+
+    /* TICKER ROWS */
+    .ticker-track {
+      display: flex;
+      width: max-content;
+    }
+
+    .ticker-row {
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+
+    .ticker-row .ticker-track {
+      animation: tickerScroll 45s linear infinite;
+    }
+
+    .ticker-row.reverse .ticker-track {
+      animation: tickerScrollReverse 50s linear infinite;
+    }
+
+    @keyframes tickerScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    @keyframes tickerScrollReverse {
+      0% { transform: translateX(-50%); }
+      100% { transform: translateX(0); }
+    }
+
+    .ticker-card {
+      flex-shrink: 0;
+      width: 380px;
+      background: #fff;
+      border: 1px solid rgba(201,168,71,0.3);
+      border-radius: 12px;
+      padding: 1.75rem;
+      margin-right: 1rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .ticker-card-text {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: var(--charcoal);
+      margin: 0 0 1.25rem;
+      flex: 1;
+    }
+
+    .ticker-card-footer {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .ticker-card-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--burgundy), var(--gold));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .ticker-card-name {
+      font-size: 0.8125rem;
+      font-weight: 600;
       color: var(--charcoal);
     }
 
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.75rem;
-      margin-top: 3rem;
+    .ticker-card-role {
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-top: 1px;
     }
 
-    .testimonial-card {
-      position: relative;
-      border-radius: 12px;
-      overflow: hidden;
-      min-height: 320px;
+    .ticker-card-stars {
       display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      cursor: default;
-      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.35);
-    }
-
-    .testimonial-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 48px rgba(0,0,0,0.45);
-    }
-
-    .testimonial-bg {
-      position: absolute;
-      inset: 0;
-      background-size: cover;
-      background-position: center;
-      transition: transform 0.5s ease;
-    }
-
-    .testimonial-card:hover .testimonial-bg {
-      transform: scale(1.04);
-    }
-
-    .testimonial-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(20,55,20,0.82) 0%, rgba(20,55,20,0.45) 55%, rgba(20,55,20,0.1) 100%);
-    }
-
-    .testimonial-tint {
-      position: absolute;
-      inset: 0;
-      background: rgba(30, 80, 30, 0.15);
-      mix-blend-mode: multiply;
-    }
-
-    .testimonial-content {
-      position: relative;
-      z-index: 2;
-      padding: 2rem 1.75rem 1.875rem;
-    }
-
-    .testimonial-quote-mark {
-      font-family: 'Playfair Display', serif;
-      font-size: 4rem;
-      line-height: 1;
-      color: var(--gold);
-      opacity: 0.7;
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-
-    .testimonial-text {
-      font-size: 0.9375rem;
-      line-height: 1.72;
-      color: rgba(255,255,255,0.92);
-      font-style: italic;
-      margin: 0 0 1.25rem;
-    }
-
-    .testimonial-divider {
-      width: 28px;
-      height: 1.5px;
-      background: var(--gold);
+      gap: 1px;
       margin-bottom: 0.75rem;
     }
 
-    .testimonial-attribution {
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--gold);
+    .ticker-card-stars svg {
+      width: 14px;
+      height: 14px;
+      fill: var(--gold);
     }
 
     /* ── AI-FIRST MINDSET SECTION ── */
@@ -1002,7 +1091,7 @@
     }
 
     .mindset-inner {
-      max-width: 1100px;
+      max-width: 1400px;
       margin: 0 auto;
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -1438,57 +1527,71 @@
     .mobile-menu .mob-cta:hover { background: var(--gold-dark); }
 
     /* ── PUZZLE TESTIMONIALS ── */
-    .puzzle-row {
-      display: flex;
-      align-items: stretch;
-      justify-content: center;
-      margin-top: 2.5rem;
-    }
-    .puzzle-piece-1 {
-      width: 320px;
-      height: 230px;
-      flex-shrink: 0;
-      position: relative;
-      z-index: 3;
-      background: #2D5A4F;
-      clip-path: path('M 0,0 L 280,0 L 280,85 Q 320,85 320,115 Q 320,145 280,145 L 280,230 L 0,230 Z');
-      filter: drop-shadow(3px 4px 12px rgba(0,0,0,0.25));
-    }
-    .puzzle-piece-2 {
-      width: 360px;
-      height: 230px;
-      flex-shrink: 0;
-      position: relative;
-      z-index: 2;
-      margin-left: -40px;
-      background: #7D2240;
-      clip-path: path('M 0,0 L 320,0 L 320,85 Q 360,85 360,115 Q 360,145 320,145 L 320,230 L 0,230 L 0,145 Q 40,145 40,115 Q 40,85 0,85 Z');
-      filter: drop-shadow(3px 4px 12px rgba(0,0,0,0.25));
-    }
-    .puzzle-piece-3 {
-      width: 320px;
-      height: 230px;
-      flex-shrink: 0;
-      position: relative;
-      z-index: 1;
-      margin-left: -40px;
-      background: #2B3A52;
-      clip-path: path('M 0,0 L 320,0 L 320,230 L 0,230 L 0,145 Q 40,145 40,115 Q 40,85 0,85 Z');
-      filter: drop-shadow(3px 4px 12px rgba(0,0,0,0.25));
-    }
-    .pp-inner {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      height: 100%;
-    }
-    .puzzle-piece-1 .pp-inner { padding: 1.5rem 2.75rem 1.5rem 1.75rem; }
-    .puzzle-piece-2 .pp-inner { padding: 1.5rem 2.75rem 1.5rem 3rem; }
-    .puzzle-piece-3 .pp-inner { padding: 1.5rem 1.75rem 1.5rem 3rem; }
-    .pp-quote { font-family: 'Playfair Display', serif; font-size: 2.25rem; font-weight: 700; color: var(--gold); line-height: 1; opacity: 0.8; margin-bottom: 0.125rem; }
-    .pp-text { font-size: 0.875rem; line-height: 1.65; color: rgba(255,255,255,0.9); margin: 0.25rem 0 0.75rem; }
-    .pp-divider { width: 20px; height: 1.5px; background: var(--gold); opacity: 0.55; margin-bottom: 0.5rem; }
+    /* puzzle-piece styles removed — replaced with clean card testimonials */
     .pp-attr { font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.42); }
+
+    /* ── WHO I WORK WITH ── */
+    .who-section {
+      padding: 4.5rem 4rem;
+      background: #fff;
+    }
+
+    /* ── LARGE SCREENS ── */
+    @media (min-width: 1600px) {
+      .nav {
+        padding: 0 calc((100% - 1400px) / 2 + 2.5rem);
+      }
+
+      .hero-content {
+        padding: 6rem 6rem 6rem 5.5rem;
+      }
+
+      .stats-bar {
+        padding: 3.5rem calc((100% - 1400px) / 2 + 4rem);
+        gap: 3rem;
+      }
+
+      /* Sections WITH inner max-width container — just increase vertical padding */
+      .section-gap {
+        padding: 7rem 4rem;
+      }
+
+      .testimonials-section {
+        padding: 7rem 4rem;
+      }
+
+      .who-section {
+        padding: 5.5rem 4rem;
+      }
+
+      /* Sections WITHOUT inner container — use calc to contain content */
+      .credentials-strip {
+        padding: 2rem calc((100% - 1400px) / 2 + 4rem);
+      }
+
+      .cta-band {
+        padding: 7rem 4rem;
+      }
+
+      .mindset-section {
+        padding: 7rem 4rem;
+      }
+
+      .workwithme-section {
+        padding: 7rem 4rem;
+      }
+
+      footer {
+        padding: 4rem 4rem 2.5rem;
+      }
+
+      .footer-inner,
+      .footer-copy {
+        max-width: 1400px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
 
     /* ── MOBILE ── */
     @media (max-width: 900px) {
@@ -1506,15 +1609,18 @@
       .nav { padding: 0 1.5rem; }
       .nav-links { display: none; }
       .nav-hamburger { display: flex; }
-      .puzzle-row { flex-direction: column; align-items: stretch; gap: 1rem; margin-top: 1.5rem; }
-      .puzzle-piece-1, .puzzle-piece-2, .puzzle-piece-3 { clip-path: none; width: 100%; height: auto; margin-left: 0; border-radius: 10px; filter: none; }
-      .puzzle-piece-1 .pp-inner, .puzzle-piece-2 .pp-inner, .puzzle-piece-3 .pp-inner { padding: 1.5rem 1.75rem; }
-      .testimonials-grid { grid-template-columns: 1fr; }
-      .testimonials-section { padding: 4rem 2rem; }
+      .testimonials-section { padding: 3.5rem 1.5rem; }
+      .testi-header { flex-direction: column; align-items: center; gap: 1.5rem; text-align: center; }
+      .testi-divider { width: 40px; height: 1px; }
+      .testi-right { text-align: center; }
+      .testi-right p { margin: 0 auto 1rem; }
+      .testi-buttons { justify-content: center; }
+      .ticker-card { width: 300px; }
       .mindset-inner { grid-template-columns: 1fr; gap: 3rem; }
       .mindset-section { padding: 4rem 2rem; }
       .workwithme-grid { grid-template-columns: 1fr; }
       .workwithme-section { padding: 4rem 2rem; }
+      .who-section { padding: 3rem 2rem; }
     }
   </style>
 </head>
@@ -1624,7 +1730,7 @@
 
   <!-- ═══════════ WAYS TO WORK WITH ME ═══════════ -->
   <section class="section-gap" id="workshops">
-    <div style="max-width: 1100px; margin: 0 auto;">
+    <div style="max-width: 1400px; margin: 0 auto;">
       <div style="text-align: center; margin-bottom: 2.5rem;">
         <p class="section-eyebrow" style="justify-content: center;">Work With Me</p>
         <h2 class="section-heading" style="max-width: 100%;">Three Ways to Get Started</h2>
@@ -1657,72 +1763,116 @@
 
   <!-- ═══════════ TESTIMONIALS ═══════════ -->
   <section class="testimonials-section">
-    <div style="max-width: 1100px; margin: 0 auto;">
-      <p class="section-eyebrow" style="color: var(--gold);">What People Say</p>
-      <h2 class="section-heading" style="max-width: 28ch;">Real Feedback from Real Participants</h2>
 
-      <!-- ROW 1 -->
-      <div class="puzzle-row" style="margin-top: 2.5rem;">
-        <div class="puzzle-piece-1">
-          <div class="pp-inner">
-            <span class="pp-quote">"</span>
-            <p class="pp-text">Please pass on my thanks to Alice. It was a great session. Very useful in so many ways.</p>
-            <div class="pp-divider"></div>
-            <span class="pp-attr">Workshop Participant</span>
-          </div>
-        </div>
-        <div class="puzzle-piece-2">
-          <div class="pp-inner">
-            <span class="pp-quote">"</span>
-            <p class="pp-text">Well Done Alice! I needed this today. Now I need practice. Thanks again.</p>
-            <div class="pp-divider"></div>
-            <span class="pp-attr">Workshop Participant</span>
-          </div>
-        </div>
-        <div class="puzzle-piece-3">
-          <div class="pp-inner">
-            <span class="pp-quote">"</span>
-            <p class="pp-text">Alice was very good at helping attendees gain an understanding with questions.</p>
-            <div class="pp-divider"></div>
-            <span class="pp-attr">Workshop Participant</span>
-          </div>
-        </div>
+    <div style="max-width:1400px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:2.5rem;">
+        <p class="section-eyebrow" style="justify-content:center;">What People Say</p>
+        <h2 class="section-heading" style="max-width:100%;">Real Feedback from Real Participants</h2>
       </div>
-
-      <!-- ROW 2 -->
-      <div class="puzzle-row" style="margin-top: 0.625rem;">
-        <div class="puzzle-piece-1" style="background:#3A4A2A;">
-          <div class="pp-inner">
-            <span class="pp-quote">"</span>
-            <p class="pp-text">Well knowledgeable instructor, Excellent presentation</p>
-            <div class="pp-divider"></div>
-            <span class="pp-attr">Workshop Participant</span>
-          </div>
-        </div>
-        <div class="puzzle-piece-2" style="background:#4A2535;">
-          <div class="pp-inner">
-            <span class="pp-quote">"</span>
-            <p class="pp-text">The different strategies the facilitator offered to use AI and get the maximum results to support business activities</p>
-            <div class="pp-divider"></div>
-            <span class="pp-attr">Workshop Participant</span>
-          </div>
-        </div>
-        <div class="puzzle-piece-3" style="background:#1A3045;">
-          <div class="pp-inner">
-            <span class="pp-quote">"</span>
-            <p class="pp-text">Everything was valuable learning all you can do about a business with AI</p>
-            <div class="pp-divider"></div>
-            <span class="pp-attr">Workshop Participant</span>
-          </div>
-        </div>
-      </div>
-
     </div>
+
+    <!-- TESTIMONIAL CONTAINER -->
+    <div style="max-width:1100px;margin:0 auto;overflow:hidden;border-radius:16px;background:var(--eggshell);border:1px solid rgba(28,28,28,0.06);padding:3rem 3rem 2rem;">
+
+    <!-- HEADER: stat + divider + description + buttons -->
+    <div class="testi-header" style="margin-bottom:2.5rem;">
+      <div class="testi-stat">
+        <div class="testi-stat-num">200+</div>
+        <div class="testi-stat-label">Entrepreneurs trained<br>on AI in the last year</div>
+      </div>
+      <div class="testi-divider"></div>
+      <div class="testi-right">
+        <p>Hear from people who've transformed their businesses using AI strategies from our workshops.</p>
+        <div class="testi-buttons">
+          <a href="workshops.html" class="testi-btn-primary">Work With Me</a>
+          <a href="webinar.html" class="testi-btn-secondary">Join Free Webinar</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ROW 1: scrolls left -->
+    <div class="ticker-row">
+      <div class="ticker-track">
+        <!-- Set 1 -->
+        <div class="ticker-card">
+          <div class="ticker-card-stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg></div>
+          <p class="ticker-card-text">"Please pass on my thanks to Alice. It was a great session. Very useful in so many ways."</p>
+          <div class="ticker-card-footer"><div class="ticker-card-avatar">WP</div><div><div class="ticker-card-name">Workshop Participant</div><div class="ticker-card-role">AI Fundamentals Session</div></div></div>
+        </div>
+        <div class="ticker-card">
+          <div class="ticker-card-stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg></div>
+          <p class="ticker-card-text">"Alice was very good at helping attendees gain an understanding with questions."</p>
+          <div class="ticker-card-footer"><div class="ticker-card-avatar">WP</div><div><div class="ticker-card-name">Workshop Participant</div><div class="ticker-card-role">AI Fundamentals Session</div></div></div>
+        </div>
+        <div class="ticker-card">
+          <div class="ticker-card-stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg></div>
+          <p class="ticker-card-text">"The different strategies the facilitator offered to use AI and get the maximum results to support business activities."</p>
+          <div class="ticker-card-footer"><div class="ticker-card-avatar">WP</div><div><div class="ticker-card-name">Workshop Participant</div><div class="ticker-card-role">AI for Business Teams</div></div></div>
+        </div>
+        <!-- Duplicate set for seamless loop -->
+        <div class="ticker-card">
+          <div class="ticker-card-stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg></div>
+          <p class="ticker-card-text">"Please pass on my thanks to Alice. It was a great session. Very useful in so many ways."</p>
+          <div class="ticker-card-footer"><div class="ticker-card-avatar">WP</div><div><div class="ticker-card-name">Workshop Participant</div><div class="ticker-card-role">AI Fundamentals Session</div></div></div>
+        </div>
+        <div class="ticker-card">
+          <div class="ticker-card-stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg></div>
+          <p class="ticker-card-text">"Alice was very good at helping attendees gain an understanding with questions."</p>
+          <div class="ticker-card-footer"><div class="ticker-card-avatar">WP</div><div><div class="ticker-card-name">Workshop Participant</div><div class="ticker-card-role">AI Fundamentals Session</div></div></div>
+        </div>
+        <div class="ticker-card">
+          <div class="ticker-card-stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg></div>
+          <p class="ticker-card-text">"The different strategies the facilitator offered to use AI and get the maximum results to support business activities."</p>
+          <div class="ticker-card-footer"><div class="ticker-card-avatar">WP</div><div><div class="ticker-card-name">Workshop Participant</div><div class="ticker-card-role">AI for Business Teams</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ROW 2: scrolls right (reverse) -->
+    <div class="ticker-row reverse">
+      <div class="ticker-track">
+        <!-- Set 1 -->
+        <div class="ticker-card">
+          <div class="ticker-card-stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg></div>
+          <p class="ticker-card-text">"Well Done Alice! I needed this today. Now I need practice. Thanks again."</p>
+          <div class="ticker-card-footer"><div class="ticker-card-avatar">WP</div><div><div class="ticker-card-name">Workshop Participant</div><div class="ticker-card-role">AI Fundamentals Session</div></div></div>
+        </div>
+        <div class="ticker-card">
+          <div class="ticker-card-stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg></div>
+          <p class="ticker-card-text">"Well knowledgeable instructor. Excellent presentation."</p>
+          <div class="ticker-card-footer"><div class="ticker-card-avatar">WP</div><div><div class="ticker-card-name">Workshop Participant</div><div class="ticker-card-role">AI for Business Teams</div></div></div>
+        </div>
+        <div class="ticker-card">
+          <div class="ticker-card-stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg></div>
+          <p class="ticker-card-text">"Everything was valuable — learning all you can do about a business with AI."</p>
+          <div class="ticker-card-footer"><div class="ticker-card-avatar">WP</div><div><div class="ticker-card-name">Workshop Participant</div><div class="ticker-card-role">AI for Business Teams</div></div></div>
+        </div>
+        <!-- Duplicate set for seamless loop -->
+        <div class="ticker-card">
+          <div class="ticker-card-stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg></div>
+          <p class="ticker-card-text">"Well Done Alice! I needed this today. Now I need practice. Thanks again."</p>
+          <div class="ticker-card-footer"><div class="ticker-card-avatar">WP</div><div><div class="ticker-card-name">Workshop Participant</div><div class="ticker-card-role">AI Fundamentals Session</div></div></div>
+        </div>
+        <div class="ticker-card">
+          <div class="ticker-card-stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg></div>
+          <p class="ticker-card-text">"Well knowledgeable instructor. Excellent presentation."</p>
+          <div class="ticker-card-footer"><div class="ticker-card-avatar">WP</div><div><div class="ticker-card-name">Workshop Participant</div><div class="ticker-card-role">AI for Business Teams</div></div></div>
+        </div>
+        <div class="ticker-card">
+          <div class="ticker-card-stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg></div>
+          <p class="ticker-card-text">"Everything was valuable — learning all you can do about a business with AI."</p>
+          <div class="ticker-card-footer"><div class="ticker-card-avatar">WP</div><div><div class="ticker-card-name">Workshop Participant</div><div class="ticker-card-role">AI for Business Teams</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    </div><!-- end ticker container -->
+
   </section>
 
   <!-- ═══════════ WHO I WORK WITH ═══════════ -->
-  <section style="padding:4.5rem 4rem;background:#fff;">
-    <div style="max-width:1100px;margin:0 auto;">
+  <section class="who-section">
+    <div style="max-width:1400px;margin:0 auto;">
       <div style="text-align:center;margin-bottom:2.5rem;">
         <p class="section-eyebrow" style="justify-content:center;">Who This Is For</p>
         <h2 class="section-heading" style="max-width:100%;">Three types of people who find their way here</h2>

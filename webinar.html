@@ -86,7 +86,8 @@
     background: var(--eggshell);
     border-bottom: 1px solid var(--border);
     display: flex; align-items: center; justify-content: space-between;
-    padding: 0 2.5rem; height: 68px;
+    padding: 0 max(2.5rem, calc((100% - 1400px) / 2 + 2.5rem));
+    height: 68px;
   }
   .nav-brand { text-decoration: none; }
   .nav-brand-name { font-family: 'Playfair Display', serif; font-size: 1.125rem; font-weight: 600; color: var(--charcoal); letter-spacing: -0.01em; display: block; }
@@ -118,10 +119,10 @@
     pointer-events: none;
   }
   .hero-inner {
-    max-width: 1100px; margin: 0 auto; width: 100%;
+    max-width: 1300px; margin: 0 auto; width: 100%;
     position: relative; z-index: 1;
-    display: grid; grid-template-columns: 1fr 400px;
-    gap: 4rem; align-items: center;
+    display: grid; grid-template-columns: 1fr 420px;
+    gap: 5rem; align-items: center;
   }
   .hero-eyebrow {
     font-size: 0.6875rem; font-weight: 600; color: var(--gold);
@@ -257,7 +258,7 @@
   /* ── COUNTDOWN BAND ── */
   .countdown-band {
     background: var(--burgundy);
-    padding: 1.75rem 2rem;
+    padding: 1.75rem max(2rem, calc((100% - 1400px) / 2 + 2rem));
     display: flex; align-items: center; justify-content: center;
     gap: 3rem; flex-wrap: wrap;
     position: relative; overflow: hidden;
@@ -312,7 +313,7 @@
   /* ── SECTIONS ── */
   .section { padding: 4rem 4rem; }
   .section-alt { background: var(--surface); }
-  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-inner { max-width: 1300px; margin: 0 auto; }
 
   .eyebrow {
     font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.14em;
@@ -466,8 +467,8 @@
 
   /* ── ABOUT ── */
   .about-layout {
-    display: grid; grid-template-columns: 1fr 380px;
-    gap: 4rem; align-items: center;
+    display: grid; grid-template-columns: 1fr 420px;
+    gap: 5rem; align-items: center;
   }
   .about-body p {
     font-size: 0.9375rem; color: var(--muted);
@@ -507,7 +508,8 @@
   /* ── CTA BAND ── */
   .cta-section {
     background: linear-gradient(rgba(28,28,28,0.45), rgba(28,28,28,0.55)), url('webinarbottom.png') center/cover no-repeat;
-    padding: 3.5rem 4rem; text-align: center;
+    padding: 3.5rem max(4rem, calc((100% - 1300px) / 2 + 4rem));
+    text-align: center;
   }
   .cta-section h2 {
     font-family: 'Playfair Display', serif;
@@ -518,7 +520,7 @@
   .cta-section h2 em { font-style: italic; color: var(--gold); }
   .cta-section p { color: rgba(255,255,255,0.55); margin-bottom: 2rem; font-size: 0.9375rem; }
   .reg-form-inline {
-    display: flex; gap: 0.75rem; max-width: 500px; margin: 0 auto 1rem;
+    display: flex; gap: 0.75rem; max-width: 540px; margin: 0 auto 1rem;
     flex-wrap: wrap;
   }
   .reg-form-inline input {
@@ -543,7 +545,7 @@
   .cta-trust { font-size: 0.75rem; color: rgba(255,255,255,0.35); }
 
   /* ── FAQ ── */
-  .faq-list { max-width: 680px; margin-top: 1.5rem; }
+  .faq-list { max-width: 880px; margin-top: 1.5rem; }
   .faq-item { border-bottom: 1px solid var(--border); padding: 1.25rem 0; }
   .faq-q {
     font-size: 0.9375rem; font-weight: 600; color: var(--charcoal);
@@ -561,7 +563,8 @@
   footer {
     background: var(--eggshell);
     border-top: 1px solid var(--border);
-    padding: 2rem 4rem; text-align: center;
+    padding: 2rem max(4rem, calc((100% - 1400px) / 2 + 4rem));
+    text-align: center;
   }
   footer a { color: var(--burgundy); text-decoration: none; transition: opacity 0.2s; }
   footer a:hover { opacity: 0.7; }
@@ -582,6 +585,20 @@
     .reg-form-inline { flex-direction: column; }
     .cta-section { padding: 3rem 1.5rem; }
     footer { padding: 1.5rem; }
+  }
+
+  /* ── LARGE SCREENS ── */
+  @media (min-width: 1600px) {
+    .hero { padding: 5.5rem 6rem 5rem; }
+    .hero-inner { max-width: 1400px; gap: 6rem; grid-template-columns: 1fr 440px; }
+    .section { padding: 5rem 6rem; }
+    .section-inner { max-width: 1400px; }
+    .countdown-band { padding: 2rem 3rem; }
+    .about-layout { grid-template-columns: 1fr 440px; gap: 6rem; }
+    .faq-list { max-width: 960px; }
+    .cta-section { padding: 4.5rem 6rem; }
+    .hero-sub { max-width: 560px; }
+    .about-body p { max-width: 680px; }
   }
 </style>
 </head>
@@ -726,8 +743,8 @@
 </div>
 
 <!-- QUOTE BAND -->
-<div style="background:var(--burgundy);padding:3.5rem 2rem;text-align:center;">
-  <div style="max-width:800px;margin:0 auto;">
+<div style="background:var(--burgundy);padding:3.5rem max(2rem, calc((100% - 1300px) / 2 + 2rem));text-align:center;">
+  <div style="max-width:900px;margin:0 auto;">
     <p style="font-family:'Playfair Display',serif;font-size:1.65rem;font-style:italic;color:#fff;line-height:1.5;margin:0;">"The best investment in AI isn't the tool. It's adopting an AI-first mindset — and watch your relationship with work transform."</p>
     <cite style="display:block;margin-top:1rem;font-family:'Inter',sans-serif;font-size:0.85rem;color:var(--gold);font-style:normal;letter-spacing:0.05em;text-transform:uppercase;">— Alice Bazdikian, AI Strategist</cite>
   </div>
