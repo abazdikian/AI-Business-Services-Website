@@ -212,7 +212,7 @@
     /* ── SECTION STYLES ── */
     .section { padding: 6rem 4rem; }
     .section-alt { background: var(--surface); }
-    .section-dark { background: linear-gradient(160deg, #7D2240 0%, #5a1830 55%, #3d1022 100%); }
+    .section-dark { background: linear-gradient(160deg, #a8355e 0%, #7D2240 40%, #c9684a 100%); }
 
     .section-inner { max-width: 1300px; margin: 0 auto; }
 
@@ -226,6 +226,7 @@
       display: flex;
       align-items: center;
       gap: 0.625rem;
+      justify-content: center;
     }
     .section-eyebrow::before {
       content: '';
@@ -244,6 +245,7 @@
       letter-spacing: -0.025em;
       color: var(--charcoal);
       margin: 0 0 1.25rem;
+      text-align: center;
     }
 
     .section-heading-light { color: #fff; }
@@ -253,6 +255,9 @@
       line-height: 1.78;
       color: var(--muted);
       max-width: 68ch;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .section-body-light { color: rgba(255,255,255,0.7); }
@@ -312,7 +317,7 @@
 
     /* ── PHILOSOPHY CARD ── */
     .philosophy-card {
-      background: linear-gradient(160deg, #7D2240 0%, #5a1830 55%, #3d1022 100%);
+      background: linear-gradient(160deg, #a8355e 0%, #7D2240 40%, #c9684a 100%);
       border-radius: 16px;
       padding: 2.5rem;
       display: flex;
@@ -321,6 +326,7 @@
       align-self: flex-start;
       position: relative;
       overflow: hidden;
+      box-shadow: 0 8px 32px rgba(125,34,64,0.25);
     }
 
     .philosophy-card::before {
@@ -407,9 +413,10 @@
     .trusted-band {
       margin: 2rem 0 2.5rem;
       padding: 1.75rem 2rem;
-      border-left: 3px solid var(--gold);
-      background: rgba(201, 168, 71, 0.06);
-      border-radius: 0 10px 10px 0;
+      border-left: none;
+      background: linear-gradient(160deg, #a8355e 0%, #7D2240 40%, #c9684a 100%);
+      border-radius: 10px;
+      color: #fff;
     }
 
     .trusted-label {
@@ -425,7 +432,7 @@
     .trusted-body {
       font-size: 0.9375rem;
       line-height: 1.7;
-      color: var(--muted);
+      color: rgba(255,255,255,0.85);
       margin: 0 0 0.5rem;
     }
 
@@ -513,18 +520,25 @@
 
     .value-number {
       font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
+      font-size: 1.5rem;
       font-weight: 700;
-      color: rgba(201, 168, 71, 0.25);
+      color: rgba(201, 168, 71, 0.5);
       line-height: 1;
-      margin-bottom: 1rem;
+      flex-shrink: 0;
+    }
+
+    .value-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
     }
 
     .value-title {
       font-weight: 600;
       font-size: 1rem;
       color: #fff;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0;
       line-height: 1.3;
     }
 
@@ -806,10 +820,10 @@
       <h1 class="about-hero-heading">
         I'm Not a Tech Person.<br>
         I'm a <em>Business Person</em><br>
-        Who Speaks AI.
+        Who <em id="about-typewriter" style="color:var(--burgundy);">Speaks AI.</em>
       </h1>
       <p class="about-hero-sub">
-        With 15+ years leading business transformation across global organizations, I bridge the gap between complex technology and the real humans who need to use it.
+        With 15+ years leading cross-functional business transformation, both in small businesses and global organizations, I simplify the language of complex technology to deliver every day business value.
       </p>
     </div>
     <div class="about-hero-photo">
@@ -818,137 +832,69 @@
     </div>
   </section>
 
-  <!-- WHO I WORK WITH -->
-  <section class="section" style="padding-top:4rem;padding-bottom:4rem;">
+  <!-- WHY ALICE -->
+  <section class="section" style="background:var(--eggshell);">
     <div class="section-inner">
-      <p class="section-eyebrow">Who I Work With</p>
-      <h2 class="section-heading">Three types of people who find their way here</h2>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;margin-top:2rem;">
-
-        <div style="background:var(--surface,#fff);border:1px solid rgba(28,28,28,0.08);border-radius:14px;padding:2rem;position:relative;overflow:hidden;">
-          <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--burgundy),var(--gold));"></div>
-          <div style="font-size:1.75rem;margin-bottom:1rem;">👩‍💼</div>
-          <h3 style="font-family:'Playfair Display',serif;font-size:1.125rem;font-weight:700;color:var(--charcoal);margin-bottom:0.625rem;letter-spacing:-0.02em;">Solo service providers &amp; creatives</h3>
-          <p style="font-size:0.875rem;color:var(--muted);line-height:1.7;margin-bottom:1rem;">Coaches, designers, consultants, copywriters, and therapists drowning in email threads, invoices, and follow-ups instead of doing the work they love. You want your time back — and I show you exactly how to get it without losing your voice or your clients.</p>
-          <p style="font-size:0.8rem;font-style:italic;color:var(--burgundy);font-weight:500;">"If I could just clone myself…"</p>
+        <p class="section-eyebrow">Why Alice</p>
+        <h2 class="section-heading" style="white-space:nowrap;">The Translator Your Business Has Been Missing</h2>
+        <div style="max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:1.25rem;">
+          <p class="section-body">
+            I teach AI for small to medium sized businesses because having spent 15+ years in cross-functional roles — business analyst, project manager/product manager, operations manager and entrepreneur — I am most excited about how AI will revolutionize our work days.
+          </p>
+          <p class="section-body">
+            This is the greatest promise of the AI revolution to me!
+          </p>
+          <p class="section-body">
+            And we are finally in the phase where AI can do that — it can be our personal assistant or analyst — thanks to Claude. We can finally focus on our zone of genius: be it scaling our business or getting some much needed quality time.
+          </p>
+          <p class="section-body">
+            I come from the business side. When I learned AI, I learned it the same way your team will — by applying it to those daily "pain in the ass" tasks.
+          </p>
+          <p class="section-body">
+            That's what makes my approach different. I don't talk about AI in the abstract. I talk about it in terms of your specific use case, team, workflows, and risks. During my workshops, you and your team walk away with automated workflows — already saving 2+ hours a week each.
+          </p>
         </div>
 
-        <div style="background:var(--surface,#fff);border:1px solid rgba(28,28,28,0.08);border-radius:14px;padding:2rem;position:relative;overflow:hidden;">
-          <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--burgundy),var(--gold));"></div>
-          <div style="font-size:1.75rem;margin-bottom:1rem;">🚀</div>
-          <h3 style="font-family:'Playfair Display',serif;font-size:1.125rem;font-weight:700;color:var(--charcoal);margin-bottom:0.625rem;letter-spacing:-0.02em;">Solopreneurs &amp; founders hitting a ceiling</h3>
-          <p style="font-size:0.875rem;color:var(--muted);line-height:1.7;margin-bottom:1rem;">You have a real business — revenue, clients, momentum. But you can see the ceiling: there are only so many hours in a day. Hiring feels premature. The answer has to be leverage. I help you find it through smart AI workflow design, not by adding more tools to your stack.</p>
-          <p style="font-size:0.8rem;font-style:italic;color:var(--burgundy);font-weight:500;">"Grow like you hired a team — without payroll."</p>
-        </div>
-
-        <div style="background:var(--surface,#fff);border:1px solid rgba(28,28,28,0.08);border-radius:14px;padding:2rem;position:relative;overflow:hidden;">
-          <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--burgundy),var(--gold));"></div>
-          <div style="font-size:1.75rem;margin-bottom:1rem;">🏢</div>
-          <h3 style="font-family:'Playfair Display',serif;font-size:1.125rem;font-weight:700;color:var(--charcoal);margin-bottom:0.625rem;letter-spacing:-0.02em;">Business leaders &amp; managers</h3>
-          <p style="font-size:0.875rem;color:var(--muted);line-height:1.7;margin-bottom:1rem;">You know your team is already experimenting with AI informally — and that's exactly what concerns you. You need a structured approach: clear policies, practical training, and a roadmap that gets your team using AI safely and productively without months of chaos first.</p>
-          <p style="font-size:0.8rem;font-style:italic;color:var(--burgundy);font-weight:500;">"From AI anxiety to AI confidence — without the jargon."</p>
-        </div>
-
-      </div>
     </div>
   </section>
 
-  <!-- WHY ALICE -->
-  <section class="section section-alt">
-    <div class="section-inner two-col">
-      <div class="two-col-text">
-        <p class="section-eyebrow">Why Alice</p>
-        <h2 class="section-heading">The Translator Your Business Has Been Missing</h2>
-        <p class="section-body">
-          Most AI consultants come from the technical side. They understand the technology deeply — but struggle to translate it into something a marketing manager, an operations lead, or a frontline employee can actually use.
-        </p>
-        <p class="section-body">
-          I come from the business side. I've led teams, driven growth, and navigated organizational change at companies like AB InBev, PostBeyond, Ample Organics, and Nulogy. When I learned AI, I learned it the same way your team will — as a business leader trying to figure out what's real, what's hype, and what I actually need to do.
-        </p>
-        <p class="section-body">
-          That's what makes my approach different. I don't talk about AI in the abstract. I talk about it in terms of your team, your workflows, and your specific risks.
-        </p>
+  <!-- CORE BELIEFS / VALUES -->
+  <section class="section section-dark">
+    <div class="section-inner">
+      <p class="section-eyebrow">What I Believe</p>
+      <h2 class="section-heading section-heading-light">My Approach to AI Education</h2>
+      <p class="section-body section-body-light">
+        Three principles that shape every workshop, diagnostic, and conversation I have with business leaders.
+      </p>
 
-        <ul class="diff-list">
-          <li class="diff-item">
-            <div class="diff-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12"/>
-              </svg>
-            </div>
-            <div>
-              <div class="diff-title">Business-first lens, not tech-first</div>
-              <div class="diff-desc">I translate AI into the language of strategy, risk, productivity, and real team workflows.</div>
-            </div>
-          </li>
-          <li class="diff-item">
-            <div class="diff-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12"/>
-              </svg>
-            </div>
-            <div>
-              <div class="diff-title">Fear-to-clarity approach</div>
-              <div class="diff-desc">I meet people where they are — overwhelmed, skeptical, or just unsure — and walk them to confident action.</div>
-            </div>
-          </li>
-          <li class="diff-item">
-            <div class="diff-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12"/>
-              </svg>
-            </div>
-            <div>
-              <div class="diff-title">Practical, not theoretical</div>
-              <div class="diff-desc">Every workshop ends with tools your team can use tomorrow. No fluff. No jargon. Just clear next steps.</div>
-            </div>
-          </li>
-        </ul>
-      </div>
-
-      <!-- MY PHILOSOPHY CARD -->
-      <div class="philosophy-card">
-        <p class="philosophy-eyebrow">My Philosophy</p>
-        <div class="philosophy-item">
-          <div class="philosophy-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
-              <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
-            </svg>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-header">
+            <div class="value-number">01</div>
+            <div class="value-title">The barrier is fear, not technology</div>
           </div>
-          <div>
-            <div class="philosophy-title">Teach What Works NOW</div>
-            <div class="philosophy-desc">Not what worked years ago. Every framework, every guide, every workshop is built from current market realities and tested across real businesses. The AI landscape moves fast — my content moves with it.</div>
-          </div>
+          <div class="value-desc">Most businesses aren't held back by a lack of tools — they're held back by not knowing where to start safely. Clarity comes before adoption.</div>
         </div>
-        <div class="philosophy-item">
-          <div class="philosophy-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-            </svg>
+        <div class="value-card">
+          <div class="value-header">
+            <div class="value-number">02</div>
+            <div class="value-title">Practical over theoretical, always</div>
           </div>
-          <div>
-            <div class="philosophy-title">Human Trust in the AI Era</div>
-            <div class="philosophy-desc">As AI becomes more prevalent, human connection becomes more valuable. That's why I show up face-on-camera, authentically, consistently. People don't just want information — they want someone they can trust to guide them through the noise.</div>
-          </div>
+          <div class="value-desc">AI education that doesn't end in tangible next steps isn't education — it's entertainment. Every session I deliver is built for immediate application.</div>
         </div>
-        <div class="philosophy-item">
-          <div class="philosophy-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
-              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-            </svg>
+        <div class="value-card">
+          <div class="value-header">
+            <div class="value-number">03</div>
+            <div class="value-title">Adopt an AI-First Mindset</div>
           </div>
-          <div>
-            <div class="philosophy-title">Action Over Perfection</div>
-            <div class="philosophy-desc">I wasn't born a natural speaker. I had a speech impediment. I was terrified of cameras. But I started anyway. Imperfectly. Consistently. That's what I teach — take action, learn, iterate, improve.</div>
-          </div>
+          <div class="value-desc">For every task, start by asking: "Can AI help with this?" Building an AI-First mindset means leveraging technology at the start of a process — not as an afterthought. That shift changes everything.</div>
         </div>
       </div>
-
     </div>
   </section>
 
   <!-- CAREER TIMELINE -->
-  <section class="section">
+  <section class="section" style="background:var(--eggshell);">
     <div class="section-inner">
       <p class="section-eyebrow">Experience</p>
       <h2 class="section-heading">15+ Years at the Intersection of Business &amp; Growth</h2>
@@ -1014,30 +960,29 @@
     </div>
   </section>
 
-  <!-- CORE BELIEFS / VALUES -->
-  <section class="section section-dark">
+  <!-- WHO I WORK WITH -->
+  <section class="section" style="background:var(--eggshell);">
     <div class="section-inner">
-      <p class="section-eyebrow">What I Believe</p>
-      <h2 class="section-heading section-heading-light">My Approach to AI Education</h2>
-      <p class="section-body section-body-light">
-        Three principles that shape every workshop, diagnostic, and conversation I have with business leaders.
-      </p>
-
-      <div class="values-grid">
-        <div class="value-card">
-          <div class="value-number">01</div>
-          <div class="value-title">The barrier is fear, not technology</div>
-          <div class="value-desc">Most businesses aren't held back by a lack of tools — they're held back by not knowing where to start safely. Clarity comes before adoption.</div>
+      <p class="section-eyebrow">Who I Work With</p>
+      <h2 class="section-heading">Three types of people who find their way here</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;margin-top:2rem;">
+        <div style="background:var(--surface,#fff);border:1px solid rgba(28,28,28,0.08);border-radius:14px;padding:2rem;position:relative;overflow:hidden;">
+          <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--burgundy),var(--gold));"></div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.125rem;font-weight:700;color:var(--charcoal);margin-bottom:0.625rem;letter-spacing:-0.02em;">Solo service providers &amp; creatives</h3>
+          <p style="font-size:0.875rem;color:var(--muted);line-height:1.7;margin-bottom:1rem;">Coaches, designers, consultants, copywriters, and therapists drowning in email threads, invoices, and follow-ups instead of doing the work they love.</p>
+          <p style="font-size:0.8rem;font-style:italic;color:var(--burgundy);font-weight:500;">"If I could just clone myself..."</p>
         </div>
-        <div class="value-card">
-          <div class="value-number">02</div>
-          <div class="value-title">Practical over theoretical, always</div>
-          <div class="value-desc">AI education that doesn't end in tangible next steps isn't education — it's entertainment. Every session I deliver is built for immediate application.</div>
+        <div style="background:var(--surface,#fff);border:1px solid rgba(28,28,28,0.08);border-radius:14px;padding:2rem;position:relative;overflow:hidden;">
+          <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--burgundy),var(--gold));"></div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.125rem;font-weight:700;color:var(--charcoal);margin-bottom:0.625rem;letter-spacing:-0.02em;">Solopreneurs &amp; founders hitting a ceiling</h3>
+          <p style="font-size:0.875rem;color:var(--muted);line-height:1.7;margin-bottom:1rem;">You have revenue, clients, momentum. But there are only so many hours in a day. Hiring feels premature. The answer is leverage through smart AI workflow design.</p>
+          <p style="font-size:0.8rem;font-style:italic;color:var(--burgundy);font-weight:500;">"Grow like you hired a team — without payroll."</p>
         </div>
-        <div class="value-card">
-          <div class="value-number">03</div>
-          <div class="value-title">Your employees deserve to know</div>
-          <div class="value-desc">The best AI strategy starts with your team — not with leadership mandates. When employees understand AI, adoption happens naturally and sustainably.</div>
+        <div style="background:var(--surface,#fff);border:1px solid rgba(28,28,28,0.08);border-radius:14px;padding:2rem;position:relative;overflow:hidden;">
+          <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--burgundy),var(--gold));"></div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.125rem;font-weight:700;color:var(--charcoal);margin-bottom:0.625rem;letter-spacing:-0.02em;">Business leaders &amp; managers</h3>
+          <p style="font-size:0.875rem;color:var(--muted);line-height:1.7;margin-bottom:1rem;">Your team is already experimenting with AI informally. You need clear policies, practical training, and a roadmap for safe, productive AI adoption.</p>
+          <p style="font-size:0.8rem;font-style:italic;color:var(--burgundy);font-weight:500;">"From AI anxiety to AI confidence — without the jargon."</p>
         </div>
       </div>
     </div>
@@ -1047,12 +992,12 @@
   <section class="cta-band">
     <div class="cta-band-inner">
       <div>
-        <h2 class="cta-band-heading">Ready to See Where Your Business Stands?</h2>
-        <p class="cta-band-body">Take the free 5-minute AI Readiness Scorecard — and get a clear picture of where your biggest risks and opportunities are.</p>
+        <h2 class="cta-band-heading">Ready to get started?</h2>
+        <p class="cta-band-body">Book a free 30-minute AI Diagnostic — or join my next live webinar to see what's possible.</p>
       </div>
-      <div class="cta-band-right">
-        <a href="scorecard.html" class="btn-gold">Take the AI Readiness Scorecard</a>
-        <span class="cta-band-note">Free · 5 minutes · Instant results</span>
+      <div class="cta-band-right" style="display:flex;flex-direction:row;gap:1rem;flex-wrap:wrap;align-items:center;">
+        <a href="https://calendly.com/abazdikian/diagnostic" target="_blank" rel="noopener" class="btn-gold">Book a Free Diagnostic</a>
+        <a href="webinar.html" class="btn-gold" style="background:transparent;border:1.5px solid var(--gold);color:var(--gold);" onmouseover="this.style.background='var(--gold)';this.style.color='var(--charcoal)'" onmouseout="this.style.background='transparent';this.style.color='var(--gold)'">Join Free Webinar</a>
       </div>
     </div>
   </section>
@@ -1106,6 +1051,37 @@
           menu.setAttribute('aria-hidden', 'true');
         }
       });
+    })();
+  </script>
+
+  <style>
+    .tw-cursor { display:inline-block; width:3px; height:0.85em; background:var(--burgundy); margin-left:2px; vertical-align:middle; border-radius:1px; animation:tw-blink 0.8s step-end infinite; }
+    @keyframes tw-blink { 0%,100%{opacity:1} 50%{opacity:0} }
+  </style>
+  <script>
+    (function() {
+      var el = document.getElementById('about-typewriter');
+      if (!el) return;
+      var words = ['Speaks AI.', 'Teaches AI.', 'Lives AI.'];
+      var cursor = document.createElement('span');
+      cursor.className = 'tw-cursor';
+      el.after(cursor);
+      var wordIdx = 0, charIdx = 0, deleting = false;
+      function tick() {
+        var word = words[wordIdx];
+        if (!deleting) {
+          charIdx++;
+          el.textContent = word.slice(0, charIdx);
+          if (charIdx === word.length) { deleting = true; setTimeout(tick, 2200); return; }
+        } else {
+          charIdx--;
+          el.textContent = word.slice(0, charIdx);
+          if (charIdx === 0) { deleting = false; wordIdx = (wordIdx + 1) % words.length; }
+        }
+        setTimeout(tick, deleting ? 45 : 80);
+      }
+      el.textContent = '';
+      setTimeout(tick, 600);
     })();
   </script>
 

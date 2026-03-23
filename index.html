@@ -296,6 +296,7 @@
       letter-spacing: -0.03em;
       color: var(--charcoal);
       margin: 0 0 1.5rem;
+      min-height: 3.5em;
     }
 
     .hero-headline em {
@@ -1627,7 +1628,7 @@
 <body>
 
   <!-- ═══════════ WEBINAR BANNER ═══════════ -->
-  <div id="webinar-banner" style="background:var(--burgundy);color:#fff;text-align:center;padding:0.6rem 1.5rem;font-size:0.8125rem;font-weight:500;letter-spacing:0.01em;display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;position:sticky;top:0;z-index:100;">
+  <div id="webinar-banner" style="background:linear-gradient(135deg, #7D2240 0%, #3D1020 50%, #7D2240 100%);color:#fff;text-align:center;padding:0.6rem 1.5rem;font-size:0.8125rem;font-weight:500;letter-spacing:0.01em;display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;position:sticky;top:0;z-index:100;">
     <span>🎙 <strong>Free Live Webinar:</strong> Claude Cowork — Your AI Business Analyst &nbsp;·&nbsp; Thursday March 27th · 6:30 PM ET</span>
     <button onclick="openWebinarModal()" style="background:var(--gold);color:var(--charcoal);border:none;padding:0.35rem 1.1rem;border-radius:100px;font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:700;cursor:pointer;letter-spacing:0.02em;white-space:nowrap;transition:background 0.2s;">Register Free →</button>
     <button onclick="document.getElementById('webinar-banner').style.display='none'" aria-label="Dismiss" style="background:none;border:none;color:rgba(255,255,255,0.5);font-size:1.1rem;cursor:pointer;padding:0;line-height:1;margin-left:0.25rem;">&times;</button>
@@ -1682,7 +1683,6 @@
       />
       <div class="hero-photo-overlay"></div>
       <div class="hero-photo-tint"></div>
-      <p class="hero-tagline">Helping entrepreneurs and businesses<br>navigate the AI revolution.</p>
     </div>
 
     <!-- Right: Content -->
@@ -1690,8 +1690,7 @@
       <p class="eyebrow">AI Strategist + Educator</p>
 
       <h1 class="hero-headline">
-        Your Employees Are Already Using AI. The Question Is Whether They're Doing It
-        <em id="hero-typewriter">Safely.</em>
+        Helping entrepreneurs and businesses navigate the <em id="hero-typewriter">AI revolution.</em>
       </h1>
 
       <p class="hero-sub">
@@ -1913,7 +1912,7 @@
     <div class="mindset-inner">
       <div>
         <p class="section-eyebrow">Mindset Shift</p>
-        <h2 class="section-heading">Adopt an AI&#8209;First Mindset</h2>
+        <h2 class="section-heading">No Matter What Your Role Is, Adopt an AI&#8209;First Mindset</h2>
         <p class="section-body" style="margin-bottom: 2.5rem;">
           Building an AI-First mindset involves transitioning from a manual-first approach to one where technology is leveraged at the start of a process.
         </p>
@@ -1988,12 +1987,12 @@
   <section class="cta-band">
     <div class="cta-band-inner">
       <div>
-        <h2 class="cta-band-heading">The Barrier to AI Isn't Technology. It's Fear and Confusion.</h2>
-        <p class="cta-band-body">I'll show your team exactly what AI means for them, what to do about it, and how to start using it safely — without the overwhelm, the jargon, or the tech-bro hype.</p>
+        <h2 class="cta-band-heading">You don't need to be a techie to be <em id="cta-typewriter" style="color:var(--gold);font-style:italic;">AI Confident.</em></h2>
+        <p class="cta-band-body">I'll show you exactly what AI means for you and your team, what to do, and how to start using it safely | No overwhelm, No jargon, No tech-bro hype.</p>
       </div>
       <div class="cta-band-right">
-        <a href="scorecard.html" class="btn-gold">Take the AI Readiness Scorecard</a>
-        <span class="cta-band-note">Free · 5 minutes · Instant results</span>
+        <a href="https://calendly.com/abazdikian/diagnostic" target="_blank" rel="noopener" class="btn-gold">Book a Free Diagnostic</a>
+        <span class="cta-band-note">30 minutes · No commitment · Fully customized</span>
       </div>
     </div>
   </section>
@@ -2063,7 +2062,7 @@
       setTimeout(function() {
         openWebinarModal();
         sessionStorage.setItem('webinar-modal-shown', '1');
-      }, 5000);
+      }, 10000);
     }
 
   </script>
@@ -2139,7 +2138,7 @@
       var el = document.getElementById('hero-typewriter');
       if (!el) return;
 
-      var words = ['Safely.', 'Effectively.', 'Confidently.'];
+      var words = ['AI revolution.', 'AI transformation.', 'AI opportunity.'];
       var cursor = document.createElement('span');
       cursor.className = 'tw-cursor';
       el.after(cursor);
@@ -2175,6 +2174,38 @@
       /* Start after a short initial delay */
       el.textContent = '';
       setTimeout(tick, 600);
+    })();
+  </script>
+
+  <script>
+    /* ── TYPEWRITER: CTA band "AI Confident" ── */
+    (function() {
+      var el = document.getElementById('cta-typewriter');
+      if (!el) return;
+      var words = ['AI Confident.', 'AI Ready.', 'AI First.'];
+      var cursor = document.createElement('span');
+      cursor.className = 'tw-cursor';
+      cursor.style.background = 'var(--gold)';
+      el.after(cursor);
+      var wordIdx = 0, charIdx = 0, deleting = false;
+      function tick() {
+        var word = words[wordIdx];
+        if (!deleting) {
+          charIdx++;
+          el.textContent = word.slice(0, charIdx);
+          if (charIdx === word.length) { deleting = true; setTimeout(tick, 2200); return; }
+        } else {
+          charIdx--;
+          el.textContent = word.slice(0, charIdx);
+          if (charIdx === 0) { deleting = false; wordIdx = (wordIdx + 1) % words.length; }
+        }
+        setTimeout(tick, deleting ? 45 : 80);
+      }
+      el.textContent = '';
+      var observer = new IntersectionObserver(function(entries) {
+        if (entries[0].isIntersecting) { observer.disconnect(); setTimeout(tick, 400); }
+      }, { threshold: 0.5 });
+      observer.observe(el);
     })();
   </script>
 

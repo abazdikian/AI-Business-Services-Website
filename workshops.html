@@ -48,7 +48,7 @@
     }
 
     html { scroll-behavior: smooth; }
-    body { background-color: var(--eggshell); color: var(--charcoal); font-family: 'Inter', system-ui, sans-serif; line-height: 1.7; -webkit-font-smoothing: antialiased; margin: 0; }
+    body { background: linear-gradient(180deg, var(--eggshell) 0%, rgba(125,34,64,0.08) 20%, rgba(125,34,64,0.12) 45%, rgba(125,34,64,0.06) 65%, rgba(125,34,64,0.10) 85%, var(--eggshell) 100%); background-attachment: fixed; color: var(--charcoal); font-family: 'Inter', system-ui, sans-serif; line-height: 1.7; -webkit-font-smoothing: antialiased; margin: 0; }
 
     /* NAV */
     .nav { position: sticky; top: 0; z-index: 50; background: var(--eggshell); border-bottom: 1px solid rgba(125,34,64,0.12); display: flex; align-items: center; justify-content: space-between; padding: 0 max(2.5rem, calc((100vw - 1400px) / 2 + 2.5rem)); height: 68px; }
@@ -119,7 +119,7 @@
 
     /* ── RISK CARD ── */
     .ws-risk-card {
-      background: linear-gradient(160deg, #7D2240 0%, #5a1830 55%, #3d1022 100%);
+      background: linear-gradient(160deg, #a8355e 0%, #7D2240 40%, #c9684a 100%);
       border-radius: 16px;
       padding: 2.25rem;
       color: #fff;
@@ -300,7 +300,7 @@
 
     /* WORKSHOPS GRID */
     .section { padding: 6rem max(4rem, calc((100vw - 1400px) / 2 + 4rem)); }
-    .section-alt { background: var(--surface); }
+    .section-alt { background: transparent; }
     .section-inner { max-width: 1300px; margin: 0 auto; }
 
     .section-eyebrow { font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.625rem; justify-content: center; }
@@ -602,8 +602,8 @@
     }
 
     .service-card {
-      background: var(--surface);
-      border: 1px solid rgba(28,28,28,0.08);
+      background: linear-gradient(180deg, #fff 0%, rgba(125,34,64,0.04) 100%);
+      border: 1px solid rgba(125,34,64,0.12);
       border-radius: 14px;
       padding: 2rem 1.75rem;
       display: flex;
@@ -614,8 +614,9 @@
 
     .service-card:hover {
       transform: scale(1.04);
-      box-shadow: 0 12px 40px rgba(125,34,64,0.12), 0 4px 12px rgba(0,0,0,0.06);
-      border-color: rgba(201,168,71,0.4);
+      box-shadow: 0 12px 40px rgba(125,34,64,0.15), 0 4px 12px rgba(0,0,0,0.06);
+      border-color: rgba(125,34,64,0.3);
+      background: linear-gradient(180deg, #fff 0%, rgba(125,34,64,0.08) 100%);
       z-index: 2;
     }
 
@@ -641,7 +642,7 @@
       font-family: 'Playfair Display', serif;
       font-size: 1.2rem;
       font-weight: 600;
-      color: var(--charcoal);
+      color: var(--burgundy);
       line-height: 1.25;
       letter-spacing: -0.02em;
       margin: 0 0 0.75rem;
@@ -655,8 +656,8 @@
     }
 
     .service-card-divider {
-      height: 1px;
-      background: linear-gradient(to right, rgba(201,168,71,0.4), transparent);
+      height: 2px;
+      background: linear-gradient(to right, var(--burgundy), rgba(201,168,71,0.4), transparent);
       margin-bottom: 1.25rem;
     }
 
@@ -718,7 +719,26 @@
 
     .service-card-footer {
       margin-top: auto;
-      padding-top: 1rem;
+      padding-top: 1.25rem;
+    }
+
+    .service-card-footer .btn-book {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background: var(--burgundy);
+      color: #fff;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      padding: 0.875rem 1.5rem;
+      border-radius: 100px;
+      box-shadow: 0 4px 16px rgba(125,34,64,0.3);
+    }
+
+    .service-card-footer .btn-book:hover {
+      background: var(--burgundy-dark);
+      box-shadow: 0 6px 24px rgba(125,34,64,0.4);
+      transform: translateY(-2px);
     }
 
     @media (max-width: 1200px) {
@@ -1086,7 +1106,7 @@
       <p class="eyebrow">AI Workshops</p>
       <h1 class="page-heading" id="ws-hero-heading" style="visibility:hidden;"></h1>
       <p class="page-sub">
-        Whether you're a solopreneur who needs AI set up today, or a leader who needs your team trained safely — every session ends with tools you can use immediately. No jargon. No fluff. Just results.
+        Stop guessing where AI fits. Start using it this week — safely, strategically, and profitably.
       </p>
       <div class="avail-badge">
         <span class="avail-dot"></span>
@@ -1095,145 +1115,191 @@
     </div>
   </div>
 
-  <!-- INTRO + RISK SECTIONS -->
+  <!-- THE PROBLEM -->
   <section class="section section-alt">
     <div class="section-inner">
       <div class="ws-intro-grid">
         <div>
-          <p class="section-eyebrow">The Reality</p>
-          <h2 class="section-heading">The gap between AI-ready and AI-late is growing every week.</h2>
-          <ul class="ws-list">
-            <li>Your competitors are already using AI to move faster.</li>
-            <li>Solopreneurs are automating the work that used to take all weekend.</li>
-            <li>Teams are experimenting with AI tools — with or without guidance.</li>
-            <li>The businesses that figure this out now will set the pace for years.</li>
+          <p class="section-eyebrow">The Problem No One Is Saying Out Loud</p>
+          <h2 class="section-heading" style="text-align:left;">Your team is already using AI.</h2>
+          <p class="ws-body" style="margin-top:0;">They're copying emails into ChatGPT. Uploading documents. Testing tools they found on LinkedIn. Without training. Without guardrails. Without a plan.</p>
+          <p class="ws-callout">That means:</p>
+          <ul class="ws-list ws-list-warn">
+            <li>Sensitive data is being exposed</li>
+            <li>Decisions are being made on unreliable outputs</li>
+            <li>Your team is wasting time on tools that don't actually help</li>
           </ul>
-          <p class="ws-callout">The question isn't whether to use AI. It's whether you'll be the one leading — or catching up.</p>
-          <p class="ws-body">I help entrepreneurs and businesses adopt AI safely, productively, and with confidence. <strong>Delivering 100% Business Value.</strong></p>
-          <p class="ws-body">Whether you're a team of one or one hundred, the right AI strategy starts with someone who speaks your language. No tech jargon or previous tech experience needed.</p>
+          <p style="margin-top:1.5rem;font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:600;color:var(--charcoal);line-height:1.4;">At the same time, you <strong>know</strong> AI could save 10–20+ hours per week, increase output without hiring, and free you to actually think.</p>
+          <p style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--burgundy);margin-top:1.75rem;line-height:1.3;">But right now? It's chaos, not strategy.</p>
         </div>
         <div class="ws-risk-card">
-          <p class="ws-risk-eyebrow">The Hidden Risk Most Companies Are Facing</p>
-          <p class="ws-risk-intro">Right now, in most organizations, employees are secretly experimenting with AI tools to help them work faster.</p>
-          <p class="ws-risk-intro" style="margin-top:1.25rem;">But without training, employees often don't know:</p>
-          <ul class="ws-risk-list ws-risk-list-warn">
-            <li>What information is safe to share with AI</li>
-            <li>What tools store data or learn from inputs</li>
-            <li>How to protect confidential company information</li>
-            <li>How to avoid exposing intellectual property</li>
+          <p class="ws-risk-eyebrow">What I Do Instead</p>
+          <p class="ws-risk-intro">We don't start with tools. We start with <strong>your business.</strong></p>
+          <p class="ws-risk-intro" style="margin-top:1.25rem;">Then we build:</p>
+          <ul class="ws-risk-list">
+            <li>Real use cases</li>
+            <li>Real workflows</li>
+            <li>Real time savings</li>
           </ul>
+          <p class="ws-risk-intro" style="margin-top:1rem;">Before the workshop is even over.</p>
           <div class="ws-risk-divider"></div>
-          <p class="ws-risk-intro"><strong>Many organizations are already experiencing:</strong></p>
-          <ul class="ws-risk-list ws-risk-list-warn">
-            <li>Unintentional data exposure</li>
-            <li>Confidential document uploads</li>
-            <li>Internal policy violations</li>
-            <li>Unreliable AI outputs used in business decisions</li>
+          <p class="ws-risk-eyebrow" style="font-size:1rem;">The Promise</p>
+          <p class="ws-risk-intro">By the end of any workshop, your team will:</p>
+          <ul class="ws-risk-list">
+            <li>Speak the language of AI (no jargon, no confusion)</li>
+            <li>Know exactly what to automate first</li>
+            <li>Have already saved time in their actual workflow</li>
+            <li>Understand what NOT to put into AI (security first)</li>
+            <li>Walk away with a clear AI game plan</li>
           </ul>
-          <p class="ws-risk-footer">The goal should not be to block AI. The goal should be to <strong>train your team to use it responsibly.</strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MY APPROACH -->
+  <section class="section" style="padding-bottom:3rem;background:linear-gradient(160deg, #a8355e 0%, #7D2240 40%, #c9684a 100%);">
+    <div class="section-inner">
+      <p class="section-eyebrow">My Approach</p>
+      <h2 class="section-heading" style="color:#fff;">Why This Actually Works</h2>
+      <div class="who-grid" style="grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;">
+        <div class="who-card" style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.15);">
+          <div class="who-title" style="color:#fff;">An AI-First Mindset</div>
+          <div class="who-desc" style="color:rgba(255,255,255,0.8);">We don't treat AI as a tool. We treat it as your new operating system.</div>
+        </div>
+        <div class="who-card" style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.15);">
+          <div class="who-title" style="color:#fff;">Strategy Before Tools</div>
+          <div class="who-desc" style="color:rgba(255,255,255,0.8);">No random subscriptions. No shiny objects. You get: what to automate, what to ignore, and what actually drives ROI.</div>
+        </div>
+        <div class="who-card" style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.15);">
+          <div class="who-title" style="color:#fff;">Real Use Cases Only</div>
+          <div class="who-desc" style="color:rgba(255,255,255,0.8);">If it doesn't apply to your business, we don't teach it.</div>
+        </div>
+        <div class="who-card" style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.15);">
+          <div class="who-title" style="color:#fff;">Zone of Genius Focus</div>
+          <div class="who-desc" style="color:rgba(255,255,255,0.8);">Your team should be thinking, creating, selling, and leading. AI handles the rest.</div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- WORKSHOPS -->
-  <section class="section">
+  <section class="section" style="padding-top:3rem;">
     <div class="section-inner">
       <p class="section-eyebrow">Workshops</p>
       <h2 class="section-heading">Choose Your Starting Point</h2>
 
       <div class="service-grid">
 
-        <!-- Card 1 -->
+        <!-- Card 1: AI for Business -->
         <div class="service-card">
-          <h3 class="service-card-title">AI Fundamentals for Businesses &amp; Entrepreneurs</h3>
-          <div class="service-card-duration">1.5–2 hrs</div>
-          <p class="service-card-desc">The starting point for anyone who knows AI matters but needs alignment on what it actually is, where the risks are, and how to use it responsibly. No prior experience necessary.</p>
+          <h3 class="service-card-title">AI for Business: Get Your Team Unstuck Fast</h3>
+          <div class="service-card-duration">90 Minutes</div>
+          <p class="service-card-desc">For leaders and teams thinking: "We know AI matters... we just don't know where to start."</p>
           <div class="service-card-divider"></div>
-          <div class="service-card-heading">Participants learn</div>
+          <div class="service-card-heading">What we fix</div>
           <ul class="service-card-list">
-            <li>What AI actually is — without technical jargon</li>
-            <li>Where to start: Claude, Gemini, ChatGPT — and which to use when</li>
-            <li>Prompting 101: how to talk to AI effectively</li>
-            <li>The biggest security risks and misconceptions about AI at work</li>
-            <li>What information is safe to share — and what should never touch an AI tool</li>
+            <li>Confusion about AI</li>
+            <li>Fear of doing it wrong</li>
+            <li>No clear starting point</li>
+          </ul>
+          <div class="service-card-heading" style="margin-top:1rem;">What you get</div>
+          <ul class="service-card-list">
+            <li>Simple explanation of AI (finally makes sense)</li>
+            <li>Clear breakdown of tools (ChatGPT, Claude, etc.)</li>
+            <li>Prompting that actually works</li>
+            <li>Where AI fits in YOUR business (not theory)</li>
+            <li>Biggest risks + how to avoid them</li>
           </ul>
           <div class="service-card-outcome">
-            <span class="outcome-label">Outcome</span>
-            Your team leaves aligned on where to start with AI and aware of both the opportunities and the risks.
+            <span class="outcome-label">Deliverables</span>
+            Your first AI use case mapped to your business. A "what to automate first" list. Team-wide understanding of AI risks + boundaries.
           </div>
+          <p class="service-card-perfect">Start here if your team is overwhelmed or behind.</p>
           <div class="service-card-footer">
-            <button type="button" class="btn-book" onclick="openBookingModal('AI Fundamentals for Businesses & Entrepreneurs')">Book This Workshop</button>
+            <button type="button" class="btn-book" onclick="openBookingModal('AI for Business: Get Your Team Unstuck Fast')">Book This Workshop</button>
           </div>
         </div>
 
-        <!-- Card 2 -->
+        <!-- Card 2: AI in Action -->
         <div class="service-card">
-          <h3 class="service-card-title">Claude Cowork Is Your Business Analyst</h3>
-          <div class="service-card-duration">90 min · Group · Virtual</div>
-          <p class="service-card-desc">Walk in curious. Walk out with a fully configured AI business analyst that knows your voice, your clients, and your workflows — ready to use the same day.</p>
+          <h3 class="service-card-title">AI in Action: Turn Busywork Into Automation</h3>
+          <div class="service-card-duration">2 Hours · Hands-On</div>
+          <p class="service-card-desc">For teams thinking: "We're busy all day... but nothing important gets done."</p>
           <div class="service-card-divider"></div>
-          <div class="service-card-heading">What you'll do</div>
+          <div class="service-card-heading">What we fix</div>
           <ul class="service-card-list">
-            <li>Set up Claude Cowork with your business context, tone, and goals</li>
-            <li>Learn the 5 prompts every entrepreneur should use weekly</li>
-            <li>Build your first AI workflow live: emails, proposals, reports</li>
-            <li>Understand what AI can and can't do — with confidence, not confusion</li>
+            <li>Admin overload</li>
+            <li>Time wasted on repetitive tasks</li>
+            <li>Tools that don't connect</li>
+          </ul>
+          <div class="service-card-heading" style="margin-top:1rem;">What you get</div>
+          <ul class="service-card-list">
+            <li>Live workflows built in session</li>
+            <li>AI handling emails, summaries, content, internal comms</li>
+            <li>Real automations using your current tools</li>
+            <li>How to validate AI outputs (no blind trust)</li>
           </ul>
           <div class="service-card-outcome">
-            <span class="outcome-label">Outcome</span>
-            You leave with a working AI setup — not a to-do list. Most attendees save 5–8 hours in their first week.
+            <span class="outcome-label">Deliverables</span>
+            1–3 live workflows your team can use immediately. Hours saved per week (day one). A repeatable system for future automations.
           </div>
-          <p class="service-card-perfect">Perfect for: You've been meaning to "figure out AI" but haven't had time. Or you tried ChatGPT and it felt generic.</p>
+          <p class="service-card-perfect">If your team is stuck in busywork — this is your unlock.</p>
           <div class="service-card-footer">
-            <button type="button" class="btn-book" onclick="openBookingModal('Claude Cowork Is Your Business Analyst')">Book This Workshop</button>
+            <button type="button" class="btn-book" onclick="openBookingModal('AI in Action: Turn Busywork Into Automation')">Book This Workshop</button>
           </div>
         </div>
 
-        <!-- Card 3 -->
+        <!-- Card 3: Claude Code Productivity Lab -->
         <div class="service-card">
-          <h3 class="service-card-title">Claude Code for Business Teams: Automate Without Engineers</h3>
-          <div class="service-card-duration">2–3 hrs · Hands-On</div>
-          <p class="service-card-desc">A hands-on session where your team learns to use Claude Code to automate real workflows — no coding background required. AI goes from concept to daily productivity.</p>
+          <h3 class="service-card-title">Claude Code Productivity Lab: Automate Your Day-to-Day</h3>
+          <div class="service-card-duration">Half-Day · 2.5 Hours</div>
+          <p class="service-card-desc">For teams thinking: "We don't just want to try AI... we want to scale with it."</p>
           <div class="service-card-divider"></div>
-          <div class="service-card-heading">Participants learn</div>
+          <div class="service-card-heading">What we fix</div>
           <ul class="service-card-list">
-            <li>How Claude Code works — and why it's different from ChatGPT</li>
-            <li>Live demonstrations using real workplace scenarios from your industry</li>
-            <li>How to automate repetitive tasks: reports, emails, data analysis</li>
-            <li>Guidelines for safe AI usage — what's safe to automate and what isn't</li>
-            <li>How to evaluate AI outputs before using them in business decisions</li>
+            <li>Fragmented workflows</li>
+            <li>Slow reporting cycles</li>
+            <li>Expensive talent doing low-value work</li>
+          </ul>
+          <div class="service-card-heading" style="margin-top:1rem;">What you get</div>
+          <ul class="service-card-list">
+            <li>Deep dive into your workflows</li>
+            <li>AI-powered process automation</li>
+            <li>Practical use cases from your business' day-to-day</li>
+            <li>Human-in-the-loop systems (control stays with you)</li>
+            <li>Governance + security baked in</li>
           </ul>
           <div class="service-card-outcome">
-            <span class="outcome-label">Outcome</span>
-            Your team leaves with practical AI workflows they can use immediately — and clear guardrails for safe adoption.
+            <span class="outcome-label">Deliverables</span>
+            Your AI workflow map (before → after). Top automation opportunities ranked by ROI. A 90-day AI implementation plan. Clear guardrails for safe AI use.
           </div>
+          <p class="service-card-perfect">If you want real transformation — not experimentation.</p>
           <div class="service-card-footer">
-            <button type="button" class="btn-book" onclick="openBookingModal('Claude Code for Business Teams')">Book This Workshop</button>
+            <button type="button" class="btn-book" onclick="openBookingModal('Claude Code Productivity Lab')">Book This Workshop</button>
           </div>
         </div>
 
-        <!-- Card 4 -->
+        <!-- Card 4: AI Growth Blueprint -->
         <div class="service-card">
-          <h3 class="service-card-title">AI Workflow Audit &amp; Strategy</h3>
-          <div class="service-card-duration">90 min · 1-on-1</div>
-          <p class="service-card-desc">A private consulting session where I audit your workflows, identify your highest-leverage automations, and build them with you — systems running, not just recommendations.</p>
+          <h3 class="service-card-title">AI Growth Blueprint: Turn Your Business Into a Scalable System</h3>
+          <div class="service-card-duration">2 Hours · 1-on-1 Strategy Session</div>
+          <p class="service-card-desc">You don't need more tools. You need the right growth strategy — backed by AI systems that actually execute it.</p>
           <div class="service-card-divider"></div>
           <div class="service-card-heading">What we do together</div>
           <ul class="service-card-list">
-            <li>Audit your current week: where your hours go and what doesn't need your brain</li>
-            <li>Identify the 3 repetitive processes costing you the most time and energy</li>
-            <li>Configure Claude as your personal business analyst — your voice, clients, goals</li>
-            <li>Build your top AI workflows live: client comms, reports, proposals, content</li>
-            <li>Create a 30-day AI integration roadmap specific to your business</li>
+            <li><strong>Growth Audit:</strong> Your current offers, where time is wasted, what's driving revenue</li>
+            <li><strong>Bottleneck ID:</strong> Where you're the bottleneck, what's blocking scale, what to stop doing</li>
+            <li><strong>AI Opportunity Mapping:</strong> What to automate now, what to systemize, what to keep human</li>
+            <li><strong>Growth Strategy Design:</strong> Your next revenue move, where to focus, how AI supports it</li>
           </ul>
           <div class="service-card-outcome">
-            <span class="outcome-label">Outcome</span>
-            You leave with working automations — not homework. Most founders reclaim 8–12 hours per week within the first month.
+            <span class="outcome-label">You walk away with</span>
+            Your AI-Powered Growth Blueprint: primary growth strategy, what to stop doing, top 3 AI automations, a workflow map, and a 30-day execution plan.
           </div>
-          <p class="service-card-perfect">Perfect for: Entrepreneurs, solopreneurs, and business teams.</p>
+          <p class="service-card-perfect">Walk in overwhelmed. Walk out with a clear strategy + execution plan.</p>
           <div class="service-card-footer">
-            <button type="button" class="btn-book" onclick="openBookingModal('AI Workflow Audit & Strategy')">Book My 1:1 Session</button>
+            <button type="button" class="btn-book" onclick="openBookingModal('AI Growth Blueprint Session')">Book My Strategy Session</button>
           </div>
         </div>
 
@@ -1242,32 +1308,35 @@
   </section>
 
   <!-- WHO IT'S FOR -->
-  <section class="section section-alt">
+  <section class="section" style="background:linear-gradient(160deg, #a8355e 0%, #7D2240 40%, #c9684a 100%);">
     <div class="section-inner">
       <p class="section-eyebrow">Who It's For</p>
-      <h2 class="section-heading">Built for Business Value, Not Engineers</h2>
-      <div class="who-grid">
-        <div class="who-card">
-          <div class="who-icon">💼</div>
-          <div class="who-title">Solopreneurs &amp; Freelancers</div>
-          <div class="who-desc">You're doing everything yourself — and AI should be the business partner that gives you 10 hours back every week.</div>
+      <h2 class="section-heading" style="color:#fff;">Built for Business, Not Engineers</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;margin-top:2rem;">
+        <div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);border-radius:14px;padding:2rem;position:relative;overflow:hidden;">
+          <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),rgba(255,255,255,0.4));"></div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.125rem;font-weight:700;color:#fff;margin-bottom:0.625rem;letter-spacing:-0.02em;">Solo service providers &amp; creatives</h3>
+          <p style="font-size:0.875rem;color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:1rem;">Coaches, designers, consultants, copywriters, and therapists drowning in email threads, invoices, and follow-ups instead of doing the work they love.</p>
+          <p style="font-size:0.8rem;font-style:italic;color:var(--gold);font-weight:500;">"If I could just clone myself..."</p>
         </div>
-        <div class="who-card">
-          <div class="who-icon">🚀</div>
-          <div class="who-title">Founders Hitting a Ceiling</div>
-          <div class="who-desc">You need to scale without hiring. The right AI setup replaces the analyst, the VA, and the late nights.</div>
+        <div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);border-radius:14px;padding:2rem;position:relative;overflow:hidden;">
+          <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),rgba(255,255,255,0.4));"></div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.125rem;font-weight:700;color:#fff;margin-bottom:0.625rem;letter-spacing:-0.02em;">Solopreneurs &amp; founders hitting a ceiling</h3>
+          <p style="font-size:0.875rem;color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:1rem;">You have revenue, clients, momentum. But there are only so many hours in a day. Hiring feels premature. The answer is leverage through smart AI workflow design.</p>
+          <p style="font-size:0.8rem;font-style:italic;color:var(--gold);font-weight:500;">"Grow like you hired a team — without payroll."</p>
         </div>
-        <div class="who-card">
-          <div class="who-icon">🏢</div>
-          <div class="who-title">Team Leaders &amp; Ops Managers</div>
-          <div class="who-desc">Your team is already using AI without guardrails. You need a structured approach before it becomes a liability.</div>
+        <div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);border-radius:14px;padding:2rem;position:relative;overflow:hidden;">
+          <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),rgba(255,255,255,0.4));"></div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.125rem;font-weight:700;color:#fff;margin-bottom:0.625rem;letter-spacing:-0.02em;">Business leaders &amp; managers</h3>
+          <p style="font-size:0.875rem;color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:1rem;">Your team is already experimenting with AI informally. You need clear policies, practical training, and a roadmap for safe, productive AI adoption.</p>
+          <p style="font-size:0.8rem;font-style:italic;color:var(--gold);font-weight:500;">"From AI anxiety to AI confidence — without the jargon."</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- TESTIMONIALS -->
-  <section style="padding:5rem 4rem;background:#fff;overflow:hidden;">
+  <section style="padding:5rem 4rem;background:transparent;overflow:hidden;">
     <div style="max-width:1300px;margin:0 auto;">
       <div style="text-align:center;margin-bottom:2.5rem;">
         <p class="section-eyebrow" style="justify-content:center;">What People Say</p>
@@ -1312,42 +1381,14 @@
     </div>
   </section>
 
-  <!-- HOW IT WORKS -->
-  <section class="section">
-    <div class="section-inner">
-      <p class="section-eyebrow">How It Works</p>
-      <h2 class="section-heading">Simple Process, Clear Outcome</h2>
-      <div class="process-steps">
-        <div class="process-step">
-          <div class="process-step-num">1</div>
-          <div class="process-step-title">Book a Diagnostic Call</div>
-          <div class="process-step-desc">We spend 30 minutes understanding your team, your concerns, and your goals.</div>
-        </div>
-        <div class="process-step">
-          <div class="process-step-num">2</div>
-          <div class="process-step-title">Choose Your Format</div>
-          <div class="process-step-desc">Together we select the workshop that fits your team size, timeline, and objectives.</div>
-        </div>
-        <div class="process-step">
-          <div class="process-step-num">3</div>
-          <div class="process-step-title">We Customize It</div>
-          <div class="process-step-desc">I tailor the content to your industry, team roles, and specific risk areas before delivery.</div>
-        </div>
-        <div class="process-step">
-          <div class="process-step-num">4</div>
-          <div class="process-step-title">Your Team Leaves Ready</div>
-          <div class="process-step-desc">Every participant gets tools, frameworks, and a clear next step — not just information.</div>
-        </div>
-      </div>
-    </div>
-  </section>
+
 
   <!-- CTA BAND -->
   <section class="cta-band">
     <div class="cta-band-inner">
       <div>
-        <h2 class="cta-band-heading">Not Sure Which Workshop Is Right?</h2>
-        <p class="cta-band-body">Book a free 30-minute AI Readiness Diagnostic — I'll help you identify exactly where your team needs the most support and which format fits best.</p>
+        <h2 class="cta-band-heading">AI isn't coming. It's already here.</h2>
+        <p class="cta-band-body">The only question is: is your team using it — or being left behind? Book a free diagnostic and find out exactly where to start.</p>
       </div>
       <div class="cta-band-right">
         <a href="https://calendly.com/abazdikian/diagnostic" target="_blank" rel="noopener" class="btn-gold">Book a Free Diagnostic</a>
@@ -1544,10 +1585,10 @@
 
       // Segments: { text, tag } — tag null = plain text, 'br' = line break, 'em' = italic gold
       var segments = [
-        { text: 'Workshops &', tag: null },
+        { text: 'AI Workshops That Turn', tag: null },
         { text: '',               tag: 'br' },
-        { text: 'Consulting ',    tag: null },
-        { text: 'That Moves You Ahead.',      tag: 'em'  },
+        { text: 'Busy Teams Into ',    tag: null },
+        { text: '10x Operators.',      tag: 'em'  },
       ];
 
       // Flatten into a sequence of typed characters, each knowing which node to append to
