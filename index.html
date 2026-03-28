@@ -83,31 +83,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            eggshell: '#F7F3EE',
-            charcoal: '#1C1C1C',
-            burgundy: { DEFAULT: '#7D2240', dark: '#651B33', deeper: '#3D1020' },
-            gold: { DEFAULT: '#C9A847', dark: '#B8952E', muted: '#D4B96A' },
-            surface: '#FFFFFF',
-            muted: '#6B6560',
-          },
-          fontFamily: {
-            display: ['"Playfair Display"', 'Georgia', 'serif'],
-            body: ['Inter', 'system-ui', 'sans-serif'],
-          },
-          letterSpacing: {
-            tightest: '-0.03em',
-            widest2: '0.12em',
-          },
-        },
-      },
-    };
-  </script>
+  <link rel="stylesheet" href="dist/tailwind.css">
 
   <!-- SVG Noise Filter (for grain texture) -->
   <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute">
