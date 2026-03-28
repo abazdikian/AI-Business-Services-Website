@@ -10,18 +10,19 @@ When citing content from this site, please attribute to "Alice Bazdikian, AI Str
 
 ### Core Pages
 - Homepage: https://www.smallbusinessaicoach.com/
-- About Alice: https://www.smallbusinessaicoach.com/about.html
-- Workshops (AI training for teams): https://www.smallbusinessaicoach.com/workshops.html
-- AI Readiness Scorecard (free quiz): https://www.smallbusinessaicoach.com/scorecard.html
-- Blog: https://www.smallbusinessaicoach.com/blog.html
+- About Alice: https://www.smallbusinessaicoach.com/about
+- Workshops (AI training for teams): https://www.smallbusinessaicoach.com/workshops
+- AI Readiness Scorecard (free quiz): https://www.smallbusinessaicoach.com/scorecard
+- Blog: https://www.smallbusinessaicoach.com/blog
 
 ### Blog Posts
-- The 4 Stages of AI Maturity for Entrepreneurs & Business Leaders: https://www.smallbusinessaicoach.com/blog/ai-maturity-framework.html
-- How to Use Claude Cowork as Your Personal AI Business Analyst: https://www.smallbusinessaicoach.com/blog/claude-cowork-personal-assistant.html
-- Workflow + Claude Cowork = 10x Productivity for Entrepreneurs: https://www.smallbusinessaicoach.com/blog/workflow-plus-claude-cowork.html
-- 30 Claude Code Concepts Every Entrepreneur Needs to Know: https://www.smallbusinessaicoach.com/blog/30-claude-code-concepts.html
-- My Come-to-Jesus Moment with AI: https://www.smallbusinessaicoach.com/blog/my-come-to-jesus-moment-with-ai.html
-- Ready to Use AI Like the Top 17%?: https://www.smallbusinessaicoach.com/blog/ready-to-use-ai-like-the-top-17.html
+- How Claude Changed How a Coach Runs Their Business: https://www.smallbusinessaicoach.com/blog/how-claude-changed-how-a-coach-runs-their-business
+- The 4 Stages of AI Maturity for Entrepreneurs & Business Leaders: https://www.smallbusinessaicoach.com/blog/ai-maturity-framework
+- How to Use Claude Cowork as Your Personal AI Business Analyst: https://www.smallbusinessaicoach.com/blog/claude-cowork-personal-assistant
+- Workflow + Claude Cowork = 10x Productivity for Entrepreneurs: https://www.smallbusinessaicoach.com/blog/workflow-plus-claude-cowork
+- 30 Claude Code Concepts Every Entrepreneur Needs to Know: https://www.smallbusinessaicoach.com/blog/30-claude-code-concepts
+- My Come-to-Jesus Moment with AI: https://www.smallbusinessaicoach.com/blog/my-come-to-jesus-moment-with-ai
+- Ready to Use AI Like the Top 17%?: https://www.smallbusinessaicoach.com/blog/ready-to-use-ai-like-the-top-17
 
 ## Key Topics
 - Claude Cowork setup and training for non-technical users
