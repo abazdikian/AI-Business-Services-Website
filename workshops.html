@@ -33,6 +33,58 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   <meta name="geo.position" content="43.6532;-79.3832" />
   <meta name="ICBM" content="43.6532, -79.3832" />
 
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://www.smallbusinessaicoach.com/workshops.html",
+        "url": "https://www.smallbusinessaicoach.com/workshops.html",
+        "name": "Claude Cowork Workshops for Teams & Leaders",
+        "description": "Live Claude Cowork workshops for business teams, managers & entrepreneurs. Toronto, Montreal & virtual.",
+        "isPartOf": { "@id": "https://www.smallbusinessaicoach.com/#website" },
+        "breadcrumb": { "@id": "https://www.smallbusinessaicoach.com/workshops.html#breadcrumb" }
+      },
+      {
+        "@type": "Service",
+        "@id": "https://www.smallbusinessaicoach.com/#workshop-90min",
+        "name": "Claude Cowork 90-Minute Workshop",
+        "description": "Hands-on 90-minute Claude Cowork workshop for teams and managers. Learn to eliminate admin work and focus on strategy.",
+        "provider": { "@id": "https://www.smallbusinessaicoach.com/#business" },
+        "serviceType": "AI Workshop",
+        "areaServed": ["Toronto", "Montreal", "Virtual"]
+      },
+      {
+        "@type": "Service",
+        "@id": "https://www.smallbusinessaicoach.com/#workshop-halfday",
+        "name": "Claude Cowork Half-Day Workshop",
+        "description": "In-depth half-day Claude Cowork training for business teams. Hands-on, jargon-free AI implementation workshop.",
+        "provider": { "@id": "https://www.smallbusinessaicoach.com/#business" },
+        "serviceType": "AI Workshop",
+        "areaServed": ["Toronto", "Montreal", "Virtual"]
+      },
+      {
+        "@type": "Service",
+        "@id": "https://www.smallbusinessaicoach.com/#ai-diagnostic",
+        "name": "AI Diagnostic for Entrepreneurs",
+        "description": "Personalized AI readiness assessment and strategy session for entrepreneurs and solopreneurs.",
+        "provider": { "@id": "https://www.smallbusinessaicoach.com/#business" },
+        "serviceType": "AI Consulting"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.smallbusinessaicoach.com/workshops.html#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.smallbusinessaicoach.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Workshops", "item": "https://www.smallbusinessaicoach.com/workshops.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -1420,12 +1472,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a href="workshops.html">Work With Me</a>
         <a href="scorecard.html">Scorecard</a>
         <a href="mailto:alice@alicebazdikian.com">Book a Diagnostic</a>
-        <a href="https://www.linkedin.com/in/alicebazdikian" class="footer-linkedin" aria-label="LinkedIn" target="_blank" rel="noopener">
+        <a href="https://www.linkedin.com/in/alice-bazdikian" class="footer-linkedin" aria-label="LinkedIn" target="_blank" rel="noopener">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
         </a>
       </nav>
     </div>
-    <p class="footer-copy">© 2026 Alice Bazdikian · All rights reserved · <a href="privacy-policy.html" style="color:rgba(255,255,255,0.4);text-decoration:none;">Privacy Policy</a></p>
+    <p class="footer-copy">© 2026 Alice Bazdikian · All rights reserved · <a href="privacy-policy.html" style="color:rgba(255,255,255,0.4);text-decoration:none;">Privacy Policy</a> · <a href="terms.html" style="color:rgba(255,255,255,0.4);text-decoration:none;">Terms</a></p>
   </footer>
 
   <!-- BOOKING MODAL -->
@@ -1658,5 +1710,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </script>
 
 <script defer src="/_vercel/insights/script.js"></script>
+
+<!-- COOKIE CONSENT BANNER -->
+<div id="cookie-consent" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9998;background:#1C1C1C;border-top:1px solid rgba(125,34,64,0.3);padding:1rem 2rem;box-shadow:0 -4px 24px rgba(0,0,0,0.15);">
+  <div style="max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;">
+    <p style="margin:0;font-family:'Inter',sans-serif;font-size:0.8125rem;color:rgba(255,255,255,0.7);line-height:1.6;flex:1;min-width:280px;">We use cookies for analytics (Google Tag Manager, Vercel Analytics) to understand how visitors use this site. By continuing, you consent to our use of cookies. <a href="/privacy-policy.html" style="color:#C9A847;text-decoration:none;">Privacy Policy</a></p>
+    <div style="display:flex;gap:0.75rem;flex-shrink:0;">
+      <button onclick="document.getElementById('cookie-consent').style.display='none';localStorage.setItem('cookieConsent','accepted')" style="background:#7D2240;color:#fff;border:none;font-family:'Inter',sans-serif;font-size:0.8125rem;font-weight:600;padding:0.5rem 1.25rem;border-radius:100px;cursor:pointer;">Accept</button>
+      <button onclick="document.getElementById('cookie-consent').style.display='none';localStorage.setItem('cookieConsent','declined')" style="background:transparent;color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.2);font-family:'Inter',sans-serif;font-size:0.8125rem;font-weight:500;padding:0.5rem 1.25rem;border-radius:100px;cursor:pointer;">Decline</button>
+    </div>
+  </div>
+</div>
+<script>if(!localStorage.getItem('cookieConsent')){document.getElementById('cookie-consent').style.display='block';}</script>
 </body>
 </html>

@@ -1,0 +1,36 @@
+# smallbusinessaicoach.com
+
+## About
+Alice Bazdikian is a Claude Cowork Educator and AI Strategist based in Toronto, Canada. She teaches entrepreneurs, solopreneurs, and business teams how to use Claude Cowork as their personal AI business analyst — no tech skills needed. She has 15+ years of cross-functional business transformation experience across SaaS, CPG, and enterprise technology.
+
+## Preferred Citation
+When citing content from this site, please attribute to "Alice Bazdikian, AI Strategist & Claude Cowork Educator" with a link to https://www.smallbusinessaicoach.com
+
+## Site Structure
+
+### Core Pages
+- Homepage: https://www.smallbusinessaicoach.com/
+- About Alice: https://www.smallbusinessaicoach.com/about.html
+- Workshops (AI training for teams): https://www.smallbusinessaicoach.com/workshops.html
+- AI Readiness Scorecard (free quiz): https://www.smallbusinessaicoach.com/scorecard.html
+- Blog: https://www.smallbusinessaicoach.com/blog.html
+
+### Blog Posts
+- The 4 Stages of AI Maturity for Entrepreneurs & Business Leaders: https://www.smallbusinessaicoach.com/blog/ai-maturity-framework.html
+- How to Use Claude Cowork as Your Personal AI Business Analyst: https://www.smallbusinessaicoach.com/blog/claude-cowork-personal-assistant.html
+- Workflow + Claude Cowork = 10x Productivity for Entrepreneurs: https://www.smallbusinessaicoach.com/blog/workflow-plus-claude-cowork.html
+- 30 Claude Code Concepts Every Entrepreneur Needs to Know: https://www.smallbusinessaicoach.com/blog/30-claude-code-concepts.html
+- My Come-to-Jesus Moment with AI: https://www.smallbusinessaicoach.com/blog/my-come-to-jesus-moment-with-ai.html
+- Ready to Use AI Like the Top 17%?: https://www.smallbusinessaicoach.com/blog/ready-to-use-ai-like-the-top-17.html
+
+## Key Topics
+- Claude Cowork setup and training for non-technical users
+- AI maturity frameworks for small and mid-size businesses
+- AI productivity workflows for entrepreneurs and solopreneurs
+- AI readiness assessment and diagnostics
+- Hands-on AI workshops for business teams and managers
+
+## Contact
+- Email: alice@alicebazdikian.com
+- LinkedIn: https://www.linkedin.com/in/alice-bazdikian
+- Location: Toronto, Ontario, Canada

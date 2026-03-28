@@ -570,6 +570,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   </div>
 
+  <!-- AUTHOR BIO -->
+  <div style="max-width:700px;margin:3rem auto;padding:0 2rem;">
+    <div style="display:flex;gap:1.25rem;align-items:flex-start;background:#fff;border-radius:16px;padding:1.75rem;box-shadow:0 1px 4px rgba(28,28,28,0.06);border:1px solid rgba(125,34,64,0.08);">
+      <img src="../Brand%20Assets/_MCK3991.jpg" alt="Alice Bazdikian" style="width:64px;height:64px;border-radius:50%;object-fit:cover;flex-shrink:0;" />
+      <div>
+        <div style="font-family:'Playfair Display',serif;font-weight:600;font-size:1rem;color:#1C1C1C;margin-bottom:0.15rem;">Alice Bazdikian</div>
+        <div style="font-size:0.75rem;color:#7D2240;font-weight:500;letter-spacing:0.04em;margin-bottom:0.625rem;">Claude Cowork Educator & AI Strategist</div>
+        <p style="font-size:0.875rem;line-height:1.65;color:#6B6560;margin:0;">Alice teaches entrepreneurs and business teams how to use Claude Cowork as their personal AI business analyst. With 15+ years in cross-functional business transformation — from SaaS to the world's largest brewer — she translates complex AI into practical tools non-technical people can use immediately. <a href="../about.html" style="color:#7D2240;text-decoration:none;font-weight:500;">More about Alice &rarr;</a></p>
+      </div>
+    </div>
+  </div>
+
   <!-- CTA BAND -->
   <section class="cta-band">
     <div class="cta-band-inner">
@@ -597,12 +609,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a href="../scorecard.html">Scorecard</a>
         <a href="../blog.html">Blog</a>
         <a href="https://calendly.com/abazdikian/diagnostic">Book a Diagnostic</a>
-        <a href="https://www.linkedin.com/in/alicebazdikian" class="footer-linkedin" aria-label="LinkedIn" target="_blank" rel="noopener">
+        <a href="https://www.linkedin.com/in/alice-bazdikian" class="footer-linkedin" aria-label="LinkedIn" target="_blank" rel="noopener">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
         </a>
       </nav>
     </div>
-    <p class="footer-copy">&copy; 2026 Alice Bazdikian &middot; All rights reserved &middot; <a href="../privacy-policy.html" style="color:rgba(255,255,255,0.4);text-decoration:none;">Privacy Policy</a></p>
+    <p class="footer-copy">&copy; 2026 Alice Bazdikian &middot; All rights reserved &middot; <a href="../privacy-policy.html" style="color:rgba(255,255,255,0.4);text-decoration:none;">Privacy Policy</a> · <a href="../terms.html" style="color:rgba(255,255,255,0.4);text-decoration:none;">Terms</a></p>
   </footer>
 
   <!-- SCORECARD BAND -->
@@ -635,5 +647,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </script>
 
 <script defer src="/_vercel/insights/script.js"></script>
+
+<!-- COOKIE CONSENT BANNER -->
+<div id="cookie-consent" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9998;background:#1C1C1C;border-top:1px solid rgba(125,34,64,0.3);padding:1rem 2rem;box-shadow:0 -4px 24px rgba(0,0,0,0.15);">
+  <div style="max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;">
+    <p style="margin:0;font-family:'Inter',sans-serif;font-size:0.8125rem;color:rgba(255,255,255,0.7);line-height:1.6;flex:1;min-width:280px;">We use cookies for analytics (Google Tag Manager, Vercel Analytics) to understand how visitors use this site. By continuing, you consent to our use of cookies. <a href="/privacy-policy.html" style="color:#C9A847;text-decoration:none;">Privacy Policy</a></p>
+    <div style="display:flex;gap:0.75rem;flex-shrink:0;">
+      <button onclick="document.getElementById('cookie-consent').style.display='none';localStorage.setItem('cookieConsent','accepted')" style="background:#7D2240;color:#fff;border:none;font-family:'Inter',sans-serif;font-size:0.8125rem;font-weight:600;padding:0.5rem 1.25rem;border-radius:100px;cursor:pointer;">Accept</button>
+      <button onclick="document.getElementById('cookie-consent').style.display='none';localStorage.setItem('cookieConsent','declined')" style="background:transparent;color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.2);font-family:'Inter',sans-serif;font-size:0.8125rem;font-weight:500;padding:0.5rem 1.25rem;border-radius:100px;cursor:pointer;">Decline</button>
+    </div>
+  </div>
+</div>
+<script>if(!localStorage.getItem('cookieConsent')){document.getElementById('cookie-consent').style.display='block';}</script>
 </body>
 </html>
