@@ -3,3 +3,5 @@
 temporary screenshots/
 node_modules/
 .env
+social-pipeline/credentials.json
+social-pipeline/token.json
