@@ -379,6 +379,174 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
       color: var(--muted); line-height: 1.6;
     }
 
+    /* ── SECTION 2: ECOSYSTEM COMPARISON ── */
+    .eco-cards {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1rem; margin-bottom: 2.5rem;
+    }
+    .eco-card {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: 14px; padding: 1.75rem;
+      cursor: pointer; position: relative; overflow: hidden;
+      transition: border-color 0.25s, transform 0.2s, box-shadow 0.25s;
+    }
+    .eco-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--burgundy); transform: scaleX(0);
+      transition: transform 0.3s;
+    }
+    .eco-card:hover::before, .eco-card.expanded::before { transform: scaleX(1); }
+    .eco-card:hover {
+      border-color: rgba(125,34,64,0.2); transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(125,34,64,0.1);
+    }
+    .eco-card-icon { font-size: 1.25rem; margin-bottom: 0.625rem; }
+    .eco-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem; font-weight: 700; color: var(--charcoal);
+      margin-bottom: 0.25rem;
+    }
+    .eco-card-subtitle { font-size: 0.75rem; color: var(--burgundy); font-weight: 500; margin-bottom: 0.75rem; }
+    .eco-card-desc { font-size: 0.875rem; color: var(--muted); line-height: 1.65; }
+    .eco-card-expand {
+      font-size: 0.75rem; color: var(--gold); font-weight: 600;
+      margin-top: 0.75rem; display: flex; align-items: center; gap: 4px;
+    }
+    .eco-card-expand::after { content: '↓'; transition: transform 0.2s; }
+    .eco-card.expanded .eco-card-expand::after { transform: rotate(180deg); }
+    .eco-card-details {
+      display: none; margin-top: 1rem; padding-top: 1rem;
+      border-top: 1px solid var(--border);
+    }
+    .eco-card.expanded .eco-card-details { display: block; }
+    .eco-analogy {
+      background: rgba(125,34,64,0.05); border-radius: 8px;
+      padding: 0.75rem 1rem; font-size: 0.8125rem; color: var(--burgundy);
+      font-style: italic; margin-bottom: 0.75rem;
+    }
+    .eco-skill-label { font-size: 0.625rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 0.375rem; }
+    .eco-skill-bar { display: flex; gap: 4px; margin-bottom: 0.75rem; }
+    .eco-skill-bar span {
+      width: 28px; height: 6px; border-radius: 3px;
+      background: var(--border);
+    }
+    .eco-skill-bar span.filled { background: var(--burgundy); }
+    .eco-who-label { font-size: 0.625rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 0.25rem; }
+    .eco-who { font-size: 0.8125rem; color: var(--charcoal); line-height: 1.6; }
+    .feature-table-wrap { overflow-x: auto; margin-bottom: 2.5rem; }
+    .feature-table {
+      width: 100%; border-collapse: collapse; font-size: 0.875rem;
+    }
+    .feature-table thead th {
+      font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--burgundy);
+      padding: 0.75rem 1rem; text-align: center;
+      border-bottom: 2px solid var(--burgundy);
+    }
+    .feature-table thead th:first-child { text-align: left; color: var(--muted); }
+    .feature-table tbody td {
+      padding: 0.75rem 1rem; text-align: center;
+      border-bottom: 1px solid var(--border);
+      color: var(--charcoal); transition: background 0.15s;
+    }
+    .feature-table tbody td:first-child { text-align: left; font-weight: 500; }
+    .feature-table tbody tr:hover td { background: rgba(125,34,64,0.03); }
+    .feature-check { color: var(--burgundy); font-weight: 700; }
+    .feature-dash { color: var(--border); }
+    .bottom-line { text-align: center; margin-bottom: 1rem; }
+    .bottom-line h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem; font-weight: 700; color: var(--charcoal);
+      margin-bottom: 1.25rem;
+    }
+    .bl-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1rem; }
+    .bl-card { border-radius: 12px; padding: 1.5rem; border: 1px solid var(--border); }
+    .bl-card:nth-child(1) { background: rgba(125,34,64,0.04); border-color: rgba(125,34,64,0.12); }
+    .bl-card:nth-child(2) { background: rgba(201,168,71,0.06); border-color: rgba(201,168,71,0.15); }
+    .bl-card:nth-child(3) { background: rgba(107,101,96,0.05); border-color: rgba(107,101,96,0.12); }
+    .bl-card-icon { font-size: 1.25rem; margin-bottom: 0.5rem; }
+    .bl-card p { font-size: 0.8375rem; color: var(--muted); line-height: 1.6; }
+    .bl-footer {
+      font-size: 0.8125rem; color: var(--muted); font-style: italic;
+      text-align: center; margin-top: 0.5rem;
+    }
+
+    /* ── SECTION 3: STARTER GUIDE ── */
+    .guide-tabs {
+      display: flex; gap: 0.5rem;
+      justify-content: center; margin-bottom: 2rem;
+    }
+    .guide-tab {
+      width: 44px; height: 44px;
+      border-radius: 10px; border: 1.5px solid var(--border);
+      background: var(--surface); color: var(--charcoal);
+      font-family: 'Inter', sans-serif; font-size: 0.8125rem; font-weight: 700;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.15s;
+    }
+    .guide-tab:hover { border-color: var(--gold); transform: translateY(-1px); }
+    .guide-tab.active {
+      background: var(--gold); color: var(--charcoal);
+      border-color: var(--gold);
+      box-shadow: 0 3px 12px rgba(201,168,71,0.3);
+    }
+    .guide-step {
+      display: none;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 14px; padding: 2rem 2.25rem;
+      max-width: 680px; margin: 0 auto;
+      animation: fadeIn 0.3s ease;
+    }
+    .guide-step.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    .guide-step-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
+    .guide-step-label {
+      font-size: 0.625rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--gold); font-weight: 700; margin-bottom: 0.375rem;
+    }
+    .guide-step h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.375rem; font-weight: 700; color: var(--charcoal);
+      margin-bottom: 0.375rem; line-height: 1.3;
+    }
+    .guide-step-subtitle {
+      font-size: 0.875rem; font-style: italic; color: var(--muted);
+      margin-bottom: 1.25rem;
+    }
+    .guide-points { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+    .guide-points li {
+      display: flex; gap: 0.75rem; align-items: flex-start;
+      font-size: 0.9375rem; color: var(--charcoal); line-height: 1.6;
+    }
+    .guide-point-num {
+      width: 24px; height: 24px; border-radius: 50%;
+      background: rgba(201,168,71,0.15); color: var(--gold);
+      font-size: 0.6875rem; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 2px;
+    }
+    .terminal-demo {
+      background: #1e1e2e; border-radius: 10px;
+      padding: 1.25rem 1.5rem; margin-top: 1.5rem;
+      font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
+      font-size: 0.8125rem; line-height: 1.8;
+      overflow-x: auto;
+    }
+    .terminal-demo .dots { display: flex; gap: 6px; margin-bottom: 0.75rem; }
+    .terminal-demo .dots span { width: 10px; height: 10px; border-radius: 50%; }
+    .terminal-demo .dots span:nth-child(1) { background: #ff5f56; }
+    .terminal-demo .dots span:nth-child(2) { background: #ffbd2e; }
+    .terminal-demo .dots span:nth-child(3) { background: #27c93f; }
+    .terminal-demo .cmd { color: #cdd6f4; }
+    .terminal-demo .prompt { color: #6c7086; }
+    .terminal-demo .success { color: #a6e3a1; }
+    .terminal-demo .comment { color: #585b70; }
+    .guide-footer {
+      text-align: center; font-size: 0.75rem; color: var(--muted);
+      margin-top: 1.5rem;
+    }
+
     /* ── EMAIL GATE ── */
     .email-gate {
       background: linear-gradient(135deg, var(--burgundy) 0%, #3D1020 100%);
@@ -537,6 +705,8 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
       .section { padding: 3.5rem 1.5rem; }
       .agency-cards { grid-template-columns: 1fr; }
       .agency-arrows { display: none; }
+      .eco-cards { grid-template-columns: 1fr; }
+      .bl-cards { grid-template-columns: 1fr; }
       .email-form { flex-direction: column; }
       .email-form button { width: 100%; }
       .footer-inner { flex-direction: column; gap: 2rem; }
@@ -655,7 +825,200 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <!-- PLACEHOLDER: Locked sections will be added in Tasks 4 and 5 -->
+  <!-- ═══════════ SECTION 2: CHAT vs COWORK vs CODE ═══════════ -->
+  <section class="section" id="ecosystem">
+    <div class="locked-wrapper locked">
+      <div class="locked-overlay">
+        <div class="lock-badge">🔒 Enter your email above to unlock</div>
+      </div>
+      <div class="locked-content">
+        <div class="section-inner-wide">
+          <p class="eyebrow">Claude Ecosystem</p>
+          <h2 class="section-heading">Chat vs Cowork vs Code</h2>
+          <p class="section-sub">Same AI brain. Three very different ways to use it. Here's how to pick the right one for you.</p>
+
+          <div class="eco-cards">
+            <div class="eco-card" onclick="toggleEcoCard(this)">
+              <div class="eco-card-icon">💬</div>
+              <h3>Claude Chat</h3>
+              <p class="eco-card-subtitle">The conversation</p>
+              <p class="eco-card-desc">The AI assistant you know. Ask questions, get answers, create content — all in a chat window.</p>
+              <p class="eco-card-expand">Tap to expand</p>
+              <div class="eco-card-details">
+                <div class="eco-analogy">"Like texting a really smart friend"</div>
+                <p class="eco-skill-label">Technical Skill Required</p>
+                <div class="eco-skill-bar"><span class="filled"></span><span></span><span></span><span></span><span></span></div>
+                <p class="eco-who-label">Who It's For</p>
+                <p class="eco-who">Everyone. If you can type a message, you can use Claude Chat.</p>
+              </div>
+            </div>
+            <div class="eco-card" onclick="toggleEcoCard(this)">
+              <div class="eco-card-icon">🤝</div>
+              <h3>Cowork</h3>
+              <p class="eco-card-subtitle">The assistant</p>
+              <p class="eco-card-desc">Claude Code's power in a friendly interface. Give it a folder, describe the task, walk away. Come back to finished work.</p>
+              <p class="eco-card-expand">Tap to expand</p>
+              <div class="eco-card-details">
+                <div class="eco-analogy">"Like hiring a virtual assistant who works on your computer"</div>
+                <p class="eco-skill-label">Technical Skill Required</p>
+                <div class="eco-skill-bar"><span class="filled"></span><span class="filled"></span><span class="filled"></span><span></span><span></span></div>
+                <p class="eco-who-label">Who It's For</p>
+                <p class="eco-who">Non-technical business owners, creators, solopreneurs — anyone who wants AI to DO the work, not just talk about it.</p>
+              </div>
+            </div>
+            <div class="eco-card" onclick="toggleEcoCard(this)">
+              <div class="eco-card-icon">⚡</div>
+              <h3>Claude Code</h3>
+              <p class="eco-card-subtitle">The developer tool</p>
+              <p class="eco-card-desc">The command-line powerhouse. Full terminal access, GitHub integration, and unlimited computer control for developers.</p>
+              <p class="eco-card-expand">Tap to expand</p>
+              <div class="eco-card-details">
+                <div class="eco-analogy">"Like giving a developer the keys to your entire computer"</div>
+                <p class="eco-skill-label">Technical Skill Required</p>
+                <div class="eco-skill-bar"><span class="filled"></span><span class="filled"></span><span class="filled"></span><span class="filled"></span><span class="filled"></span></div>
+                <p class="eco-who-label">Who It's For</p>
+                <p class="eco-who">Developers and technical users comfortable with a terminal.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="feature-table-wrap">
+            <table class="feature-table">
+              <thead><tr><th>Feature</th><th>Chat</th><th>Cowork</th><th>Code</th></tr></thead>
+              <tbody>
+                <tr><td>Access your files</td><td class="feature-dash">—</td><td class="feature-check">✓</td><td class="feature-check">✓</td></tr>
+                <tr><td>Works autonomously</td><td class="feature-dash">—</td><td class="feature-check">✓</td><td class="feature-check">✓</td></tr>
+                <tr><td>Parallel sub-tasks</td><td class="feature-dash">—</td><td class="feature-check">✓</td><td class="feature-check">✓</td></tr>
+                <tr><td>No technical skills needed</td><td class="feature-check">✓</td><td class="feature-check">✓</td><td class="feature-dash">—</td></tr>
+                <tr><td>Creates files in your folders</td><td class="feature-dash">—</td><td class="feature-check">✓</td><td class="feature-check">✓</td></tr>
+                <tr><td>Browse the web</td><td class="feature-check">✓</td><td class="feature-check">✓</td><td class="feature-check">✓</td></tr>
+                <tr><td>Plugins / Skills</td><td class="feature-dash">—</td><td class="feature-check">✓</td><td class="feature-check">✓</td></tr>
+                <tr><td>Works on Windows</td><td class="feature-check">✓</td><td class="feature-dash">—</td><td class="feature-check">✓</td></tr>
+                <tr><td>Mobile access</td><td class="feature-check">✓</td><td class="feature-dash">—</td><td class="feature-dash">—</td></tr>
+                <tr><td>Sandboxed (safe by default)</td><td class="feature-check">✓</td><td class="feature-check">✓</td><td class="feature-dash">—</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="bottom-line">
+            <h3>The Bottom Line</h3>
+            <div class="bl-cards">
+              <div class="bl-card"><div class="bl-card-icon">💬</div><p>Use <strong>Chat</strong> when you need answers, ideas, or content created inside a conversation.</p></div>
+              <div class="bl-card"><div class="bl-card-icon">🤝</div><p>Use <strong>Cowork</strong> when you want finished files delivered to your computer — without touching a terminal.</p></div>
+              <div class="bl-card"><div class="bl-card-icon">⚡</div><p>Use <strong>Code</strong> when you're a developer who wants full control and unlimited power.</p></div>
+            </div>
+            <p class="bl-footer">Same AI. Same brain. Three different levels of autonomy. Pick the one that matches how you work.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ SECTION 3: STARTER GUIDE ═══════════ -->
+  <section class="section section-alt" id="starter-guide">
+    <div class="locked-wrapper locked">
+      <div class="locked-overlay">
+        <div class="lock-badge">🔒 Enter your email above to unlock</div>
+      </div>
+      <div class="locked-content">
+        <div class="section-inner-wide">
+          <p class="eyebrow">Getting Started</p>
+          <h2 class="section-heading">Your Claude Code <em>Starter Guide</em></h2>
+          <p class="section-sub">No coding experience needed. Tap each step.</p>
+
+          <div class="guide-tabs">
+            <button class="guide-tab active" onclick="showStep(0)" data-step="0">01</button>
+            <button class="guide-tab" onclick="showStep(1)" data-step="1">02</button>
+            <button class="guide-tab" onclick="showStep(2)" data-step="2">03</button>
+            <button class="guide-tab" onclick="showStep(3)" data-step="3">04</button>
+            <button class="guide-tab" onclick="showStep(4)" data-step="4">05</button>
+          </div>
+
+          <div class="guide-step active" data-step="0">
+            <div class="guide-step-icon">📋</div>
+            <p class="guide-step-label">Step 01</p>
+            <h3>What is Claude Code?</h3>
+            <p class="guide-step-subtitle">It's Claude — but on your computer</p>
+            <ol class="guide-points">
+              <li><span class="guide-point-num">1</span>Instead of chatting in a browser, Claude works directly on your machine</li>
+              <li><span class="guide-point-num">2</span>It creates real files, builds apps, and runs actual tasks</li>
+              <li><span class="guide-point-num">3</span>You don't write code — you describe what you want in plain English</li>
+            </ol>
+          </div>
+
+          <div class="guide-step" data-step="1">
+            <div class="guide-step-icon">📋</div>
+            <p class="guide-step-label">Step 02</p>
+            <h3>Always Start with /plan</h3>
+            <p class="guide-step-subtitle">Blueprints before construction</p>
+            <ol class="guide-points">
+              <li><span class="guide-point-num">1</span>Type /plan before asking Claude to build anything</li>
+              <li><span class="guide-point-num">2</span>It maps out the approach, steps, and files it'll create</li>
+              <li><span class="guide-point-num">3</span>You review and approve before it starts — no surprises</li>
+            </ol>
+            <div class="terminal-demo">
+              <div class="dots"><span></span><span></span><span></span></div>
+              <div class="prompt">~/ my-project $ claude</div>
+              <div class="cmd">&gt; /plan build me a weekly report generator</div>
+              <div class="success">✓ Planning mode activated...</div>
+              <div class="cmd">Here's my approach:</div>
+              <div class="cmd">&nbsp;&nbsp;1. Create project structure</div>
+              <div class="cmd">&nbsp;&nbsp;2. Build data input template</div>
+              <div class="cmd">&nbsp;&nbsp;3. Generate formatted report output</div>
+              <div class="cmd">&nbsp;&nbsp;4. Add export to PDF</div>
+              <div class="success">Shall I proceed? (y/n)</div>
+            </div>
+          </div>
+
+          <div class="guide-step" data-step="2">
+            <div class="guide-step-icon">📂</div>
+            <p class="guide-step-label">Step 03</p>
+            <h3>Set Up Your Folder</h3>
+            <p class="guide-step-subtitle">Future you will thank you</p>
+            <ol class="guide-points">
+              <li><span class="guide-point-num">1</span>Create a project folder with a clear name</li>
+              <li><span class="guide-point-num">2</span>Open your terminal and navigate to that folder</li>
+              <li><span class="guide-point-num">3</span>Everything Claude builds stays organised in one place</li>
+            </ol>
+            <div class="terminal-demo">
+              <div class="dots"><span></span><span></span><span></span></div>
+              <div class="prompt">~ $ mkdir weekly-report</div>
+              <div class="prompt">~ $ cd weekly-report</div>
+              <div class="prompt">~/weekly-report $ claude</div>
+              <div class="success">✓ Ready. Working in ~/weekly-report</div>
+              <div class="comment">📁 Everything Claude builds stays right here ✓</div>
+            </div>
+          </div>
+
+          <div class="guide-step" data-step="3">
+            <div class="guide-step-icon">🎯</div>
+            <p class="guide-step-label">Step 04</p>
+            <h3>Start With Something Annoying</h3>
+            <p class="guide-step-subtitle">Don't build a SaaS. Fix one thing.</p>
+            <ol class="guide-points">
+              <li><span class="guide-point-num">1</span>Pick a task that's repetitive, boring, or takes too long</li>
+              <li><span class="guide-point-num">2</span>A weekly spreadsheet. A manual report. A content template.</li>
+              <li><span class="guide-point-num">3</span>Tell Claude about it. Let it build you a solution.</li>
+            </ol>
+          </div>
+
+          <div class="guide-step" data-step="4">
+            <div class="guide-step-icon">🔧</div>
+            <p class="guide-step-label">Step 05</p>
+            <h3>You'll Break Things</h3>
+            <p class="guide-step-subtitle">That's the process, not the problem</p>
+            <ol class="guide-points">
+              <li><span class="guide-point-num">1</span>Everyone breaks things. Every day. Including me.</li>
+              <li><span class="guide-point-num">2</span>Claude doesn't judge — it helps you fix it</li>
+              <li><span class="guide-point-num">3</span>The only difference is willingness to try again</li>
+            </ol>
+          </div>
+
+          <p class="guide-footer">smallbusinessaicoach.com — AI implementation for women in business</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ═══════════ FOOTER ═══════════ -->
   <footer>
@@ -782,6 +1145,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       localStorage.setItem('claude-resources-unlocked', 'true');
       unlockContent();
       return false;
+    }
+
+    function toggleEcoCard(el) {
+      el.classList.toggle('expanded');
+    }
+
+    function showStep(index) {
+      document.querySelectorAll('.guide-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.guide-step').forEach(s => s.classList.remove('active'));
+      document.querySelector('.guide-tab[data-step="' + index + '"]').classList.add('active');
+      document.querySelector('.guide-step[data-step="' + index + '"]').classList.add('active');
     }
 
     checkUnlocked();
