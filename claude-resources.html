@@ -57,8 +57,10 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
       position: sticky;
       top: 0;
       z-index: 50;
-      background: var(--eggshell);
-      border-bottom: 1px solid rgba(125, 34, 64, 0.12);
+      background: rgba(247,243,238,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -283,6 +285,169 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
       line-height: 1.7;
     }
 
+    /* ── SHARED SECTION STYLES ── */
+    .section { padding: 5rem 4rem; }
+    .section-alt { background: var(--surface); }
+    .section-inner-wide { max-width: 1100px; margin: 0 auto; }
+
+    .eyebrow {
+      font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 0.875rem;
+      display: flex; align-items: center; gap: 0.625rem;
+    }
+    .eyebrow::before {
+      content: ''; display: inline-block;
+      width: 20px; height: 1.5px;
+      background: var(--gold); flex-shrink: 0;
+    }
+
+    .section-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.875rem, 3vw, 2.75rem);
+      font-weight: 700; line-height: 1.15;
+      letter-spacing: -0.03em; color: var(--charcoal);
+      margin-bottom: 1.25rem;
+    }
+    .section-heading em { font-style: italic; color: var(--burgundy); }
+
+    .section-sub {
+      font-size: 0.9375rem; color: var(--muted);
+      line-height: 1.7; margin-bottom: 2rem;
+    }
+
+    /* ── SECTION 1: TINY AGENCY ── */
+    .agency-cards {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1rem; margin-bottom: 1.5rem;
+    }
+    .agency-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.75rem 1.5rem;
+      text-align: center;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+    .agency-card:hover {
+      border-color: rgba(125,34,64,0.2);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(125,34,64,0.08);
+    }
+    .agency-card-icon { font-size: 1.75rem; margin-bottom: 0.75rem; }
+    .agency-card h3 {
+      font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--burgundy);
+      margin-bottom: 0.5rem;
+    }
+    .agency-card p { font-size: 0.8125rem; color: var(--charcoal); line-height: 1.5; margin-bottom: 0.5rem; }
+    .agency-card .examples {
+      font-size: 0.75rem; color: var(--muted); font-style: italic;
+      border-top: 1px dashed var(--border); padding-top: 0.5rem; margin-top: 0.5rem;
+    }
+    .agency-arrows {
+      display: flex; justify-content: center; gap: 3rem;
+      margin-bottom: 1.5rem; color: var(--burgundy); font-size: 1.25rem;
+    }
+    .agency-arrows span {
+      display: flex; flex-direction: column; align-items: center; gap: 2px;
+    }
+    .agency-arrows span::after { content: ''; width: 2px; height: 20px; background: var(--burgundy); opacity: 0.3; }
+    .manager-box {
+      background: var(--burgundy); border-radius: 12px;
+      padding: 1.75rem 2rem; text-align: center; color: var(--eggshell);
+      position: relative; overflow: hidden;
+    }
+    .manager-box::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(201,168,71,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .manager-label {
+      font-size: 0.625rem; letter-spacing: 0.2em; text-transform: uppercase;
+      opacity: 0.6; margin-bottom: 0.375rem;
+    }
+    .manager-box h3 {
+      font-family: 'Playfair Display', serif; font-size: 1.375rem;
+      font-weight: 700; margin-bottom: 0.625rem; position: relative;
+    }
+    .manager-box p { font-size: 0.875rem; opacity: 0.85; line-height: 1.6; position: relative; }
+    .pull-quote {
+      margin-top: 1.75rem; padding: 1rem 1.5rem;
+      border-left: 3px solid var(--gold);
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem; font-style: italic;
+      color: var(--muted); line-height: 1.6;
+    }
+
+    /* ── EMAIL GATE ── */
+    .email-gate {
+      background: linear-gradient(135deg, var(--burgundy) 0%, #3D1020 100%);
+      padding: 4rem 2rem; text-align: center;
+    }
+    .email-gate-inner { max-width: 520px; margin: 0 auto; }
+    .email-gate h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 700; color: var(--eggshell);
+      margin-bottom: 0.75rem; line-height: 1.2;
+    }
+    .email-gate p {
+      color: rgba(247,243,238,0.75);
+      font-size: 0.9375rem; line-height: 1.7;
+      margin-bottom: 1.75rem;
+    }
+    .email-form {
+      display: flex; gap: 0.5rem;
+      max-width: 440px; margin: 0 auto;
+    }
+    .email-form input {
+      flex: 1; padding: 0.875rem 1.25rem;
+      border-radius: 100px; border: 2px solid transparent;
+      font-family: 'Inter', sans-serif; font-size: 0.875rem;
+      background: rgba(247,243,238,0.95); color: var(--charcoal);
+      outline: none; transition: border-color 0.2s;
+    }
+    .email-form input:focus { border-color: var(--gold); }
+    .email-form input::placeholder { color: var(--muted); }
+    .email-form button {
+      background: var(--gold); color: var(--charcoal);
+      padding: 0.875rem 1.75rem; border-radius: 100px;
+      border: none; font-family: 'Inter', sans-serif;
+      font-size: 0.875rem; font-weight: 700;
+      cursor: pointer; white-space: nowrap;
+      box-shadow: 0 4px 16px rgba(201,168,71,0.35);
+      transition: background 0.2s, transform 0.15s;
+    }
+    .email-form button:hover { background: var(--gold-dk); transform: translateY(-1px); }
+    .email-form button:active { transform: translateY(0); }
+    .email-form button:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+    .email-gate-note {
+      color: rgba(247,243,238,0.4); font-size: 0.75rem; margin-top: 0.875rem;
+    }
+    .email-gate-error {
+      color: #ff9f9f; font-size: 0.8125rem; margin-top: 0.5rem; display: none;
+    }
+    .email-gate.hidden { display: none; }
+
+    /* ── LOCKED OVERLAY ── */
+    .locked-wrapper { position: relative; }
+    .locked-wrapper.locked .locked-content { filter: blur(5px); pointer-events: none; user-select: none; }
+    .locked-overlay {
+      position: absolute; inset: 0;
+      background: rgba(247,243,238,0.7);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 10;
+    }
+    .lock-badge {
+      background: var(--burgundy); color: var(--eggshell);
+      padding: 0.75rem 1.5rem; border-radius: 100px;
+      font-size: 0.8125rem; font-weight: 600;
+      display: flex; align-items: center; gap: 0.5rem;
+      box-shadow: 0 4px 20px rgba(125,34,64,0.3);
+    }
+    .locked-wrapper.unlocked .locked-overlay { display: none; }
+    .locked-wrapper.unlocked .locked-content { filter: none; pointer-events: auto; user-select: auto; }
+
     /* ── FOOTER ── */
     footer {
       background: var(--charcoal);
@@ -369,6 +534,11 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     /* ── MOBILE ── */
     @media (max-width: 900px) {
       .hero { padding: 3.5rem 2rem 3rem; }
+      .section { padding: 3.5rem 1.5rem; }
+      .agency-cards { grid-template-columns: 1fr; }
+      .agency-arrows { display: none; }
+      .email-form { flex-direction: column; }
+      .email-form button { width: 100%; }
       .footer-inner { flex-direction: column; gap: 2rem; }
       .footer-nav { flex-wrap: wrap; gap: 1rem; }
       .nav { padding: 0 1.5rem; }
@@ -425,7 +595,67 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <!-- SECTIONS GO HERE -->
+  <!-- ═══════════ SECTION 1: TINY AGENCY ═══════════ -->
+  <section class="section section-alt" id="tiny-agency">
+    <div class="section-inner-wide">
+      <p class="eyebrow">Mental Model</p>
+      <h2 class="section-heading">Claude Code = <em>Tiny Agency</em></h2>
+      <p class="section-sub">The mental model that changed everything</p>
+
+      <div class="agency-cards">
+        <div class="agency-card">
+          <div class="agency-card-icon">📁</div>
+          <h3>Projects</h3>
+          <p>Your actual work. Separate folders.</p>
+          <div class="examples">Website copy, TikTok series, client proposals</div>
+        </div>
+        <div class="agency-card">
+          <div class="agency-card-icon">🧠</div>
+          <h3>Skills</h3>
+          <p>Specialists on retainer. Work across projects.</p>
+          <div class="examples">Copywriter, editor, script reviewer</div>
+        </div>
+        <div class="agency-card">
+          <div class="agency-card-icon">⚙️</div>
+          <h3>Workflows</h3>
+          <p>Your SOPs. How you want things done.</p>
+          <div class="examples">Content creation process, review steps</div>
+        </div>
+      </div>
+
+      <div class="agency-arrows">
+        <span>↓</span>
+        <span>↓</span>
+        <span>↓</span>
+      </div>
+
+      <div class="manager-box">
+        <p class="manager-label">The Manager</p>
+        <h3>Claude Code</h3>
+        <p>Reads your workflows. Knows your skills. Works on your projects. You set up the system.</p>
+      </div>
+
+      <blockquote class="pull-quote">
+        "I stopped asking it to do everything and started building a team."
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ═══════════ EMAIL GATE ═══════════ -->
+  <section class="email-gate" id="email-gate">
+    <div class="email-gate-inner">
+      <h2>Unlock the Full Interactive Toolkit</h2>
+      <p>Get instant access to the comparison tool, starter guide, and all interactive features — plus a PDF version delivered to your inbox.</p>
+      <form class="email-form" id="email-form" onsubmit="return handleEmailSubmit(event)">
+        <input type="email" id="email-input" placeholder="your@email.com" required autocomplete="email" />
+        <button type="submit" id="email-btn">Unlock Now</button>
+      </form>
+      <p class="email-gate-error" id="email-error"></p>
+      <p class="email-gate-note">No spam. Unsubscribe anytime.</p>
+    </div>
+  </section>
+
+  <!-- PLACEHOLDER: Locked sections will be added in Tasks 4 and 5 -->
 
   <!-- ═══════════ FOOTER ═══════════ -->
   <footer>
@@ -480,6 +710,81 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         }
       });
     })();
+
+    // ── Email Gate Config ──
+    const AIRTABLE_BASE_ID = 'YOUR_BASE_ID';
+    const AIRTABLE_TABLE_NAME = 'Leads';
+    const AIRTABLE_API_KEY = 'YOUR_AIRTABLE_API_KEY';
+    const RESEND_API_KEY = 'YOUR_RESEND_API_KEY';
+    const PDF_URL = 'https://smallbusinessaicoach.com/assets/claude-resources-guide.pdf';
+
+    function checkUnlocked() {
+      if (localStorage.getItem('claude-resources-unlocked') === 'true') {
+        unlockContent();
+      }
+    }
+
+    function unlockContent() {
+      const gate = document.getElementById('email-gate');
+      if (gate) gate.classList.add('hidden');
+      document.querySelectorAll('.locked-wrapper').forEach(el => {
+        el.classList.remove('locked');
+        el.classList.add('unlocked');
+      });
+    }
+
+    async function handleEmailSubmit(e) {
+      e.preventDefault();
+      const emailInput = document.getElementById('email-input');
+      const btn = document.getElementById('email-btn');
+      const errorEl = document.getElementById('email-error');
+      const email = emailInput.value.trim();
+
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        errorEl.textContent = 'Please enter a valid email address.';
+        errorEl.style.display = 'block';
+        return false;
+      }
+
+      errorEl.style.display = 'none';
+      btn.disabled = true;
+      btn.textContent = 'Unlocking...';
+
+      try {
+        await fetch(`https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${AIRTABLE_TABLE_NAME}`, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${AIRTABLE_API_KEY}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            fields: { Email: email, Source: 'claude-resources', Timestamp: new Date().toISOString() }
+          })
+        });
+      } catch (err) { console.error('Airtable error:', err); }
+
+      try {
+        await fetch('https://api.resend.com/emails', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${RESEND_API_KEY}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            from: 'Alice Bazdikian <alice@smallbusinessaicoach.com>',
+            to: [email],
+            subject: 'Your Claude AI Resource Guide',
+            html: '<p>Hi there!</p><p>Thanks for unlocking the Claude Resources toolkit. Here\'s your PDF guide:</p><p><a href="' + PDF_URL + '">Download Your Claude AI Guide (PDF)</a></p><p>If you have any questions about using Claude for your business, I\'d love to chat.</p><p>— Alice</p><p><a href="https://calendly.com/abazdikian/diagnostic">Book a Free AI Diagnostic</a></p>'
+          })
+        });
+      } catch (err) { console.error('Resend error:', err); }
+
+      localStorage.setItem('claude-resources-unlocked', 'true');
+      unlockContent();
+      return false;
+    }
+
+    checkUnlocked();
   </script>
 </body>
 </html>
