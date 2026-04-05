@@ -5,7 +5,7 @@ Returns a list of story dicts.
 
 import requests
 import time
-from config import REDDIT_SUBS, REDDIT_MIN_SCORE, REDDIT_HEADERS
+from config import REDDIT_SUBS, REDDIT_MIN_SCORE, REDDIT_HEADERS, REDDIT_MIN_TITLE_LEN
 
 
 def fetch_reddit():
@@ -13,6 +13,7 @@ def fetch_reddit():
     stories = []
 
     for sub in REDDIT_SUBS:
+        min_score = sub.get("min_score", REDDIT_MIN_SCORE)
         try:
             resp = requests.get(sub["url"], headers=REDDIT_HEADERS, timeout=15)
             resp.raise_for_status()
@@ -20,15 +21,24 @@ def fetch_reddit():
 
             for post in data.get("data", {}).get("children", []):
                 p = post["data"]
-                if p.get("score", 0) < REDDIT_MIN_SCORE:
+                if p.get("score", 0) < min_score:
                     continue
                 if p.get("stickied"):
+                    continue
+                # Skip meme/image-only posts — require meaningful title
+                title = p.get("title", "")
+                if len(title) < REDDIT_MIN_TITLE_LEN:
+                    continue
+                # Skip image-only posts with no text body
+                body = (p.get("selftext", "") or "").strip()
+                is_link = p.get("is_self") is False
+                if not body and not is_link:
                     continue
 
                 stories.append({
                     "source": f"reddit/r/{sub['name']}",
-                    "title": p.get("title", ""),
-                    "body": (p.get("selftext", "") or "")[:500],
+                    "title": title,
+                    "body": body[:500],
                     "url": f"https://www.reddit.com{p.get('permalink', '')}",
                     "score": p.get("score", 0),
                     "comments": p.get("num_comments", 0),
