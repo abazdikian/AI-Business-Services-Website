@@ -53,7 +53,14 @@ BRAND VOICE:
 - Include specific numbers, dollar amounts, time savings, and actionable steps.
 - Write like you're talking to a smart friend over coffee, not presenting at a tech conference.
 
-CAPTION STRUCTURE:
+STORYTELLING RULES — THIS IS CRITICAL:
+- At least 3 of the items MUST include a personal story angle. Not "this tool exists" but "here's what happened when I tried it" or "a client of mine was spending 10 hours/week on X until..."
+- Use first person ("I") liberally. Alice is sharing her experience, not reporting news.
+- Include micro-stories: "Last Tuesday a client told me..." or "I used to spend 3 hours on proposals. Now it takes 12 minutes."
+- Even news items should be framed as "I saw this and immediately thought of [audience pain point]"
+- The audience should feel like Alice is texting them a tip, not publishing an article.
+
+CAPTION STRUCTURE (for the main Instagram/Facebook/LinkedIn caption):
 1. Hook line (bold, attention-grabbing — use the HOOK SWIPE FILE below)
 2. 3-5 value bullets using → arrows (each bullet = one actionable insight for a business owner)
 3. One-line CTA (e.g., "Save this for later", "Which one are you using?", "Tag a founder who needs this")
@@ -124,15 +131,33 @@ HEADLINE RULES:
   * "How The Latest AI Safety Research Impacts Enterprise Development"
   * "A Comprehensive Guide to Reducing API Token Usage"
 
-OUTPUT FORMAT: Return valid JSON — an array of objects, each with:
+OUTPUT FORMAT: Return valid JSON — an array of objects. Each object must include the main post PLUS 4 repurposed variations. This turns 1 idea into 5 pieces of content:
+
 {
   "headline": "max 8 words, hook-style",
   "summary": "2-3 sentence summary focused on the business impact",
-  "caption": "the full social media caption",
+  "caption": "the full Instagram/Facebook caption (with storytelling)",
+  "linkedin_text": "LinkedIn-optimized text post — longer, more professional, includes a personal anecdote or lesson. No hashtags in body. 150-250 words. End with a question to drive comments.",
+  "twitter_thread": ["Tweet 1 (hook — max 280 chars)", "Tweet 2 (the insight)", "Tweet 3 (the actionable takeaway)", "Tweet 4 (CTA — follow for more / link in bio)"],
+  "quote_text": "One punchy sentence from the caption that works as a standalone quote graphic. Max 15 words.",
+  "video_script": "30-second talking-head script. Start with the hook, deliver 1 key insight, end with CTA. Write it conversational — this is Alice talking to camera.",
+  "carousel_points": [
+    {"number": "01", "title": "short card title", "body": "2-3 sentence explanation"},
+    {"number": "02", "title": "short card title", "body": "2-3 sentence explanation"},
+    {"number": "03", "title": "short card title", "body": "2-3 sentence explanation"}
+  ],
   "hashtags": {"branded": [...], "niche": [...], "reach": [...]},
   "source_url": "original URL",
   "category": "one of the 5 categories"
 }
+
+REPURPOSING GUIDELINES:
+- caption: Instagram/Facebook style — emoji-friendly, → arrows, short punchy lines
+- linkedin_text: Professional but warm — no emojis, longer paragraphs, thought-leadership tone, end with a discussion question
+- twitter_thread: 3-4 tweets, each under 280 chars, first tweet is the hook that makes people click "Show thread"
+- quote_text: The single most shareable line — works on its own as a quote graphic
+- video_script: Written as spoken word — contractions, pauses, conversational. 30 seconds max.
+- carousel_points: 2-3 cards that break down the topic for a LinkedIn PDF carousel
 
 Return EXACTLY between """ + str(TOTAL_ITEMS_MIN) + " and " + str(TOTAL_ITEMS_MAX) + """ items. Quality over quantity — 7 great items beats 14 mediocre ones.
 Be ruthless about relevance. If a story doesn't pass the test of "Would a woman running a small business stop scrolling for this?", cut it."""
@@ -152,7 +177,7 @@ def draft_posts(raw_stories):
     try:
         response = client.messages.create(
             model=CLAUDE_MODEL,
-            max_tokens=8000,
+            max_tokens=16000,
             system=SYSTEM_PROMPT,
             messages=[{"role": "user", "content": user_message}],
         )

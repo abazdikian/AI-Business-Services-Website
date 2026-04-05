@@ -40,19 +40,62 @@ def format_email(items):
         caption = item.get("caption", "")
         caption_html = caption.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace("\n", "<br>")
 
+        # Format repurposed content sections
+        linkedin_text = item.get("linkedin_text", "")
+        linkedin_html = linkedin_text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace("\n", "<br>") if linkedin_text else ""
+
+        twitter_thread = item.get("twitter_thread", [])
+        thread_html = ""
+        for t_i, tweet in enumerate(twitter_thread):
+            tweet_escaped = tweet.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+            thread_html += f'<p style="font-size:12px;color:#1C1C1C;line-height:1.5;margin:0 0 6px;padding-left:12px;border-left:2px solid rgba(201,168,71,0.3);"><strong style="color:#C9A847;">{t_i+1}/</strong> {tweet_escaped}</p>'
+
+        quote_text = item.get("quote_text", "")
+        video_script = item.get("video_script", "")
+        video_html = video_script.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace("\n", "<br>") if video_script else ""
+
+        # Build repurposed sections
+        repurposed_html = ""
+        if linkedin_html:
+            repurposed_html += f'''
+              <div style="margin-top:12px;padding:12px 16px;background:rgba(0,119,181,0.04);border-left:3px solid #0077B5;border-radius:0 8px 8px 0;">
+                <p style="font-size:10px;font-weight:700;color:#0077B5;letter-spacing:0.08em;text-transform:uppercase;margin:0 0 6px;">LinkedIn Text Post</p>
+                <p style="font-size:12px;color:#1C1C1C;line-height:1.55;margin:0;">{linkedin_html}</p>
+              </div>'''
+        if thread_html:
+            repurposed_html += f'''
+              <div style="margin-top:12px;padding:12px 16px;background:rgba(29,155,240,0.04);border-left:3px solid #1DA1F2;border-radius:0 8px 8px 0;">
+                <p style="font-size:10px;font-weight:700;color:#1DA1F2;letter-spacing:0.08em;text-transform:uppercase;margin:0 0 6px;">X/Twitter Thread</p>
+                {thread_html}
+              </div>'''
+        if quote_text:
+            repurposed_html += f'''
+              <div style="margin-top:12px;padding:14px 18px;background:#7D2240;border-radius:8px;text-align:center;">
+                <p style="font-family:Georgia,'Playfair Display',serif;font-size:15px;font-weight:700;color:#F7F3EE;line-height:1.4;margin:0;font-style:italic;">"{quote_text}"</p>
+              </div>'''
+        if video_html:
+            repurposed_html += f'''
+              <div style="margin-top:12px;padding:12px 16px;background:rgba(107,101,96,0.06);border-left:3px solid #6B6560;border-radius:0 8px 8px 0;">
+                <p style="font-size:10px;font-weight:700;color:#6B6560;letter-spacing:0.08em;text-transform:uppercase;margin:0 0 6px;">30-Sec Video Script</p>
+                <p style="font-size:12px;color:#1C1C1C;line-height:1.55;margin:0;font-style:italic;">{video_html}</p>
+              </div>'''
+
         cards_html += f"""
         <tr><td style="padding:0 0 24px 0;">
           <table width="100%" cellpadding="0" cellspacing="0" style="background:#FFFFFF;border-radius:12px;border:1px solid rgba(28,28,28,0.09);overflow:hidden;">
             <tr><td style="padding:24px 28px;">
               <span style="display:inline-block;background:{cat_color};color:#F7F3EE;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:4px 12px;border-radius:100px;margin-bottom:12px;">{cat_label}</span>
-              <h2 style="font-family:Georgia,'Playfair Display',serif;font-size:20px;font-weight:700;color:#1C1C1C;margin:12px 0 8px;line-height:1.3;">{item.get('headline', '')}</h2>
+              <h2 style="font-family:Georgia,'Playfair Display',serif;font-size:20px;font-weight:700;color:#1C1C1C;margin:12px 0 8px;line-height:1.3;">#{i+1} — {item.get('headline', '')}</h2>
               <p style="font-size:14px;color:#6B6560;line-height:1.6;margin:0 0 16px;">{item.get('summary', '')}</p>
-              <div style="background:rgba(125,34,64,0.04);border-left:3px solid #C9A847;border-radius:0 8px 8px 0;padding:14px 18px;margin:0 0 14px;">
-                <p style="font-size:11px;font-weight:700;color:#C9A847;letter-spacing:0.08em;text-transform:uppercase;margin:0 0 6px;">Draft Caption</p>
+              <div style="background:rgba(125,34,64,0.04);border-left:3px solid #C9A847;border-radius:0 8px 8px 0;padding:14px 18px;margin:0 0 4px;">
+                <p style="font-size:10px;font-weight:700;color:#C9A847;letter-spacing:0.08em;text-transform:uppercase;margin:0 0 6px;">Instagram / Facebook Caption</p>
                 <p style="font-size:13px;color:#1C1C1C;line-height:1.65;margin:0;">{caption_html}</p>
               </div>
-              <p style="font-size:12px;color:#6B6560;margin:0 0 8px;">{tags_str}</p>
-              <a href="{item.get('source_url', '#')}" style="font-size:12px;color:#7D2240;font-weight:600;text-decoration:none;">View source &rarr;</a>
+              {repurposed_html}
+              <div style="margin-top:14px;padding-top:12px;border-top:1px solid rgba(28,28,28,0.06);">
+                <p style="font-size:12px;color:#6B6560;margin:0 0 4px;">{tags_str}</p>
+                <a href="{item.get('source_url', '#')}" style="font-size:12px;color:#7D2240;font-weight:600;text-decoration:none;">View source &rarr;</a>
+              </div>
             </td></tr>
           </table>
         </td></tr>"""
