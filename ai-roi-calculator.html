@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":
+new Date().getTime(),event:"gtm.js"});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
+"https://www.googletagmanager.com/gtm.js?id="+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,"script","dataLayer","GTM-53LWP97Z");</script>
+<!-- End Google Tag Manager -->
+  <title>AI ROI Calculator — How Much Could AI Save You? | Alice Bazdikian</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="description" content="Answer 5 questions and see exactly how much time and money AI could save your business. Free interactive calculator for small business owners." />
+  <link rel="canonical" href="https://www.smallbusinessaicoach.com/ai-roi-calculator.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="AI ROI Calculator — How Much Could AI Save You? | Alice Bazdikian" />
+  <meta property="og:description" content="Answer 5 questions and see exactly how much time and money AI could save your business. Free interactive calculator for small business owners." />
+  <meta property="og:url" content="https://www.smallbusinessaicoach.com/ai-roi-calculator.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AI ROI Calculator — How Much Could AI Save You? | Alice Bazdikian" />
+  <meta name="twitter:description" content="Answer 5 questions and see exactly how much time and money AI could save your business. Free interactive calculator for small business owners." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600;1,700;1,900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --eggshell: #F7F3EE;
+      --surface:  #FFFFFF;
+      --charcoal: #1C1C1C;
+      --burgundy: #7D2240;
+      --burg-dk:  #651B33;
+      --burg-lt:  #9e2d52;
+      --gold:     #C9A847;
+      --gold-dk:  #B8952E;
+      --muted:    #6B6560;
+      --border:   rgba(28,28,28,0.09);
+    }
+
+    body {
+      background: var(--eggshell);
+      color: var(--charcoal);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ── NAVIGATION ── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(247,243,238,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2.5rem;
+      height: 68px;
+    }
+
+    .nav-brand {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .nav-brand-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      letter-spacing: -0.01em;
+    }
+
+    .nav-brand-tag {
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 400;
+      color: var(--charcoal);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover { color: var(--burgundy); }
+
+    .nav-links a.active {
+      color: var(--burgundy);
+      font-weight: 600;
+    }
+
+    .btn-nav {
+      display: inline-flex;
+      align-items: center;
+      background: var(--gold);
+      color: var(--charcoal);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      padding: 0.5rem 1.25rem;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+      box-shadow: 0 2px 8px rgba(201, 168, 71, 0.3);
+    }
+
+    .btn-nav:hover {
+      background: var(--gold-dk);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(201, 168, 71, 0.4);
+    }
+
+    .btn-nav:active { transform: translateY(0); }
+
+    .btn-nav:focus-visible {
+      outline: 2px solid var(--burgundy);
+      outline-offset: 3px;
+    }
+
+    .btn-nav-outline {
+      display: inline-flex;
+      align-items: center;
+      background: transparent;
+      color: var(--gold);
+      border: 1.5px solid var(--gold);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      padding: 0.45rem 1.2rem;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+    }
+    .btn-nav-outline:hover {
+      background: var(--gold);
+      color: var(--charcoal);
+      transform: translateY(-1px);
+    }
+
+    /* ── HAMBURGER ── */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 6px;
+      transition: background 0.2s ease;
+    }
+    .nav-hamburger:hover { background: rgba(125,34,64,0.08); }
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--charcoal);
+      border-radius: 2px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .nav-hamburger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.is-open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ── MOBILE MENU ── */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 68px;
+      left: 0;
+      right: 0;
+      background: var(--eggshell);
+      border-bottom: 2px solid rgba(125,34,64,0.15);
+      padding: 0.25rem 2rem 1.25rem;
+      z-index: 48;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.1);
+      flex-direction: column;
+    }
+    .mobile-menu.is-open { display: flex; }
+    .mobile-menu a {
+      font-size: 0.9375rem;
+      font-weight: 400;
+      color: var(--charcoal);
+      text-decoration: none;
+      padding: 0.875rem 0.25rem;
+      border-bottom: 1px solid rgba(28,28,28,0.07);
+      transition: color 0.2s ease;
+    }
+    .mobile-menu a:hover { color: var(--burgundy); }
+    .mobile-menu a.active {
+      color: var(--burgundy);
+      font-weight: 600;
+    }
+    .mobile-menu .mob-cta {
+      background: var(--gold);
+      color: var(--charcoal) !important;
+      font-weight: 600;
+      border-radius: 100px;
+      text-align: center;
+      justify-content: center;
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      border: none !important;
+      box-shadow: 0 2px 8px rgba(201,168,71,0.3);
+      display: inline-flex;
+    }
+    .mobile-menu .mob-cta:hover { background: var(--gold-dk); }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--eggshell);
+      padding: 5rem 4rem 4rem;
+      text-align: center;
+    }
+    .hero-inner {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.625rem;
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 1.5px;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: var(--charcoal);
+      margin-bottom: 1.25rem;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--burgundy);
+    }
+    .hero-sub {
+      font-size: 1.0625rem;
+      color: var(--muted);
+      max-width: 540px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ── CALCULATOR SECTION ── */
+    .calc-section {
+      padding: 4rem 4rem 5rem;
+    }
+    .calc-container {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* ── CALCULATOR CARD ── */
+    .calc-card {
+      background: var(--surface);
+      border-radius: 16px;
+      padding: 3rem 2.5rem;
+      box-shadow:
+        0 1px 3px rgba(125,34,64,0.04),
+        0 8px 32px rgba(125,34,64,0.06);
+      border: 1px solid var(--border);
+    }
+
+    /* ── PROGRESS BAR ── */
+    .calc-progress {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .calc-progress-step {
+      flex: 1;
+      height: 4px;
+      border-radius: 4px;
+      background: rgba(125,34,64,0.1);
+      transition: background 0.4s ease;
+    }
+    .calc-progress-step.active {
+      background: var(--burgundy);
+    }
+    .calc-progress-step.completed {
+      background: var(--gold);
+    }
+    .calc-progress-label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+    }
+
+    /* ── QUESTION STEPS ── */
+    .calc-step {
+      display: none;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+    .calc-step.visible {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .calc-step-number {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+
+    .calc-step h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+      color: var(--charcoal);
+      margin-bottom: 2rem;
+    }
+
+    /* ── SLIDER ── */
+    .slider-wrapper {
+      margin-bottom: 2rem;
+    }
+    .slider-value-display {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--burgundy);
+      text-align: center;
+      margin-bottom: 0.5rem;
+      line-height: 1;
+    }
+    .slider-value-display span {
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--muted);
+    }
+
+    .slider-input {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 6px;
+      border-radius: 6px;
+      background: linear-gradient(to right, var(--burgundy) 0%, var(--burgundy) 25%, rgba(125,34,64,0.12) 25%, rgba(125,34,64,0.12) 100%);
+      outline: none;
+      cursor: pointer;
+    }
+    .slider-input::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--burgundy);
+      border: 3px solid var(--surface);
+      box-shadow: 0 2px 8px rgba(125,34,64,0.3);
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .slider-input::-webkit-slider-thumb:hover {
+      transform: scale(1.15);
+      box-shadow: 0 4px 14px rgba(125,34,64,0.4);
+    }
+    .slider-input::-moz-range-thumb {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--burgundy);
+      border: 3px solid var(--surface);
+      box-shadow: 0 2px 8px rgba(125,34,64,0.3);
+      cursor: pointer;
+    }
+    .slider-labels {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 0.5rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    /* ── OPTION BUTTONS ── */
+    .option-buttons {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+    .option-btn {
+      background: var(--eggshell);
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--charcoal);
+      cursor: pointer;
+      text-align: center;
+      transition: border-color 0.2s ease, background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+    }
+    .option-btn:hover {
+      border-color: rgba(125,34,64,0.25);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(125,34,64,0.06);
+    }
+    .option-btn:focus-visible {
+      outline: 2px solid var(--burgundy);
+      outline-offset: 3px;
+    }
+    .option-btn.selected {
+      border-color: var(--burgundy);
+      background: rgba(125,34,64,0.05);
+      color: var(--burgundy);
+      font-weight: 600;
+      box-shadow: 0 2px 10px rgba(125,34,64,0.1);
+    }
+
+    /* ── NAV BUTTONS ── */
+    .calc-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1rem;
+    }
+    .calc-btn-back {
+      background: none;
+      border: none;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--muted);
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: color 0.2s ease, background 0.2s ease;
+    }
+    .calc-btn-back:hover {
+      color: var(--charcoal);
+      background: rgba(28,28,28,0.04);
+    }
+    .calc-btn-back:focus-visible {
+      outline: 2px solid var(--burgundy);
+      outline-offset: 3px;
+    }
+    .calc-btn-next {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--burgundy);
+      color: var(--eggshell);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      padding: 0.75rem 1.75rem;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+      box-shadow: 0 2px 10px rgba(125,34,64,0.25);
+    }
+    .calc-btn-next:hover {
+      background: var(--burg-dk);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(125,34,64,0.35);
+    }
+    .calc-btn-next:active { transform: translateY(0); }
+    .calc-btn-next:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
+    }
+
+    /* ── RESULTS ── */
+    .results-section {
+      display: none;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .results-section.visible {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .results-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--charcoal);
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .results-headline em {
+      font-style: italic;
+      color: var(--burgundy);
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .result-card {
+      background: var(--eggshell);
+      border-radius: 12px;
+      padding: 1.5rem 1.25rem;
+      text-align: center;
+      border: 1px solid var(--border);
+    }
+    .result-card-label {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+    .result-card-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.25rem;
+      font-weight: 900;
+      color: var(--burgundy);
+      line-height: 1.1;
+    }
+    .result-card-value span {
+      font-size: 1.25rem;
+    }
+    .result-card-sub {
+      font-size: 0.8125rem;
+      color: var(--muted);
+      margin-top: 0.375rem;
+    }
+
+    .results-roi-bar {
+      background: linear-gradient(135deg, var(--burgundy), var(--burg-lt));
+      border-radius: 12px;
+      padding: 1.75rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+    .roi-bar-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(247,243,238,0.7);
+    }
+    .roi-bar-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--eggshell);
+      line-height: 1;
+    }
+    .roi-bar-right {
+      text-align: right;
+    }
+    .roi-bar-cost {
+      font-size: 0.8125rem;
+      color: rgba(247,243,238,0.6);
+      margin-top: 0.25rem;
+    }
+
+    .results-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 2rem 0;
+    }
+
+    /* ── CTA SECTION ── */
+    .results-cta {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .results-cta p {
+      font-size: 1.0625rem;
+      color: var(--charcoal);
+      margin-bottom: 1.25rem;
+      line-height: 1.6;
+    }
+
+    .btn-gold {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--gold);
+      color: var(--charcoal);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      padding: 0.875rem 2rem;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+      box-shadow: 0 2px 10px rgba(201,168,71,0.3);
+    }
+    .btn-gold:hover {
+      background: var(--gold-dk);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(201,168,71,0.4);
+    }
+    .btn-gold:active { transform: translateY(0); }
+    .btn-gold:focus-visible {
+      outline: 2px solid var(--burgundy);
+      outline-offset: 3px;
+    }
+
+    .results-secondary {
+      margin-top: 1rem;
+    }
+    .results-secondary a {
+      font-size: 0.875rem;
+      color: var(--burgundy);
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid rgba(125,34,64,0.2);
+      transition: border-color 0.2s ease, color 0.2s ease;
+    }
+    .results-secondary a:hover {
+      border-color: var(--burgundy);
+      color: var(--burg-dk);
+    }
+    .results-secondary a:focus-visible {
+      outline: 2px solid var(--burgundy);
+      outline-offset: 3px;
+    }
+
+    /* ── EMAIL CAPTURE ── */
+    .email-capture {
+      background: var(--eggshell);
+      border-radius: 12px;
+      padding: 1.75rem 2rem;
+      text-align: center;
+      border: 1px solid var(--border);
+    }
+    .email-capture p {
+      font-size: 0.9375rem;
+      color: var(--charcoal);
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+    .email-form {
+      display: flex;
+      gap: 0.75rem;
+      max-width: 440px;
+      margin: 0 auto;
+    }
+    .email-form input {
+      flex: 1;
+      padding: 0.75rem 1rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      border: 1.5px solid var(--border);
+      border-radius: 100px;
+      background: var(--surface);
+      color: var(--charcoal);
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+    .email-form input:focus {
+      border-color: var(--burgundy);
+    }
+    .email-form input::placeholder {
+      color: rgba(107,101,96,0.5);
+    }
+    .email-form button {
+      display: inline-flex;
+      align-items: center;
+      background: var(--burgundy);
+      color: var(--eggshell);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      padding: 0.75rem 1.5rem;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.15s ease;
+      white-space: nowrap;
+    }
+    .email-form button:hover {
+      background: var(--burg-dk);
+      transform: translateY(-1px);
+    }
+    .email-form button:active { transform: translateY(0); }
+    .email-form button:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
+    }
+    .email-success {
+      display: none;
+      font-size: 0.875rem;
+      color: var(--burgundy);
+      font-weight: 500;
+      margin-top: 0.75rem;
+    }
+    .email-error {
+      display: none;
+      font-size: 0.8125rem;
+      color: #c53030;
+      margin-top: 0.5rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--charcoal);
+      padding: 3.5rem 4rem 2rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-brand-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.0625rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 0.25rem;
+    }
+
+    .footer-brand-tag {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .footer-nav {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .footer-nav a {
+      font-size: 0.8125rem;
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-nav a:hover { color: var(--gold); }
+
+    .footer-linkedin {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+    }
+
+    .footer-linkedin:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: rgba(201,168,71,0.07);
+    }
+
+    .footer-copy {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.01em;
+    }
+
+    /* ── LARGE SCREENS ── */
+    @media (min-width: 1600px) {
+      footer {
+        padding: 4rem 4rem 2.5rem;
+      }
+      .footer-inner,
+      .footer-copy {
+        max-width: 1400px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 900px) {
+      .hero { padding: 3.5rem 2rem 3rem; }
+      .calc-section { padding: 2rem 1.5rem 3.5rem; }
+      .calc-card { padding: 2rem 1.5rem; }
+      .results-grid { grid-template-columns: 1fr; }
+      .results-roi-bar {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.75rem;
+      }
+      .roi-bar-right { text-align: center; }
+      .option-buttons { grid-template-columns: 1fr; }
+      .email-form { flex-direction: column; }
+      .email-form button { width: 100%; justify-content: center; }
+      .footer-inner { flex-direction: column; gap: 2rem; }
+      .footer-nav { flex-wrap: wrap; gap: 1rem; }
+      .nav { padding: 0 1.5rem; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+    }
+
+    @media (max-width: 480px) {
+      .slider-value-display {
+        font-size: 2.5rem;
+      }
+      .result-card-value {
+        font-size: 1.875rem;
+      }
+      .roi-bar-value {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-53LWP97Z"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+  <!-- ═══════════ NAVIGATION ═══════════ -->
+  <nav class="nav">
+    <a href="/" style="text-decoration:none">
+      <div class="nav-brand">
+        <span class="nav-brand-name">Alice Bazdikian</span>
+        <span class="nav-brand-tag">AI Strategist</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="workshops.html" class="btn-nav-outline">Work With Me</a></li>
+      <li><a href="scorecard.html">Scorecard</a></li>
+      <li><a href="claude-resources.html">Claude Resources</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li>
+        <a href="https://calendly.com/abazdikian/diagnostic" class="btn-nav">Book a Diagnostic</a>
+      </li>
+    </ul>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <a href="about.html">About</a>
+    <a href="workshops.html">Work With Me</a>
+    <a href="scorecard.html">Scorecard</a>
+    <a href="claude-resources.html">Claude Resources</a>
+    <a href="blog.html">Blog</a>
+    <a href="https://calendly.com/abazdikian/diagnostic" class="mob-cta">Book a Diagnostic</a>
+  </div>
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="hero-eyebrow">Free Tool</p>
+      <h1>How Much Is <em>AI</em> Worth to <em>Your</em> Business?</h1>
+      <p class="hero-sub">Answer 5 quick questions. Get your personalized AI savings estimate in 30 seconds.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════ CALCULATOR ═══════════ -->
+  <section class="calc-section">
+    <div class="calc-container">
+      <div class="calc-card" id="calc-card">
+
+        <!-- Progress Bar -->
+        <div class="calc-progress">
+          <div class="calc-progress-step active" id="prog-1"></div>
+          <div class="calc-progress-step" id="prog-2"></div>
+          <div class="calc-progress-step" id="prog-3"></div>
+          <div class="calc-progress-step" id="prog-4"></div>
+          <div class="calc-progress-step" id="prog-5"></div>
+          <span class="calc-progress-label" id="prog-label">1 / 5</span>
+        </div>
+
+        <!-- Step 1: Admin hours -->
+        <div class="calc-step visible" id="step-1">
+          <p class="calc-step-number">Question 01</p>
+          <h2>How many hours per week do you spend on admin tasks?</h2>
+          <div class="slider-wrapper">
+            <div class="slider-value-display" id="admin-display">10 <span>hrs/week</span></div>
+            <input type="range" class="slider-input" id="admin-slider" min="0" max="40" value="10" step="1">
+            <div class="slider-labels">
+              <span>0 hrs</span>
+              <span>20 hrs</span>
+              <span>40 hrs</span>
+            </div>
+          </div>
+          <div class="calc-nav">
+            <div></div>
+            <button class="calc-btn-next" onclick="goToStep(2)">Next <span aria-hidden="true">&rarr;</span></button>
+          </div>
+        </div>
+
+        <!-- Step 2: Content creation hours -->
+        <div class="calc-step" id="step-2">
+          <p class="calc-step-number">Question 02</p>
+          <h2>How many hours per week on content creation?</h2>
+          <div class="slider-wrapper">
+            <div class="slider-value-display" id="content-display">5 <span>hrs/week</span></div>
+            <input type="range" class="slider-input" id="content-slider" min="0" max="20" value="5" step="1">
+            <div class="slider-labels">
+              <span>0 hrs</span>
+              <span>10 hrs</span>
+              <span>20 hrs</span>
+            </div>
+          </div>
+          <div class="calc-nav">
+            <button class="calc-btn-back" onclick="goToStep(1)">&larr; Back</button>
+            <button class="calc-btn-next" onclick="goToStep(3)">Next <span aria-hidden="true">&rarr;</span></button>
+          </div>
+        </div>
+
+        <!-- Step 3: Client communications hours -->
+        <div class="calc-step" id="step-3">
+          <p class="calc-step-number">Question 03</p>
+          <h2>How many hours per week on client communications?</h2>
+          <div class="slider-wrapper">
+            <div class="slider-value-display" id="comms-display">5 <span>hrs/week</span></div>
+            <input type="range" class="slider-input" id="comms-slider" min="0" max="20" value="5" step="1">
+            <div class="slider-labels">
+              <span>0 hrs</span>
+              <span>10 hrs</span>
+              <span>20 hrs</span>
+            </div>
+          </div>
+          <div class="calc-nav">
+            <button class="calc-btn-back" onclick="goToStep(2)">&larr; Back</button>
+            <button class="calc-btn-next" onclick="goToStep(4)">Next <span aria-hidden="true">&rarr;</span></button>
+          </div>
+        </div>
+
+        <!-- Step 4: Hourly rate -->
+        <div class="calc-step" id="step-4">
+          <p class="calc-step-number">Question 04</p>
+          <h2>What do you value your time at?</h2>
+          <div class="option-buttons" id="rate-options">
+            <button class="option-btn" data-value="50" onclick="selectOption('rate', 50, this)">$50/hr</button>
+            <button class="option-btn selected" data-value="100" onclick="selectOption('rate', 100, this)">$100/hr</button>
+            <button class="option-btn" data-value="150" onclick="selectOption('rate', 150, this)">$150/hr</button>
+            <button class="option-btn" data-value="200" onclick="selectOption('rate', 200, this)">$200/hr</button>
+          </div>
+          <div class="calc-nav">
+            <button class="calc-btn-back" onclick="goToStep(3)">&larr; Back</button>
+            <button class="calc-btn-next" onclick="goToStep(5)">Next <span aria-hidden="true">&rarr;</span></button>
+          </div>
+        </div>
+
+        <!-- Step 5: Team size -->
+        <div class="calc-step" id="step-5">
+          <p class="calc-step-number">Question 05</p>
+          <h2>What is your team size?</h2>
+          <div class="option-buttons" id="team-options">
+            <button class="option-btn selected" data-value="1" onclick="selectOption('team', 1, this)">Just me</button>
+            <button class="option-btn" data-value="3.5" onclick="selectOption('team', 3.5, this)">2 &ndash; 5</button>
+            <button class="option-btn" data-value="10.5" onclick="selectOption('team', 10.5, this)">6 &ndash; 15</button>
+            <button class="option-btn" data-value="33" onclick="selectOption('team', 33, this)">16 &ndash; 50</button>
+          </div>
+          <div class="calc-nav">
+            <button class="calc-btn-back" onclick="goToStep(4)">&larr; Back</button>
+            <button class="calc-btn-next" onclick="showResults()">See My Results <span aria-hidden="true">&rarr;</span></button>
+          </div>
+        </div>
+
+        <!-- ═══════════ RESULTS ═══════════ -->
+        <div class="results-section" id="results">
+          <h2 class="results-headline">AI could save you <em id="r-hours">0 hours/week</em></h2>
+
+          <div class="results-grid">
+            <div class="result-card">
+              <p class="result-card-label">Weekly Savings</p>
+              <p class="result-card-value" id="r-weekly">0 <span>hrs</span></p>
+              <p class="result-card-sub">recovered per week</p>
+            </div>
+            <div class="result-card">
+              <p class="result-card-label">Monthly Value</p>
+              <p class="result-card-value" id="r-monthly"><span>$</span>0</p>
+              <p class="result-card-sub">in recovered time</p>
+            </div>
+            <div class="result-card">
+              <p class="result-card-label">Annual Value</p>
+              <p class="result-card-value" id="r-annual"><span>$</span>0</p>
+              <p class="result-card-sub">per year</p>
+            </div>
+          </div>
+
+          <div class="results-roi-bar">
+            <div>
+              <p class="roi-bar-label">Net ROI</p>
+              <p class="roi-bar-value" id="r-roi">0:1</p>
+            </div>
+            <div class="roi-bar-right">
+              <p class="roi-bar-label">Est. AI Tool Cost</p>
+              <p class="roi-bar-cost">$70/month &middot; $840/year</p>
+            </div>
+          </div>
+
+          <hr class="results-divider">
+
+          <div class="results-cta">
+            <p>Want me to show you exactly which tools to set up first?</p>
+            <a href="https://calendly.com/abazdikian/diagnostic" class="btn-gold">Book a Free AI Diagnostic <span aria-hidden="true">&rarr;</span></a>
+            <div class="results-secondary">
+              <a href="scorecard.html">Or take the AI Readiness Scorecard</a>
+            </div>
+          </div>
+
+          <hr class="results-divider">
+
+          <!-- Email Capture -->
+          <div class="email-capture">
+            <p>Get your results emailed to you</p>
+            <form class="email-form" id="email-form" onsubmit="handleEmailSubmit(event)">
+              <input type="email" id="email-input" placeholder="your@email.com" required autocomplete="email">
+              <button type="submit" id="email-btn">Send Results</button>
+            </form>
+            <p class="email-success" id="email-success">Sent! Check your inbox.</p>
+            <p class="email-error" id="email-error"></p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand-name">Alice Bazdikian</div>
+        <div class="footer-brand-tag">AI Strategist + Educator</div>
+      </div>
+      <nav class="footer-nav">
+        <a href="about.html">About</a>
+        <a href="workshops.html">Work With Me</a>
+        <a href="scorecard.html">Scorecard</a>
+        <a href="claude-resources.html">Claude Resources</a>
+        <a href="blog.html">Blog</a>
+        <a href="mailto:alice@alicebazdikian.com">Book a Diagnostic</a>
+        <a
+          href="https://www.linkedin.com/in/alice-bazdikian"
+          class="footer-linkedin"
+          aria-label="LinkedIn"
+          target="_blank"
+          rel="noopener"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/>
+            <rect x="2" y="9" width="4" height="12"/>
+            <circle cx="4" cy="4" r="2"/>
+          </svg>
+        </a>
+      </nav>
+    </div>
+    <p class="footer-copy">&copy; 2026 Alice Bazdikian &middot; All rights reserved &middot; <a href="privacy-policy.html" style="color:rgba(255,255,255,0.4);text-decoration:none;">Privacy Policy</a> &middot; <a href="terms.html" style="color:rgba(255,255,255,0.4);text-decoration:none;">Terms</a></p>
+  </footer>
+
+  <!-- ═══════════ SCRIPTS ═══════════ -->
+  <script>
+    // ── Mobile Nav Toggle ──
+    (function() {
+      var btn = document.getElementById('nav-hamburger');
+      var menu = document.getElementById('mobile-menu');
+      if (!btn || !menu) return;
+      btn.addEventListener('click', function() {
+        var open = menu.classList.toggle('is-open');
+        btn.classList.toggle('is-open', open);
+        btn.setAttribute('aria-expanded', open);
+        menu.setAttribute('aria-hidden', !open);
+      });
+      document.addEventListener('click', function(e) {
+        if (!btn.contains(e.target) && !menu.contains(e.target)) {
+          menu.classList.remove('is-open');
+          btn.classList.remove('is-open');
+          btn.setAttribute('aria-expanded', 'false');
+          menu.setAttribute('aria-hidden', 'true');
+        }
+      });
+    })();
+
+    // ── Calculator State ──
+    var currentStep = 1;
+    var calcData = {
+      admin: 10,
+      content: 5,
+      comms: 5,
+      rate: 100,
+      team: 1
+    };
+
+    // ── Slider Setup ──
+    function setupSlider(sliderId, displayId, key, unit) {
+      var slider = document.getElementById(sliderId);
+      var display = document.getElementById(displayId);
+      if (!slider || !display) return;
+
+      function updateSlider() {
+        var val = parseInt(slider.value, 10);
+        calcData[key] = val;
+        display.innerHTML = val + ' <span>' + unit + '</span>';
+        var pct = ((val - slider.min) / (slider.max - slider.min)) * 100;
+        slider.style.background = 'linear-gradient(to right, var(--burgundy) 0%, var(--burgundy) ' + pct + '%, rgba(125,34,64,0.12) ' + pct + '%, rgba(125,34,64,0.12) 100%)';
+      }
+
+      slider.addEventListener('input', updateSlider);
+      updateSlider();
+    }
+
+    setupSlider('admin-slider', 'admin-display', 'admin', 'hrs/week');
+    setupSlider('content-slider', 'content-display', 'content', 'hrs/week');
+    setupSlider('comms-slider', 'comms-display', 'comms', 'hrs/week');
+
+    // ── Option Button Selection ──
+    function selectOption(group, value, btn) {
+      calcData[group] = value;
+      var parent = btn.parentElement;
+      var buttons = parent.querySelectorAll('.option-btn');
+      buttons.forEach(function(b) { b.classList.remove('selected'); });
+      btn.classList.add('selected');
+    }
+
+    // ── Step Navigation ──
+    function goToStep(step) {
+      var prev = document.getElementById('step-' + currentStep);
+      var next = document.getElementById('step-' + step);
+      if (!prev || !next) return;
+
+      prev.classList.remove('visible');
+      currentStep = step;
+
+      // Update progress
+      for (var i = 1; i <= 5; i++) {
+        var dot = document.getElementById('prog-' + i);
+        dot.classList.remove('active', 'completed');
+        if (i < step) dot.classList.add('completed');
+        else if (i === step) dot.classList.add('active');
+      }
+      document.getElementById('prog-label').textContent = step + ' / 5';
+
+      // Slight delay for fade effect
+      setTimeout(function() {
+        next.classList.add('visible');
+      }, 50);
+    }
+
+    // ── Show Results ──
+    function showResults() {
+      var prev = document.getElementById('step-5');
+      prev.classList.remove('visible');
+
+      // Update progress to all completed
+      for (var i = 1; i <= 5; i++) {
+        document.getElementById('prog-' + i).classList.remove('active');
+        document.getElementById('prog-' + i).classList.add('completed');
+      }
+      document.getElementById('prog-label').textContent = 'Done!';
+
+      // Calculate
+      var adminSaved = calcData.admin * 0.6;
+      var contentSaved = calcData.content * 0.5;
+      var commsSaved = calcData.comms * 0.4;
+      var hoursSavedWeekly = adminSaved + contentSaved + commsSaved;
+
+      var monthlySavings = hoursSavedWeekly * calcData.rate * 4.33;
+      var annualSavings = monthlySavings * 12;
+      var annualToolCost = 840;
+      var roi = annualSavings > 0 ? Math.round(annualSavings / annualToolCost) : 0;
+
+      // Format numbers
+      function formatCurrency(num) {
+        if (num >= 1000) {
+          return Math.round(num).toLocaleString('en-US');
+        }
+        return Math.round(num).toString();
+      }
+
+      var hoursRounded = Math.round(hoursSavedWeekly * 10) / 10;
+
+      document.getElementById('r-hours').innerHTML = hoursRounded + ' hours/week';
+      document.getElementById('r-weekly').innerHTML = hoursRounded + ' <span>hrs</span>';
+      document.getElementById('r-monthly').innerHTML = '<span>$</span>' + formatCurrency(monthlySavings);
+      document.getElementById('r-annual').innerHTML = '<span>$</span>' + formatCurrency(annualSavings);
+      document.getElementById('r-roi').textContent = roi + ':1';
+
+      // Store results for email
+      window._calcResults = {
+        hoursSavedWeekly: hoursRounded,
+        monthlySavings: Math.round(monthlySavings),
+        annualSavings: Math.round(annualSavings),
+        roi: roi,
+        admin: calcData.admin,
+        content: calcData.content,
+        comms: calcData.comms,
+        rate: calcData.rate,
+        team: calcData.team
+      };
+
+      setTimeout(function() {
+        var results = document.getElementById('results');
+        results.style.display = 'block';
+        // Force reflow for transition
+        results.offsetHeight;
+        results.classList.add('visible');
+
+        // Scroll to results
+        setTimeout(function() {
+          results.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      }, 50);
+    }
+
+    // ── Email Capture ──
+    var AIRTABLE_BASE_ID = 'YOUR_BASE_ID';
+    var AIRTABLE_TABLE_NAME = 'Leads';
+    var AIRTABLE_API_KEY = 'YOUR_AIRTABLE_API_KEY';
+
+    async function handleEmailSubmit(e) {
+      e.preventDefault();
+      var emailInput = document.getElementById('email-input');
+      var btn = document.getElementById('email-btn');
+      var errorEl = document.getElementById('email-error');
+      var successEl = document.getElementById('email-success');
+      var email = emailInput.value.trim();
+
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        errorEl.textContent = 'Please enter a valid email address.';
+        errorEl.style.display = 'block';
+        return false;
+      }
+
+      errorEl.style.display = 'none';
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+
+      var r = window._calcResults || {};
+
+      try {
+        await fetch('https://api.airtable.com/v0/' + AIRTABLE_BASE_ID + '/' + AIRTABLE_TABLE_NAME, {
+          method: 'POST',
+          headers: {
+            'Authorization': 'Bearer ' + AIRTABLE_API_KEY,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            fields: {
+              Email: email,
+              Source: 'ai-roi-calculator',
+              Timestamp: new Date().toISOString(),
+              'Hours Saved Weekly': r.hoursSavedWeekly || 0,
+              'Monthly Savings': r.monthlySavings || 0,
+              'Annual Savings': r.annualSavings || 0,
+              'ROI': r.roi || 0
+            }
+          })
+        });
+      } catch (err) { console.error('Airtable error:', err); }
+
+      btn.textContent = 'Sent!';
+      successEl.style.display = 'block';
+
+      return false;
+    }
+  </script>
+
+  <!-- ── Structured Data ── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "AI ROI Calculator",
+    "description": "Answer 5 questions and see exactly how much time and money AI could save your business. Free interactive calculator for small business owners.",
+    "url": "https://www.smallbusinessaicoach.com/ai-roi-calculator.html",
+    "author": {
+      "@type": "Person",
+      "name": "Alice Bazdikian",
+      "url": "https://www.smallbusinessaicoach.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Small Business AI Coach"
+    }
+  }
+  </script>
+</body>
+</html>
