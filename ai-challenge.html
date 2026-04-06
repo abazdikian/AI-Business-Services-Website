@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":
+new Date().getTime(),event:"gtm.js"});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
+"https://www.googletagmanager.com/gtm.js?id="+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,"script","dataLayer","GTM-53LWP97Z");</script>
+<!-- End Google Tag Manager -->
+  <title>5-Day AI Challenge — Zero Tech Skills Required | Alice Bazdikian</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="description" content="5 days. 5 simple AI tasks. Each takes under 15 minutes. By day 5, you'll have AI working in your business. Free challenge for small business owners." />
+  <link rel="canonical" href="https://www.smallbusinessaicoach.com/ai-challenge.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="5-Day AI Challenge — Zero Tech Skills Required | Alice Bazdikian" />
+  <meta property="og:description" content="5 days. 5 simple AI tasks. Each takes under 15 minutes. By day 5, you'll have AI working in your business. Free challenge for small business owners." />
+  <meta property="og:url" content="https://www.smallbusinessaicoach.com/ai-challenge.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="5-Day AI Challenge — Zero Tech Skills Required | Alice Bazdikian" />
+  <meta name="twitter:description" content="5 days. 5 simple AI tasks. Each takes under 15 minutes. By day 5, you'll have AI working in your business." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600;1,700;1,900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --eggshell: #F7F3EE;
+      --surface:  #FFFFFF;
+      --charcoal: #1C1C1C;
+      --burgundy: #7D2240;
+      --burg-dk:  #651B33;
+      --burg-lt:  #9e2d52;
+      --gold:     #C9A847;
+      --gold-dk:  #B8952E;
+      --muted:    #6B6560;
+      --border:   rgba(28,28,28,0.09);
+    }
+
+    body {
+      background: var(--eggshell);
+      color: var(--charcoal);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ── NAVIGATION ── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(247,243,238,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2.5rem;
+      height: 68px;
+    }
+
+    .nav-brand {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .nav-brand-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      letter-spacing: -0.01em;
+    }
+
+    .nav-brand-tag {
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 400;
+      color: var(--charcoal);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover { color: var(--burgundy); }
+
+    .nav-links a.active {
+      color: var(--burgundy);
+      font-weight: 600;
+    }
+
+    .btn-nav {
+      display: inline-flex;
+      align-items: center;
+      background: var(--gold);
+      color: var(--charcoal);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      padding: 0.5rem 1.25rem;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+      box-shadow: 0 2px 8px rgba(201, 168, 71, 0.3);
+    }
+
+    .btn-nav:hover {
+      background: var(--gold-dk);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(201, 168, 71, 0.4);
+    }
+
+    .btn-nav:active { transform: translateY(0); }
+
+    .btn-nav:focus-visible {
+      outline: 2px solid var(--burgundy);
+      outline-offset: 3px;
+    }
+
+    .btn-nav-outline {
+      display: inline-flex;
+      align-items: center;
+      background: transparent;
+      color: var(--gold);
+      border: 1.5px solid var(--gold);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      padding: 0.45rem 1.2rem;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+    }
+    .btn-nav-outline:hover {
+      background: var(--gold);
+      color: var(--charcoal);
+      transform: translateY(-1px);
+    }
+
+    /* ── HAMBURGER ── */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 6px;
+      transition: background 0.2s ease;
+    }
+    .nav-hamburger:hover { background: rgba(125,34,64,0.08); }
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--charcoal);
+      border-radius: 2px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .nav-hamburger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.is-open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ── MOBILE MENU ── */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 68px;
+      left: 0;
+      right: 0;
+      background: var(--eggshell);
+      border-bottom: 2px solid rgba(125,34,64,0.15);
+      padding: 0.25rem 2rem 1.25rem;
+      z-index: 48;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.1);
+      flex-direction: column;
+    }
+    .mobile-menu.is-open { display: flex; }
+    .mobile-menu a {
+      font-size: 0.9375rem;
+      font-weight: 400;
+      color: var(--charcoal);
+      text-decoration: none;
+      padding: 0.875rem 0.25rem;
+      border-bottom: 1px solid rgba(28,28,28,0.07);
+      transition: color 0.2s ease;
+    }
+    .mobile-menu a:hover { color: var(--burgundy); }
+    .mobile-menu a.active {
+      color: var(--burgundy);
+      font-weight: 600;
+    }
+    .mobile-menu .mob-cta {
+      background: var(--gold);
+      color: var(--charcoal) !important;
+      font-weight: 600;
+      border-radius: 100px;
+      text-align: center;
+      justify-content: center;
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      border: none !important;
+      box-shadow: 0 2px 8px rgba(201,168,71,0.3);
+      display: inline-flex;
+    }
+    .mobile-menu .mob-cta:hover { background: var(--gold-dk); }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--eggshell);
+      padding: 5rem 4rem 4rem;
+      text-align: center;
+    }
+    .hero-inner {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.625rem;
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 1.5px;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: var(--charcoal);
+      margin-bottom: 1.25rem;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--burgundy);
+    }
+    .hero-sub {
+      font-size: 1.0625rem;
+      color: var(--muted);
+      max-width: 560px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ── SHARED SECTION STYLES ── */
+    .section { padding: 5rem 4rem; }
+    .section-alt { background: var(--surface); }
+    .section-inner { max-width: 900px; margin: 0 auto; }
+    .section-inner-wide { max-width: 1100px; margin: 0 auto; }
+
+    .eyebrow {
+      font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 0.875rem;
+      display: flex; align-items: center; gap: 0.625rem;
+    }
+    .eyebrow::before {
+      content: ''; display: inline-block;
+      width: 20px; height: 1.5px;
+      background: var(--gold); flex-shrink: 0;
+    }
+
+    .section-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.875rem, 3vw, 2.75rem);
+      font-weight: 700; line-height: 1.15;
+      letter-spacing: -0.03em; color: var(--charcoal);
+      margin-bottom: 1.25rem;
+    }
+    .section-heading em { font-style: italic; color: var(--burgundy); }
+
+    .section-sub {
+      font-size: 0.9375rem; color: var(--muted);
+      line-height: 1.7; margin-bottom: 2rem;
+    }
+
+    /* ── DAY CARDS ── */
+    .day-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+    .day-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem 1.75rem;
+      transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .day-card:hover {
+      border-color: rgba(125,34,64,0.2);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(125,34,64,0.08);
+    }
+    .day-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: var(--charcoal);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.125rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 8px rgba(201,168,71,0.25);
+    }
+    .day-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+    .day-card p {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* ── WHO THIS IS FOR ── */
+    .who-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .who-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9375rem;
+      color: var(--charcoal);
+      line-height: 1.6;
+    }
+    .who-list li:last-child { border-bottom: none; }
+    .who-check {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      min-width: 28px;
+      border-radius: 50%;
+      background: rgba(125,34,64,0.08);
+      color: var(--burgundy);
+      font-size: 0.8125rem;
+      font-weight: 700;
+      margin-top: 0.125rem;
+    }
+
+    /* ── EMAIL GATE ── */
+    .email-gate-section {
+      padding: 5rem 4rem;
+      text-align: center;
+    }
+    .email-gate-box {
+      max-width: 540px;
+      margin: 0 auto;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 3rem 2.5rem;
+      box-shadow: 0 4px 20px rgba(125,34,64,0.06);
+    }
+    .email-gate-box h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+    .email-form {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .email-form input {
+      flex: 1;
+      padding: 0.875rem 1.25rem;
+      border: 1px solid rgba(28,28,28,0.15);
+      border-radius: 100px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9375rem;
+      color: var(--charcoal);
+      background: var(--eggshell);
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .email-form input::placeholder { color: var(--muted); opacity: 0.6; }
+    .email-form input:focus {
+      border-color: var(--burgundy);
+      box-shadow: 0 0 0 3px rgba(125,34,64,0.08);
+    }
+    .email-form button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      background: var(--gold);
+      color: var(--charcoal);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      padding: 0.875rem 1.75rem;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+      box-shadow: 0 2px 10px rgba(201,168,71,0.3);
+    }
+    .email-form button:hover {
+      background: var(--gold-dk);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(201,168,71,0.4);
+    }
+    .email-form button:active { transform: translateY(0); }
+    .email-form button:focus-visible {
+      outline: 2px solid var(--burgundy);
+      outline-offset: 3px;
+    }
+    .email-error {
+      display: none;
+      font-size: 0.8125rem;
+      color: var(--burgundy);
+      margin-bottom: 0.75rem;
+    }
+    .email-success {
+      display: none;
+      font-size: 0.9375rem;
+      color: var(--burgundy);
+      font-weight: 600;
+    }
+    .email-fine-print {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 0.75rem;
+    }
+
+    /* ── SOCIAL PROOF ── */
+    .social-proof {
+      text-align: center;
+      padding: 3rem 4rem;
+    }
+    .social-proof p {
+      font-size: 0.875rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+    .social-proof strong {
+      color: var(--burgundy);
+      font-weight: 700;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--charcoal);
+      padding: 3.5rem 4rem 2rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-brand-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.0625rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 0.25rem;
+    }
+
+    .footer-brand-tag {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .footer-nav {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .footer-nav a {
+      font-size: 0.8125rem;
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-nav a:hover { color: var(--gold); }
+
+    .footer-linkedin {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+    }
+
+    .footer-linkedin:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: rgba(201,168,71,0.07);
+    }
+
+    .footer-copy {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.01em;
+    }
+
+    /* ── LARGE SCREENS ── */
+    @media (min-width: 1600px) {
+      footer {
+        padding: 4rem 4rem 2.5rem;
+      }
+      .footer-inner,
+      .footer-copy {
+        max-width: 1400px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 900px) {
+      .hero { padding: 3.5rem 2rem 3rem; }
+      .section { padding: 3.5rem 1.5rem; }
+      .email-gate-section { padding: 3.5rem 1.5rem; }
+      .day-cards { grid-template-columns: 1fr; }
+      .email-form { flex-direction: column; }
+      .email-form button { width: 100%; justify-content: center; }
+      .email-gate-box { padding: 2rem 1.5rem; }
+      .footer-inner { flex-direction: column; gap: 2rem; }
+      .footer-nav { flex-wrap: wrap; gap: 1rem; }
+      .nav { padding: 0 1.5rem; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .social-proof { padding: 2.5rem 1.5rem; }
+    }
+  </style>
+
+  <!-- ── Structured Data ── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "5-Day AI Challenge",
+    "description": "5 days. 5 simple AI tasks. Each takes under 15 minutes. By day 5, you'll have AI working in your business.",
+    "provider": {
+      "@type": "Person",
+      "name": "Alice Bazdikian",
+      "url": "https://www.smallbusinessaicoach.com"
+    },
+    "isAccessibleForFree": true,
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "hasCourseInstance": {
+      "@type": "CourseInstance",
+      "courseMode": "online",
+      "duration": "P5D"
+    }
+  }
+  </script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-53LWP97Z"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+  <!-- ═══════════ NAVIGATION ═══════════ -->
+  <nav class="nav">
+    <a href="/" style="text-decoration:none">
+      <div class="nav-brand">
+        <span class="nav-brand-name">Alice Bazdikian</span>
+        <span class="nav-brand-tag">AI Strategist</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="workshops.html" class="btn-nav-outline">Work With Me</a></li>
+      <li><a href="scorecard.html">Scorecard</a></li>
+      <li><a href="claude-resources.html">Claude Resources</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li>
+        <a href="https://calendly.com/abazdikian/diagnostic" class="btn-nav">Book a Diagnostic</a>
+      </li>
+    </ul>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <a href="about.html">About</a>
+    <a href="workshops.html">Work With Me</a>
+    <a href="scorecard.html">Scorecard</a>
+    <a href="claude-resources.html">Claude Resources</a>
+    <a href="blog.html">Blog</a>
+    <a href="https://calendly.com/abazdikian/diagnostic" class="mob-cta">Book a Diagnostic</a>
+  </div>
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="hero-eyebrow">Free 5-Day Challenge</p>
+      <h1>5 Days. 5 AI Tasks. <em>Zero</em> Tech Skills Required.</h1>
+      <p class="hero-sub">Every day for 5 days, I'll send you one simple AI task you can complete in under 15 minutes. By day 5, you'll have AI working in your business.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════ WHAT YOU'LL DO ═══════════ -->
+  <section class="section section-alt" id="what-youll-do">
+    <div class="section-inner-wide">
+      <p class="eyebrow">The Challenge</p>
+      <h2 class="section-heading">What You'll <em>Do</em></h2>
+      <p class="section-sub">One task per day. Under 15 minutes each. Real results you'll actually use.</p>
+
+      <div class="day-cards">
+        <div class="day-card">
+          <div class="day-badge">1</div>
+          <h3>Your First AI Conversation</h3>
+          <p>Open Claude, ask it one real business question. See what happens.</p>
+        </div>
+        <div class="day-card">
+          <div class="day-badge">2</div>
+          <h3>Draft a Client Email</h3>
+          <p>Give Claude context about a client. Let it draft a professional email you'd actually send.</p>
+        </div>
+        <div class="day-card">
+          <div class="day-badge">3</div>
+          <h3>Build a Template</h3>
+          <p>Pick something you write repeatedly — proposals, follow-ups, SOPs. Have Claude create a reusable template.</p>
+        </div>
+        <div class="day-card">
+          <div class="day-badge">4</div>
+          <h3>Analyze Your Competitor</h3>
+          <p>Paste a competitor's website into Claude. Ask it to identify 3 things they do better and 3 opportunities for you.</p>
+        </div>
+        <div class="day-card">
+          <div class="day-badge">5</div>
+          <h3>Automate One Task</h3>
+          <p>Pick your most tedious weekly task. Set up a simple AI workflow to handle it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ WHO THIS IS FOR ═══════════ -->
+  <section class="section" id="who-its-for">
+    <div class="section-inner">
+      <p class="eyebrow">Is This You?</p>
+      <h2 class="section-heading">Who This <em>Challenge</em> Is For</h2>
+
+      <ul class="who-list">
+        <li>
+          <span class="who-check">&#10003;</span>
+          <span>You keep hearing about AI but haven't actually used it yet</span>
+        </li>
+        <li>
+          <span class="who-check">&#10003;</span>
+          <span>You've tried ChatGPT once or twice but it didn't stick</span>
+        </li>
+        <li>
+          <span class="who-check">&#10003;</span>
+          <span>You run a small business and want practical results, not theory</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ═══════════ SOCIAL PROOF ═══════════ -->
+  <section class="social-proof">
+    <p>Join <strong>500+ business owners</strong> who've completed the challenge</p>
+  </section>
+
+  <!-- ═══════════ EMAIL GATE ═══════════ -->
+  <section class="email-gate-section" id="start">
+    <div class="email-gate-box">
+      <h2>Start the Challenge</h2>
+      <form id="challenge-form" onsubmit="handleChallengeSubmit(event)">
+        <div class="email-form">
+          <input type="email" id="email-input" placeholder="your@email.com" required autocomplete="email" />
+          <button type="submit" id="email-btn">Send Me Day 1 &rarr;</button>
+        </div>
+        <p class="email-error" id="email-error"></p>
+        <p class="email-success" id="email-success">You're in! Check your inbox for Day 1.</p>
+      </form>
+      <p class="email-fine-print">One email per day for 5 days. Unsubscribe anytime.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand-name">Alice Bazdikian</div>
+        <div class="footer-brand-tag">AI Strategist + Educator</div>
+      </div>
+      <nav class="footer-nav">
+        <a href="about.html">About</a>
+        <a href="workshops.html">Work With Me</a>
+        <a href="scorecard.html">Scorecard</a>
+        <a href="claude-resources.html">Claude Resources</a>
+        <a href="blog.html">Blog</a>
+        <a href="mailto:alice@alicebazdikian.com">Book a Diagnostic</a>
+        <a
+          href="https://www.linkedin.com/in/alice-bazdikian"
+          class="footer-linkedin"
+          aria-label="LinkedIn"
+          target="_blank"
+          rel="noopener"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/>
+            <rect x="2" y="9" width="4" height="12"/>
+            <circle cx="4" cy="4" r="2"/>
+          </svg>
+        </a>
+      </nav>
+    </div>
+    <p class="footer-copy">&copy; 2026 Alice Bazdikian &middot; All rights reserved &middot; <a href="privacy-policy.html" style="color:rgba(255,255,255,0.4);text-decoration:none;">Privacy Policy</a> &middot; <a href="terms.html" style="color:rgba(255,255,255,0.4);text-decoration:none;">Terms</a></p>
+  </footer>
+
+  <!-- ═══════════ SCRIPTS ═══════════ -->
+  <script>
+    (function() {
+      var btn = document.getElementById('nav-hamburger');
+      var menu = document.getElementById('mobile-menu');
+      if (!btn || !menu) return;
+      btn.addEventListener('click', function() {
+        var open = menu.classList.toggle('is-open');
+        btn.classList.toggle('is-open', open);
+        btn.setAttribute('aria-expanded', open);
+        menu.setAttribute('aria-hidden', !open);
+      });
+      document.addEventListener('click', function(e) {
+        if (!btn.contains(e.target) && !menu.contains(e.target)) {
+          menu.classList.remove('is-open');
+          btn.classList.remove('is-open');
+          btn.setAttribute('aria-expanded', 'false');
+          menu.setAttribute('aria-hidden', 'true');
+        }
+      });
+    })();
+
+    // ── Airtable Config ──
+    const AIRTABLE_BASE_ID = 'YOUR_BASE_ID';
+    const AIRTABLE_TABLE_NAME = 'Leads';
+    const AIRTABLE_API_KEY = 'YOUR_AIRTABLE_API_KEY';
+
+    async function handleChallengeSubmit(e) {
+      e.preventDefault();
+      const emailInput = document.getElementById('email-input');
+      const btn = document.getElementById('email-btn');
+      const errorEl = document.getElementById('email-error');
+      const successEl = document.getElementById('email-success');
+      const email = emailInput.value.trim();
+
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        errorEl.textContent = 'Please enter a valid email address.';
+        errorEl.style.display = 'block';
+        return false;
+      }
+
+      errorEl.style.display = 'none';
+      btn.disabled = true;
+      btn.textContent = 'Signing you up...';
+
+      try {
+        await fetch(`https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${AIRTABLE_TABLE_NAME}`, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${AIRTABLE_API_KEY}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            fields: {
+              Email: email,
+              Source: 'ai-challenge',
+              Timestamp: new Date().toISOString()
+            }
+          })
+        });
+      } catch (err) {
+        console.error('Airtable error:', err);
+      }
+
+      // Show success state
+      btn.textContent = "You're in!";
+      btn.style.background = 'var(--burgundy)';
+      btn.style.color = '#F7F3EE';
+      emailInput.style.display = 'none';
+      successEl.style.display = 'block';
+    }
+  </script>
+</body>
+</html>
