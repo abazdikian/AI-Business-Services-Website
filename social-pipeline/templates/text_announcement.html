@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1080px; overflow: hidden; }
+  .slide {
+    width: 1080px; height: 1080px;
+    background: #7D2240; position: relative;
+    display: flex; flex-direction: column;
+    justify-content: center;
+    padding: 80px 80px 100px;
+  }
+  .eyebrow {
+    font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: #C9A847; margin-bottom: 24px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .eyebrow::before {
+    content: ''; width: 28px; height: 2px; background: #C9A847;
+  }
+  .headline {
+    font-family: 'Playfair Display', serif;
+    font-size: 64px; font-weight: 900;
+    color: #F7F3EE; line-height: 1.12;
+    letter-spacing: -0.02em; margin-bottom: 28px;
+  }
+  .body-text {
+    font-family: 'Inter', sans-serif; font-size: 24px;
+    color: rgba(247,243,238,0.75); line-height: 1.65;
+    margin-bottom: 32px; max-width: 800px;
+  }
+  .bullets {
+    list-style: none; display: flex; flex-direction: column; gap: 14px;
+  }
+  .bullets li {
+    font-family: 'Inter', sans-serif; font-size: 22px;
+    color: rgba(247,243,238,0.85); line-height: 1.5;
+    display: flex; gap: 12px; align-items: flex-start;
+  }
+  .bullets .arrow { color: #C9A847; flex-shrink: 0; }
+  .footer {
+    position: absolute; bottom: 48px; left: 80px; right: 80px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-handle {
+    font-family: 'Inter', sans-serif; font-size: 18px;
+    color: rgba(247,243,238,0.4);
+  }
+  .footer-url {
+    font-family: 'Inter', sans-serif; font-size: 16px;
+    color: rgba(247,243,238,0.3);
+  }
+  .logo {
+    position: absolute; bottom: 48px; right: 56px;
+    font-family: 'Playfair Display', serif; font-size: 28px;
+    font-weight: 700; color: #C9A847;
+  }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="eyebrow">{{CATEGORY}}</div>
+  <h1 class="headline">{{HEADLINE}}</h1>
+  <p class="body-text">{{BODY}}</p>
+  <ul class="bullets">{{BULLETS}}</ul>
+  <div class="footer">
+    <span class="footer-handle">@alicebazdikian</span>
+    <span class="footer-url">smallbusinessaicoach.com</span>
+  </div>
+  <span class="logo">AB</span>
+</div>
+</body>
+</html>

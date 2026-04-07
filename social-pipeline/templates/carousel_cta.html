@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; }
+  .slide {
+    width: 1080px; height: 1350px;
+    background: #7D2240; position: relative;
+    display: flex; flex-direction: column;
+    justify-content: center;
+    padding: 80px 80px;
+  }
+  .eyebrow {
+    font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: #C9A847; margin-bottom: 24px;
+  }
+  .headline {
+    font-family: 'Playfair Display', serif;
+    font-size: 64px; font-weight: 900;
+    color: #F7F3EE; line-height: 1.15;
+    letter-spacing: -0.02em; margin-bottom: 40px;
+  }
+  .headline .gold { color: #C9A847; font-style: italic; }
+  .actions {
+    list-style: none; display: flex; flex-direction: column; gap: 20px;
+    margin-bottom: 48px;
+  }
+  .actions li {
+    font-family: 'Inter', sans-serif; font-size: 24px;
+    color: rgba(247,243,238,0.8); line-height: 1.5;
+    display: flex; gap: 14px; align-items: flex-start;
+  }
+  .actions .arrow { color: #C9A847; flex-shrink: 0; font-weight: 700; }
+  .cta-btn {
+    display: inline-block; align-self: flex-start;
+    background: #C9A847; color: #1C1C1C;
+    padding: 18px 44px; border-radius: 100px;
+    font-family: 'Inter', sans-serif; font-size: 22px; font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+  .logo {
+    position: absolute; bottom: 52px; right: 60px;
+    font-family: 'Playfair Display', serif; font-size: 32px;
+    font-weight: 700; color: #C9A847;
+  }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="eyebrow">Want this for your business?</div>
+  <h1 class="headline">Stop doing admin.<br>Start building <span class="gold">systems.</span></h1>
+  <ul class="actions">
+    <li><span class="arrow">→</span>Take the free AI Readiness Scorecard</li>
+    <li><span class="arrow">→</span>Book a free 30-min AI diagnostic</li>
+    <li><span class="arrow">→</span>Follow @alicebazdikian for daily AI tips</li>
+  </ul>
+  <div class="cta-btn">Link in Bio</div>
+  <span class="logo">AB</span>
+</div>
+</body>
+</html>

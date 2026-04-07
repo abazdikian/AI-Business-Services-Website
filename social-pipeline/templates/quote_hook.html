@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1080px; overflow: hidden; }
+  .slide {
+    width: 1080px; height: 1080px;
+    background: #7D2240; position: relative;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 80px 90px; text-align: center;
+  }
+  .category-left {
+    position: absolute; top: 48px; left: 56px;
+    font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: rgba(247,243,238,0.45);
+  }
+  .category-right {
+    position: absolute; top: 48px; right: 56px;
+    font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: rgba(247,243,238,0.45);
+  }
+  .headline {
+    font-family: 'Playfair Display', serif;
+    font-size: 72px; font-weight: 900;
+    color: #F7F3EE; line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+  .headline .gold { color: #C9A847; font-style: italic; }
+  .handle {
+    position: absolute; bottom: 52px; left: 50%; transform: translateX(-50%);
+    font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 500;
+    color: rgba(247,243,238,0.5);
+    border: 1px solid rgba(247,243,238,0.2);
+    padding: 8px 24px; border-radius: 100px;
+  }
+  .logo {
+    position: absolute; bottom: 48px; right: 56px;
+    font-family: 'Playfair Display', serif; font-size: 28px;
+    font-weight: 700; color: #C9A847;
+  }
+</style>
+</head>
+<body>
+<div class="slide">
+  <span class="category-left">{{CATEGORY_LEFT}}</span>
+  <span class="category-right">{{CATEGORY_RIGHT}}</span>
+  <h1 class="headline">{{HEADLINE}}</h1>
+  <span class="handle">@alicebazdikian</span>
+  <span class="logo">AB</span>
+</div>
+</body>
+</html>
