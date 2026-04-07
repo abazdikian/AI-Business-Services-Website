@@ -58,3 +58,10 @@ HASHTAGS_REACH = ["#SmallBusiness", "#Entrepreneur", "#WomenInBusiness"]
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 LAST_RUN_FILE = os.path.join(BASE_DIR, "last_run.json")
 OUTPUT_DIR = os.path.join(BASE_DIR, "output")
+DIGEST_DATA_DIR = os.path.join(BASE_DIR, "digest_data")
+LATEST_DIGEST_FILE = os.path.join(DIGEST_DATA_DIR, "latest_digest.json")
+LAST_THREAD_FILE = os.path.join(DIGEST_DATA_DIR, "last_thread_id.txt")
+PROCESSED_REPLIES_FILE = os.path.join(DIGEST_DATA_DIR, "processed_replies.json")
+
+# ── Google Drive ──
+DRIVE_FOLDER_ID = os.environ.get("DRIVE_FOLDER_ID", "")

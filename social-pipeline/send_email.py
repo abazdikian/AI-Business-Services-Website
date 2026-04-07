@@ -29,7 +29,7 @@ def send_email(subject, html_body):
     ).execute()
 
     print(f"[Send] Email sent — Message ID: {sent['id']}")
-    return sent["id"]
+    return sent["id"], sent.get("threadId", "")
 
 
 if __name__ == "__main__":

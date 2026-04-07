@@ -7,7 +7,7 @@ import json
 import os
 from datetime import datetime, timezone
 
-from config import LAST_RUN_FILE, OUTPUT_DIR, TOTAL_ITEMS_MIN
+from config import LAST_RUN_FILE, OUTPUT_DIR, TOTAL_ITEMS_MIN, DIGEST_DATA_DIR, LATEST_DIGEST_FILE, LAST_THREAD_FILE
 from fetch_reddit import fetch_reddit
 from fetch_anthropic import fetch_anthropic
 from fetch_news import fetch_news
@@ -117,13 +117,23 @@ def run():
         subject += " (Light week)"
 
     try:
-        send_email(subject, html)
+        msg_id, thread_id = send_email(subject, html)
     except Exception as e:
         print(f"[ERROR] Email send failed: {e}")
         print(f"[FALLBACK] Digest saved locally at {output_path}")
         return
 
-    # Step 6: Update last run
+    # Step 6: Save digest data for template generation
+    os.makedirs(DIGEST_DATA_DIR, exist_ok=True)
+    with open(LATEST_DIGEST_FILE, "w") as f:
+        json.dump(drafted_items, f, indent=2)
+    print(f"[Data] Saved {len(drafted_items)} items to {LATEST_DIGEST_FILE}")
+
+    with open(LAST_THREAD_FILE, "w") as f:
+        f.write(thread_id)
+    print(f"[Data] Thread ID saved: {thread_id}")
+
+    # Step 7: Update last run
     save_last_run()
 
     print("\n" + "=" * 60)
