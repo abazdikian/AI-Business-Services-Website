@@ -1,5 +1,5 @@
 """
-Gmail API Authentication — supports local files or environment variables.
+Gmail + Google Drive API Authentication — supports local files or environment variables.
 
 Local: reads credentials.json + token.json from this directory.
 Remote: reads GMAIL_CREDENTIALS_JSON + GMAIL_TOKEN_JSON env vars.
@@ -20,14 +20,14 @@ TOKEN_FILE = os.path.join(BASE_DIR, "token.json")
 SCOPES = [
     "https://www.googleapis.com/auth/gmail.compose",
     "https://www.googleapis.com/auth/gmail.modify",
+    "https://www.googleapis.com/auth/drive.file",
 ]
 
 
-def get_gmail_service():
-    """Return an authenticated Gmail API service instance."""
+def _get_creds():
+    """Load and refresh credentials from local files or env vars."""
     creds = None
 
-    # Try env vars first (for remote/scheduled execution)
     token_json_env = os.environ.get("GMAIL_TOKEN_JSON")
     if token_json_env:
         token_data = json.loads(token_json_env)
@@ -38,14 +38,12 @@ def get_gmail_service():
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
-            # Save refreshed token
             if token_json_env:
-                print("[AUTH] Token refreshed (env var mode — update GMAIL_TOKEN_JSON with new token)")
+                print("[AUTH] Token refreshed (env var mode)")
             else:
                 with open(TOKEN_FILE, "w") as f:
                     f.write(creds.to_json())
         else:
-            # Need fresh auth — only works locally
             creds_json_env = os.environ.get("GMAIL_CREDENTIALS_JSON")
             if creds_json_env:
                 tmp = tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False)
@@ -68,12 +66,24 @@ def get_gmail_service():
                     f.write(creds.to_json())
                 print(f"[AUTH] Token saved to {TOKEN_FILE}")
 
-    return build("gmail", "v1", credentials=creds)
+    return creds
+
+
+def get_gmail_service():
+    """Return an authenticated Gmail API service instance."""
+    return build("gmail", "v1", credentials=_get_creds())
+
+
+def get_drive_service():
+    """Return an authenticated Google Drive API service instance."""
+    return build("drive", "v3", credentials=_get_creds())
 
 
 if __name__ == "__main__":
-    print("Authenticating with Gmail API...")
-    service = get_gmail_service()
-    profile = service.users().getProfile(userId="me").execute()
-    print(f"Authenticated as: {profile['emailAddress']}")
-    print("Gmail API connection successful!")
+    print("Authenticating with Gmail + Drive API...")
+    gmail = get_gmail_service()
+    profile = gmail.users().getProfile(userId="me").execute()
+    print(f"Gmail: {profile['emailAddress']}")
+    drive = get_drive_service()
+    print("Drive: authenticated")
+    print("All connections successful!")
