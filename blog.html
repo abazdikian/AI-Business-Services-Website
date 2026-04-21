@@ -69,7 +69,8 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600;1,9..144,700&family=Nunito:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/chrome.css" />
 
   <link rel="stylesheet" href="dist/tailwind.css">
 
@@ -77,27 +78,51 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     *, *::before, *::after { box-sizing: border-box; }
 
     :root {
-      --eggshell: #F7F3EE;
-      --charcoal: #1C1C1C;
-      --burgundy: #7D2240;
-      --burgundy-dark: #651B33;
-      --gold: #C9A847;
-      --gold-dark: #B8952E;
-      --surface: #FFFFFF;
-      --muted: #6B6560;
+      --burgundy: #7A1530;
+      --burgundy-soft: #9B2440;
+      --burgundy-glow: #C13558;
+      --gold: #D4A84A;
+      --gold-warm: #E6C472;
+      --gold-deep: #A87B1F;
+      --white: #FFFFFF;
+      --offwhite: #FDFBF5;
+      --ink: #2B1A1F;
+      --ink-soft: #6B5A5F;
+      --rule: #EFE8E3;
+
+      /* Legacy aliases so existing class rules still resolve */
+      --surface: var(--white);
+      --charcoal: var(--ink);
+      --muted: var(--ink-soft);
+      --burgundy-dark: var(--burgundy-soft);
+      --gold-dark: var(--gold-deep);
+      --eggshell: var(--white);
     }
 
     html { scroll-behavior: smooth; }
-    body { background-color: var(--eggshell); color: var(--charcoal); font-family: 'Inter', system-ui, sans-serif; line-height: 1.7; -webkit-font-smoothing: antialiased; margin: 0; }
+    body { background-color: var(--white); color: var(--ink); font-family: 'Nunito', system-ui, sans-serif; line-height: 1.65; -webkit-font-smoothing: antialiased; margin: 0; }
 
-    /* NAV */
-    .nav { position: sticky; top: 0; z-index: 50; background: var(--eggshell); border-bottom: 1px solid rgba(125,34,64,0.12); display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; height: 68px; }
-    .nav-brand { display: flex; flex-direction: column; line-height: 1.2; text-decoration: none; }
-    .nav-brand-name { font-family: 'Playfair Display', serif; font-size: 1.125rem; font-weight: 600; color: var(--charcoal); letter-spacing: -0.01em; }
-    .nav-brand-tag { font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); font-weight: 400; }
-    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; margin: 0; padding: 0; }
-    .nav-links a { font-size: 0.875rem; font-weight: 400; color: var(--charcoal); text-decoration: none; letter-spacing: 0.01em; transition: color 0.2s ease; }
+    /* NAV — Brand Refresh v2 */
+    .nav { position: sticky; top: 0; z-index: 50; background: var(--white); border-bottom: 1px solid var(--rule); display: flex; align-items: center; justify-content: space-between; padding: 0 3.5rem; height: 76px; }
+    .nav-brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .nav-mono {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: var(--burgundy);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Fraunces', Georgia, serif;
+      font-style: italic; font-weight: 700;
+      font-size: 1.125rem; letter-spacing: -0.04em;
+      color: var(--gold);
+      transition: transform 0.15s ease;
+    }
+    .nav-brand:hover .nav-mono { transform: translateY(-1px); }
+    .nav-brand-text { display: flex; flex-direction: column; line-height: 1.15; }
+    .nav-brand-name { font-family: 'Fraunces', Georgia, serif; font-size: 1rem; font-weight: 600; color: var(--burgundy); letter-spacing: -0.01em; }
+    .nav-brand-tag { font-size: 0.625rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-soft); font-weight: 700; margin-top: 3px; }
+    .nav-links { display: flex; align-items: center; gap: 1.75rem; list-style: none; margin: 0; padding: 0; }
+    .nav-links a { font-size: 0.8125rem; font-weight: 600; color: var(--ink); text-decoration: none; letter-spacing: 0.01em; transition: color 0.2s ease; padding-bottom: 4px; }
     .nav-links a:hover { color: var(--burgundy); }
+    .nav-links a.active { color: var(--burgundy); border-bottom: 2px solid var(--gold); }
 
     .nav-dropdown { position: relative; }
     .nav-dropdown-toggle { cursor: pointer; }
@@ -114,245 +139,318 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     }
     .nav-dropdown-menu a:hover { background: rgba(125,34,64,0.04); color: #7D2240; }
 
-    .nav-links a.active { color: var(--burgundy); font-weight: 500; }
-    .btn-nav { display: inline-flex; align-items: center; background: var(--gold); color: var(--charcoal); font-family: 'Inter', sans-serif; font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.02em; padding: 0.5rem 1.25rem; border-radius: 100px; border: none; cursor: pointer; text-decoration: none; transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease; box-shadow: 0 2px 8px rgba(201,168,71,0.3); }
-    .btn-nav:hover { background: var(--gold-dark); transform: translateY(-1px); }
+    .btn-nav { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--burgundy); color: var(--white); font-family: 'Nunito', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; padding: 0.625rem 1.25rem; border-radius: 999px; border: none; cursor: pointer; text-decoration: none; transition: background 0.2s ease, transform 0.15s ease; }
+    .btn-nav:hover { background: var(--burgundy-soft); transform: translateY(-1px); }
+    .btn-nav::after { content: '→'; font-size: 0.9rem; }
 
-    /* PAGE HEADER */
+    /* PAGE HEADER — Brand Refresh v2 hero (white bg, editorial) */
     .page-header {
-      padding: 5rem 4rem 4rem;
-      position: relative;
-      overflow: hidden;
-      background: #1C0A12;
+      padding: 5.5rem 4rem 3.5rem;
+      background: var(--white);
+      border-bottom: 1px solid var(--rule);
     }
-    .page-header::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(14, 5, 10, 0.42);
-      pointer-events: none;
-      z-index: 1;
-    }
-    #blog-gradient-canvas {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      display: block;
-      z-index: 0;
-    }
-    .page-header-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+    .page-header-inner { max-width: 1100px; margin: 0 auto; }
 
-    .eyebrow { font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.625rem; }
-    .eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1.5px; background: var(--gold); flex-shrink: 0; }
-
-    .page-heading { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem, 4vw, 3.5rem); font-weight: 600; line-height: 1.15; letter-spacing: -0.03em; color: #fff; margin: 0 0 1rem; }
-    .page-sub { font-size: 1rem; line-height: 1.75; color: rgba(255,255,255,0.6); max-width: 50ch; margin: 0; }
-
-    /* BLOG GRID */
-    .blog-section { padding: 5rem 4rem; max-width: 1100px; margin: 0 auto; }
-
-    /* FEATURED POST */
-    .post-featured {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-      background: var(--surface);
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid rgba(28,28,28,0.07);
-      box-shadow: 0 4px 32px rgba(125,34,64,0.08), 0 1px 6px rgba(0,0,0,0.04);
-      margin-bottom: 3rem;
-      transition: box-shadow 0.25s ease, transform 0.25s cubic-bezier(0.34,1.56,0.64,1);
-      text-decoration: none;
-      color: inherit;
-    }
-    .post-featured:hover {
-      box-shadow: 0 12px 48px rgba(125,34,64,0.14), 0 4px 12px rgba(0,0,0,0.06);
-      transform: translateY(-3px);
+    .eyebrow {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.6875rem; font-weight: 800;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--gold-deep);
+      margin-bottom: 1.5rem;
     }
 
-    .post-featured-visual {
-      background: var(--charcoal);
-      position: relative;
-      overflow: hidden;
-      min-height: 340px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .post-featured-visual::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, #7D2240 0%, #1C1C1C 100%);
-    }
-
-    .post-featured-visual::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
-      background-size: 200px;
-      pointer-events: none;
-    }
-
-    .post-featured-number {
-      position: relative;
-      z-index: 1;
-      font-family: 'Playfair Display', serif;
-      font-size: 8rem;
+    .page-heading {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(3rem, 5.5vw, 4.75rem);
       font-weight: 700;
-      color: rgba(201,168,71,0.18);
-      line-height: 1;
-      user-select: none;
-    }
-
-    .post-featured-body {
-      padding: 2.5rem 2.75rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .post-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.375rem;
-      font-size: 0.6875rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
+      line-height: 0.98; letter-spacing: -0.035em;
       color: var(--burgundy);
-      background: rgba(125,34,64,0.07);
-      border: 1px solid rgba(125,34,64,0.15);
-      padding: 0.3rem 0.75rem;
-      border-radius: 100px;
-      margin-bottom: 1.25rem;
+      margin: 0 0 1.25rem;
+      max-width: 22ch;
+    }
+    .page-heading .accent {
+      font-style: italic; font-weight: 400;
+      /* Sunrise gradient text: burgundy → burgundy-glow → gold-warm */
+      background: linear-gradient(135deg, var(--burgundy) 0%, var(--burgundy-glow) 55%, var(--gold-warm) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+
+    .page-sub {
+      font-family: 'Nunito', sans-serif;
+      font-size: 1.0625rem; font-weight: 500;
+      line-height: 1.55;
+      color: var(--ink-soft);
+      max-width: 60ch;
+      margin: 0 0 2rem;
+    }
+
+    /* Category chips */
+    .cat-chips { display: flex; gap: 0.625rem; flex-wrap: wrap; }
+    .cat-chip {
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.02em;
+      background: transparent; color: var(--ink);
+      border: 1.5px solid var(--rule);
+      cursor: pointer;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+    .cat-chip:hover { border-color: var(--burgundy); }
+    .cat-chip.active {
+      background: var(--burgundy); color: var(--white);
+      border-color: var(--burgundy);
+    }
+
+    /* ── BLOG BODY (container) ── */
+    .blog-section { padding: 0; margin: 0; max-width: none; }
+
+    /* ── FEATURED CARD ── (matches blog.jsx FeaturedCard) */
+    .feat {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 48px;
+      padding: 48px 56px;
+      background: var(--white);
+      border-bottom: 1px solid var(--rule);
+      align-items: center;
+      text-decoration: none; color: inherit;
+      transition: background 0.25s ease;
+    }
+    .feat:hover { background: rgba(122,21,48,0.025); }
+    .feat-body { display: flex; flex-direction: column; }
+    .feat-tag {
+      display: inline-block;
+      padding: 5px 12px;
+      background: var(--gold);
+      color: var(--burgundy);
+      border-radius: 4px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 10px; font-weight: 800;
+      letter-spacing: 2px; text-transform: uppercase;
+      margin-bottom: 20px;
       width: fit-content;
     }
-
-    .post-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.4rem, 2vw, 1.75rem);
-      font-weight: 600;
-      color: var(--charcoal);
-      line-height: 1.25;
-      letter-spacing: -0.02em;
-      margin: 0 0 1rem;
-    }
-
-    .post-excerpt {
-      font-size: 0.9375rem;
-      line-height: 1.72;
-      color: var(--muted);
-      margin: 0 0 1.75rem;
-    }
-
-    .post-meta {
-      display: flex;
-      align-items: center;
-      gap: 1.25rem;
-      font-size: 0.8125rem;
-      color: var(--muted);
-      padding-top: 1.25rem;
-      border-top: 1px solid rgba(28,28,28,0.07);
-    }
-
-    .post-meta-dot { color: var(--gold); }
-
-    .post-read-more {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.375rem;
-      font-size: 0.875rem;
-      font-weight: 600;
+    .feat-meta {
+      font-family: 'Nunito', sans-serif;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
       color: var(--burgundy);
+      margin-bottom: 14px;
+    }
+    .feat-title {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 700;
+      font-size: 44px;
+      line-height: 1.05; letter-spacing: -1.5px;
+      color: var(--ink);
+      margin-bottom: 18px;
+      text-wrap: balance;
+    }
+    .feat-excerpt {
+      font-family: 'Nunito', sans-serif;
+      font-size: 16px; font-weight: 500;
+      line-height: 1.5;
+      color: var(--ink-soft);
+      margin-bottom: 24px;
+      max-width: 560px;
+      text-wrap: pretty;
+    }
+    .feat-cta {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 14px; font-weight: 800;
+      color: var(--burgundy);
+      border-bottom: 2px solid var(--gold);
+      padding-bottom: 4px;
+      width: fit-content;
       text-decoration: none;
       transition: gap 0.2s ease;
     }
-    .post-read-more:hover { gap: 0.625rem; }
-    .post-read-more::after { content: '→'; }
+    .feat-cta:hover { gap: 14px; }
 
-    /* SECONDARY POSTS GRID */
-    .posts-grid {
+    /* Featured visual — burgundy gradient with decorative rings */
+    .feat-visual {
+      aspect-ratio: 4 / 3;
+      /* Signature gradient: burgundy → burgundy-glow (matches tokens.jsx burgundySignature) */
+      background: linear-gradient(135deg, var(--burgundy) 0%, var(--burgundy-soft) 55%, var(--burgundy-glow) 100%);
+      border-radius: 8px;
+      position: relative; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .feat-visual svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .feat-visual-label {
+      position: absolute; bottom: 24px; left: 24px; right: 24px;
+      color: var(--white);
+    }
+    /* Sunrise gradient used on both eyebrow and title (burgundy-glow → gold-warm) */
+    .feat-visual-eyebrow,
+    .feat-visual-title {
+      background: linear-gradient(135deg, var(--burgundy-glow) 0%, var(--gold) 45%, var(--gold-warm) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+    .feat-visual-eyebrow {
+      font-family: 'Nunito', sans-serif;
+      font-size: 10px; font-weight: 800;
+      letter-spacing: 2px; text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .feat-visual-title {
+      font-family: 'Fraunces', Georgia, serif;
+      font-style: italic; font-weight: 500;
+      font-size: 22px; line-height: 1.1;
+      letter-spacing: -0.5px;
+    }
+
+    /* ── POST ROWS ── (matches blog.jsx PostRow) */
+    .post-rows {
+      background: var(--white);
+    }
+    .prow {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.75rem;
+      grid-template-columns: 140px 1fr auto;
+      gap: 32px;
+      padding: 28px 56px;
+      border-bottom: 1px solid var(--rule);
+      align-items: flex-start;
+      text-decoration: none; color: inherit;
+      transition: background 0.2s ease;
     }
-
-    .post-card {
-      background: var(--surface);
-      border-radius: 10px;
-      overflow: hidden;
-      border: 1px solid rgba(28,28,28,0.07);
-      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-      text-decoration: none;
-      color: inherit;
-      display: flex;
-      flex-direction: column;
-      transition: box-shadow 0.25s ease, transform 0.25s cubic-bezier(0.34,1.56,0.64,1);
+    .prow:hover { background: rgba(122,21,48,0.025); }
+    .prow:last-child { border-bottom: none; }
+    .prow-date {
+      font-family: 'Nunito', sans-serif;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase;
+      color: var(--ink-soft);
+      padding-top: 6px;
     }
-    .post-card:hover {
-      box-shadow: 0 8px 28px rgba(125,34,64,0.1), 0 2px 6px rgba(0,0,0,0.05);
-      transform: translateY(-4px);
+    .prow-read {
+      color: var(--gold-deep);
+      margin-top: 4px;
+      font-weight: 800;
     }
-
-    .post-card-visual { display: none; }
-
-    .post-card-body { padding: 1.5rem 1.625rem 1.75rem; flex: 1; display: flex; flex-direction: column; }
-
-    .post-card-tag {
-      font-size: 0.6rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
+    .prow-cat {
+      font-family: 'Nunito', sans-serif;
+      font-size: 10px; font-weight: 800;
+      letter-spacing: 1.8px; text-transform: uppercase;
       color: var(--burgundy);
-      margin-bottom: 0.75rem;
+      margin-bottom: 8px;
+    }
+    .prow-title {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 700;
+      font-size: 26px; line-height: 1.15;
+      letter-spacing: -0.8px;
+      color: var(--ink);
+      margin-bottom: 8px;
+      text-wrap: balance;
+    }
+    .prow-excerpt {
+      font-family: 'Nunito', sans-serif;
+      font-size: 14px; font-weight: 500;
+      line-height: 1.5;
+      color: var(--ink-soft);
+      max-width: 640px;
+      text-wrap: pretty;
+    }
+    .prow-more {
+      font-family: 'Nunito', sans-serif;
+      font-size: 13px; font-weight: 800;
+      color: var(--burgundy);
+      padding-top: 28px;
+      display: flex; gap: 6px; align-items: center;
+      transition: gap 0.2s ease;
+    }
+    .prow:hover .prow-more { gap: 10px; }
+
+    @media (max-width: 900px) {
+      .feat { grid-template-columns: 1fr; padding: 32px 24px; gap: 24px; }
+      .feat-title { font-size: 32px; }
+      .prow { grid-template-columns: 1fr; padding: 24px; gap: 8px; }
+      .prow-more { padding-top: 4px; }
     }
 
-    .post-card-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.0625rem;
-      font-weight: 600;
-      color: var(--charcoal);
-      line-height: 1.3;
-      letter-spacing: -0.015em;
-      margin: 0 0 0.625rem;
-      flex: 1;
+    /* ── CTA BAND ── sunrise gradient background */
+    .cta-band {
+      padding: 72px 56px;
+      /* Sunrise: burgundy → burgundy-glow → gold-warm */
+      background: linear-gradient(135deg, var(--burgundy) 0%, var(--burgundy-glow) 60%, var(--gold-warm) 100%);
+      color: var(--white);
+      border-top: 1px solid var(--rule);
     }
-
-    .post-card-excerpt {
-      font-size: 0.875rem;
-      line-height: 1.65;
-      color: var(--muted);
-      margin: 0 0 1.25rem;
+    .cta-band-inner {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 48px; align-items: center;
+      max-width: 1100px; margin: 0 auto;
     }
-
-    .post-card-meta {
-      font-size: 0.75rem;
-      color: var(--muted);
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
+    .cta-band-eyebrow {
+      font-family: 'Nunito', sans-serif;
+      font-size: 11px; font-weight: 800;
+      letter-spacing: 3px; text-transform: uppercase;
+      color: var(--gold-warm);
+      margin-bottom: 16px;
     }
-
-    /* CTA BAND */
-    .cta-band { position: relative; background: linear-gradient(135deg, #7D2240 0%, #3D1020 55%, #1C1C1C 100%); padding: 5rem 4rem; overflow: hidden; }
-    .cta-band::before { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E"); background-size: 200px; pointer-events: none; }
-    .cta-band-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr auto; gap: 4rem; align-items: center; max-width: 1100px; margin: 0 auto; }
-    .cta-band-heading { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 2.5vw, 2.4rem); font-weight: 600; color: #fff; line-height: 1.2; letter-spacing: -0.025em; margin: 0 0 0.75rem; }
-    .cta-band-body { font-size: 1rem; color: rgba(255,255,255,0.65); line-height: 1.7; margin: 0; }
-    .cta-band-right { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; flex-shrink: 0; }
-    .cta-band-note { font-size: 0.75rem; color: rgba(255,255,255,0.4); text-align: center; }
-    .btn-gold { display: inline-flex; align-items: center; background: var(--gold); color: var(--charcoal); font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600; padding: 0.9375rem 2rem; border-radius: 100px; text-decoration: none; white-space: nowrap; transition: background 0.2s ease, transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s ease; box-shadow: 0 4px 20px rgba(201,168,71,0.35); }
-    .btn-gold:hover { background: var(--gold-dark); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(201,168,71,0.45); }
+    .cta-band-heading {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 700;
+      font-size: 44px;
+      line-height: 1.05; letter-spacing: -1.5px;
+      color: var(--white);
+      margin: 0 0 16px;
+      text-wrap: balance;
+    }
+    .cta-band-heading .accent {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--gold-warm);
+    }
+    .cta-band-body {
+      font-family: 'Nunito', sans-serif;
+      font-size: 16px; font-weight: 500;
+      line-height: 1.5;
+      color: rgba(255,255,255,0.88);
+      max-width: 540px;
+      text-wrap: pretty;
+      margin: 0;
+    }
+    .cta-band-right { text-align: right; }
+    .btn-gold {
+      display: inline-flex; align-items: center; gap: 12px;
+      padding: 18px 28px;
+      background: var(--gold);
+      color: var(--burgundy);
+      border-radius: 999px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 15px; font-weight: 800;
+      text-decoration: none;
+      transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s ease;
+      box-shadow: 0 4px 20px rgba(212,168,74,0.35);
+    }
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(212,168,74,0.45);
+    }
+    .btn-gold .arrow { font-size: 18px; }
+    @media (max-width: 900px) {
+      .cta-band { padding: 48px 24px; }
+      .cta-band-inner { grid-template-columns: 1fr; gap: 24px; }
+      .cta-band-right { text-align: left; }
+      .cta-band-heading { font-size: 32px; }
+    }
 
     /* FOOTER */
     footer { background: var(--charcoal); padding: 3.5rem 4rem 2rem; }
     .footer-inner { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 1.5rem; }
-    .footer-brand-name { font-family: 'Playfair Display', serif; font-size: 1.0625rem; font-weight: 600; color: #fff; margin-bottom: 0.25rem; }
+    .footer-brand-name { font-family: 'Fraunces', Georgia, serif; font-size: 1.0625rem; font-weight: 600; color: #fff; margin-bottom: 0.25rem; }
     .footer-brand-tag { font-size: 0.75rem; color: rgba(255,255,255,0.45); letter-spacing: 0.1em; text-transform: uppercase; }
     .footer-nav { display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
     .footer-nav a { font-size: 0.8125rem; color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s ease; }
@@ -487,45 +585,45 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
   <!-- NAV -->
-  <nav class="nav">
-    <a href="index.html" class="nav-brand">
-      <span class="nav-brand-name">Alice Bazdikian</span>
-      <span class="nav-brand-tag">AI Strategist</span>
+  <nav class="site-nav">
+    <a href="index.html" class="site-nav-brand" aria-label="Alice Bazdikian — home">
+      <span class="site-nav-mono">ab</span>
+      <span class="site-nav-brand-text">
+        <span class="site-nav-brand-name">Alice Bazdikian</span>
+        <span class="site-nav-brand-tag">AI Strategist + Educator</span>
+      </span>
     </a>
-    <ul class="nav-links">
+    <ul class="site-nav-links">
       <li><a href="about.html">About</a></li>
-      <li><a href="workshops.html" class="btn-nav-outline">Work With Me</a></li>
+      <li><a href="workshops.html">Work With Me</a></li>
       <li><a href="scorecard.html">Scorecard</a></li>
-      <li><a href="claude-resources.html">Claude Resources</a></li>
-      <li class="nav-dropdown">
-        <a href="#" class="nav-dropdown-toggle">Free Tools <span style="font-size:0.6em;margin-left:2px;">▾</span></a>
-        <div class="nav-dropdown-menu">
-          <a href="scorecard.html">AI Readiness Scorecard</a>
-          <a href="ai-roi-calculator.html">AI ROI Calculator</a>
-          <a href="ai-stack.html">AI Stack Template</a>
-          <a href="ai-challenge.html">5-Day AI Challenge</a>
-        </div>
-      </li>
+      <li><a href="claude-resources.html">Resources</a></li>
       <li><a href="blog.html" class="active">Blog</a></li>
-      <li><a href="https://calendly.com/abazdikian/diagnostic" class="btn-nav">Book a Diagnostic</a></li>
+      <li class="site-nav-social" aria-label="Social media">
+        <a href="https://www.linkedin.com/in/alice-bazdikian" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.852 3.37-1.852 3.601 0 4.267 2.37 4.267 5.455v6.288zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        <a href="https://www.instagram.com/smallbusinessaicoach/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://www.tiktok.com/@smallbusinessaicoach" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005.8 20.1a6.34 6.34 0 0010.86-4.43V8.21a8.15 8.15 0 004.77 1.52V6.31a4.77 4.77 0 01-1.84-.62z"/></svg></a>
+      </li>
+      <li>
+        <a href="https://calendly.com/abazdikian/diagnostic" target="_blank" rel="noopener" class="site-nav-cta">Book a Diagnostic</a>
+      </li>
     </ul>
-    <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false">
+    <button class="site-nav-hamburger" id="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </nav>
 
   <!-- MOBILE MENU -->
-  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <div class="site-mobile-menu" id="mobile-menu" aria-hidden="true">
     <a href="about.html">About</a>
     <a href="workshops.html">Work With Me</a>
     <a href="scorecard.html">Scorecard</a>
-    <a href="claude-resources.html">Claude Resources</a>
-    <a href="scorecard.html">AI Scorecard</a>
+    <a href="claude-resources.html">Resources</a>
+    <a href="blog.html">Blog</a>
     <a href="ai-roi-calculator.html">AI ROI Calculator</a>
     <a href="ai-stack.html">AI Stack Template</a>
     <a href="ai-challenge.html">5-Day AI Challenge</a>
-    <a href="blog.html">Blog</a>
-    <a href="https://calendly.com/abazdikian/diagnostic" class="mob-cta">Book a Diagnostic</a>
+    <a href="https://calendly.com/abazdikian/diagnostic" target="_blank" rel="noopener" class="site-mobile-cta">Book a Diagnostic</a>
   </div>
 
   <!-- ANNOUNCEMENT BAND -->
@@ -535,123 +633,159 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <span class="announce-band-dot"></span>
   </div>
 
-  <!-- PAGE HEADER -->
+  <!-- PAGE HEADER — Brand Refresh v2 -->
   <div class="page-header">
-    <canvas id="blog-gradient-canvas" aria-hidden="true"></canvas>
-    <div class="page-header-inner" style="position:relative;z-index:2;">
-      <h1 class="page-heading" style="text-align:center;">An AI Blog for Normal People</h1>
-      <p class="page-sub" style="text-align:center;margin:0 auto;">You've been figuring everything else out on your own. You shouldn't have to figure this out alone too.</p>
+    <div class="page-header-inner">
+      <h1 class="page-heading">An AI blog for <span class="accent">normal people.</span></h1>
+      <p class="page-sub">Practical guides for entrepreneurs, solopreneurs, and business leaders who want to use AI without the jargon, the hype, or the tech-bro gatekeeping.</p>
+      <div class="cat-chips">
+        <span class="cat-chip active">All Posts</span>
+        <span class="cat-chip">Claude Cowork Guides</span>
+        <span class="cat-chip">AI Strategy</span>
+        <span class="cat-chip">Productivity</span>
+        <span class="cat-chip">Personal Essays</span>
+      </div>
     </div>
   </div>
 
-  <!-- BLOG INTRO (static content for SEO) -->
-  <div style="max-width:780px;margin:0 auto;padding:3rem 2rem 0;">
-    <p style="font-size:1rem;line-height:1.75;color:var(--muted);margin:0 0 1.5rem;">Written by <a href="about.html" style="color:var(--burgundy);text-decoration:none;font-weight:500;">Alice Bazdikian</a>, Claude Cowork educator and AI strategist with 15+ years in business transformation. These guides are built for entrepreneurs, solopreneurs, and business leaders who want to use AI practically — without the jargon, the hype, or the tech-bro gatekeeping.</p>
-
-    <div style="display:flex;flex-wrap:wrap;gap:0.625rem;margin-bottom:2rem;">
-      <span style="font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--burgundy);background:rgba(125,34,64,0.08);padding:0.375rem 0.875rem;border-radius:100px;">Claude Cowork Guides</span>
-      <span style="font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--burgundy);background:rgba(125,34,64,0.08);padding:0.375rem 0.875rem;border-radius:100px;">AI Strategy</span>
-      <span style="font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--burgundy);background:rgba(125,34,64,0.08);padding:0.375rem 0.875rem;border-radius:100px;">Productivity</span>
-      <span style="font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--burgundy);background:rgba(125,34,64,0.08);padding:0.375rem 0.875rem;border-radius:100px;">Personal Essays</span>
-    </div>
-
-  </div>
-
-  <!-- BLOG CONTENT -->
+  <!-- ── BLOG BODY ── -->
   <div class="blog-section">
 
-    <!-- POST CARDS (loaded from blog/posts.json) -->
-    <div class="posts-grid" id="posts-grid"></div>
+    <!-- FEATURED CARD (top-most featured post from blog/posts.json) -->
+    <a id="feat-slot" class="feat" href="#" style="display:none;">
+      <div class="feat-body">
+        <div class="feat-tag">★ Featured</div>
+        <div class="feat-meta" id="feat-meta"></div>
+        <div class="feat-title" id="feat-title"></div>
+        <p class="feat-excerpt" id="feat-excerpt"></p>
+        <span class="feat-cta">Read the full guide <span>→</span></span>
+      </div>
+      <div class="feat-visual">
+        <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <circle cx="320" cy="80" r="120" fill="none" stroke="#D4A84A" stroke-width="1" opacity="0.3"/>
+          <circle cx="320" cy="80" r="80"  fill="none" stroke="#D4A84A" stroke-width="1" opacity="0.5"/>
+          <circle cx="320" cy="80" r="40"  fill="#D4A84A" opacity="0.9"/>
+          <circle cx="320" cy="80" r="8"   fill="#FFFFFF"/>
+        </svg>
+        <div class="feat-visual-label">
+          <div class="feat-visual-eyebrow">New This Week</div>
+          <div class="feat-visual-title" id="feat-visual-title"></div>
+        </div>
+      </div>
+    </a>
+
+    <!-- POST ROWS (all other posts) -->
+    <div class="post-rows" id="post-rows"></div>
 
     <script>
     fetch('blog/posts.json')
       .then(function(r){ return r.json(); })
       .then(function(posts){
-        var grid = document.getElementById('posts-grid');
-        posts.forEach(function(p){
-          var card = document.createElement('a');
-          card.href = 'blog/' + p.slug + '.html';
-          if (p.featured) {
-            card.className = 'post-card';
-            card.style.cssText = 'grid-column:1/-1;border-left:4px solid var(--burgundy);';
-            card.innerHTML =
-              '<div class="post-card-body">' +
-                '<div class="post-card-tag" style="color:var(--gold);">Featured</div>' +
-                '<div class="post-card-title" style="font-size:1.35rem;">' + p.title + '</div>' +
-                '<p class="post-card-excerpt">' + p.excerpt + '</p>' +
-                '<div class="post-card-meta">' +
-                  '<span>' + p.date + '</span>' +
-                  '<span style="color:var(--gold)">·</span>' +
-                  '<span>' + p.readTime + '</span>' +
-                  '<span style="color:var(--gold)">·</span>' +
-                  '<span style="color:var(--burgundy);font-weight:500;">Read article →</span>' +
-                '</div>' +
-              '</div>';
-          } else {
-            card.className = 'post-card';
-            card.innerHTML =
-              '<div class="post-card-body">' +
-                '<div class="post-card-tag">' + p.tag + '</div>' +
-                '<div class="post-card-title">' + p.title + '</div>' +
-                '<p class="post-card-excerpt">' + p.excerpt + '</p>' +
-                '<div class="post-card-meta">' +
-                  '<span>' + p.date + '</span>' +
-                  '<span style="color:var(--gold)">·</span>' +
-                  '<span>' + p.readTime + '</span>' +
-                '</div>' +
-              '</div>';
-          }
-          grid.appendChild(card);
+        // First featured post drives the FeaturedCard; everything else is a row.
+        var featIdx = posts.findIndex(function(p){ return p.featured; });
+        if (featIdx < 0) featIdx = 0;
+        var feat = posts[featIdx];
+        var rest = posts.filter(function(_, i){ return i !== featIdx; });
+
+        // ── Populate FeaturedCard ──
+        var slot = document.getElementById('feat-slot');
+        slot.href = 'blog/' + feat.slug + '.html';
+        slot.style.display = 'grid';
+        document.getElementById('feat-meta').textContent =
+          (feat.tag || 'Featured') + ' · ' + (feat.readTime || '');
+        document.getElementById('feat-title').textContent = feat.title;
+        document.getElementById('feat-excerpt').textContent = feat.excerpt;
+        var shortTitle = feat.title.length > 46
+          ? feat.title.slice(0, 44).trim() + '…' : feat.title;
+        document.getElementById('feat-visual-title').textContent = shortTitle;
+
+        // ── Populate rows ──
+        var rows = document.getElementById('post-rows');
+        rest.forEach(function(p){
+          var a = document.createElement('a');
+          a.href = 'blog/' + p.slug + '.html';
+          a.className = 'prow';
+          a.innerHTML =
+            '<div class="prow-date">' +
+              '<div>' + (p.date || '') + '</div>' +
+              '<div class="prow-read">' + (p.readTime || '') + '</div>' +
+            '</div>' +
+            '<div>' +
+              '<div class="prow-cat">' + (p.tag || '') + '</div>' +
+              '<div class="prow-title">' + p.title + '</div>' +
+              '<div class="prow-excerpt">' + (p.excerpt || '') + '</div>' +
+            '</div>' +
+            '<div class="prow-more">Read <span>→</span></div>';
+          rows.appendChild(a);
         });
       });
     </script>
 
-    <div style="max-width:200px;margin:3rem auto 0;border-top:1px solid rgba(125,34,64,0.15);"></div>
-    <div style="text-align:center;padding:2.5rem 2rem 1rem;">
-      <p style="font-family:'Playfair Display',serif;font-size:clamp(1.5rem,2.5vw,2rem);font-weight:600;color:var(--charcoal);letter-spacing:-0.02em;margin:0 0 1.25rem;line-height:1.3;">Hire Your First AI Employee for <em style="color:var(--burgundy);">$100/mo</em></p>
-      <a href="workshops.html" style="display:inline-flex;align-items:center;background:var(--gold);color:var(--charcoal);font-family:'Inter',sans-serif;font-size:0.9rem;font-weight:600;padding:0.875rem 2rem;border-radius:100px;text-decoration:none;box-shadow:0 4px 20px rgba(201,168,71,0.35);transition:background 0.2s,transform 0.15s;" onmouseover="this.style.background='#B8952E';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='var(--gold)';this.style.transform='none'">See Workshops →</a>
-    </div>
-
   </div>
 
-  <!-- CTA BAND -->
+  <!-- ── CTA BAND (Scorecard) ── -->
   <section class="cta-band">
     <div class="cta-band-inner">
       <div>
-        <h2 class="cta-band-heading">Find Out Where Your Business Stands on AI</h2>
-        <p class="cta-band-body">Take the free 5-minute AI Readiness Scorecard and get a clear picture of your organization's maturity level — and your most important next step.</p>
+        <div class="cta-band-eyebrow">Free · 5 minutes · Instant results</div>
+        <h2 class="cta-band-heading">Where does your business <span class="accent">actually stand</span> on AI?</h2>
+        <p class="cta-band-body">Take the AI Readiness Scorecard — a free 5-minute diagnostic across awareness, security, training, and productivity. Get your score and the single most important next step.</p>
       </div>
       <div class="cta-band-right">
-        <a href="scorecard.html" class="btn-gold">Take the AI Readiness Scorecard</a>
-        <span class="cta-band-note">Free · 5 minutes · Instant results</span>
+        <a href="scorecard.html" class="btn-gold">Take the Scorecard <span class="arrow">→</span></a>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer>
-    <div class="footer-inner">
-      <div>
-        <div class="footer-brand-name">Alice Bazdikian</div>
-        <div class="footer-brand-tag">AI Strategist + Educator</div>
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div class="site-footer-grid">
+        <div class="site-footer-brand-block">
+          <div class="site-footer-brand-row">
+            <span class="site-footer-mono">ab</span>
+            <div>
+              <div class="site-footer-brand-name">Alice Bazdikian</div>
+              <div class="site-footer-brand-tag">AI Strategist + Educator</div>
+            </div>
+          </div>
+          <p class="site-footer-brand-desc">Helping entrepreneurs and businesses navigate the AI revolution — without the overwhelm.</p>
+          <div class="site-footer-socials">
+            <a href="https://www.linkedin.com/in/alice-bazdikian" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.852 3.37-1.852 3.601 0 4.267 2.37 4.267 5.455v6.288zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+            <a href="https://www.instagram.com/smallbusinessaicoach/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+            <a href="https://www.tiktok.com/@smallbusinessaicoach" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005.8 20.1a6.34 6.34 0 0010.86-4.43V8.21a8.15 8.15 0 004.77 1.52V6.31a4.77 4.77 0 01-1.84-.62z"/></svg></a>
+          </div>
+        </div>
+        <div class="site-footer-col">
+          <h4 class="site-footer-col-head">Explore</h4>
+          <a href="about.html">About</a>
+          <a href="workshops.html">Work With Me</a>
+          <a href="scorecard.html">Scorecard</a>
+          <a href="blog.html">Blog</a>
+        </div>
+        <div class="site-footer-col">
+          <h4 class="site-footer-col-head">Free Tools</h4>
+          <a href="scorecard.html">AI Readiness Scorecard</a>
+          <a href="ai-roi-calculator.html">ROI Calculator</a>
+          <a href="ai-stack.html">AI Stack Template</a>
+          <a href="ai-challenge.html">5-Day Challenge</a>
+        </div>
+        <div class="site-footer-col">
+          <h4 class="site-footer-col-head">Contact</h4>
+          <a href="https://calendly.com/abazdikian/diagnostic" target="_blank" rel="noopener">Book a Diagnostic</a>
+          <a href="mailto:alice@alicebazdikian.com">alice@alicebazdikian.com</a>
+          <a href="https://www.linkedin.com/in/alice-bazdikian" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.instagram.com/smallbusinessaicoach/" target="_blank" rel="noopener">Instagram</a>
+        </div>
       </div>
-      <nav class="footer-nav">
-        <a href="about.html">About</a>
-        <a href="workshops.html">Work With Me</a>
-        <a href="scorecard.html">Scorecard</a>
-        <a href="claude-resources.html">Claude Resources</a>
-        <a href="blog.html">Blog</a>
-        <a href="mailto:alice@alicebazdikian.com">Book a Diagnostic</a>
-        <span style="color:rgba(255,255,255,0.15);">|</span>
-        <a href="ai-roi-calculator.html">ROI Calculator</a>
-        <a href="ai-stack.html">AI Stack</a>
-        <a href="ai-challenge.html">5-Day Challenge</a>
-        <a href="https://www.linkedin.com/in/alice-bazdikian" class="footer-linkedin" aria-label="LinkedIn" target="_blank" rel="noopener">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-        </a>
-      </nav>
+      <div class="site-footer-bottom">
+        <div>© 2026 Alice Bazdikian. All rights reserved.</div>
+        <div class="site-footer-legal">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms.html">Terms</a>
+        </div>
+      </div>
     </div>
-    <p class="footer-copy">© 2026 Alice Bazdikian · All rights reserved · <a href="privacy-policy.html" style="color:rgba(255,255,255,0.4);text-decoration:none;">Privacy Policy</a> · <a href="terms.html" style="color:rgba(255,255,255,0.4);text-decoration:none;">Terms</a></p>
   </footer>
 
   <!-- SCORECARD BAND -->
@@ -685,8 +819,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </script>
 
   <script>
-    /* ── MESH GRADIENT: blog hero ── */
+    /* Mesh gradient removed in Brand Refresh v2 — hero is now solid white. */
     (function() {
+      return;
       var canvas = document.getElementById('blog-gradient-canvas');
       if (!canvas) return;
       var gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');

@@ -19,10 +19,8 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Alice Bazdikian | Claude Cowork Educator & AI Strategist for Entrepreneurs</title>
-  <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="apple-touch-icon" href="/favicon.svg">
-  <!-- SEO -->
   <meta name="description" content="Meet Alice Bazdikian — Claude Cowork educator and AI strategist helping entrepreneurs, solopreneurs & women business owners use AI to stop doing admin and start doing strategy. 15+ years in business transformation." />
   <meta name="keywords" content="Alice Bazdikian, Claude Cowork educator, AI coach for entrepreneurs, AI strategist Toronto, AI for women entrepreneurs, solopreneur AI coach, Claude Cowork trainer" />
   <link rel="canonical" href="https://www.smallbusinessaicoach.com/about" />
@@ -41,7 +39,6 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   <meta name="geo.position" content="43.6532;-79.3832" />
   <meta name="ICBM" content="43.6532, -79.3832" />
 
-  <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -64,7 +61,11 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
         "description": "15+ years in business transformation. Now teaching entrepreneurs & solopreneurs how to use Claude Cowork as their personal AI business analyst.",
         "url": "https://www.smallbusinessaicoach.com/about",
         "image": "https://www.smallbusinessaicoach.com/Brand%20Assets/_MCK3991.jpg",
-        "sameAs": ["https://www.linkedin.com/in/alice-bazdikian"],
+        "sameAs": [
+          "https://www.linkedin.com/in/alice-bazdikian",
+          "https://www.instagram.com/smallbusinessaicoach/",
+          "https://www.tiktok.com/@smallbusinessaicoach"
+        ],
         "knowsAbout": ["Claude Cowork", "AI for entrepreneurs", "AI productivity", "business automation", "business transformation"],
         "worksFor": { "@id": "https://www.smallbusinessaicoach.com/#business" }
       },
@@ -82,7 +83,8 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/chrome.css" />
 
   <link rel="stylesheet" href="dist/tailwind.css">
 
@@ -90,759 +92,986 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     *, *::before, *::after { box-sizing: border-box; }
 
     :root {
-      --eggshell: #F7F3EE;
-      --charcoal: #1C1C1C;
-      --burgundy: #7D2240;
-      --burgundy-dark: #651B33;
-      --burgundy-deeper: #3D1020;
-      --gold: #C9A847;
-      --gold-dark: #B8952E;
-      --surface: #FFFFFF;
-      --muted: #6B6560;
+      --burgundy: #7A1530;
+      --burgundy-soft: #9B2440;
+      --burgundy-glow: #C13558;
+      --gold: #D4A84A;
+      --gold-warm: #E6C472;
+      --gold-deep: #A87B1F;
+      --white: #FFFFFF;
+      --offwhite: #FDFBF5;
+      --ink: #2B1A1F;
+      --ink-soft: #6B5A5F;
+      --rule: #EFE8E3;
+      --grad-sunrise: linear-gradient(135deg, var(--burgundy) 0%, var(--burgundy-glow) 60%, var(--gold-warm) 100%);
+      --grad-burgundy: linear-gradient(135deg, var(--burgundy) 0%, var(--burgundy-soft) 55%, var(--burgundy-glow) 100%);
+      --grad-ember: linear-gradient(135deg, var(--gold-deep) 0%, var(--burgundy-glow) 55%, var(--burgundy) 100%);
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      background-color: var(--eggshell);
-      color: var(--charcoal);
-      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--white);
+      color: var(--ink);
+      font-family: 'Nunito', system-ui, sans-serif;
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
       margin: 0;
     }
 
-    /* ── NAV ── */
+    /* ── NAVIGATION — Brand Refresh v2 ── */
     .nav {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: var(--eggshell);
-      border-bottom: 1px solid rgba(125, 34, 64, 0.12);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 2.5rem;
-      height: 68px;
-      max-width: 1400px;
-      margin: 0 auto;
+      position: sticky; top: 0; z-index: 50;
+      background: var(--white);
+      border-bottom: 1px solid var(--rule);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 3.5rem; height: 76px;
     }
-
-    /* Sticky wrapper so nav background goes full-width */
-    .nav-wrapper {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: var(--eggshell);
-      border-bottom: 1px solid rgba(125, 34, 64, 0.12);
+    .nav-brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .nav-mono {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: var(--burgundy);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Fraunces', Georgia, serif;
+      font-style: italic; font-weight: 700;
+      font-size: 1.125rem; letter-spacing: -0.04em;
+      color: var(--gold);
+      transition: transform 0.15s ease;
     }
-
-    .nav-wrapper .nav {
-      position: static;
-      border-bottom: none;
+    .nav-brand:hover .nav-mono { transform: translateY(-1px); }
+    .nav-brand-text { display: flex; flex-direction: column; line-height: 1.15; }
+    .nav-brand-name {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 1rem; font-weight: 600;
+      color: var(--burgundy); letter-spacing: -0.01em;
     }
-
-    .nav-brand { display: flex; flex-direction: column; line-height: 1.2; text-decoration: none; }
-    .nav-brand-name { font-family: 'Playfair Display', serif; font-size: 1.125rem; font-weight: 600; color: var(--charcoal); letter-spacing: -0.01em; }
-    .nav-brand-tag { font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); font-weight: 400; }
-
-    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; margin: 0; padding: 0; }
-    .nav-links a { font-size: 0.875rem; font-weight: 400; color: var(--charcoal); text-decoration: none; letter-spacing: 0.01em; transition: color 0.2s ease; }
+    .nav-brand-tag {
+      font-size: 0.625rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--ink-soft);
+      font-weight: 700; margin-top: 3px;
+    }
+    .nav-links {
+      display: flex; align-items: center; gap: 1.75rem;
+      list-style: none; margin: 0; padding: 0;
+    }
+    .nav-links a {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.8125rem; font-weight: 600;
+      color: var(--ink); text-decoration: none;
+      letter-spacing: 0.01em; padding-bottom: 4px;
+      transition: color 0.2s ease;
+    }
     .nav-links a:hover { color: var(--burgundy); }
-
+    .nav-links a.active { color: var(--burgundy); border-bottom: 2px solid var(--gold); }
     .nav-dropdown { position: relative; }
     .nav-dropdown-toggle { cursor: pointer; }
     .nav-dropdown-menu {
       display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
-      background: #fff; border: 1px solid rgba(28,28,28,0.09); border-radius: 10px;
-      padding: 0.5rem 0; min-width: 200px; box-shadow: 0 8px 24px rgba(28,28,28,0.1);
+      background: #fff; border: 1px solid var(--rule); border-radius: 10px;
+      padding: 0.5rem 0; min-width: 200px; box-shadow: 0 8px 24px rgba(43,26,31,0.1);
       z-index: 60;
     }
     .nav-dropdown:hover .nav-dropdown-menu { display: block; }
     .nav-dropdown-menu a {
       display: block; padding: 0.5rem 1.25rem; font-size: 0.8125rem;
-      color: #1C1C1C; text-decoration: none; white-space: nowrap;
+      color: var(--ink); text-decoration: none; white-space: nowrap;
     }
-    .nav-dropdown-menu a:hover { background: rgba(125,34,64,0.04); color: #7D2240; }
-
-    .nav-links a.active { color: var(--burgundy); font-weight: 500; }
-
+    .nav-dropdown-menu a:hover { background: rgba(122,21,48,0.04); color: var(--burgundy); }
+    .nav-social {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      margin: 0 0.5rem 0 0.25rem;
+    }
+    .nav-social a {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 32px; height: 32px; border-radius: 8px;
+      color: var(--ink-soft); border: 1px solid var(--rule);
+      text-decoration: none; transition: color 0.2s, border-color 0.2s, background 0.2s;
+    }
+    .nav-social a:hover { color: var(--burgundy); border-color: var(--burgundy); background: rgba(122,21,48,0.04); }
+    .nav-social svg { width: 16px; height: 16px; }
     .btn-nav {
-      display: inline-flex;
-      align-items: center;
-      background: var(--gold);
-      color: var(--charcoal);
-      font-family: 'Inter', sans-serif;
-      font-size: 0.8125rem;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      padding: 0.5rem 1.25rem;
-      border-radius: 100px;
-      border: none;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
-      box-shadow: 0 2px 8px rgba(201, 168, 71, 0.3);
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--burgundy); color: var(--white);
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 0.625rem 1.25rem; border-radius: 999px;
+      border: none; cursor: pointer; text-decoration: none;
+      transition: background 0.2s ease, transform 0.15s ease;
     }
-    .btn-nav:hover { background: var(--gold-dark); transform: translateY(-1px); box-shadow: 0 4px 14px rgba(201, 168, 71, 0.4); }
-    .btn-nav:active { transform: translateY(0); }
+    .btn-nav::after { content: '→'; font-size: 0.9rem; }
+    .btn-nav:hover { background: var(--burgundy-soft); transform: translateY(-1px); }
     .btn-nav:focus-visible { outline: 2px solid var(--burgundy); outline-offset: 3px; }
-
-    /* ── ABOUT HERO ── */
-    .about-hero {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-height: 70vh;
-    }
-
-    .about-hero-content {
-      background: var(--charcoal);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 5rem 4.5rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .about-hero-content::before {
-      content: '';
-      position: absolute;
-      top: -80px;
-      left: -80px;
-      width: 280px;
-      height: 280px;
-      border-radius: 50%;
-      background: rgba(201, 168, 71, 0.05);
-      pointer-events: none;
-    }
-
-    .eyebrow {
-      font-size: 0.6875rem;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1.25rem;
-      display: flex;
-      align-items: center;
-      gap: 0.625rem;
-    }
-    .eyebrow::before {
-      content: '';
-      display: inline-block;
-      width: 24px;
-      height: 1.5px;
-      background: var(--gold);
-      flex-shrink: 0;
-    }
-
-    .about-hero-heading {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.2rem, 3.2vw, 3.2rem);
-      font-weight: 600;
-      line-height: 1.15;
-      letter-spacing: -0.03em;
-      color: #fff;
-      margin: 0 0 1.5rem;
-    }
-
-    .about-hero-heading em {
-      font-style: italic;
-      color: var(--gold);
-    }
-
-    .about-hero-sub {
-      font-size: 1.0625rem;
-      line-height: 1.75;
-      color: rgba(255,255,255,0.65);
-      margin: 0;
-      max-width: 46ch;
-    }
-
-    .about-hero-photo {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .about-hero-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top center;
-      display: block;
-    }
-
-    .about-hero-photo-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to right, rgba(28,28,28,0.25) 0%, transparent 60%);
-    }
-
-    /* ── SECTION STYLES ── */
-    .section { padding: 6rem 4rem; }
-    .section-alt { background: var(--surface); }
-    .section-dark { background: linear-gradient(160deg, #a8355e 0%, #7D2240 40%, #c9684a 100%); }
-
-    .section-inner { max-width: 1300px; margin: 0 auto; }
-
-    .section-eyebrow {
-      font-size: 0.6875rem;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.625rem;
-      justify-content: center;
-    }
-    .section-eyebrow::before {
-      content: '';
-      display: inline-block;
-      width: 24px;
-      height: 1.5px;
-      background: var(--gold);
-      flex-shrink: 0;
-    }
-
-    .section-heading {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.9rem, 2.8vw, 2.6rem);
-      font-weight: 600;
-      line-height: 1.2;
-      letter-spacing: -0.025em;
-      color: var(--charcoal);
-      margin: 0 0 1.25rem;
-      text-align: center;
-    }
-
-    .section-heading-light { color: #fff; }
-
-    .section-body {
-      font-size: 1.0625rem;
-      line-height: 1.78;
-      color: var(--muted);
-      max-width: 68ch;
-      text-align: center;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .section-body-light { color: rgba(255,255,255,0.7); }
-
-    /* ── WHY ALICE TWO-COL ── */
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: center;
-    }
-
-    .two-col-text .section-body { margin-bottom: 1.25rem; }
-
-    /* ── DIFFERENTIATORS ── */
-    .diff-list {
-      list-style: none;
-      margin: 2rem 0 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-    }
-
-    .diff-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-    }
-
-    .diff-icon {
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
-      background: rgba(201, 168, 71, 0.12);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-
-    .diff-icon svg { width: 16px; height: 16px; stroke: var(--gold); }
-
-    .diff-title {
-      font-weight: 600;
-      font-size: 0.9375rem;
-      color: var(--charcoal);
-      margin-bottom: 0.25rem;
-    }
-
-    .diff-desc {
-      font-size: 0.9rem;
-      line-height: 1.65;
-      color: var(--muted);
-    }
-
-    /* ── PHILOSOPHY CARD ── */
-    .philosophy-card {
-      background: linear-gradient(160deg, #a8355e 0%, #7D2240 40%, #c9684a 100%);
-      border-radius: 16px;
-      padding: 2.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1.75rem;
-      align-self: flex-start;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 8px 32px rgba(125,34,64,0.25);
-    }
-
-    .philosophy-card::before {
-      content: '';
-      position: absolute;
-      top: -60px;
-      right: -60px;
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(201,168,71,0.18) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .philosophy-eyebrow {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--gold);
-      letter-spacing: -0.01em;
-      margin: 0 0 0.25rem;
-    }
-
-    .philosophy-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-    }
-
-    .philosophy-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
-      background: rgba(201, 168, 71, 0.15);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      margin-top: 2px;
-      color: var(--gold);
-    }
-
-    .philosophy-title {
-      font-weight: 700;
-      font-size: 0.9375rem;
-      color: #fff;
-      margin-bottom: 0.35rem;
-    }
-
-    .philosophy-desc {
-      font-size: 0.875rem;
-      line-height: 1.65;
-      color: rgba(255,255,255,0.65);
-    }
-
-    /* ── PHOTO SIDE ── */
-    .about-photo-block {
-      position: relative;
-    }
-
-    .about-photo-block img {
-      width: 100%;
-      border-radius: 12px;
-      display: block;
-      object-fit: cover;
-      object-position: top center;
-      aspect-ratio: 4/5;
-    }
-
-    .about-photo-block::before {
-      content: '';
-      position: absolute;
-      top: -16px;
-      left: -16px;
-      right: 16px;
-      bottom: 16px;
-      border: 2px solid var(--gold);
-      border-radius: 14px;
-      z-index: -1;
-      opacity: 0.4;
-    }
-
-    /* ── TRUSTED BAND ── */
-    .trusted-band {
-      margin: 2rem 0 2.5rem;
-      padding: 1.75rem 2rem;
-      border-left: none;
-      background: linear-gradient(160deg, #a8355e 0%, #7D2240 40%, #c9684a 100%);
-      border-radius: 10px;
-      color: #fff;
-    }
-
-    .trusted-label {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--gold);
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      margin: 0 0 0.75rem;
-    }
-
-    .trusted-body {
-      font-size: 0.9375rem;
-      line-height: 1.7;
-      color: rgba(255,255,255,0.85);
-      margin: 0 0 0.5rem;
-    }
-
-    /* ── CAREER TIMELINE ── */
-    .timeline {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      margin-top: 3rem;
-    }
-
-    .timeline-item {
-      display: grid;
-      grid-template-columns: 120px 1px 1fr;
-      gap: 0 2rem;
-      padding-bottom: 2.5rem;
-    }
-
-    .timeline-item:last-child { padding-bottom: 0; }
-
-    .timeline-year {
-      font-family: 'Playfair Display', serif;
-      font-size: 0.9375rem;
-      font-weight: 600;
-      color: var(--gold);
-      padding-top: 2px;
-      text-align: right;
-    }
-
-    .timeline-line {
-      width: 1px;
-      background: rgba(201, 168, 71, 0.25);
-      position: relative;
-    }
-
-    .timeline-line::before {
-      content: '';
-      position: absolute;
-      top: 6px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--gold);
-    }
-
-    .timeline-content {
-      padding-top: 0;
-    }
-
-    .timeline-company {
-      font-weight: 600;
-      font-size: 0.9375rem;
-      color: var(--charcoal);
-      margin-bottom: 0.25rem;
-    }
-
-    .timeline-role {
-      font-size: 0.875rem;
-      color: var(--muted);
-      line-height: 1.55;
-    }
-
-    /* ── VALUES GRID ── */
-    .values-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      margin-top: 3rem;
-    }
-
-    .value-card {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 10px;
-      padding: 2rem 1.75rem;
-      transition: background 0.2s ease, border-color 0.2s ease;
-    }
-
-    .value-card:hover {
-      background: rgba(255,255,255,0.09);
-      border-color: rgba(201,168,71,0.35);
-    }
-
-    .value-number {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: rgba(201, 168, 71, 0.5);
-      line-height: 1;
-      flex-shrink: 0;
-    }
-
-    .value-header {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .value-title {
-      font-weight: 600;
-      font-size: 1rem;
-      color: #fff;
-      margin-bottom: 0;
-      line-height: 1.3;
-    }
-
-    .value-desc {
-      font-size: 0.875rem;
-      color: rgba(255,255,255,0.55);
-      line-height: 1.65;
-    }
-
-    /* ── CTA BAND ── */
-    .cta-band {
-      position: relative;
-      background: linear-gradient(135deg, #7D2240 0%, #3D1020 55%, #1C1C1C 100%);
-      padding: 5rem 4rem;
-      overflow: hidden;
-    }
-
-    .cta-band::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
-      background-size: 200px;
-      pointer-events: none;
-    }
-
-    .cta-band-inner {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 4rem;
-      align-items: center;
-      max-width: 1300px;
-      margin: 0 auto;
-    }
-
-    .cta-band-heading {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 2.5vw, 2.4rem);
-      font-weight: 600;
-      color: #fff;
-      line-height: 1.2;
-      letter-spacing: -0.025em;
-      margin: 0 0 0.75rem;
-    }
-
-    .cta-band-body {
-      font-size: 1rem;
-      color: rgba(255,255,255,0.65);
-      line-height: 1.7;
-      margin: 0;
-    }
-
-    .cta-band-right { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; flex-shrink: 0; }
-    .cta-band-note { font-size: 0.75rem; color: rgba(255,255,255,0.4); text-align: center; }
-
-    .btn-gold {
-      display: inline-flex;
-      align-items: center;
-      background: var(--gold);
-      color: var(--charcoal);
-      font-family: 'Inter', sans-serif;
-      font-size: 0.9rem;
-      font-weight: 600;
-      padding: 0.9375rem 2rem;
-      border-radius: 100px;
-      text-decoration: none;
-      white-space: nowrap;
-      transition: background 0.2s ease, transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s ease;
-      box-shadow: 0 4px 20px rgba(201, 168, 71, 0.35);
-    }
-
-    .btn-gold:hover { background: var(--gold-dark); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(201, 168, 71, 0.45); }
-    .btn-gold:active { transform: translateY(0); }
-    .btn-gold:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
-
-    /* ── FOOTER ── */
-    footer { background: var(--charcoal); padding: 3.5rem 4rem 2rem; }
-    .footer-container { max-width: 1300px; margin: 0 auto; }
-    .footer-inner { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 1.5rem; }
-    .footer-brand-name { font-family: 'Playfair Display', serif; font-size: 1.0625rem; font-weight: 600; color: #fff; margin-bottom: 0.25rem; }
-    .footer-brand-tag { font-size: 0.75rem; color: rgba(255,255,255,0.45); letter-spacing: 0.1em; text-transform: uppercase; }
-    .footer-nav { display: flex; align-items: center; gap: 2rem; }
-    .footer-nav a { font-size: 0.8125rem; color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s ease; }
-    .footer-nav a:hover { color: var(--gold); }
-    .footer-linkedin { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.55); text-decoration: none; transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease; }
-    .footer-linkedin:hover { border-color: var(--gold); color: var(--gold); background: rgba(201,168,71,0.07); }
-    .footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.3); }
-
-    .btn-nav-outline {
-      display: inline-flex;
-      align-items: center;
-      background: transparent;
-      color: #C9A847;
-      border: 1.5px solid #C9A847;
-      font-size: 0.8125rem;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      padding: 0.45rem 1.2rem;
-      border-radius: 100px;
-      text-decoration: none;
-      transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
-    }
-    .btn-nav-outline:hover {
-      background: #C9A847;
-      color: #1C1C1C;
-      transform: translateY(-1px);
-    }
     .nav-hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 8px;
-      border-radius: 6px;
-      transition: background 0.2s ease;
+      display: none; flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: pointer;
+      padding: 8px; border-radius: 6px;
     }
-    .nav-hamburger:hover { background: rgba(125,34,64,0.08); }
     .nav-hamburger span {
-      display: block;
-      width: 22px;
-      height: 2px;
-      background: #1C1C1C;
-      border-radius: 2px;
+      display: block; width: 22px; height: 2px;
+      background: var(--ink); border-radius: 2px;
       transition: transform 0.3s ease, opacity 0.3s ease;
     }
     .nav-hamburger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .nav-hamburger.is-open span:nth-child(2) { opacity: 0; }
     .nav-hamburger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
     .mobile-menu {
-      display: none;
-      position: fixed;
-      top: 68px;
-      left: 0;
-      right: 0;
-      background: #F7F3EE;
-      border-bottom: 2px solid rgba(125,34,64,0.15);
-      padding: 0.25rem 2rem 1.25rem;
-      z-index: 48;
-      box-shadow: 0 8px 28px rgba(0,0,0,0.1);
+      display: none; position: fixed; top: 76px; left: 0; right: 0;
+      background: var(--white); border-bottom: 1px solid var(--rule);
+      padding: 0.25rem 2rem 1.25rem; z-index: 48;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.08);
       flex-direction: column;
     }
     .mobile-menu.is-open { display: flex; }
     .mobile-menu a {
-      font-size: 0.9375rem;
-      font-weight: 400;
-      color: #1C1C1C;
-      text-decoration: none;
-      padding: 0.875rem 0.25rem;
-      border-bottom: 1px solid rgba(28,28,28,0.07);
-      transition: color 0.2s ease;
+      font-size: 0.9375rem; font-weight: 500;
+      color: var(--ink); text-decoration: none;
+      padding: 0.875rem 0.25rem; border-bottom: 1px solid var(--rule);
     }
-    .mobile-menu a:hover { color: #7D2240; }
+    .mobile-menu a:hover { color: var(--burgundy); }
     .mobile-menu .mob-cta {
-      background: #C9A847;
-      color: #1C1C1C !important;
-      font-weight: 600;
-      border-radius: 100px;
-      text-align: center;
-      justify-content: center;
-      margin-top: 1rem;
-      padding: 0.75rem 1.5rem;
-      border: none !important;
-      box-shadow: 0 2px 8px rgba(201,168,71,0.3);
+      background: var(--burgundy); color: var(--white) !important;
+      font-weight: 700; border-radius: 999px; text-align: center;
+      justify-content: center; margin-top: 1rem;
+      padding: 0.75rem 1.5rem; border: none !important;
       display: inline-flex;
     }
-    .mobile-menu .mob-cta:hover { background: #B8952E; }
 
+    /* ── ANNOUNCEMENT BAND ── */
     .announce-band {
-      background: #7D2240;
+      background: var(--grad-burgundy);
       padding: 0.5rem 2.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.75rem;
-      width: 100%;
+      display: flex; align-items: center; justify-content: center;
+      gap: 0.75rem; width: 100%;
     }
     .announce-band-text {
-      font-size: 0.8125rem;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.8125rem; font-weight: 600;
+      letter-spacing: 0.06em; text-transform: uppercase;
       color: rgba(255,255,255,0.92);
     }
     .announce-band-dot {
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
-      background: #C9A847;
+      width: 4px; height: 4px; border-radius: 50%;
+      background: var(--gold-warm); flex-shrink: 0;
+    }
+
+    /* ── SHARED: EYEBROW + BUTTONS ── */
+    .eyebrow {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.6875rem; font-weight: 800;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--gold-deep); margin: 0 0 1rem;
+    }
+    .eyebrow--gold { color: var(--gold-warm); }
+    .eyebrow--burgundy { color: var(--burgundy); }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700; font-size: 0.875rem;
+      padding: 14px 24px; border-radius: 999px;
+      text-decoration: none; border: none; cursor: pointer;
+      transition: background 0.2s ease, transform 0.2s cubic-bezier(.2,.8,.2,1), box-shadow 0.2s ease;
+      letter-spacing: 0.02em;
+    }
+    .btn--primary { background: var(--burgundy); color: var(--white); box-shadow: 0 4px 20px rgba(122,21,48,0.3); }
+    .btn--primary:hover { background: var(--burgundy-soft); transform: translateY(-2px); }
+    .btn--secondary { background: transparent; color: var(--burgundy); border: 1.5px solid var(--burgundy); }
+    .btn--secondary:hover { background: var(--burgundy); color: var(--white); transform: translateY(-2px); }
+    .btn--gold { background: var(--gold); color: var(--burgundy); box-shadow: 0 4px 20px rgba(212,168,74,0.4); }
+    .btn--gold:hover { background: var(--gold-warm); transform: translateY(-2px); }
+
+    /* ── ABOUT HERO ── */
+    .ab-hero {
+      background: var(--white);
+      padding: 80px 56px 72px;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 72px; align-items: center;
+      max-width: 1400px; margin: 0 auto;
+    }
+    .ab-hero-title {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 700;
+      font-size: clamp(2.5rem, 5vw, 5rem);
+      line-height: 0.98; letter-spacing: -0.04em;
+      color: var(--ink);
+      margin: 0.75rem 0 1.75rem;
+      text-wrap: balance;
+    }
+    .ab-hero-title em {
+      font-style: italic; font-weight: 400;
+      background: var(--grad-sunrise);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent; color: transparent;
+    }
+    .ab-hero-sub {
+      font-family: 'Nunito', sans-serif;
+      font-size: 1.1875rem; font-weight: 500;
+      line-height: 1.55;
+      color: var(--ink-soft);
+      max-width: 520px;
+      margin: 0 0 2.25rem;
+      text-wrap: pretty;
+    }
+    .ab-hero-ctas {
+      display: flex; gap: 12px; flex-wrap: wrap;
+    }
+    .ab-hero-photo {
+      position: relative;
+    }
+    .ab-hero-photo img {
+      width: 100%; max-width: 460px;
+      aspect-ratio: 4/5; object-fit: cover; object-position: top center;
+      border-radius: 16px;
+      display: block;
+      margin-left: auto;
+      box-shadow: 0 20px 60px rgba(122,21,48,0.15);
+    }
+    .ab-hero-badge {
+      position: absolute;
+      top: -24px; right: calc(50% - 230px + 20px);
+      background: var(--grad-burgundy);
+      color: var(--white);
+      padding: 16px 22px; border-radius: 14px;
+      box-shadow: 0 14px 40px rgba(122,21,48,0.3);
+      max-width: 240px;
+      overflow: hidden;
+    }
+    .ab-hero-badge-eyebrow {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.5625rem; font-weight: 800;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--gold-warm);
+    }
+    .ab-hero-badge-title {
+      font-family: 'Fraunces', Georgia, serif;
+      font-style: italic; font-weight: 500;
+      font-size: 1.125rem; line-height: 1.2;
+      margin-top: 6px;
+    }
+
+    /* ── ABOUT STATS ── */
+    .ab-stats {
+      padding: 64px 56px;
+      background: var(--grad-sunrise);
+      color: var(--white);
+      position: relative; overflow: hidden;
+    }
+    .ab-stats::before {
+      content: '';
+      position: absolute; top: -100px; right: -100px;
+      width: 400px; height: 400px; border-radius: 50%;
+      background: radial-gradient(circle, var(--gold-warm) 0%, transparent 65%);
+      opacity: 0.35; pointer-events: none;
+    }
+    .ab-stats-grid {
+      position: relative; z-index: 1;
+      max-width: 1400px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px;
+    }
+    .ab-stat { padding-left: 0; }
+    .ab-stat + .ab-stat { border-left: 1px solid rgba(255,255,255,0.25); padding-left: 32px; }
+    .ab-stat-num {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 700;
+      font-size: clamp(2.5rem, 4.4vw, 4rem);
+      line-height: 1; letter-spacing: -0.03em;
+      color: var(--gold-warm);
+    }
+    .ab-stat-label {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.8125rem; font-weight: 800;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--white); margin-top: 14px;
+    }
+    .ab-stat-sub {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.8125rem; font-weight: 500;
+      line-height: 1.5;
+      color: rgba(255,255,255,0.78);
+      margin-top: 6px;
+    }
+
+    /* ── ABOUT STORY ── */
+    .ab-story {
+      padding: 96px 56px;
+      background: var(--white);
+    }
+    .ab-story-inner {
+      max-width: 1400px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 2fr;
+      gap: 72px; align-items: start;
+    }
+    .ab-story-head { position: sticky; top: 100px; }
+    .ab-story-title {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 700;
+      font-size: clamp(2rem, 3vw, 2.75rem);
+      line-height: 1.05; letter-spacing: -0.03em;
+      color: var(--burgundy);
+      margin: 0.75rem 0 0;
+      text-wrap: balance;
+    }
+    .ab-story-title em {
+      font-style: italic; font-weight: 400; color: var(--ink);
+    }
+    .ab-story-body p {
+      font-family: 'Nunito', sans-serif;
+      font-size: 1.0625rem; font-weight: 500;
+      line-height: 1.65;
+      color: var(--ink);
+      margin: 0 0 1.25rem;
+      text-wrap: pretty;
+    }
+    .ab-story-lede {
+      font-family: 'Fraunces', Georgia, serif !important;
+      font-weight: 500 !important;
+      font-size: 1.5rem !important;
+      line-height: 1.35 !important;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.75rem !important;
+    }
+    .ab-story-sig {
+      font-family: 'Fraunces', Georgia, serif;
+      font-style: italic; font-weight: 500;
+      font-size: 2.25rem; letter-spacing: -0.02em;
+      color: var(--burgundy);
+      margin-top: 1.5rem;
+    }
+
+    /* ── ABOUT VALUES ── */
+    .ab-values {
+      padding: 96px 56px;
+      background: var(--offwhite);
+    }
+    .ab-values-head {
+      text-align: center; margin-bottom: 4rem;
+      max-width: 820px; margin-inline: auto;
+    }
+    .ab-values-title {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 700;
+      font-size: clamp(2.25rem, 3.6vw, 3.5rem);
+      line-height: 1.02; letter-spacing: -0.035em;
+      color: var(--ink); margin: 0.75rem 0 0;
+      text-wrap: balance;
+    }
+    .ab-values-title em {
+      font-style: italic; font-weight: 400; color: var(--burgundy);
+    }
+    .ab-values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1200px; margin: 0 auto;
+    }
+    .ab-value-card {
+      background: var(--white);
+      border: 1px solid var(--rule);
+      border-radius: 14px;
+      padding: 36px 32px 36px 44px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .ab-value-card:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(122,21,48,0.08); }
+    .ab-value-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 6px; height: 100%;
+      background: var(--grad-sunrise);
+    }
+    .ab-value-num {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.6875rem; font-weight: 800;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--gold-deep);
+      margin-bottom: 12px;
+    }
+    .ab-value-title {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 700;
+      font-size: 1.5rem; line-height: 1.15;
+      letter-spacing: -0.025em;
+      color: var(--burgundy);
+      margin: 0 0 14px;
+      text-wrap: balance;
+    }
+    .ab-value-desc {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.9375rem; font-weight: 500;
+      line-height: 1.55;
+      color: var(--ink-soft);
+      text-wrap: pretty; margin: 0;
+    }
+
+    /* ── AI-FIRST MINDSET ── */
+    .ab-mindset {
+      padding: 96px 56px;
+      background: var(--grad-burgundy);
+      color: var(--white);
+      position: relative; overflow: hidden;
+    }
+    .ab-mindset::before {
+      content: '';
+      position: absolute;
+      top: -200px; left: 50%; transform: translateX(-50%);
+      width: 800px; height: 800px; border-radius: 50%;
+      background: radial-gradient(circle, var(--gold-warm) 0%, transparent 65%);
+      opacity: 0.2; pointer-events: none;
+    }
+    .ab-mindset-inner {
+      position: relative; z-index: 1;
+      max-width: 1200px; margin: 0 auto;
+    }
+    .ab-mindset-head {
+      text-align: center; margin-bottom: 4rem;
+      max-width: 880px; margin-inline: auto;
+    }
+    .ab-mindset-title {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 700;
+      font-size: clamp(2.25rem, 4vw, 4rem);
+      line-height: 1.02; letter-spacing: -0.035em;
+      color: var(--white);
+      margin: 0.75rem 0 1.25rem;
+      text-wrap: balance;
+    }
+    .ab-mindset-title em {
+      font-style: italic; font-weight: 400;
+      color: var(--gold-warm);
+    }
+    .ab-mindset-sub {
+      font-family: 'Nunito', sans-serif;
+      font-size: 1.125rem; font-weight: 500;
+      line-height: 1.5;
+      color: rgba(255,255,255,0.82);
+      max-width: 680px;
+      margin: 0 auto;
+      text-wrap: pretty;
+    }
+    .ab-mindset-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .ab-mindset-card {
+      padding: 36px 28px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 14px;
+      backdrop-filter: blur(4px);
+    }
+    .ab-mindset-num {
+      font-family: 'Fraunces', Georgia, serif;
+      font-style: italic; font-weight: 600;
+      font-size: 2.75rem; line-height: 1;
+      letter-spacing: -0.03em;
+      color: var(--gold-warm);
+      margin-bottom: 20px;
+    }
+    .ab-mindset-card-title {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 700;
+      font-size: 1.5rem; line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      margin: 0 0 12px;
+      text-wrap: balance;
+    }
+    .ab-mindset-card-desc {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.9375rem; font-weight: 500;
+      line-height: 1.55;
+      color: rgba(255,255,255,0.82);
+      margin: 0;
+      text-wrap: pretty;
+    }
+
+    /* ── ABOUT FEATURED ── */
+    .ab-featured {
+      padding: 64px 56px;
+      background: var(--white);
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
+    .ab-featured-label {
+      text-align: center;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.6875rem; font-weight: 800;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--ink-soft);
+      margin: 0 0 36px;
+    }
+    .ab-featured-row {
+      display: flex; justify-content: space-around;
+      align-items: center; flex-wrap: wrap; gap: 48px;
+      max-width: 1100px; margin: 0 auto;
+    }
+    .ab-featured-row span {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 700; font-size: 1.375rem;
+      letter-spacing: -0.02em;
+      color: var(--ink-soft); opacity: 0.55;
+    }
+
+    /* ── ABOUT WHO (3-col cards) ── */
+    .ab-who {
+      padding: 96px 56px;
+      background: var(--offwhite);
+    }
+    .ab-who-head {
+      max-width: 1400px; margin: 0 auto 3.5rem;
+      display: grid; grid-template-columns: 1fr 2fr;
+      gap: 72px; align-items: start;
+    }
+    .ab-who-title {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 700;
+      font-size: clamp(2rem, 3.2vw, 3.25rem);
+      line-height: 1.02; letter-spacing: -0.035em;
+      color: var(--ink); margin: 0.75rem 0 0;
+      text-wrap: balance;
+    }
+    .ab-who-title em { font-style: italic; font-weight: 400; color: var(--burgundy); }
+    .ab-who-sub {
+      font-family: 'Nunito', sans-serif;
+      font-size: 1.0625rem; font-weight: 500;
+      line-height: 1.55;
+      color: var(--ink-soft);
+      padding-top: 3rem;
+      text-wrap: pretty;
+      margin: 0;
+    }
+    .ab-who-grid {
+      max-width: 1400px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+      border: 1px solid var(--rule);
+      border-radius: 16px; overflow: hidden;
+      background: var(--white);
+    }
+    .ab-who-card {
+      padding: 40px 32px 36px;
+      border-right: 1px solid var(--rule);
+    }
+    .ab-who-card:last-child { border-right: none; }
+    .ab-who-num {
+      font-family: 'Fraunces', Georgia, serif;
+      font-style: italic; font-weight: 600;
+      font-size: 2.5rem; line-height: 1;
+      letter-spacing: -0.03em;
+      background: var(--grad-sunrise);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent; color: transparent;
+      margin-bottom: 1.5rem;
+    }
+    .ab-who-card-title {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 700; font-size: 1.5rem;
+      line-height: 1.15; letter-spacing: -0.02em;
+      color: var(--burgundy);
+      margin: 0 0 14px;
+      text-wrap: balance;
+    }
+    .ab-who-card-desc {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.875rem; font-weight: 500;
+      line-height: 1.55;
+      color: var(--ink-soft);
+      margin: 0 0 1rem;
+      text-wrap: pretty;
+    }
+    .ab-who-quote {
+      font-family: 'Fraunces', Georgia, serif;
+      font-style: italic; font-weight: 500;
+      font-size: 0.875rem;
+      color: var(--burgundy);
+    }
+
+    /* ── CTA BAND ── */
+    .ab-ctaband {
+      padding: 88px 56px;
+      background: var(--white);
+      text-align: center;
+    }
+    .ab-ctaband-title {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 700;
+      font-size: clamp(2.25rem, 4vw, 4rem);
+      line-height: 1.02; letter-spacing: -0.035em;
+      color: var(--ink);
+      max-width: 900px; margin: 0 auto;
+      text-wrap: balance;
+    }
+    .ab-ctaband-title em {
+      font-style: italic; font-weight: 400;
+      background: var(--grad-sunrise);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent; color: transparent;
+    }
+    .ab-ctaband-sub {
+      font-family: 'Nunito', sans-serif;
+      font-size: 1.125rem; font-weight: 500;
+      line-height: 1.5;
+      color: var(--ink-soft);
+      margin: 1.75rem auto 0;
+      max-width: 720px;
+      text-wrap: pretty;
+    }
+    .ab-ctaband-ctas {
+      margin-top: 2.5rem;
+      display: inline-flex; gap: 12px; flex-wrap: wrap; justify-content: center;
+    }
+
+    /* ── NEWSLETTER (Hormozi-style — shared design) ── */
+    .wwm-news {
+      padding: 108px 56px;
+      background: var(--offwhite);
+      position: relative; overflow: hidden;
+    }
+    .wwm-news::before {
+      content: '';
+      position: absolute;
+      top: -180px; left: -160px;
+      width: 620px; height: 620px; border-radius: 50%;
+      background: radial-gradient(circle, var(--burgundy-glow) 0%, transparent 70%);
+      opacity: 0.10; pointer-events: none;
+    }
+    .wwm-news::after {
+      content: '';
+      position: absolute;
+      bottom: -160px; right: -120px;
+      width: 520px; height: 520px; border-radius: 50%;
+      background: radial-gradient(circle, var(--gold-warm) 0%, transparent 65%);
+      opacity: 0.24; pointer-events: none;
+    }
+    .wwm-news-inner {
+      position: relative; z-index: 1;
+      max-width: 1160px; margin: 0 auto;
+      display: grid; grid-template-columns: 1.05fr 1fr;
+      gap: 64px; align-items: center;
+    }
+    .wwm-news-copy { min-width: 0; }
+    .wwm-news-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.6875rem; font-weight: 800;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--gold-deep);
+      padding: 6px 14px; border-radius: 100px;
+      background: rgba(212,168,74,0.14);
+      border: 1px solid rgba(212,168,74,0.32);
+      margin: 0 0 1.25rem;
+    }
+    .wwm-news-title {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 700;
+      font-size: clamp(2.125rem, 3.8vw, 3.5rem);
+      line-height: 1.02; letter-spacing: -0.035em;
+      color: var(--ink);
+      margin: 0 0 1.25rem;
+      text-wrap: balance;
+    }
+    .wwm-news-title em {
+      font-style: italic; font-weight: 400;
+      background: var(--grad-sunrise);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent; color: transparent;
+    }
+    .wwm-news-sub {
+      font-family: 'Nunito', sans-serif;
+      font-size: 1.0625rem; font-weight: 500;
+      line-height: 1.6;
+      color: var(--ink-soft);
+      margin: 0 0 1.75rem;
+      text-wrap: pretty; max-width: 52ch;
+    }
+    .wwm-news-sub strong { color: var(--burgundy); font-weight: 700; }
+    .wwm-news-bullets {
+      list-style: none; margin: 0 0 1.75rem; padding: 0;
+      display: grid; gap: 0.75rem;
+    }
+    .wwm-news-bullets li {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.9375rem; font-weight: 600;
+      color: var(--ink);
+      padding-left: 1.75rem; position: relative;
+      line-height: 1.4;
+    }
+    .wwm-news-bullets li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0.45rem;
+      width: 14px; height: 14px; border-radius: 4px;
+      background: var(--grad-sunrise);
+      box-shadow: 0 2px 6px rgba(122,21,48,0.2);
+    }
+    .wwm-news-bullets li::after {
+      content: '';
+      position: absolute;
+      left: 3px; top: 0.55rem;
+      width: 8px; height: 5px;
+      border-left: 2px solid var(--white);
+      border-bottom: 2px solid var(--white);
+      transform: rotate(-45deg);
+    }
+    .wwm-news-sig {
+      display: flex; align-items: center; gap: 12px;
+      font-family: 'Fraunces', Georgia, serif;
+      font-style: italic; font-weight: 500;
+      font-size: 1rem;
+      color: var(--burgundy);
+      margin: 0;
+    }
+    .wwm-news-sig::before {
+      content: '';
+      width: 32px; height: 1px;
+      background: var(--burgundy);
+      display: block;
+    }
+    .wwm-news-stack { display: flex; flex-direction: column; gap: 18px; }
+    .wwm-news-preview {
+      background: var(--white);
+      border: 1px solid var(--rule);
+      border-radius: 16px;
+      padding: 22px 24px;
+      box-shadow: 0 18px 44px rgba(122,21,48,0.08);
+      transform: rotate(-0.8deg);
+      position: relative;
+    }
+    .wwm-news-preview::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--grad-sunrise);
+      border-radius: 16px 16px 0 0;
+    }
+    .wwm-news-preview-label {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.6875rem; font-weight: 800;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold-deep);
+      margin: 0 0 0.625rem;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .wwm-news-preview-headline {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 600; font-style: italic;
+      font-size: 1.125rem; line-height: 1.3;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin: 0;
+      text-wrap: balance;
+    }
+    .wwm-news-form-card {
+      background: var(--white);
+      border: 1px solid var(--rule);
+      border-radius: 18px;
+      padding: 26px 26px 22px;
+      box-shadow: 0 24px 56px rgba(122,21,48,0.10);
+      position: relative;
+    }
+    .wwm-news-bonus {
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-warm) 100%);
+      color: var(--burgundy);
+      border-radius: 12px;
+      padding: 12px 16px;
+      margin: -40px -2px 18px;
+      display: flex; gap: 10px;
+      box-shadow: 0 10px 24px rgba(212,168,74,0.35);
+    }
+    .wwm-news-bonus-tag {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.6875rem; font-weight: 800;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      background: var(--burgundy); color: var(--gold-warm);
+      padding: 6px 10px; border-radius: 100px;
+      white-space: nowrap; align-self: flex-start;
       flex-shrink: 0;
     }
-
-    /* ── LARGE SCREENS ── */
-    @media (min-width: 1400px) {
-      .about-hero-content {
-        padding-left: calc((100vw - 1400px) / 2 + 4.5rem);
-      }
+    .wwm-news-bonus p {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.8125rem; font-weight: 600;
+      color: #4A0E1F;
+      line-height: 1.4;
+      margin: 2px 0 0;
     }
-
-    @media (min-width: 1600px) {
-      .nav { max-width: 1500px; padding: 0 3.5rem; }
-      .section-inner { max-width: 1400px; }
-      .section { padding: 7rem 5rem; }
-      .cta-band { padding: 5.5rem 5rem; }
-      .cta-band-inner { max-width: 1400px; }
-      .about-hero-content { padding: 6rem 5rem 6rem calc((100vw - 1500px) / 2 + 5rem); }
-      .about-hero-heading { font-size: clamp(2.4rem, 3.5vw, 3.6rem); }
-      .about-hero-sub { max-width: 52ch; }
-      .two-col { gap: 6rem; }
-      .values-grid { gap: 2rem; }
-      .value-card { padding: 2.5rem 2rem; }
-      .timeline-item { grid-template-columns: 140px 1px 1fr; gap: 0 2.5rem; }
-      footer { padding: 4rem 5rem 2.5rem; }
-      .footer-container { max-width: 1400px; }
+    .wwm-news-bonus p strong { color: var(--burgundy); font-weight: 800; }
+    .wwm-news-form { display: flex; flex-direction: column; gap: 10px; }
+    .wwm-news-label {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.6875rem; font-weight: 800;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold-deep);
     }
-
+    .wwm-news-input {
+      font-family: 'Nunito', sans-serif;
+      font-size: 1rem; font-weight: 500;
+      padding: 14px 16px;
+      border-radius: 11px;
+      background: var(--offwhite);
+      border: 1.5px solid rgba(122,21,48,0.15);
+      color: var(--ink); outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+    .wwm-news-input::placeholder { color: var(--ink-soft); }
+    .wwm-news-input:focus-visible {
+      border-color: var(--gold); background: var(--white);
+      box-shadow: 0 0 0 4px rgba(212,168,74,0.22);
+    }
+    .wwm-news-btn {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800; font-size: 0.9375rem;
+      padding: 14px 20px; border-radius: 11px;
+      background: var(--burgundy); color: var(--white);
+      border: none; cursor: pointer;
+      letter-spacing: 0.02em;
+      box-shadow: 0 10px 24px rgba(122,21,48,0.28);
+      transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+    }
+    .wwm-news-btn:hover { background: var(--burgundy-soft); transform: translateY(-1px); box-shadow: 0 14px 30px rgba(122,21,48,0.36); }
+    .wwm-news-meta {
+      margin: 8px 0 0;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.75rem; font-weight: 600;
+      color: var(--ink-soft);
+      letter-spacing: 0.02em;
+      text-align: center;
+    }
+    .wwm-news-proof {
+      margin-top: 14px;
+      display: flex; align-items: center; gap: 10px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.75rem; font-weight: 700;
+      color: var(--ink-soft);
+      letter-spacing: 0.04em;
+    }
+    .wwm-news-proof-dots { display: flex; }
+    .wwm-news-proof-dots span {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: var(--grad-sunrise);
+      border: 2px solid var(--white);
+      margin-left: -7px;
+    }
+    .wwm-news-proof-dots span:first-child { margin-left: 0; }
     @media (max-width: 900px) {
-      .about-hero { grid-template-columns: 1fr; }
-      .about-hero-photo { min-height: 50vh; order: -1; }
-      .about-hero-content { padding: 3rem 2rem; }
-      .two-col { grid-template-columns: 1fr; gap: 3rem; }
-      .values-grid { grid-template-columns: 1fr; }
-      .section { padding: 4rem 2rem; }
-      .cta-band { padding: 4rem 2rem; }
-      .cta-band-inner { grid-template-columns: 1fr; }
-      .footer-inner { flex-direction: column; gap: 2rem; }
-      .nav { padding: 0 1.5rem; }
+      .wwm-news { padding: 64px 20px; }
+      .wwm-news-inner { grid-template-columns: 1fr; gap: 36px; }
+      .wwm-news-preview { transform: none; }
+    }
+
+    /* ── FOOTER (design-spec dark) ── */
+    footer.site-footer {
+      background: var(--ink); color: var(--white);
+      padding: 60px 56px 32px;
+    }
+    .footer-inner { max-width: 1400px; margin: 0 auto; }
+    .footer-grid {
+      display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 48px; margin-bottom: 44px;
+    }
+    .footer-brand-block { display: flex; flex-direction: column; gap: 16px; }
+    .footer-brand-row { display: flex; align-items: center; gap: 12px; }
+    .footer-mono {
+      width: 40px; height: 40px; border-radius: 9px;
+      background: var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Fraunces', Georgia, serif;
+      font-style: italic; font-weight: 700;
+      font-size: 1.125rem; letter-spacing: -0.04em;
+      color: var(--burgundy);
+    }
+    .footer-brand-name {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 600; font-size: 1.125rem;
+      letter-spacing: -0.02em; color: var(--white);
+    }
+    .footer-brand-tag {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800; font-size: 0.5625rem;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--gold-warm); margin-top: 3px;
+    }
+    .footer-brand-desc {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.8125rem; font-weight: 500;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.7);
+      max-width: 300px;
+    }
+    .footer-socials { display: flex; gap: 8px; margin-top: 8px; }
+    .footer-socials a {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 36px; height: 36px; border-radius: 9px;
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.85);
+      border: 1px solid rgba(255,255,255,0.12);
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .footer-socials a:hover { background: var(--gold); color: var(--burgundy); border-color: var(--gold); }
+    .footer-socials svg { width: 16px; height: 16px; }
+    .footer-col-head {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.625rem; font-weight: 800;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--gold-warm); margin: 0 0 18px;
+    }
+    .footer-col a {
+      display: block;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.8125rem; font-weight: 500;
+      color: rgba(255,255,255,0.82);
+      text-decoration: none;
+      margin-bottom: 10px;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--gold-warm); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding-top: 20px;
+      display: flex; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.6875rem; font-weight: 500;
+      color: rgba(255,255,255,0.5);
+    }
+    .footer-bottom a { color: rgba(255,255,255,0.5); text-decoration: none; }
+    .footer-bottom a:hover { color: var(--gold-warm); }
+    .footer-legal { display: flex; gap: 24px; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1100px) {
+      .ab-stats-grid { grid-template-columns: repeat(2, 1fr); gap: 28px; }
+      .ab-stat + .ab-stat { border-left: none; padding-left: 0; }
+      .ab-stat:nth-child(n+2) { border-top: 1px solid rgba(255,255,255,0.2); padding-top: 28px; }
+      .ab-stat:nth-child(2) { border-top: none; padding-top: 0; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 900px) {
       .nav-links { display: none; }
       .nav-hamburger { display: flex; }
-      .timeline-item { grid-template-columns: 90px 1px 1fr; }
+      .ab-hero { grid-template-columns: 1fr; padding: 48px 24px; gap: 40px; }
+      .ab-hero-photo img { max-width: 100%; margin: 0 auto; }
+      .ab-hero-badge { position: static; margin: 16px auto 0; max-width: 100%; }
+      .ab-story-inner { grid-template-columns: 1fr; gap: 40px; }
+      .ab-story-head { position: static; }
+      .ab-values-grid { grid-template-columns: 1fr; }
+      .ab-values, .ab-story, .ab-mindset, .ab-ctaband { padding: 64px 20px; }
+      .ab-mindset-grid { grid-template-columns: 1fr; gap: 20px; }
+      .ab-stats { padding: 48px 20px; }
+      .ab-who-sub { padding-top: 0; }
+      .ab-who-grid { grid-template-columns: 1fr; }
+      .ab-who-card { border-right: none; border-bottom: 1px solid var(--rule); }
+      .ab-tl-item { grid-template-columns: 100px 1px 1fr; gap: 0 18px; }
+      footer.site-footer { padding: 48px 20px 24px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .nav { padding: 0 1.25rem; }
     }
+
+    .tw-cursor { display:inline-block; width:3px; height:0.85em; background:var(--burgundy); margin-left:2px; vertical-align:middle; border-radius:1px; animation:tw-blink 0.8s step-end infinite; }
+    @keyframes tw-blink { 0%,100%{opacity:1} 50%{opacity:0} }
   </style>
 </head>
 <body>
@@ -852,47 +1081,45 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
   <!-- NAV -->
-  <div class="nav-wrapper">
-  <nav class="nav">
-    <a href="index.html" class="nav-brand">
-      <span class="nav-brand-name">Alice Bazdikian</span>
-      <span class="nav-brand-tag">AI Strategist</span>
+  <nav class="site-nav">
+    <a href="index.html" class="site-nav-brand" aria-label="Alice Bazdikian — home">
+      <span class="site-nav-mono">ab</span>
+      <span class="site-nav-brand-text">
+        <span class="site-nav-brand-name">Alice Bazdikian</span>
+        <span class="site-nav-brand-tag">AI Strategist + Educator</span>
+      </span>
     </a>
-    <ul class="nav-links">
+    <ul class="site-nav-links">
       <li><a href="about.html" class="active">About</a></li>
-      <li><a href="workshops.html" class="btn-nav-outline">Work With Me</a></li>
+      <li><a href="workshops.html">Work With Me</a></li>
       <li><a href="scorecard.html">Scorecard</a></li>
-      <li><a href="claude-resources.html">Claude Resources</a></li>
-      <li class="nav-dropdown">
-        <a href="#" class="nav-dropdown-toggle">Free Tools <span style="font-size:0.6em;margin-left:2px;">▾</span></a>
-        <div class="nav-dropdown-menu">
-          <a href="scorecard.html">AI Readiness Scorecard</a>
-          <a href="ai-roi-calculator.html">AI ROI Calculator</a>
-          <a href="ai-stack.html">AI Stack Template</a>
-          <a href="ai-challenge.html">5-Day AI Challenge</a>
-        </div>
-      </li>
+      <li><a href="claude-resources.html">Resources</a></li>
       <li><a href="blog.html">Blog</a></li>
-      <li><a href="https://calendly.com/abazdikian/diagnostic" class="btn-nav">Book a Diagnostic</a></li>
+      <li class="site-nav-social" aria-label="Social media">
+        <a href="https://www.linkedin.com/in/alice-bazdikian" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.852 3.37-1.852 3.601 0 4.267 2.37 4.267 5.455v6.288zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        <a href="https://www.instagram.com/smallbusinessaicoach/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://www.tiktok.com/@smallbusinessaicoach" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005.8 20.1a6.34 6.34 0 0010.86-4.43V8.21a8.15 8.15 0 004.77 1.52V6.31a4.77 4.77 0 01-1.84-.62z"/></svg></a>
+      </li>
+      <li>
+        <a href="https://calendly.com/abazdikian/diagnostic" target="_blank" rel="noopener" class="site-nav-cta">Book a Diagnostic</a>
+      </li>
     </ul>
-    <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false">
+    <button class="site-nav-hamburger" id="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </nav>
-  </div>
 
   <!-- MOBILE MENU -->
-  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <div class="site-mobile-menu" id="mobile-menu" aria-hidden="true">
     <a href="about.html">About</a>
     <a href="workshops.html">Work With Me</a>
     <a href="scorecard.html">Scorecard</a>
-    <a href="claude-resources.html">Claude Resources</a>
-    <a href="scorecard.html">AI Scorecard</a>
+    <a href="claude-resources.html">Resources</a>
+    <a href="blog.html">Blog</a>
     <a href="ai-roi-calculator.html">AI ROI Calculator</a>
     <a href="ai-stack.html">AI Stack Template</a>
     <a href="ai-challenge.html">5-Day AI Challenge</a>
-    <a href="blog.html">Blog</a>
-    <a href="https://calendly.com/abazdikian/diagnostic" class="mob-cta">Book a Diagnostic</a>
+    <a href="https://calendly.com/abazdikian/diagnostic" target="_blank" rel="noopener" class="site-mobile-cta">Book a Diagnostic</a>
   </div>
 
   <!-- ANNOUNCEMENT BAND -->
@@ -903,228 +1130,215 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 
   <!-- ABOUT HERO -->
-  <section class="about-hero">
-    <div class="about-hero-content">
-      <p class="eyebrow">About Alice</p>
-      <h1 class="about-hero-heading">
-        I'm Not a Tech Person.<br>
-        I'm a <em>Business Person</em><br>
-        Who <em id="about-typewriter" style="color:var(--burgundy);">Speaks AI.</em>
+  <section class="ab-hero">
+    <div>
+      <p class="eyebrow">About Alice · 200+ Owners Trained</p>
+      <h1 class="ab-hero-title">
+        I'm not a tech person. I'm a <em>business person</em> who <em id="about-typewriter">speaks AI.</em>
       </h1>
-      <p class="about-hero-sub">
-        With 15+ years leading cross-functional business transformation, both in small businesses and global organizations, I simplify the language of complex technology to deliver every day business value.
+      <p class="ab-hero-sub">
+        For 15+ years I ran operations, product, and transformation projects inside small businesses and global brands. Then I learned AI the only way that actually sticks — by using it on my own "pain in the ass" tasks. Now I install the same systems into 200+ small businesses — and guarantee the results.
       </p>
+      <div class="ab-hero-ctas">
+        <a href="https://calendly.com/abazdikian/diagnostic" target="_blank" rel="noopener" class="btn btn--primary">Get My Free AI Diagnostic →</a>
+        <a href="workshops.html#pricing" class="btn btn--secondary">See the 3 programs</a>
+      </div>
     </div>
-    <div class="about-hero-photo">
-      <img src="Brand Assets/_MCK3991.jpg" alt="Alice Bazdikian" width="600" height="480" />
-      <div class="about-hero-photo-overlay"></div>
-    </div>
-  </section>
-
-  <!-- WHY ALICE -->
-  <section class="section" style="background:var(--eggshell);">
-    <div class="section-inner">
-        <p class="section-eyebrow">Why Alice</p>
-        <h2 class="section-heading" style="white-space:nowrap;">The Translator Your Business Has Been Missing</h2>
-        <div style="max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:1.25rem;">
-          <p class="section-body">
-            I teach AI for small to medium sized businesses because having spent 15+ years in cross-functional roles — business analyst, project manager/product manager, operations manager and entrepreneur — I am most excited about how AI will revolutionize our work days.
-          </p>
-          <p class="section-body">
-            This is the greatest promise of the AI revolution to me!
-          </p>
-          <p class="section-body">
-            And we are finally in the phase where AI can do that — it can be our personal assistant or analyst — thanks to Claude. We can finally focus on our zone of genius: be it scaling our business or getting some much needed quality time.
-          </p>
-          <p class="section-body">
-            I come from the business side. When I learned AI, I learned it the same way your team will — by applying it to those daily "pain in the ass" tasks.
-          </p>
-          <p class="section-body">
-            That's what makes my approach different. I don't talk about AI in the abstract. I talk about it in terms of your specific use case, team, workflows, and risks. During my workshops, you and your team walk away with automated workflows — already saving 2+ hours a week each.
-          </p>
-        </div>
-
-    </div>
-  </section>
-
-  <!-- CORE BELIEFS / VALUES -->
-  <section class="section section-dark">
-    <div class="section-inner">
-      <p class="section-eyebrow">What I Believe</p>
-      <h2 class="section-heading section-heading-light">My Approach to AI Education</h2>
-      <p class="section-body section-body-light">
-        Three principles that shape every workshop, diagnostic, and conversation I have with business leaders.
-      </p>
-
-      <div class="values-grid">
-        <div class="value-card">
-          <div class="value-header">
-            <div class="value-number">01</div>
-            <div class="value-title">The barrier is fear, not technology</div>
-          </div>
-          <div class="value-desc">Most businesses aren't held back by a lack of tools — they're held back by not knowing where to start safely. Clarity comes before adoption.</div>
-        </div>
-        <div class="value-card">
-          <div class="value-header">
-            <div class="value-number">02</div>
-            <div class="value-title">Practical over theoretical, always</div>
-          </div>
-          <div class="value-desc">AI education that doesn't end in tangible next steps isn't education — it's entertainment. Every session I deliver is built for immediate application.</div>
-        </div>
-        <div class="value-card">
-          <div class="value-header">
-            <div class="value-number">03</div>
-            <div class="value-title">Adopt an AI-First Mindset</div>
-          </div>
-          <div class="value-desc">For every task, start by asking: "Can AI help with this?" Building an AI-First mindset means leveraging technology at the start of a process — not as an afterthought. That shift changes everything.</div>
-        </div>
+    <div class="ab-hero-photo">
+      <img src="Brand Assets/_MCK3991.jpg" alt="Alice Bazdikian" width="600" height="750" />
+      <div class="ab-hero-badge">
+        <div class="ab-hero-badge-eyebrow">Guarantee</div>
+        <div class="ab-hero-badge-title">3 automations in 30 days — or it's free.</div>
       </div>
     </div>
   </section>
 
-  <!-- CAREER TIMELINE -->
-  <section class="section" style="background:var(--eggshell);">
-    <div class="section-inner">
-      <p class="section-eyebrow">Experience</p>
-      <h2 class="section-heading">15+ Years at the Intersection of Business &amp; Growth</h2>
-      <p class="section-body">
-        Before AI, I spent over a decade driving business transformation across industries — which is exactly why I know what it takes to get real people to actually change how they work.
-      </p>
-      <div class="trusted-band">
-        <p class="trusted-label">Trusted by Business Leaders</p>
-        <p class="trusted-body">I've spent more than 15 years helping organizations adopt technology and analytics that improve decision-making and operational performance.</p>
-        <p class="trusted-body" style="margin-bottom:0">Today, I help organizations translate the complexity of AI into practical tools their teams can use safely and productively.</p>
+  <!-- ABOUT STATS -->
+  <section class="ab-stats">
+    <div class="ab-stats-grid">
+      <div class="ab-stat">
+        <div class="ab-stat-num">200+</div>
+        <div class="ab-stat-label">Owners trained</div>
+        <div class="ab-stat-sub">Workshops, cohorts &amp; 1-on-1s</div>
       </div>
-
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-year">Present</div>
-          <div class="timeline-line"></div>
-          <div class="timeline-content">
-            <div class="timeline-company">Independent AI Strategist + Educator</div>
-            <div class="timeline-role">Helping SMBs, solopreneurs, and leadership teams build AI-ready practices through workshops, diagnostics, and ongoing strategic advisory.</div>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-year">Present</div>
-          <div class="timeline-line"></div>
-          <div class="timeline-content">
-            <div class="timeline-company" style="display:flex;align-items:center;gap:0.5rem;">Volunteer Mentor — ACCESS &amp; The Founders Fund <span style="background:rgba(125,34,64,0.08);border:1px solid rgba(125,34,64,0.2);color:var(--burgundy);font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:2px 10px;border-radius:100px;">Close to my heart</span></div>
-            <div class="timeline-role">Mentoring female and immigrant founders on finance, strategy, and business growth. I know what it means to build without a safety net — and I bring that same practical clarity to everything I teach.</div>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-year">Nulogy</div>
-          <div class="timeline-line"></div>
-          <div class="timeline-content">
-            <div class="timeline-company">Nulogy</div>
-            <div class="timeline-role">Supply chain SaaS — led business development and partnerships, helping enterprise teams adopt new technology at scale.</div>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-year">PostBeyond</div>
-          <div class="timeline-line"></div>
-          <div class="timeline-content">
-            <div class="timeline-company">PostBeyond</div>
-            <div class="timeline-role">Employee advocacy platform — drove growth strategy and helped organizations activate their internal teams as brand ambassadors.</div>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-year">Ample Organics</div>
-          <div class="timeline-line"></div>
-          <div class="timeline-content">
-            <div class="timeline-company">Ample Organics</div>
-            <div class="timeline-role">Cannabis tech startup — built enterprise sales motion and scaled revenue through regulated-industry relationships.</div>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-year">AB InBev</div>
-          <div class="timeline-line"></div>
-          <div class="timeline-content">
-            <div class="timeline-company">AB InBev</div>
-            <div class="timeline-role">World's largest brewer — drove regional revenue programs, commercial strategy, and cross-functional team leadership.</div>
-          </div>
-        </div>
+      <div class="ab-stat">
+        <div class="ab-stat-num">10+ hrs</div>
+        <div class="ab-stat-label">Saved per week</div>
+        <div class="ab-stat-sub">Typical Accelerator graduate</div>
+      </div>
+      <div class="ab-stat">
+        <div class="ab-stat-num">15+</div>
+        <div class="ab-stat-label">Years in business</div>
+        <div class="ab-stat-sub">Cross-functional transformation</div>
+      </div>
+      <div class="ab-stat">
+        <div class="ab-stat-num">30 days</div>
+        <div class="ab-stat-label">Or your money back</div>
+        <div class="ab-stat-sub">Every program. Every cohort.</div>
       </div>
     </div>
   </section>
 
-  <!-- WHO I WORK WITH -->
-  <section class="section" style="background:var(--eggshell);">
-    <div class="section-inner">
-      <p class="section-eyebrow">Who I Work With</p>
-      <h2 class="section-heading">Three types of people who find their way here</h2>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;margin-top:2rem;">
-        <div style="background:var(--surface,#fff);border:1px solid rgba(28,28,28,0.08);border-radius:14px;padding:2rem;position:relative;overflow:hidden;">
-          <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--burgundy),var(--gold));"></div>
-          <h3 style="font-family:'Playfair Display',serif;font-size:1.125rem;font-weight:700;color:var(--charcoal);margin-bottom:0.625rem;letter-spacing:-0.02em;">Solo service providers &amp; creatives</h3>
-          <p style="font-size:0.875rem;color:var(--muted);line-height:1.7;margin-bottom:1rem;">Coaches, designers, consultants, copywriters, and therapists drowning in email threads, invoices, and follow-ups instead of doing the work they love.</p>
-          <p style="font-size:0.8rem;font-style:italic;color:var(--burgundy);font-weight:500;">"If I could just clone myself..."</p>
+  <!-- ABOUT STORY -->
+  <section class="ab-story">
+    <div class="ab-story-inner">
+      <div class="ab-story-head">
+        <p class="eyebrow">The Story</p>
+        <h2 class="ab-story-title">Why most AI training fails — and what I did <em>differently.</em></h2>
+      </div>
+      <div class="ab-story-body">
+        <p class="ab-story-lede">
+          Most "AI for Business" programs are taught by engineers. They dump 47 tools on you, pile on prompt theory, and leave you with a YouTube playlist. You finish feeling smarter — but your week still looks identical.
+        </p>
+        <p>
+          I'm the opposite. For 15+ years I ran the roles that AI is now replacing — business analyst, project manager, product manager, operations lead, entrepreneur. I <strong>lived</strong> the 50-hour weeks, the admin drag, the spreadsheets that ate my Sundays.
+        </p>
+        <p>
+          So when I learned AI, I didn't learn it as a toy. I learned it the same way I'll teach you — by applying it to the exact "pain in the ass" tasks my own business was drowning in. Emails. Reports. Proposals. Content. Ops.
+        </p>
+        <p>
+          <strong>The result:</strong> I cut 15+ hours a week off my own calendar in the first 30 days. Then I started teaching it. And 200+ small-business owners later, the pattern holds — <strong>3 AI automations, ~10 hours back per week, in 30 days</strong>. That's why every program I run comes with a money-back guarantee. I'm not betting on theory. I'm betting on a pattern I've now seen repeat 200 times.
+        </p>
+        <p>
+          This isn't about becoming a techie. It's about becoming the owner who stopped being the bottleneck.
+        </p>
+        <div class="ab-story-sig">— Alice</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE METHOD (A.I.R.) -->
+  <section class="ab-mindset">
+    <div class="ab-mindset-inner">
+      <div class="ab-mindset-head">
+        <p class="eyebrow eyebrow--gold">The Method · A.I.R.</p>
+        <h2 class="ab-mindset-title">The 3-step method 200+ owners used to go <em>AI-first.</em></h2>
+        <p class="ab-mindset-sub">Most owners try to "add AI" on top of a broken workflow — and it flops. A.I.R. flips the order: ask AI first, implement with AI, run &amp; refine. Same system I'll install in your business in 30 days.</p>
+      </div>
+      <div class="ab-mindset-grid">
+        <div class="ab-mindset-card">
+          <div class="ab-mindset-num">A</div>
+          <h3 class="ab-mindset-card-title">Ask AI first.</h3>
+          <p class="ab-mindset-card-desc">Every task begins with one question: "Can AI do this faster?" That single habit kills manual-first defaults and unlocks 5+ hours in week one.</p>
         </div>
-        <div style="background:var(--surface,#fff);border:1px solid rgba(28,28,28,0.08);border-radius:14px;padding:2rem;position:relative;overflow:hidden;">
-          <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--burgundy),var(--gold));"></div>
-          <h3 style="font-family:'Playfair Display',serif;font-size:1.125rem;font-weight:700;color:var(--charcoal);margin-bottom:0.625rem;letter-spacing:-0.02em;">Solopreneurs &amp; founders hitting a ceiling</h3>
-          <p style="font-size:0.875rem;color:var(--muted);line-height:1.7;margin-bottom:1rem;">You have revenue, clients, momentum. But there are only so many hours in a day. Hiring feels premature. The answer is leverage through smart AI workflow design.</p>
-          <p style="font-size:0.8rem;font-style:italic;color:var(--burgundy);font-weight:500;">"Grow like you hired a team — without payroll."</p>
+        <div class="ab-mindset-card">
+          <div class="ab-mindset-num">I</div>
+          <h3 class="ab-mindset-card-title">Implement with AI.</h3>
+          <p class="ab-mindset-card-desc">AI handles the draft, the plan, the first pass. Your expertise shapes the result — AI accelerates it. You stop being the bottleneck.</p>
         </div>
-        <div style="background:var(--surface,#fff);border:1px solid rgba(28,28,28,0.08);border-radius:14px;padding:2rem;position:relative;overflow:hidden;">
-          <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--burgundy),var(--gold));"></div>
-          <h3 style="font-family:'Playfair Display',serif;font-size:1.125rem;font-weight:700;color:var(--charcoal);margin-bottom:0.625rem;letter-spacing:-0.02em;">Business leaders &amp; managers</h3>
-          <p style="font-size:0.875rem;color:var(--muted);line-height:1.7;margin-bottom:1rem;">Your team is already experimenting with AI informally. You need clear policies, practical training, and a roadmap for safe, productive AI adoption.</p>
-          <p style="font-size:0.8rem;font-style:italic;color:var(--burgundy);font-weight:500;">"From AI anxiety to AI confidence — without the jargon."</p>
+        <div class="ab-mindset-card">
+          <div class="ab-mindset-num">R</div>
+          <h3 class="ab-mindset-card-title">Run &amp; refine.</h3>
+          <p class="ab-mindset-card-desc">Review, refine, apply your judgment. AI gives you the starting line — you bring the finish. The workflow lives outside your head now.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- CTA BAND -->
-  <section class="cta-band">
-    <div class="cta-band-inner">
-      <div>
-        <h2 class="cta-band-heading">Ready to get started?</h2>
-        <p class="cta-band-body">Book a free 30-minute AI Diagnostic — or join my next live webinar to see what's possible.</p>
+  <section class="ab-ctaband">
+    <h2 class="ab-ctaband-title">Ready to stop being the bottleneck? <em>Let's map your 3 moves.</em></h2>
+    <p class="ab-ctaband-sub">⚡ Next 30-Day Accelerator cohort: May 5 · Only 4 spots left. Book a free 15-min Diagnostic and I'll name your 3 highest-ROI AI automations on the call.</p>
+    <div class="ab-ctaband-ctas">
+      <a href="https://calendly.com/abazdikian/diagnostic" target="_blank" rel="noopener" class="btn btn--primary">Claim My Spot — Free Diagnostic →</a>
+      <a href="workshops.html#pricing" class="btn btn--secondary">See the 3 programs</a>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER (soft capture — below final CTA for non-bookers) -->
+  <section class="wwm-news">
+    <div class="wwm-news-inner">
+      <div class="wwm-news-copy">
+        <p class="wwm-news-eyebrow">The Weekly Signal · Free Newsletter</p>
+        <h2 class="wwm-news-title">Save 1+ hour a week with <em>one email.</em></h2>
+        <p class="wwm-news-sub">Every Sunday, I send <strong>one</strong> prompt, tool, or workflow — the same ones I teach paying clients — so you can run it Monday morning. <strong>3-minute read. ~60-minute time-save.</strong></p>
+        <ul class="wwm-news-bullets">
+          <li>One tactic per week — prompt, tool, or workflow</li>
+          <li>Real examples from the 30-Day Accelerator cohort</li>
+          <li>3-minute read · Sunday delivery · Built for Monday</li>
+          <li>Written for non-technical owners, not engineers</li>
+        </ul>
+        <p class="wwm-news-sig">Alice Bazdikian · AI coach for small-business owners</p>
       </div>
-      <div class="cta-band-right" style="display:flex;flex-direction:row;gap:1rem;flex-wrap:wrap;align-items:center;">
-        <a href="https://calendly.com/abazdikian/diagnostic" target="_blank" rel="noopener" class="btn-gold">Book a Free Diagnostic</a>
-        <a href="webinar.html" class="btn-gold" style="background:transparent;border:1.5px solid var(--gold);color:var(--gold);" onmouseover="this.style.background='var(--gold)';this.style.color='var(--charcoal)'" onmouseout="this.style.background='transparent';this.style.color='var(--gold)'">Join Free Webinar</a>
+
+      <div class="wwm-news-stack">
+        <div class="wwm-news-preview">
+          <p class="wwm-news-preview-label">📬 This Sunday's email</p>
+          <p class="wwm-news-preview-headline">"The 20-minute Brand File that makes every AI output sound like you — not a robot."</p>
+        </div>
+
+        <div class="wwm-news-form-card">
+          <div class="wwm-news-bonus">
+            <span class="wwm-news-bonus-tag">🎁 Instant Bonus</span>
+            <p>Your <strong>first email</strong> includes the #1 prompt owners say saves them an hour in week one — free, the moment you subscribe.</p>
+          </div>
+
+          <form class="wwm-news-form" action="https://buttondown.email/api/emails/embed-subscribe/abazdikian" method="post" target="_blank" rel="noopener">
+            <label for="ab-news-email" class="wwm-news-label">Your email</label>
+            <input id="ab-news-email" name="email" type="email" required placeholder="you@work.com" class="wwm-news-input" autocomplete="email" />
+            <button type="submit" class="wwm-news-btn">Send me the first email →</button>
+            <p class="wwm-news-meta">No spam · 1 email/week · Unsubscribe in one click</p>
+          </form>
+
+          <div class="wwm-news-proof">
+            <div class="wwm-news-proof-dots"><span></span><span></span><span></span><span></span></div>
+            Joined by 500+ coaches, consultants &amp; service-business owners
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer>
-    <div class="footer-container">
-      <div class="footer-inner">
-        <div>
-          <div class="footer-brand-name">Alice Bazdikian</div>
-          <div class="footer-brand-tag">AI Strategist + Educator</div>
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div class="site-footer-grid">
+        <div class="site-footer-brand-block">
+          <div class="site-footer-brand-row">
+            <span class="site-footer-mono">ab</span>
+            <div>
+              <div class="site-footer-brand-name">Alice Bazdikian</div>
+              <div class="site-footer-brand-tag">AI Strategist + Educator</div>
+            </div>
+          </div>
+          <p class="site-footer-brand-desc">Helping entrepreneurs and businesses navigate the AI revolution — without the overwhelm.</p>
+          <div class="site-footer-socials">
+            <a href="https://www.linkedin.com/in/alice-bazdikian" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.852 3.37-1.852 3.601 0 4.267 2.37 4.267 5.455v6.288zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+            <a href="https://www.instagram.com/smallbusinessaicoach/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+            <a href="https://www.tiktok.com/@smallbusinessaicoach" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005.8 20.1a6.34 6.34 0 0010.86-4.43V8.21a8.15 8.15 0 004.77 1.52V6.31a4.77 4.77 0 01-1.84-.62z"/></svg></a>
+          </div>
         </div>
-        <nav class="footer-nav">
+        <div class="site-footer-col">
+          <h4 class="site-footer-col-head">Explore</h4>
           <a href="about.html">About</a>
           <a href="workshops.html">Work With Me</a>
           <a href="scorecard.html">Scorecard</a>
-          <a href="claude-resources.html">Claude Resources</a>
-          <a href="mailto:alice@alicebazdikian.com">Book a Diagnostic</a>
-          <span style="color:rgba(255,255,255,0.15);">|</span>
+          <a href="blog.html">Blog</a>
+        </div>
+        <div class="site-footer-col">
+          <h4 class="site-footer-col-head">Free Tools</h4>
+          <a href="scorecard.html">AI Readiness Scorecard</a>
           <a href="ai-roi-calculator.html">ROI Calculator</a>
-          <a href="ai-stack.html">AI Stack</a>
+          <a href="ai-stack.html">AI Stack Template</a>
           <a href="ai-challenge.html">5-Day Challenge</a>
-          <a href="https://www.linkedin.com/in/alice-bazdikian" class="footer-linkedin" aria-label="LinkedIn" target="_blank" rel="noopener">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-          </a>
-        </nav>
+        </div>
+        <div class="site-footer-col">
+          <h4 class="site-footer-col-head">Contact</h4>
+          <a href="https://calendly.com/abazdikian/diagnostic" target="_blank" rel="noopener">Book a Diagnostic</a>
+          <a href="mailto:alice@alicebazdikian.com">alice@alicebazdikian.com</a>
+          <a href="https://www.linkedin.com/in/alice-bazdikian" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.instagram.com/smallbusinessaicoach/" target="_blank" rel="noopener">Instagram</a>
+        </div>
       </div>
-      <p class="footer-copy">© 2026 Alice Bazdikian · All rights reserved · <a href="privacy-policy.html" style="color:rgba(255,255,255,0.4);text-decoration:none;">Privacy Policy</a> · <a href="terms.html" style="color:rgba(255,255,255,0.4);text-decoration:none;">Terms</a></p>
+      <div class="site-footer-bottom">
+        <div>© 2026 Alice Bazdikian. All rights reserved.</div>
+        <div class="site-footer-legal">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms.html">Terms</a>
+        </div>
+      </div>
     </div>
   </footer>
-
-  <!-- SCORECARD BAND -->
-  <div id="scorecard-band" style="position:fixed;bottom:0;left:0;right:0;z-index:99;background:#F7F3EE;border-top:1px solid rgba(125,34,64,0.15);display:flex;align-items:center;justify-content:center;gap:1.5rem;padding:0.875rem 4rem;box-shadow:0 -4px 24px rgba(0,0,0,0.08);">
-    <span style="font-size:0.8125rem;color:#1C1C1C;font-weight:500;">See the exact AI tools I use every day</span>
-    <a href="ai-stack.html" style="display:inline-flex;align-items:center;background:#7D2240;color:#fff;font-family:'Inter',sans-serif;font-size:0.8125rem;font-weight:600;padding:0.5625rem 1.25rem;border-radius:100px;text-decoration:none;white-space:nowrap;box-shadow:0 2px 10px rgba(125,34,64,0.3);">Get My AI Stack — Free →</a>
-    <button onclick="document.getElementById('scorecard-band').style.display='none';localStorage.setItem('scorecardBandDismissed','1')" style="position:absolute;right:1.5rem;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:#6B6560;font-size:1.375rem;line-height:1;padding:0.25rem 0.5rem;" aria-label="Close">×</button>
-  </div>
-  <script>(function(){if(localStorage.getItem('scorecardBandDismissed'))document.getElementById('scorecard-band').style.display='none';})();</script>
 
   <script>
     (function() {
@@ -1148,10 +1362,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     })();
   </script>
 
-  <style>
-    .tw-cursor { display:inline-block; width:3px; height:0.85em; background:var(--burgundy); margin-left:2px; vertical-align:middle; border-radius:1px; animation:tw-blink 0.8s step-end infinite; }
-    @keyframes tw-blink { 0%,100%{opacity:1} 50%{opacity:0} }
-  </style>
   <script>
     (function() {
       var el = document.getElementById('about-typewriter');
@@ -1180,17 +1390,5 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </script>
 
 <script defer src="/_vercel/insights/script.js"></script>
-
-<!-- COOKIE CONSENT BANNER -->
-<div id="cookie-consent" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9998;background:#1C1C1C;border-top:1px solid rgba(125,34,64,0.3);padding:1rem 2rem;box-shadow:0 -4px 24px rgba(0,0,0,0.15);">
-  <div style="max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;">
-    <p style="margin:0;font-family:'Inter',sans-serif;font-size:0.8125rem;color:rgba(255,255,255,0.7);line-height:1.6;flex:1;min-width:280px;">We use cookies for analytics (Google Tag Manager, Vercel Analytics) to understand how visitors use this site. By continuing, you consent to our use of cookies. <a href="/privacy-policy.html" style="color:#C9A847;text-decoration:none;">Privacy Policy</a></p>
-    <div style="display:flex;gap:0.75rem;flex-shrink:0;">
-      <button onclick="document.getElementById('cookie-consent').style.display='none';localStorage.setItem('cookieConsent','accepted')" style="background:#7D2240;color:#fff;border:none;font-family:'Inter',sans-serif;font-size:0.8125rem;font-weight:600;padding:0.5rem 1.25rem;border-radius:100px;cursor:pointer;">Accept</button>
-      <button onclick="document.getElementById('cookie-consent').style.display='none';localStorage.setItem('cookieConsent','declined')" style="background:transparent;color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.2);font-family:'Inter',sans-serif;font-size:0.8125rem;font-weight:500;padding:0.5rem 1.25rem;border-radius:100px;cursor:pointer;">Decline</button>
-    </div>
-  </div>
-</div>
-<script>if(!localStorage.getItem('cookieConsent')){document.getElementById('cookie-consent').style.display='block';}</script>
 </body>
 </html>
