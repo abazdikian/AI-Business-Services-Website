@@ -82,7 +82,8 @@
   background: rgba(122,21,48,0.04);
 }
 .site-nav-social svg { width: 16px; height: 16px; display: block; }
-.site-nav-cta {
+.site-nav-links a.site-nav-cta,
+a.site-nav-cta {
   display: inline-flex; align-items: center; gap: 0.5rem;
   background: var(--chrome-burgundy); color: var(--chrome-white);
   font-family: 'Nunito', sans-serif;
@@ -92,9 +93,12 @@
   border: none; cursor: pointer; text-decoration: none;
   transition: background 0.2s ease, transform 0.15s ease;
 }
-.site-nav-cta::after { content: '→'; font-size: 0.9rem; }
-.site-nav-cta:hover { background: var(--chrome-burgundy-soft); transform: translateY(-1px); }
-.site-nav-cta:focus-visible { outline: 2px solid var(--chrome-burgundy); outline-offset: 3px; }
+.site-nav-links a.site-nav-cta::after,
+a.site-nav-cta::after { content: '→'; font-size: 0.9rem; color: var(--chrome-white); }
+.site-nav-links a.site-nav-cta:hover,
+a.site-nav-cta:hover { background: var(--chrome-burgundy-soft); color: var(--chrome-white); transform: translateY(-1px); }
+.site-nav-links a.site-nav-cta:focus-visible,
+a.site-nav-cta:focus-visible { outline: 2px solid var(--chrome-burgundy); outline-offset: 3px; }
 
 .site-nav-hamburger {
   display: none; flex-direction: column; gap: 5px;
