@@ -5,3 +5,23 @@ node_modules/
 .env
 social-pipeline/credentials.json
 social-pipeline/token.json
+
+# Local tooling / caches
+.claude/
+.superpowers/
+.venv-hub/
+.venv/
+
+# Root-level screenshot and scratch artifacts
+/*.png
+/*.jpg
+/*.jpeg
+/*.pdf
+/*.pptx
+/*.docx
+!/favicon.*
+
+# Internal planning docs (keep local)
+ACTION-PLAN.md
+FULL-AUDIT-REPORT.md
+schema-audit-report.md
