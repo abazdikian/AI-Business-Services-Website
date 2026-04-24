@@ -1,5 +1,14 @@
 [
   {
+    "slug": "daily-command-center-claude-live-artifacts",
+    "title": "Build a Daily Command Center With Claude Live Artifacts",
+    "tag": "Claude Cowork Guide",
+    "excerpt": "Stop opening 10 apps before you know what matters. Build a live AI dashboard in Claude Cowork that shows today's priorities, this week's blockers, and this month's KPIs — all in one place.",
+    "date": "April 24, 2026",
+    "readTime": "8 min read",
+    "featured": true
+  },
+  {
     "slug": "ai-personal-assistant-small-business",
     "title": "The AI Personal Assistant Stack Every Small Business Owner Actually Needs",
     "tag": "AI Tools",

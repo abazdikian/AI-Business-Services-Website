@@ -105,6 +105,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="../dist/tailwind.css">
+  <link rel="stylesheet" href="../assets/chrome.css">
 
   <style>
     *, *::before, *::after { box-sizing: border-box; }
@@ -122,35 +123,6 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
 
     html { scroll-behavior: smooth; }
     body { background-color: var(--eggshell); color: var(--charcoal); font-family: 'Inter', system-ui, sans-serif; line-height: 1.7; -webkit-font-smoothing: antialiased; margin: 0; }
-
-    /* NAV */
-    .nav { position: sticky; top: 0; z-index: 50; background: var(--eggshell); border-bottom: 1px solid rgba(125,34,64,0.12); display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; height: 68px; }
-    .nav-brand { display: flex; flex-direction: column; line-height: 1.2; text-decoration: none; }
-    .nav-brand-name { font-family: 'Playfair Display', serif; font-size: 1.125rem; font-weight: 600; color: var(--charcoal); letter-spacing: -0.01em; }
-    .nav-brand-tag { font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); font-weight: 400; }
-    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; margin: 0; padding: 0; }
-    .nav-links a { font-size: 0.875rem; font-weight: 400; color: var(--charcoal); text-decoration: none; letter-spacing: 0.01em; transition: color 0.2s ease; }
-    .nav-links a:hover { color: var(--burgundy); }
-
-    .nav-dropdown { position: relative; }
-    .nav-dropdown-toggle { cursor: pointer; }
-    .nav-dropdown-menu {
-      display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
-      background: #fff; border: 1px solid rgba(28,28,28,0.09); border-radius: 10px;
-      padding: 0.5rem 0; min-width: 200px; box-shadow: 0 8px 24px rgba(28,28,28,0.1);
-      z-index: 60;
-    }
-    .nav-dropdown:hover .nav-dropdown-menu { display: block; }
-    .nav-dropdown-menu a {
-      display: block; padding: 0.5rem 1.25rem; font-size: 0.8125rem;
-      color: #1C1C1C; text-decoration: none; white-space: nowrap;
-    }
-    .nav-dropdown-menu a:hover { background: rgba(125,34,64,0.04); color: #7D2240; }
-
-    .nav-links a.active { color: var(--burgundy); font-weight: 500; }
-    .btn-nav { display: inline-flex; align-items: center; background: var(--gold); color: var(--charcoal); font-family: 'Inter', sans-serif; font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.02em; padding: 0.5rem 1.25rem; border-radius: 100px; border: none; cursor: pointer; text-decoration: none; transition: background 0.2s ease, transform 0.15s ease; box-shadow: 0 2px 8px rgba(201,168,71,0.3); }
-    .btn-nav:hover { background: var(--gold-dark); transform: translateY(-1px); }
-
     /* ARTICLE HEADER */
     .article-header {
       background: var(--charcoal);
