@@ -78,18 +78,31 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
 
   :root {
     --eggshell: #F7F3EE;
+    --cream:    #F7F0E8;
     --surface:  #FFFFFF;
-    --charcoal: #1C1C1C;
-    --burgundy: #7D2240;
-    --burg-dk:  #651B33;
+    --white:    #FFFFFF;
+    --charcoal: #2B1A1F;
+    --ink:      #2B1A1F;
+    --ink-soft: #6B5A5F;
+    --burgundy: #7A1530;
+    --burgundy-soft: #9B2440;
+    --burgundy-glow: #C13558;
+    --burg-dk:  #651028;
     --burgundy-deeper: #3D1020;
-    --gold:     #C9A847;
-    --gold-dk:  #B8952E;
+    --gold:     #D4A84A;
+    --gold-warm: #E6C472;
+    --gold-deep: #A87B1F;
+    --gold-dk:  #A87B1F;
     --coral:    #D4654A;
     --teal:     #2A7B6F;
-    --muted:    #6B6560;
-    --border:   rgba(28,28,28,0.09);
+    --muted:    #6B5A5F;
+    --rule:     rgba(43,26,31,0.09);
+    --border:   rgba(43,26,31,0.09);
+    --grad-sunrise: linear-gradient(135deg, var(--burgundy) 0%, var(--burgundy-glow) 60%, var(--gold-warm) 100%);
+    --grad-burgundy: linear-gradient(135deg, var(--burgundy) 0%, var(--burgundy-soft) 55%, var(--burgundy-glow) 100%);
+    --grad-ember: linear-gradient(135deg, var(--gold-deep) 0%, var(--burgundy-glow) 55%, var(--burgundy) 100%);
   }
+  body { font-family: 'Nunito', sans-serif; }
 
   body {
     background: var(--eggshell);
@@ -111,7 +124,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     height: 68px;
   }
   .nav-brand { text-decoration: none; }
-  .nav-brand-name { font-family: 'Playfair Display', serif; font-size: 1.125rem; font-weight: 600; color: var(--charcoal); letter-spacing: -0.01em; display: block; }
+  .nav-brand-name { font-family: 'Fraunces', Georgia, serif; font-size: 1.125rem; font-weight: 600; color: var(--charcoal); letter-spacing: -0.01em; display: block; }
   .nav-brand-tag  { font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
   .nav-cta {
     background: var(--gold); color: var(--charcoal);
@@ -123,94 +136,155 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   }
   .nav-cta:hover { background: var(--gold-dk); transform: translateY(-1px); }
 
+  /* ── ANNOUNCEMENT BAND ── */
+  .announce-band {
+    background: var(--grad-burgundy);
+    padding: 0.5rem 2.5rem;
+    display: flex; align-items: center; justify-content: center;
+    gap: 0.75rem; width: 100%;
+  }
+  .announce-band-text {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.8125rem; font-weight: 600;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    color: rgba(255,255,255,0.92);
+  }
+  .announce-band-dot {
+    width: 4px; height: 4px; border-radius: 50%;
+    background: var(--gold-warm); flex-shrink: 0;
+  }
+
   /* ── HERO ── */
   .hero {
-    position: relative; overflow: hidden;
-    padding: 5rem 4rem 4.5rem;
-    min-height: 480px;
-    display: flex; align-items: center;
-    background: linear-gradient(170deg, var(--eggshell) 0%, rgba(125,34,64,0.06) 40%, rgba(201,168,71,0.04) 100%);
+    background:
+      linear-gradient(90deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.85) 35%, rgba(255,255,255,0.55) 60%, rgba(255,255,255,0.35) 100%),
+      url('Brand%20Assets/Webinar%20hero%20woman.png') center right / cover no-repeat,
+      var(--white);
+    padding: 5rem 3.5rem 4rem;
+    display: grid; grid-template-columns: 1fr 460px;
+    gap: 4rem; align-items: center;
+    max-width: 1400px; margin: 0 auto;
+    position: relative;
   }
-  .hero::before {
-    content: '';
-    position: absolute; top: -200px; right: -200px;
-    width: 600px; height: 600px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(125,34,64,0.06) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .hero::after {
-    content: '';
-    position: absolute; bottom: -150px; left: -100px;
-    width: 420px; height: 420px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(201,168,71,0.05) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .hero-inner {
-    max-width: 1300px; margin: 0 auto; width: 100%;
-    position: relative; z-index: 1;
-    display: grid; grid-template-columns: 1fr 420px;
-    gap: 5rem; align-items: center;
-  }
+  .hero-inner { display: contents; }
   .hero-eyebrow {
-    display: inline-flex; align-items: center; gap: 0.625rem;
-    background: var(--surface); border: 1px solid rgba(125,34,64,0.15);
-    border-radius: 100px; padding: 0.45rem 1.1rem;
-    font-size: 0.7rem; font-weight: 600; color: var(--burgundy);
-    letter-spacing: 0.1em; text-transform: uppercase;
-    margin-bottom: 1.5rem;
-    box-shadow: 0 2px 12px rgba(125,34,64,0.06);
-  }
-  .hero-eyebrow::before {
-    content: ''; width: 8px; height: 8px;
-    background: var(--coral); border-radius: 50%;
-    animation: pulse 2s ease infinite;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.6875rem; font-weight: 800;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--gold-deep); margin: 0 0 1rem;
+    display: block;
   }
   .hero-free {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(3.5rem, 6vw, 5.5rem);
-    font-weight: 900; line-height: 0.95;
-    letter-spacing: -0.04em;
-    color: var(--burgundy);
-    display: block;
-    margin-bottom: 1rem;
-    text-shadow: 0 4px 28px rgba(125,34,64,0.18);
+    display: none;
   }
   .tw-cursor-hero {
-    display: inline-block; width: 4px; height: 0.85em;
-    background: var(--burgundy); margin-left: 3px;
+    display: inline-block; width: 3px; height: 0.85em;
+    background: var(--burgundy-glow); margin-left: 3px;
     vertical-align: middle; border-radius: 2px;
     animation: tw-blink-h 0.8s step-end infinite;
   }
-  @keyframes tw-blink-h {
-    0%,100% { opacity: 1; } 50% { opacity: 0; }
-  }
+  @keyframes tw-blink-h { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
   .tw-cursor-hero.tw-done { animation: none; opacity: 0; }
   @keyframes pulse {
     0%,100% { opacity: 1; transform: scale(1); }
     50%      { opacity: 0.4; transform: scale(0.75); }
   }
   .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.2rem, 3.8vw, 3.4rem);
-    font-weight: 700; line-height: 1.08;
-    letter-spacing: -0.03em; color: var(--charcoal);
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 700;
+    font-size: clamp(2.25rem, 4.4vw, 4rem);
+    line-height: 1.02; letter-spacing: -0.035em;
+    color: var(--ink);
+    margin: 0 0 1.25rem;
+    text-wrap: balance;
+  }
+  .hero h1 em {
+    font-style: italic; font-weight: 500;
+    background: var(--grad-sunrise);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
+  }
+  .hero-sub {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.0625rem; font-weight: 500;
+    color: var(--ink-soft);
+    max-width: 540px; line-height: 1.6;
     margin-bottom: 1.25rem;
   }
-  .hero h1 em { font-style: italic; color: var(--burgundy); font-weight: 700; }
-  .hero-sub {
-    font-size: 1.0625rem; color: var(--muted);
-    max-width: 520px; line-height: 1.75;
-    margin-bottom: 1.5rem;
+  .hero-tagline {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic; font-weight: 500;
+    font-size: 1.35rem; line-height: 1.3;
+    color: var(--burgundy);
+    margin: 0.25rem 0 1.5rem;
+    letter-spacing: -0.01em;
   }
   .hero-meta {
-    display: flex; flex-wrap: wrap; gap: 1.25rem;
-    padding-top: 0.5rem;
+    display: flex; flex-wrap: wrap; gap: 1.25rem 1.5rem;
+    padding-top: 0.25rem;
   }
   .hero-meta-item {
     display: flex; align-items: center; gap: 8px;
-    font-size: 0.8125rem; color: var(--muted);
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.8125rem; color: var(--ink-soft);
   }
-  .hero-meta-item strong { color: var(--charcoal); font-weight: 600; }
+  .hero-meta-item strong { color: var(--ink); font-weight: 700; }
+
+  /* ── PILL BUTTONS (shared) ── */
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700; font-size: 0.875rem;
+    padding: 14px 24px; border-radius: 999px;
+    text-decoration: none; border: none; cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s cubic-bezier(.2,.8,.2,1), box-shadow 0.2s ease;
+    letter-spacing: 0.02em;
+  }
+  .btn--primary { background: var(--burgundy); color: var(--white); box-shadow: 0 4px 20px rgba(122,21,48,0.3); }
+  .btn--primary:hover { background: var(--burgundy-soft); transform: translateY(-2px); }
+  .btn--secondary { background: transparent; color: var(--burgundy); border: 1.5px solid var(--burgundy); }
+  .btn--secondary:hover { background: var(--burgundy); color: var(--white); transform: translateY(-2px); }
+
+  /* ── STATS BAND ── */
+  .hero-stats {
+    padding: 3.5rem 3.5rem;
+    background: var(--grad-sunrise);
+    color: var(--white);
+    position: relative; overflow: hidden;
+  }
+  .hero-stats::before {
+    content: '';
+    position: absolute; top: -100px; right: -100px;
+    width: 400px; height: 400px; border-radius: 50%;
+    background: radial-gradient(circle, var(--gold-warm) 0%, transparent 65%);
+    opacity: 0.35; pointer-events: none;
+  }
+  .hero-stats-grid {
+    position: relative; z-index: 1;
+    max-width: 1400px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem;
+  }
+  .hero-stat + .hero-stat { border-left: 1px solid rgba(255,255,255,0.25); padding-left: 2rem; }
+  .hero-stat-num {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 700;
+    font-size: clamp(2.25rem, 3.8vw, 3.25rem);
+    line-height: 1; letter-spacing: -0.03em;
+    color: var(--gold-warm);
+  }
+  .hero-stat-label {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.75rem; font-weight: 800;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--white); margin-top: 0.75rem;
+  }
+  .hero-stat-sub {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.8125rem; font-weight: 500;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.78);
+    margin-top: 0.375rem;
+  }
 
   /* ── REG CARD ── */
   .reg-card {
@@ -223,13 +297,13 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   }
   .reg-card::before {
     content: '';
-    position: absolute; top: 0; left: 0; right: 0; height: 3px;
-    background: linear-gradient(90deg, var(--burgundy), var(--gold));
+    position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: var(--grad-sunrise);
   }
   .reg-card h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.375rem; font-weight: 700;
-    color: var(--charcoal); margin-bottom: 0.25rem;
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1.5rem; font-weight: 700;
+    color: var(--ink); margin-bottom: 0.25rem;
     letter-spacing: -0.02em;
   }
   .reg-card > p {
@@ -245,7 +319,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     width: 100%; padding: 0.8rem 1rem;
     background: var(--eggshell); border: 1px solid rgba(28,28,28,0.12);
     border-radius: 8px; color: var(--charcoal);
-    font-family: 'Inter', sans-serif; font-size: 0.9375rem;
+    font-family: 'Nunito', sans-serif; font-size: 0.9375rem;
     margin-bottom: 0.875rem; outline: none;
     transition: border-color 0.2s;
     appearance: none;
@@ -266,7 +340,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     width: 100%; padding: 0.9rem 1.5rem;
     background: var(--burgundy); color: #fff;
     border: none; border-radius: 8px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-size: 0.9375rem; font-weight: 700;
     cursor: pointer; margin-bottom: 0.75rem;
     transition: background 0.2s, transform 0.1s;
@@ -287,58 +361,66 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     font-weight: 600; font-size: 0.9375rem;
   }
 
-  /* ── COUNTDOWN BAND ── */
+  /* ── COUNTDOWN BAND (sunrise gradient, matches stats band aesthetic) ── */
   .countdown-band {
-    background: var(--burgundy);
-    padding: 1.75rem max(2rem, calc((100% - 1400px) / 2 + 2rem));
+    background: var(--grad-sunrise);
+    padding: 2rem max(2rem, calc((100% - 1400px) / 2 + 2rem));
     display: flex; align-items: center; justify-content: center;
     gap: 3rem; flex-wrap: wrap;
     position: relative; overflow: hidden;
   }
   .countdown-band::before {
     content: '';
-    position: absolute; inset: 0;
-    background: radial-gradient(ellipse 60% 120% at 50% 50%, rgba(201,168,71,0.12) 0%, transparent 70%);
-    pointer-events: none;
+    position: absolute; top: -100px; right: -100px;
+    width: 400px; height: 400px; border-radius: 50%;
+    background: radial-gradient(circle, var(--gold-warm) 0%, transparent 65%);
+    opacity: 0.35; pointer-events: none;
   }
   .countdown-band-label {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.125rem; font-weight: 600; font-style: italic;
-    color: rgba(255,255,255,0.85);
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1.0625rem; font-weight: 500; font-style: italic;
+    color: rgba(255,255,255,0.92);
     letter-spacing: -0.01em;
+    position: relative; z-index: 1;
   }
   .countdown-timer {
     display: flex; align-items: flex-start; gap: 4px;
+    position: relative; z-index: 1;
   }
   .countdown-unit { text-align: center; min-width: 56px; }
   .countdown-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem; font-weight: 900; color: var(--gold);
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 2.5rem; font-weight: 700;
+    color: var(--gold-warm);
     display: block; line-height: 1;
-    text-shadow: 0 2px 16px rgba(201,168,71,0.4);
+    letter-spacing: -0.03em;
   }
   .countdown-text {
-    font-size: 0.625rem; color: rgba(255,255,255,0.5);
-    text-transform: uppercase; letter-spacing: 0.1em; margin-top: 3px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.625rem; color: rgba(255,255,255,0.78);
+    text-transform: uppercase; letter-spacing: 0.15em;
+    margin-top: 6px; font-weight: 800;
   }
   .countdown-colon {
-    font-size: 2.5rem; color: rgba(255,255,255,0.25);
-    line-height: 1; padding-top: 2px; font-weight: 300;
+    font-size: 2rem; color: rgba(255,255,255,0.3);
+    line-height: 1; padding-top: 4px; font-weight: 300;
   }
   .spots-wrap {
     display: flex; align-items: center; gap: 0.875rem;
+    position: relative; z-index: 1;
   }
   .spots-track {
     width: 130px; height: 5px;
-    background: rgba(255,255,255,0.18); border-radius: 100px; overflow: hidden;
+    background: rgba(255,255,255,0.22); border-radius: 100px; overflow: hidden;
   }
   .spots-fill {
-    background: var(--gold);
+    background: var(--gold-warm);
     border-radius: 100px; height: 100%; width: 0%;
     transition: width 1s ease;
   }
   .spots-label {
-    font-size: 0.8125rem; color: rgba(255,255,255,0.8); font-weight: 600;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.8125rem; color: rgba(255,255,255,0.9); font-weight: 700;
     white-space: nowrap;
   }
 
@@ -348,23 +430,31 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   .section-inner { max-width: 1300px; margin: 0 auto; }
 
   .eyebrow {
-    font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.14em;
-    text-transform: uppercase; color: var(--gold);
-    margin-bottom: 0.75rem;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.6875rem; font-weight: 800;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--gold-deep);
+    margin-bottom: 1rem;
     display: flex; align-items: center; gap: 0.625rem;
   }
   .eyebrow::before {
     content: ''; display: inline-block;
-    width: 22px; height: 1.5px; background: var(--gold); flex-shrink: 0;
+    width: 28px; height: 1.5px; background: var(--gold-deep); flex-shrink: 0;
   }
   .section-heading {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.75rem, 2.6vw, 2.25rem);
-    font-weight: 700; line-height: 1.18;
-    letter-spacing: -0.025em; color: var(--charcoal);
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(1.85rem, 3vw, 2.5rem);
+    font-weight: 700; line-height: 1.1;
+    letter-spacing: -0.03em; color: var(--ink);
     margin-bottom: 2rem;
+    text-wrap: balance;
   }
-  .section-heading em { font-style: italic; color: var(--burgundy); }
+  .section-heading em {
+    font-style: italic; font-weight: 500;
+    background: var(--grad-sunrise);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
+  }
 
   /* ── PAIN GRID ── */
   .pain-grid {
@@ -413,7 +503,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     box-shadow: 0 6px 24px rgba(125,34,64,0.08);
   }
   .learn-number {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Fraunces', Georgia, serif;
     font-size: 3rem; font-weight: 900;
     color: rgba(201,168,71,0.1);
     position: absolute; top: 8px; right: 16px;
@@ -497,7 +587,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     padding-top: 2rem; border-top: 1px solid var(--border);
   }
   .stat-num {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Fraunces', Georgia, serif;
     font-size: 2.5rem; font-weight: 700; color: var(--burgundy);
     display: block; line-height: 1.1;
   }
@@ -522,7 +612,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     border-radius: 10px; padding: 1.125rem;
   }
   .about-stat-num {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Fraunces', Georgia, serif;
     font-size: 2rem; font-weight: 700; color: var(--burgundy);
     display: block; line-height: 1.1;
   }
@@ -533,7 +623,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     aspect-ratio: 4/5;
     box-shadow: 0 20px 60px rgba(28,28,28,0.12);
   }
-  .about-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .about-img img { width: 100%; height: 100%; object-fit: cover; object-position: right center; display: block; }
   .credentials {
     display: flex; flex-wrap: wrap; gap: 7px; margin-top: 1.25rem;
   }
@@ -557,12 +647,12 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   }
   .cta-section > * { position: relative; z-index: 1; }
   .cta-section h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.75rem, 2.6vw, 2.25rem);
-    font-weight: 700; letter-spacing: -0.025em;
-    color: #fff; margin-bottom: 0.75rem;
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(1.85rem, 3vw, 2.5rem);
+    font-weight: 700; letter-spacing: -0.03em;
+    color: #fff; margin-bottom: 0.75rem; line-height: 1.1;
   }
-  .cta-section h2 em { font-style: italic; color: var(--gold); }
+  .cta-section h2 em { font-style: italic; font-weight: 500; color: var(--gold-warm); }
   .cta-section p { color: rgba(255,255,255,0.7); margin-bottom: 2rem; font-size: 0.9375rem; max-width: 600px; margin-left: auto; margin-right: auto; }
   .reg-form-inline {
     display: flex; gap: 0.75rem; max-width: 540px; margin: 0 auto 1rem;
@@ -573,7 +663,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     padding: 0.8rem 1rem;
     background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
     border-radius: 8px; color: #fff;
-    font-family: 'Inter', sans-serif; font-size: 0.9375rem;
+    font-family: 'Nunito', sans-serif; font-size: 0.9375rem;
     outline: none; transition: border-color 0.2s;
   }
   .reg-form-inline input:focus { border-color: var(--gold); }
@@ -581,7 +671,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   .btn-cta {
     background: var(--gold); color: var(--charcoal);
     border: none; border-radius: 8px; padding: 0.8rem 1.75rem;
-    font-family: 'Inter', sans-serif; font-size: 0.9375rem; font-weight: 700;
+    font-family: 'Nunito', sans-serif; font-size: 0.9375rem; font-weight: 700;
     cursor: pointer; white-space: nowrap;
     transition: background 0.2s;
     box-shadow: 0 4px 16px rgba(201,168,71,0.25);
@@ -613,7 +703,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   }
   footer a { color: var(--burgundy); text-decoration: none; transition: opacity 0.2s; }
   footer a:hover { opacity: 0.7; }
-  .footer-brand { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 600; color: var(--charcoal); margin-bottom: 0.5rem; }
+  .footer-brand { font-family: 'Fraunces', Georgia, serif; font-size: 1rem; font-weight: 600; color: var(--charcoal); margin-bottom: 0.5rem; }
   footer p { font-size: 0.75rem; color: var(--muted); margin-top: 0.375rem; }
 
   /* ── RESPONSIVE ── */
@@ -697,24 +787,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <a href="https://calendly.com/abazdikian/diagnostic" target="_blank" rel="noopener" class="site-mobile-cta">Book a Diagnostic</a>
   </div>
 
+<!-- ANNOUNCEMENT BAND -->
+<div class="announce-band">
+  <span class="announce-band-dot"></span>
+  <span class="announce-band-text">Free Live Webinar · March 27th · 6:30 PM ET</span>
+  <span class="announce-band-dot"></span>
+</div>
+
 <!-- HERO -->
 <div class="hero">
   <div class="hero-inner">
     <div>
-      <div class="hero-eyebrow">Live Webinar · March 27th</div>
-      <span class="hero-free" id="hero-free-tw" aria-label="Free."></span>
+      <p class="hero-eyebrow">90 Minutes · No Tech Skills · Replay Included</p>
       <h1>
-        Claude Cowork:<br>
-        Your Personal Custom<br>
-        <em>$100/Month</em> Business Analyst
+        Claude Cowork: your personal <em>$100/month business analyst.</em>
       </h1>
       <p class="hero-sub">
         Still manually writing follow-up emails, rebuilding the same reports, and spending Sunday nights catching up? This 90-minute live session shows you how to hand that work to AI — permanently.
       </p>
-      <p class="hero-sub" style="margin-bottom:0;">
-        You Ask… &amp; <span id="hero-sub-tw" style="color:var(--burgundy);font-weight:700;"></span>
+      <p class="hero-tagline">
+        You ask &amp; <span id="hero-sub-tw"></span> — and no, you don't have to be a techie.
       </p>
-      <p style="margin-top:1.25rem;margin-bottom:1.5rem;font-family:'Playfair Display',serif;font-style:italic;font-size:1.45rem;color:var(--burgundy);letter-spacing:0.01em;line-height:1.3;">And No, you don't have to be a techie!</p>
+      <div class="hero-ctas" style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:1.75rem;">
+        <a href="#register" class="btn btn--primary">Reserve My Free Seat →</a>
+        <a href="#what-youll-learn" class="btn btn--secondary">See what you'll learn</a>
+      </div>
       <div class="hero-meta">
         <div class="hero-meta-item">📅 <strong>Thursday, March 27th · 6:30 PM ET</strong></div>
         <div class="hero-meta-item">⏱ <strong>90 min + live Q&A</strong></div>
@@ -827,10 +924,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <!-- QUOTE BAND -->
-<div style="background:var(--burgundy);padding:3.5rem max(2rem, calc((100% - 1300px) / 2 + 2rem));text-align:center;">
-  <div style="max-width:900px;margin:0 auto;">
-    <p style="font-family:'Playfair Display',serif;font-size:1.65rem;font-style:italic;color:#fff;line-height:1.5;margin:0;">"The best investment in AI isn't the tool. It's adopting an AI-first mindset — and watch your relationship with work transform."</p>
-    <cite style="display:block;margin-top:1rem;font-family:'Inter',sans-serif;font-size:0.85rem;color:var(--gold);font-style:normal;letter-spacing:0.05em;text-transform:uppercase;">— Alice Bazdikian, AI Strategist</cite>
+<div style="background:var(--grad-burgundy);padding:3.5rem max(2rem, calc((100% - 1300px) / 2 + 2rem));text-align:center;position:relative;overflow:hidden;">
+  <div style="max-width:900px;margin:0 auto;position:relative;z-index:1;">
+    <p style="font-family:'Fraunces',Georgia,serif;font-size:1.65rem;font-weight:500;font-style:italic;color:#fff;line-height:1.45;margin:0;letter-spacing:-0.01em;">"The best investment in AI isn't the tool. It's adopting an AI-first mindset — and watch your relationship with work transform."</p>
+    <cite style="display:block;margin-top:1rem;font-family:'Nunito',sans-serif;font-size:0.75rem;font-weight:800;color:var(--gold-warm);font-style:normal;letter-spacing:0.2em;text-transform:uppercase;">— Alice Bazdikian, AI Strategist</cite>
   </div>
 </div>
 
@@ -899,7 +996,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
       <div class="about-img">
-        <img src="Brand%20Assets/_MCK3991.jpg" alt="Alice Bazdikian — AI Strategist and Educator" width="600" height="480">
+        <img src="Brand%20Assets/webinarimage.png" alt="Claude Cowork webinar" width="600" height="480">
       </div>
     </div>
   </div>
@@ -918,7 +1015,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <!-- Q1 -->
       <div class="quiz-step" id="qstep-1">
         <p class="quiz-q-label">Question 1 of 5</p>
-        <h3 class="quiz-q-text">How many hours per week do you spend on tasks a smart assistant could handle?<br><span style="font-size:0.8rem;font-weight:400;color:var(--muted);font-family:'Inter',sans-serif;">(emails, reports, research, admin, formatting…)</span></h3>
+        <h3 class="quiz-q-text">How many hours per week do you spend on tasks a smart assistant could handle?<br><span style="font-size:0.8rem;font-weight:400;color:var(--muted);font-family:'Nunito',sans-serif;">(emails, reports, research, admin, formatting…)</span></h3>
         <div class="quiz-options">
           <label class="quiz-opt"><input type="radio" name="q1" value="1"><span>Less than 2 hours</span></label>
           <label class="quiz-opt"><input type="radio" name="q1" value="2"><span>2–5 hours</span></label>
@@ -996,17 +1093,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <style>
   .quiz-q-label { font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem; }
-  .quiz-q-text { font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:600;color:var(--charcoal);line-height:1.4;margin-bottom:1.5rem; }
+  .quiz-q-text { font-family:'Fraunces',Georgia,serif;font-size:1.35rem;font-weight:600;color:var(--charcoal);line-height:1.4;margin-bottom:1.5rem; }
   .quiz-options { display:flex;flex-direction:column;gap:0.75rem;margin-bottom:1.75rem; }
   .quiz-opt { display:flex;align-items:flex-start;gap:0.75rem;padding:0.9rem 1.1rem;border:1.5px solid rgba(28,28,28,0.1);border-radius:10px;cursor:pointer;transition:border-color 0.2s,background 0.2s; }
   .quiz-opt:hover { border-color:var(--burgundy);background:rgba(125,34,64,0.04); }
   .quiz-opt input[type="radio"] { margin-top:3px;accent-color:var(--burgundy);flex-shrink:0; }
   .quiz-opt span { font-size:0.9375rem;line-height:1.5;color:var(--charcoal); }
   .quiz-opt:has(input:checked) { border-color:var(--burgundy);background:rgba(125,34,64,0.06); }
-  .quiz-next-btn { background:var(--charcoal);color:#fff;padding:0.75rem 2rem;border-radius:100px;border:none;font-family:'Inter',sans-serif;font-weight:600;font-size:0.9375rem;cursor:pointer;transition:background 0.2s,transform 0.15s; }
+  .quiz-next-btn { background:var(--charcoal);color:#fff;padding:0.75rem 2rem;border-radius:100px;border:none;font-family:'Nunito',sans-serif;font-weight:600;font-size:0.9375rem;cursor:pointer;transition:background 0.2s,transform 0.15s; }
   .quiz-next-btn:hover { background:var(--burgundy);transform:translateY(-1px); }
   .quiz-result-tier { font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem; }
-  .quiz-result-heading { font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--charcoal);line-height:1.3;margin-bottom:1rem; }
+  .quiz-result-heading { font-family:'Fraunces',Georgia,serif;font-size:1.6rem;font-weight:700;color:var(--charcoal);line-height:1.3;margin-bottom:1rem; }
   .quiz-result-desc { font-size:0.9375rem;color:var(--muted);line-height:1.7;margin-bottom:1.5rem; }
   .quiz-why-list { list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.6rem; }
   .quiz-why-list li { display:flex;align-items:flex-start;gap:0.65rem;font-size:0.9rem;line-height:1.5;color:var(--charcoal); }
@@ -1108,16 +1205,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- REGISTER CTA -->
 <div class="cta-section" id="register">
-  <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.35rem;color:var(--gold);line-height:1.55;margin:0 auto 1.5rem;max-width:600px;opacity:0.9;">"Working with AI is all about mindset — and that's what I teach."<br><span style="font-family:'Inter',sans-serif;font-style:normal;font-size:0.75rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;opacity:0.7;">— Alice Bazdikian</span></p>
+  <p style="font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:1.35rem;color:var(--gold);line-height:1.55;margin:0 auto 1.5rem;max-width:600px;opacity:0.9;">"Working with AI is all about mindset — and that's what I teach."<br><span style="font-family:'Nunito',sans-serif;font-style:normal;font-size:0.75rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;opacity:0.7;">— Alice Bazdikian</span></p>
   <h2>You don't need to be first.<br><em>But you can't afford to be last.</em></h2>
   <p>Free. Live. Practical. Thursday March 27th · 6:30 PM ET.</p>
   <form id="bottom-form" onsubmit="handleSubmit(event,'bottom')" style="max-width:460px;margin:0 auto;">
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:0.75rem;">
-      <input type="text" id="b-fname" placeholder="First name" required style="width:100%;padding:0.8rem 1rem;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:8px;color:#fff;font-family:'Inter',sans-serif;font-size:0.9375rem;outline:none;transition:border-color 0.2s;">
-      <input type="text" id="b-lname" placeholder="Last name" required style="width:100%;padding:0.8rem 1rem;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:8px;color:#fff;font-family:'Inter',sans-serif;font-size:0.9375rem;outline:none;transition:border-color 0.2s;">
+      <input type="text" id="b-fname" placeholder="First name" required style="width:100%;padding:0.8rem 1rem;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:8px;color:#fff;font-family:'Nunito',sans-serif;font-size:0.9375rem;outline:none;transition:border-color 0.2s;">
+      <input type="text" id="b-lname" placeholder="Last name" required style="width:100%;padding:0.8rem 1rem;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:8px;color:#fff;font-family:'Nunito',sans-serif;font-size:0.9375rem;outline:none;transition:border-color 0.2s;">
     </div>
-    <input type="email" id="b-email" placeholder="you@yourbusiness.com" required style="width:100%;padding:0.8rem 1rem;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:8px;color:#fff;font-family:'Inter',sans-serif;font-size:0.9375rem;margin-bottom:0.75rem;outline:none;transition:border-color 0.2s;">
-    <select id="b-role" required style="width:100%;padding:0.8rem 1rem;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:8px;color:#fff;font-family:'Inter',sans-serif;font-size:0.9375rem;margin-bottom:0.75rem;outline:none;appearance:none;cursor:pointer;">
+    <input type="email" id="b-email" placeholder="you@yourbusiness.com" required style="width:100%;padding:0.8rem 1rem;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:8px;color:#fff;font-family:'Nunito',sans-serif;font-size:0.9375rem;margin-bottom:0.75rem;outline:none;transition:border-color 0.2s;">
+    <select id="b-role" required style="width:100%;padding:0.8rem 1rem;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:8px;color:#fff;font-family:'Nunito',sans-serif;font-size:0.9375rem;margin-bottom:0.75rem;outline:none;appearance:none;cursor:pointer;">
       <option value="" disabled selected style="background:#1C1C1C;">Select your role…</option>
       <option value="Founder / CEO" style="background:#1C1C1C;">Founder / CEO</option>
       <option value="Solopreneur" style="background:#1C1C1C;">Solopreneur</option>
@@ -1127,7 +1224,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <option value="Consultant / Freelancer" style="background:#1C1C1C;">Consultant / Freelancer</option>
       <option value="Other" style="background:#1C1C1C;">Other</option>
     </select>
-    <select id="b-size" required style="width:100%;padding:0.8rem 1rem;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:8px;color:#fff;font-family:'Inter',sans-serif;font-size:0.9375rem;margin-bottom:1rem;outline:none;appearance:none;cursor:pointer;">
+    <select id="b-size" required style="width:100%;padding:0.8rem 1rem;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:8px;color:#fff;font-family:'Nunito',sans-serif;font-size:0.9375rem;margin-bottom:1rem;outline:none;appearance:none;cursor:pointer;">
       <option value="" disabled selected style="background:#1C1C1C;">Select company size…</option>
       <option value="Just me" style="background:#1C1C1C;">Just me</option>
       <option value="2–5" style="background:#1C1C1C;">2–5</option>
@@ -1320,10 +1417,10 @@ function toggleFaq(el) {
 <!-- COOKIE CONSENT BANNER -->
 <div id="cookie-consent" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9998;background:#1C1C1C;border-top:1px solid rgba(125,34,64,0.3);padding:1rem 2rem;box-shadow:0 -4px 24px rgba(0,0,0,0.15);">
   <div style="max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;">
-    <p style="margin:0;font-family:'Inter',sans-serif;font-size:0.8125rem;color:rgba(255,255,255,0.7);line-height:1.6;flex:1;min-width:280px;">We use cookies for analytics (Google Tag Manager, Vercel Analytics) to understand how visitors use this site. By continuing, you consent to our use of cookies. <a href="/privacy-policy.html" style="color:#C9A847;text-decoration:none;">Privacy Policy</a> · <a href="terms.html" style="color:rgba(255,255,255,0.4);text-decoration:none;">Terms</a></p>
+    <p style="margin:0;font-family:'Nunito',sans-serif;font-size:0.8125rem;color:rgba(255,255,255,0.7);line-height:1.6;flex:1;min-width:280px;">We use cookies for analytics (Google Tag Manager, Vercel Analytics) to understand how visitors use this site. By continuing, you consent to our use of cookies. <a href="/privacy-policy.html" style="color:#C9A847;text-decoration:none;">Privacy Policy</a> · <a href="terms.html" style="color:rgba(255,255,255,0.4);text-decoration:none;">Terms</a></p>
     <div style="display:flex;gap:0.75rem;flex-shrink:0;">
-      <button onclick="document.getElementById('cookie-consent').style.display='none';localStorage.setItem('cookieConsent','accepted')" style="background:#7D2240;color:#fff;border:none;font-family:'Inter',sans-serif;font-size:0.8125rem;font-weight:600;padding:0.5rem 1.25rem;border-radius:100px;cursor:pointer;">Accept</button>
-      <button onclick="document.getElementById('cookie-consent').style.display='none';localStorage.setItem('cookieConsent','declined')" style="background:transparent;color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.2);font-family:'Inter',sans-serif;font-size:0.8125rem;font-weight:500;padding:0.5rem 1.25rem;border-radius:100px;cursor:pointer;">Decline</button>
+      <button onclick="document.getElementById('cookie-consent').style.display='none';localStorage.setItem('cookieConsent','accepted')" style="background:#7D2240;color:#fff;border:none;font-family:'Nunito',sans-serif;font-size:0.8125rem;font-weight:600;padding:0.5rem 1.25rem;border-radius:100px;cursor:pointer;">Accept</button>
+      <button onclick="document.getElementById('cookie-consent').style.display='none';localStorage.setItem('cookieConsent','declined')" style="background:transparent;color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.2);font-family:'Nunito',sans-serif;font-size:0.8125rem;font-weight:500;padding:0.5rem 1.25rem;border-radius:100px;cursor:pointer;">Decline</button>
     </div>
   </div>
 </div>

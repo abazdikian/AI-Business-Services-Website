@@ -151,6 +151,35 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     }
     .page-header-inner { max-width: 1100px; margin: 0 auto; }
 
+    /* Hero with background image + left-aligned text overlay */
+    .page-hero {
+      position: relative;
+      background-image: url('Brand%20Assets/Bloghero2.png');
+      background-size: cover;
+      background-position: center right;
+      min-height: 480px;
+      display: flex;
+      align-items: center;
+      padding: 4rem;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(90deg, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.92) 35%, rgba(255,255,255,0.55) 60%, rgba(255,255,255,0) 90%);
+      pointer-events: none;
+    }
+    .page-hero-inner {
+      position: relative; z-index: 1;
+      max-width: 1100px; margin: 0 auto;
+      width: 100%;
+    }
+    .page-hero-text { max-width: 560px; }
+    @media (max-width: 768px) {
+      .page-hero { padding: 3rem 1.5rem; min-height: 420px; }
+      .page-hero::before { background: linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.88) 100%); }
+    }
+
     .eyebrow {
       font-family: 'Nunito', sans-serif;
       font-size: 0.6875rem; font-weight: 800;
@@ -635,17 +664,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <span class="announce-band-dot"></span>
   </div>
 
-  <!-- PAGE HEADER — Brand Refresh v2 -->
-  <div class="page-header">
-    <div class="page-header-inner">
-      <h1 class="page-heading">An AI blog for <span class="accent">normal people.</span></h1>
-      <p class="page-sub">Practical guides for entrepreneurs, solopreneurs, and business leaders who want to use AI without the jargon, the hype, or the tech-bro gatekeeping.</p>
-      <div class="cat-chips">
-        <span class="cat-chip active">All Posts</span>
-        <span class="cat-chip">Claude Cowork Guides</span>
-        <span class="cat-chip">AI Strategy</span>
-        <span class="cat-chip">Productivity</span>
-        <span class="cat-chip">Personal Essays</span>
+  <!-- HERO — background image with left-aligned text overlay -->
+  <div class="page-hero" role="img" aria-label="An AI blog for normal people">
+    <div class="page-hero-inner">
+      <div class="page-hero-text">
+        <h1 class="page-heading">An AI blog for <span class="accent">normal people.</span></h1>
+        <p class="page-sub">Practical guides for entrepreneurs, solopreneurs, and business leaders who want to use AI without the jargon, the hype, or the tech-bro gatekeeping.</p>
+        <div class="cat-chips">
+          <span class="cat-chip active">All Posts</span>
+          <span class="cat-chip">Claude Cowork Guides</span>
+          <span class="cat-chip">AI Strategy</span>
+          <span class="cat-chip">Productivity</span>
+          <span class="cat-chip">Personal Essays</span>
+        </div>
       </div>
     </div>
   </div>
