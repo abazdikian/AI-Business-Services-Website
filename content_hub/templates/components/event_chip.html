@@ -1,0 +1,22 @@
+{# Renders a single event chip. Inputs: ev (dict with title, time_label, color_bg, color_fg, source, id, url, notes) #}
+<div class="cal-chip cal-chip--{{ ev.source }}"
+     style="background:{{ ev.color_bg }};color:{{ ev.color_fg }};"
+     title="{{ ev.title }}{% if ev.notes %} — {{ ev.notes }}{% endif %}">
+  {% if ev.url %}
+    <a href="{{ ev.url }}" target="_blank" rel="noopener" class="cal-chip-link">
+      {% if ev.time_label %}<span class="cal-chip-time">{{ ev.time_label }}</span>{% endif %}
+      <span class="cal-chip-title">{{ ev.title }}</span>
+    </a>
+  {% else %}
+    {% if ev.time_label %}<span class="cal-chip-time">{{ ev.time_label }}</span>{% endif %}
+    <span class="cal-chip-title">{{ ev.title }}</span>
+  {% endif %}
+  {% if ev.source == 'manual' %}
+    <button class="cal-chip-del"
+            hx-delete="/calendar/event/{{ ev.id }}"
+            hx-target="closest .cal-day"
+            hx-swap="outerHTML"
+            title="Delete event"
+            aria-label="Delete event">×</button>
+  {% endif %}
+</div>

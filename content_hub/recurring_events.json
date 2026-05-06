@@ -1,0 +1,70 @@
+{
+  "_comment": "Recurring rules for the Marketing Calendar. Edit by hand, save, refresh /calendar. Days: 0=Mon … 6=Sun. Times in local (America/Toronto). Channels are free-form labels that map to color via 'category'.",
+
+  "rules": [
+    {
+      "id": "cowork-weekly",
+      "title": "Claude Cowork — #womenbuildAI",
+      "weekday": 1,
+      "time": "20:00",
+      "category": "community",
+      "url": "https://lu.ma/womenbuild-cowork",
+      "notes": "Live coworking session with women builders"
+    },
+    {
+      "id": "shoot-reels-fri",
+      "title": "Shoot shortform reels (5 needed for next week)",
+      "weekday": 4,
+      "time": "10:00",
+      "category": "content",
+      "notes": "Block 2-3 hours; batch all 5 reels in one sitting"
+    },
+    {
+      "id": "edit-yt-sat",
+      "title": "Edit + render long-form YouTube video",
+      "weekday": 5,
+      "time": "10:00",
+      "category": "content",
+      "notes": "From this week's pillar topic — see /week dropdown for inspiration"
+    },
+    {
+      "id": "newsletter-sun",
+      "title": "Send weekly newsletter (links to Wed YouTube)",
+      "weekday": 6,
+      "time": "09:00",
+      "category": "content",
+      "notes": "Buttondown — abazdikian account"
+    }
+  ],
+
+  "daily_post_reminders": {
+    "_comment": "Pulls peak posting time per channel from post_times.html. Auto-renders on weekdays only (Mon-Fri).",
+    "enabled": true,
+    "channels": {
+      "instagram": { "weekdays": [0, 1, 2, 3, 4], "time": "12:00", "label": "Post IG reel" },
+      "tiktok":    { "weekdays": [0, 1, 2, 3, 4], "time": "19:00", "label": "Post TikTok" },
+      "linkedin":  { "weekdays": [1, 3],          "time": "08:00", "label": "Post LinkedIn" },
+      "youtube":   { "weekdays": [2, 5],          "time": "11:00", "label": "Publish YouTube video" }
+    }
+  },
+
+  "gcal_keywords": [
+    "AI", "small biz", "SME", "SMB", "Toronto Tech", "podcast", "webinar",
+    "interview", "speaking", "conference", "masterclass",
+    "Cowork", "womenbuild", "Accelerator", "workshop",
+    "Strategy", "CRM", "ERP", "CPG", "Retail",
+    "Networking", "Synergi", "Women in Tech", "Women in",
+    "Nonprofit", "Capacity Building",
+    "Intelligent SME"
+  ],
+
+  "category_colors": {
+    "webinar":   { "bg": "#7A1530", "fg": "#FFFFFF" },
+    "launch":    { "bg": "#7A1530", "fg": "#FFFFFF" },
+    "ad":        { "bg": "#0F766E", "fg": "#FFFFFF" },
+    "content":   { "bg": "#D4A84A", "fg": "#1F1A17" },
+    "community": { "bg": "#A87B1F", "fg": "#FFFFFF" },
+    "external":  { "bg": "#5D8A66", "fg": "#FFFFFF" },
+    "custom":    { "bg": "#6B5A5F", "fg": "#FFFFFF" }
+  }
+}

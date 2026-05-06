@@ -25,3 +25,27 @@ social-pipeline/token.json
 ACTION-PLAN.md
 FULL-AUDIT-REPORT.md
 schema-audit-report.md
+
+# Content Hub runtime data (local-only, contains live user data)
+content_hub/hub.db
+content_hub/__pycache__/
+content_hub/venv/
+content_hub/.venv-hub/
+content_hub/output/
+content_hub/drafts/
+content_hub/digest_history/
+content_hub/monthly_plans/
+content_hub/com.alice.contenthub.plist
+content_hub/notify/__pycache__/
+content_hub/fetchers/__pycache__/
+content_hub/integrations/__pycache__/
+content_hub/enrich/__pycache__/
+content_hub/jobs/__pycache__/
+content_hub/generate/__pycache__/
+content_hub/render/__pycache__/
+
+# Lead-magnet build verification artifacts (underscore-prefixed PNGs are temporary)
+Brand Assets/lead-magnet-screenshots/_*
+
+# Editor / OS noise
+.DS_Store

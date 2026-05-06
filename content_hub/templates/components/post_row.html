@@ -1,0 +1,54 @@
+<tr class="post-row {% if p.selected %}is-selected{% endif %}" id="post-{{ p.id }}">
+  <td class="col-check">
+    <label class="check-wrap">
+      <input type="checkbox"
+             {% if p.selected %}checked{% endif %}
+             name="selected"
+             hx-post="/select/{{ week_id }}/{{ channel }}/{{ p.id }}"
+             hx-trigger="change"
+             hx-vals='js:{selected: event.target.checked ? "on" : "off"}'
+             hx-swap="none" />
+      <span class="check-custom"></span>
+    </label>
+  </td>
+  <td class="col-thumb">
+    <a href="{{ p.post_url }}" target="_blank" rel="noopener" class="thumb-link" title="Open original post in new tab">
+      {% if p.thumbnail_url %}
+        <img class="thumb" src="{{ p.thumbnail_url }}" alt="" loading="lazy" />
+      {% else %}
+        <div class="thumb thumb-blank"></div>
+      {% endif %}
+    </a>
+  </td>
+  <td class="col-creator">
+    <div class="creator">@{{ p.creator_handle or "unknown" }}</div>
+    {% if p.source == "hashtag" %}<span class="tag tag-alt">hashtag</span>{% endif %}
+  </td>
+  <td class="col-date">{{ p.posted_at[:10] if p.posted_at else "—" }}</td>
+  <td class="col-format">
+    {% if p.format_tag %}<span class="tag">{{ p.format_tag }}</span>{% endif %}
+  </td>
+  <td class="col-hook">
+    <a href="{{ p.post_url }}" target="_blank" rel="noopener" class="hook-link" title="Open original post in new tab">
+      {% if p.hook_line %}<p class="hook">{{ p.hook_line }}</p>{% endif %}
+      {% if p.caption %}
+        <p class="caption">{{ p.caption[:140] }}{% if p.caption|length > 140 %}…{% endif %}</p>
+      {% endif %}
+      {% if not p.hook_line and not p.caption %}<p class="muted">Open original ↗</p>{% endif %}
+    </a>
+  </td>
+  <td class="col-metric num">{{ "{:,}".format(p.likes or 0) }}</td>
+  <td class="col-metric num">{{ "{:,}".format(p.comments or 0) }}</td>
+  <td class="col-metric num">{{ "{:,}".format(p.views or 0) }}</td>
+  <td class="col-er num">
+    {% if p.engagement_rate is not none %}
+      {{ "%.2f"|format(p.engagement_rate * 100) }}%
+    {% else %}—{% endif %}
+  </td>
+  <td class="col-why">
+    {% if p.why_trending %}<span class="why-text">{{ p.why_trending }}</span>{% else %}<span class="muted">—</span>{% endif %}
+  </td>
+  <td class="col-open">
+    <a class="open-btn" href="{{ p.post_url }}" target="_blank" rel="noopener">Open ↗</a>
+  </td>
+</tr>

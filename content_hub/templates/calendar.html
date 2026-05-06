@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% block title %}Marketing · {{ current_label }} · Content Hub{% endblock %}
+
+{% block content %}
+<section class="cal-shell">
+
+  <header class="cal-header">
+    <div class="cal-header-titles">
+      <p class="cal-eyebrow">Marketing Calendar</p>
+      <h1 class="cal-h1">Plan, ship, track — one view.</h1>
+    </div>
+
+    <div class="cal-tabs">
+      {% for m in months %}
+        <a href="/calendar/{{ m.id }}"
+           class="cal-tab {% if m.id == current_month %}is-active{% endif %}">
+          {{ m.label }}
+          <span class="cal-tab-count">{{ m.event_count }}</span>
+        </a>
+      {% endfor %}
+    </div>
+  </header>
+
+  <div class="cal-toolbar">
+    <form class="cal-add" method="post" action="/calendar/event">
+      <input type="hidden" name="redirect_to" value="/calendar/{{ current_month }}" />
+      <input type="text" name="title" placeholder="Event title…" required maxlength="120" />
+      <input type="date" name="date" value="{{ current_month }}-01" required />
+      <input type="time" name="time" value="" />
+      <select name="category">
+        <option value="custom">Custom</option>
+        <option value="webinar">Webinar / launch</option>
+        <option value="ad">Ad campaign</option>
+        <option value="content">Content task</option>
+        <option value="community">Community</option>
+        <option value="external">External event</option>
+      </select>
+      <input type="url" name="url" placeholder="Link (optional)" />
+      <button type="submit" class="cal-add-btn">+ Add event</button>
+    </form>
+
+    <div class="cal-legend">
+      {% for cat, swatch in categories.items() %}
+        <span class="cal-swatch" style="background:{{ swatch.bg }};color:{{ swatch.fg }};">{{ cat }}</span>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="cal-grid">
+    <div class="cal-dow"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
+
+    <div class="cal-month">
+      {% for week in weeks %}
+        <div class="cal-week">
+          {% for day in week %}
+            <div class="cal-day {% if day.in_month %}is-in-month{% else %}is-out-month{% endif %} {% if day.is_today %}is-today{% endif %} {% if day.is_weekend %}is-weekend{% endif %}">
+              <div class="cal-day-head">
+                <span class="cal-day-num">{{ day.num }}</span>
+                {% if day.is_today %}<span class="cal-today-dot" aria-hidden="true"></span>{% endif %}
+              </div>
+              {% if day.events %}
+                <div class="cal-day-events">
+                  {% for ev in day.events %}
+                    {% include "components/event_chip.html" %}
+                  {% endfor %}
+                </div>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  {% if upcoming %}
+  <aside class="cal-upcoming">
+    <h2 class="cal-upcoming-title">Next 7 days at a glance</h2>
+    <ul class="cal-upcoming-list">
+      {% for u in upcoming %}
+        <li class="cal-upcoming-item">
+          <span class="cal-upcoming-date">{{ u.date_label }}</span>
+          <span class="cal-upcoming-chip" style="background:{{ u.color_bg }};color:{{ u.color_fg }};">{{ u.title }}</span>
+        </li>
+      {% endfor %}
+    </ul>
+  </aside>
+  {% endif %}
+
+</section>
+{% endblock %}

@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>The 3-Workflow Starter Kit · Alice Bazdikian</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <!-- Note: monospace prompt boxes use system fonts only (Menlo/Consolas/Courier) so the PDF embeds selectable text. -->
+  <!-- Web fonts like JetBrains Mono get rasterized by Chrome's PDF engine, which kills copy-paste. -->
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --burgundy: #7A1530; --burgundy-soft: #9B2440; --burgundy-glow: #C13558;
+      --gold: #D4A84A; --gold-warm: #E6C472; --gold-deep: #A87B1F;
+      --white: #FFFFFF; --offwhite: #FDFBF5; --cream: #F7F3EE;
+      --ink: #2B1A1F; --ink-soft: #6B5A5F; --ink-light: #8B7D81; --rule: #EFE8E3;
+      --grad-sunrise: linear-gradient(135deg, #7A1530 0%, #C13558 60%, #E6C472 100%);
+      /* Editorial sage green — for "savings/positive" semantics, harmonizes with warm palette */
+      --sage: #4A6B4F;
+      --sage-mid: #6B8A6F;
+      --sage-light: #E5EFE7;
+    }
+
+    @page {
+      size: 8.5in 11in;
+      margin: 0.7in 0.7in 0.85in;        /* applies to EVERY printed page, including overflow pages */
+      @bottom-left  { content: "smallbusinessaicoach.com"; font-family: 'Nunito', sans-serif; font-size: 8pt; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: #A87B1F; }
+      @bottom-right { content: "The 3-Workflow Starter Kit · Page " counter(page); font-family: 'Nunito', sans-serif; font-size: 8pt; color: #8B7D81; letter-spacing: .04em; }
+    }
+    @page :first {
+      margin: 0;                          /* cover is full-bleed */
+      @bottom-left  { content: ""; }
+      @bottom-right { content: ""; }
+    }
+
+    html, body { background: var(--white); color: var(--ink); }
+    body {
+      font-family: 'Nunito', system-ui, sans-serif;
+      font-size: 12.5pt; line-height: 1.6; font-weight: 500;
+      -webkit-font-smoothing: antialiased;
+      -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    }
+    p { font-weight: 500; }
+    strong { font-weight: 800; }
+
+    /* Each major chapter starts on a fresh printed page. Editorial flow. */
+    .page { padding-bottom: 0; }
+    .intro-start, .setup-start, .workflow-start, .stack-start, .closer-start {
+      page-break-before: always;
+      break-before: page;
+    }
+    /* Cover full-bleed via @page :first */
+    .cover { width: 8.5in; height: 11in; padding: 0; }
+    /* Old per-section footer divs — hidden, replaced by @page @bottom-* */
+    .page-footer { display: none; }
+    .page-footer-mark { font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-deep); }
+
+    h1, h2, h3, h4 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+    p { margin: 0 0 12px; color: var(--ink); }
+    em { font-style: italic; }
+    strong { font-weight: 700; color: var(--ink); }
+
+    .eyebrow {
+      font-family: 'Nunito', sans-serif; font-size: 8pt; font-weight: 800;
+      letter-spacing: .26em; text-transform: uppercase; color: var(--gold-deep);
+      margin: 0 0 14px;
+    }
+
+    /* COVER */
+    .cover {
+      padding: 0; position: relative;
+      background:
+        radial-gradient(ellipse at 85% 5%, rgba(230,196,114,.55), transparent 50%),
+        radial-gradient(ellipse at 0% 100%, rgba(193,53,88,.38), transparent 50%),
+        radial-gradient(ellipse at 55% 65%, rgba(212,168,74,.32), transparent 50%),
+        radial-gradient(ellipse at 100% 50%, rgba(122,21,48,.10), transparent 60%),
+        var(--white);
+    }
+    .cover-inner { padding: 1.2in 0.85in 0.85in; height: 11in; display: flex; flex-direction: column; justify-content: space-between; }
+    .cover-mark { font-family: 'Nunito', sans-serif; font-size: 9pt; font-weight: 800; letter-spacing: .26em; text-transform: uppercase; color: var(--gold-deep); }
+    .cover-mark-row { display: flex; align-items: center; gap: 14px; }
+    .cover-mark-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--burgundy-glow); }
+    .cover-h1 {
+      font-family: 'Fraunces', Georgia, serif; font-weight: 600;
+      font-size: 56pt; line-height: 1.0; letter-spacing: -0.03em;
+      margin: 22px 0 18px; color: var(--ink);
+    }
+    .cover-h1 em {
+      font-style: italic;
+      background: linear-gradient(135deg, #A87B1F 0%, #D4A84A 45%, #E6C472 100%);
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .cover-deck {
+      font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 400;
+      font-size: 16pt; line-height: 1.35; color: var(--ink-soft); margin: 0 0 32px; max-width: 5.6in;
+    }
+    .cover-meta { display: flex; gap: 18px; flex-wrap: wrap; font-size: 9pt; color: var(--ink-soft); margin-top: 14px; }
+    .cover-meta strong { color: var(--burgundy); font-weight: 800; }
+    .cover-foot { display: flex; align-items: center; gap: 14px; padding-top: 18px; border-top: 1px solid var(--rule); }
+    .cover-foot-photo { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; }
+    .cover-foot-name { font-family: 'Fraunces', Georgia, serif; font-size: 12pt; font-weight: 600; color: var(--ink); }
+    .cover-foot-tag { font-size: 9pt; color: var(--ink-soft); }
+    .cover-foot-url { margin-left: auto; font-size: 9pt; color: var(--burgundy); font-weight: 700; letter-spacing: .04em; }
+
+    /* INTRO */
+    .intro-h2 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 28pt; line-height: 1.05; letter-spacing: -0.025em; margin: 0 0 18px; color: var(--ink); }
+    .intro-h2 em { font-style: italic; color: var(--burgundy); }
+    .intro-quotes { display: grid; gap: 14px; margin: 22px 0; }
+    .intro-quote {
+      position: relative;
+      background: var(--white);
+      border: 1px solid var(--rule);
+      border-radius: 12px;
+      padding: 18px 24px 16px 56px;          /* tighter; left padding makes room for the inline quote glyph */
+    }
+    .intro-quote::before {
+      content: "\201C";
+      position: absolute; top: 6px; left: 16px;
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 38pt; line-height: 1; font-weight: 600;
+      background: linear-gradient(135deg, #E6C472, #D4A84A 60%, #A87B1F);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .intro-quote-text {
+      font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 500;
+      font-size: 12pt; line-height: 1.35; color: var(--ink);
+      margin: 0 0 8px;
+    }
+    .intro-quote-src {
+      display: block; font-family: 'Nunito', sans-serif;
+      font-size: 8pt; font-weight: 800; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--burgundy);
+      padding: 0; margin: 0;
+    }
+    .intro-close { font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: 14pt; line-height: 1.4; color: var(--ink); margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--rule); }
+    .intro-close strong { font-style: normal; color: var(--burgundy); font-weight: 700; }
+
+    /* SETUP page (between intro and WF1) — compact so all 4 cards + closing callout fit on one printed page */
+    .setup-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 18px 0; }
+    .setup-card { background: var(--white); border: 1px solid var(--rule); border-radius: 12px; padding: 16px 18px; break-inside: avoid; page-break-inside: avoid; }
+    .setup-card-eyebrow { font-family: 'Nunito', sans-serif; font-size: 7.5pt; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; color: var(--gold-deep); margin-bottom: 4px; }
+    .setup-card-title { font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 13pt; line-height: 1.2; letter-spacing: -0.01em; color: var(--ink); margin: 0 0 6px; }
+    .setup-card-text { font-size: 10pt; line-height: 1.45; color: var(--ink); margin: 0 0 4px; font-weight: 500; }
+    .setup-card-meta { font-size: 9pt; color: var(--ink-soft); margin: 6px 0 0; }
+    .setup-card-meta strong { color: var(--burgundy); font-weight: 800; }
+    .setup-start { padding-top: 0; }
+
+    /* BONUS starburst badge for Workflow 04 chapter — large magazine-style splash */
+    .chapter-header { position: relative; }
+    .bonus-starburst {
+      position: absolute; top: -28px; right: -16px;
+      width: 220px; height: 220px;
+      display: flex; align-items: center; justify-content: center;
+      transform: rotate(12deg);
+    }
+    .bonus-starburst svg { width: 100%; height: 100%; }
+    .bonus-starburst-text {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      font-family: 'Nunito', sans-serif; font-weight: 800; color: var(--ink);
+      letter-spacing: .1em; text-transform: uppercase; line-height: 1; text-align: center;
+      font-size: 22pt;
+    }
+    .bonus-starburst-text small { font-size: 13pt; letter-spacing: .18em; margin-top: 8px; opacity: .9; font-weight: 800; display: block; }
+
+    /* WORKFLOW CHAPTER */
+    .chapter-header { padding-bottom: 14px; border-bottom: 1px solid var(--rule); margin-bottom: 18px; }
+    /* WF04 chapter has the BONUS starburst pinned to the top-right; reserve space so subhead text doesn't run under it */
+    .workflow-start:has(.bonus-starburst) .chapter-header { padding-right: 200px; min-height: 200px; }
+    .chapter-num {
+      display: inline-block; font-family: 'Fraunces', Georgia, serif; font-style: italic;
+      font-size: 38pt; font-weight: 400; line-height: 1;
+      background: var(--grad-sunrise); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+      margin-bottom: 6px;
+    }
+    .chapter-eyebrow { font-family: 'Nunito', sans-serif; font-size: 8pt; font-weight: 800; letter-spacing: .26em; text-transform: uppercase; color: var(--gold-deep); margin-bottom: 4px; }
+    .chapter-title { font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 26pt; line-height: 1.05; letter-spacing: -0.02em; color: var(--ink); margin: 6px 0 10px; }
+    .chapter-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .chapter-pill {
+      display: inline-flex; align-items: center; font-size: 8pt; font-weight: 800;
+      letter-spacing: .14em; text-transform: uppercase; padding: 5px 11px; border-radius: 999px;
+    }
+    .chapter-pill--time  { background: var(--sage); color: var(--white); }              /* savings = sage green */
+    .chapter-pill--setup { background: var(--sage-mid); color: var(--white); }            /* setup = lighter sage */
+    .chapter-pill--tool  { background: var(--ink); color: var(--gold-warm); }             /* tool = neutral ink */
+
+    .section-h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 14pt; line-height: 1.2; color: var(--ink); margin: 14px 0 6px; }
+    .check-list { list-style: none; padding: 0; margin: 8px 0 14px; }
+    .check-list li { padding-left: 22px; position: relative; margin: 5px 0; font-size: 10pt; line-height: 1.5; color: var(--ink-soft); }
+    .check-list li::before {
+      content: "✓"; position: absolute; left: 0; top: 0;
+      font-weight: 800; color: var(--burgundy);
+    }
+
+    .prompt-box {
+      background: #1F1A1B; color: #F2EBE0; border-radius: 12px;
+      padding: 18px 22px; margin: 14px 0;
+      /* SYSTEM monospace only — Chrome's PDF engine embeds these as selectable text.
+         Web fonts (e.g. JetBrains Mono) get rasterized to glyph paths and break copy-paste. */
+      font-family: Menlo, Consolas, "Courier New", monospace;
+      font-size: 9.5pt; line-height: 1.55;
+      user-select: text; -webkit-user-select: text;
+    }
+    .prompt-box-label {
+      display: block; font-family: 'Nunito', sans-serif;
+      font-size: 7.5pt; font-weight: 800; letter-spacing: .22em; text-transform: uppercase;
+      color: var(--gold-warm); margin-bottom: 10px;
+    }
+    .prompt-box pre { font-family: inherit; font-size: inherit; line-height: inherit; color: inherit; white-space: pre-wrap; word-wrap: break-word; margin: 0; }
+
+    .screenshot-box {
+      background: var(--white); border: 1px solid var(--rule); border-radius: 14px;
+      padding: 18px; margin: 14px 0; text-align: center;
+    }
+    .screenshot-box img { max-width: 100%; border-radius: 8px; border: 1px solid var(--rule); display: block; margin: 0 auto; }
+    .screenshot-box-cap { font-size: 8pt; color: var(--ink-soft); margin-top: 10px; font-style: italic; }
+
+    .callout {
+      background: linear-gradient(135deg, rgba(230,196,114,.28), rgba(193,53,88,.14));
+      border: 1px solid var(--gold); border-radius: 12px;
+      padding: 14px 18px; margin: 14px 0;
+      font-size: 10pt; line-height: 1.5; color: var(--ink);
+    }
+    .callout-title {
+      display: block; font-family: 'Nunito', sans-serif; font-size: 8pt;
+      font-weight: 800; letter-spacing: .22em; text-transform: uppercase;
+      color: var(--burgundy); margin-bottom: 6px;
+    }
+    .callout-caveat { background: rgba(193,53,88,.06); border-color: var(--burgundy-glow); }
+    .callout-caveat .callout-title { color: var(--burgundy); }
+
+    /* CLOSER */
+    .closer { background: var(--white); position: relative; }
+    .closer::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse at 80% 0%, rgba(230,196,114,.20), transparent 55%), radial-gradient(ellipse at 0% 100%, rgba(193,53,88,.10), transparent 50%); }
+    .closer > * { position: relative; }
+    .closer-h2 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 32pt; line-height: 1.1; letter-spacing: -0.025em; margin: 0 0 16px; color: var(--burgundy); }
+    .closer-cta-card {
+      background: var(--white); border: 2px solid var(--gold); border-radius: 18px;
+      padding: 26px 28px; margin: 18px 0;
+    }
+    .closer-cta-eyebrow { font-family: 'Nunito', sans-serif; font-size: 8pt; font-weight: 800; letter-spacing: .26em; text-transform: uppercase; color: var(--gold-deep); margin-bottom: 6px; }
+    .closer-cta-title { font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 18pt; line-height: 1.18; color: var(--ink); margin: 0 0 8px; }
+    .closer-cta-text { font-size: 10pt; line-height: 1.55; color: var(--ink-soft); margin: 0 0 14px; }
+    .closer-cta-link {
+      display: inline-block; font-family: 'Nunito', sans-serif;
+      font-size: 10pt; font-weight: 800; letter-spacing: .04em;
+      color: var(--white); background: var(--grad-sunrise);
+      padding: 12px 22px; border-radius: 999px; text-decoration: none;
+    }
+    .closer-secondary { font-size: 9pt; color: var(--ink-soft); text-align: center; margin-top: 18px; }
+    .closer-ladder { font-size: 10pt; color: var(--ink-soft); line-height: 1.55; margin: 18px 0 0; padding: 14px 16px; border-left: 2px solid var(--rule); }
+    .closer-ladder a { color: var(--burgundy); font-weight: 700; text-decoration: underline; }
+
+    /* ── PRINT: keep ONLY large boxes intact; let small callouts flow so they don't orphan ── */
+    .prompt-box,
+    .screenshot-box,
+    .intro-quote {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    /* .callout is intentionally allowed to split; orphaning a 3-line callout on its own page wastes a whole sheet */
+    /* Don't widow a section heading at the bottom of a page */
+    .section-h3 {
+      break-after: avoid-page;
+      page-break-after: avoid;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ───────── PAGE 1: COVER ───────── -->
+  <section class="page cover">
+    <div class="cover-inner">
+      <div>
+        <div class="cover-mark-row">
+          <span class="cover-mark-dot"></span>
+          <span class="cover-mark">The Starter Kit · No. 01</span>
+        </div>
+        <h1 class="cover-h1">3 AI Workflows for Small Business Owners. <em>Save 10+ hours a week.</em></h1>
+        <p class="cover-deck">A 14-page editorial guide. Real prompts, real screenshots, real outcomes. Plus one bonus workflow nobody else is teaching.</p>
+        <div class="cover-meta">
+          <span><strong>14 pages</strong></span>
+          <span><strong>10-min read</strong></span>
+          <span><strong>$0</strong> tools required</span>
+          <span><strong>Free</strong> forever</span>
+        </div>
+      </div>
+      <div class="cover-foot">
+        <img src="../../../Brand Assets/_MCK3991.jpg" alt="Alice Bazdikian" class="cover-foot-photo" />
+        <div>
+          <div class="cover-foot-name">Alice Bazdikian</div>
+          <div class="cover-foot-tag">AI Strategist · 200+ entrepreneurs trained</div>
+        </div>
+        <span class="cover-foot-url">smallbusinessaicoach.com</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────── PAGE 2: INTRO ───────── -->
+  <section class="page intro-start">
+    <p class="eyebrow">Why this exists</p>
+    <h2 class="intro-h2">You've been told AI will change your business. <em>Then you tried it.</em></h2>
+    <p>Most "AI for small business" content is a 47-tool listicle, a 12-minute YouTube tour, and a generic "10 prompts to copy-paste" carousel that reads like the same thing 200 other people posted. None of it ships a single workflow into your actual business.</p>
+    <p>I read what small business owners actually post about AI on Reddit. The same four pains keep showing up:</p>
+
+    <div class="intro-quotes">
+      <div class="intro-quote">
+        <p class="intro-quote-text">I'm drowning in manual work. We manually enter every supplier invoice and then manually log into the bank to set up every single payment.</p>
+        <p class="intro-quote-src">Business owner</p>
+      </div>
+      <div class="intro-quote">
+        <p class="intro-quote-text">Emails, tasks, follow-ups. Everything ends up scattered. Sometimes I forget to follow up, sometimes tasks just stay in my head.</p>
+        <p class="intro-quote-src">Service business owner</p>
+      </div>
+      <div class="intro-quote">
+        <p class="intro-quote-text">I'm not sure how much actually translates into real results. Am I building a real business or just looking like one?</p>
+        <p class="intro-quote-src">Accounting firm owner</p>
+      </div>
+      <div class="intro-quote">
+        <p class="intro-quote-text">I want to spend my time on creative work, not admin. I need things that are easy to set up and hard to break.</p>
+        <p class="intro-quote-src">Solopreneur</p>
+      </div>
+    </div>
+
+    <p class="intro-close">These three workflows are the ones I install with my Accelerator clients first. They map directly to those four pains. <strong>Steal them.</strong> If you read carefully, there's a fourth bonus workflow waiting near the end, that one's for the manual-invoice problem.</p>
+
+    <div class="page-footer">
+      <span class="page-footer-mark">smallbusinessaicoach.com</span>
+      <span>The 3-Workflow Starter Kit · Page 02</span>
+    </div>
+  </section>
+
+  <!-- ───────── PAGE 3: WHAT YOU NEED TO GET STARTED ───────── -->
+  <section class="page setup-start">
+    <p class="eyebrow">Before you start</p>
+    <h2 class="intro-h2">What you need to get started.</h2>
+    <p>Be honest with you up front: you can run one of these workflows on the free Claude tier, but to run the whole stack the way I do, you need <strong>Claude Pro at $20/month</strong>. That's the only paid tool in this entire kit.</p>
+
+    <div class="setup-grid">
+      <div class="setup-card">
+        <p class="setup-card-eyebrow">⚡ The tool</p>
+        <h3 class="setup-card-title">Claude.ai · Pro plan · $20/month</h3>
+        <p class="setup-card-text">Everything in this kit runs on <strong>Claude.ai</strong> (the web app at claude.ai, on your laptop or phone browser, no install). Workflows 01, 03 and 04 use the regular <strong>Chat</strong> interface. Workflow 02 uses <strong>Projects</strong>, which is a Pro-only feature. We don't use Claude Code (that's a CLI for developers).<br><br>The honest answer: pay the $20/month. It's the cheapest one-employee you'll ever hire.</p>
+        <p class="setup-card-meta">Sign up at <strong>claude.ai</strong>, then upgrade to Pro from your settings</p>
+      </div>
+
+      <div class="setup-card">
+        <p class="setup-card-eyebrow">⏱ The time</p>
+        <h3 class="setup-card-title">≈ 30 minutes total · spread across a week</h3>
+        <p class="setup-card-text">10 min for the inbox triage prompt. 15 min to build your Claude Project. 5 min for the marketing loop. Don't try to set up all four in one sitting. Pick the workflow that matches your loudest current pain (most owners pick Workflow 01) and ship that one this week.</p>
+      </div>
+
+      <div class="setup-card">
+        <p class="setup-card-eyebrow">📱 For the bonus workflow</p>
+        <h3 class="setup-card-title">A phone scan app · free</h3>
+        <p class="setup-card-text">Workflow 04 (the Invoice Killer, page 12) needs OCR'd invoice text. Apple Notes (iPhone) and Google Drive (Android) both scan and OCR for free. Adobe Scan and CamScanner work too. Don't buy anything new for this.</p>
+      </div>
+
+      <div class="setup-card">
+        <p class="setup-card-eyebrow">🧠 The skill</p>
+        <h3 class="setup-card-title">None.</h3>
+        <p class="setup-card-text">If you can copy-paste an email and click Send, you can run every workflow in this kit. No code, no APIs, no integrations to wire up. The hardest part is deciding to start.</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <span class="callout-title">⚡ Why I'm telling you this up front</span>
+      Most "free AI guides" hide the fact that you need a paid plan. By page 7 you've spent two hours setting things up and then hit "this requires Pro." That's not how I want to start with you. The math: <strong>$20/month</strong> for 12+ hours saved per week. That's $0.04/hour. The cheapest hire of your life.
+    </div>
+
+  </section>
+
+  <!-- ───────── PAGES 4-5: WORKFLOW 01 ───────── -->
+  <section class="page workflow-start">
+    <header class="chapter-header">
+      <div class="chapter-num">01</div>
+      <p class="chapter-eyebrow">Workflow One</p>
+      <h2 class="chapter-title">The Inbox Triage Workflow.</h2>
+      <p style="font-size: 11pt; color: var(--ink-soft); margin: 6px 0 0;">Turn 90 minutes a day on email into 15. One prompt classifies, drafts replies, and flags what's actually urgent.</p>
+      <div class="chapter-pills">
+        <span class="chapter-pill chapter-pill--time">Saves ≈ 5 hrs/week</span>
+        <span class="chapter-pill chapter-pill--setup">Setup: 2 min</span>
+        <span class="chapter-pill chapter-pill--tool">Tool: Claude.ai (Chat) · Pro $20/mo</span>
+      </div>
+    </header>
+
+    <h3 class="section-h3">You'll recognize this if…</h3>
+    <ul class="check-list">
+      <li>You spend 60–120 minutes a day reading email and answering the same kinds of questions over and over.</li>
+      <li>You've tried "inbox zero" and it lasted 4 days.</li>
+      <li>You miss replies you meant to send because the email scrolled out of sight.</li>
+      <li>You write the same "thanks, I'll take a look" reply 8 times a day.</li>
+    </ul>
+
+    <h3 class="section-h3">The exact prompt (copy-paste).</h3>
+    <div class="prompt-box">
+      <span class="prompt-box-label">▶ Paste into Claude · Then paste 5–10 emails below it</span>
+<pre>You are my email triage assistant. I'm pasting in 5–10 emails I haven't replied to.
+
+For each email, do this in order:
+
+1. CLASSIFY into one of: REPLY-NEEDED · FYI · ARCHIVE · DELEGATE
+2. RANK urgency: HIGH (today), MEDIUM (this week), LOW (whenever)
+3. If REPLY-NEEDED: draft a 2–3 sentence reply in my voice (warm, direct, no "I hope this finds you well")
+4. If anything is time-sensitive (deadline, meeting, payment), flag it at the top with ⚠
+
+Output as a clean table I can scan in 30 seconds:
+
+| # | From | Subject | Class | Urgency | Suggested reply (if any) |
+
+End with a one-line summary: "X to reply to today, Y to skim, Z to archive."
+
+EMAILS:
+[paste below]</pre>
+    </div>
+
+    <div class="page-footer">
+      <span class="page-footer-mark">smallbusinessaicoach.com</span>
+      <span>Workflow 01 · Inbox Triage · Page 03</span>
+    </div>
+  </section>
+
+  <section class="page">
+    <h3 class="section-h3">What it looks like running.</h3>
+    <div class="screenshot-box">
+      <img src="../../../Brand Assets/lead-magnet-screenshots/wf1-inbox-triage.png" alt="Claude triaging an inbox into a clean table" />
+      <p class="screenshot-box-cap">What the output looks like. Claude returns a triaged table with classifications, urgencies, and draft replies. ≈ 30 seconds for 8 emails.</p>
+    </div>
+
+    <h3 class="section-h3">How to know it's working.</h3>
+    <ul class="check-list">
+      <li><strong>Day 1:</strong> 8 emails triaged in under a minute. You only write 2 replies from scratch instead of 8.</li>
+      <li><strong>Day 3:</strong> You check email twice a day instead of every 20 minutes. Your "to-reply" list lives in Claude, not your head.</li>
+      <li><strong>Week 2:</strong> The "what was I supposed to follow up on?" anxiety stops. ≈ 5 hours back per week.</li>
+    </ul>
+
+    <div class="callout">
+      <span class="callout-title">⚡ Make it stickier</span>
+      Save the prompt as a Claude Project (Pro). Now you can paste the emails straight in without re-pasting the prompt. Add your business voice as a memory ("I run a 6-person dental practice; reply with that context") and Claude tunes drafts to your tone forever.
+    </div>
+
+    <div class="callout callout-caveat">
+      <span class="callout-title">⚠ The honest caveat</span>
+      Don't auto-send drafts. Read each one before clicking send. AI is good at ≈ 80% of replies; the last 20% is still you reading the tone of the relationship. Five seconds per draft beats five minutes typing it from scratch.
+    </div>
+
+    <div class="page-footer">
+      <span class="page-footer-mark">smallbusinessaicoach.com</span>
+      <span>Workflow 01 · Inbox Triage · Page 04</span>
+    </div>
+  </section>
+
+  <!-- ───────── PAGES 5-7: WORKFLOW 02 ───────── -->
+  <section class="page workflow-start">
+    <header class="chapter-header">
+      <div class="chapter-num">02</div>
+      <p class="chapter-eyebrow">Workflow Two</p>
+      <h2 class="chapter-title">The SOP-to-AI-Trainer Workflow.</h2>
+      <p style="font-size: 11pt; color: var(--ink-soft); margin: 6px 0 0;">Stop re-explaining your business every time you talk to AI. Train it once, with a doc you already have. Reuse it forever.</p>
+      <div class="chapter-pills">
+        <span class="chapter-pill chapter-pill--time">Saves ≈ 3 hrs/week</span>
+        <span class="chapter-pill chapter-pill--setup">Setup: 15 min, once</span>
+        <span class="chapter-pill chapter-pill--tool">Tool: Claude.ai (Projects) · Pro $20/mo</span>
+      </div>
+    </header>
+
+    <h3 class="section-h3">You'll recognize this if…</h3>
+    <ul class="check-list">
+      <li>Every time you ask AI for help, you re-paste the same context (your business, your customers, your offers, your voice).</li>
+      <li>You've asked AI for "an email like the one I sent last week" and it had no idea what you meant.</li>
+      <li>You have an SOP doc, an onboarding guide, or a brand voice doc sitting in Google Drive you haven't opened in 4 months.</li>
+      <li>You think "if I could just clone my business knowledge into AI once", that's exactly what this does.</li>
+    </ul>
+
+    <h3 class="section-h3">The exact setup (15 minutes, once).</h3>
+    <ol style="margin: 8px 0 14px 18px; font-size: 10pt; line-height: 1.7;">
+      <li><strong>Open Claude.ai.</strong> Click the "Projects" sidebar (Pro feature, $20/mo).</li>
+      <li><strong>Create a project</strong> called "[Your Biz] Knowledge Base."</li>
+      <li><strong>Upload your existing docs</strong>: SOP / onboarding guide / brand voice / pricing / FAQ. PDFs, Google Docs (export as PDF), or .txt all work.</li>
+      <li><strong>Paste this system prompt</strong> in the project's "Custom instructions" box (see prompt below).</li>
+      <li><strong>Start a new chat in that project.</strong> From now on, every message uses your docs as context automatically.</li>
+    </ol>
+
+    <div class="page-footer">
+      <span class="page-footer-mark">smallbusinessaicoach.com</span>
+      <span>Workflow 02 · SOP-to-AI-Trainer · Page 05</span>
+    </div>
+  </section>
+
+  <section class="page">
+    <h3 class="section-h3">The system prompt.</h3>
+    <div class="prompt-box">
+      <span class="prompt-box-label">▶ Paste into the project's "Custom instructions"</span>
+<pre>You are my AI assistant for [BUSINESS NAME].
+The attached docs describe how my business actually runs:
+who my customers are, what I sell, my brand voice, my pricing,
+my SOPs, and what I will NEVER do.
+
+Rules for every reply:
+
+1. Use the docs as the source of truth. If something contradicts
+   the docs, the docs win.
+2. Match my brand voice from the writing samples. Specifically:
+   [warm, direct, plain-language; no jargon; no "in today's
+   fast-paced world"; no "leverage"; no "synergy"].
+3. If I ask for something the docs don't cover, say so before
+   guessing.
+4. When I ask for a draft (email, post, proposal), output it
+   ready to send/publish, not a 500-word explanation of how to
+   write it.
+5. If the request involves money, contracts, or legal, flag it
+   and tell me to verify before sending.</pre>
+    </div>
+
+    <h3 class="section-h3">What it looks like running.</h3>
+    <div class="screenshot-box">
+      <img src="../../../Brand Assets/lead-magnet-screenshots/wf2-claude-project.png" alt="Claude Project with uploaded SOP files visible in the sidebar" />
+      <p class="screenshot-box-cap">What the setup looks like. a Claude Project with your SOPs uploaded. Every chat in the project pulls from the docs automatically.</p>
+    </div>
+
+    <div class="page-footer">
+      <span class="page-footer-mark">smallbusinessaicoach.com</span>
+      <span>Workflow 02 · SOP-to-AI-Trainer · Page 06</span>
+    </div>
+  </section>
+
+  <section class="page">
+    <h3 class="section-h3">How to know it's working.</h3>
+    <ul class="check-list">
+      <li><strong>Week 1:</strong> Replies sound like YOU wrote them. You stop deleting AI's "I hope this finds you well" preambles.</li>
+      <li><strong>Week 2:</strong> You ask "draft a follow-up to the proposal I sent the Tuesday client" and Claude knows what you mean.</li>
+      <li><strong>Week 4:</strong> You realize you've stopped pasting context into every AI conversation. ≈ 3 hours/week back.</li>
+    </ul>
+
+    <div class="callout">
+      <span class="callout-title">⚡ Bonus move</span>
+      Add your last 5 best-performing pieces of content (LinkedIn posts, emails, sales pages) to the project. Now Claude can write IN your voice instead of generic-AI voice. This single move is what separates "AI sounds like AI" from "people don't realize this was AI-assisted."
+    </div>
+
+    <div class="callout callout-caveat">
+      <span class="callout-title">⚠ Privacy check</span>
+      Don't upload anything you wouldn't email a contractor. No client SSNs, no full credit card numbers, no medical records. Anthropic's enterprise terms cover business data, but you're still responsible for what you put in.
+    </div>
+
+    <div class="page-footer">
+      <span class="page-footer-mark">smallbusinessaicoach.com</span>
+      <span>Workflow 02 · SOP-to-AI-Trainer · Page 07</span>
+    </div>
+  </section>
+
+  <!-- ───────── PAGES 8-10: WORKFLOW 03 ───────── -->
+  <section class="page workflow-start">
+    <header class="chapter-header">
+      <div class="chapter-num">03</div>
+      <p class="chapter-eyebrow">Workflow Three</p>
+      <h2 class="chapter-title">The Weekly Marketing Loop.</h2>
+      <p style="font-size: 11pt; color: var(--ink-soft); margin: 6px 0 0;">5 reel scripts and a newsletter outline from one prompt. Built around your brand voice. Repeats every week with a single click.</p>
+      <div class="chapter-pills">
+        <span class="chapter-pill chapter-pill--time">Saves ≈ 4 hrs/week</span>
+        <span class="chapter-pill chapter-pill--setup">Setup: 5 min</span>
+        <span class="chapter-pill chapter-pill--tool">Tool: Claude.ai (Chat) · Pro $20/mo</span>
+      </div>
+    </header>
+
+    <h3 class="section-h3">You'll recognize this if…</h3>
+    <ul class="check-list">
+      <li>You know you "should" be posting more, but content is the bottleneck.</li>
+      <li>You've spent a Sunday afternoon staring at a blank doc trying to think of 5 reel ideas.</li>
+      <li>Your last newsletter went out 6 weeks ago. You meant to write one. It just didn't happen.</li>
+      <li>You'd rather record reels than write the scripts.</li>
+    </ul>
+
+    <h3 class="section-h3">The exact prompt.</h3>
+    <div class="prompt-box">
+      <span class="prompt-box-label">▶ Paste into Claude (or your SOP-trained project from Workflow 02)</span>
+<pre>You are my content strategist. Generate this week's content
+in one pass.
+
+CONTEXT (the only thing I need to give you each week):
+- This week's main topic: [TOPIC]
+- The specific pain it solves for my audience: [PAIN]
+- The product/offer I'm warming people up to: [OFFER]
+
+Output, in order:
+
+1. FIVE short-form video scripts (15–30 sec each).
+   Each one: a single hook line, a single beat, a single CTA.
+   Different angles: a confessional, a contrarian, a checklist,
+   a story, a stat-based one.
+   Format each as: HOOK / SCRIPT / CTA.
+
+2. ONE newsletter outline:
+   - Subject line (under 50 chars, no clickbait, no emojis)
+   - Opening line (1 sentence, hook)
+   - Body (3 short paragraphs, plain language)
+   - One link (to the OFFER) in the natural closing.
+
+Write everything in MY voice (from the project docs). Plain
+language. No "in today's fast-paced world." No emojis in body
+copy.</pre>
+    </div>
+
+    <div class="page-footer">
+      <span class="page-footer-mark">smallbusinessaicoach.com</span>
+      <span>Workflow 03 · Weekly Marketing Loop · Page 08</span>
+    </div>
+  </section>
+
+  <section class="page">
+    <h3 class="section-h3">What it looks like running.</h3>
+    <div class="screenshot-box">
+      <img src="../../../Brand Assets/lead-magnet-screenshots/wf3-marketing-loop.png" alt="Claude generating 5 reel scripts and a newsletter outline in one response" />
+      <p class="screenshot-box-cap">What the output looks like. one prompt → 5 reel scripts + 1 newsletter outline + subject line, all in your brand voice. ≈ 90 seconds.</p>
+    </div>
+
+    <h3 class="section-h3">How to know it's working.</h3>
+    <ul class="check-list">
+      <li><strong>Week 1:</strong> You record 5 reels in one sitting using the scripts. You ship the newsletter on time.</li>
+      <li><strong>Week 3:</strong> You stop "not knowing what to post." The bottleneck moves from ideation to recording.</li>
+      <li><strong>Month 2:</strong> Your audience starts replying "your content has been on fire lately." It has. You finally have a rhythm.</li>
+    </ul>
+
+    <div class="callout">
+      <span class="callout-title">⚡ The leverage move</span>
+      After every weekly run, paste your top-performing post BACK into Claude with the note "Why did this one outperform?" Over 4–6 weeks, your prompt + your project docs become a self-tuning content engine. This is also exactly what we build live in the workshop.
+    </div>
+
+    <div class="page-footer">
+      <span class="page-footer-mark">smallbusinessaicoach.com</span>
+      <span>Workflow 03 · Weekly Marketing Loop · Page 09</span>
+    </div>
+  </section>
+
+  <section class="page">
+    <h3 class="section-h3">If you only do one of the three this week, do this one.</h3>
+    <p>The Weekly Marketing Loop is the workflow most owners skip because it feels less urgent than email. It's also the one that compounds the fastest. Email saves you hours back. Marketing brings new revenue in.</p>
+    <p>If you ship 3 weeks of content using this loop, you'll have <strong>15 reels and 3 newsletters</strong> in the bank. That's more content than most owners ship in a quarter.</p>
+
+    <div class="callout">
+      <span class="callout-title">📐 The math</span>
+      Old way: 1 reel idea → 30 min to write the script → 20 min to record → 15 min to edit. Roughly 90 min per reel × 5 reels = 7.5 hours/week on content alone.
+      <br><br>
+      New way (this loop): 90 seconds to generate 5 scripts → 60 minutes to batch-record → 60 minutes to batch-edit. ≈ 2 hours/week. <strong>Saves ≈ 4–5 hours/week.</strong>
+    </div>
+
+    <p style="margin-top: 22px; font-size: 10pt; color: var(--ink-soft); font-style: italic;">· End of the 3 main workflows. Keep reading for the surprise bonus on the next page.</p>
+
+    <div class="page-footer">
+      <span class="page-footer-mark">smallbusinessaicoach.com</span>
+      <span>Workflow 03 · Weekly Marketing Loop · Page 10</span>
+    </div>
+  </section>
+
+  <!-- ───────── PAGES 11-12: BONUS WORKFLOW 04 (INVOICE KILLER) ───────── -->
+  <section class="page workflow-start">
+    <header class="chapter-header">
+      <div class="bonus-starburst" aria-label="Surprise bonus workflow">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#D4A84A" d="M50 0 L57 14 L72 7 L70 23 L86 21 L77 34 L92 41 L78 50 L92 59 L77 66 L86 79 L70 77 L72 93 L57 86 L50 100 L43 86 L28 93 L30 77 L14 79 L23 66 L8 59 L22 50 L8 41 L23 34 L14 21 L30 23 L28 7 L43 14 Z" />
+        </svg>
+        <div class="bonus-starburst-text">Bonus<small>Workflow</small></div>
+      </div>
+      <div class="chapter-num">04</div>
+      <p class="chapter-eyebrow">Bonus Workflow · Surprise</p>
+      <h2 class="chapter-title">The Invoice Killer.</h2>
+      <p style="font-size: 11pt; color: var(--ink-soft); margin: 6px 0 0;">For the loudest pain on the internet: manual supplier invoices, manual VAT entry, manual everything. Stop re-typing.</p>
+      <div class="chapter-pills">
+        <span class="chapter-pill chapter-pill--time">Saves 3–6 hrs/week</span>
+        <span class="chapter-pill chapter-pill--setup">Setup: 10 min, once</span>
+        <span class="chapter-pill chapter-pill--tool">Tool: Claude.ai (Chat) · Pro $20/mo · + phone scan app (free)</span>
+      </div>
+    </header>
+
+    <p style="margin-top: 6px;">This one's for the small business owner from  who said: <em>"I'm drowning in manual work. We manually enter every supplier invoice and then manually log into the bank to set up every single payment."</em> If that's you, this might be the most valuable 10 minutes you spend this month.</p>
+
+    <h3 class="section-h3">You'll recognize this if…</h3>
+    <ul class="check-list">
+      <li>You manually re-key supplier name, invoice number, dates, VAT, totals, and line items into QuickBooks / Xero / Wave / a spreadsheet.</li>
+      <li>You chase missing receipts at month-end (and find half of them in your camera roll).</li>
+      <li>You re-type bank account / IBAN / SWIFT details into your bank's payment portal for the same suppliers every month.</li>
+      <li>Your bookkeeper bills you for "data entry hours."</li>
+    </ul>
+
+    <h3 class="section-h3">The 10-minute setup.</h3>
+    <ol style="margin: 8px 0 14px 18px; font-size: 10pt; line-height: 1.7;">
+      <li><strong>OCR your invoices.</strong> No fancy tool needed. Apple Notes (iPhone scan) or Google Drive (mobile scan) both OCR for free. Bonus: Adobe Scan (free tier).</li>
+      <li><strong>Open Claude</strong> (free or Pro). Paste the OCR'd text from up to 10 invoices in one go.</li>
+      <li><strong>Paste the prompt below.</strong> Claude returns a clean CSV row per invoice, ready to paste into your accounting software.</li>
+      <li><strong>Review</strong> for ambiguities (Claude flags them in a separate column). Then bulk-import.</li>
+    </ol>
+
+    <div class="page-footer">
+      <span class="page-footer-mark">smallbusinessaicoach.com</span>
+      <span>Bonus Workflow 04 · The Invoice Killer · Page 11</span>
+    </div>
+  </section>
+
+  <section class="page">
+    <h3 class="section-h3">The exact prompt.</h3>
+    <div class="prompt-box">
+      <span class="prompt-box-label">▶ Paste into Claude · Then paste OCR'd invoice text below it</span>
+<pre>You are my accounts-payable clerk. I'm pasting OCR text from
+1–10 supplier invoices. They will be messy.
+
+For each invoice, extract:
+
+- Supplier name
+- Supplier email/phone (if present)
+- Invoice number
+- Invoice date (YYYY-MM-DD)
+- Due date (YYYY-MM-DD)
+- Currency
+- Subtotal (excluding tax)
+- Tax/VAT amount
+- Tax/VAT rate
+- Total (including tax)
+- Line items (semicolon-separated: qty × description @ unit price)
+- Bank details if present (IBAN/account, SWIFT/sort, BIC)
+
+Output as a single CSV block I can paste into a spreadsheet.
+First row = headers. One row per invoice.
+
+Last column = "REVIEW_FLAGS", list anything ambiguous, missing,
+or that doesn't add up (e.g. tax math wrong by > $0.10, due date
+in the past, supplier name unclear). Be specific.
+
+Do NOT guess. If a field is missing, leave it blank and put
+"missing: [field]" in REVIEW_FLAGS.
+
+INVOICE TEXT:
+[paste OCR text below this line]</pre>
+    </div>
+
+    <h3 class="section-h3">What it looks like running.</h3>
+    <div class="screenshot-box">
+      <img src="../../../Brand Assets/lead-magnet-screenshots/wf4-invoice-killer.png" alt="Claude returning a clean CSV row from messy OCR'd invoice text" />
+      <p class="screenshot-box-cap">What the output looks like. 10 invoices → 10 clean CSV rows, ready for QuickBooks / Xero / Wave. ≈ 90 seconds vs ≈ 30 minutes.</p>
+    </div>
+
+    <div class="callout callout-caveat">
+      <span class="callout-title">⚠ The honest caveat</span>
+      This is for <strong>extraction and entry only</strong>. You still review every row before you import to your books, and you still review every payment before you authorize it. AI is great at getting 95% of the data right, fast. The last 5% is still you. <em>No AI signs your cheques.</em>
+    </div>
+
+    <div class="callout">
+      <span class="callout-title">⚡ Stack it with Workflow 02</span>
+      Save your supplier list (with their bank details, payment terms, account numbers in your books) into your SOP-to-AI-Trainer Project from Workflow 02. Now when an invoice from a recurring supplier comes in, Claude already knows their bank details and your payment terms. The CSV is even cleaner.
+    </div>
+
+    <div class="page-footer">
+      <span class="page-footer-mark">smallbusinessaicoach.com</span>
+      <span>Bonus Workflow 04 · The Invoice Killer · Page 12</span>
+    </div>
+  </section>
+
+  <!-- ───────── PAGE 13: HOW TO STACK ───────── -->
+  <section class="page stack-start">
+    <p class="eyebrow">Putting it all together</p>
+    <h2 class="intro-h2">Stack the four. Get a full day a week back.</h2>
+    <p>Each workflow on its own ships a real win. Stacked, they compound:</p>
+
+    <ul class="check-list" style="margin-top: 18px;">
+      <li><strong>Workflow 01</strong> (Inbox Triage): ≈ 5 hrs/week back</li>
+      <li><strong>Workflow 02</strong> (SOP-to-AI-Trainer): ≈ 3 hrs/week back, <em>and</em> makes 01 + 03 + 04 better because everything runs in your voice with your context</li>
+      <li><strong>Workflow 03</strong> (Weekly Marketing Loop): ≈ 4 hrs/week back</li>
+      <li><strong>Bonus 04</strong> (The Invoice Killer): 3–6 hrs/week back depending on invoice volume</li>
+    </ul>
+
+    <div class="callout" style="margin-top: 18px;">
+      <span class="callout-title">📐 The conservative math</span>
+      Workflow 01 (5 hrs) + Workflow 02 (3 hrs) + Workflow 03 (4 hrs) = <strong>12 hours a week.</strong>
+      <br>Add Workflow 04 if invoices are part of your day = <strong>15–18 hours a week.</strong>
+      <br>That's more than two full work-days reclaimed, every week, for a one-time setup of about 30 minutes total.
+    </div>
+
+    <h3 class="section-h3">The order I'd ship them in.</h3>
+    <ol style="margin: 8px 0 14px 18px; font-size: 11pt; line-height: 1.65;">
+      <li><strong>Day 1:</strong> Workflow 01 (Inbox Triage). Fastest setup, immediate win, builds momentum.</li>
+      <li><strong>Day 3–4:</strong> Workflow 02 (SOP-to-AI-Trainer). The investment workflow. Sets up everything else.</li>
+      <li><strong>Day 7:</strong> Workflow 03 (Weekly Marketing Loop). First week of content shipped on a rhythm.</li>
+      <li><strong>Day 14:</strong> Bonus Workflow 04 (Invoice Killer). Take this on once the others are running. Don't bite off all 4 at once.</li>
+    </ol>
+
+    <div class="page-footer">
+      <span class="page-footer-mark">smallbusinessaicoach.com</span>
+      <span>The Stack · Page 13</span>
+    </div>
+  </section>
+
+  <!-- ───────── PAGE 14: CLOSER + CTAs ───────── -->
+  <section class="page closer closer-start">
+    <p class="eyebrow">What's next</p>
+    <h2 class="closer-h2">Want me to wire all four into YOUR business, live?</h2>
+    <p>Reading the workflows is one thing. Building them on your actual business, with your actual docs, with someone who's done it 200+ times sitting next to you on Zoom, that's a different speed.</p>
+
+    <div class="closer-cta-card">
+      <p class="closer-cta-eyebrow">⭐ Recommended next step · Free</p>
+      <h3 class="closer-cta-title">The 30-Day AI Reset for Small Business Owners.</h3>
+      <p class="closer-cta-text">A free 60-minute live workshop on <strong>Wed June 3 at 6pm ET</strong>. I run the audit on a real attendee's business and build 3 of these workflows in front of you. Live Q&amp;A at the end. Capped at 50 live seats. Replay only for live attendees.</p>
+      <a href="https://www.smallbusinessaicoach.com/webinar" class="closer-cta-link">Save my seat (free) →</a>
+    </div>
+
+    <p class="closer-ladder">If the workshop tells you "yes, I want this with hands-on coaching," the next step is the paid <a href="https://www.smallbusinessaicoach.com/accelerator">30-Day AI Accelerator</a> ($1,000, weekly group coaching, 4 weeks). Don't sign up cold. Come to the workshop first.</p>
+
+    <p class="closer-secondary">Or just take the kit and run. No follow-up pressure. The work matters more than the funnel.</p>
+
+    <div class="page-footer">
+      <span class="page-footer-mark">smallbusinessaicoach.com</span>
+      <span>The 3-Workflow Starter Kit · Page 14</span>
+    </div>
+  </section>
+
+</body>
+</html>
