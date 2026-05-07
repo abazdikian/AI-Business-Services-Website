@@ -340,7 +340,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
             <p class="lm-form-kicker"><strong>The PDF lands in your inbox the second you submit.</strong> Three quick fields so I can tailor the welcome note to your business, then you're in.</p>
             <p style="margin: 12px 0 0; font-size: .8125rem; color: var(--ink-soft);">After download, you'll get one short email a week. Nothing else. Unsubscribe anytime.</p>
           </div>
-          <form class="lm-form" action="https://buttondown.email/api/emails/embed-subscribe/abazdikian" method="post" target="_blank" rel="noopener">
+          <form class="lm-form" action="/api/subscribe" method="post">
             <div class="lm-form-row">
               <div class="lm-form-field">
                 <label for="lm-fname" class="lm-form-label">First name *</label>
@@ -366,6 +366,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
             </div>
             <input type="hidden" name="tag" value="lead-magnet-3-workflows" />
             <input type="hidden" name="metadata.signup_source" value="3-workflows-starter-kit" />
+            <input type="hidden" name="destination" value="/thank-you-3-workflows" />
             <button type="submit" class="btn btn--primary lm-form-btn">Send me the kit →</button>
             <p class="lm-form-meta">No spam · 1 email/week after · Your data stays private (used only to tailor the welcome note)</p>
             <p class="lm-form-guarantee"><strong>★ My promise.</strong> If this kit doesn't save you 5+ hours in your first week, reply "refund" and I'll book you a free 1:1 audit instead. Either way, you get value.</p>
