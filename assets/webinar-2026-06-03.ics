@@ -1,0 +1,23 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Alice Bazdikian//Small Business AI Coach//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:webinar-2026-06-03@smallbusinessaicoach.com
+DTSTAMP:20260507T130000Z
+DTSTART:20260603T230000Z
+DTEND:20260604T003000Z
+SUMMARY:The 30-Day AI Reset · Free 60-min Workshop with Alice Bazdikian
+DESCRIPTION:Free 60-minute workshop with live audit + workflow build. Bring 1 process you wish AI would just handle for you. The Zoom link will be emailed 24 hours before the workshop.\n\nWorkshop page: https://www.smallbusinessaicoach.com/webinar\n\nReplay is only available to live attendees.
+LOCATION:Zoom (link emailed 24h before)
+URL:https://www.smallbusinessaicoach.com/webinar
+STATUS:CONFIRMED
+SEQUENCE:0
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:The 30-Day AI Reset starts in 30 minutes
+END:VALARM
+END:VEVENT
+END:VCALENDAR
