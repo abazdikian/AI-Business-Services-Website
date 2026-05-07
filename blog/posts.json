@@ -1,5 +1,23 @@
 [
   {
+    "slug": "messy-sops-to-10-hours-saved-a-week",
+    "title": "Why Your Messy SOPs Are Costing You 10 Hours a Week (And the 15-Minute Fix)",
+    "tag": "AI Workflows",
+    "excerpt": "Your SOPs are fine. Your retrieval layer is broken, and you're it. The SOP-to-AI Trainer Method: a 15-minute setup that turns existing docs into a Claude Project that loads your business context into every prompt.",
+    "date": "May 4, 2026",
+    "readTime": "9 min read",
+    "featured": true
+  },
+  {
+    "slug": "easiest-ai-stack-for-small-business",
+    "title": "The Easiest AI Stack for Small Business: 4 Claude Workflows That Save 10+ Hours a Week",
+    "tag": "AI Workflows",
+    "excerpt": "Four Claude workflows + a 90-minute Weekly Marketing Loop. The whole stack runs inside the Claude Pro you already pay for, in under 90 minutes of setup.",
+    "date": "May 4, 2026",
+    "readTime": "14 min read",
+    "featured": true
+  },
+  {
     "slug": "daily-command-center-claude-live-artifacts",
     "title": "Build a Daily Command Center With Claude Live Artifacts",
     "tag": "Claude Cowork Guide",
