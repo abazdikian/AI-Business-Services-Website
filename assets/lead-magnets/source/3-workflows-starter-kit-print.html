@@ -169,25 +169,26 @@
          Color-matrix filter tints that ink to our brand green. */
       filter: url(#tint-ink-green);
     }
-    /* Starburst pill — overlaid on the right side of the diagram. */
+    /* Starburst pill — overlaid on (and overlapping) the diagram. Large + spiky. */
     .cover-burst {
       position: absolute;
-      right: -0.15in; top: 50%;
+      right: -0.4in; top: 50%;
       transform: translateY(-50%) rotate(-8deg);
-      width: 2.15in; height: 2.15in;
+      width: 2.85in; height: 2.85in;
       display: flex; align-items: center; justify-content: center;
       z-index: 2;
     }
     .cover-burst svg { position: absolute; inset: 0; width: 100%; height: 100%; }
     .cover-burst-text {
       position: relative; z-index: 1;
-      width: 76%;
+      width: 70%;
       text-align: center;
-      font-family: 'Nunito', sans-serif; font-weight: 800;
-      font-size: 11pt; line-height: 1.2; color: var(--ink);
-      letter-spacing: -0.005em;
+      font-family: 'Nunito', sans-serif; font-weight: 900;
+      letter-spacing: .04em; text-transform: uppercase;
+      line-height: 1; color: var(--ink);
     }
-    .cover-burst-text strong { color: var(--green); font-weight: 900; }
+    .cover-burst-text-big   { font-size: 19pt; display: block; }
+    .cover-burst-text-small { font-size: 10pt; display: block; margin-top: 8px; font-weight: 800; letter-spacing: .08em; color: var(--green); }
     /* Foot row: photo + identity block on the left, contact + socials on the right. */
     .cover-foot {
       display: flex; align-items: center; justify-content: space-between;
@@ -438,7 +439,7 @@
         <h1 class="cover-h1">3 AI Workflows for Small Business Owners. <em><span class="cover-h1-swoosh">Save 10+ hours a week.</span></em></h1>
         <p class="cover-deck">Real prompts. Real screenshots. Real outcomes. Plus one bonus workflow nobody else is teaching.</p>
         <div class="cover-meta">
-          <span><strong>14 pages</strong> · 10-min read</span>
+          <span><strong>25 pages</strong> · 20-min read</span>
           <span><strong>$0</strong> tools to start</span>
           <span><strong>Free forever</strong></span>
           <span><strong>+ Bonus Workflow 04</strong></span>
@@ -449,11 +450,14 @@
           <div class="cover-hero-art" aria-hidden="true">
             <img src="../../../Brand Assets/cover-process-diagram.png" alt="" />
           </div>
-          <div class="cover-burst" aria-label="What would you do if you got a workday back?">
+          <div class="cover-burst" aria-label="What would you do with a workday back?">
             <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-              <polygon fill="#E6C472" stroke="none" points="50.000,0.000 56.633,16.653 69.134,3.806 68.889,21.730 85.355,14.645 78.270,31.111 96.194,30.866 83.347,43.367 100.000,50.000 83.347,56.633 96.194,69.134 78.270,68.889 85.355,85.355 68.889,78.270 69.134,96.194 56.633,83.347 50.000,100.000 43.367,83.347 30.866,96.194 31.111,78.270 14.645,85.355 21.730,68.889 3.806,69.134 16.653,56.633 0.000,50.000 16.653,43.367 3.806,30.866 21.730,31.111 14.645,14.645 31.111,21.730 30.866,3.806 43.367,16.653" />
+              <polygon fill="#E6C472" stroke="none" points="50.000,0.000 55.463,22.538 69.134,3.806 65.556,26.719 85.355,14.645 73.281,34.444 96.194,30.866 77.462,44.537 100.000,50.000 77.462,55.463 96.194,69.134 73.281,65.556 85.355,85.355 65.556,73.281 69.134,96.194 55.463,77.462 50.000,100.000 44.537,77.462 30.866,96.194 34.444,73.281 14.645,85.355 26.719,65.556 3.806,69.134 22.538,55.463 0.000,50.000 22.538,44.537 3.806,30.866 26.719,34.444 14.645,14.645 34.444,26.719 30.866,3.806 44.537,22.538" />
             </svg>
-            <div class="cover-burst-text">What would <em>you</em> do with <strong>a workday back</strong>?</div>
+            <div class="cover-burst-text">
+              <span class="cover-burst-text-big">What would<br>you do?</span>
+              <span class="cover-burst-text-small">With a workday back</span>
+            </div>
           </div>
         </div>
       </div>
