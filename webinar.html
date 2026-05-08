@@ -157,12 +157,14 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
 
     /* ── ANNOUNCE BAR + COUNTDOWN ── */
     .wb-band {
-      background: var(--ink); color: var(--white);
+      background: linear-gradient(135deg, #FAF6EE 0%, #F2C97D 50%, #D4A84A 100%);
+      color: var(--ink);
       font-size: 1rem; font-weight: 600; letter-spacing: .04em;
       padding: 14px 24px; text-align: center;
+      box-shadow: inset 0 -1px 0 rgba(122,21,48,.10);
     }
-    .wb-band strong { color: #FFFFFF; font-weight: 800; letter-spacing: .03em; }
-    .wb-band-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--burgundy-glow); margin: 0 12px; vertical-align: middle; animation: wbpulse 2.4s ease-in-out infinite; }
+    .wb-band strong { color: var(--burgundy); font-weight: 800; letter-spacing: .03em; }
+    .wb-band-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--burgundy); margin: 0 12px; vertical-align: middle; animation: wbpulse 2.4s ease-in-out infinite; box-shadow: 0 0 0 3px rgba(122,21,48,.18); }
     @keyframes wbpulse { 0%,100% { opacity: .9; transform: scale(1); } 50% { opacity: .4; transform: scale(1.6); } }
 
     .wb-countdown {
@@ -623,7 +625,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     /* Kit fallback (Hormozi: low-friction off-ramp for not-ready-yet visitors) */
     .wb-kit-fallback {
       padding: 72px 24px;
-      background: linear-gradient(180deg, #FFFFFF 0%, #FAF6EE 100%);
+      background: linear-gradient(135deg, #FAF6EE 0%, #F2C97D 50%, #D4A84A 100%);
       border-top: 1px solid var(--rule);
     }
     .wb-kit-fallback-inner {
