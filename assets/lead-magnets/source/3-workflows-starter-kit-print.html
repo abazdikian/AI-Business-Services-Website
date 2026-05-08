@@ -204,6 +204,27 @@
       background: var(--green); border-radius: 999px;
       padding: 5px 12px;
     }
+    /* Inline centered version of the burst — used in body pages (e.g. stack page). */
+    .inline-burst {
+      position: relative;
+      width: 2.4in; height: 2.4in;
+      margin: 28px auto 0;
+      display: flex; align-items: center; justify-content: center;
+      transform: rotate(-6deg);
+    }
+    .inline-burst svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .inline-burst-text {
+      position: relative; z-index: 1;
+      width: 72%; text-align: center;
+      font-family: 'Nunito', sans-serif; font-weight: 900;
+      letter-spacing: .04em; text-transform: uppercase; line-height: 1; color: var(--ink);
+    }
+    .inline-burst-text-big   { font-size: 16pt; display: block; }
+    .inline-burst-text-small {
+      font-size: 9pt; display: inline-block; margin-top: 10px;
+      font-weight: 900; letter-spacing: .08em; color: var(--white);
+      background: var(--green); border-radius: 999px; padding: 4px 10px;
+    }
     /* Foot row: photo + identity block on the left, contact + socials on the right. */
     .cover-foot {
       display: flex; align-items: center; justify-content: space-between;
@@ -1041,6 +1062,16 @@ within 24 hours, send me a reminder.</pre>
       <li><strong>Day 7:</strong> Workflow 03 (Weekly Marketing Loop). First week of content shipped on a rhythm.</li>
       <li><strong>Day 14:</strong> Bonus Workflow 04 (Invoice Killer). Take this on once the others are running. Don't bite off all 4 at once.</li>
     </ol>
+
+    <div class="inline-burst" aria-label="What would you do with a workday back?">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <polygon fill="#E6C472" stroke="none" points="50.000,0.000 55.463,22.538 69.134,3.806 65.556,26.719 85.355,14.645 73.281,34.444 96.194,30.866 77.462,44.537 100.000,50.000 77.462,55.463 96.194,69.134 73.281,65.556 85.355,85.355 65.556,73.281 69.134,96.194 55.463,77.462 50.000,100.000 44.537,77.462 30.866,96.194 34.444,73.281 14.645,85.355 26.719,65.556 3.806,69.134 22.538,55.463 0.000,50.000 22.538,44.537 3.806,30.866 26.719,34.444 14.645,14.645 34.444,26.719 30.866,3.806 44.537,22.538" />
+      </svg>
+      <div class="inline-burst-text">
+        <span class="inline-burst-text-big">What would<br>you do?</span>
+        <span class="inline-burst-text-small">With a workday back</span>
+      </div>
+    </div>
 
     <div class="page-footer">
       <span class="page-footer-mark">smallbusinessaicoach.com</span>
