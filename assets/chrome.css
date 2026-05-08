@@ -100,6 +100,11 @@ a.site-nav-cta:hover { background: var(--chrome-burgundy-soft); color: var(--chr
 .site-nav-links a.site-nav-cta:focus-visible,
 a.site-nav-cta:focus-visible { outline: 2px solid var(--chrome-burgundy); outline-offset: 3px; }
 
+/* Hormozi: kit nav link — gold star marker, burgundy weight to flag the free thing */
+.site-nav-links a.site-nav-kit { color: var(--chrome-burgundy); font-weight: 700; }
+.site-nav-links a.site-nav-kit::before { content: '★ '; color: var(--chrome-gold); font-size: .85em; }
+.site-nav-links a.site-nav-kit:hover { color: var(--chrome-burgundy-soft); }
+
 .site-nav-hamburger {
   display: none; flex-direction: column; gap: 5px;
   background: none; border: none; cursor: pointer;
