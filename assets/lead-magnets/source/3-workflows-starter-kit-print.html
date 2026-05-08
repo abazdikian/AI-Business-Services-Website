@@ -165,11 +165,9 @@
     }
     .cover-hero-art img {
       width: 100%; height: auto; display: block;
-      /* Tint the line-art ink to our brand green (#2F6F4F) while keeping the
-         page-white as white, then multiply so the white drops into the gradient.
-         Color matrix: black -> green, white -> white, linear in between. */
+      /* PNG bg is pre-processed to alpha-transparent. Only the line ink shows.
+         Color-matrix filter tints that ink to our brand green. */
       filter: url(#tint-ink-green);
-      mix-blend-mode: multiply;
     }
     /* Starburst pill — overlaid on the right side of the diagram. */
     .cover-burst {
