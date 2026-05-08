@@ -28,17 +28,14 @@
 
     @page {
       size: 8.5in 11in;
-      margin: 0;                            /* ZERO margin on every page; pages add their own padding */
+      margin: 0;                              /* zero @page margin everywhere - cover full-bleeds; .page provides inset */
       @bottom-left  { content: "smallbusinessaicoach.com"; font-family: 'Nunito', sans-serif; font-size: 8pt; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: #A87B1F; margin: 0 0.7in 0.45in; }
       @bottom-right { content: "The 3-Workflow Starter Kit · Page " counter(page); font-family: 'Nunito', sans-serif; font-size: 8pt; color: #8B7D81; letter-spacing: .04em; margin: 0 0.7in 0.45in; }
     }
     @page :first {
-      margin: 0;
-      @bottom-left   { content: none; margin: 0; }
-      @bottom-right  { content: none; margin: 0; }
-      @bottom-center { content: none; margin: 0; }
-      @top-left      { content: none; margin: 0; }
-      @top-right     { content: none; margin: 0; }
+      @bottom-left   { content: none; }
+      @bottom-right  { content: none; }
+      @bottom-center { content: none; }
     }
 
     html, body { background: var(--white); color: var(--ink); margin: 0; padding: 0; }
@@ -51,24 +48,34 @@
     p { font-weight: 500; }
     strong { font-weight: 800; }
 
-    /* Each major chapter starts on a fresh printed page. Editorial flow.
-       @page margin is 0 (so the cover can full-bleed); regular pages add their
-       own internal padding here. Cover overrides this. */
-    .page { padding: 0.7in 0.7in 0.85in; box-sizing: border-box; }
+    /* @page margin is 0 (so cover full-bleeds). .page provides per-page inset
+       via padding + box-decoration-break: clone, so even continuation pages get
+       the 0.7in top / 0.85in bottom inset. */
+    .page {
+      padding: 0.7in 0.7in 0.85in;
+      box-sizing: border-box;
+      -webkit-box-decoration-break: clone;
+              box-decoration-break: clone;
+    }
     .intro-start, .setup-start, .workflow-start, .stack-start, .closer-start {
       page-break-before: always;
       break-before: page;
-      padding-top: 0.7in !important;   /* force top inset on the first page of each chapter */
     }
     /* Cover full-bleed: @page margin is 0 globally now; cover overrides .page
        padding to reach all 4 edges. */
+    /* Cover overrides .page padding to 0 so it can full-bleed. @page margin: 0
+       globally means the cover starts at (0,0) of the page. */
     .cover {
       width: 8.5in; height: 11in;
-      padding: 0; margin: 0;
+      padding: 0 !important; margin: 0;
       box-sizing: border-box;
-      position: relative; overflow: hidden;     /* clip ::before so it can't leak onto p2 */
+      position: relative; overflow: hidden;
     }
-    .cover-inner { position: relative; z-index: 1; padding: 0.65in 0.55in 0.5in; box-sizing: border-box; height: 100%; }
+    .cover-inner {
+      position: relative; z-index: 1;
+      padding: 0.65in 0.55in 0.5in;
+      box-sizing: border-box; height: 100%;
+    }
     /* Old per-section footer divs — hidden, replaced by @page @bottom-* */
     .page-footer { display: none; }
     .page-footer-mark { font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-deep); }
@@ -95,8 +102,10 @@
 
     /* COVER */
     .cover { padding: 0; position: relative; background: var(--white); }
-    /* The actual painted gradient lives on a ::before that physically overshoots
-       the 8.5x11 page by 0.5in on every side. It sits below cover-inner content. */
+    /* Painted gradient overshoots the 8.5x11 page on all sides (0.5in everywhere)
+       so Chrome's residual print reservation at bottom/right gets covered too.
+       overflow:visible on .cover lets the ::before bleed past page edges; Chrome
+       clips at the page boundary so it doesn't leak onto p2. */
     .cover::before {
       content: "";
       position: absolute;
