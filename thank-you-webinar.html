@@ -85,6 +85,90 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     .ty-pitch-alt a { color: var(--burgundy); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
     .ty-pitch-alt a:hover { color: var(--burgundy-soft); }
 
+    /* While-you-wait grid: iPad mockup + action cards */
+    .ty-while {
+      max-width: 980px; margin: 32px auto 24px;
+      background: var(--cream); border-radius: 22px; padding: 40px 36px;
+      text-align: left;
+    }
+    .ty-while-head { text-align: center; margin-bottom: 28px; }
+    .ty-while-grid { display: grid; grid-template-columns: 0.95fr 1fr; gap: 36px; align-items: center; }
+    @media (max-width: 760px) {
+      .ty-while-grid { grid-template-columns: 1fr; gap: 24px; }
+      .ty-while-art { order: -1; }
+    }
+
+    /* iPad mockup (ported from /3-workflows-starter-kit) */
+    .ty-while-art { position: relative; padding: 20px; }
+    .lm-ipad {
+      position: relative; max-width: 380px; margin: 0 auto;
+      background: #1F1A1F;
+      border-radius: 28px; padding: 22px 12px;
+      box-shadow:
+        0 1px 0 rgba(255,255,255,.05) inset,
+        0 -1px 0 rgba(255,255,255,.05) inset,
+        0 28px 60px -28px rgba(31,26,23,.55),
+        0 8px 20px -10px rgba(168,123,31,.25);
+      transform: rotate(-1.5deg);
+      transition: transform .35s cubic-bezier(.2,.9,.3,1.2);
+    }
+    .lm-ipad:hover { transform: rotate(0deg) translateY(-4px); }
+    .lm-ipad::before {
+      content: ""; position: absolute; top: 9px; left: 50%;
+      width: 32px; height: 4px; border-radius: 99px;
+      background: rgba(255,255,255,.10); transform: translateX(-50%);
+    }
+    .lm-ipad::after {
+      content: ""; position: absolute; bottom: 8px; left: 50%;
+      width: 6px; height: 6px; border-radius: 50%;
+      background: rgba(255,255,255,.12); transform: translateX(-50%);
+    }
+    .lm-ipad-screen {
+      display: block; width: 100%; aspect-ratio: 8.5 / 11;
+      border-radius: 6px; overflow: hidden; background: var(--white);
+    }
+    .lm-ipad-screen img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .lm-bonus-badge {
+      position: absolute; top: -22px; right: -16px;
+      width: 110px; height: 110px;
+      display: flex; align-items: center; justify-content: center;
+      transform: rotate(14deg);
+      filter: drop-shadow(0 6px 14px rgba(168,123,31,.35));
+      z-index: 2;
+    }
+    .lm-bonus-badge svg { width: 100%; height: 100%; }
+    .lm-bonus-badge-text {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      font-family: 'Nunito', sans-serif; font-weight: 800; color: var(--ink);
+      letter-spacing: .14em; text-transform: uppercase; line-height: 1; text-align: center;
+    }
+    .lm-bonus-badge-text .big   { font-size: 1.25rem; line-height: 1; }
+    .lm-bonus-badge-text .small { font-size: .6875rem; letter-spacing: .18em; margin-top: 5px; opacity: .85; font-weight: 800; }
+
+    /* Action cards stack (right column) */
+    .ty-while-actions { display: flex; flex-direction: column; gap: 14px; }
+    .ty-action {
+      display: grid; grid-template-columns: 44px 1fr; gap: 14px; align-items: flex-start;
+      background: var(--white); border: 1px solid var(--rule); border-radius: 14px;
+      padding: 18px 20px; text-decoration: none; color: inherit;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+    .ty-action:hover { transform: translateY(-2px); border-color: var(--gold); box-shadow: 0 14px 30px -16px rgba(122,21,48,.20), 0 4px 12px -6px rgba(168,123,31,.18); }
+    .ty-action-num {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--grad-sunrise); color: var(--white);
+      display: inline-flex; align-items: center; justify-content: center;
+      font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 1.125rem;
+    }
+    .ty-action-name { font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 1.0625rem; color: var(--ink); margin: 2px 0 4px; line-height: 1.25; }
+    .ty-action-desc { font-size: .875rem; color: var(--ink-soft); margin: 0; line-height: 1.5; }
+    .ty-action-go { display: inline-flex; margin-top: 8px; font-size: .8125rem; font-weight: 700; color: var(--burgundy); text-decoration: none; gap: 4px; }
+    .ty-action-go:hover { color: var(--burgundy-soft); }
+    .ty-while-alt { margin: 22px 0 0; font-size: .8125rem; color: var(--ink-soft); text-align: center; }
+    .ty-while-alt a { color: var(--burgundy); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+    .ty-while-alt a:hover { color: var(--burgundy-soft); }
+
     .ty-meta { font-size: .8125rem; color: var(--ink-soft); margin-top: 22px; }
 
     @media (max-width: 720px) {
@@ -110,7 +194,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
       <div class="ty-checkmark" aria-hidden="true">✓</div>
       <p class="eyebrow">You're registered</p>
       <h1 class="ty-title">June 3 · <em>7:00pm ET.</em></h1>
-      <p class="ty-sub">Lock the time on your calendar first. Then grab your starter kit (downloading below). The Zoom link goes out <strong>24 hours before</strong> the workshop.</p>
+      <p class="ty-sub">Lock the time on your calendar first. Then grab your starter kit (downloading below). I'll send you <strong>email reminders leading up to the event</strong> with the Google Meet link inside. You can unsubscribe from those reminders any time using the link at the bottom of every email.</p>
 
       <!-- Calendar invite (first, primary action) -->
       <div class="ty-card">
@@ -119,7 +203,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
           <p class="ty-card-name">Add to calendar</p>
           <p class="ty-card-meta">Wed Jun 3 · 7:00 to 8:30pm ET · <a href="assets/webinar-2026-06-03.ics" download style="color:var(--burgundy);font-weight:700;text-decoration:underline;text-underline-offset:2px;">Apple / Outlook? Download .ics</a></p>
         </div>
-        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=The%2030-Day%20AI%20Reset%20%C2%B7%20Free%2060-min%20Workshop%20with%20Alice%20Bazdikian&dates=20260603T230000Z%2F20260604T003000Z&details=Free%2060-minute%20workshop%20with%20live%20audit%20and%20workflow%20build.%20Bring%201%20process%20you%20wish%20AI%20would%20just%20handle%20for%20you.%20The%20Zoom%20link%20will%20be%20emailed%2024%20hours%20before%20the%20workshop.%0A%0AWorkshop%20page%3A%20https%3A%2F%2Fwww.smallbusinessaicoach.com%2Fwebinar%0A%0AReplay%20is%20only%20available%20to%20live%20attendees.&location=Zoom%20(link%20emailed%2024h%20before)" target="_blank" rel="noopener" class="btn btn--primary">Add to Google Calendar →</a>
+        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=The%2030-Day%20AI%20Reset%20%C2%B7%20Free%2090-min%20Workshop%20with%20Alice%20Bazdikian&dates=20260603T230000Z%2F20260604T003000Z&details=Free%2090-minute%20workshop.%20The%204-Workflow%20AI%20Stack%20installed%20live%20on%20a%20real%20attendee%27s%20small%20business.%20Bring%201%20process%20you%20wish%20AI%20would%20just%20handle%20for%20you.%0A%0AGoogle%20Meet%20link%3A%20https%3A%2F%2Fmeet.google.com%2Fdbw-wjsc-uac%0A%0AWorkshop%20page%3A%20https%3A%2F%2Fwww.smallbusinessaicoach.com%2Fwebinar%0A%0AReplay%20is%20only%20available%20to%20live%20attendees.&location=https%3A%2F%2Fmeet.google.com%2Fdbw-wjsc-uac" target="_blank" rel="noopener" class="btn btn--primary">Add to Google Calendar →</a>
       </div>
 
       <!-- Kit auto-download (second, bonus delivery) -->
@@ -132,14 +216,51 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
         <a id="dl-link" href="assets/lead-magnets/3-workflows-starter-kit.pdf" download class="btn btn--ghost">Download →</a>
       </div>
 
-      <div class="ty-pitch">
-        <p class="eyebrow">While you wait</p>
-        <h2 class="ty-pitch-title">Open Workflow #1 in the kit (the Inbox Triage one).</h2>
-        <p class="ty-pitch-sub">Most owners get their first hour back inside Day 1. Try it on real emails before the workshop. You'll get more out of June 3 if you've already run one workflow yourself.</p>
-        <p class="ty-pitch-alt">Want a 1:1 audit instead? <a href="https://calendly.com/abazdikian/diagnostic" target="_blank" rel="noopener">Book a free 30-min Diagnostic</a> (capped at 4 per month).</p>
+      <div class="ty-while">
+        <div class="ty-while-head">
+          <p class="eyebrow">While you wait</p>
+          <h2 class="ty-pitch-title">Two things to do before June 3.</h2>
+        </div>
+        <div class="ty-while-grid">
+          <div class="ty-while-art">
+            <div class="lm-ipad" aria-label="Preview of the 14-page PDF cover">
+              <div class="lm-ipad-screen">
+                <img src="Brand Assets/3-workflows-kit-cover-01.png" alt="Cover of the 3-Workflow Starter Kit PDF" loading="lazy" />
+              </div>
+              <div class="lm-bonus-badge" aria-label="Includes a bonus 4th workflow">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                  <path fill="#D4A84A" d="M50 0 L57 14 L72 7 L70 23 L86 21 L77 34 L92 41 L78 50 L92 59 L77 66 L86 79 L70 77 L72 93 L57 86 L50 100 L43 86 L28 93 L30 77 L14 79 L23 66 L8 59 L22 50 L8 41 L23 34 L14 21 L30 23 L28 7 L43 14 Z"/>
+                </svg>
+                <div class="lm-bonus-badge-text">
+                  <span class="big">+ Bonus</span>
+                  <span class="small">4th Workflow</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ty-while-actions">
+            <a class="ty-action" href="assets/lead-magnets/3-workflows-starter-kit.pdf" download>
+              <span class="ty-action-num" aria-hidden="true">1</span>
+              <div>
+                <p class="ty-action-name">Run Workflow #1 (Inbox Triage) on real emails.</p>
+                <p class="ty-action-desc">Most owners get their first hour back inside Day 1. You'll get more out of June 3 if you've already run one workflow yourself.</p>
+                <span class="ty-action-go">Open the kit →</span>
+              </div>
+            </a>
+            <a class="ty-action" href="https://www.youtube.com/@smallbusinessaicoach" target="_blank" rel="noopener">
+              <span class="ty-action-num" aria-hidden="true">2</span>
+              <div>
+                <p class="ty-action-name">Watch a 5-minute how-to on YouTube.</p>
+                <p class="ty-action-desc">Walkthroughs of Claude Cowork, prompt patterns, and the workflows we'll install live. Subscribe so the next one finds you.</p>
+                <span class="ty-action-go">Watch on YouTube →</span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <p class="ty-while-alt">Want a 1:1 audit instead? <a href="https://calendly.com/abazdikian/diagnostic" target="_blank" rel="noopener">Book a free 30-min Diagnostic</a> (capped at 4 per month).</p>
       </div>
 
-      <p class="ty-meta">Check your inbox in the next 5 minutes for the confirmation. If it doesn't show up, peek in Promotions or Spam and add <strong>alice@smallbusinessaicoach.com</strong> to your contacts. The Zoom link is the most important email, you don't want it filtered.</p>
+      <p class="ty-meta">Check your inbox in the next 5 minutes for the confirmation. If it doesn't show up, peek in Promotions or Spam and add <strong>alice@smallbusinessaicoach.com</strong> to your contacts. The Google Meet reminder is the most important email, you don't want it filtered.</p>
     </div>
   </section>
 
