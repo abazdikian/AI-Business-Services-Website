@@ -33,12 +33,15 @@
       @bottom-right { content: "The 3-Workflow Starter Kit · Page " counter(page); font-family: 'Nunito', sans-serif; font-size: 8pt; color: #8B7D81; letter-spacing: .04em; }
     }
     @page :first {
-      margin: 0;                          /* cover is full-bleed */
+      size: 8.5in 11in;
+      margin: 0 !important;               /* cover is full-bleed, no exceptions */
       @bottom-left  { content: ""; }
       @bottom-right { content: ""; }
+      @top-left     { content: ""; }
+      @top-right    { content: ""; }
     }
 
-    html, body { background: var(--white); color: var(--ink); }
+    html, body { background: var(--white); color: var(--ink); margin: 0; padding: 0; }
     body {
       font-family: 'Nunito', system-ui, sans-serif;
       font-size: 14pt; line-height: 1.6; font-weight: 500;
@@ -54,8 +57,8 @@
       page-break-before: always;
       break-before: page;
     }
-    /* Cover full-bleed via @page :first */
-    .cover { width: 8.5in; height: 11in; padding: 0; }
+    /* Cover full-bleed via @page :first. Box-sizing border-box so padding doesn't overflow. */
+    .cover { width: 8.5in; height: 11in; padding: 0; margin: 0; box-sizing: border-box; overflow: hidden; }
     /* Old per-section footer divs — hidden, replaced by @page @bottom-* */
     .page-footer { display: none; }
     .page-footer-mark { font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-deep); }
@@ -70,6 +73,15 @@
       letter-spacing: .26em; text-transform: uppercase; color: var(--gold-deep);
       margin: 0 0 14px;
     }
+    /* Green pill — used at the top of feature pages. White text on solid green. */
+    .pill-green {
+      display: inline-block;
+      font-family: 'Nunito', sans-serif; font-size: 9pt; font-weight: 800;
+      letter-spacing: .18em; text-transform: uppercase; color: var(--white);
+      background: var(--green);
+      padding: 7px 14px; border-radius: 999px;
+      margin: 0 0 16px;
+    }
 
     /* COVER */
     .cover {
@@ -82,7 +94,7 @@
         radial-gradient(ellipse 90% 70% at 50% 50%, rgba(253,251,245,.6), transparent 70%),
         var(--white);
     }
-    .cover-inner { padding: 0.7in 0.6in 0.55in; height: 11in; display: flex; flex-direction: column; justify-content: space-between; }
+    .cover-inner { padding: 0.65in 0.55in 0.5in; height: 100%; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; }
     .cover-mark { font-family: 'Nunito', sans-serif; font-size: 10pt; font-weight: 800; letter-spacing: .26em; text-transform: uppercase; color: var(--green); }
     .cover-mark-row { display: flex; align-items: center; gap: 12px; }
     .cover-mark-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--green); }
@@ -107,16 +119,15 @@
       -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
       position: relative;
     }
-    /* Straight gold underline beneath the italic phrase.
-       Tiled per-line via box-decoration-break so multi-line phrases each get
-       their own clean horizontal line. */
+    /* Thick straight gold underline beneath the italic phrase. ~5pt bar.
+       Tiled per-line via box-decoration-break for multi-line phrases. */
     .cover-h1-swoosh {
       display: inline;
-      padding-bottom: 0.06em;
-      background-image: linear-gradient(180deg, transparent 0%, transparent 95%, #D4A84A 95%, #D4A84A 100%);
+      padding-bottom: 8pt;
+      background-image: linear-gradient(#D4A84A, #D4A84A);
       background-repeat: no-repeat;
       background-position: 0 100%;
-      background-size: 100% 0.18em;
+      background-size: 100% 5pt;
       -webkit-box-decoration-break: clone;
               box-decoration-break: clone;
     }
@@ -128,12 +139,12 @@
     .cover-meta { display: flex; gap: 22px; flex-wrap: wrap; font-size: 11pt; color: var(--ink-soft); margin: 0; padding: 14px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
     .cover-meta span { display: inline-flex; align-items: center; gap: 6px; }
     .cover-meta strong { color: var(--green); font-weight: 800; }
-    /* Workflow diagram — centered editorial illustration filling the mid-page. */
+    /* Process-flow diagram — centered, line-art reference image. */
     .cover-hero-art {
-      width: 100%; max-width: 6.6in; margin: 24px auto 0;
+      width: 100%; max-width: 7in; margin: 18px auto 0;
       pointer-events: none;
     }
-    .cover-hero-art svg { width: 100%; height: auto; display: block; }
+    .cover-hero-art img { width: 100%; height: auto; display: block; }
     /* Foot row: photo + identity block on the left, contact + socials on the right. */
     .cover-foot {
       display: flex; align-items: center; justify-content: space-between;
@@ -377,118 +388,9 @@
           <span><strong>+ Bonus Workflow 04</strong></span>
         </div>
 
-        <!-- Architecture-style process-flow blueprint: inputs -> the engine -> outputs.
-             Line-art editorial illustration, NOT a tile-collage. -->
+        <!-- Process-flow blueprint diagram, embedded as image (per reference) -->
         <div class="cover-hero-art" aria-hidden="true">
-          <svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" font-family="Nunito, sans-serif">
-            <defs>
-              <marker id="arrowGreen" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-                <path d="M0,0 L10,5 L0,10 Z" fill="#2F6F4F"/>
-              </marker>
-              <marker id="arrowGold" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-                <path d="M0,0 L10,5 L0,10 Z" fill="#A87B1F"/>
-              </marker>
-            </defs>
-
-            <!-- COLUMN HEADERS -->
-            <text x="100"  y="14" text-anchor="middle" font-size="9"  font-weight="800" letter-spacing="2.2" fill="#A87B1F">YOUR INPUTS</text>
-            <text x="360"  y="14" text-anchor="middle" font-size="9"  font-weight="800" letter-spacing="2.2" fill="#2F6F4F">THE ENGINE</text>
-            <text x="620"  y="14" text-anchor="middle" font-size="9"  font-weight="800" letter-spacing="2.2" fill="#A87B1F">YOUR OUTPUTS</text>
-
-            <!-- ============= LEFT COLUMN · INPUTS (line-art icons + label) ============= -->
-            <!-- Emails -->
-            <g transform="translate(60, 38)" stroke="#2B1A1F" stroke-width="1.3" fill="none">
-              <rect x="0" y="3" width="38" height="26" rx="2"/>
-              <path d="M0 5 L19 20 L38 5"/>
-            </g>
-            <text x="100" y="56" text-anchor="middle" font-size="10" font-weight="800" fill="#2B1A1F">Emails</text>
-
-            <!-- SOPs / Voice samples -->
-            <g transform="translate(64, 92)" stroke="#2B1A1F" stroke-width="1.3" fill="none">
-              <path d="M0 0 H24 L34 10 V36 H0 Z"/>
-              <line x1="6" y1="14" x2="28" y2="14"/>
-              <line x1="6" y1="20" x2="28" y2="20"/>
-              <line x1="6" y1="26" x2="20" y2="26"/>
-            </g>
-            <text x="100" y="146" text-anchor="middle" font-size="10" font-weight="800" fill="#2B1A1F">SOPs · brand voice</text>
-
-            <!-- Topics / Marketing brief -->
-            <g transform="translate(64, 180)" stroke="#2B1A1F" stroke-width="1.3" fill="none">
-              <path d="M0 4 H32 V22 H10 L4 30 V22 H0 Z"/>
-              <line x1="6" y1="11" x2="26" y2="11"/>
-              <line x1="6" y1="17" x2="22" y2="17"/>
-            </g>
-            <text x="100" y="226" text-anchor="middle" font-size="10" font-weight="800" fill="#2B1A1F">Weekly topic</text>
-
-            <!-- Service rate sheet -->
-            <g transform="translate(66, 258)" stroke="#2B1A1F" stroke-width="1.3" fill="none">
-              <rect x="0" y="0" width="32" height="36" rx="1"/>
-              <line x1="5" y1="9"  x2="27" y2="9"/>
-              <line x1="5" y1="16" x2="27" y2="16"/>
-              <line x1="5" y1="23" x2="20" y2="23"/>
-              <text x="22" y="32" font-size="9" font-weight="800" fill="#A87B1F" stroke="none">$</text>
-            </g>
-            <text x="100" y="306" text-anchor="middle" font-size="10" font-weight="800" fill="#2B1A1F">Rate sheet</text>
-
-            <!-- INPUT → ENGINE arrows -->
-            <line x1="160" y1="50"  x2="244" y2="120" stroke="#A87B1F" stroke-width="1.2" stroke-linecap="round" marker-end="url(#arrowGold)" opacity="0.85"/>
-            <line x1="160" y1="138" x2="244" y2="148" stroke="#A87B1F" stroke-width="1.2" stroke-linecap="round" marker-end="url(#arrowGold)" opacity="0.85"/>
-            <line x1="160" y1="218" x2="244" y2="172" stroke="#A87B1F" stroke-width="1.2" stroke-linecap="round" marker-end="url(#arrowGold)" opacity="0.85"/>
-            <line x1="160" y1="298" x2="244" y2="200" stroke="#A87B1F" stroke-width="1.2" stroke-linecap="round" marker-end="url(#arrowGold)" opacity="0.85"/>
-
-            <!-- ============= CENTER · THE ENGINE (Claude) ============= -->
-            <rect x="248" y="80" width="224" height="160" rx="10" fill="#FDFBF5" stroke="#2F6F4F" stroke-width="2"/>
-            <!-- inner spacing line -->
-            <line x1="268" y1="116" x2="452" y2="116" stroke="#EFE8E3" stroke-width="1"/>
-
-            <text x="360" y="106" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-style="italic" font-size="13" fill="#A87B1F">the engine</text>
-            <text x="360" y="142" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-weight="600" font-size="20" fill="#2F6F4F">Claude · Pro</text>
-            <text x="360" y="160" text-anchor="middle" font-size="9" font-weight="700" letter-spacing="2" fill="#6B5A5F">$20 / MONTH · ONE TOOL</text>
-
-            <!-- 3 mode chips inside the engine -->
-            <g font-size="9" font-weight="800" letter-spacing="1.4" text-anchor="middle">
-              <rect x="266" y="180" width="58" height="22" rx="11" fill="none" stroke="#2F6F4F" stroke-width="1.1"/>
-              <text x="295" y="194.5" fill="#2F6F4F">CHAT</text>
-
-              <rect x="332" y="180" width="58" height="22" rx="11" fill="none" stroke="#2F6F4F" stroke-width="1.1"/>
-              <text x="361" y="194.5" fill="#2F6F4F">PROJECTS</text>
-
-              <rect x="398" y="180" width="58" height="22" rx="11" fill="none" stroke="#2F6F4F" stroke-width="1.1"/>
-              <text x="427" y="194.5" fill="#2F6F4F">COWORK</text>
-            </g>
-            <text x="360" y="222" text-anchor="middle" font-size="8.5" font-weight="700" letter-spacing="1.6" fill="#6B5A5F">NO CODE · NO APIs · NO INTEGRATIONS</text>
-
-            <!-- ENGINE → OUTPUTS arrows -->
-            <line x1="476" y1="120" x2="560" y2="50"  stroke="#2F6F4F" stroke-width="1.2" stroke-linecap="round" marker-end="url(#arrowGreen)" opacity="0.85"/>
-            <line x1="476" y1="148" x2="560" y2="138" stroke="#2F6F4F" stroke-width="1.2" stroke-linecap="round" marker-end="url(#arrowGreen)" opacity="0.85"/>
-            <line x1="476" y1="172" x2="560" y2="218" stroke="#2F6F4F" stroke-width="1.2" stroke-linecap="round" marker-end="url(#arrowGreen)" opacity="0.85"/>
-            <line x1="476" y1="200" x2="560" y2="298" stroke="#2F6F4F" stroke-width="1.2" stroke-linecap="round" marker-end="url(#arrowGreen)" opacity="0.85"/>
-
-            <!-- ============= RIGHT COLUMN · OUTPUTS (4 result cards) ============= -->
-            <!-- 01 Inbox triage -->
-            <rect x="568" y="22" width="140" height="56" rx="4" fill="#FDFBF5" stroke="#2B1A1F" stroke-width="1"/>
-            <text x="578" y="40" font-family="Fraunces, Georgia, serif" font-style="italic" font-size="11" fill="#A87B1F">01</text>
-            <text x="578" y="56" font-size="10" font-weight="800" fill="#2B1A1F">Inbox triage</text>
-            <text x="578" y="70" font-size="8" font-weight="700" letter-spacing="1.4" fill="#2F6F4F">≈ 5 HRS/WK BACK</text>
-
-            <!-- 02 SOP -> AI clone -->
-            <rect x="568" y="110" width="140" height="56" rx="4" fill="#FDFBF5" stroke="#2B1A1F" stroke-width="1"/>
-            <text x="578" y="128" font-family="Fraunces, Georgia, serif" font-style="italic" font-size="11" fill="#A87B1F">02</text>
-            <text x="578" y="144" font-size="10" font-weight="800" fill="#2B1A1F">Your AI clone</text>
-            <text x="578" y="158" font-size="8" font-weight="700" letter-spacing="1.4" fill="#2F6F4F">≈ 3 HRS/WK BACK</text>
-
-            <!-- 03 Weekly marketing -->
-            <rect x="568" y="190" width="140" height="56" rx="4" fill="#FDFBF5" stroke="#2B1A1F" stroke-width="1"/>
-            <text x="578" y="208" font-family="Fraunces, Georgia, serif" font-style="italic" font-size="11" fill="#A87B1F">03</text>
-            <text x="578" y="224" font-size="10" font-weight="800" fill="#2B1A1F">Weekly marketing</text>
-            <text x="578" y="238" font-size="8" font-weight="700" letter-spacing="1.4" fill="#2F6F4F">≈ 4 HRS/WK BACK</text>
-
-            <!-- 04 Bonus invoice killer (gold border to flag bonus) -->
-            <rect x="568" y="270" width="140" height="56" rx="4" fill="#FDFBF5" stroke="#A87B1F" stroke-width="1.6"/>
-            <text x="578" y="288" font-family="Fraunces, Georgia, serif" font-style="italic" font-size="11" fill="#A87B1F">+ Bonus 04</text>
-            <text x="578" y="304" font-size="10" font-weight="800" fill="#2B1A1F">Invoice killer</text>
-            <text x="578" y="318" font-size="8" font-weight="700" letter-spacing="1.4" fill="#2F6F4F">2–4 HRS/MO BACK</text>
-          </svg>
+          <img src="../../../Brand Assets/cover-process-diagram.png" alt="" />
         </div>
       </div>
 
@@ -513,6 +415,7 @@
 
   <!-- ───────── PAGE 2: INTRO ───────── -->
   <section class="page intro-start">
+    <span class="pill-green">Steal my workflows</span>
     <p class="eyebrow">Why this exists</p>
     <h2 class="intro-h2">You've been told AI will change your business. <em>Then you tried it.</em></h2>
     <p>Most "AI for small business" content is a 47-tool listicle, a 12-minute YouTube tour, and a generic "10 prompts to copy-paste" carousel that reads like the same thing 200 other people posted. None of it ships a single workflow into your actual business.</p>
@@ -578,7 +481,7 @@
       </div>
     </div>
 
-    <div class="callout">
+    <div class="callout" style="break-inside: avoid; page-break-inside: avoid;">
       <span class="callout-title">⚡ Why I'm telling you this up front</span>
       Most "free AI guides" hide the fact that you need a paid plan. By page 7 you've spent two hours setting things up and then hit "this requires Pro." That's not how I want to start with you. The math: <strong>$20/month</strong> for 12+ hours saved per week. That's $0.04/hour. The cheapest hire of your life.
     </div>
@@ -630,6 +533,7 @@
       <div class="chapter-num">01</div>
       <p class="chapter-eyebrow">Workflow One</p>
       <h2 class="chapter-title">The Inbox Triage Workflow.</h2>
+      <span class="pill-green" style="margin-top: 10px;">Bonus: Set up an Automated Daily Inbox Briefing with Claude Cowork</span>
       <p style="font-size: 11pt; color: var(--ink-soft); margin: 6px 0 0;">Turn 90 minutes a day on email into 15. One prompt classifies, drafts replies, and flags what's actually urgent.</p>
       <div class="chapter-pills">
         <span class="chapter-pill chapter-pill--time">Saves ≈ 5 hrs/week</span>
