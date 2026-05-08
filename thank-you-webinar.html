@@ -28,28 +28,28 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   <style>
     *, *::before, *::after { box-sizing: border-box; }
     :root {
-      --burgundy: #7A1530; --burgundy-soft: #9B2440; --burgundy-glow: #C13558;
+      --green: #2F6F4F; --green-soft: #4A8B6F; --green-glow: #6BB28C;
       --gold: #D4A84A; --gold-warm: #E6C472; --gold-deep: #A87B1F;
       --white: #FFFFFF; --offwhite: #FDFBF5; --cream: #F7F3EE;
       --ink: #2B1A1F; --ink-soft: #6B5A5F; --rule: #EFE8E3;
-      --grad-sunrise: linear-gradient(135deg, #7A1530 0%, #C13558 60%, #E6C472 100%);
+      --grad-sunrise: linear-gradient(135deg, #2F6F4F 0%, #6BB28C 55%, #E6C472 100%);
     }
     html { scroll-behavior: smooth; }
     body { margin: 0; background: var(--white); color: var(--ink); font-family: 'Nunito', system-ui, sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
 
     .eyebrow { font-family: 'Nunito', sans-serif; font-size: 0.6875rem; font-weight: 800; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold-deep); margin: 0 0 1rem; }
     .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.9375rem; padding: 16px 28px; border-radius: 999px; text-decoration: none; border: none; cursor: pointer; transition: transform .18s cubic-bezier(.2,.9,.3,1.2), box-shadow .18s ease; }
-    .btn--primary { background: var(--grad-sunrise); color: var(--white); box-shadow: 0 14px 32px -14px rgba(122,21,48,.55), 0 4px 18px -8px rgba(212,168,74,.55), 0 2px 0 rgba(255,255,255,.3) inset; }
+    .btn--primary { background: var(--grad-sunrise); color: var(--white); box-shadow: 0 14px 32px -14px rgba(47,111,79,.55), 0 4px 18px -8px rgba(212,168,74,.55), 0 2px 0 rgba(255,255,255,.3) inset; }
     .btn--primary:hover { transform: translateY(-2px); }
-    .btn--ghost { background: var(--white); color: var(--burgundy); border: 2px solid var(--burgundy); }
-    .btn--ghost:hover { background: var(--burgundy); color: var(--white); }
+    .btn--ghost { background: var(--white); color: var(--green); border: 2px solid var(--green); }
+    .btn--ghost:hover { background: var(--green); color: var(--white); }
 
     .ty-shell { position: relative; padding: 88px 24px 96px; overflow: hidden; min-height: 78vh; }
     .ty-shell::before {
       content: ""; position: absolute; inset: 0; pointer-events: none;
       background:
         radial-gradient(ellipse at 50% 0%, rgba(230,196,114,.32), transparent 55%),
-        radial-gradient(circle at 12% 70%, rgba(193,53,88,.15), transparent 55%),
+        radial-gradient(circle at 12% 70%, rgba(107,178,140,.15), transparent 55%),
         radial-gradient(circle at 88% 80%, rgba(212,168,74,.20), transparent 55%);
     }
     .ty-inner { position: relative; max-width: 760px; margin: 0 auto; text-align: center; }
@@ -59,7 +59,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
       background: var(--grad-sunrise); color: var(--white);
       display: inline-flex; align-items: center; justify-content: center;
       font-size: 2.5rem; font-weight: 800; line-height: 1;
-      box-shadow: 0 18px 40px -16px rgba(122,21,48,.6), 0 4px 14px -6px rgba(212,168,74,.5);
+      box-shadow: 0 18px 40px -16px rgba(47,111,79,.6), 0 4px 14px -6px rgba(212,168,74,.5);
     }
 
     .ty-title { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(2.25rem, 4vw, 3rem); line-height: 1.1; letter-spacing: -0.025em; margin: 0 0 14px; color: var(--ink); }
@@ -79,11 +79,11 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     .ty-card-meta { font-size: .8125rem; color: var(--ink-soft); margin: 4px 0 0; }
 
     .ty-pitch { background: var(--cream); border-radius: 22px; padding: 36px 32px; margin: 32px auto 24px; text-align: center; }
-    .ty-pitch-title { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 1.5rem; line-height: 1.2; letter-spacing: -0.015em; color: var(--burgundy); margin: 0 0 8px; }
+    .ty-pitch-title { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 1.5rem; line-height: 1.2; letter-spacing: -0.015em; color: var(--green); margin: 0 0 8px; }
     .ty-pitch-sub { font-size: .9375rem; color: var(--ink-soft); margin: 0 0 22px; line-height: 1.6; }
     .ty-pitch-alt { margin: 14px 0 0; font-size: .8125rem; color: var(--ink-soft); }
-    .ty-pitch-alt a { color: var(--burgundy); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
-    .ty-pitch-alt a:hover { color: var(--burgundy-soft); }
+    .ty-pitch-alt a { color: var(--green); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+    .ty-pitch-alt a:hover { color: var(--green-soft); }
 
     /* While-you-wait grid: iPad mockup + action cards */
     .ty-while {
@@ -154,7 +154,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
       padding: 18px 20px; text-decoration: none; color: inherit;
       transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
     }
-    .ty-action:hover { transform: translateY(-2px); border-color: var(--gold); box-shadow: 0 14px 30px -16px rgba(122,21,48,.20), 0 4px 12px -6px rgba(168,123,31,.18); }
+    .ty-action:hover { transform: translateY(-2px); border-color: var(--gold); box-shadow: 0 14px 30px -16px rgba(47,111,79,.20), 0 4px 12px -6px rgba(168,123,31,.18); }
     .ty-action-num {
       width: 44px; height: 44px; border-radius: 50%;
       background: var(--grad-sunrise); color: var(--white);
@@ -163,11 +163,11 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     }
     .ty-action-name { font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 1.0625rem; color: var(--ink); margin: 2px 0 4px; line-height: 1.25; }
     .ty-action-desc { font-size: .875rem; color: var(--ink-soft); margin: 0; line-height: 1.5; }
-    .ty-action-go { display: inline-flex; margin-top: 8px; font-size: .8125rem; font-weight: 700; color: var(--burgundy); text-decoration: none; gap: 4px; }
-    .ty-action-go:hover { color: var(--burgundy-soft); }
+    .ty-action-go { display: inline-flex; margin-top: 8px; font-size: .8125rem; font-weight: 700; color: var(--green); text-decoration: none; gap: 4px; }
+    .ty-action-go:hover { color: var(--green-soft); }
     .ty-while-alt { margin: 22px 0 0; font-size: .8125rem; color: var(--ink-soft); text-align: center; }
-    .ty-while-alt a { color: var(--burgundy); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
-    .ty-while-alt a:hover { color: var(--burgundy-soft); }
+    .ty-while-alt a { color: var(--green); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+    .ty-while-alt a:hover { color: var(--green-soft); }
 
     .ty-meta { font-size: .8125rem; color: var(--ink-soft); margin-top: 22px; }
 
@@ -201,7 +201,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
         <div class="ty-card-icon" aria-hidden="true">📅</div>
         <div>
           <p class="ty-card-name">Add to calendar</p>
-          <p class="ty-card-meta">Wed Jun 3 · 7:00 to 8:30pm ET · <a href="assets/webinar-2026-06-03.ics" download style="color:var(--burgundy);font-weight:700;text-decoration:underline;text-underline-offset:2px;">Apple / Outlook? Download .ics</a></p>
+          <p class="ty-card-meta">Wed Jun 3 · 7:00 to 8:30pm ET · <a href="assets/webinar-2026-06-03.ics" download style="color:var(--green);font-weight:700;text-decoration:underline;text-underline-offset:2px;">Apple / Outlook? Download .ics</a></p>
         </div>
         <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=The%2030-Day%20AI%20Reset%20%C2%B7%20Free%2090-min%20Workshop%20with%20Alice%20Bazdikian&dates=20260603T230000Z%2F20260604T003000Z&details=Free%2090-minute%20workshop.%20The%204-Workflow%20AI%20Stack%20installed%20live%20on%20a%20real%20attendee%27s%20small%20business.%20Bring%201%20process%20you%20wish%20AI%20would%20just%20handle%20for%20you.%0A%0AGoogle%20Meet%20link%3A%20https%3A%2F%2Fmeet.google.com%2Fdbw-wjsc-uac%0A%0AWorkshop%20page%3A%20https%3A%2F%2Fwww.smallbusinessaicoach.com%2Fwebinar%0A%0AReplay%20is%20only%20available%20to%20live%20attendees.&location=https%3A%2F%2Fmeet.google.com%2Fdbw-wjsc-uac" target="_blank" rel="noopener" class="btn btn--primary">Add to Google Calendar →</a>
       </div>
@@ -226,15 +226,6 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
             <div class="lm-ipad" aria-label="Preview of the 25-page PDF cover">
               <div class="lm-ipad-screen">
                 <img src="Brand Assets/3-workflows-kit-cover-01.png" alt="Cover of the 3-Workflow Starter Kit PDF" loading="lazy" />
-              </div>
-              <div class="lm-bonus-badge" aria-label="Includes a bonus 4th workflow">
-                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                  <path fill="#D4A84A" d="M50 0 L57 14 L72 7 L70 23 L86 21 L77 34 L92 41 L78 50 L92 59 L77 66 L86 79 L70 77 L72 93 L57 86 L50 100 L43 86 L28 93 L30 77 L14 79 L23 66 L8 59 L22 50 L8 41 L23 34 L14 21 L30 23 L28 7 L43 14 Z"/>
-                </svg>
-                <div class="lm-bonus-badge-text">
-                  <span class="big">+ Bonus</span>
-                  <span class="small">4th Workflow</span>
-                </div>
               </div>
             </div>
           </div>

@@ -43,9 +43,9 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   <style>
     *, *::before, *::after { box-sizing: border-box; }
     :root {
-      --burgundy: #7A1530;
-      --burgundy-soft: #9B2440;
-      --burgundy-glow: #C13558;
+      --green: #2F6F4F;
+      --green-soft: #4A8B6F;
+      --green-glow: #6BB28C;
       --gold: #D4A84A;
       --gold-warm: #E6C472;
       --gold-deep: #A87B1F;
@@ -55,7 +55,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
       --ink: #2B1A1F;
       --ink-soft: #6B5A5F;
       --rule: #EFE8E3;
-      --grad-sunrise: linear-gradient(135deg, #7A1530 0%, #C13558 60%, #E6C472 100%);
+      --grad-sunrise: linear-gradient(135deg, #2F6F4F 0%, #6BB28C 55%, #E6C472 100%);
     }
     html { scroll-behavior: smooth; }
     body { margin: 0; background: var(--white); color: var(--ink); font-family: 'Nunito', system-ui, sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
@@ -63,8 +63,8 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     .eyebrow { font-family: 'Nunito', sans-serif; font-size: 0.6875rem; font-weight: 800; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold-deep); margin: 0 0 1rem; }
 
     .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.9375rem; padding: 16px 28px; border-radius: 999px; text-decoration: none; border: none; cursor: pointer; transition: transform .18s cubic-bezier(.2,.9,.3,1.2), box-shadow .18s ease; }
-    .btn--primary { background: var(--grad-sunrise); color: var(--white); box-shadow: 0 14px 32px -14px rgba(122,21,48,.55), 0 4px 18px -8px rgba(212,168,74,.55), 0 2px 0 rgba(255,255,255,.3) inset; }
-    .btn--primary:hover { transform: translateY(-2px); box-shadow: 0 20px 40px -14px rgba(122,21,48,.65), 0 6px 22px -6px rgba(212,168,74,.7), 0 2px 0 rgba(255,255,255,.3) inset; }
+    .btn--primary { background: var(--grad-sunrise); color: var(--white); box-shadow: 0 14px 32px -14px rgba(47,111,79,.55), 0 4px 18px -8px rgba(212,168,74,.55), 0 2px 0 rgba(255,255,255,.3) inset; }
+    .btn--primary:hover { transform: translateY(-2px); box-shadow: 0 20px 40px -14px rgba(47,111,79,.65), 0 6px 22px -6px rgba(212,168,74,.7), 0 2px 0 rgba(255,255,255,.3) inset; }
 
     .site-nav-cta {
       background: linear-gradient(135deg, var(--gold-warm) 0%, var(--gold) 50%, var(--gold-deep) 100%) !important;
@@ -79,7 +79,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     .lm-hero::before {
       content: ""; position: absolute; inset: 0; pointer-events: none;
       background:
-        radial-gradient(circle at 10% 14%, rgba(193,53,88,.18), transparent 46%),
+        radial-gradient(circle at 10% 14%, rgba(107,178,140,.18), transparent 46%),
         radial-gradient(circle at 90% 22%, rgba(230,196,114,.34), transparent 50%),
         radial-gradient(circle at 80% 92%, rgba(212,168,74,.26), transparent 50%);
     }
@@ -95,9 +95,9 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     .lm-hero-failure {
       font-family: 'Fraunces', Georgia, serif; font-style: italic;
       font-size: 1.0625rem; line-height: 1.45;
-      color: var(--burgundy); margin: 18px 0 0;
-      padding: 14px 18px; background: rgba(193,53,88,.06);
-      border-left: 3px solid var(--burgundy-glow); border-radius: 0 10px 10px 0;
+      color: var(--green); margin: 18px 0 0;
+      padding: 14px 18px; background: rgba(107,178,140,.06);
+      border-left: 3px solid var(--green-glow); border-radius: 0 10px 10px 0;
     }
 
     .lm-trust-row { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--rule); font-size: .8125rem; color: var(--ink-soft); }
@@ -156,12 +156,12 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
 
     /* ── FORM CARD (anchor) ── */
     .lm-rsvp-strip { position: relative; max-width: 1180px; margin: 36px auto 0; padding: 0 24px; }
-    .lm-form-card { position: relative; background: var(--white); border-radius: 28px; padding: 32px 36px 28px; border: 1px solid var(--rule); box-shadow: 0 2px 0 rgba(255,255,255,1) inset, 0 24px 60px -28px rgba(122,21,48,.35), 0 8px 20px -8px rgba(168,123,31,.2); }
-    .lm-form-ribbon { position: absolute; top: -14px; left: 36px; background: var(--grad-sunrise); color: var(--white); font-size: .6875rem; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; padding: 7px 14px; border-radius: 999px; box-shadow: 0 10px 22px -10px rgba(122,21,48,.6); }
+    .lm-form-card { position: relative; background: var(--white); border-radius: 28px; padding: 32px 36px 28px; border: 1px solid var(--rule); box-shadow: 0 2px 0 rgba(255,255,255,1) inset, 0 24px 60px -28px rgba(47,111,79,.35), 0 8px 20px -8px rgba(168,123,31,.2); }
+    .lm-form-ribbon { position: absolute; top: -14px; left: 36px; background: var(--grad-sunrise); color: var(--white); font-size: .6875rem; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; padding: 7px 14px; border-radius: 999px; box-shadow: 0 10px 22px -10px rgba(47,111,79,.6); }
     .lm-form-card-body { display: grid; grid-template-columns: 1.1fr 1fr; gap: 32px; align-items: center; }
     .lm-form-head { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 1.625rem; line-height: 1.15; letter-spacing: -0.02em; margin: 8px 0 6px; }
     .lm-form-kicker { font-size: .9375rem; color: var(--ink-soft); margin: 0 0 14px; }
-    .lm-form-kicker strong { color: var(--burgundy); font-weight: 700; }
+    .lm-form-kicker strong { color: var(--green); font-weight: 700; }
 
     .lm-form { display: flex; flex-direction: column; gap: 12px; }
     .lm-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
@@ -169,7 +169,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     .lm-form-label { font-size: .75rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); }
     .lm-form-input { font-family: 'Nunito', sans-serif; font-size: 1rem; color: var(--ink); padding: 13px 16px; background: var(--cream); border: 1.5px solid var(--rule); border-radius: 12px; width: 100%; transition: border-color .18s, box-shadow .18s, background .18s; }
     .lm-form-input::placeholder { color: #AFA09F; }
-    .lm-form-input:focus { outline: none; background: var(--white); border-color: var(--burgundy-glow); box-shadow: 0 0 0 4px rgba(193,53,88,.14); }
+    .lm-form-input:focus { outline: none; background: var(--white); border-color: var(--green-glow); box-shadow: 0 0 0 4px rgba(107,178,140,.14); }
     .lm-form-select { appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237A1530' stroke-width='1.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 38px; cursor: pointer; }
     .lm-form-select:invalid { color: #AFA09F; }
     .lm-form-btn { margin-top: 4px; width: 100%; }
@@ -179,19 +179,19 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
       font-size: .8125rem; line-height: 1.55;
       color: var(--ink-soft); text-align: center;
       margin: 14px 0 0; padding: 12px 16px;
-      background: linear-gradient(135deg, rgba(230,196,114,.18), rgba(193,53,88,.06));
+      background: linear-gradient(135deg, rgba(230,196,114,.18), rgba(107,178,140,.06));
       border: 1px dashed var(--gold-deep); border-radius: 10px;
     }
-    .lm-form-guarantee strong { color: var(--burgundy); font-style: normal; font-weight: 800; }
+    .lm-form-guarantee strong { color: var(--green); font-style: normal; font-weight: 800; }
 
     /* ── WORKFLOWS PREVIEW ── */
     .lm-workflows { position: relative; padding: 96px 24px 88px; overflow: hidden; background: var(--white); }
-    .lm-workflows::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse at 80% 0%, rgba(230,196,114,.22), transparent 50%), radial-gradient(ellipse at 0% 100%, rgba(193,53,88,.10), transparent 50%); }
+    .lm-workflows::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse at 80% 0%, rgba(230,196,114,.22), transparent 50%), radial-gradient(ellipse at 0% 100%, rgba(107,178,140,.10), transparent 50%); }
     .lm-workflows > * { position: relative; }
     .lm-wf-inner { max-width: 1180px; margin: 0 auto; }
     .lm-wf-head { text-align: center; max-width: 760px; margin: 0 auto 56px; }
     .lm-wf-title { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(2rem, 3.8vw, 2.75rem); line-height: 1.1; letter-spacing: -0.02em; margin: 0 0 .75rem; }
-    .lm-wf-title em { font-style: italic; color: var(--burgundy); }
+    .lm-wf-title em { font-style: italic; color: var(--green); }
     .lm-wf-sub { color: var(--ink-soft); font-size: 1.0625rem; margin: 0; }
 
     .lm-wf-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
@@ -288,7 +288,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     .lm-wf-desc { font-size: .9375rem; color: var(--ink-soft); line-height: 1.55; margin: 0; }
     .lm-wf-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; padding-top: 14px; border-top: 1px solid var(--rule); }
     .lm-wf-pill { display: inline-flex; align-items: center; gap: 6px; font-size: .6875rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; padding: 5px 10px; border-radius: 999px; }
-    .lm-wf-pill--time  { background: var(--burgundy); color: var(--white); }
+    .lm-wf-pill--time  { background: var(--green); color: var(--white); }
     .lm-wf-pill--setup { background: var(--gold); color: var(--ink); }
 
     /* ── HOW IT WORKS ── */
@@ -304,16 +304,16 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
 
     /* ── FINAL CTA ── */
     .lm-final { position: relative; padding: 88px 24px 104px; background: var(--white); border-top: 1px solid var(--rule); overflow: hidden; }
-    .lm-final::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse at 50% 0%, rgba(230,196,114,.30), transparent 55%), radial-gradient(circle at 12% 80%, rgba(193,53,88,.14), transparent 50%), radial-gradient(circle at 88% 80%, rgba(212,168,74,.18), transparent 50%); }
+    .lm-final::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse at 50% 0%, rgba(230,196,114,.30), transparent 55%), radial-gradient(circle at 12% 80%, rgba(107,178,140,.14), transparent 50%), radial-gradient(circle at 88% 80%, rgba(212,168,74,.18), transparent 50%); }
     .lm-final > * { position: relative; }
     .lm-final-inner { max-width: 760px; margin: 0 auto; text-align: center; }
     .lm-final-photo {
       width: 110px; height: 110px; border-radius: 50%; object-fit: cover;
       margin: 0 auto 22px; display: block;
       border: 3px solid var(--white);
-      box-shadow: 0 16px 36px -18px rgba(122,21,48,.4);
+      box-shadow: 0 16px 36px -18px rgba(47,111,79,.4);
     }
-    .lm-final-title { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(2rem, 3.8vw, 2.75rem); line-height: 1.1; letter-spacing: -0.02em; margin: 0 0 14px; color: var(--burgundy); }
+    .lm-final-title { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(2rem, 3.8vw, 2.75rem); line-height: 1.1; letter-spacing: -0.02em; margin: 0 0 14px; color: var(--green); }
     .lm-final-sub { font-size: 1.125rem; color: var(--ink-soft); line-height: 1.55; margin: 0 0 28px; }
 
     @media (max-width: 980px) {
@@ -387,15 +387,6 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
           <div class="lm-ipad-screen">
             <img src="Brand Assets/3-workflows-kit-cover-01.png" alt="Cover of the 3-Workflow Starter Kit PDF" />
           </div>
-          <div class="lm-bonus-badge" aria-label="Includes a bonus 4th workflow">
-            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-              <path fill="#D4A84A" d="M50 0 L57 14 L72 7 L70 23 L86 21 L77 34 L92 41 L78 50 L92 59 L77 66 L86 79 L70 77 L72 93 L57 86 L50 100 L43 86 L28 93 L30 77 L14 79 L23 66 L8 59 L22 50 L8 41 L23 34 L14 21 L30 23 L28 7 L43 14 Z"/>
-            </svg>
-            <div class="lm-bonus-badge-text">
-              <span class="big">+ Bonus</span>
-              <span class="small">4th Workflow</span>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -441,6 +432,32 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
             <p class="lm-form-meta">No spam · 1 email/week after · Your data stays private (used only to tailor the welcome note)</p>
             <p class="lm-form-guarantee"><strong>★ My promise.</strong> If this kit doesn't save you 5+ hours in your first week, reply "refund" and I'll book you a free 1:1 audit instead. Either way, you get value.</p>
           </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE SHOWCASE -->
+  <section class="lm-showcase">
+    <div class="lm-showcase-inner">
+      <div class="lm-showcase-head">
+        <p class="lm-showcase-eyebrow">What's inside</p>
+        <h2 class="lm-showcase-title">25 pages of <em>real prompts, real screenshots, real outcomes.</em></h2>
+        <p class="lm-showcase-deck">An editorial guide, not a listicle. Cover to closer, every page is built around shipping a workflow into your business by Friday.</p>
+      </div>
+      <div class="lm-showcase-frame">
+        <div class="lm-showcase-cover" aria-label="The 3-Workflow Starter Kit cover">
+          <div class="lm-showcase-cover-screen">
+            <img src="Brand Assets/3-workflows-kit-cover-01.png" alt="Cover of the 3-Workflow Starter Kit PDF" loading="lazy" />
+          </div>
+        </div>
+        <div class="lm-showcase-pages" aria-label="Sample pages from the kit">
+          <div class="lm-showcase-page"><img src="Brand Assets/lead-magnet-showcase/p2.png"  alt="Why this exists — intro page with the 4 pains owners actually post about on Reddit" loading="lazy" /></div>
+          <div class="lm-showcase-page"><img src="Brand Assets/lead-magnet-showcase/p8.png"  alt="Workflow 01 chapter — Inbox Triage with the bonus Cowork briefing pill" loading="lazy" /></div>
+          <div class="lm-showcase-page"><img src="Brand Assets/lead-magnet-showcase/p12.png" alt="Workflow 02 — SOP-to-AI-Trainer Project setup" loading="lazy" /></div>
+          <div class="lm-showcase-page"><img src="Brand Assets/lead-magnet-showcase/p18.png" alt="Workflow 03 — Weekly marketing loop with the 5-script prompt" loading="lazy" /></div>
+          <div class="lm-showcase-page"><img src="Brand Assets/lead-magnet-showcase/p23.png" alt="Bonus Workflow 04 — The Invoice Killer with Claude Cowork" loading="lazy" /></div>
+          <div class="lm-showcase-page"><img src="Brand Assets/lead-magnet-showcase/p28.png" alt="Putting it all together — stack the four for 12+ hours a week back" loading="lazy" /></div>
         </div>
       </div>
     </div>
@@ -500,31 +517,6 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     </div>
   </section>
 
-  <!-- PAGE SHOWCASE -->
-  <section class="lm-showcase">
-    <div class="lm-showcase-inner">
-      <div class="lm-showcase-head">
-        <p class="lm-showcase-eyebrow">What's inside</p>
-        <h2 class="lm-showcase-title">25 pages of <em>real prompts, real screenshots, real outcomes.</em></h2>
-        <p class="lm-showcase-deck">An editorial guide, not a listicle. Cover to closer, every page is built around shipping a workflow into your business by Friday.</p>
-      </div>
-      <div class="lm-showcase-frame">
-        <div class="lm-showcase-cover" aria-label="The 3-Workflow Starter Kit cover">
-          <div class="lm-showcase-cover-screen">
-            <img src="Brand Assets/3-workflows-kit-cover-01.png" alt="Cover of the 3-Workflow Starter Kit PDF" loading="lazy" />
-          </div>
-        </div>
-        <div class="lm-showcase-pages" aria-label="Sample pages from the kit">
-          <div class="lm-showcase-page"><img src="Brand Assets/lead-magnet-showcase/p2.png"  alt="Why this exists — intro page with the 4 pains owners actually post about on Reddit" loading="lazy" /></div>
-          <div class="lm-showcase-page"><img src="Brand Assets/lead-magnet-showcase/p8.png"  alt="Workflow 01 chapter — Inbox Triage with the bonus Cowork briefing pill" loading="lazy" /></div>
-          <div class="lm-showcase-page"><img src="Brand Assets/lead-magnet-showcase/p12.png" alt="Workflow 02 — SOP-to-AI-Trainer Project setup" loading="lazy" /></div>
-          <div class="lm-showcase-page"><img src="Brand Assets/lead-magnet-showcase/p18.png" alt="Workflow 03 — Weekly marketing loop with the 5-script prompt" loading="lazy" /></div>
-          <div class="lm-showcase-page"><img src="Brand Assets/lead-magnet-showcase/p23.png" alt="Bonus Workflow 04 — The Invoice Killer with Claude Cowork" loading="lazy" /></div>
-          <div class="lm-showcase-page"><img src="Brand Assets/lead-magnet-showcase/p28.png" alt="Putting it all together — stack the four for 12+ hours a week back" loading="lazy" /></div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- HOW IT WORKS -->
   <section class="lm-how">
