@@ -19,7 +19,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   <title>The 3-Workflow Starter Kit: AI Workflows That Save 10+ Hours a Week | Alice Bazdikian</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="apple-touch-icon" href="/favicon.svg">
-  <meta name="description" content="Free 14-page guide for small business owners. 3 AI workflows you can run by Friday: inbox triage, SOP-to-AI trainer, weekly marketing loop. Real prompts. Real screenshots. 10+ hours saved every week. Download free." />
+  <meta name="description" content="Free 25-page guide for small business owners. 3 AI workflows you can run by Friday: inbox triage, SOP-to-AI trainer, weekly marketing loop. Real prompts. Real screenshots. 10+ hours saved every week. Download free." />
   <link rel="canonical" href="https://www.smallbusinessaicoach.com/3-workflows-starter-kit" />
   <meta name="robots" content="index, follow" />
   <meta property="og:type" content="article" />
@@ -195,6 +195,76 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     .lm-wf-sub { color: var(--ink-soft); font-size: 1.0625rem; margin: 0; }
 
     .lm-wf-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+
+    /* ───────── PAGE SHOWCASE ─────────
+       Cover left + 2x3 grid of inner pages right. Mirrors webinar-mockup.png. */
+    .lm-showcase {
+      background: #FAF6EE;
+      padding: 80px 32px;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
+    .lm-showcase-inner { max-width: 1180px; margin: 0 auto; }
+    .lm-showcase-head { text-align: center; margin-bottom: 48px; }
+    .lm-showcase-eyebrow {
+      font-family: 'Nunito', sans-serif; font-size: .75rem; font-weight: 800;
+      letter-spacing: .26em; text-transform: uppercase; color: var(--gold-deep);
+      margin: 0 0 14px;
+    }
+    .lm-showcase-title {
+      font-family: 'Fraunces', Georgia, serif; font-weight: 600;
+      font-size: clamp(1.8rem, 3.8vw, 2.6rem); line-height: 1.1; letter-spacing: -0.025em;
+      margin: 0 0 12px; color: var(--ink);
+    }
+    .lm-showcase-title em { font-style: italic; color: var(--green, #2F6F4F); }
+    .lm-showcase-deck {
+      font-size: 1.0625rem; color: var(--ink-soft); max-width: 38rem;
+      margin: 0 auto;
+    }
+
+    .lm-showcase-frame {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 36px; align-items: center;
+    }
+    .lm-showcase-cover {
+      position: relative;
+      background: #1F1A1F;
+      padding: 18px;
+      border-radius: 8px;
+      box-shadow:
+        0 28px 60px -28px rgba(31,26,23,.55),
+        0 8px 20px -10px rgba(168,123,31,.25);
+    }
+    .lm-showcase-cover-screen {
+      width: 100%; aspect-ratio: 8.5 / 11;
+      background: var(--white); border-radius: 4px; overflow: hidden;
+    }
+    .lm-showcase-cover-screen img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .lm-showcase-pages {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+    }
+    .lm-showcase-page {
+      aspect-ratio: 8.5 / 11;
+      background: var(--white);
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      box-shadow: 0 6px 14px -8px rgba(31,26,23,.18);
+      overflow: hidden;
+      transition: transform .25s cubic-bezier(.2,.9,.3,1.2);
+    }
+    .lm-showcase-page:hover { transform: translateY(-3px); }
+    .lm-showcase-page img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    @media (max-width: 880px) {
+      .lm-showcase-frame { grid-template-columns: 1fr; gap: 28px; }
+      .lm-showcase-cover { max-width: 380px; margin: 0 auto; }
+    }
+    @media (max-width: 520px) {
+      .lm-showcase { padding: 56px 18px; }
+      .lm-showcase-pages { grid-template-columns: 1fr 1fr; }
+    }
     .lm-wf-card {
       position: relative;
       background: var(--white); border-radius: 18px; padding: 26px 22px 22px;
@@ -299,7 +369,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   <section class="lm-hero" id="get-it">
     <div class="lm-hero-inner">
       <div class="lm-hero-copy">
-        <span class="lm-hero-tag"><span class="lm-hero-tag-dot"></span> Free · 14-page guide · 3 workflows + 1 bonus</span>
+        <span class="lm-hero-tag"><span class="lm-hero-tag-dot"></span> Free · 25-page guide · 3 workflows + 1 bonus</span>
         <h1 class="lm-hero-title">3 AI workflows that save <em>10+ hours every week.</em> Plus a bonus 4th workflow nobody else is teaching.</h1>
         <p class="lm-hero-sub">
           A free guide for small business owners <strong>tired of "10 prompts to copy-paste" listicles.</strong> Three real workflows (inbox triage, SOP-to-AI trainer, weekly marketing loop), each with the exact prompts, real outcomes, and the time you'll get back. <strong>Plus a bonus 4th workflow</strong> for the loudest pain on the internet right now: manual supplier invoices. <strong>No tech skills required.</strong>
@@ -313,7 +383,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
       </div>
 
       <div class="lm-cover-art">
-        <div class="lm-ipad" aria-label="Preview of the 14-page PDF cover">
+        <div class="lm-ipad" aria-label="Preview of the 25-page PDF cover">
           <div class="lm-ipad-screen">
             <img src="Brand Assets/3-workflows-kit-cover-01.png" alt="Cover of the 3-Workflow Starter Kit PDF" />
           </div>
@@ -426,6 +496,32 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
             <span class="lm-wf-pill lm-wf-pill--setup">Setup: 10 min, once</span>
           </div>
         </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE SHOWCASE -->
+  <section class="lm-showcase">
+    <div class="lm-showcase-inner">
+      <div class="lm-showcase-head">
+        <p class="lm-showcase-eyebrow">What's inside</p>
+        <h2 class="lm-showcase-title">25 pages of <em>real prompts, real screenshots, real outcomes.</em></h2>
+        <p class="lm-showcase-deck">An editorial guide, not a listicle. Cover to closer, every page is built around shipping a workflow into your business by Friday.</p>
+      </div>
+      <div class="lm-showcase-frame">
+        <div class="lm-showcase-cover" aria-label="The 3-Workflow Starter Kit cover">
+          <div class="lm-showcase-cover-screen">
+            <img src="Brand Assets/3-workflows-kit-cover-01.png" alt="Cover of the 3-Workflow Starter Kit PDF" loading="lazy" />
+          </div>
+        </div>
+        <div class="lm-showcase-pages" aria-label="Sample pages from the kit">
+          <div class="lm-showcase-page"><img src="Brand Assets/lead-magnet-showcase/p2.png"  alt="Why this exists — intro page with the 4 pains owners actually post about on Reddit" loading="lazy" /></div>
+          <div class="lm-showcase-page"><img src="Brand Assets/lead-magnet-showcase/p8.png"  alt="Workflow 01 chapter — Inbox Triage with the bonus Cowork briefing pill" loading="lazy" /></div>
+          <div class="lm-showcase-page"><img src="Brand Assets/lead-magnet-showcase/p12.png" alt="Workflow 02 — SOP-to-AI-Trainer Project setup" loading="lazy" /></div>
+          <div class="lm-showcase-page"><img src="Brand Assets/lead-magnet-showcase/p18.png" alt="Workflow 03 — Weekly marketing loop with the 5-script prompt" loading="lazy" /></div>
+          <div class="lm-showcase-page"><img src="Brand Assets/lead-magnet-showcase/p23.png" alt="Bonus Workflow 04 — The Invoice Killer with Claude Cowork" loading="lazy" /></div>
+          <div class="lm-showcase-page"><img src="Brand Assets/lead-magnet-showcase/p28.png" alt="Putting it all together — stack the four for 12+ hours a week back" loading="lazy" /></div>
+        </div>
       </div>
     </div>
   </section>
