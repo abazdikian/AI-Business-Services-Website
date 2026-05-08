@@ -28,17 +28,17 @@
 
     @page {
       size: 8.5in 11in;
-      margin: 0.7in 0.7in 0.85in;        /* applies to EVERY printed page, including overflow pages */
-      @bottom-left  { content: "smallbusinessaicoach.com"; font-family: 'Nunito', sans-serif; font-size: 8pt; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: #A87B1F; }
-      @bottom-right { content: "The 3-Workflow Starter Kit · Page " counter(page); font-family: 'Nunito', sans-serif; font-size: 8pt; color: #8B7D81; letter-spacing: .04em; }
+      margin: 0;                            /* ZERO margin on every page; pages add their own padding */
+      @bottom-left  { content: "smallbusinessaicoach.com"; font-family: 'Nunito', sans-serif; font-size: 8pt; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: #A87B1F; margin: 0 0.7in 0.45in; }
+      @bottom-right { content: "The 3-Workflow Starter Kit · Page " counter(page); font-family: 'Nunito', sans-serif; font-size: 8pt; color: #8B7D81; letter-spacing: .04em; margin: 0 0.7in 0.45in; }
     }
     @page :first {
-      size: 8.5in 11in;
-      margin: 0 !important;               /* cover is full-bleed, no exceptions */
-      @bottom-left  { content: ""; }
-      @bottom-right { content: ""; }
-      @top-left     { content: ""; }
-      @top-right    { content: ""; }
+      margin: 0;
+      @bottom-left   { content: none; margin: 0; }
+      @bottom-right  { content: none; margin: 0; }
+      @bottom-center { content: none; margin: 0; }
+      @top-left      { content: none; margin: 0; }
+      @top-right     { content: none; margin: 0; }
     }
 
     html, body { background: var(--white); color: var(--ink); margin: 0; padding: 0; }
@@ -51,19 +51,23 @@
     p { font-weight: 500; }
     strong { font-weight: 800; }
 
-    /* Each major chapter starts on a fresh printed page. Editorial flow. */
-    .page { padding-bottom: 0; }
+    /* Each major chapter starts on a fresh printed page. Editorial flow.
+       @page margin is 0 (so the cover can full-bleed); regular pages add their
+       own internal padding here. Cover overrides this. */
+    .page { padding: 0.7in 0.7in 0.85in; box-sizing: border-box; }
     .intro-start, .setup-start, .workflow-start, .stack-start, .closer-start {
       page-break-before: always;
       break-before: page;
     }
-    /* Cover sized to the page, gradient ::before declared above overshoots edges. */
+    /* Cover full-bleed: @page margin is 0 globally now; cover overrides .page
+       padding to reach all 4 edges. */
     .cover {
-      width: 8.5in; height: 11in;
-      padding: 0; margin: 0; box-sizing: border-box;
+      width: 8.5in; height: 11.25in;
+      padding: 0; margin: 0;
+      box-sizing: border-box;
       position: relative; overflow: visible;
     }
-    .cover-inner { position: relative; z-index: 1; }
+    .cover-inner { position: relative; z-index: 1; padding: 0.65in 0.55in 0.5in; box-sizing: border-box; height: 100%; }
     /* Old per-section footer divs — hidden, replaced by @page @bottom-* */
     .page-footer { display: none; }
     .page-footer-mark { font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-deep); }
