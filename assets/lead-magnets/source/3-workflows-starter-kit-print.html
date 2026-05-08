@@ -57,18 +57,11 @@
       page-break-before: always;
       break-before: page;
     }
-    /* Cover full-bleed: page is 8.5x11 but we paint a ::before that overshoots
-       past the page edges (visible because @page :first { margin:0 }). */
+    /* Cover sized to the page, gradient ::before declared above overshoots edges. */
     .cover {
       width: 8.5in; height: 11in;
       padding: 0; margin: 0; box-sizing: border-box;
       position: relative; overflow: visible;
-    }
-    .cover::before {
-      content: ""; position: absolute;
-      top: -0.25in; left: -0.25in; right: -0.25in; bottom: -0.25in;
-      background: inherit;
-      z-index: 0;
     }
     .cover-inner { position: relative; z-index: 1; }
     /* Old per-section footer divs — hidden, replaced by @page @bottom-* */
@@ -96,8 +89,14 @@
     }
 
     /* COVER */
-    .cover {
-      padding: 0; position: relative;
+    .cover { padding: 0; position: relative; background: var(--white); }
+    /* The actual painted gradient lives on a ::before that physically overshoots
+       the 8.5x11 page by 0.5in on every side. It sits below cover-inner content. */
+    .cover::before {
+      content: "";
+      position: absolute;
+      top: -0.5in; left: -0.5in; right: -0.5in; bottom: -0.5in;
+      z-index: 0;
       background:
         radial-gradient(ellipse 60% 45% at 90% 0%, rgba(230,196,114,.85), transparent 70%),
         radial-gradient(ellipse 70% 55% at 0% 100%, rgba(107,178,140,.55), transparent 70%),
