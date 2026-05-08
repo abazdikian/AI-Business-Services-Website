@@ -408,23 +408,58 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
                 <input id="lm-fname" name="metadata.first_name" type="text" required placeholder="Alice" class="lm-form-input" autocomplete="given-name" />
               </div>
               <div class="lm-form-field">
-                <label for="lm-email" class="lm-form-label">Work email *</label>
-                <input id="lm-email" name="email" type="email" required placeholder="you@work.com" class="lm-form-input" autocomplete="email" />
+                <label for="lm-lname" class="lm-form-label">Last name *</label>
+                <input id="lm-lname" name="metadata.last_name" type="text" required placeholder="Bazdikian" class="lm-form-input" autocomplete="family-name" />
               </div>
             </div>
+
             <div class="lm-form-field">
-              <label for="lm-biz" class="lm-form-label">Business type *</label>
-              <select id="lm-biz" name="metadata.business_type" required class="lm-form-input lm-form-select">
+              <label for="lm-email" class="lm-form-label">Work email *</label>
+              <input id="lm-email" name="email" type="email" required placeholder="you@work.com" class="lm-form-input" autocomplete="email" />
+            </div>
+
+            <div class="lm-form-row">
+              <div class="lm-form-field">
+                <label for="lm-biz" class="lm-form-label">Business type *</label>
+                <select id="lm-biz" name="metadata.business_type" required class="lm-form-input lm-form-select">
+                  <option value="" disabled selected>Choose one…</option>
+                  <option value="service">Service-based (consulting, agency, coaching)</option>
+                  <option value="product">Product / e-commerce</option>
+                  <option value="brick-mortar">Brick &amp; mortar / local services</option>
+                  <option value="trades">Trades / contractor (HVAC, plumbing, electrical)</option>
+                  <option value="health">Health / wellness practice</option>
+                  <option value="creator">Creator / personal brand</option>
+                  <option value="saas">SaaS / tech product</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="lm-form-field">
+                <label for="lm-role" class="lm-form-label">Your role *</label>
+                <select id="lm-role" name="metadata.role" required class="lm-form-input lm-form-select">
+                  <option value="" disabled selected>Choose one…</option>
+                  <option value="owner">Owner / founder</option>
+                  <option value="cofounder">Co-founder / partner</option>
+                  <option value="solopreneur">Solopreneur (just me)</option>
+                  <option value="ops">COO / operator</option>
+                  <option value="marketing">Marketing lead</option>
+                  <option value="manager">Manager / team lead</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="lm-form-field">
+              <label for="lm-biz-size" class="lm-form-label">Team size *</label>
+              <select id="lm-biz-size" name="metadata.business_size" required class="lm-form-input lm-form-select">
                 <option value="" disabled selected>Choose one…</option>
-                <option value="service">Service-based (consulting, agency, coaching)</option>
-                <option value="product">Product / e-commerce</option>
-                <option value="brick-mortar">Brick &amp; mortar / local services</option>
-                <option value="trades">Trades / contractor</option>
-                <option value="health">Health / wellness practice</option>
-                <option value="creator">Creator / personal brand</option>
-                <option value="other">Other</option>
+                <option value="solo">Just me</option>
+                <option value="2-5">2 – 5 people</option>
+                <option value="6-15">6 – 15 people</option>
+                <option value="16-50">16 – 50 people</option>
+                <option value="50+">50+ people</option>
               </select>
             </div>
+
             <input type="hidden" name="tag" value="lead-magnet-3-workflows" />
             <input type="hidden" name="metadata.signup_source" value="3-workflows-starter-kit" />
             <input type="hidden" name="destination" value="/thank-you-3-workflows" />
