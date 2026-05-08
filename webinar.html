@@ -129,10 +129,10 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     /* ── ANNOUNCE BAR + COUNTDOWN ── */
     .wb-band {
       background: var(--ink); color: var(--white);
-      font-size: .8125rem; font-weight: 600; letter-spacing: .04em;
-      padding: 10px 24px; text-align: center;
+      font-size: 1rem; font-weight: 600; letter-spacing: .04em;
+      padding: 14px 24px; text-align: center;
     }
-    .wb-band strong { color: var(--gold-warm); font-weight: 800; }
+    .wb-band strong { color: #FFFFFF; font-weight: 800; letter-spacing: .03em; }
     .wb-band-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--burgundy-glow); margin: 0 12px; vertical-align: middle; animation: wbpulse 2.4s ease-in-out infinite; }
     @keyframes wbpulse { 0%,100% { opacity: .9; transform: scale(1); } 50% { opacity: .4; transform: scale(1.6); } }
 
@@ -285,6 +285,11 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
       color: var(--ink); margin: 8px 0 16px;
     }
     .wb-quote-text::before, .wb-quote-text::after { content: ""; }
+    .wb-quote-emph {
+      color: #C7402A; font-weight: 700; font-style: italic;
+      background: linear-gradient(180deg, transparent 62%, rgba(229,99,74,.18) 62%, rgba(229,99,74,.18) 92%, transparent 92%);
+      padding: 0 2px;
+    }
     .wb-quote-src {
       font-family: 'Nunito', sans-serif; font-size: .6875rem; font-weight: 800;
       letter-spacing: .18em; text-transform: uppercase; color: var(--gold-deep);
@@ -541,7 +546,8 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
       color: var(--ink);
     }
     .wb-faq-title em { font-style: italic; color: var(--burgundy); }
-    .wb-faq-list { display: grid; gap: 16px; }
+    .wb-faq-list { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 24px; align-items: start; }
+    @media (max-width: 768px) { .wb-faq-list { grid-template-columns: 1fr; } }
     .wb-faq-item {
       background: var(--white); border: 1px solid var(--rule); border-radius: 20px;
       padding: 30px 36px;
@@ -842,42 +848,42 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
 
       <div class="wb-quotes">
         <blockquote class="wb-quote">
-          <p class="wb-quote-text">I'm drowning in manual work. We manually enter every supplier invoice and then manually log into the bank to set up every single payment.</p>
+          <p class="wb-quote-text"><span class="wb-quote-emph">I'm drowning in manual work.</span> We manually enter every supplier invoice and then manually log into the bank to set up every single payment.</p>
           <p class="wb-quote-src">Business owner</p>
         </blockquote>
 
         <blockquote class="wb-quote">
-          <p class="wb-quote-text">Emails, tasks, follow-ups. Everything ends up scattered. Sometimes I forget to follow up, sometimes tasks just stay in my head unless I write them down manually.</p>
+          <p class="wb-quote-text">Emails, tasks, follow-ups. <span class="wb-quote-emph">Everything ends up scattered.</span> Sometimes I forget to follow up, sometimes tasks just stay in my head unless I write them down manually.</p>
           <p class="wb-quote-src">Service business owner</p>
         </blockquote>
 
         <blockquote class="wb-quote">
-          <p class="wb-quote-text">I spent $1000+ on AI and API and all kinds of services. But no good product yet. And it's been so stressful, when you see everyone moving so fast.</p>
+          <p class="wb-quote-text"><span class="wb-quote-emph">I spent $1000+ on AI</span> and API and all kinds of services. But no good product yet. And it's been so stressful, when you see everyone moving so fast.</p>
           <p class="wb-quote-src">Founder</p>
         </blockquote>
 
         <blockquote class="wb-quote">
-          <p class="wb-quote-text">I'm not sure how much actually translates into real results. Am I building a real business or just looking like one?</p>
+          <p class="wb-quote-text">I'm not sure how much actually translates into real results. <span class="wb-quote-emph">Am I building a real business or just looking like one?</span></p>
           <p class="wb-quote-src">Accounting firm owner</p>
         </blockquote>
 
         <blockquote class="wb-quote">
-          <p class="wb-quote-text">The manual data entry into our shipping software is killing us. We're moving 500 units a week.</p>
+          <p class="wb-quote-text">The manual data entry into our shipping software <span class="wb-quote-emph">is killing us.</span> We're moving 500 units a week.</p>
           <p class="wb-quote-src">E-commerce owner</p>
         </blockquote>
 
         <blockquote class="wb-quote">
-          <p class="wb-quote-text">Now everything looks productive, but nobody really knows what AI is actually touching, or where the outputs are even going.</p>
+          <p class="wb-quote-text">Now everything looks productive, but <span class="wb-quote-emph">nobody really knows what AI is actually touching</span>, or where the outputs are even going.</p>
           <p class="wb-quote-src">Founder</p>
         </blockquote>
 
         <blockquote class="wb-quote">
-          <p class="wb-quote-text">I want to spend my time on creative work, not admin. I need things that are easy to set up and hard to break.</p>
+          <p class="wb-quote-text"><span class="wb-quote-emph">I want to spend my time on creative work, not admin.</span> I need things that are easy to set up and hard to break.</p>
           <p class="wb-quote-src">Solopreneur</p>
         </blockquote>
 
         <blockquote class="wb-quote">
-          <p class="wb-quote-text">I've spent way much time getting overwhelmed and distracted at work. The theory was right, the execution was painful.</p>
+          <p class="wb-quote-text">I've spent way much time <span class="wb-quote-emph">getting overwhelmed and distracted at work.</span> The theory was right, the execution was painful.</p>
           <p class="wb-quote-src">Solopreneur + accounting firm owner</p>
         </blockquote>
       </div>
