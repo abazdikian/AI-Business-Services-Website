@@ -57,8 +57,14 @@
       page-break-before: always;
       break-before: page;
     }
-    /* Cover full-bleed via @page :first. Box-sizing border-box so padding doesn't overflow. */
-    .cover { width: 8.5in; height: 11in; padding: 0; margin: 0; box-sizing: border-box; overflow: hidden; }
+    /* Cover full-bleed via @page :first. Slightly oversize so any sub-pixel
+       print margin still gets covered by the gradient (Chrome can leave a
+       hairline white edge otherwise). overflow:hidden keeps content clipped. */
+    .cover {
+      width: 8.6in; height: 11.1in;
+      margin: -0.05in 0 0 -0.05in;
+      padding: 0; box-sizing: border-box; overflow: hidden;
+    }
     /* Old per-section footer divs — hidden, replaced by @page @bottom-* */
     .page-footer { display: none; }
     .page-footer-mark { font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-deep); }
@@ -87,12 +93,12 @@
     .cover {
       padding: 0; position: relative;
       background:
-        radial-gradient(ellipse 60% 45% at 90% 0%, rgba(230,196,114,.85), transparent 70%),
-        radial-gradient(ellipse 70% 55% at 0% 100%, rgba(107,178,140,.65), transparent 70%),
-        radial-gradient(ellipse 80% 60% at 100% 100%, rgba(212,168,74,.45), transparent 65%),
-        radial-gradient(ellipse 65% 55% at 0% 0%, rgba(47,111,79,.32), transparent 70%),
-        radial-gradient(ellipse 90% 70% at 50% 50%, rgba(253,251,245,.6), transparent 70%),
-        var(--white);
+        radial-gradient(ellipse 75% 60% at 90% 0%,   rgba(230,196,114,.95), transparent 100%),
+        radial-gradient(ellipse 80% 70% at 0% 100%,  rgba(107,178,140,.92), transparent 100%),
+        radial-gradient(ellipse 90% 80% at 100% 100%,rgba(212,168,74,.70),  transparent 100%),
+        radial-gradient(ellipse 80% 70% at 0% 0%,    rgba(47,111,79,.55),   transparent 100%),
+        radial-gradient(ellipse 100% 80% at 50% 50%, rgba(253,251,245,.75), transparent 90%),
+        linear-gradient(135deg, #FDFBF5 0%, #F4ECDC 50%, #E8DDC2 100%);
     }
     .cover-inner { padding: 0.65in 0.55in 0.5in; height: 100%; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; }
     .cover-mark { font-family: 'Nunito', sans-serif; font-size: 10pt; font-weight: 800; letter-spacing: .26em; text-transform: uppercase; color: var(--green); }
@@ -139,12 +145,42 @@
     .cover-meta { display: flex; gap: 22px; flex-wrap: wrap; font-size: 11pt; color: var(--ink-soft); margin: 0; padding: 14px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
     .cover-meta span { display: inline-flex; align-items: center; gap: 6px; }
     .cover-meta strong { color: var(--green); font-weight: 800; }
-    /* Process-flow diagram — centered, line-art reference image. */
+    /* Hero row: process diagram with a starburst pill overlaid on its right edge. */
+    .cover-hero-row {
+      position: relative;
+      margin: 14px 0 0;
+    }
     .cover-hero-art {
-      width: 100%; max-width: 7in; margin: 18px auto 0;
+      width: 100%; max-width: 5.6in;
       pointer-events: none;
     }
-    .cover-hero-art img { width: 100%; height: auto; display: block; }
+    .cover-hero-art img {
+      width: 100%; height: auto; display: block;
+      /* Tint the line-art ink to our brand green (#2F6F4F) while keeping the
+         page-white as white, then multiply so the white drops into the gradient.
+         Color matrix: black -> green, white -> white, linear in between. */
+      filter: url(#tint-ink-green);
+      mix-blend-mode: multiply;
+    }
+    /* Starburst pill — overlaid on the right side of the diagram. */
+    .cover-burst {
+      position: absolute;
+      right: -0.15in; top: 50%;
+      transform: translateY(-50%) rotate(-8deg);
+      width: 2.15in; height: 2.15in;
+      display: flex; align-items: center; justify-content: center;
+      z-index: 2;
+    }
+    .cover-burst svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .cover-burst-text {
+      position: relative; z-index: 1;
+      width: 76%;
+      text-align: center;
+      font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 600;
+      font-size: 13pt; line-height: 1.15; color: var(--ink);
+      letter-spacing: -0.01em;
+    }
+    .cover-burst-text strong { color: var(--green); font-style: normal; font-weight: 700; }
     /* Foot row: photo + identity block on the left, contact + socials on the right. */
     .cover-foot {
       display: flex; align-items: center; justify-content: space-between;
@@ -371,6 +407,19 @@
 <body>
 
   <!-- ───────── PAGE 1: COVER ───────── -->
+  <!-- Inline SVG filter: black-line ink -> brand green, white -> white -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <filter id="tint-ink-green" color-interpolation-filters="sRGB">
+        <feColorMatrix type="matrix" values="
+          0.816 0     0     0  0.184
+          0     0.565 0     0  0.435
+          0     0     0.690 0  0.310
+          0     0     0     1  0"/>
+      </filter>
+    </defs>
+  </svg>
+
   <section class="page cover">
     <div class="cover-inner">
       <div>
@@ -388,9 +437,17 @@
           <span><strong>+ Bonus Workflow 04</strong></span>
         </div>
 
-        <!-- Process-flow blueprint diagram, embedded as image (per reference) -->
-        <div class="cover-hero-art" aria-hidden="true">
-          <img src="../../../Brand Assets/cover-process-diagram.png" alt="" />
+        <!-- Hero row: process-flow blueprint + starburst pill -->
+        <div class="cover-hero-row">
+          <div class="cover-hero-art" aria-hidden="true">
+            <img src="../../../Brand Assets/cover-process-diagram.png" alt="" />
+          </div>
+          <div class="cover-burst" aria-label="What would you do if you got a workday back?">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <polygon fill="#E6C472" stroke="#A87B1F" stroke-width="0.6" points="50.000,0.000 56.633,16.653 69.134,3.806 68.889,21.730 85.355,14.645 78.270,31.111 96.194,30.866 83.347,43.367 100.000,50.000 83.347,56.633 96.194,69.134 78.270,68.889 85.355,85.355 68.889,78.270 69.134,96.194 56.633,83.347 50.000,100.000 43.367,83.347 30.866,96.194 31.111,78.270 14.645,85.355 21.730,68.889 3.806,69.134 16.653,56.633 0.000,50.000 16.653,43.367 3.806,30.866 21.730,31.111 14.645,14.645 31.111,21.730 30.866,3.806 43.367,16.653" />
+            </svg>
+            <div class="cover-burst-text">What would <em>you</em> do with <strong>a workday back</strong>?</div>
+          </div>
         </div>
       </div>
 
