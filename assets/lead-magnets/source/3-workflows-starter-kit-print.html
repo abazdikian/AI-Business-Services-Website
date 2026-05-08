@@ -75,10 +75,11 @@
     .cover {
       padding: 0; position: relative;
       background:
-        radial-gradient(ellipse at 85% 5%, rgba(230,196,114,.55), transparent 50%),
-        radial-gradient(ellipse at 0% 100%, rgba(107,178,140,.38), transparent 50%),
-        radial-gradient(ellipse at 55% 65%, rgba(212,168,74,.32), transparent 50%),
-        radial-gradient(ellipse at 100% 50%, rgba(47,111,79,.10), transparent 60%),
+        radial-gradient(ellipse 60% 45% at 90% 0%, rgba(230,196,114,.85), transparent 70%),
+        radial-gradient(ellipse 70% 55% at 0% 100%, rgba(107,178,140,.65), transparent 70%),
+        radial-gradient(ellipse 80% 60% at 100% 100%, rgba(212,168,74,.45), transparent 65%),
+        radial-gradient(ellipse 65% 55% at 0% 0%, rgba(47,111,79,.32), transparent 70%),
+        radial-gradient(ellipse 90% 70% at 50% 50%, rgba(253,251,245,.6), transparent 70%),
         var(--white);
     }
     .cover-inner { padding: 0.7in 0.6in 0.55in; height: 11in; display: flex; flex-direction: column; justify-content: space-between; }
@@ -106,16 +107,16 @@
       -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
       position: relative;
     }
-    /* Hand-drawn gold swoosh UNDERLINE beneath the italic phrase.
-       Drawn as an inline SVG via background-image, tiled per-line via
-       box-decoration-break so multi-line phrases each get their own swoosh. */
+    /* Straight gold underline beneath the italic phrase.
+       Tiled per-line via box-decoration-break so multi-line phrases each get
+       their own clean horizontal line. */
     .cover-h1-swoosh {
       display: inline;
-      padding: 0 0.04em 0.18em;
-      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 14' preserveAspectRatio='none'><path d='M2,9 C 40,2 90,12 130,6 C 160,2 185,8 198,5' stroke='%23D4A84A' stroke-width='5' stroke-linecap='round' fill='none' opacity='0.78'/></svg>");
+      padding-bottom: 0.06em;
+      background-image: linear-gradient(180deg, transparent 0%, transparent 95%, #D4A84A 95%, #D4A84A 100%);
       background-repeat: no-repeat;
       background-position: 0 100%;
-      background-size: 100% 0.22em;
+      background-size: 100% 0.18em;
       -webkit-box-decoration-break: clone;
               box-decoration-break: clone;
     }
@@ -225,13 +226,14 @@
       font-style: italic; margin: 8px 4px 2px;
     }
 
-    /* BONUS starburst badge for Workflow 04 chapter — large magazine-style splash */
+    /* BONUS starburst badge for Workflow 04 chapter — large magazine-style splash.
+       Positioned fully inside the page so spikes don't clip; small tilt for energy. */
     .chapter-header { position: relative; }
     .bonus-starburst {
-      position: absolute; top: -36px; right: -28px;
-      width: 270px; height: 270px;
+      position: absolute; top: -8px; right: 4px;
+      width: 240px; height: 240px;
       display: flex; align-items: center; justify-content: center;
-      transform: rotate(12deg);
+      transform: rotate(8deg);
     }
     .bonus-starburst svg { width: 100%; height: 100%; }
     .bonus-starburst-text {
@@ -247,7 +249,7 @@
     /* WORKFLOW CHAPTER */
     .chapter-header { padding-bottom: 14px; border-bottom: 1px solid var(--rule); margin-bottom: 18px; }
     /* WF04 chapter has the BONUS starburst pinned to the top-right; reserve space so subhead text doesn't run under it */
-    .workflow-start:has(.bonus-starburst) .chapter-header { padding-right: 250px; min-height: 250px; }
+    .workflow-start:has(.bonus-starburst) .chapter-header { padding-right: 230px; min-height: 230px; }
     .chapter-num {
       display: inline-block; font-family: 'Fraunces', Georgia, serif; font-style: italic;
       font-size: 38pt; font-weight: 400; line-height: 1;
@@ -375,63 +377,117 @@
           <span><strong>+ Bonus Workflow 04</strong></span>
         </div>
 
-        <!-- Editorial workflow diagram: 4 small-business workflow tiles connecting into a center hub -->
+        <!-- Architecture-style process-flow blueprint: inputs -> the engine -> outputs.
+             Line-art editorial illustration, NOT a tile-collage. -->
         <div class="cover-hero-art" aria-hidden="true">
-          <svg viewBox="0 0 660 280" xmlns="http://www.w3.org/2000/svg">
+          <svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" font-family="Nunito, sans-serif">
             <defs>
-              <linearGradient id="goldFlow" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="#E6C472"/>
-                <stop offset="100%" stop-color="#A87B1F"/>
-              </linearGradient>
-              <linearGradient id="greenFlow" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="#2F6F4F"/>
-                <stop offset="100%" stop-color="#6BB28C"/>
-              </linearGradient>
-              <radialGradient id="hubGlow" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#E6C472" stop-opacity="0.45"/>
-                <stop offset="100%" stop-color="#E6C472" stop-opacity="0"/>
-              </radialGradient>
+              <marker id="arrowGreen" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                <path d="M0,0 L10,5 L0,10 Z" fill="#2F6F4F"/>
+              </marker>
+              <marker id="arrowGold" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                <path d="M0,0 L10,5 L0,10 Z" fill="#A87B1F"/>
+              </marker>
             </defs>
 
-            <!-- Soft hub halo -->
-            <circle cx="330" cy="140" r="92" fill="url(#hubGlow)"/>
+            <!-- COLUMN HEADERS -->
+            <text x="100"  y="14" text-anchor="middle" font-size="9"  font-weight="800" letter-spacing="2.2" fill="#A87B1F">YOUR INPUTS</text>
+            <text x="360"  y="14" text-anchor="middle" font-size="9"  font-weight="800" letter-spacing="2.2" fill="#2F6F4F">THE ENGINE</text>
+            <text x="620"  y="14" text-anchor="middle" font-size="9"  font-weight="800" letter-spacing="2.2" fill="#A87B1F">YOUR OUTPUTS</text>
 
-            <!-- Connecting curves: 4 tiles into the central hub -->
-            <path d="M 90 70  C 180 90, 240 110, 290 130"  stroke="url(#greenFlow)" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.7"/>
-            <path d="M 570 70 C 480 90, 420 110, 370 130"  stroke="url(#goldFlow)"  stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.7"/>
-            <path d="M 90 230  C 180 210, 240 170, 290 150" stroke="url(#goldFlow)"  stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.7"/>
-            <path d="M 570 230 C 480 210, 420 170, 370 150" stroke="url(#greenFlow)" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.7"/>
+            <!-- ============= LEFT COLUMN · INPUTS (line-art icons + label) ============= -->
+            <!-- Emails -->
+            <g transform="translate(60, 38)" stroke="#2B1A1F" stroke-width="1.3" fill="none">
+              <rect x="0" y="3" width="38" height="26" rx="2"/>
+              <path d="M0 5 L19 20 L38 5"/>
+            </g>
+            <text x="100" y="56" text-anchor="middle" font-size="10" font-weight="800" fill="#2B1A1F">Emails</text>
 
-            <!-- TILE 1: Inbox triage (top-left) -->
-            <rect x="20" y="36" width="140" height="72" rx="10" fill="#FDFBF5" stroke="#2F6F4F" stroke-width="1.4"/>
-            <text x="34"  y="62" font-family="Fraunces, Georgia, serif" font-style="italic" font-size="14" fill="#A87B1F">01</text>
-            <text x="34"  y="84" font-family="Nunito, sans-serif" font-size="11" font-weight="800" fill="#2B1A1F">Inbox triage</text>
-            <text x="34"  y="100" font-family="Nunito, sans-serif" font-size="8.5" font-weight="700" letter-spacing="1.5" fill="#6B5A5F">SAVES ≈ 5 HRS/WK</text>
+            <!-- SOPs / Voice samples -->
+            <g transform="translate(64, 92)" stroke="#2B1A1F" stroke-width="1.3" fill="none">
+              <path d="M0 0 H24 L34 10 V36 H0 Z"/>
+              <line x1="6" y1="14" x2="28" y2="14"/>
+              <line x1="6" y1="20" x2="28" y2="20"/>
+              <line x1="6" y1="26" x2="20" y2="26"/>
+            </g>
+            <text x="100" y="146" text-anchor="middle" font-size="10" font-weight="800" fill="#2B1A1F">SOPs · brand voice</text>
 
-            <!-- TILE 2: SOP-to-AI-Trainer (top-right) -->
-            <rect x="500" y="36" width="140" height="72" rx="10" fill="#FDFBF5" stroke="#A87B1F" stroke-width="1.4"/>
-            <text x="514" y="62" font-family="Fraunces, Georgia, serif" font-style="italic" font-size="14" fill="#A87B1F">02</text>
-            <text x="514" y="84" font-family="Nunito, sans-serif" font-size="11" font-weight="800" fill="#2B1A1F">SOPs in your voice</text>
-            <text x="514" y="100" font-family="Nunito, sans-serif" font-size="8.5" font-weight="700" letter-spacing="1.5" fill="#6B5A5F">SAVES ≈ 3 HRS/WK</text>
+            <!-- Topics / Marketing brief -->
+            <g transform="translate(64, 180)" stroke="#2B1A1F" stroke-width="1.3" fill="none">
+              <path d="M0 4 H32 V22 H10 L4 30 V22 H0 Z"/>
+              <line x1="6" y1="11" x2="26" y2="11"/>
+              <line x1="6" y1="17" x2="22" y2="17"/>
+            </g>
+            <text x="100" y="226" text-anchor="middle" font-size="10" font-weight="800" fill="#2B1A1F">Weekly topic</text>
 
-            <!-- TILE 3: Marketing loop (bottom-left) -->
-            <rect x="20" y="194" width="140" height="72" rx="10" fill="#FDFBF5" stroke="#A87B1F" stroke-width="1.4"/>
-            <text x="34"  y="220" font-family="Fraunces, Georgia, serif" font-style="italic" font-size="14" fill="#A87B1F">03</text>
-            <text x="34"  y="242" font-family="Nunito, sans-serif" font-size="11" font-weight="800" fill="#2B1A1F">Weekly marketing</text>
-            <text x="34"  y="258" font-family="Nunito, sans-serif" font-size="8.5" font-weight="700" letter-spacing="1.5" fill="#6B5A5F">SAVES ≈ 4 HRS/WK</text>
+            <!-- Service rate sheet -->
+            <g transform="translate(66, 258)" stroke="#2B1A1F" stroke-width="1.3" fill="none">
+              <rect x="0" y="0" width="32" height="36" rx="1"/>
+              <line x1="5" y1="9"  x2="27" y2="9"/>
+              <line x1="5" y1="16" x2="27" y2="16"/>
+              <line x1="5" y1="23" x2="20" y2="23"/>
+              <text x="22" y="32" font-size="9" font-weight="800" fill="#A87B1F" stroke="none">$</text>
+            </g>
+            <text x="100" y="306" text-anchor="middle" font-size="10" font-weight="800" fill="#2B1A1F">Rate sheet</text>
 
-            <!-- TILE 4: Bonus invoice killer (bottom-right) -->
-            <rect x="500" y="194" width="140" height="72" rx="10" fill="#FDFBF5" stroke="#2F6F4F" stroke-width="1.4"/>
-            <text x="514" y="220" font-family="Fraunces, Georgia, serif" font-style="italic" font-size="14" fill="#A87B1F">+ Bonus</text>
-            <text x="514" y="242" font-family="Nunito, sans-serif" font-size="11" font-weight="800" fill="#2B1A1F">Invoice killer</text>
-            <text x="514" y="258" font-family="Nunito, sans-serif" font-size="8.5" font-weight="700" letter-spacing="1.5" fill="#6B5A5F">2–4 HRS/MO BACK</text>
+            <!-- INPUT → ENGINE arrows -->
+            <line x1="160" y1="50"  x2="244" y2="120" stroke="#A87B1F" stroke-width="1.2" stroke-linecap="round" marker-end="url(#arrowGold)" opacity="0.85"/>
+            <line x1="160" y1="138" x2="244" y2="148" stroke="#A87B1F" stroke-width="1.2" stroke-linecap="round" marker-end="url(#arrowGold)" opacity="0.85"/>
+            <line x1="160" y1="218" x2="244" y2="172" stroke="#A87B1F" stroke-width="1.2" stroke-linecap="round" marker-end="url(#arrowGold)" opacity="0.85"/>
+            <line x1="160" y1="298" x2="244" y2="200" stroke="#A87B1F" stroke-width="1.2" stroke-linecap="round" marker-end="url(#arrowGold)" opacity="0.85"/>
 
-            <!-- CENTER HUB: 10+ hrs / week saved -->
-            <circle cx="330" cy="140" r="60" fill="#FDFBF5" stroke="#A87B1F" stroke-width="2"/>
-            <circle cx="330" cy="140" r="52" fill="none" stroke="#D4A84A" stroke-width="0.7" opacity="0.55"/>
-            <text x="330" y="138" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-style="italic" font-size="32" font-weight="700" fill="#2F6F4F">10+</text>
-            <text x="330" y="158" text-anchor="middle" font-family="Nunito, sans-serif" font-size="9" font-weight="800" letter-spacing="2.4" fill="#A87B1F">HRS / WEEK</text>
-            <text x="330" y="172" text-anchor="middle" font-family="Nunito, sans-serif" font-size="7.5" font-weight="700" letter-spacing="2" fill="#6B5A5F">SAVED</text>
+            <!-- ============= CENTER · THE ENGINE (Claude) ============= -->
+            <rect x="248" y="80" width="224" height="160" rx="10" fill="#FDFBF5" stroke="#2F6F4F" stroke-width="2"/>
+            <!-- inner spacing line -->
+            <line x1="268" y1="116" x2="452" y2="116" stroke="#EFE8E3" stroke-width="1"/>
+
+            <text x="360" y="106" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-style="italic" font-size="13" fill="#A87B1F">the engine</text>
+            <text x="360" y="142" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-weight="600" font-size="20" fill="#2F6F4F">Claude · Pro</text>
+            <text x="360" y="160" text-anchor="middle" font-size="9" font-weight="700" letter-spacing="2" fill="#6B5A5F">$20 / MONTH · ONE TOOL</text>
+
+            <!-- 3 mode chips inside the engine -->
+            <g font-size="9" font-weight="800" letter-spacing="1.4" text-anchor="middle">
+              <rect x="266" y="180" width="58" height="22" rx="11" fill="none" stroke="#2F6F4F" stroke-width="1.1"/>
+              <text x="295" y="194.5" fill="#2F6F4F">CHAT</text>
+
+              <rect x="332" y="180" width="58" height="22" rx="11" fill="none" stroke="#2F6F4F" stroke-width="1.1"/>
+              <text x="361" y="194.5" fill="#2F6F4F">PROJECTS</text>
+
+              <rect x="398" y="180" width="58" height="22" rx="11" fill="none" stroke="#2F6F4F" stroke-width="1.1"/>
+              <text x="427" y="194.5" fill="#2F6F4F">COWORK</text>
+            </g>
+            <text x="360" y="222" text-anchor="middle" font-size="8.5" font-weight="700" letter-spacing="1.6" fill="#6B5A5F">NO CODE · NO APIs · NO INTEGRATIONS</text>
+
+            <!-- ENGINE → OUTPUTS arrows -->
+            <line x1="476" y1="120" x2="560" y2="50"  stroke="#2F6F4F" stroke-width="1.2" stroke-linecap="round" marker-end="url(#arrowGreen)" opacity="0.85"/>
+            <line x1="476" y1="148" x2="560" y2="138" stroke="#2F6F4F" stroke-width="1.2" stroke-linecap="round" marker-end="url(#arrowGreen)" opacity="0.85"/>
+            <line x1="476" y1="172" x2="560" y2="218" stroke="#2F6F4F" stroke-width="1.2" stroke-linecap="round" marker-end="url(#arrowGreen)" opacity="0.85"/>
+            <line x1="476" y1="200" x2="560" y2="298" stroke="#2F6F4F" stroke-width="1.2" stroke-linecap="round" marker-end="url(#arrowGreen)" opacity="0.85"/>
+
+            <!-- ============= RIGHT COLUMN · OUTPUTS (4 result cards) ============= -->
+            <!-- 01 Inbox triage -->
+            <rect x="568" y="22" width="140" height="56" rx="4" fill="#FDFBF5" stroke="#2B1A1F" stroke-width="1"/>
+            <text x="578" y="40" font-family="Fraunces, Georgia, serif" font-style="italic" font-size="11" fill="#A87B1F">01</text>
+            <text x="578" y="56" font-size="10" font-weight="800" fill="#2B1A1F">Inbox triage</text>
+            <text x="578" y="70" font-size="8" font-weight="700" letter-spacing="1.4" fill="#2F6F4F">≈ 5 HRS/WK BACK</text>
+
+            <!-- 02 SOP -> AI clone -->
+            <rect x="568" y="110" width="140" height="56" rx="4" fill="#FDFBF5" stroke="#2B1A1F" stroke-width="1"/>
+            <text x="578" y="128" font-family="Fraunces, Georgia, serif" font-style="italic" font-size="11" fill="#A87B1F">02</text>
+            <text x="578" y="144" font-size="10" font-weight="800" fill="#2B1A1F">Your AI clone</text>
+            <text x="578" y="158" font-size="8" font-weight="700" letter-spacing="1.4" fill="#2F6F4F">≈ 3 HRS/WK BACK</text>
+
+            <!-- 03 Weekly marketing -->
+            <rect x="568" y="190" width="140" height="56" rx="4" fill="#FDFBF5" stroke="#2B1A1F" stroke-width="1"/>
+            <text x="578" y="208" font-family="Fraunces, Georgia, serif" font-style="italic" font-size="11" fill="#A87B1F">03</text>
+            <text x="578" y="224" font-size="10" font-weight="800" fill="#2B1A1F">Weekly marketing</text>
+            <text x="578" y="238" font-size="8" font-weight="700" letter-spacing="1.4" fill="#2F6F4F">≈ 4 HRS/WK BACK</text>
+
+            <!-- 04 Bonus invoice killer (gold border to flag bonus) -->
+            <rect x="568" y="270" width="140" height="56" rx="4" fill="#FDFBF5" stroke="#A87B1F" stroke-width="1.6"/>
+            <text x="578" y="288" font-family="Fraunces, Georgia, serif" font-style="italic" font-size="11" fill="#A87B1F">+ Bonus 04</text>
+            <text x="578" y="304" font-size="10" font-weight="800" fill="#2B1A1F">Invoice killer</text>
+            <text x="578" y="318" font-size="8" font-weight="700" letter-spacing="1.4" fill="#2F6F4F">2–4 HRS/MO BACK</text>
           </svg>
         </div>
       </div>
