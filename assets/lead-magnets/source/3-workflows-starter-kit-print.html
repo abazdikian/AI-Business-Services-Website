@@ -199,9 +199,10 @@
     }
     .cover-burst-text-big   { font-size: 19pt; display: block; }
     .cover-burst-text-small {
-      font-size: 13pt; display: inline-block; margin-top: 10px;
-      font-weight: 900; letter-spacing: .06em; color: var(--green);
-      border-bottom: 2.5pt solid var(--green); padding-bottom: 2pt;
+      font-size: 11pt; display: inline-block; margin-top: 12px;
+      font-weight: 900; letter-spacing: .08em; color: var(--white);
+      background: var(--green); border-radius: 999px;
+      padding: 5px 12px;
     }
     /* Foot row: photo + identity block on the left, contact + socials on the right. */
     .cover-foot {
@@ -409,16 +410,15 @@
     .closer-ladder { font-size: 10pt; color: var(--ink-soft); line-height: 1.55; margin: 18px 0 0; padding: 14px 16px; border-left: 2px solid var(--rule); }
     .closer-ladder a { color: var(--green); font-weight: 700; text-decoration: underline; }
 
-    /* ── PRINT: keep ONLY large boxes intact; let small callouts flow so they don't orphan ── */
+    /* ── PRINT: keep boxes intact across page breaks ── */
     .prompt-box,
     .screenshot-box,
-    .intro-quote {
+    .intro-quote,
+    .callout,
+    .callout-caveat {
       break-inside: avoid;
       page-break-inside: avoid;
     }
-    /* Caveats must NEVER be split — orphaning the warning text loses the safety signal */
-    .callout-caveat { break-inside: avoid; page-break-inside: avoid; }
-    /* .callout (default gold) is intentionally allowed to split; orphaning a 3-line callout on its own page wastes a whole sheet */
     /* Don't widow a section heading at the bottom of a page */
     .section-h3 {
       break-after: avoid-page;
