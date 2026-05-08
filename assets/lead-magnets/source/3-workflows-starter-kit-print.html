@@ -58,14 +58,15 @@
     .intro-start, .setup-start, .workflow-start, .stack-start, .closer-start {
       page-break-before: always;
       break-before: page;
+      padding-top: 0.7in !important;   /* force top inset on the first page of each chapter */
     }
     /* Cover full-bleed: @page margin is 0 globally now; cover overrides .page
        padding to reach all 4 edges. */
     .cover {
-      width: 8.5in; height: 11.25in;
+      width: 8.5in; height: 11in;
       padding: 0; margin: 0;
       box-sizing: border-box;
-      position: relative; overflow: visible;
+      position: relative; overflow: hidden;     /* clip ::before so it can't leak onto p2 */
     }
     .cover-inner { position: relative; z-index: 1; padding: 0.65in 0.55in 0.5in; box-sizing: border-box; height: 100%; }
     /* Old per-section footer divs — hidden, replaced by @page @bottom-* */
@@ -188,7 +189,11 @@
       line-height: 1; color: var(--ink);
     }
     .cover-burst-text-big   { font-size: 19pt; display: block; }
-    .cover-burst-text-small { font-size: 10pt; display: block; margin-top: 8px; font-weight: 800; letter-spacing: .08em; color: var(--green); }
+    .cover-burst-text-small {
+      font-size: 13pt; display: inline-block; margin-top: 10px;
+      font-weight: 900; letter-spacing: .06em; color: var(--green);
+      border-bottom: 2.5pt solid var(--green); padding-bottom: 2pt;
+    }
     /* Foot row: photo + identity block on the left, contact + socials on the right. */
     .cover-foot {
       display: flex; align-items: center; justify-content: space-between;
@@ -247,7 +252,7 @@
     .setup-card-text { font-size: 12pt; line-height: 1.5; color: var(--ink); margin: 0 0 4px; font-weight: 500; }
     .setup-card-meta { font-size: 9pt; color: var(--ink-soft); margin: 6px 0 0; }
     .setup-card-meta strong { color: var(--green); font-weight: 800; }
-    .setup-start { padding-top: 0; }
+    /* (legacy padding-top: 0 override removed - .page now provides 0.7in top padding) */
 
     /* HOW TO USE CLAUDE DESKTOP page — numbered editorial steps with real screenshots */
     .howto-step {
