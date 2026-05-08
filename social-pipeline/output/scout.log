@@ -1,0 +1,171 @@
+/Users/alicebazidian/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+/Users/alicebazidian/Library/Python/3.9/lib/python/site-packages/google/auth/__init__.py:54: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/alicebazidian/Library/Python/3.9/lib/python/site-packages/google/oauth2/__init__.py:40: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/alicebazidian/Library/Python/3.9/lib/python/site-packages/google/api_core/_python_version_support.py:246: FutureWarning: You are using a non-supported Python version (3.9.6). Google will not post any further updates to google.api_core supporting this Python version. Please upgrade to the latest Python version, or at least Python 3.10, and then update google.api_core.
+  warnings.warn(message, FutureWarning)
+============================================================
+WEEKLY INSTAGRAM CONTENT SCOUT
+Date: 2026-04-19 09:00
+Accounts: 13
+============================================================
+
+── AI Automation ──
+  Scraping @nick_saraev...
+  → 3 posts above 50 likes
+  Scraping @sabrina_ramonov...
+  → 3 posts above 50 likes
+  Scraping @chase.h.ai...
+  → 3 posts above 50 likes
+  Scraping @nateherkai...
+  → 3 posts above 50 likes
+  Scraping @nicholas.puru...
+  → 2 posts above 50 likes
+
+── AI Tools & Tutorials ──
+  Scraping @nathanhodgson.ai...
+  → 3 posts above 50 likes
+  Scraping @zeeeljain...
+  → 3 posts above 50 likes
+  Scraping @adamstewartmarketing...
+  → 2 posts above 50 likes
+  Scraping @digitalsamaritan...
+  → 3 posts above 50 likes
+  Scraping @wright_mode...
+  → 3 posts above 50 likes
+
+── Vibe Coding ──
+  Scraping @realrileybrown...
+  → 3 posts above 50 likes
+  Scraping @khris.sheer...
+  → 3 posts above 50 likes
+  Scraping @byjackprice...
+  → 3 posts above 50 likes
+
+Total posts scraped: 37
+
+Filtering for relevance + drafting hooks...
+Content suggestions: 6
+
+Results saved to output/
+
+[WARN] Could not send email: cannot import name 'send_html_email' from 'send_email' (/Users/alicebazidian/Desktop/AI Project/AI Services Website/social-pipeline/send_email.py)
+Digest saved locally — check output/ folder
+
+✓ Scout complete!
+/Users/alicebazidian/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+/Users/alicebazidian/Library/Python/3.9/lib/python/site-packages/google/auth/__init__.py:54: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/alicebazidian/Library/Python/3.9/lib/python/site-packages/google/oauth2/__init__.py:40: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/alicebazidian/Library/Python/3.9/lib/python/site-packages/google/api_core/_python_version_support.py:246: FutureWarning: You are using a non-supported Python version (3.9.6). Google will not post any further updates to google.api_core supporting this Python version. Please upgrade to the latest Python version, or at least Python 3.10, and then update google.api_core.
+  warnings.warn(message, FutureWarning)
+============================================================
+WEEKLY INSTAGRAM CONTENT SCOUT
+Date: 2026-04-26 09:01
+Accounts: 13
+============================================================
+
+── AI Automation ──
+  Scraping @nick_saraev...
+  → 3 posts above 50 likes
+  Scraping @sabrina_ramonov...
+  → 3 posts above 50 likes
+  Scraping @chase.h.ai...
+  → 3 posts above 50 likes
+  Scraping @nateherkai...
+  → 3 posts above 50 likes
+  Scraping @nicholas.puru...
+  → 3 posts above 50 likes
+
+── AI Tools & Tutorials ──
+  Scraping @nathanhodgson.ai...
+  → 3 posts above 50 likes
+  Scraping @zeeeljain...
+  → 3 posts above 50 likes
+  Scraping @adamstewartmarketing...
+  → 3 posts above 50 likes
+  Scraping @digitalsamaritan...
+  → 3 posts above 50 likes
+  Scraping @wright_mode...
+  → 3 posts above 50 likes
+
+── Vibe Coding ──
+  Scraping @realrileybrown...
+  → 3 posts above 50 likes
+  Scraping @khris.sheer...
+  → 3 posts above 50 likes
+  Scraping @byjackprice...
+  → 3 posts above 50 likes
+
+Total posts scraped: 39
+
+Filtering for relevance + drafting hooks...
+Content suggestions: 9
+
+Results saved to output/
+
+[WARN] Could not send email: cannot import name 'send_html_email' from 'send_email' (/Users/alicebazidian/Desktop/AI Project/AI Services Website/social-pipeline/send_email.py)
+Digest saved locally — check output/ folder
+
+✓ Scout complete!
+/Users/alicebazidian/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+/Users/alicebazidian/Library/Python/3.9/lib/python/site-packages/google/auth/__init__.py:54: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/alicebazidian/Library/Python/3.9/lib/python/site-packages/google/oauth2/__init__.py:40: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/alicebazidian/Library/Python/3.9/lib/python/site-packages/google/api_core/_python_version_support.py:246: FutureWarning: You are using a non-supported Python version (3.9.6). Google will not post any further updates to google.api_core supporting this Python version. Please upgrade to the latest Python version, or at least Python 3.10, and then update google.api_core.
+  warnings.warn(message, FutureWarning)
+============================================================
+WEEKLY INSTAGRAM CONTENT SCOUT
+Date: 2026-05-03 09:06
+Accounts: 13
+============================================================
+
+── AI Automation ──
+  Scraping @nick_saraev...
+  → 3 posts above 50 likes
+  Scraping @sabrina_ramonov...
+  → 3 posts above 50 likes
+  Scraping @chase.h.ai...
+  → 3 posts above 50 likes
+  Scraping @nateherkai...
+  → 3 posts above 50 likes
+  Scraping @nicholas.puru...
+  → 3 posts above 50 likes
+
+── AI Tools & Tutorials ──
+  Scraping @nathanhodgson.ai...
+  → 2 posts above 50 likes
+  Scraping @zeeeljain...
+  → 3 posts above 50 likes
+  Scraping @adamstewartmarketing...
+  → 3 posts above 50 likes
+  Scraping @digitalsamaritan...
+  → 3 posts above 50 likes
+  Scraping @wright_mode...
+  → 3 posts above 50 likes
+
+── Vibe Coding ──
+  Scraping @realrileybrown...
+  → 3 posts above 50 likes
+  Scraping @khris.sheer...
+  → 3 posts above 50 likes
+  Scraping @byjackprice...
+  → 3 posts above 50 likes
+
+Total posts scraped: 38
+
+Filtering for relevance + drafting hooks...
+Content suggestions: 9
+
+Results saved to output/
+
+[WARN] Could not send email: cannot import name 'send_html_email' from 'send_email' (/Users/alicebazidian/Desktop/AI Project/AI Services Website/social-pipeline/send_email.py)
+Digest saved locally — check output/ folder
+
+✓ Scout complete!

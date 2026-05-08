@@ -39,6 +39,18 @@
     color: rgba(247,243,238,0.7); margin-top: 20px;
     font-weight: 500;
   }
+  .footer {
+    position: absolute; bottom: 44px; left: 80px; right: 80px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-name {
+    font-family: 'Playfair Display', serif; font-size: 18px;
+    font-weight: 700; color: #C9A847;
+  }
+  .footer-site {
+    font-family: 'Inter', sans-serif; font-size: 14px;
+    color: rgba(247,243,238,0.4); letter-spacing: 0.04em;
+  }
 </style>
 </head>
 <body>
@@ -48,6 +60,10 @@
   <h1 class="headline">{{HEADLINE}}</h1>
   <p class="subtitle">{{SUBTITLE}}</p>
   <p class="teaser">{{TEASER}}</p>
+  <div class="footer">
+    <span class="footer-name">Alice Bazdikian</span>
+    <span class="footer-site">smallbusinessaicoach.com</span>
+  </div>
 </div>
 </body>
 </html>

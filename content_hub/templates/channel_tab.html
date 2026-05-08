@@ -1,0 +1,57 @@
+<div class="panel-head">
+  <h2>{{ channel | capitalize }} <span class="muted">· {{ posts|length }} posts</span></h2>
+</div>
+
+{% if not posts %}
+  <p class="muted pad">No posts pulled for this channel yet.</p>
+{% else %}
+  <div class="table-wrap">
+    <table class="posts-table">
+      <thead>
+        <tr>
+          <th class="col-check"><span class="sr">Select</span></th>
+          <th class="col-thumb"></th>
+          <th class="col-creator">Creator</th>
+          <th class="col-date">Date</th>
+          <th class="col-format">Format</th>
+          <th class="col-hook">Hook & caption</th>
+          <th class="col-metric num">♥</th>
+          <th class="col-metric num">💬</th>
+          <th class="col-metric num">👁</th>
+          <th class="col-er num">ER</th>
+          <th class="col-why">Why trending</th>
+          <th class="col-open"></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for p in posts %}
+          {% include "components/post_row.html" %}
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endif %}
+
+<section class="paste-box">
+  <label for="paste-{{ channel }}">Extra URLs to include
+    <span class="muted">(one per line)</span></label>
+  <textarea id="paste-{{ channel }}"
+            name="urls"
+            rows="3"
+            hx-post="/paste/{{ week_id }}/{{ channel }}"
+            hx-trigger="blur, keyup changed delay:800ms"
+            hx-swap="none"
+            placeholder="https://www.linkedin.com/posts/...">{{ pasted }}</textarea>
+</section>
+
+<section class="create-row">
+  <div id="job-{{ channel }}" class="job-status">
+    {% include "components/job_status.html" %}
+  </div>
+  <button class="btn-create"
+          hx-post="/create/{{ week_id }}/{{ channel }}"
+          hx-target="#job-{{ channel }}"
+          hx-swap="innerHTML">
+    Create {{ channel | capitalize }} batch →
+  </button>
+</section>

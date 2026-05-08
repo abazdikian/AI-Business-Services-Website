@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Week {{ week_id }} · Content Hub{% endblock %}
+{% block content %}
+<section class="week-head">
+  <div>
+    <div class="eyebrow">Week of</div>
+    <h1>{{ week_id }}</h1>
+  </div>
+  <form method="get" action="/week/{{ week_id }}" class="week-switcher">
+    <label for="wk">Jump to:</label>
+    <select id="wk" name="_wk" onchange="window.location='/week/' + this.value">
+      {% for w in weeks %}
+        <option value="{{ w.id }}" {% if w.id == week_id %}selected{% endif %}>{{ w.id }}</option>
+      {% endfor %}
+    </select>
+  </form>
+</section>
+
+<nav class="chan-tabs">
+  {% for c in CHANNELS %}
+    <a class="chan-tab {% if c == channel %}active{% endif %}"
+       href="/week/{{ week_id }}?channel={{ c }}">{{ c | capitalize }}</a>
+  {% endfor %}
+</nav>
+
+<section id="channel-panel" class="panel">
+  {% include "channel_tab.html" %}
+</section>
+{% endblock %}

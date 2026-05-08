@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>One Weekend + Claude Code = Two Websites (YouTube)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{
+  background:#c8c2b4;
+  min-height:100vh;
+  display:flex;align-items:center;justify-content:center;
+  padding:20px;
+  font-family:'Architects Daughter',cursive;
+}
+
+.board{
+  width:1440px;
+  aspect-ratio:16/9;
+  background:#f4f0e8;
+  border:4px solid #a8a090;
+  border-radius:4px;
+  box-shadow:0 12px 48px rgba(0,0,0,0.25),inset 0 0 80px rgba(0,0,0,0.02);
+  position:relative;
+  padding:28px 40px 52px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.board::after{
+  content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,0.003) 3px,rgba(0,0,0,0.003) 4px);
+  pointer-events:none;border-radius:2px;
+}
+
+/* tray */
+.tray{
+  position:absolute;bottom:-2px;left:50%;transform:translateX(-50%);
+  width:240px;height:18px;
+  background:linear-gradient(to bottom,#b0a898,#c0b8a8);
+  border-radius:6px 6px 0 0;
+  display:flex;align-items:flex-end;justify-content:center;gap:14px;
+  padding-bottom:3px;box-shadow:0 -1px 4px rgba(0,0,0,0.08);z-index:2;
+}
+.mk{width:8px;border-radius:4px 4px 2px 2px;transform:translateY(7px)}
+.mk--bl{height:28px;background:#2a5a8a}
+.mk--rd{height:26px;background:#c03030}
+.mk--gn{height:24px;background:#28a058}
+.mk--yl{height:27px;background:#d0a020}
+.mk--bk{height:25px;background:#383838}
+
+/* badge */
+.badge{
+  position:absolute;top:14px;right:20px;
+  width:48px;height:48px;border-radius:50%;
+  border:2.5px solid #c03030;
+  display:flex;align-items:center;justify-content:center;
+  font-size:10px;font-weight:700;color:#c03030;
+  text-align:center;line-height:1.1;
+  background:rgba(192,48,48,0.04);z-index:3;
+}
+
+/* ── HEADER ── */
+.header{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  padding-bottom:6px;
+  border-bottom:1.5px solid rgba(42,90,138,0.12);
+}
+.title{font-size:26px;color:#1a3054;text-transform:uppercase;letter-spacing:0.03em;line-height:1.1}
+.subtitle{font-size:15px;color:#506878;margin-top:1px}
+.subtitle u{text-decoration-color:#1a3054;text-underline-offset:3px}
+
+/* ── MAIN: 5 columns ── */
+.steps-row{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:10px;
+  flex:1;
+}
+
+.step-col{
+  border:1.5px solid rgba(42,90,138,0.12);
+  border-radius:10px;
+  padding:12px 14px;
+  display:flex;flex-direction:column;
+  gap:8px;
+  position:relative;
+  background:rgba(42,90,138,0.01);
+}
+.step-col--hot{border-color:rgba(192,48,48,0.2);background:rgba(192,48,48,0.01)}
+
+/* connector arrows between columns */
+.step-col:not(:last-child)::after{
+  content:'→';
+  position:absolute;
+  right:-11px;top:50%;transform:translateY(-50%);
+  font-size:16px;color:#2a5a8a;font-weight:700;
+  z-index:2;
+  background:#f4f0e8;padding:0 2px;
+}
+.step-col--hot::after{color:#c03030}
+
+.num{
+  width:36px;height:36px;
+  border:2.5px solid #2a5a8a;
+  border-radius:47% 53% 49% 51% / 52% 48% 52% 48%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;font-weight:700;color:#2a5a8a;
+  margin:0 auto;
+}
+.num--rd{border-color:#c03030;color:#c03030}
+
+.step-title{
+  font-size:14px;color:#1a3054;font-weight:700;
+  text-align:center;line-height:1.2;
+}
+.step-desc{
+  font-family:'Caveat',cursive;
+  font-size:13px;color:#506878;line-height:1.3;
+  text-align:center;flex:1;
+}
+.step-items{
+  font-family:'Caveat',cursive;
+  font-size:12px;color:#2a5a8a;line-height:1.35;
+}
+.step-items li{
+  list-style:none;
+  padding-left:12px;position:relative;
+  margin-bottom:2px;
+}
+.step-items li::before{
+  content:'•';position:absolute;left:0;color:#d0a020;font-size:14px;line-height:1;
+}
+
+/* icon box at bottom of each column */
+.col-icon{
+  width:44px;height:36px;margin:0 auto;
+  border:1.5px solid #2a5a8a;border-radius:4px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;background:rgba(42,90,138,0.02);
+}
+.col-icon--rd{border-color:#c03030}
+
+/* speech bubble under icon */
+.col-speech{
+  font-family:'Caveat',cursive;
+  font-size:10.5px;color:#2a5a8a;
+  text-align:center;line-height:1.2;
+  background:rgba(42,90,138,0.04);
+  border:1px solid rgba(42,90,138,0.15);
+  border-radius:8px;padding:3px 6px;
+}
+.col-speech--rd{color:#c03030;border-color:rgba(192,48,48,0.15);background:rgba(192,48,48,0.03)}
+
+/* ── KEY BENEFIT ── */
+.key{
+  border:2.5px solid #c03030;border-radius:12px;
+  padding:10px 18px;
+  display:flex;align-items:center;gap:14px;
+}
+.key-label{font-size:15px;color:#c03030;font-weight:700;white-space:nowrap}
+.key-text{font-size:14px;color:#1a3054;line-height:1.3;flex:1}
+.key-icon{
+  width:44px;height:36px;flex-shrink:0;
+  border:1.5px solid #c03030;border-radius:4px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;background:rgba(192,48,48,0.03);
+}
+
+/* ── FOOTER ── */
+.foot{
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:13px;color:#1a3054;
+  border-top:1.5px solid rgba(42,90,138,0.12);
+  padding-top:6px;
+}
+.foot-steps{display:flex;gap:4px;align-items:center}
+.foot-pill{
+  display:flex;align-items:center;gap:4px;
+  border:1.5px solid rgba(42,90,138,0.2);
+  border-radius:100px;padding:2px 10px 2px 2px;
+}
+.foot-n{
+  width:18px;height:18px;border-radius:50%;
+  border:1.5px solid #2a5a8a;
+  display:flex;align-items:center;justify-content:center;
+  font-size:10px;color:#2a5a8a;font-weight:700;
+}
+.foot-t{font-size:10px;color:#1a3054}
+.foot-arr{font-size:12px;color:#d0a020}
+.foot-tag{font-size:12px;color:#c03030;font-weight:700}
+
+@media(max-width:1480px){.board{width:96vw}}
+</style>
+</head>
+<body>
+
+<div class="board">
+  <div class="badge">$0<br>code</div>
+
+  <div class="header">
+    <div>
+      <div class="title">One Weekend + Claude Code = Two Websites</div>
+      <div class="subtitle"><u>Set Up and Build in 5 Steps</u> &mdash; no coding knowledge needed</div>
+    </div>
+  </div>
+
+  <!-- ── 5 STEP COLUMNS ── -->
+  <div class="steps-row">
+
+    <div class="step-col">
+      <div class="num">1</div>
+      <div class="step-title">Set Up<br>Your Tools</div>
+      <div class="step-desc">Install Claude Code, create a GitHub repo, connect Vercel for hosting</div>
+      <ul class="step-items">
+        <li>Claude Code ($20/mo)</li>
+        <li>GitHub (free)</li>
+        <li>Vercel (free)</li>
+        <li>Supabase (free)</li>
+      </ul>
+      <div class="col-icon">&#128187;</div>
+      <div class="col-speech">All free<br>except Claude</div>
+    </div>
+
+    <div class="step-col">
+      <div class="num">2</div>
+      <div class="step-title">Prepare<br>Your Assets</div>
+      <div class="step-desc">Give Claude context about your business so it builds in your voice</div>
+      <ul class="step-items">
+        <li>Brand document</li>
+        <li>CLAUDE.md rules</li>
+        <li>1 headshot photo</li>
+        <li>Brand colors (hex)</li>
+        <li>Reference screenshots</li>
+      </ul>
+      <div class="col-icon">&#128196;</div>
+      <div class="col-speech">AI output =<br>input quality</div>
+    </div>
+
+    <div class="step-col">
+      <div class="num">3</div>
+      <div class="step-title">Install Plugins<br>+ Skills</div>
+      <div class="step-desc">Add superpowers to Claude Code with one-click installs</div>
+      <ul class="step-items">
+        <li>Frontend Design</li>
+        <li>Superpowers</li>
+        <li>Playwright</li>
+        <li>SEO Suite (12 skills)</li>
+        <li>Hormozi Marketing</li>
+        <li>Claude-Mem</li>
+      </ul>
+      <div class="col-icon">&#9881;</div>
+      <div class="col-speech">7 plugins<br>+ 20 skills</div>
+    </div>
+
+    <div class="step-col">
+      <div class="num">4</div>
+      <div class="step-title">Give Your<br>First Prompt</div>
+      <div class="step-desc">"Build me a 4-page website" &mdash; Claude writes all the code</div>
+      <ul class="step-items">
+        <li>Describe in English</li>
+        <li>Claude builds HTML/CSS</li>
+        <li>Review screenshot</li>
+        <li>Say what to change</li>
+        <li>Repeat until right</li>
+      </ul>
+      <div class="col-icon">&#9998;</div>
+      <div class="col-speech">You describe.<br>Claude builds.</div>
+    </div>
+
+    <div class="step-col step-col--hot">
+      <div class="num num--rd">5</div>
+      <div class="step-title" style="color:#c03030">Push to Vercel<br>&mdash; You're Live</div>
+      <div class="step-desc">git push and your site deploys automatically with custom domain</div>
+      <ul class="step-items" style="color:#c03030">
+        <li>git push = auto deploy</li>
+        <li>Custom domain</li>
+        <li>SSL included</li>
+        <li>Done in 2 minutes</li>
+      </ul>
+      <div class="col-icon col-icon--rd">&#127881;</div>
+      <div class="col-speech col-speech--rd">2 sites live<br>in 1 weekend</div>
+    </div>
+
+  </div>
+
+  <!-- ── KEY BENEFIT ── -->
+  <div class="key">
+    <div class="key-label">KEY BENEFIT</div>
+    <div class="key-text">Two complete websites &mdash; 15 pages, blog, lead magnets, payments &mdash; built in one weekend with zero coding knowledge.</div>
+    <div class="key-icon">&#128161;</div>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <div class="foot">
+    <div class="foot-steps">
+      <div class="foot-pill"><div class="foot-n">1</div><div class="foot-t">Describe</div></div>
+      <span class="foot-arr">&rarr;</span>
+      <div class="foot-pill"><div class="foot-n">2</div><div class="foot-t">Claude builds</div></div>
+      <span class="foot-arr">&rarr;</span>
+      <div class="foot-pill"><div class="foot-n">3</div><div class="foot-t">Review</div></div>
+      <span class="foot-arr">&rarr;</span>
+      <div class="foot-pill"><div class="foot-n">4</div><div class="foot-t">Repeat</div></div>
+    </div>
+    <div class="foot-tag">Zero code. Zero debugging. Zero Google.</div>
+    <div>smallbusinessaicoach.com + sovereignafbook.com &mdash; Alice Bazdikian</div>
+  </div>
+
+  <div class="tray">
+    <div class="mk mk--bl"></div>
+    <div class="mk mk--rd"></div>
+    <div class="mk mk--gn"></div>
+    <div class="mk mk--yl"></div>
+    <div class="mk mk--bk"></div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+[
+  {
+    "id": "li_sample_1",
+    "channel": "linkedin",
+    "creator_handle": "sabrinaramonov",
+    "post_url": "https://www.linkedin.com/posts/sabrinaramonov_sample-1",
+    "thumbnail_url": "https://placehold.co/400x400/7A1F2B/F7F3EE?text=LI+Carousel",
+    "posted_at": "2026-04-15T14:00:00Z",
+    "caption": "Stop paying for 7 AI tools — Claude does all of them.\n\nHere are the 7 workflows I replaced last week: research, drafting, meeting notes, spreadsheets, coding, image gen, scheduling.",
+    "likes": 2420, "comments": 180, "shares": 94, "views": 48000,
+    "followers": 52000, "media_type": "carousel", "source": "creator", "raw": {}
+  },
+  {
+    "id": "li_sample_2",
+    "channel": "linkedin",
+    "creator_handle": "awa-k-penn",
+    "post_url": "https://www.linkedin.com/posts/awa-k-penn_sample-2",
+    "thumbnail_url": "https://placehold.co/400x400/C9A24B/1F1A17?text=LI+Text",
+    "posted_at": "2026-04-14T10:00:00Z",
+    "caption": "The one prompt that replaced my VA.\n\nIt's 4 lines long. I'll paste it in the comments.",
+    "likes": 1100, "comments": 210, "shares": 40, "views": 18000,
+    "followers": 28000, "media_type": "text", "source": "creator", "raw": {}
+  },
+  {
+    "id": "yt_sample_1",
+    "channel": "youtube",
+    "creator_handle": "sabrina_ramonov",
+    "post_url": "https://www.youtube.com/watch?v=sample1",
+    "thumbnail_url": "https://placehold.co/480x270/7A1F2B/F7F3EE?text=YT+Long",
+    "posted_at": "2026-04-13T16:00:00Z",
+    "caption": "How I automate my entire content pipeline with Claude.\n\nFull tutorial. Free template linked below.",
+    "likes": 4200, "comments": 320, "views": 92000,
+    "followers": 140000, "media_type": "long-video", "source": "creator", "raw": {}
+  },
+  {
+    "id": "yt_sample_2",
+    "channel": "youtube",
+    "creator_handle": "nateherk",
+    "post_url": "https://www.youtube.com/watch?v=sample2",
+    "thumbnail_url": "https://placehold.co/480x270/C9A24B/1F1A17?text=YT+Short",
+    "posted_at": "2026-04-16T09:00:00Z",
+    "caption": "45-second AI agent that replies to your emails while you sleep.",
+    "likes": 1800, "comments": 90, "views": 62000,
+    "followers": 85000, "media_type": "short", "source": "hashtag", "raw": {}
+  },
+  {
+    "id": "tt_sample_1",
+    "channel": "tiktok",
+    "creator_handle": "sabrina_ramonov",
+    "post_url": "https://www.tiktok.com/@sabrina_ramonov/video/sample1",
+    "thumbnail_url": "https://placehold.co/300x500/7A1F2B/F7F3EE?text=TT",
+    "posted_at": "2026-04-15T12:00:00Z",
+    "caption": "POV: you used Claude instead of hiring a $2k VA. Here's what happened.",
+    "likes": 18200, "comments": 540, "shares": 2200, "views": 480000,
+    "followers": 220000, "media_type": "short", "source": "creator", "raw": {}
+  },
+  {
+    "id": "ig_sample_1",
+    "channel": "instagram",
+    "creator_handle": "wright_mode",
+    "post_url": "https://www.instagram.com/p/sample1",
+    "thumbnail_url": "https://placehold.co/400x400/7A1F2B/F7F3EE?text=IG+Reel",
+    "posted_at": "2026-04-12T18:00:00Z",
+    "caption": "5 Claude prompts that run my business.\n\nSave this for Monday.",
+    "likes": 8200, "comments": 240, "views": 120000,
+    "followers": 95000, "media_type": "reel", "source": "creator", "raw": {}
+  },
+  {
+    "id": "ig_sample_2",
+    "channel": "instagram",
+    "creator_handle": "adamstewartmarketing",
+    "post_url": "https://www.instagram.com/p/sample2",
+    "thumbnail_url": "https://placehold.co/400x400/C9A24B/1F1A17?text=IG+Carousel",
+    "posted_at": "2026-04-14T11:00:00Z",
+    "caption": "The 10-slide carousel that got me 1,200 newsletter subs.",
+    "likes": 3400, "comments": 110, "views": 42000,
+    "followers": 48000, "media_type": "carousel", "source": "hashtag", "raw": {}
+  },
+  {
+    "id": "fb_sample_1",
+    "channel": "facebook",
+    "creator_handle": "Claude AI",
+    "post_url": "https://www.facebook.com/post/sample1",
+    "thumbnail_url": "https://placehold.co/400x400/7A1F2B/F7F3EE?text=FB",
+    "posted_at": "2026-04-13T15:00:00Z",
+    "caption": "Small business owners: here's the free template we used to automate invoicing.",
+    "likes": 820, "comments": 90, "shares": 140,
+    "followers": 18000, "media_type": "static", "source": "creator", "raw": {}
+  }
+]

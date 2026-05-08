@@ -112,7 +112,7 @@ def render_carousel(item, output_dir):
         html = _read_template("carousel_content.html")
         html = html.replace("{{NUMBER}}", point.get("number", f"{i+1:02d}"))
         html = html.replace("{{TITLE}}", point.get("title", ""))
-        html = html.replace("{{BODY}}", point.get("body", ""))
+        html = html.replace("{{BODY}}", point.get("body", "").replace("\n", "<br>"))
         slide_path = os.path.join(output_dir, f"slide-{i+1:02d}-content.png")
         _render_png(html, slide_path, 1080, 1350)
         slide_paths.append(slide_path)

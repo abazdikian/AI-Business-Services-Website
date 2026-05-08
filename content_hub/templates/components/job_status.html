@@ -1,0 +1,59 @@
+{% if not job %}
+  <span class="muted">No batch queued yet</span>
+{% elif job.status == "queued" or job.status == "running" %}
+  <span class="pill pill-live"
+        hx-get="/job_status/{{ week_id }}/{{ channel }}"
+        hx-trigger="every 5s"
+        hx-swap="innerHTML"
+        hx-target="#job-{{ channel }}">
+    Generating… <em>({{ job.status }})</em>
+  </span>
+{% elif job.status == "done" %}
+  <span class="pill pill-done">
+    ✓ Done {{ job.finished_at[:16] if job.finished_at else "" }}
+    {% if job.result and job.result.drafts_count %}
+      · {{ job.result.drafts_count }} draft{{ "s" if job.result.drafts_count != 1 else "" }}
+    {% endif %}
+  </span>
+  {% if job.result %}
+    {% if job.result.drive_folder_url %}
+      <a class="drafts-link" href="{{ job.result.drive_folder_url }}" target="_blank">
+        Channel folder →
+      </a>
+    {% endif %}
+    {% if job.result.artifacts %}
+      {% for a in job.result.artifacts %}
+        {% if a.kind == "video" %}
+          {% if a.slides_url %}
+            <a class="drafts-link" href="{{ a.slides_url }}" target="_blank">
+              Deck: {{ a.title[:50] }} →
+            </a>
+          {% endif %}
+          {% if a.drive_folder_url %}
+            <a class="drafts-link" href="{{ a.drive_folder_url }}" target="_blank">
+              Folder: {{ a.title[:40] }} →
+            </a>
+          {% endif %}
+        {% else %}
+          {% if a.drive_folder_url %}
+            <a class="drafts-link" href="{{ a.drive_folder_url }}" target="_blank">
+              {{ a.title[:50] }} →
+            </a>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+    {% if job.result.email_message_id %}
+      <span class="muted"> · ✉ sent</span>
+    {% elif job.result.email_error %}
+      <span class="muted"> · ✉ failed: {{ job.result.email_error }}</span>
+    {% elif job.result.note %}
+      <span class="muted"> · {{ job.result.note }}</span>
+    {% endif %}
+  {% endif %}
+{% else %}
+  <span class="pill pill-fail">
+    ✗ {{ job.status }}
+    {% if job.result and job.result.error %} · {{ job.result.error }}{% endif %}
+  </span>
+{% endif %}

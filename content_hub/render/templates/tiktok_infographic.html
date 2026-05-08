@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 1080px; height: 1920px; overflow: hidden; }
+body {
+  background: #F7F3EE;
+  font-family: 'Nunito', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── HEADER ── */
+.header {
+  background: linear-gradient(140deg, #7A1530 0%, #9B2440 70%, #C13558 100%);
+  padding: 56px 72px 52px;
+  position: relative;
+}
+.monogram-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 36px;
+}
+.mono-box {
+  width: 72px; height: 72px;
+  background: #D4A84A;
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+}
+.mono-ab {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 38px;
+  letter-spacing: -1.5px;
+  color: #7A1530;
+  line-height: 1;
+}
+.eyebrow {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 17px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #D4A84A;
+}
+.header-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-style: italic;
+  font-size: 74px;
+  line-height: 1.0;
+  letter-spacing: -2.5px;
+  color: #FFFFFF;
+  margin-bottom: 20px;
+}
+.header-title .gold { color: #D4A84A; }
+.header-sub {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.4;
+}
+
+/* ── BODY ── */
+.body {
+  padding: 52px 72px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.section-label {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #A87B1F;
+  margin-bottom: 32px;
+}
+
+/* ── TIP ITEMS ── */
+.tip {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+  padding: 22px 0;
+  border-bottom: 1px solid rgba(122,21,48,0.10);
+}
+.tip:last-of-type { border-bottom: none; }
+.tip-num {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-style: italic;
+  font-size: 52px;
+  line-height: 1;
+  color: #D4A84A;
+  min-width: 52px;
+  text-align: right;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.tip-content { flex: 1; }
+.tip-title {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 28px;
+  line-height: 1.3;
+  color: #2B1A1F;
+  margin-bottom: 4px;
+}
+.tip-detail {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.45;
+  color: #6B5A5F;
+}
+.tip-tag {
+  display: inline-block;
+  background: rgba(122,21,48,0.08);
+  color: #7A1530;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  padding: 3px 12px;
+  border-radius: 100px;
+  margin-top: 6px;
+}
+
+/* ── FOOTER ── */
+.footer {
+  padding: 28px 72px 36px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(122,21,48,0.12);
+  margin-top: auto;
+}
+.footer-handle {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #A87B1F;
+}
+.footer-name {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 21px;
+  color: #6B5A5F;
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="monogram-row">
+    <div class="mono-box"><span class="mono-ab">ab</span></div>
+    <div class="eyebrow">Claude Code</div>
+  </div>
+  <h1 class="header-title">What I'd do<br>differently<br>with <span class="gold">Claude Code</span></h1>
+  <p class="header-sub">after using it every single day<br>for a whole month</p>
+</div>
+
+<div class="body">
+  <div class="section-label">8 lessons · month one</div>
+
+  <div class="tip">
+    <div class="tip-num">1</div>
+    <div class="tip-content">
+      <div class="tip-title">Document everything from day one</div>
+      <div class="tip-detail">Skills, plugins, project structure — live in your CLAUDE.md before you need them.</div>
+    </div>
+  </div>
+
+  <div class="tip">
+    <div class="tip-num">2</div>
+    <div class="tip-content">
+      <div class="tip-title">Ask the 95% confidence question — always</div>
+      <div class="tip-detail">Not just at the start. Ask before every major action, not only the first one.</div>
+    </div>
+  </div>
+
+  <div class="tip">
+    <div class="tip-num">3</div>
+    <div class="tip-content">
+      <div class="tip-title">Log errors &amp; failures explicitly</div>
+      <div class="tip-detail">So when a script breaks next run, you know why before it costs you time or money.</div>
+    </div>
+  </div>
+
+  <div class="tip">
+    <div class="tip-num">4</div>
+    <div class="tip-content">
+      <div class="tip-title">Be explicit about your CLAUDE.md</div>
+      <div class="tip-detail">Tell it exactly what belongs there. It won't guess — you have to say it.</div>
+    </div>
+  </div>
+
+  <div class="tip">
+    <div class="tip-num">5</div>
+    <div class="tip-content">
+      <div class="tip-title">Turn repetitive work into Skills early</div>
+      <div class="tip-detail">Every time you repeat a process twice, that's your signal to make it a Skill.</div>
+    </div>
+  </div>
+
+  <div class="tip">
+    <div class="tip-num">6</div>
+    <div class="tip-content">
+      <div class="tip-title">Manage your model &amp; token usage</div>
+      <div class="tip-detail">Watch what model you're on and when you're burning tokens unnecessarily.</div>
+    </div>
+  </div>
+
+  <div class="tip">
+    <div class="tip-num">7</div>
+    <div class="tip-content">
+      <div class="tip-title">Think about production from the start</div>
+      <div class="tip-detail">Still figuring this one out — but ignoring it early costs you later.</div>
+      <div class="tip-tag">🚧 work in progress</div>
+    </div>
+  </div>
+
+  <div class="tip">
+    <div class="tip-num">8</div>
+    <div class="tip-content">
+      <div class="tip-title">Compact your context constantly</div>
+      <div class="tip-detail">Claude rewards it. Run <strong style="color:#7A1530">/compact</strong> before sessions get heavy — it pays for itself.</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="footer-handle">@smallbusinessaicoach</div>
+  <div class="footer-name">Alice Bazdikian</div>
+</div>
+
+</body>
+</html>

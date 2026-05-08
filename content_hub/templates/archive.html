@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Archive · Content Hub{% endblock %}
+{% block content %}
+<section class="week-head">
+  <div>
+    <div class="eyebrow">Archive</div>
+    <h1>Past weeks</h1>
+  </div>
+</section>
+
+{% if not weeks %}
+  <p class="muted pad">No weeks yet.</p>
+{% else %}
+  <ul class="week-list">
+    {% for w in weeks %}
+      <li>
+        <a href="/week/{{ w.id }}">
+          <span class="wk-id">{{ w.id }}</span>
+          <span class="wk-pulled muted">pulled {{ w.pulled_at[:16] }}</span>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}
+{% endblock %}

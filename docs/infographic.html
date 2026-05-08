@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920">
+<title>Infographic — One Weekend + Claude Code = Two Websites</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --burgundy: #7D2240;
+    --burg-light: #A8355E;
+    --gold: #C9A847;
+    --gold-dim: #B8952E;
+    --charcoal: #1C1C1C;
+    --body: #4A3F38;
+    --muted: #8A7E76;
+    --eggshell: #F7F3EE;
+    --card-bg: #FAFAF8;
+    --border: rgba(125,34,64,0.1);
+  }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #FFFFFF;
+    color: var(--charcoal);
+    position: relative;
+  }
+
+  /* subtle texture */
+  body::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 0% 0%, rgba(125,34,64,0.03) 0%, transparent 50%),
+                radial-gradient(ellipse at 100% 100%, rgba(201,168,71,0.03) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .page {
+    width: 1920px;
+    height: 1080px;
+    padding: 32px 44px 28px;
+    display: grid;
+    grid-template-rows: auto auto 1fr auto auto;
+    gap: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .header-left { display: flex; align-items: center; gap: 20px; }
+  .header-eyebrow {
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: rgba(201,168,71,0.1);
+    padding: 3px 10px;
+    border-radius: 100px;
+  }
+  .header-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--charcoal);
+    letter-spacing: -0.03em;
+  }
+  .header-title em { color: var(--burgundy); font-style: italic; }
+
+  .stats-row {
+    display: flex;
+    gap: 6px;
+  }
+  .stat-pill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--eggshell);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 6px 14px;
+    cursor: default;
+    transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s;
+  }
+  .stat-pill:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(125,34,64,0.08);
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--burgundy);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 7.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    line-height: 1.2;
+  }
+
+  /* ── CRITICAL ASSETS BAR ── */
+  .assets-strip {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  .assets-label {
+    font-size: 7.5px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-right: 4px;
+    white-space: nowrap;
+  }
+  .asset-tag {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 5px 10px;
+    font-size: 8px;
+    font-weight: 600;
+    color: var(--charcoal);
+    cursor: default;
+    transition: transform 0.15s, border-color 0.2s, box-shadow 0.2s;
+    position: relative;
+  }
+  .asset-tag:hover {
+    transform: translateY(-1px);
+    border-color: var(--burgundy);
+    box-shadow: 0 4px 12px rgba(125,34,64,0.08);
+  }
+  .asset-tag:hover .asset-tooltip {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  .asset-icon {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8px;
+    flex-shrink: 0;
+  }
+  .asset-icon--doc { background: rgba(125,34,64,0.08); color: var(--burgundy); }
+  .asset-icon--code { background: rgba(201,168,71,0.12); color: var(--gold-dim); }
+  .asset-icon--img { background: rgba(125,34,64,0.08); color: var(--burgundy); }
+  .asset-icon--mkt { background: rgba(201,168,71,0.12); color: var(--gold-dim); }
+  .asset-icon--cam { background: rgba(125,34,64,0.08); color: var(--burgundy); }
+  .asset-icon--ref { background: rgba(201,168,71,0.12); color: var(--gold-dim); }
+
+  .asset-tooltip {
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    background: var(--charcoal);
+    color: #fff;
+    font-size: 7px;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 6px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s, transform 0.2s;
+    z-index: 10;
+  }
+  .asset-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 4px solid transparent;
+    border-top-color: var(--charcoal);
+  }
+
+  /* ── MAIN 3-COL ── */
+  .main {
+    display: grid;
+    grid-template-columns: 190px 1fr 190px;
+    gap: 16px;
+  }
+
+  /* ── LEFT: Tech Stack ── */
+  .col-label {
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--burgundy);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .col-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .tech-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 7px 10px;
+    margin-bottom: 5px;
+    cursor: default;
+    transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s, border-color 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .tech-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--gold);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1);
+  }
+  .tech-card:hover {
+    transform: translateX(3px);
+    box-shadow: 0 4px 16px rgba(125,34,64,0.06);
+    border-color: rgba(201,168,71,0.3);
+  }
+  .tech-card:hover::before { transform: scaleY(1); }
+
+  .tech-name { font-size: 9.5px; font-weight: 700; color: var(--charcoal); }
+  .tech-desc { font-size: 7px; color: var(--muted); line-height: 1.35; margin-top: 1px; }
+  .tech-cost { font-size: 6.5px; color: var(--gold-dim); font-weight: 700; margin-top: 2px; }
+
+  /* ── CENTER: Timeline ── */
+  .timeline-area {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .timeline-row {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 10px;
+    min-height: 0;
+  }
+
+  .wk-badge {
+    background: linear-gradient(135deg, var(--burgundy) 0%, #3D1020 100%);
+    border-radius: 10px;
+    padding: 8px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff;
+    cursor: default;
+    transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s;
+  }
+  .wk-badge:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 20px rgba(125,34,64,0.2);
+  }
+  .wk-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .wk-title {
+    font-size: 7.5px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.85);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-top: 2px;
+  }
+  .wk-date {
+    font-size: 6.5px;
+    color: rgba(255,255,255,0.45);
+    margin-top: 1px;
+  }
+
+  .prompts-strip {
+    display: flex;
+    gap: 5px;
+  }
+
+  .prompt-chip {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 6px 9px;
+    flex: 1;
+    min-width: 0;
+    cursor: default;
+    transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s, border-color 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .prompt-chip::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--burgundy), var(--gold));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  .prompt-chip:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(125,34,64,0.07);
+    border-color: rgba(125,34,64,0.2);
+  }
+  .prompt-chip:hover::after { transform: scaleX(1); }
+
+  .prompt-chip-q {
+    font-size: 8px;
+    font-weight: 700;
+    color: var(--burgundy);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 2px;
+  }
+  .prompt-chip-a {
+    font-size: 7px;
+    color: var(--body);
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* ── RIGHT: Plugins + Sites ── */
+  .right-col {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .plugin-item {
+    display: flex;
+    gap: 6px;
+    align-items: flex-start;
+    margin-bottom: 3px;
+    cursor: default;
+    padding: 2px 4px;
+    border-radius: 4px;
+    transition: background 0.15s;
+  }
+  .plugin-item:hover { background: rgba(125,34,64,0.04); }
+  .plugin-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--burgundy);
+    margin-top: 3px;
+    flex-shrink: 0;
+    transition: transform 0.2s;
+  }
+  .plugin-item:hover .plugin-dot { transform: scale(1.4); }
+  .plugin-name { font-size: 8.5px; font-weight: 600; color: var(--charcoal); line-height: 1.2; }
+  .plugin-desc { font-size: 6.5px; color: var(--muted); line-height: 1.3; }
+
+  .site-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 10px;
+    cursor: default;
+    transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .site-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--burgundy), var(--gold));
+  }
+  .site-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(125,34,64,0.08);
+  }
+  .site-name { font-size: 9px; font-weight: 700; color: var(--charcoal); }
+  .site-desc { font-size: 7px; color: var(--muted); line-height: 1.35; margin-top: 1px; }
+
+  /* ── ONE-LINERS ── */
+  .oneliners {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .oneliner {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 5px 14px;
+    text-align: center;
+    cursor: default;
+    transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s, border-color 0.2s;
+  }
+  .oneliner:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 24px rgba(125,34,64,0.1);
+    border-color: var(--burgundy);
+  }
+  .oneliner-prompt {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    color: var(--burgundy);
+    font-weight: 700;
+    font-style: italic;
+  }
+  .oneliner-result {
+    font-size: 7px;
+    color: var(--muted);
+    margin-top: 1px;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border);
+    padding-top: 10px;
+  }
+  .footer-steps {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+  .footer-step {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: var(--eggshell);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 4px 12px 4px 4px;
+    cursor: default;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .footer-step:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(125,34,64,0.06);
+  }
+  .footer-step-num {
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: var(--burgundy);
+    color: var(--gold);
+    font-family: 'Playfair Display', serif;
+    font-size: 9px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .footer-step-text {
+    font-size: 7.5px;
+    color: var(--charcoal);
+    font-weight: 600;
+  }
+  .footer-arrow {
+    color: var(--gold);
+    font-size: 12px;
+  }
+  .footer-tagline {
+    font-size: 7.5px;
+    color: var(--burgundy);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-left: 16px;
+  }
+  .footer-right { text-align: right; }
+  .footer-sub { font-size: 7px; color: var(--muted); }
+  .footer-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 10px;
+    color: var(--burgundy);
+    font-weight: 600;
+  }
+
+  /* ── ANIMATED COUNTERS ── */
+  .counter { display: inline-block; }
+
+  @keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-in {
+    animation: fadeSlideUp 0.4s ease both;
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ═══ HEADER ═══ -->
+  <div class="header">
+    <div class="header-left">
+      <span class="header-eyebrow">YouTube Video Outline</span>
+      <div class="header-title">One Weekend + <em>Claude Code</em> = Two Awesome Websites</div>
+    </div>
+    <div class="stats-row">
+      <div class="stat-pill animate-in" style="animation-delay:0.1s"><div class="stat-num counter" data-target="78">0</div><div class="stat-label">Commits</div></div>
+      <div class="stat-pill animate-in" style="animation-delay:0.2s"><div class="stat-num counter" data-target="15">0</div><div class="stat-label">Pages</div></div>
+      <div class="stat-pill animate-in" style="animation-delay:0.3s"><div class="stat-num counter" data-target="10">0</div><div class="stat-label">Blog<br>Posts</div></div>
+      <div class="stat-pill animate-in" style="animation-delay:0.4s"><div class="stat-num counter" data-target="4">0</div><div class="stat-label">Lead<br>Magnets</div></div>
+      <div class="stat-pill animate-in" style="animation-delay:0.5s"><div class="stat-num counter" data-target="0">0</div><div class="stat-label">Lines of<br>Code</div></div>
+    </div>
+  </div>
+
+  <!-- ═══ ASSETS STRIP ═══ -->
+  <div class="assets-strip">
+    <span class="assets-label">Critical Assets:</span>
+    <div class="asset-tag">
+      <div class="asset-icon asset-icon--doc">&#9776;</div>
+      Brand Document
+      <div class="asset-tooltip">Positioning, voice, audience, page structure &mdash; Claude reads it before every page</div>
+    </div>
+    <div class="asset-tag">
+      <div class="asset-icon asset-icon--code">&lt;/&gt;</div>
+      CLAUDE.md
+      <div class="asset-tooltip">Brand colors, font rules, screenshot workflow, anti-generic guardrails</div>
+    </div>
+    <div class="asset-tag">
+      <div class="asset-icon asset-icon--img">&#9633;</div>
+      Brand Assets Folder
+      <div class="asset-tooltip">1 headshot used on 10+ pages, hero images, PDF lead magnet</div>
+    </div>
+    <div class="asset-tag">
+      <div class="asset-icon asset-icon--mkt">&#9733;</div>
+      Hormozi Playbook
+      <div class="asset-tooltip">10 ad campaigns, funnels, personas &mdash; drove the entire offer redesign</div>
+    </div>
+    <div class="asset-tag">
+      <div class="asset-icon asset-icon--cam">&#9675;</div>
+      Headshot Photo
+      <div class="asset-tooltip">One professional photo powers hero, about, bio, and social graphics</div>
+    </div>
+    <div class="asset-tag">
+      <div class="asset-icon asset-icon--ref">&#9744;</div>
+      Reference Screenshots
+      <div class="asset-tooltip">Competitor sites &amp; inspiration &mdash; Claude matches them pixel-for-pixel</div>
+    </div>
+    <div style="flex:1"></div>
+    <span class="assets-label" style="color:var(--burgundy);">AI output quality = input quality</span>
+  </div>
+
+  <!-- ═══ MAIN ═══ -->
+  <div class="main">
+
+    <!-- LEFT: Tech Stack -->
+    <div class="left-col">
+      <div class="col-label">Tech Stack</div>
+      <div class="tech-card"><div class="tech-name">Claude Code</div><div class="tech-desc">AI coding assistant. You describe, it builds.</div><div class="tech-cost">$20/mo</div></div>
+      <div class="tech-card"><div class="tech-name">GitHub</div><div class="tech-desc">Version control. 78 save points.</div><div class="tech-cost">Free</div></div>
+      <div class="tech-card"><div class="tech-name">Vercel</div><div class="tech-desc">Hosting. Push = live. Custom domain.</div><div class="tech-cost">Free tier</div></div>
+      <div class="tech-card"><div class="tech-name">Supabase</div><div class="tech-desc">Database, auth, storage, forms.</div><div class="tech-cost">Free tier</div></div>
+      <div class="tech-card"><div class="tech-name">Stripe</div><div class="tech-desc">Payments. $47 product checkout.</div><div class="tech-cost">Per transaction</div></div>
+      <div class="tech-card"><div class="tech-name">Google APIs</div><div class="tech-desc">Gmail, Drive, GTM, Analytics.</div><div class="tech-cost">Free</div></div>
+    </div>
+
+    <!-- CENTER: Timeline -->
+    <div class="timeline-area">
+      <div class="timeline-row">
+        <div class="wk-badge"><div class="wk-num">Weekend 1</div><div class="wk-title">Foundation</div><div class="wk-date">March 8-9</div></div>
+        <div class="prompts-strip">
+          <div class="prompt-chip"><div class="prompt-chip-q">"Build me a 4-page website"</div><div class="prompt-chip-a">Homepage, About, Services, Contact</div></div>
+          <div class="prompt-chip"><div class="prompt-chip-q">"Connect scorecard to Supabase"</div><div class="prompt-chip-a">Interactive quiz + database backend</div></div>
+          <div class="prompt-chip"><div class="prompt-chip-q">"Add a blog section"</div><div class="prompt-chip-a">Blog listing + first article</div></div>
+          <div class="prompt-chip"><div class="prompt-chip-q">"Major update: SEO, workshops, PDF"</div><div class="prompt-chip-a">Workshops page, PDF lead magnet, About redesign</div></div>
+        </div>
+      </div>
+
+      <div class="timeline-row">
+        <div class="wk-badge"><div class="wk-num">Weekend 2</div><div class="wk-title">Funnels</div><div class="wk-date">March 15-16</div></div>
+        <div class="prompts-strip">
+          <div class="prompt-chip"><div class="prompt-chip-q">"Add webinar funnel page"</div><div class="prompt-chip-a">Landing page, countdown, registration, Supabase</div></div>
+          <div class="prompt-chip"><div class="prompt-chip-q">6-7 styling tweaks</div><div class="prompt-chip-a">Rapid iterations on brand matching</div></div>
+          <div class="prompt-chip"><div class="prompt-chip-q">"Add sales page + Stripe"</div><div class="prompt-chip-a">$47 product + checkout + thank-you page</div></div>
+        </div>
+      </div>
+
+      <div class="timeline-row">
+        <div class="wk-badge"><div class="wk-num">Weekend 3</div><div class="wk-title">SEO + Perf</div><div class="wk-date">March 22-28</div></div>
+        <div class="prompts-strip">
+          <div class="prompt-chip"><div class="prompt-chip-q">"/seo-audit"</div><div class="prompt-chip-a">robots.txt, sitemap, schema, privacy, terms, llms.txt</div></div>
+          <div class="prompt-chip"><div class="prompt-chip-q">"Add Claude Resources page"</div><div class="prompt-chip-a">Chat vs Cowork vs Code comparison hub</div></div>
+          <div class="prompt-chip"><div class="prompt-chip-q">"Replace Tailwind CDN"</div><div class="prompt-chip-a">300KB JS &rarr; 7.3KB CSS</div></div>
+        </div>
+      </div>
+
+      <div class="timeline-row">
+        <div class="wk-badge"><div class="wk-num">Weekend 4</div><div class="wk-title">Pipeline + Magnets</div><div class="wk-date">Mar 29 - Apr 5</div></div>
+        <div class="prompts-strip">
+          <div class="prompt-chip"><div class="prompt-chip-q">"Build content pipeline"</div><div class="prompt-chip-a">7-module Python: Reddit, RSS, Gmail</div></div>
+          <div class="prompt-chip"><div class="prompt-chip-q">"AI Stack Template"</div><div class="prompt-chip-a">Interactive tool page + email gate</div></div>
+          <div class="prompt-chip"><div class="prompt-chip-q">"AI ROI Calculator"</div><div class="prompt-chip-a">Hours &rarr; savings + PDF report</div></div>
+          <div class="prompt-chip"><div class="prompt-chip-q">"5-Day Challenge"</div><div class="prompt-chip-a">Signup + day-by-day preview</div></div>
+          <div class="prompt-chip"><div class="prompt-chip-q">"Free Tools nav"</div><div class="prompt-chip-a">Dropdown across 15 pages</div></div>
+        </div>
+      </div>
+
+      <div class="timeline-row">
+        <div class="wk-badge"><div class="wk-num">Weekend 5</div><div class="wk-title">Offer Redesign</div><div class="wk-date">April 11-12</div></div>
+        <div class="prompts-strip">
+          <div class="prompt-chip"><div class="prompt-chip-q">"Social graphics pipeline"</div><div class="prompt-chip-a">Carousel renderer + Drive upload</div></div>
+          <div class="prompt-chip"><div class="prompt-chip-q">"/hormozi-style vs competitor"</div><div class="prompt-chip-a">Competitive analysis, 4-tier offer stack</div></div>
+          <div class="prompt-chip"><div class="prompt-chip-q">"redesign" (1 word)</div><div class="prompt-chip-a">Full homepage: A.I.R. Method, pricing</div></div>
+          <div class="prompt-chip"><div class="prompt-chip-q">"workshops go"</div><div class="prompt-chip-a">Redirect + Accelerator sales page</div></div>
+          <div class="prompt-chip"><div class="prompt-chip-q">"create blog post"</div><div class="prompt-chip-a">9 sections, YouTube embed, sidebar</div></div>
+        </div>
+      </div>
+
+      <!-- One-liners -->
+      <div class="oneliners">
+        <div class="oneliner"><div class="oneliner-prompt">"redesign"</div><div class="oneliner-result">Entire homepage rebuilt</div></div>
+        <div class="oneliner"><div class="oneliner-prompt">"all"</div><div class="oneliner-result">Workshops page rewritten</div></div>
+        <div class="oneliner"><div class="oneliner-prompt">"yes"</div><div class="oneliner-result">Accelerator + redirect + CTAs</div></div>
+        <div class="oneliner"><div class="oneliner-prompt">"/seo-audit"</div><div class="oneliner-result">30+ fixes, one command</div></div>
+        <div class="oneliner"><div class="oneliner-prompt">"looks good"</div><div class="oneliner-result">Saved to memory</div></div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Plugins + Sites -->
+    <div class="right-col">
+      <div>
+        <div class="col-label">7 Plugins</div>
+        <div class="plugin-item"><div class="plugin-dot"></div><div><div class="plugin-name">Superpowers</div><div class="plugin-desc">Plan, brainstorm, review</div></div></div>
+        <div class="plugin-item"><div class="plugin-dot"></div><div><div class="plugin-name">Frontend Design</div><div class="plugin-desc">Production HTML/CSS</div></div></div>
+        <div class="plugin-item"><div class="plugin-dot"></div><div><div class="plugin-name">Playwright</div><div class="plugin-desc">Screenshots, PDFs</div></div></div>
+        <div class="plugin-item"><div class="plugin-dot"></div><div><div class="plugin-name">Context7</div><div class="plugin-desc">Live docs lookup</div></div></div>
+        <div class="plugin-item"><div class="plugin-dot"></div><div><div class="plugin-name">Claude-Mem</div><div class="plugin-desc">Cross-session memory</div></div></div>
+        <div class="plugin-item"><div class="plugin-dot"></div><div><div class="plugin-name">Last30Days</div><div class="plugin-desc">Reddit/X/YT research</div></div></div>
+        <div class="plugin-item"><div class="plugin-dot"></div><div><div class="plugin-name">Remotion</div><div class="plugin-desc">Video from code</div></div></div>
+      </div>
+      <div>
+        <div class="col-label">20 Skills</div>
+        <div class="plugin-item"><div class="plugin-dot" style="background:var(--gold)"></div><div><div class="plugin-name">SEO Suite (12)</div><div class="plugin-desc">Audit, schema, sitemap, content</div></div></div>
+        <div class="plugin-item"><div class="plugin-dot" style="background:var(--gold)"></div><div><div class="plugin-name">Hormozi Marketing</div><div class="plugin-desc">Ads, funnels, personas</div></div></div>
+        <div class="plugin-item"><div class="plugin-dot" style="background:var(--gold)"></div><div><div class="plugin-name">LinkedIn</div><div class="plugin-desc">Posts, messaging, profiles</div></div></div>
+        <div class="plugin-item"><div class="plugin-dot" style="background:var(--gold)"></div><div><div class="plugin-name">Frontend Design</div><div class="plugin-desc">Brand-aware guardrails</div></div></div>
+      </div>
+      <div>
+        <div class="col-label">2 Sites Built</div>
+        <div class="site-card" style="margin-bottom:5px;">
+          <div class="site-name">smallbusinessaicoach.com</div>
+          <div class="site-desc">AI coaching: 15 pages, blog, lead magnets, pipeline</div>
+        </div>
+        <div class="site-card">
+          <div class="site-name">sovereignafbook.com</div>
+          <div class="site-desc">Solar B2B: LinkedIn, email outreach, French content</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ FOOTER ═══ -->
+  <div class="footer">
+    <div class="footer-steps">
+      <div class="footer-step"><div class="footer-step-num">1</div><div class="footer-step-text">Describe in English</div></div>
+      <div class="footer-arrow">&rarr;</div>
+      <div class="footer-step"><div class="footer-step-num">2</div><div class="footer-step-text">Claude Code builds it</div></div>
+      <div class="footer-arrow">&rarr;</div>
+      <div class="footer-step"><div class="footer-step-num">3</div><div class="footer-step-text">Review screenshot</div></div>
+      <div class="footer-arrow">&rarr;</div>
+      <div class="footer-step"><div class="footer-step-num">4</div><div class="footer-step-text">Repeat until right</div></div>
+      <div class="footer-tagline">Zero code. Zero debugging. Zero Google.</div>
+    </div>
+    <div class="footer-right">
+      <div class="footer-sub">Built with Claude Code &middot; 5 Weekends &middot; No coding knowledge</div>
+      <div class="footer-brand">Alice Bazdikian &middot; smallbusinessaicoach.com</div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Animated counters
+document.querySelectorAll('.counter').forEach(function(el) {
+  var target = parseInt(el.dataset.target);
+  var duration = 1200;
+  var start = null;
+  function step(ts) {
+    if (!start) start = ts;
+    var progress = Math.min((ts - start) / duration, 1);
+    var ease = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.round(ease * target);
+    if (progress < 1) requestAnimationFrame(step);
+  }
+  setTimeout(function() { requestAnimationFrame(step); }, 300);
+});
+</script>
+</body>
+</html>

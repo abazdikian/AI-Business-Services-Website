@@ -1,0 +1,272 @@
+<!--
+  Official LinkedIn Weekly Infographic template — Brand Refresh v2
+  White bg · burgundy lines · ink text · Fraunces display · Nunito body
+  Data schema: see content_hub/render/infographic.py (INFOGRAPHIC_SCHEMA)
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600;1,9..144,700&family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --burgundy: #7A1530;
+    --burgundy-soft: #9B2440;
+    --burgundy-glow: #C13558;
+    --gold: #D4A84A;
+    --gold-warm: #E6C472;
+    --gold-deep: #A87B1F;
+    --ink: #2B1A1F;
+    --ink-soft: #6B5A5F;
+    --rule: #EFE8E3;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    width: 1080px; height: 1350px;
+    background: white;
+    font-family: 'Nunito', system-ui, -apple-system, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: var(--ink);
+  }
+  body { padding: 60px 64px; display: flex; flex-direction: column; }
+
+  /* ── TOP BAR: monogram + badge ── */
+  .top {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 36px;
+  }
+  .monogram {
+    width: 84px; height: 84px;
+    border-radius: 16px;
+    background: var(--burgundy);
+    display: flex; align-items: center; justify-content: center;
+    line-height: 0;
+  }
+  .mono-ab {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 46px;
+    letter-spacing: -1.5px;
+    color: var(--gold);
+  }
+  .badge {
+    border: 2px solid var(--burgundy);
+    color: var(--ink);
+    padding: 10px 20px;
+    border-radius: 999px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 16px; letter-spacing: 3px;
+    text-transform: uppercase;
+    display: inline-flex; align-items: center; gap: 10px;
+  }
+  .badge .dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--gold);
+  }
+
+  /* ── TITLE ── */
+  .title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 700;
+    font-size: 82px; line-height: 0.98;
+    letter-spacing: -2.5px;
+    color: var(--burgundy);
+    margin-bottom: 14px;
+  }
+  .title .accent {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--gold-deep);
+  }
+  .title-underline {
+    width: 140px; height: 4px;
+    background: var(--gold);
+    border-radius: 2px;
+    margin-bottom: 20px;
+  }
+  .subtitle {
+    font-family: 'Nunito', sans-serif;
+    font-size: 24px; font-weight: 500;
+    color: var(--ink-soft);
+    line-height: 1.35;
+    max-width: 92%;
+    margin-bottom: 30px;
+  }
+
+  /* ── SECTION ── */
+  .section-head {
+    display: flex; align-items: baseline; gap: 14px;
+    margin: 12px 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--burgundy);
+  }
+  .section-label {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 700;
+    font-size: 28px; letter-spacing: -0.5px;
+    color: var(--burgundy);
+    text-transform: none;
+  }
+  .section-count {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800; font-size: 14px;
+    color: var(--gold-deep);
+    letter-spacing: 2.5px; text-transform: uppercase;
+  }
+
+  /* ── CARD GRID (5 cols × 1 row) ── */
+  .row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px;
+    margin-top: 18px;
+  }
+  .card {
+    background: white;
+    border: 1.5px solid var(--rule);
+    border-top: 3px solid var(--burgundy);
+    border-radius: 10px;
+    padding: 20px 14px 16px;
+    position: relative;
+    min-height: 222px;
+    display: flex; flex-direction: column; align-items: center;
+    text-align: center;
+  }
+  .card-num {
+    position: absolute;
+    top: -14px; left: -10px;
+    width: 36px; height: 36px;
+    background: var(--burgundy);
+    color: var(--gold);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 18px;
+  }
+  .card-icon { font-size: 42px; line-height: 1; margin: 4px 0 10px; }
+  .card-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: -0.3px;
+    color: var(--burgundy);
+    line-height: 1.1; margin-bottom: 6px;
+  }
+  .card-desc {
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px; font-weight: 500;
+    color: var(--ink);
+    line-height: 1.35;
+  }
+
+  /* ── GITHUB FOOTER STRIP ── */
+  .github-strip {
+    margin-top: auto;
+    margin-bottom: 20px;
+    padding: 18px 22px;
+    background: white;
+    border: 1.5px solid var(--burgundy);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center; gap: 14px;
+  }
+  .github-strip .gh-label {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 14px; letter-spacing: 3px;
+    color: var(--burgundy);
+    text-transform: uppercase;
+  }
+  .github-strip .gh-url {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600; font-size: 20px;
+    font-style: italic;
+    color: var(--ink);
+  }
+
+  /* ── FOOTER meta ── */
+  .foot {
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px; font-weight: 500;
+    color: var(--ink-soft);
+    padding-top: 12px;
+    border-top: 1.5px solid var(--rule);
+  }
+  .foot .handle {
+    color: var(--burgundy);
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .foot .signature {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+
+  <div class="top">
+    <div class="monogram"><span class="mono-ab">ab</span></div>
+    <div class="badge">
+      <span class="dot"></span>
+      {{ badge_text_top }} {{ badge_text_bottom }}
+    </div>
+  </div>
+
+  <div class="title">{{ title }}</div>
+  <div class="title-underline"></div>
+  <div class="subtitle">{{ subtitle }}</div>
+
+  <div>
+    <div class="section-head">
+      <div class="section-label">{{ section_1_label }}</div>
+      <div class="section-count">{{ section_1_count }} skills</div>
+    </div>
+    <div class="row">
+      {% for s in section_1 %}
+      <div class="card">
+        <div class="card-num">{{ loop.index }}</div>
+        <div class="card-icon">{{ s.icon }}</div>
+        <div class="card-title">{{ s.name }}</div>
+        <div class="card-desc">{{ s.desc }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div style="margin-top: 28px;">
+    <div class="section-head">
+      <div class="section-label">{{ section_2_label }}</div>
+      <div class="section-count">{{ section_2_count }} skills</div>
+    </div>
+    <div class="row">
+      {% for s in section_2 %}
+      <div class="card">
+        <div class="card-num">{{ section_1|length + loop.index }}</div>
+        <div class="card-icon">{{ s.icon }}</div>
+        <div class="card-title">{{ s.name }}</div>
+        <div class="card-desc">{{ s.desc }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="github-strip">
+    <span class="gh-label">Find more →</span>
+    <span class="gh-url">{{ github_link }}</span>
+  </div>
+
+  <div class="foot">
+    <div class="signature">{{ week_label }}</div>
+    <div class="handle">@smallbusinessaicoach</div>
+  </div>
+
+</body>
+</html>

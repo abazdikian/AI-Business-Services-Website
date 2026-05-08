@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% block title %}Market News · Content Hub{% endblock %}
+{% block content %}
+<section class="market-news">
+  <div class="mn-head">
+    <h1>Market News
+      <span class="muted">· read-only feed from the weekly scouts</span></h1>
+  </div>
+
+  <!-- ────── TAB A: AI News Digest ────── -->
+  <div class="mn-section">
+    <div class="mn-section-head">
+      <h2>AI News Digest
+        <span class="muted">· {{ digest.entries|length }} item{{ 's' if digest.entries|length != 1 else '' }}</span></h2>
+      {% if digest.fetched_at %}
+        <span class="mn-stale">Last refreshed {{ digest.fetched_at[:16] }}Z</span>
+      {% else %}
+        <span class="mn-stale mn-stale-warn">No digest file yet</span>
+      {% endif %}
+    </div>
+
+    {% if not digest.entries %}
+      <p class="muted pad">No digest items. Run
+        <code>python social-pipeline/run_pipeline.py</code> to generate.</p>
+    {% else %}
+      <div class="mn-cards">
+        {% for d in digest.entries %}
+        <article class="mn-card">
+          {% if d.category %}<div class="mn-cat">{{ d.category }}</div>{% endif %}
+          <h3 class="mn-headline">{{ d.headline }}</h3>
+          {% if d.quote_text %}
+            <blockquote class="mn-quote">&ldquo;{{ d.quote_text }}&rdquo;</blockquote>
+          {% endif %}
+          <p class="mn-summary">{{ d.summary }}</p>
+          <details class="mn-details">
+            <summary>Ready-to-post drafts</summary>
+            {% if d.caption %}
+              <div class="mn-sub"><strong>Caption</strong><pre>{{ d.caption }}</pre></div>
+            {% endif %}
+            {% if d.linkedin_text %}
+              <div class="mn-sub"><strong>LinkedIn</strong><pre>{{ d.linkedin_text }}</pre></div>
+            {% endif %}
+            {% if d.video_script %}
+              <div class="mn-sub"><strong>Video script</strong><pre>{{ d.video_script }}</pre></div>
+            {% endif %}
+            {% if d.twitter_thread %}
+              <div class="mn-sub"><strong>Thread</strong>
+                {% for t in d.twitter_thread %}<pre>{{ t }}</pre>{% endfor %}
+              </div>
+            {% endif %}
+          </details>
+          {% if d.source_url %}
+            <a class="mn-link" href="{{ d.source_url }}" target="_blank">Source →</a>
+          {% endif %}
+        </article>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+
+  <!-- ────── TAB B: Reddit Warm Queue ────── -->
+  <div class="mn-section">
+    <div class="mn-section-head">
+      <h2>Reddit · Warm Queue
+        <span class="muted">· {{ warm_queue.entries|length }} post{{ 's' if warm_queue.entries|length != 1 else '' }}</span></h2>
+      {% if warm_queue.fetched_at %}
+        <span class="mn-stale">Last refreshed {{ warm_queue.fetched_at[:16] }}Z</span>
+      {% else %}
+        <span class="mn-stale mn-stale-warn">No scout file yet</span>
+      {% endif %}
+    </div>
+
+    {% if not warm_queue.entries %}
+      <p class="muted pad">No Reddit posts. Run
+        <code>social-pipeline/run_reddit_scout.sh</code> to populate.</p>
+    {% else %}
+      <div class="mn-reddit">
+        {% for p in warm_queue.entries %}
+        <article class="mn-rpost">
+          <div class="mn-rmeta">
+            <span class="mn-sub-r">r/{{ p.subreddit }}</span>
+            <span class="mn-rtag mn-rtag-{{ p.opportunity_type or 'other' }}">
+              {{ (p.opportunity_type or 'other') | replace('_', ' ') }}
+            </span>
+            <span class="mn-score">★ {{ p.relevance_score or 0 }}/10</span>
+            <span class="muted">· {{ p.num_comments or 0 }} comments · score {{ p.score or 0 }}</span>
+          </div>
+          <h3 class="mn-rtitle">
+            <a href="https://reddit.com{{ p.permalink }}" target="_blank">{{ p.title }}</a>
+          </h3>
+          {% if p.reason %}
+            <p class="mn-reason"><strong>Why:</strong> {{ p.reason }}</p>
+          {% endif %}
+          {% if p.body %}
+            <details class="mn-details">
+              <summary>Read body</summary>
+              <pre class="mn-rbody">{{ p.body }}</pre>
+            </details>
+          {% endif %}
+        </article>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

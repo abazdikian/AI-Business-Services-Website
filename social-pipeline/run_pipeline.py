@@ -11,6 +11,7 @@ from config import LAST_RUN_FILE, OUTPUT_DIR, TOTAL_ITEMS_MIN, DIGEST_DATA_DIR, 
 from fetch_reddit import fetch_reddit
 from fetch_anthropic import fetch_anthropic
 from fetch_news import fetch_news
+from fetch_perplexity import fetch_perplexity
 from draft_posts import draft_posts
 from format_email import format_email
 from send_email import send_email
@@ -66,8 +67,9 @@ def run():
     reddit_stories = fetch_reddit()
     anthropic_stories = fetch_anthropic()
     news_stories = fetch_news()
+    perplexity_stories = fetch_perplexity()
 
-    all_stories = reddit_stories + anthropic_stories + news_stories
+    all_stories = reddit_stories + anthropic_stories + news_stories + perplexity_stories
     print(f"\nTotal raw stories: {len(all_stories)}")
 
     if len(all_stories) == 0:

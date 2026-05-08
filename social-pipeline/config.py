@@ -5,7 +5,7 @@ Configuration for the Social Media Content Sourcing Pipeline.
 import os
 
 # ── Email ──
-ALICE_EMAIL = "alice.b@alprosolutions.ca"
+ALICE_EMAIL = "abazdikian@gmail.com"
 
 # ── Reddit Sources ──
 REDDIT_SUBS = [
@@ -30,6 +30,18 @@ RSS_FEEDS = [
     "https://www.yoursolopreneur.com/feed/",
     "https://feeds.feedburner.com/SmallBusinessTrends",
     "https://www.entrepreneur.com/latest.rss",
+]
+
+# ── Perplexity API ──
+PERPLEXITY_API_KEY = os.environ.get("PERPLEXITY_API_KEY", "")
+PERPLEXITY_MODEL = "sonar"
+
+# Targeted research queries for AI + small business content
+PERPLEXITY_QUERIES = [
+    "AI tools saving small businesses time and money this week",
+    "women entrepreneurs using AI to grow their business 2026",
+    "free AI tools for solopreneurs and small business owners",
+    "AI automation replacing tasks for small business owners",
 ]
 
 # ── Claude API ──

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>One Weekend + Claude Code = Two Websites</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+/* page background simulates the room behind the whiteboard */
+html,body{
+  background:#c8c2b4;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+  font-family:'Architects Daughter',cursive;
+}
+
+/* ── THE WHITEBOARD ── */
+.board{
+  width:780px;
+  background:#f4f0e8;
+  border:4px solid #a8a090;
+  border-radius:4px;
+  box-shadow:
+    0 12px 48px rgba(0,0,0,0.25),
+    inset 0 0 80px rgba(0,0,0,0.02);
+  position:relative;
+  padding:44px 50px 64px;
+}
+
+/* subtle whiteboard surface texture */
+.board::after{
+  content:'';
+  position:absolute;inset:0;
+  background:repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(0,0,0,0.003) 3px,
+    rgba(0,0,0,0.003) 4px
+  );
+  pointer-events:none;
+  border-radius:2px;
+}
+
+/* ── MARKER TRAY ── */
+.tray{
+  position:absolute;
+  bottom:-2px;left:50%;transform:translateX(-50%);
+  width:260px;height:20px;
+  background:linear-gradient(to bottom,#b0a898,#c0b8a8);
+  border-radius:6px 6px 0 0;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  gap:16px;
+  padding-bottom:3px;
+  box-shadow:0 -1px 4px rgba(0,0,0,0.08);
+  z-index:2;
+}
+.mk{width:9px;border-radius:4px 4px 2px 2px;transform:translateY(8px)}
+.mk--bl{height:30px;background:#2a5a8a}
+.mk--rd{height:28px;background:#c03030}
+.mk--gn{height:26px;background:#28a058}
+.mk--yl{height:29px;background:#d0a020}
+.mk--bk{height:27px;background:#383838}
+
+/* ── BADGE ── */
+.badge{
+  position:absolute;top:18px;right:24px;
+  width:52px;height:52px;
+  border-radius:50%;
+  border:2.5px solid #c03030;
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:700;color:#c03030;
+  text-align:center;line-height:1.1;
+  background:rgba(192,48,48,0.04);
+}
+
+/* ── COLORS ── */
+.ink{color:#1a3054}
+.bl{color:#2a5a8a}
+.rd{color:#c03030}
+
+/* ── TITLE BLOCK ── */
+.title{
+  text-align:center;
+  font-size:30px;
+  color:#1a3054;
+  text-transform:uppercase;
+  letter-spacing:0.04em;
+  line-height:1.15;
+}
+.subtitle{
+  text-align:center;
+  font-size:19px;
+  color:#1a3054;
+  margin-top:2px;
+  position:relative;
+  display:inline-block;
+}
+.subtitle-wrap{text-align:center}
+/* hand-drawn underline */
+.subtitle::after{
+  content:'';
+  position:absolute;
+  bottom:-3px;left:-4px;right:-4px;
+  height:2.5px;
+  background:#1a3054;
+  border-radius:2px;
+  transform:rotate(-0.3deg);
+}
+.arrow{
+  text-align:center;
+  font-size:26px;
+  color:#1a3054;
+  margin:6px 0 10px;
+  line-height:1;
+}
+
+/* ── STEP ROW ── */
+.step{
+  display:grid;
+  grid-template-columns:46px 1fr 170px;
+  gap:12px;
+  align-items:start;
+  padding:11px 0;
+  border-bottom:1.5px solid rgba(42,90,138,0.12);
+}
+.step:last-of-type{border-bottom:none}
+
+/* circle number — hand-drawn imperfect shape */
+.num{
+  width:42px;height:42px;
+  border:2.5px solid #2a5a8a;
+  border-radius:47% 53% 49% 51% / 52% 48% 52% 48%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:24px;font-weight:700;color:#2a5a8a;
+  margin-top:2px;
+}
+
+.step-body{flex:1}
+.step-title{
+  font-size:17px;
+  color:#1a3054;
+  font-weight:700;
+  line-height:1.2;
+}
+.step-desc{
+  font-family:'Caveat',cursive;
+  font-size:15px;
+  color:#506878;
+  line-height:1.3;
+  margin-top:2px;
+}
+
+/* right-side illustration: icon box → arrow → speech bubble label */
+.illust{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  margin-top:4px;
+}
+.icon-box{
+  width:50px;height:42px;
+  border:1.5px solid #2a5a8a;
+  border-radius:4px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;
+  background:rgba(42,90,138,0.02);
+  flex-shrink:0;
+}
+.icon-arrow{
+  font-size:14px;color:#2a5a8a;
+  flex-shrink:0;
+}
+.speech{
+  font-family:'Caveat',cursive;
+  font-size:11.5px;
+  color:#2a5a8a;
+  line-height:1.2;
+  background:rgba(42,90,138,0.04);
+  border:1px solid rgba(42,90,138,0.15);
+  border-radius:10px;
+  padding:4px 8px;
+  position:relative;
+}
+/* tiny speech triangle */
+.speech::before{
+  content:'';
+  position:absolute;
+  left:-5px;top:50%;transform:translateY(-50%);
+  border:4px solid transparent;
+  border-right-color:rgba(42,90,138,0.15);
+}
+
+/* ── KEY BENEFIT BOX ── */
+.key{
+  border:2.5px solid #c03030;
+  border-radius:14px;
+  padding:14px 18px;
+  margin:16px 0 12px;
+  display:grid;
+  grid-template-columns:1fr 54px;
+  gap:12px;
+  align-items:center;
+}
+.key-label{
+  font-size:17px;
+  color:#c03030;
+  font-weight:700;
+  margin-bottom:4px;
+}
+.key-text{
+  font-size:15px;
+  color:#1a3054;
+  line-height:1.35;
+}
+.key-icon{
+  width:50px;height:42px;
+  border:1.5px solid #c03030;
+  border-radius:4px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;
+  background:rgba(192,48,48,0.03);
+}
+
+/* ── FOOTER ── */
+.foot{
+  text-align:center;
+  font-size:15px;
+  color:#1a3054;
+  margin-top:4px;
+}
+
+/* responsive */
+@media(max-width:840px){.board{width:95vw;padding:32px 28px 56px}}
+</style>
+</head>
+<body>
+
+<div class="board">
+  <div class="badge">$0<br>code</div>
+
+  <div class="title">One Weekend + Claude Code<br>= Two Awesome Websites</div>
+  <div class="subtitle-wrap"><span class="subtitle">Set Up and Build in 5 Steps</span></div>
+  <div class="arrow">&darr;</div>
+
+  <!-- ── STEP 1 ── -->
+  <div class="step">
+    <div class="num">1</div>
+    <div class="step-body">
+      <div class="step-title">Set Up Your Tools</div>
+      <div class="step-desc">Install Claude Code, create a GitHub repo,<br>connect Vercel for instant hosting</div>
+    </div>
+    <div class="illust">
+      <div class="icon-box">&#128187;</div>
+      <span class="icon-arrow">&rarr;</span>
+      <div class="speech">Claude Code<br>+ GitHub<br>+ Vercel</div>
+    </div>
+  </div>
+
+  <!-- ── STEP 2 ── -->
+  <div class="step">
+    <div class="num">2</div>
+    <div class="step-body">
+      <div class="step-title">Prepare Your Assets</div>
+      <div class="step-desc">Brand doc, 1 headshot, brand colors,<br>CLAUDE.md rules file, reference screenshots</div>
+    </div>
+    <div class="illust">
+      <div class="icon-box">&#128196;</div>
+      <span class="icon-arrow">&rarr;</span>
+      <div class="speech">Brand doc<br>tells Claude<br>your voice</div>
+    </div>
+  </div>
+
+  <!-- ── STEP 3 ── -->
+  <div class="step">
+    <div class="num">3</div>
+    <div class="step-body">
+      <div class="step-title">Install Plugins + Skills</div>
+      <div class="step-desc">Frontend Design, Superpowers, Playwright,<br>SEO Suite, Hormozi Marketing (20 skills total)</div>
+    </div>
+    <div class="illust">
+      <div class="icon-box">&#9881;</div>
+      <span class="icon-arrow">&rarr;</span>
+      <div class="speech">7 plugins<br>+ 20 skills<br>= superpowers</div>
+    </div>
+  </div>
+
+  <!-- ── STEP 4 ── -->
+  <div class="step">
+    <div class="num">4</div>
+    <div class="step-body">
+      <div class="step-title">Give Your First Prompt</div>
+      <div class="step-desc">"Build me a 4-page website" &mdash; Claude<br>writes all HTML, CSS, JS. You review + refine.</div>
+    </div>
+    <div class="illust">
+      <div class="icon-box">&#9998;</div>
+      <span class="icon-arrow">&rarr;</span>
+      <div class="speech">Describe<br>in English.<br>Claude builds.</div>
+    </div>
+  </div>
+
+  <!-- ── STEP 5 ── -->
+  <div class="step">
+    <div class="num" style="border-color:#c03030;color:#c03030;">5</div>
+    <div class="step-body">
+      <div class="step-title">Push to Vercel &mdash; You're Live</div>
+      <div class="step-desc">git push &rarr; site deploys automatically.<br>Custom domain. SSL. Done in 2 minutes.</div>
+    </div>
+    <div class="illust">
+      <div class="icon-box" style="border-color:#c03030;">&#127881;</div>
+      <span class="icon-arrow" style="color:#c03030;">&rarr;</span>
+      <div class="speech" style="border-color:rgba(192,48,48,0.2);color:#c03030;background:rgba(192,48,48,0.03);">2 websites<br>live in<br>one weekend</div>
+    </div>
+  </div>
+
+  <!-- ── KEY BENEFIT ── -->
+  <div class="key">
+    <div>
+      <div class="key-label">KEY BENEFIT</div>
+      <div class="key-text">Two complete websites &mdash; 15 pages, blog, lead magnets, payments &mdash; built in one weekend with zero coding knowledge.</div>
+    </div>
+    <div class="key-icon">&#128161;</div>
+  </div>
+
+  <div class="foot">Built with Claude Code &mdash; smallbusinessaicoach.com + sovereignafbook.com</div>
+
+  <!-- markers -->
+  <div class="tray">
+    <div class="mk mk--bl"></div>
+    <div class="mk mk--rd"></div>
+    <div class="mk mk--gn"></div>
+    <div class="mk mk--yl"></div>
+    <div class="mk mk--bk"></div>
+  </div>
+</div>
+
+</body>
+</html>

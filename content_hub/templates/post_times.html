@@ -1,0 +1,218 @@
+{% extends "base.html" %}
+{% block title %}Best times to post · Content Hub{% endblock %}
+{% block content %}
+<section class="pt">
+  <div class="pt-head">
+    <h1>Best times to post
+      <span class="muted">· 2026 engagement windows · all times ET</span></h1>
+    <p class="pt-sub">Rows are channels. Columns are days. Each cell shows the <strong>best</strong> window first, then a solid backup window below it. Starred cells <span class="pt-star">★</span> are peak days for that channel.</p>
+  </div>
+
+  <div class="pt-table-wrap">
+    <table class="pt-table">
+      <thead>
+        <tr>
+          <th class="pt-th-channel">Channel</th>
+          <th>Mon</th>
+          <th>Tue</th>
+          <th>Wed</th>
+          <th>Thu</th>
+          <th>Fri</th>
+          <th>Sat</th>
+          <th>Sun</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        {# ── LinkedIn ── #}
+        <tr>
+          <th class="pt-th-channel">
+            <span class="pt-chan pt-chan-linkedin">LinkedIn</span>
+          </th>
+          <td><span class="pt-good">10am–12pm</span></td>
+          <td>
+            <span class="pt-best">10–11am</span>
+            <span class="pt-good">1–3pm</span>
+          </td>
+          <td class="pt-peak">
+            <span class="pt-star">★</span>
+            <span class="pt-best">9–11am</span>
+            <span class="pt-good">1–5pm</span>
+          </td>
+          <td class="pt-peak">
+            <span class="pt-star">★</span>
+            <span class="pt-best">9–11am</span>
+            <span class="pt-good">1–5pm</span>
+          </td>
+          <td>
+            <span class="pt-good">9–11am</span>
+            <span class="pt-note">avoid after 2pm</span>
+          </td>
+          <td>
+            <span class="pt-ok">9am</span>
+            <span class="pt-note">mostly skip</span>
+          </td>
+          <td><span class="pt-skip">skip</span></td>
+        </tr>
+
+        {# ── Instagram ── #}
+        <tr>
+          <th class="pt-th-channel">
+            <span class="pt-chan pt-chan-instagram">Instagram</span>
+          </th>
+          <td><span class="pt-ok">11am–1pm</span></td>
+          <td class="pt-peak">
+            <span class="pt-star">★</span>
+            <span class="pt-best">9–11am</span>
+            <span class="pt-good">3–5pm</span>
+          </td>
+          <td class="pt-peak">
+            <span class="pt-star">★</span>
+            <span class="pt-best">9–11am</span>
+            <span class="pt-best">3pm</span>
+          </td>
+          <td class="pt-peak">
+            <span class="pt-star">★</span>
+            <span class="pt-best">9–11am</span>
+            <span class="pt-good">5–7pm</span>
+          </td>
+          <td>
+            <span class="pt-best">11am</span>
+            <span class="pt-best">3pm</span>
+          </td>
+          <td><span class="pt-ok">10am–12pm</span></td>
+          <td><span class="pt-ok">8–10pm</span></td>
+        </tr>
+
+        {# ── TikTok ── #}
+        <tr>
+          <th class="pt-th-channel">
+            <span class="pt-chan pt-chan-tiktok">TikTok</span>
+          </th>
+          <td>
+            <span class="pt-ok">1pm</span>
+            <span class="pt-ok">6pm</span>
+          </td>
+          <td class="pt-peak">
+            <span class="pt-star">★</span>
+            <span class="pt-best">7–9am</span>
+            <span class="pt-good">10am–1pm</span>
+          </td>
+          <td class="pt-peak">
+            <span class="pt-star">★</span>
+            <span class="pt-best">1–8pm</span>
+          </td>
+          <td class="pt-peak">
+            <span class="pt-star">★</span>
+            <span class="pt-best">1–5pm</span>
+            <span class="pt-good">7–9am</span>
+          </td>
+          <td>
+            <span class="pt-ok">3–5pm</span>
+            <span class="pt-ok">7–9am</span>
+          </td>
+          <td><span class="pt-ok">3–5pm</span></td>
+          <td class="pt-peak">
+            <span class="pt-star">★</span>
+            <span class="pt-good">9am</span>
+            <span class="pt-good">12–1pm</span>
+          </td>
+        </tr>
+
+        {# ── YouTube Long-form ── #}
+        <tr>
+          <th class="pt-th-channel">
+            <span class="pt-chan pt-chan-youtube">YouTube</span>
+            <span class="pt-sub-label">long-form upload</span>
+          </th>
+          <td>
+            <span class="pt-best">2–4pm</span>
+            <span class="pt-note">eve okay</span>
+          </td>
+          <td>
+            <span class="pt-best">2–4pm</span>
+            <span class="pt-good">5–7am</span>
+          </td>
+          <td>
+            <span class="pt-best">2–4pm</span>
+            <span class="pt-note">avoid late aft</span>
+          </td>
+          <td class="pt-peak">
+            <span class="pt-star">★</span>
+            <span class="pt-best">2–4pm</span>
+            <span class="pt-good">5–7am</span>
+          </td>
+          <td class="pt-peak">
+            <span class="pt-star">★</span>
+            <span class="pt-best">2–4pm</span>
+            <span class="pt-good">12pm</span>
+          </td>
+          <td class="pt-peak">
+            <span class="pt-star">★</span>
+            <span class="pt-good">7–9am</span>
+            <span class="pt-good">9–11am</span>
+          </td>
+          <td class="pt-peak">
+            <span class="pt-star">★</span>
+            <span class="pt-good">7–9am</span>
+            <span class="pt-good">9–11am</span>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <div class="pt-legend">
+    <span class="pt-legend-item"><span class="pt-dot pt-dot-best"></span> Best window</span>
+    <span class="pt-legend-item"><span class="pt-dot pt-dot-good"></span> Good backup</span>
+    <span class="pt-legend-item"><span class="pt-dot pt-dot-ok"></span> Okay</span>
+    <span class="pt-legend-item"><span class="pt-star">★</span> Peak day for this channel</span>
+  </div>
+
+  <aside class="pt-callout">
+    <h3>The YouTube rule no other platform follows</h3>
+    <p>YouTube needs <strong>2–3 hours</strong> to index a new upload, run its first test audiences, and build momentum before it recommends the video at scale. So upload <strong>2–3 hours <em>before</em></strong> your audience's peak viewing window — not during it. If your viewers are most active at 7pm, publish at 4–5pm.</p>
+  </aside>
+
+  <div class="pt-summary">
+    <h3>Quick summary</h3>
+    <table class="pt-summary-table">
+      <thead>
+        <tr>
+          <th>Channel</th>
+          <th>Best days</th>
+          <th>Best times</th>
+          <th>Worst</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="pt-chan pt-chan-linkedin">LinkedIn</span></td>
+          <td>Wed &amp; Thu</td>
+          <td>9–11am · 1–5pm</td>
+          <td>Sun (skip)</td>
+        </tr>
+        <tr>
+          <td><span class="pt-chan pt-chan-instagram">Instagram</span></td>
+          <td>Tue–Thu</td>
+          <td>9–11am · 3pm Fri</td>
+          <td>Sat &amp; Sun</td>
+        </tr>
+        <tr>
+          <td><span class="pt-chan pt-chan-tiktok">TikTok</span></td>
+          <td>Wed &amp; Sun</td>
+          <td>1–8pm Wed · 9am Sun</td>
+          <td>Late night</td>
+        </tr>
+        <tr>
+          <td><span class="pt-chan pt-chan-youtube">YouTube</span></td>
+          <td>Thu &amp; Fri (weekdays), Sat &amp; Sun (weekends)</td>
+          <td>Upload 2–4pm weekdays · 7–11am weekends</td>
+          <td>Wed late afternoon</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+{% endblock %}

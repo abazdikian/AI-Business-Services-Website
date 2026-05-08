@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Artifacts · Job {{ job_id }} · Content Hub{% endblock %}
+{% block content %}
+<section class="drafts-page">
+  <div class="drafts-head">
+    <h1>{{ channel | capitalize }} drafts
+      <span class="muted">· {{ week_id }} · job {{ job_id }}</span></h1>
+    <a class="drafts-back" href="/week/{{ week_id }}?channel={{ channel }}">← Back to week</a>
+  </div>
+
+  <div class="drafts-approval-bar">
+    <p class="drafts-approval-hint">Review the text below. When you're happy, click <strong>Approve &amp; Render</strong> — slides, images, and video will be generated and uploaded to Drive.</p>
+    <form method="post" action="/approve/{{ job_id }}">
+      <button type="submit" class="btn-approve">Approve &amp; Render →</button>
+    </form>
+  </div>
+
+  {% for s in sections %}
+    <h2 class="drafts-section-title">{{ s.label }}</h2>
+    <pre class="drafts-body">{{ s.body }}</pre>
+  {% endfor %}
+</section>
+{% endblock %}

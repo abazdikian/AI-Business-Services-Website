@@ -276,6 +276,23 @@ def send_status_email(subject: str, html: str) -> None:
         log.warning("Email send failed: %s", exc)
 
 
+def build_abort_html(month: str, mode: str, reason: str, detail: str, recovery: str) -> str:
+    return f"""
+    <html><body style="font-family:'Helvetica Neue',Arial,sans-serif;background:#F7F3EE;padding:32px;color:#2B1A1F;">
+      <div style="max-width:560px;margin:0 auto;background:#fff;border-radius:18px;padding:36px;border:1px solid #EFE8E3;">
+        <p style="font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#C13558;margin:0 0 8px;font-weight:800;">Content Hub · Monthly digest ABORTED</p>
+        <h1 style="font-family:Georgia,serif;font-weight:500;font-size:24px;line-height:1.25;margin:0 0 12px;color:#7A1530;">{month} digest did not run.</h1>
+        <p style="margin:0 0 14px;color:#6B5A5F;"><strong style="color:#7A1530;">Mode:</strong> {mode}</p>
+        <p style="margin:0 0 14px;color:#6B5A5F;"><strong style="color:#7A1530;">Reason:</strong> {reason}</p>
+        <p style="margin:0 0 22px;color:#2B1A1F;font-family:Menlo,Consolas,monospace;font-size:13px;background:#F7F3EE;padding:14px 18px;border-radius:10px;">{detail}</p>
+        <h3 style="font-family:Georgia,serif;font-weight:600;font-size:16px;margin:18px 0 8px;color:#2B1A1F;">Recovery</h3>
+        <p style="margin:0 0 22px;color:#6B5A5F;line-height:1.55;">{recovery}</p>
+        <p style="margin:24px 0 0;font-size:12px;color:#9B8E92;">No Claude tokens spent. No DB rows inserted. Re-run after fixing the issue above.</p>
+      </div>
+    </body></html>
+    """
+
+
 def main() -> int:
     global TOP_N_PER_CHANNEL
     parser = argparse.ArgumentParser()
@@ -292,6 +309,8 @@ def main() -> int:
     patch_lookback()
     db.init_db()
 
+    mode = "dry-run" if args.dry_run else "live"
+
     used, cap = 0.0, 5.0
     if not args.from_cache:
         try:
@@ -302,6 +321,15 @@ def main() -> int:
                 log.error("ABORT: Apify remaining $%.2f below $%.2f headroom. "
                           "Re-run with --from-cache (if a recent dry-run exists) or --force to override.",
                           remaining, MIN_QUOTA_HEADROOM_USD)
+                send_status_email(
+                    subject=f"Monthly digest ABORTED ({mode}) · Apify quota too low · {month}",
+                    html=build_abort_html(
+                        month=month, mode=mode,
+                        reason="Apify quota below headroom",
+                        detail=f"Used ${used:.2f} of ${cap:.0f} cap. Remaining ${remaining:.2f}, below ${MIN_QUOTA_HEADROOM_USD:.2f} headroom.",
+                        recovery="Re-run with <code>--from-cache</code> if a recent dry-run cached the datasets (free), or <code>--force</code> to override the gate (will spend Apify credit). Monthly cap resets on the 1st.",
+                    ),
+                )
                 return 2
         except Exception as exc:
             log.warning("Could not check Apify quota: %s", exc)
@@ -309,6 +337,15 @@ def main() -> int:
     cached = load_history(month) if args.from_cache else {}
     if args.from_cache and not cached:
         log.error("ABORT: --from-cache requested but no history file at %s", history_path(month))
+        send_status_email(
+            subject=f"Monthly digest ABORTED ({mode}) · No cache for --from-cache · {month}",
+            html=build_abort_html(
+                month=month, mode=mode,
+                reason="--from-cache requested but no history file exists",
+                detail=f"Expected cache at {history_path(month)}. None found.",
+                recovery="Run a dry-run first to populate the cache: <code>python -m content_hub.monthly_digest --month {} --dry-run</code>. Then re-run with <code>--from-cache</code>.".format(month),
+            ),
+        )
         return 2
 
     counts: dict = {}

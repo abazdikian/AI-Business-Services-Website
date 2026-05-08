@@ -32,17 +32,17 @@
     letter-spacing: -0.02em;
   }
   .headline .gold { color: #C9A847; font-style: italic; }
-  .handle {
-    position: absolute; bottom: 52px; left: 50%; transform: translateX(-50%);
-    font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 500;
-    color: rgba(247,243,238,0.5);
-    border: 1px solid rgba(247,243,238,0.2);
-    padding: 8px 24px; border-radius: 100px;
+  .footer {
+    position: absolute; bottom: 44px; left: 56px; right: 56px;
+    display: flex; justify-content: space-between; align-items: center;
   }
-  .logo {
-    position: absolute; bottom: 48px; right: 56px;
-    font-family: 'Playfair Display', serif; font-size: 28px;
+  .footer-name {
+    font-family: 'Playfair Display', serif; font-size: 18px;
     font-weight: 700; color: #C9A847;
+  }
+  .footer-site {
+    font-family: 'Inter', sans-serif; font-size: 14px;
+    color: rgba(247,243,238,0.4); letter-spacing: 0.04em;
   }
 </style>
 </head>
@@ -51,8 +51,10 @@
   <span class="category-left">{{CATEGORY_LEFT}}</span>
   <span class="category-right">{{CATEGORY_RIGHT}}</span>
   <h1 class="headline">{{HEADLINE}}</h1>
-  <span class="handle">@alicebazdikian</span>
-  <span class="logo">AB</span>
+  <div class="footer">
+    <span class="footer-name">Alice Bazdikian</span>
+    <span class="footer-site">smallbusinessaicoach.com</span>
+  </div>
 </div>
 </body>
 </html>

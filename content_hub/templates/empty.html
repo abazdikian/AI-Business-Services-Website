@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="empty">
+  <h1>No weeks pulled yet</h1>
+  <p>The Friday 8am scheduler will write the first week when it runs.<br />
+     To pull now manually: <code>python -m content_hub.scheduler</code> or seed fixtures:
+     <code>python -m content_hub.scheduler --fixtures</code>.</p>
+</section>
+{% endblock %}

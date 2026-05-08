@@ -1,0 +1,1784 @@
+Delivered-To: abazdikian@gmail.com
+Received: by 2002:ad4:5bce:0:b0:888:6227:3e6a with SMTP id t14csp1839825qvt;
+        Tue, 10 Mar 2026 01:01:07 -0700 (PDT)
+X-Received: by 2002:a05:620a:4713:b0:8b2:f35c:16df with SMTP id af79cd13be357-8cd6d4aeaf6mr1631635185a.79.1773129667185;
+        Tue, 10 Mar 2026 01:01:07 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1773129667; cv=none;
+        d=google.com; s=arc-20240605;
+        b=EJqO9ITM1VNlZUM9T/T2p8B1vuho6Gg+d+4Ai2+rrGZw8mZiIemxJ99+4E5bLLLMgR
+         G8W7bV+kGxqWmuOWgsC2jIMjxuifM/xgV1JQZVIb7WQL1otLjdLkW5fDbBoC6SARO70w
+         flIjTo3zOD2yNEWOHIys9TUaxd2CY7lCfz+C/Y+Z2k865N9T646wA1J09SJRwXmW/Vth
+         gadQvlejQUhlDL8avtzmiiswBs7GJcIoCtEU52YDSnhtpzW/SZSA2UnRVyMTmpIbG0Ll
+         gJH+FftYkOQ05Yh9OQC+Qf+Xs9zbaCwBf1mwG4WV3Rjmasc6wZXPi+0MHRIYxofiHP96
+         aq2A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:sid:list-unsubscribe-post:list-unsubscribe:feedback-id:reply-to
+         :subject:message-id:mime-version:from:date:dkim-signature
+         :dkim-signature;
+        bh=MW+ns5kWmU1JyPNVQ5ZW3JFPG+LpQHchF9f2Vrle9rQ=;
+        fh=WdjDv5ESCu0+Bh5xJBKzxlv9yCIohdpiXRFTOyX4C3w=;
+        b=MGoru2zYEINSyIXmg9WzvktR8SQSrir1C0hn+yyaanmjZOgbyLVgH7DXt6EzFr2XwZ
+         Z8a7iGtZ7TdT/ffzeJzuZ+MK8ft2/TRPpyzWg1IPRWnej4erxav99Lukk/E7XfToTR4a
+         K4Dt11ZYu8xaNmAct8/CQKAPVdpn2HmFmEn6nKQk3XJxegpaGvj892prGa/d+bIw+IKJ
+         byebs0DwGh5z6QhQezgP+cppaAIbeNhhuSxPdhPX4eLHhzz6Al58Bf/9zUJSh8j+DAYM
+         bsPongNocJETUEHjPYRYaCjSWfSAYSoyqSak5zwkruLbTywSQD4XMlFMRgto02lHk56o
+         4IcQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@mail.beehiiv.com header.s=s1 header.b=KGyduWHa;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=YZjWl92i;
+       spf=pass (google.com: domain of bounces+35044768-82d3-abazdikian=gmail.com@em2003.mail.beehiiv.com designates 159.183.140.157 as permitted sender) smtp.mailfrom="bounces+35044768-82d3-abazdikian=gmail.com@em2003.mail.beehiiv.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=beehiiv.com
+Return-Path: <bounces+35044768-82d3-abazdikian=gmail.com@em2003.mail.beehiiv.com>
+Received: from o171.ptr9046.mail.beehiiv.com (o171.ptr9046.mail.beehiiv.com. [159.183.140.157])
+        by mx.google.com with ESMTPS id af79cd13be357-8cd740e9f06si1026811685a.590.2026.03.10.01.01.06
+        for <abazdikian@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 10 Mar 2026 01:01:07 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces+35044768-82d3-abazdikian=gmail.com@em2003.mail.beehiiv.com designates 159.183.140.157 as permitted sender) client-ip=159.183.140.157;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@mail.beehiiv.com header.s=s1 header.b=KGyduWHa;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=YZjWl92i;
+       spf=pass (google.com: domain of bounces+35044768-82d3-abazdikian=gmail.com@em2003.mail.beehiiv.com designates 159.183.140.157 as permitted sender) smtp.mailfrom="bounces+35044768-82d3-abazdikian=gmail.com@em2003.mail.beehiiv.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=beehiiv.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mail.beehiiv.com;
+	h=content-type:date:from:mime-version:subject:reply-to:feedback-id:
+	list-unsubscribe:list-unsubscribe-post:to:cc:content-type:date:feedback-id:from:
+	subject:to;
+	s=s1; bh=MW+ns5kWmU1JyPNVQ5ZW3JFPG+LpQHchF9f2Vrle9rQ=;
+	b=KGyduWHasprU3KK9G09M9yOEPlxTc9lV93xeAjAa5CRFqNwMdUw5JpgtfkQp2ciKRe+9
+	01jeHqCIwt5AsC+wE9YMIn4RKs+Yh2z2wDusu36SYg1HvIeTk0BCMzFwyK/xDDUeaztbp6
+	EdrtJ4B3lVS6OFZtmd1xmKbSbILXudxkxBHHuf4X1ATn/SGzdj3DHM6erxLeZqoP7/eOMZ
+	sid4hB1ltcJbcaIB8O2aCf4u8IyBiJggz2LgAOrkcb/4Oa//1wviIbHm8uqs5JMHhfBeGT
+	FYG91qDI4NXDz2rrI3DfYFyjss3rte37OispeK1ivWQZ9fBQsfOC8VBAewGDfx8A==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info;
+	h=content-type:date:from:mime-version:subject:reply-to:feedback-id:
+	list-unsubscribe:list-unsubscribe-post:to:cc:content-type:date:feedback-id:from:
+	subject:to;
+	s=smtpapi; bh=MW+ns5kWmU1JyPNVQ5ZW3JFPG+LpQHchF9f2Vrle9rQ=;
+	b=YZjWl92i00YOH6bmKBB5+xucgKNtFiNsDpCDFnwu+sI5t0BjO56N+/MPvl4oZPtdR7VE
+	OCT3ctltNRkEdQI43oM7B0AfSEB/PbQ4j0eeEI+sK1f8lLdbfC/0mXV2nhVRM+VLlcd+ah
+	g9e1lU8yK+94H8kVlFQIgSSzytRrhhat8=
+Received: by recvd-8478776996-vgl7p with SMTP id recvd-8478776996-vgl7p-1-69AFCFC0-B3
+	2026-03-10 08:01:04.435321251 +0000 UTC m=+45940.170294996
+Received: from MzUwNDQ3Njg (unknown)
+	by geopod-ismtpd-44 (SG) with HTTP
+	id HVKuId-SRaGC82AJlMDlTg
+	Tue, 10 Mar 2026 08:01:04.408 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=6c06c59ea345504da3fd6decf4ae7dd355807fb7c0a550fe8d5a21f571b7
+Date: Tue, 10 Mar 2026 08:01:06 +0000 (UTC)
+From: AI with Kyle <aiwithkyle@mail.beehiiv.com>
+Mime-Version: 1.0
+Message-ID: <HVKuId-SRaGC82AJlMDlTg@geopod-ismtpd-44>
+Subject: =?UTF-8?B?8J+fow==?= Daily AI Update: How to use Claude Cowork
+Reply-To: AI with Kyle <harminder@bstreetdigital.com>
+Feedback-ID: 
+ =?us-ascii?Q?1679a8a9-0672-49c5-94f2-a0e95923e656=3Anewsletter=3A3d435008-dab0-?=
+ =?us-ascii?Q?4920-80c3-45c530a7165a=3A1fb01f6b085db76?=
+List-Unsubscribe: 
+ =?us-ascii?Q?=3Cmailto=3A3d435008-dab0-4920-80c3-45c530a7165a+3f33013d-c1be-455?=
+ =?us-ascii?Q?f-8886-eb9e28a25ca6+1679a8a9-0672-49c5-?=
+ =?us-ascii?Q?94f2-a0e95923e656=40unsub=2Ebeehiiv=2Ecom=3E=2C?=
+ =?us-ascii?Q?_=3Chttps=3A=2F=2Fnewsletter=2Eaiwithkyle=2Ecom=2Funsubscribe=2FeyJ0eXAiOiJKV1Q?=
+ =?us-ascii?Q?iLCJhbGciOiJIUzI1NiJ9=2EeyJzdWJzY3JpYmVyX?=
+ =?us-ascii?Q?2lkIjoiM2YzMzAxM2QtYzFiZS00NTVmLTg4ODYt?=
+ =?us-ascii?Q?ZWI5ZTI4YTI1Y2E2IiwicG9zdF9pZCI6IjE2Nzl?=
+ =?us-ascii?Q?hOGE5LTA2NzItNDljNS05NGYyLWEwZTk1OTIzZT?=
+ =?us-ascii?Q?Y1NiIsImxhc3RfcmVzb3VyY2VfZ3VpZCI6IlBvc?=
+ =?us-ascii?Q?3Q6MTY3OWE4YTktMDY3Mi00OWM1LTk0ZjItYTBl?=
+ =?us-ascii?Q?OTU5MjNlNjU2In0=2EIJvkCgvBnk9yIjVgCs=5FJHkm?=
+ =?us-ascii?Q?uBJhz6HADy5hBLQN8kjk=3E?=
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+sId: 3d435008-dab0-4920-80c3-45c530a7165a
+x-beehiiv-ids: 
+ =?us-ascii?Q?{=22account=5Fname=22=3A=22https=3A=2F=2Fnewsletter=2Eaiwithkyle=2Ecom=2F=22=2C=22campaign?=
+ =?us-ascii?Q?=5Fid=22=3A=221679a8a9-0672-49c5-94f2-a0e95923e?=
+ =?us-ascii?Q?656=22=2C=22category=22=3A=22newsletter=22=2C=22email=5Fgen?=
+ =?us-ascii?Q?erated=5Fat=22=3A1773129664=2C=22user=5Fid=22=3A=223d4350?=
+ =?us-ascii?Q?08-dab0-4920-80c3-45c530a7165a=22}?=
+x-beehiiv-type: newsletter
+x-list-id: 3d435008-dab0-4920-80c3-45c530a7165a
+x-list-owner: <mailto:harminder@bstreetdigital.com>
+x-newsletter: 
+ https://newsletter.aiwithkyle.com/p/ai-with-kyle-daily-update-156
+x-newsletter-id: https://newsletter.aiwithkyle.com/
+x-newsletter-signup: https://newsletter.aiwithkyle.com/subscribe
+X-SG-EID: 
+ =?us-ascii?Q?u001=2Es2Cgdmr9qjrwgQX2FbfJ+gpL9UX5PRdVNurXnLW8xBqajEweH+s7MjbpQ?=
+ =?us-ascii?Q?DynGIq8cgPMpZejbPX8Vm11m5odmjjtQJ1W4kLx?=
+ =?us-ascii?Q?eZzlz7VxLjdCt0l50qHPr5g2+8xZj9UjPnxpUKw?=
+ =?us-ascii?Q?+XtwYsiWjwlyUHemR1PraNB++vmPF6wYR4hdj46?=
+ =?us-ascii?Q?uBxvzxgkuc1=2Fe=2FQq=2F0HopmoBRkWTkMZ2qRIw8Hy?=
+ =?us-ascii?Q?WD3YAbYe=2FTKP2x5LMd1Fsf0DdvIDtIPEs5YCjEm?= =?us-ascii?Q?NL0J?=
+X-SG-ID: 
+ =?us-ascii?Q?u001=2ESdBcvi+Evd=2FbQef8eZF3BpTL9BgbK5wfSJMJGMsmprD1ZcmFObA4po1bG?=
+ =?us-ascii?Q?aUE6gyc3werK1CasKj5z3iMf1AVA0xBISjkEIEi?=
+ =?us-ascii?Q?FoL2AQtvbVzsZDWofQiT04xOWL1e+0MWv6B2KMc?=
+ =?us-ascii?Q?F6+kzKD5ON7xr2pOFkhu3Z88NSmW4li5rgR8xms?=
+ =?us-ascii?Q?U06elDEW9IJ1O+atbWZ6bGTUxLIP1x3HxFGJKQ5?=
+ =?us-ascii?Q?=2FK+ycwTjrjF6gaz+W7chvpA2e580743GZgzaBIR?=
+ =?us-ascii?Q?MOgO1wmAUY0824y739IRzSdjpfMszE10VN=2F4ePC?=
+ =?us-ascii?Q?IBli7s1693jxBn9mjkwn4BGoT7b3dgcXS8rNLkb?=
+ =?us-ascii?Q?N5WK8hOkqf+cqiY0kLTOxLYSSpZf3dS3M=3D?=
+To: "abazdikian@gmail.com" <abazdikian@gmail.com>
+X-Entity-ID: u001.gV8eknkSdB1X0t1GPCNIaA==
+
+--6c06c59ea345504da3fd6decf4ae7dd355807fb7c0a550fe8d5a21f571b7
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Mime-Version: 1.0
+
+View image: (https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,forma=
+t=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/ef7d5f6f-0f6c-4=
+210-8b38-696fd4674806/newsletter_1_%2B_long_1.png?t=3D1773119663)
+Follow image link: (https://youtu.be/mp4FqLEaGAI)
+Caption: [https://youtu.be/mp4FqLEaGAI](https://youtu.be/mp4FqLEaGAI)
+
+# Claude Cowork: AI Stopped Chatting. It Started Working.
+
+About two weeks ago, a cool $830 billion got wiped off the American stock m=
+arket. Mainly SaaS companies. Software stocks.
+
+The reason? It's becoming pretty clear that we can now spin up our own soft=
+ware. We can get AI to do the work for us. Not tell us what to do. **Actual=
+ly do it.**
+
+This has been promised for years. But since December it=E2=80=99s becoming =
+a reality. It=E2=80=99s here.=20
+
+I want to walk you through what that means, because most people have not ca=
+ught up to this shift yet.
+
+## The Four Big Shifts
+
+Ethan Mollick - professor at Wharton, smart guy - laid it out recently. Fro=
+m a user perspective, there have been four big moments in AI:
+
+Tweet:  (https://twitter.com/emollick/status/2028711087504326662)
+
+**GPT-3.5.** The first "oh, what's this?" moment. That's when I shut down m=
+y digital marketing agency because I could see where things were heading. I=
+t wasn't fully cooked though. It hallucinated, no web search, made stuff up=
+. A lot of people tried it and bounced off. Those who us who took the time =
+though realised that this was something important.
+
+**GPT-4.** The first model you could actually _use_ professionally. Should =
+have been the first consumer release, honestly. But OpenAI wanted to get to=
+ market first so launched 3.5 anyway.=20
+
+**The Reasoners.** Spring 2025. Models that think step by step, prompt them=
+selves, reason through problems. This is where deep think modes and researc=
+h modes came from. Only a year ago(!).
+
+**Agents.** December 2025. AI that doesn't just chat with you - it **does *=
+*the work. This is where we are right now. And Cowork is part of it.
+
+"Agents" was a buzzword all through 2025, but they were rubbish. Anyone rem=
+ember Auto-GPT? It just didn't work. It was in December that we got Open Cl=
+aw, and then more refined versions since. Cowork, Perplexity Computer, Manu=
+s. Agents that actually work.
+
+2026 is legitimately the year of the agents.
+
+View image: (https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,forma=
+t=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/a2b9e3bd-e16b-4=
+e82-bff5-4a3437525fb0/Screenshot_2026-03-09_at_7.37.12_pm.png?t=3D177308503=
+7)
+Caption:=20
+
+## The Real Shift: From Chat to Do
+
+For the last couple of years - since ChatGPT launched - we've been chatting=
+. We talk to AI. It tells us what we should do. We go back and forth.
+
+Totally fine. But limited.
+
+That's changed. And it's really changed in the last two or three months.
+
+Now when I go to my AI and say "I want to set up DM giveaways on TikTok and=
+ Instagram, look at what competitors are doing, find trending topics" - it =
+doesn't just give me a plan. It puts together the plan, and then it goes an=
+d does the plan. It says "I need to connect to Twitter, I need this MCP con=
+nection, let me spin up Apify to scrape those TikTok videos, I'll use Playw=
+right to automate your browser."
+
+It is _doing _the task. We're not talking about the task with the AI anymor=
+e. It's getting on and doing the damn thing.
+
+## What Cowork Actually Is
+
+With Claude Chat, you type a question and get an answer. Same as ChatGPT. B=
+ack and forth.
+
+With Cowork, you point Claude at a folder on your computer. It reads everyt=
+hing in it. Then you give it a task and it goes and does it. Creates docume=
+nts. Builds spreadsheets. Writes reports. Saves finished files directly to =
+your computer.
+
+You're directing a worker, not prompting a chatbot.
+
+Here's a quick example. I said "sort my invoices and send them to my bookke=
+eper." One sentence. Cowork asked me a few questions - where do you want to=
+ drop invoices? What format? How should they be sorted? Then it built the e=
+ntire system. Folder structure, PDF reader, processing script, monthly sche=
+duled task. Done.
+
+Chat would have given me a plan. Cowork built the thing.
+
+=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=
+=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=
+=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=
+=E2=80=94=E2=80=94
+
+## Step 1: What You Need
+
+View image: (https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,forma=
+t=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/32aa09b3-478d-4=
+7ac-be43-23f6ae971fa5/Screenshot_2026-03-09_at_7.55.25_pm.png?t=3D177308613=
+1)
+Caption:=20
+
+**The desktop app.** Cowork only runs in the Claude desktop app. Not the we=
+bsite. Not your phone. Go to [claude.ai/download](https://claude.ai/downloa=
+d). Mac or Windows.
+
+**A paid plan.** You need Claude Pro at minimum ($20/month). If Cowork beco=
+mes your main workflow, you'll want Max ($100/month). It burns through usag=
+e faster than regular chat.
+
+**Model settings.** Inside the app, set the model to Opus 4.6 with Extended=
+ Thinking ON. This is the smartest model. Don't use anything else for Cowor=
+k tasks.
+
+=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=
+=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=
+=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=
+=E2=80=94=E2=80=94
+
+## Step 2: Build Your Folder
+
+View image: (https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,forma=
+t=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/0dd5f3ae-8287-4=
+6e7-be3b-133f3774bafd/Screenshot_2026-03-09_at_7.55.40_pm.png?t=3D177308614=
+4)
+Caption:=20
+
+Create a folder on your computer called "Claude Cowork" or whatever makes s=
+ense. Inside, create four subfolders:
+
+**ABOUT ME** - Who you are and how you write.
+
+**PROJECTS** - One subfolder per project. Briefs, references, drafts.
+
+**TEMPLATES** - Work that went well. Not the content - the structure.
+
+**CLAUDE OUTPUTS** - Where Cowork saves everything it creates. The only fol=
+der it writes to.
+
+```
+CLAUDE COWORK/
+    ABOUT ME/
+        about-me.md
+        anti-ai-writing-style.md
+    PROJECTS/
+    TEMPLATES/
+    CLAUDE OUTPUTS/
+
+```
+Why separate them? Cowork has real read/write access to your files. If some=
+thing goes wrong, you want the damage contained. Read folders stay clean. W=
+rite folder is the only place it delivers work.
+
+=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=
+=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=
+=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=
+=E2=80=94=E2=80=94
+
+## Step 3: Create Your Core Files
+
+View image: (https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,forma=
+t=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/6b940d50-3429-4=
+22b-94c2-225c3001377d/Screenshot_2026-03-09_at_7.56.00_pm.png?t=3D177308616=
+3)
+Caption:=20
+
+Two files. Both go in your ABOUT ME folder. These are the reason your outpu=
+t stops sounding like generic AI.
+
+**[about-me.md](https://about-me.md)** - Who you are. Not a CV. Write it li=
+ke you're explaining yourself to a new colleague. What you do, who your aud=
+ience is, what you're working on right now, how you like to communicate.
+
+**[anti-ai-writing-style.md](https://anti-ai-writing-style.md)** - Tell Cla=
+ude what NOT to do. No "in today's fast-paced world." No corporate jargon. =
+Contractions always. Short paragraphs. Your specific pet peeves about AI wr=
+iting.
+
+You don't even need to write these yourself. Open Cowork, point it at your =
+folder, and use this prompt:
+
+_"I need to create two context files. Ask me questions about who I am and w=
+hat I hate about AI writing using the AskUserQuestion tool. Then write __[a=
+bout-me.md](https://about-me.md)__ and __[anti-ai-writing-style.md](https:/=
+/anti-ai-writing-style.md)__ in my ABOUT ME folder."_
+
+Claude asks you the right questions. You click answers. It writes the files=
+. Done in 5 minutes. Basically tell Claude what you are up to and ask it to=
+ interview you.=20
+
+For me I personally _also _gave mine 2.5million words of my =E2=80=9Cvoice=
+=E2=80=9D to build tone of voice from. First around 400,000 words from hand=
+ written newsletters. Plus 1.5m++ words from transcripts from my livestream=
+s. My language, very specifically.=20
+
+I also gave it the excellent [=E2=80=9CSigns of AI writing=E2=80=9D guide f=
+rom Wikipedia](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing)=
+ as a do-not-do-this guide.
+
+=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=
+=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=
+=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=
+=E2=80=94=E2=80=94
+
+## Step 4: Set Global Instructions
+
+View image: (https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,forma=
+t=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/60bc954d-1f1e-4=
+e04-9dc3-413525b602d3/Screenshot_2026-03-09_at_7.58.17_pm.png?t=3D177308630=
+1)
+Caption:=20
+
+Go to **Settings > Cowork > Edit Global Instructions**.
+
+This is a persistent prompt Claude reads before every session. Set it once.=
+ Never type it again. Tell it to always read your ABOUT ME folder first, al=
+ways check for relevant project files, always deliver to the CLAUDE OUTPUTS=
+ folder, and never delete anything.
+
+The full copy-paste template is in the PDF guide attached to this email. It=
+'s about 20 lines. Paste it in and forget about it.
+
+=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=
+=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=
+=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=
+=E2=80=94=E2=80=94
+
+## Step 5: The One Prompt That Runs Everything
+
+View image: (https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,forma=
+t=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/cf111567-00ca-4=
+ff2-8aa8-1049c7ea68d8/Screenshot_2026-03-09_at_7.58.39_pm.png?t=3D177308632=
+2)
+Caption:=20
+
+80% of my Cowork sessions now start with this:
+
+**_"I want to [TASK]. Explore my folder first. Ask me questions using the A=
+skUserQuestion tool before you execute."_**
+
+That's it. Short task. Point to the folder. _Ask me questions first._
+
+Claude generates a proper form with clickable options. Instead of you writi=
+ng the perfect prompt, it asks YOU the right questions first. What's the an=
+gle? Who's the audience? How long? What tone?
+
+You click through in under a minute. It shows you a plan. You approve. Then=
+ it builds the actual deliverable and saves it to your computer.
+
+=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=
+=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=
+=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=
+=E2=80=94=E2=80=94
+
+## What I've Actually Built With It
+
+These are literally some top of mind examples from the weekend.=20
+
+**TikTok comment bot.** You know when I say "comment GUIDE for the PDF"? Hu=
+ndreds of people comment. Cowork goes into TikTok Studio, finds the unanswe=
+red comments, sends rotating link messages. Max 40 per run. Waits 20 second=
+s between each. Runs hourly on my Mac Mini. ManyChat can't do this on TikTo=
+k. Cowork can.
+
+**Newsletter writing.** My folder has my writing style guide and past newsl=
+etters. I give it a topic and tell it to ask me questions first. What used =
+to take 3 hours takes 45 minutes. Same quality. Because the folder does the=
+ heavy lifting, not the prompt.
+
+**Invoice processing.** One sentence prompt. It built folders, a PDF reader=
+, a processing script, and a monthly scheduled task. The whole system.
+
+Now=E2=80=A6should you do these automations? NO. You need to think about wh=
+at _your_ life and _your_ business needs. What I use Cowork for isn=E2=80=
+=99t important!=20
+
+What you can do is ask Claude to help you work out potential tasks. Literal=
+ly tell it that you want to start using Cowork and for it to ask you about =
+your usual workday and to look for opportunities. That=E2=80=99s it.=20
+
+=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=
+=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=
+=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=
+=E2=80=94=E2=80=94
+
+## Where It Falls Short
+
+View image: (https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,forma=
+t=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/73d20d2b-0656-4=
+3ba-94ef-1f4c6782a604/Screenshot_2026-03-09_at_8.01.28_pm.png?t=3D177308649=
+0)
+Caption:=20
+
+Being honest. There are still teething issues.
+
+It burns through your plan limits fast. Budget for the $100/month plan if y=
+ou're using it daily.
+
+Desktop only. Close the app, session dies. You need a computer that stays o=
+n. I have a MacMini that is always on. I also remote to it via Claude Code =
+and /remote-control. I=E2=80=99ll cover that another time though!=20
+
+Still a preview. It can misread files or take odd approaches. Always review=
+ the output before sending anything to a client. Honestly this is sound adv=
+ice for all AI usage.
+
+Remember too that Cowork is about one month old. It=E2=80=99s got a LOT of =
+room to grow. My bet is that it=E2=80=99ll be combined with Claude Chat (an=
+d/or Claude Code) as right now it=E2=80=99s sorta a weird in-between tool.=20
+
+=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=
+=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=
+=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=
+=E2=80=94=E2=80=94
+
+## The Cheat Code
+
+Best bit. You can take the entire PDF guide below, paste it into a Cowork s=
+ession, and say "set this up for me."
+
+Get the PDF step by step
+
+Cowork reads the guide. Asks you questions about who you are. Creates your =
+files. Builds your folder structure. All you do is paste in the Global Inst=
+ructions manually. AI setting up your AI.=20
+
+Pro-tip: _anytime_ you see a guide on social media about =E2=80=9CGet Claud=
+e to do this=E2=80=9D or =E2=80=9CWhy aren=E2=80=99t you using Claude for t=
+his=E2=80=9D=E2=80=A6.copy the guide and chuck it into Claude and say =E2=
+=80=9Chey, implement this=E2=80=9D.
+
+## There's a Lot More
+
+Cowork is one piece. There's Skills, Connectors, MCP, Claude Code - a whole=
+ ecosystem I'll be covering this week.
+
+View image: (https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,forma=
+t=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/9e6aed71-7053-4=
+6f3-8fbf-3d7333a0e8d0/Screenshot_2026-03-09_at_8.04.48_pm.png?t=3D177308669=
+0)
+Caption:=20
+
+Today I'm at Google for an interview at their YouTube studio, so no livestr=
+eam.  And it=E2=80=99s my birthday. BUT Wednesday we're back and I'll be co=
+vering Skills in detail!=20
+
+For now, Cowork is where you start. 30 minutes to set up.=20
+
+Use the guide + use the Youtube video as needed!=20
+
+Kyle
+
+=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=
+=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=
+=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=
+=E2=80=94=E2=80=94
+
+**Streaming on ****[YouTube](https://www.youtube.com/@iamkylebalmer?sub_con=
+firmation=3D1)**** (with full 4k screen share) and ****[TikTok](https://www=
+.tiktok.com/@iamkylebalmer)**** (follow and turn on notifications for Live =
+Notification).**
+
+**Audio Podcast on ****[iTunes](https://podcasts.apple.com/us/podcast/ai-wi=
+th-kyle/id1825779580)**** and ****[Spotify](https://open.spotify.com/show/6=
+pnwfIJvxfC8jlX891XBiE)****.**
+
+=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=
+=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=
+=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=
+=E2=80=94=E2=80=94
+
+----------
+**When you=E2=80=99re ready:** [What AI business should you start?](https:/=
+/aiwithkyle.com/join-freedom-os) | [The WhatsApp group where smart people f=
+igure out AI together](https://aiwithkyle.com/ai-with-kyle-group-chat) | [B=
+ecome the go-to AI Voice in your industry](https://promptentrepreneur.thriv=
+ecart.com/ai-authority-accelerator/) | [Build and Sell your first AI Automa=
+tion](https://promptentrepreneur.thrivecart.com/ai-automation-accelerator/)=
+ | [Become an AI Trainer (License Kyle=E2=80=99s AI Training Material)](htt=
+ps://aiwithkyle.com/ai-workshop-kit)=20
+
+
+----------
+=E2=80=94=E2=80=94=E2=80=94
+
+You are reading a plain text version of this post. For the best experience,=
+ copy and paste this link in your browser to view the post online:
+https://newsletter.aiwithkyle.com/p/ai-with-kyle-daily-update-156
+
+--6c06c59ea345504da3fd6decf4ae7dd355807fb7c0a550fe8d5a21f571b7
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Mime-Version: 1.0
+
+<!DOCTYPE html><html lang=3D"en" xmlns=3D"http://www.w3.org/1999/xhtml" xml=
+ns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com=
+:office:office" style=3D"font-size:16px;"><head></head><head><meta charset=
+=3D"utf-8"/><!--[if !mso]><!--><meta http-equiv=3D"X-UA-Compatible" content=
+=3D"IE=3Dedge"/><!--<![endif]--><meta name=3D"viewport" content=3D"width=3D=
+device-width,initial-scale=3D1"/><meta name=3D"x-apple-disable-message-refo=
+rmatting"/><meta name=3D"format-detection" content=3D"telephone=3Dno,addres=
+s=3Dno,email=3Dno,date=3Dno,url=3Dno"/><meta name=3D"color-scheme" content=
+=3D"light"/><meta name=3D"supported-color-schemes" content=3D"light"/><titl=
+e>=F0=9F=9F=A3 Daily AI Update: How to use Claude Cowork</title><!--[if mso=
+]><xml><o:OfficeDocumentSettings><o:AllowPNG/><o:PixelsPerInch>96</o:Pixels=
+PerInch></o:OfficeDocumentSettings></xml><![endif]--><style>
+  :root { color-scheme: light; supported-color-schemes: light; }
+  body { margin: 0; padding: 0; min-width: 100%!important; -ms-text-size-ad=
+just: 100% !important; -webkit-transform: scale(1) !important; -webkit-text=
+-size-adjust: 100% !important; -webkit-font-smoothing: antialiased !importa=
+nt; }
+  .body { word-wrap: normal; word-spacing:normal; }
+  table.mso { width: 100%; border-collapse: collapse; padding: 0; table-lay=
+out: fixed; }
+  img { border: 0; outline: none; }
+  table {  mso-table-lspace: 0px; mso-table-rspace: 0px; }
+  td, a, span {  mso-line-height-rule: exactly; }
+  #root [x-apple-data-detectors=3Dtrue],
+  a[x-apple-data-detectors=3Dtrue],
+  #MessageViewBody a { color: inherit !important; text-decoration: inherit =
+!important; font-size: inherit !important; font-family: inherit !important;=
+ font-weight: inherit !important; line-height: inherit !important; }
+  span.MsoHyperlink { color: inherit !important; mso-style-priority: 99 !im=
+portant; }
+  span.MsoHyperlinkFollowed { color: inherit !important; mso-style-priority=
+: 99 !important; }
+  .a { background-color:#FFFFFF; }
+  .b { background-color:#F7F3F8; }
+  .c  { background-color:#FFFFFF; }
+  .d { background-color:#F7F3F8; }
+  .d2 { background-color:#FFFFFF; }
+  .d3 { background-color:#FFFFFF; }
+  h1 a { text-decoration:underline;color:#9436ff !important;font-style:ital=
+ic; }
+  h2 a { text-decoration:underline;color:#9436ff !important;font-style:ital=
+ic; }
+  h3 a { text-decoration:underline;color:#9436ff !important;font-style:ital=
+ic; }
+  h4 a { text-decoration:underline;color:#9436ff !important;font-style:ital=
+ic; }
+  h5 a { text-decoration:underline;color:#9436ff !important;font-style:ital=
+ic; }
+  h6 a { text-decoration:underline;color:#9436ff !important;font-style:ital=
+ic; }
+  h1, h1 a, h2, h2 a, h3, h3 a, h4, h4 a, h5, h5 a, h6, h6 a, ul, li, ol, p=
+, p a { margin: 0;padding: 0; }
+  h1 { font-family:'Open Sans','Segoe UI','Apple SD Gothic Neo','Lucida Gra=
+nde','Lucida Sans Unicode',sans-serif;font-weight:600;font-size:28px;color:=
+#2A2A2A;line-height:1.75;padding-bottom:4px;padding-top:16px;mso-margin-top=
+-alt:16px;mso-margin-bottom-alt:4px }
+  h2 { font-family:'Open Sans','Segoe UI','Apple SD Gothic Neo','Lucida Gra=
+nde','Lucida Sans Unicode',sans-serif;font-weight:600;font-size:24px;color:=
+#2A2A2A;line-height:1.5;padding-bottom:4px;padding-top:16px;mso-margin-top-=
+alt:16px;mso-margin-bottom-alt:4px }
+  h3 { font-family:'Open Sans','Segoe UI','Apple SD Gothic Neo','Lucida Gra=
+nde','Lucida Sans Unicode',sans-serif;font-weight:600;font-size:20px;color:=
+#2A2A2A;line-height:1.25;padding-bottom:4px;padding-top:16px;mso-margin-top=
+-alt:16px;mso-margin-bottom-alt:4px }
+  h4 { font-family:'Open Sans','Segoe UI','Apple SD Gothic Neo','Lucida Gra=
+nde','Lucida Sans Unicode',sans-serif;font-weight:600;font-size:18px;color:=
+#2A2A2A;line-height:1.125;padding-bottom:4px;padding-top:16px;mso-margin-to=
+p-alt:16px;mso-margin-bottom-alt:4px }
+  h5 { font-family:'Open Sans','Segoe UI','Apple SD Gothic Neo','Lucida Gra=
+nde','Lucida Sans Unicode',sans-serif;font-weight:600;font-size:16px;color:=
+#2A2A2A;line-height:1;padding-bottom:4px;padding-top:16px;mso-margin-top-al=
+t:16px;mso-margin-bottom-alt:4px }
+  h6 { font-family:'Open Sans','Segoe UI','Apple SD Gothic Neo','Lucida Gra=
+nde','Lucida Sans Unicode',sans-serif;font-weight:600;font-size:14px;color:=
+#2A2A2A;line-height:0.875;padding-bottom:4px;padding-top:16px;mso-margin-to=
+p-alt:16px;mso-margin-bottom-alt:4px }
+  p { font-family:'Open Sans','Segoe UI','Apple SD Gothic Neo','Lucida Gran=
+de','Lucida Sans Unicode',sans-serif;font-weight:400;color:#2D2D2D;font-siz=
+e:16px;line-height:1.5;padding-bottom:12px;padding-top:12px;mso-margin-top-=
+alt:12px;mso-margin-bottom-alt:12px; }
+  p a, .e a, ul a, li a, .h a, .h2 a, .h3 a { word-break:break-word;color:#=
+9436ff !important;text-decoration:underline;text-decoration-color:#9436ff;f=
+ont-style:italic; }
+  p a span, .e a span, ul a span, li a span { color: inherit }
+  p .bold { font-weight:bold;color:#2D2D2D; }
+  p span[style*=3D"font-size"] { line-height: 1.6; }
+  .f p { font-size:12px;line-height:15px;color:#2D2D2D;padding:0; }
+  .f p a { color:#2D2D2D !important; }
+  .g p { font-family:'Open Sans','Segoe UI','Apple SD Gothic Neo','Lucida G=
+rande','Lucida Sans Unicode',sans-serif;font-size:14px;line-height:20px;fon=
+t-weight:400;margin:0; }
+  .g p a  { text-decoration: underline; }
+  .i p { font-family:'Open Sans','Segoe UI','Apple SD Gothic Neo','Lucida G=
+rande','Lucida Sans Unicode',sans-serif;line-height:1.5;font-size:15px;colo=
+r:#2D2D2D; }
+  .i p a { color:#2D2D2D !important; }
+  .i2 p { font-family:'Open Sans','Segoe UI','Apple SD Gothic Neo','Lucida =
+Grande','Lucida Sans Unicode',sans-serif;line-height:1.5;font-size:15px;col=
+or:#2D2D2D; }
+  .i2 p a { color:#2D2D2D !important; }
+  .i3 p { font-family:'Open Sans','Segoe UI','Apple SD Gothic Neo','Lucida =
+Grande','Lucida Sans Unicode',sans-serif;line-height:1.8;font-size:24px;col=
+or:#2D2D2D; }
+  .i3 p a { color:#2D2D2D !important; }
+  .h p a { color:#000000FF !important; }
+  .h2 p a { color:#000000FF !important; }
+  .h3 p a { color:#000000FF !important; }
+  .f p a, .i p a, .i2 p a, .i3 p a, .h p a, .h2 p a, .h3 p a { text-decorat=
+ion:underline; }
+  .j { border-top:3px solid #5e18eb; }
+  .k p { padding-left:15px;padding-bottom:0px;padding-top:6px;mso-margin-to=
+p-alt:6px;mso-margin-bottom-alt:0px;mso-margin-left-alt:15px; }
+  .o { background-color:#FFFFFF;border:1px solid #F1F1F1;border-radius:5px;=
+ }
+  .o p { font-family:'Open Sans','Segoe UI','Apple SD Gothic Neo','Lucida G=
+rande','Lucida Sans Unicode',sans-serif;padding:0px;margin:0px; }
+  .l p,
+  .l p a, .l a { font-size:14px;line-height:20px;font-weight: bold;color:#2=
+D2D2D;padding-bottom:6px;mso-margin-bottom-alt:6px;text-decoration:none; }
+  .m p,
+  .m p a { font-size:13px;line-height:18px;font-weight:400;color:#2D2D2D;pa=
+dding-bottom:6px;mso-margin-bottom-alt:6px;text-decoration:none; }
+  .n p,
+  .n p a { font-size:12px;line-height:17px;font-weight:400;color:#2D2D2D;pa=
+dding-bottom:6px;mso-margin-bottom-alt:6px;text-decoration:none; }
+  .p { background-color:#FFFFFF;max-width:520px;border:1px solid #E1E8ED;bo=
+rder:1px solid rgba(80, 80, 80, 0.3);border-radius:5px; }
+  .q { font-size:16px;font-family:Helvetica,Roboto,Calibri,sans-serif !impo=
+rtant;border:1px solid #e1e8ed;border:1px solid rgba(80, 80, 80, 0.3);borde=
+r-radius:10px;background-color:#FFFFFF; }
+  .q p { font-size:16px;font-family:system-ui,Helvetica,Roboto,Calibri,sans=
+-serif !important;color:#222222;padding:4px 0; }
+  .r { border:1px solid #E1E8ED !important;border-radius:5px; }
+  .s p { font-size: 14px; line-height: 17px; font-weight: 400; color: #6978=
+82; text-decoration: none; }
+  .t p { font-family:'Open Sans','Segoe UI','Apple SD Gothic Neo','Lucida G=
+rande','Lucida Sans Unicode',sans-serif;font-size:12px;line-height:1.5;font=
+-weight:400;color:#000000;font-style:italic;padding:0px; }
+  .v { border-radius:10px;border:solid 0px #030712;background-color:#5e18eb=
+;font-family:'Open Sans','Segoe UI','Apple SD Gothic Neo','Lucida Grande','=
+Lucida Sans Unicode',sans-serif;color:#FFFFFF; }
+  .v a { text-decoration:none;display:block;color:#FFFFFF; }
+  .w p { font-size:12px;line-height:15px;font-weight:400;color:#000000FF; }
+  .w p a { text-decoration: underline !important;color:#000000FF !important=
+; }
+  ul { font-family:'Open Sans','Segoe UI','Apple SD Gothic Neo','Lucida Gra=
+nde','Lucida Sans Unicode',sans-serif;margin:0px 0px 0px 25px !important;pa=
+dding:0px !important;color:#2D2D2D;line-height:24px;list-style-type:disc !i=
+mportant;font-size:16px; }
+  ul ul { list-style-type:circle !important; }
+  ul ul ul { list-style-type:square !important; }
+  ul ul ul ul { list-style-type:disc !important; }
+  ul ul ul ul ul { list-style-type:circle !important; }
+  ul ul ul ul ul ul { list-style-type:square !important; }
+  ul ul ul ul ul ul ul { list-style-type:disc !important; }
+  ul ul ul ul ul ul ul ul { list-style-type:circle !important; }
+  ul ul ul ul ul ul ul ul ul { list-style-type:square !important; }
+  ul > li { font-family:'Open Sans','Segoe UI','Apple SD Gothic Neo','Lucid=
+a Grande','Lucida Sans Unicode',sans-serif;margin:10px 0px 0px 0px !importa=
+nt;padding: 0px 0px 0px 0px !important; color: #2D2D2D; }
+  ol { font-family:'Open Sans','Segoe UI','Apple SD Gothic Neo','Lucida Gra=
+nde','Lucida Sans Unicode',sans-serif;margin: 0px 0px 0px 25px !important;p=
+adding:0px !important;color:#2D2D2D;line-height:24px;list-style:decimal;fon=
+t-size:16px; }
+  ol > li { font-family:'Open Sans','Segoe UI','Apple SD Gothic Neo','Lucid=
+a Grande','Lucida Sans Unicode',sans-serif;margin:10px 0px 0px 0px !importa=
+nt;padding: 0px 0px 0px 0px !important; color: #2D2D2D; }
+  .e h3,
+  .e p,
+  .e span { padding-bottom:0px;padding-top:0px;mso-margin-top-alt:0px;mso-m=
+argin-bottom-alt:0px; }
+  .e span,
+  .e li { font-family:'Open Sans','Segoe UI','Apple SD Gothic Neo','Lucida =
+Grande','Lucida Sans Unicode',sans-serif;font-size:16px;color:#2D2D2D;line-=
+height:24px; }
+  .rec { font-family:  ui-sans-serif, system-ui, -apple-system, BlinkMacSys=
+temFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-ser=
+if, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color E=
+moji" !important; }
+  .rec__button:hover { background-color: #f9fafb !important; }
+  .copyright a {color: inherit !important; text-decoration: none !important=
+; font-size: inherit !important; font-family: inherit !important; font-weig=
+ht: inherit !important; line-height: inherit !important;}
+  .txt_social p { padding: 0; word-break: break-all; }
+  .table, .table-c, .table-h { border: 1px solid #C0C0C0; }
+  .table-c { padding:5px; background-color:#FFFFFF; }
+  .table-c p { color: #2D2D2D; font-family:'Open Sans','Segoe UI','Apple SD=
+ Gothic Neo','Lucida Grande','Lucida Sans Unicode',sans-serif !important;ov=
+erflow-wrap: break-word; }
+  .table-h { padding:5px; background-color:#F1F1F1; }
+  .table-h p { color: #2A2A2A; font-family:'Open Sans','Segoe UI','Apple SD=
+ Gothic Neo','Lucida Grande','Lucida Sans Unicode',sans-serif !important;ov=
+erflow-wrap: break-word; }
+  @media only screen and (max-width:667px) {
+    .aa, .w100pc { width: 100% !important; }
+    .bb img { width: 100% !important; height: auto !important; max-width: n=
+one !important; }
+    .cc { padding: 0px 8px !important; }
+    .ee { padding-top:10px !important;padding-bottom:10px !important; }
+    .ff ul, .ff ol { margin: 0px 0px 0px 10px !important;padding: 0px !impo=
+rtant; }
+    .ff li { margin:10px 0px 0px 10px !important; }
+    .r {height:140px !important;}
+    .s p { font-size:13px !important;line-height:15px !important; }
+    .mob-hide {display:none !important;}
+    .mob-show {display: block !important; width: auto !important; overflow:=
+ visible !important; float: none !important; max-height: inherit !important=
+; line-height: inherit !important;}
+    .mob-stack {width:100% !important;display:block !important;}
+    .mob-w-full {width:100% !important;}
+    .mob-block {display:block !important;}
+    .embed-img {padding:0px 0px 12px 0px !important;}
+    .socialShare {padding-top:15px !important;}
+    .rec { padding-left:15px!important;padding-right:15px!important; }
+    .bodyWrapper { padding:10px 4px 10px 4px !important; }
+    .social-mobile {float:left !important;margin-top:10px !important;}
+  }
+  @media screen and (max-width: 480px) {
+    u + .a .gg { width: 100% !important; width: 100vw !important; }
+    .tok-heart { padding-top:75% !important; }
+    .tok-play { padding-top: 250px !important; }
+  }
+  @media screen and (max-width: 320px) {
+    .tok-heart { padding-top:65% !important; }
+  }
+  .u { border: 1px solid #CACACA !important; border-radius: 2px !important;=
+ background-color: #ffffff !important; padding: 0px 13px 0px 13px !importan=
+t; font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Se=
+goe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif !important;fon=
+t-size: 12px !important; color: #767676 !important; }
+  .u a { text-decoration: none; display: block !important; color: #767676 !=
+important; margin: 0px !important; }
+  .u span, .u img { color: #767676 !important;margin:0px !important; max-he=
+ight:32px !important;background-color:#ffffff !important; }
+</style><!--[if mso]><style type=3D"text/css">
+    h1, h2, h3, h4, h5, h6 {font-family: Arial, sans-serif !important;}
+    body, table, td, p, a, span {font-family: Arial, sans-serif !important;=
+}
+    sup { font-size: 100% !important;vertical-align: .5em !important;mso-te=
+xt-raise: -1.5% !important;line-height: 0 !important; }
+    ul { margin-left:0px !important; margin-right:10px !important; margin-t=
+op:20px !important; margin-bottom:20px !important; }
+    ul li { margin-left: 0px !important; mso-special-format: decimal; }
+    ol { margin-left:0px !important; margin-right:10px !important; margin-t=
+op:20px !important; margin-bottom:20px !important; }
+    ol li { margin-left: 0px !important; mso-special-format: decimal; }
+    li.listItem { margin-left:15px !important; margin-top:0px !important; }
+    .paddingDesktop { padding: 10px 0 !important; }
+    .edm_outlooklist { margin-left: -20px !important; }
+    .embedImage { display:none !important; }
+</style><![endif]--><!-- __merge_tags_in_links__ --><style>
+        @font-face {
+          font-family: 'Open Sans';
+          font-style: normal;
+          font-weight: 600;
+          font-display: swap;
+          src: url('https://fonts.gstatic.com/s/opensans/v40/memSYaGs126MiZ=
+pBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsgH1x4gaVIUwaEQbjA.woff2') format('woff2=
+');
+        }
+
+        @font-face {
+          font-family: 'Open Sans';
+          font-style: italic;
+          font-weight: 600;
+          font-display: swap;
+          src: url('https://fonts.gstatic.com/s/opensans/v40/memQYaGs126MiZ=
+pBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0RkxhjWVAewIMUdjFXmQ.woff2') format('wo=
+ff2');
+        }
+        @font-face {
+          font-family: 'Open Sans';
+          font-style: normal;
+          font-weight: 400;
+          font-display: swap;
+          src: url('https://fonts.gstatic.com/s/opensans/v40/memSYaGs126MiZ=
+pBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4gaVIUwaEQbjA.woff2') format('woff2=
+');
+        }
+
+        @font-face {
+          font-family: 'Open Sans';
+          font-style: italic;
+          font-weight: 400;
+          font-display: swap;
+          src: url('https://fonts.gstatic.com/s/opensans/v40/memQYaGs126MiZ=
+pBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk8ZkWVAewIMUdjFXmQ.woff2') format('wo=
+ff2');
+        }
+        @font-face {
+          font-family: 'Open Sans';
+          font-style: normal;
+          font-weight: 500;
+          font-display: swap;
+          src: url('https://fonts.gstatic.com/s/opensans/v40/memSYaGs126MiZ=
+pBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjr0B4gaVIUwaEQbjA.woff2') format('woff2=
+');
+        }
+
+        @font-face {
+          font-family: 'Open Sans';
+          font-style: italic;
+          font-weight: 500;
+          font-display: swap;
+          src: url('https://fonts.gstatic.com/s/opensans/v40/memQYaGs126MiZ=
+pBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk_RkWVAewIMUdjFXmQ.woff2') format('wo=
+ff2');
+        }
+</style></head><body class=3D"a" style=3D"margin:0px auto;padding:0px;word-=
+wrap:normal;word-spacing:normal;background-color:#FFFFFF;"><div role=3D"art=
+icle" aria-roledescription=3D"email" aria-label=3D"email_name" lang=3D"en" =
+style=3D"font-size:1rem"><div style=3D"display:none;max-height:0px;overflow=
+:hidden;"> Today in AI: Claude Cowork Basics &#160;&#8204;&#160;&#8204;&#16=
+0;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&=
+#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#820=
+4;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#=
+8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160=
+;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#=
+160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204=
+;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8=
+204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;=
+&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#1=
+60;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;=
+&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#82=
+04;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&=
+#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#16=
+0;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&=
+#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#820=
+4;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#=
+8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160=
+;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#=
+160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204=
+;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8=
+204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;=
+&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#1=
+60;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;=
+&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#82=
+04;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&=
+#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#16=
+0;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&=
+#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#820=
+4;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#=
+8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160=
+;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#=
+160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204=
+;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8=
+204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;=
+&#8204;&#160;&#8204; </div><table role=3D"none" width=3D"100%" border=3D"0"=
+ cellspacing=3D"0" align=3D"center" cellpadding=3D"0" class=3D"gg"><tr><td =
+align=3D"center" valign=3D"top"><table role=3D"none" width=3D"670" border=
+=3D"0" cellspacing=3D"0" cellpadding=3D"0" class=3D"aa" style=3D"width:670p=
+x;table-layout:fixed;"><tr><td class=3D"bodyWrapper" align=3D"center" valig=
+n=3D"top" style=3D"padding:10px 5px 10px 5px;"><table role=3D"none" width=
+=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"=
+><tr><td align=3D"center" valign=3D"top" style=3D"border-width:0px 0px 0px =
+0px;border-style: solid; border-color: #FFFFFF;border-radius:10px 10px 0px =
+0px;background-color:#FFFFFF;" class=3D"c"><table role=3D"none" width=3D"10=
+0%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"><tr i=
+d=3D"header"><td style=3D"padding:15px 15px 0px 15px;"><div style=3D"paddin=
+g-top:0px;padding-right:0px;padding-bottom:20px;padding-left:0px;"><table r=
+ole=3D"none" width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+" align=3D"center"><tr><td class=3D"f" align=3D"right" valign=3D"top"><p> M=
+arch 10, 2026 &nbsp; | &nbsp; <a href=3D"https://link.mail.beehiiv.com/ss/c=
+/u001.r5debm-xuu6FxWaHoW06GUq8mwVKVfDDwB0l3xxf04ngjnro0E2BNGn_ZQZFHi0gCPZ4C=
+XjfNiTB1iCScp4zxtV-wF1gZgU_k7M_F3ZebXLrW6bDwbBztCPJ2X6bwHf87LZ5OfmIIGlVri4v=
+a_IlNRg5iWE280bt_-oIpV3TQrk8OJO2XOiTDjjTXlmevxLlv65Op_6y7hC2nCHig9YC9DLI9Rq=
+euJtJKAPncCL6I1_VcEEcBWndnT2BPgWH3G6J88Snz5DSdB7o2-B5CLK6i5oma9xQTUjmOEY9qU=
+3kfGXxXNO8x6wIJPgKMebCq5YsVzsSVE7nxLhdUPDbPONuYXuyxMo3tizroOopgm6n74JPCPZWA=
+4mXN26yJL6o3ND8ywu4H7LxgmhyPPAA0al3bU97391M_UhGCqZFTa_Nyh3K1y_YCTsffJ8i2qlp=
+4P8MAgnfd3_4R2H7TdVYa7__R0b3VCr4DWkiaBnbBjV81vjpRAWBZuARgizIGEy43vnyBuAhpWZ=
+iaPXOUBc3D0nxOpFWd8GLmE0qHcS1mbACPvB7Qy3IXiLgg5HuE_Pmd5dq415QWaw_xyev91jS6X=
+Q50h13qlAgL147kj2t9I5WRrmiNQIsQ384KPjD5PNinm9GZOQH3Q6k3LEDBJ4yhubSNshNHTa-S=
+mvIepMCRxVGLh335eUTmFLYZraf-ZZXvsWgGe7Qdm0GeSXV4AwmoTKil7OT2RwpZpCdloR8XxhW=
+7DSWzxmMYNECO02rcsjVix-TEchdEO_7giaxxSmNY5wzIm-JjnVCaNaVjcoZFd5GOUJ3cvhi26I=
+BO4u1F9yXQ9PMr31cNNokD7fy_bgn4r_olHH91KYEick85D9xok0QOCA/4ot/aGkjI8x8THCtzh=
+NCdn1odw/h0/h001.ykPZj3OeF_vq8xO1wc9E58fSNXY6muBHax-5IuTEPqE"><span class=
+=3D"translation_missing" title=3D"translation missing: en.templates.posts.e=
+mail.header.read_online">Read Online</span></a></p></td></tr><tr><td class=
+=3D"dd" align=3D"center" valign=3D"top" style=3D"width:100%;text-align:cent=
+er;"><table role=3D"none" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" =
+align=3D"center" style=3D"margin:16px auto 16px; padding: 0;"><tbody><tr><t=
+d style=3D"width:630px;padding: 0px 0px 0px 0px;text-align:center;"><img al=
+t=3D"" width=3D"630" height=3D"auto" border=3D"0" style=3D"width:100%;heigh=
+t:auto;border:0;display:block;outline:none;text-decoration:none;margin:0 au=
+to;" src=3D"https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,format=
+=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/cfcccba7-1790-4d=
+e5-9d7d-9c1bd7d34316/PROMPT_ENTREPRENEUR_3__11_.png?t=3D1770117472"/></td><=
+/tr></tbody></table></td></tr><tr><td class=3D"dd" align=3D"center" valign=
+=3D"top" style=3D"padding:15px 0;"><table role=3D"none" width=3D"100%" bord=
+er=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"><tr><td align=
+=3D"center" valign=3D"top"><h1 style=3D"text-align:left;font-family:'Open S=
+ans','Segoe UI','Apple SD Gothic Neo','Lucida Grande','Lucida Sans Unicode'=
+,sans-serif;font-weight:600;font-size:32px;color:#2A2A2A;padding:2px 0;line=
+-height:38px;"> AI with Kyle Daily Update 156 </h1><p style=3D"text-align:l=
+eft;font-family:'Open Sans','Segoe UI','Apple SD Gothic Neo','Lucida Grande=
+','Lucida Sans Unicode',sans-serif;font-weight:500;font-size:20px;color:#3E=
+3E3E;padding:5px 0;line-height:24px;"> Today in AI: Claude Cowork Basics </=
+p></td></tr></table></td></tr><tr><td align=3D"center" valign=3D"top" class=
+=3D"dd"><table role=3D"none" width=3D"100%" border=3D"0" cellspacing=3D"0" =
+cellpadding=3D"0" align=3D"center"><tr><td aling=3D"center" valign=3D"middl=
+e" class=3D"mob-stack"><table role=3D"none" border=3D"0" cellspacing=3D"0" =
+cellpadding=3D"0" align=3D"left" class=3D"mob-stack" style=3D"width:100%;">=
+<tr><td align=3D"left" valign=3D"middle" style=3D"padding: 5px 0px 5px 0px;=
+"><table role=3D"none" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" ali=
+gn=3D"left"><tr><td align=3D"center" valign=3D"middle"><img src=3D"https://=
+media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,format=3Dauto,onerror=3Dre=
+direct,quality=3D80/uploads/user/profile_picture/149a2fa5-9a7b-4998-9e83-43=
+dd8c07c1f3/thumb_dkz6g1CW_400x400.jpg" width=3D"40" alt=3D"" style=3D"displ=
+ay:block;max-width:40px;border-radius:50%;position:relative;border:4px soli=
+d rgba(0,0,0,0) !important;left:-4px;box-sizing:content-box;z-index:10;" bo=
+rder=3D"0"/></td><td width=3D"5" style=3D"width:5px;">&nbsp;</td><td align=
+=3D"left" valign=3D"middle" class=3D"g" style=3D"position:relative;left:8px=
+;width:100%;"><p style=3D"padding:0px;color:#2D2D2D;"><a href=3D"https://li=
+nk.mail.beehiiv.com/ss/c/u001.e_Hd8iLAVumFF3UzqKxvO41WWTVrQoKeH06iPEyER2jGY=
+RZ9QCcQ_TgHgO1d6HxglJ7hozMBK4CTXTj943tloX1aRiMRjo9gSQAXD3AhpY6VSTeHm_3k0CqO=
+vs_Y5npynhmej3nnkvQgLDBNPoX7361u-d3deoHD4CKugH6Qj8bdYySbhw-UdTZtCoauBgchGfQ=
+CTQe_V6IfrWzhIeu2PVGGHcMjbIgKj6PFpTfyFPdjEv7RU0U_czmRRrhyk3L6mTTSVeyCGrGC5u=
+B-NZ12kQ/4ot/aGkjI8x8THCtzhNCdn1odw/h1/h001.PAkKDLeueuo8yCohYeAe1eq5VV24KtK=
+oLAncAq_91NQ" target=3D"_blank" style=3D"color:#2D2D2D !important;text-deco=
+ration:underline !important;">Kyle Balmer</a></p></td></tr></table></td></t=
+r></table></td><td align=3D"left" valign=3D"middle" class=3D"mob-stack"><ta=
+ble role=3D"none" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D=
+"right" class=3D"social-mobile"><tr><td align=3D"left" valign=3D"middle"><t=
+able role=3D"none" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=
+=3D"left" style=3D"width:100%"><tr><td align=3D"center" valign=3D"middle"><=
+a href=3D"https://link.mail.beehiiv.com/ss/c/u001.e_Hd8iLAVumFF3UzqKxvOw7gH=
+RliO95ko8lJg-2mu6-6QrCWnHBnGZNf7ITHBRfY5roqmgv33VYwTYUV53kwQ3y0DD7hTISEN5Cm=
+DRHBg5KP7nu8MIrHEiDP91bn0s8-OEa3QsfDkefga_dzKA3YmQCCrP7rznKzVFWJYgJWgtQmJxh=
+ie2C4OkMG6LB5afY5_tuOUHzUNaY7Vyiy63-edr6nsI3aoJ1uOSE1xmv57GGKHCZdAW-6ysCVBc=
+zxdEGXJmJ_xDTqphqNFyONJwb2Yezv-HrfhUvMwz2Xwhv4Rcp4CBiurY4Ozd0XQ694uSfUXuo1B=
+0dUqddusRihw_5m8N4OOe_YSsx3_AnKjMINa_3aaC90bWZAQv3DzFbvQ5Bh/4ot/aGkjI8x8THC=
+tzhNCdn1odw/h2/h001.TYBwO2buKcCMHWcq-0Gn2A1s_uWl-n5PGPqcfAuh8mk" style=3D"t=
+ext-decoration:none; display:block;"><table role=3D"none" border=3D"0" cell=
+spacing=3D"0" cellpadding=3D"0" align=3D"center"><tr><td align=3D"center" v=
+align=3D"middle" style=3D"border: 1px solid #E5E7EB; border-radius: 100%; w=
+idth: 18px; height: 18px; padding: 8px;"><img style=3D"display:block; width=
+:100%; height:100%; max-width:18px; max-height:18px; object-fit: contain;" =
+alt=3D"share on facebook" width=3D"18" border=3D"0" src=3D"https://media.be=
+ehiiv.com/cdn-cgi/image/fit=3Dscale-down,format=3Dauto,onerror=3Dredirect,q=
+uality=3D80/static_assets/header/facebook.png"/></td></tr></table></a></td>=
+<td width=3D"8" style=3D"width:8px;">&nbsp;</td><td align=3D"center" valign=
+=3D"middle"><a href=3D"https://link.mail.beehiiv.com/ss/c/u001.9OZy_zYrOUOh=
+sq_AVRulHr_d3MGxTw6nr_VnmfalGEEE8Pbc1beFrLwDOVlM9Olkgf-KiVkyq1kvVpLPKPBTRKr=
+xLFu5CqXEMGpnKX0PTM3kxnDYdd-zI6fvHz0m8pH7W5uetdfg9WrAur4klAeuBgRRvxzIamDb0V=
+PESl-ul7CPGRmTEhybC5-8bAXWt6DHsZ6GnYiVipPiaqULYMpCPMhpAigHUTVILCCwjHBftBhRu=
+2KIkyM3eLu7E5QICZS9y9JyP-5iEMWrAvAS87Z1T8InbOVNJcLqOrNcb0G9Pdnj6N_on3fGLpbL=
+H8qA1AhO8kNNU0m5-wthYdgWpzkBmXoZWC8nhfQq4RB1Ly8ibCJn3qMA3cI23kMxhj5iPx8jMoD=
+anBKH9ouUVplCLK_2djtuJVxE1K6tuZSi3voY4qwzMKD3188Bw-hu6zqbN89u/4ot/aGkjI8x8T=
+HCtzhNCdn1odw/h3/h001.tfkmdGF0EKlD1bAmWrtdBh3L1YCzQAYFweElSdK59hs" style=3D=
+"text-decoration:none; display:block;"><table role=3D"none" border=3D"0" ce=
+llspacing=3D"0" cellpadding=3D"0" align=3D"center"><tr><td align=3D"center"=
+ valign=3D"middle" style=3D"border: 1px solid #E5E7EB; border-radius: 100%;=
+ width: 18px; height: 18px; padding: 8px;"><img style=3D"display:block; wid=
+th:100%; height:100%; max-width:18px; max-height:18px; object-fit: contain;=
+" alt=3D"share on twitter" width=3D"18" height=3D"18" border=3D"0" src=3D"h=
+ttps://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,format=3Dauto,onerr=
+or=3Dredirect,quality=3D80/static_assets/header/x.png"/></td></tr></table><=
+/a></td><td width=3D"8" style=3D"width:8px;">&nbsp;</td><td align=3D"center=
+" valign=3D"middle"><a href=3D"https://link.mail.beehiiv.com/ss/c/u001.e_Hd=
+8iLAVumFF3UzqKxvO6jmz-pd8LUrfYAVWF1SzooGyiW6yOyyQ3g4xgnthnblOuN2JtT_QOBkoYR=
+gt1Wv-7QcjIXOyuPp1f3x1lkVq6MIVI6GV21uyhEQbSZiogAoh4rBhJhRtOakgqFmzheCdFZZNT=
+68sMUkzrmN-pH-i6RP_4485V8WBWbvaLYz4MQxBWBltinSMmevIhTNIursHVT4fVZ_DRKpyx1v1=
+44Pc_C2bFHgl2zSQ4SuSiF4U9VnN8tFPwPPd4cF6an1Dv_G2m8nR46DDoAYXhhipm1TiN9nD6_n=
+1_N9Df3cA88ESumVoiTijN7TzfJxk-YVHJDpb0hPc-YVu3a9lbDeqxAE6uu2j18JCzF2BHInUrR=
+d2xH6xFP8jOTCdyhR5Vn-8jkINPmufwAOiFLERn7FmHA-qug/4ot/aGkjI8x8THCtzhNCdn1odw=
+/h4/h001.1uV1PNMt28Tc-IS-WfUPx9uNCKUWpEJ0562-YX62yfI" style=3D"text-decorat=
+ion:none; display:block;"><table role=3D"none" border=3D"0" cellspacing=3D"=
+0" cellpadding=3D"0" align=3D"center"><tr><td align=3D"center" valign=3D"mi=
+ddle" style=3D"border: 1px solid #E5E7EB; border-radius: 100%; width: 18px;=
+ height: 18px; padding: 8px;"><img style=3D"display:block; width:100%; heig=
+ht:100%; max-width:18px; max-height:18px; object-fit: contain;" alt=3D"shar=
+e on threads" width=3D"18" height=3D"18" border=3D"0" src=3D"https://media.=
+beehiiv.com/cdn-cgi/image/fit=3Dscale-down,format=3Dauto,onerror=3Dredirect=
+,quality=3D80/static_assets/header/threads.png"/></td></tr></table></a></td=
+><td width=3D"8" style=3D"width:8px;">&nbsp;</td><td align=3D"center" valig=
+n=3D"middle"><a href=3D"https://link.mail.beehiiv.com/ss/c/u001.e_Hd8iLAVum=
+FF3UzqKxvO32KhpvNQzNO7QrQKxWaMWB9uisjaDKYzZMqdqDS7ZRb90-C0mtNmBoRgQhjShQR12=
+63PlCd4nWwXm6-qR249zCdNlel-vddFg5mReJ6B7gTeMcIIy4hAfIxiBOMp-H7divXmiN6nZcDg=
+BzIZagtMOe54sq6u3yCvZ03x8A5mRqfyZGIjtl9ttJFH73COgObLepCIyiWgPHuvcbUPD_hqNIP=
+CFf_4bRo2NQn9IrTRD4lxp5ND5y2k10ywcifvdxiGHGyeh8fK9YfiTL9-S6Ems6rF56J9bvLnLc=
+4YL6ryad9RJo0EtFCnecrBJuC4EERBOdUZ5YWctDTga5BUNtMMvRQUC_nx9psUMIvJ2D96hxO/4=
+ot/aGkjI8x8THCtzhNCdn1odw/h5/h001.cZu2yNRAYW64zybR-TXpC9C2m21rjkgbrmv6mPsPK=
+3M" style=3D"text-decoration:none; display:block;"><table role=3D"none" bor=
+der=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"><tr><td alig=
+n=3D"center" valign=3D"middle" style=3D"border: 1px solid #E5E7EB; border-r=
+adius: 100%; width: 18px; height: 18px; padding: 8px;"><img style=3D"displa=
+y:block; width:100%; height:100%; max-width:18px; max-height:18px; object-f=
+it: contain;" alt=3D"share on linkedin" width=3D"18" height=3D"18" border=
+=3D"0" src=3D"https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,form=
+at=3Dauto,onerror=3Dredirect,quality=3D80/static_assets/header/linkedin.png=
+"/></td></tr></table></a></td></tr></table></td></tr></table></td></tr></ta=
+ble></td></tr><tr><td style=3D"line-height:0;"><div data-open-tracking=3D"t=
+rue"> <img src=3D"https://link.mail.beehiiv.com/ss/o/u001.PIdeHNDVsRv90dHq2=
+vq3oA/4ot/aGkjI8x8THCtzhNCdn1odw/ho.gif" alt=3D"" width=3D"1" height=3D"1" =
+border=3D"0" style=3D"height:1px !important;width:1px !important;border-wid=
+th:0 !important;margin-top:0 !important;margin-bottom:0 !important;margin-r=
+ight:0 !important;margin-left:0 !important;padding-top:0 !important;padding=
+-bottom:0 !important;padding-right:0 !important;padding-left:0 !important;"=
+/> </div></td></tr></table></div></td></tr><tr id=3D"content-blocks"><td cl=
+ass=3D"email-card-body" align=3D"center" valign=3D"top" style=3D"padding-bo=
+ttom:px;"><table role=3D"none" width=3D"100%" border=3D"0" cellspacing=3D"0=
+" cellpadding=3D"0" align=3D"center"><tr><td class=3D"dd" align=3D"center" =
+style=3D"padding:0px 15px;text-align:center;word-break:break-word;"><p styl=
+e=3D"mso-line-height-alt:150.0%;"></p></td></tr><tr><td align=3D"center" va=
+lign=3D"top" style=3D"padding-bottom:20px;padding-left:15px;padding-right:1=
+5px;padding-top:20px; " class=3D"dd"><table role=3D"none" border=3D"0" cell=
+spacing=3D"0" cellpadding=3D"0" style=3D"margin:0 auto 0 auto;"><tr><td ali=
+gn=3D"center" valign=3D"top" style=3D"width:630px;"><a href=3D"https://link=
+.mail.beehiiv.com/ss/c/u001.cYk0T0icppCns2Jb5qrX03xlsA6FIEokx9DVK09RCla-X7w=
+C8n89O7-VgFhiqnENEZs6_9v6HCt-XR1pdsnSRhoyfDbaIyIjljpoICAMr0wuj1-O-a2AcNPfKm=
+3v9MUEeOdfWZ9GVdflFIMh7Tvp-AmtWf1TlD8EexbW5-BBcU886TEKBIOb7OVfY9qxezcXdOmrv=
+YhrbP0EAACJTqCMkSZ0k6cJkhHMcOAqA0h05ARbkwI-zZfy8Fws3D8haqsd/4ot/aGkjI8x8THC=
+tzhNCdn1odw/h6/h001.WJuHPb1k3K5BmPGZEg6kUELyfzWVrv1TPy1-KDBXovA" rel=3D"noo=
+pener noreferrer nofollow" style=3D"text-decoration:none;" target=3D"_blank=
+"><img src=3D"https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,form=
+at=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/ef7d5f6f-0f6c-=
+4210-8b38-696fd4674806/newsletter_1_%2B_long_1.png?t=3D1773119663" alt=3D""=
+ height=3D"auto" width=3D"630" style=3D"display:block;width:100%;" border=
+=3D"0"/></a></td></tr><tr><td align=3D"center" valign=3D"top" class=3D"t" s=
+tyle=3D"width:630px; padding: 4px 0px 4px 0px;"><a href=3D"https://link.mai=
+l.beehiiv.com/ss/c/u001.cYk0T0icppCns2Jb5qrX03xlsA6FIEokx9DVK09RCla-X7wC8n8=
+9O7-VgFhiqnENEZs6_9v6HCt-XR1pdsnSRhoyfDbaIyIjljpoICAMr0wuj1-O-a2AcNPfKm3v9M=
+UEeOdfWZ9GVdflFIMh7Tvp-AmtWf1TlD8EexbW5-BBcU886TEKBIOb7OVfY9qxezcX_MxuGQRLw=
+oPnLAsmyRQj9g2sY38opvltN3C4gSUROXxq03CznJUbjiKwJGqcLnsg/4ot/aGkjI8x8THCtzhN=
+Cdn1odw/h7/h001.pkU3ncWGpFbWw9082No63-oNDAxN8xa_0TlUV4CAFUs" target=3D"_bla=
+nk" rel=3D"noopener noreferrer nofollow" style=3D"text-decoration:underline=
+;text-decoration-color:#000000;"><p><a class=3D"link" href=3D"https://link.=
+mail.beehiiv.com/ss/c/u001.cYk0T0icppCns2Jb5qrX03xlsA6FIEokx9DVK09RCla-X7wC=
+8n89O7-VgFhiqnENEZs6_9v6HCt-XR1pdsnSRhoyfDbaIyIjljpoICAMr0wuj1-O-a2AcNPfKm3=
+v9MUEeOdfWZ9GVdflFIMh7Tvp-AmtWf1TlD8EexbW5-BBcU886TEKBIOb7OVfY9qxezcXUKF-vO=
+Yx1N0N1fU3YZ-8rIBatBpyaSBskuAoROFYED2A-z2D73riedyyA4IXCmtU/4ot/aGkjI8x8THCt=
+zhNCdn1odw/h8/h001.LeGV2hkqG4sGhf4RPcbySVZF0GrqJdF3N8m0NPWgzbA" target=3D"_=
+blank" rel=3D"noopener noreferrer nofollow"><span>https://youtu.be/mp4FqLEa=
+GAI</span></a></p></a></td></tr></table></td></tr><tr><td id=3D"claude-cowo=
+rk-ai-stopped-chatting-i" class=3D"dd" align=3D"left" valign=3D"top" style=
+=3D"color:#2A2A2A;font-weight:600;padding:0px 15px;text-align:left;"><h1 st=
+yle=3D"color:#2A2A2A;font-weight:600;mso-line-height-alt:175.0%;">Claude Co=
+work: AI Stopped Chatting. It Started Working.</h1></td></tr><tr><td class=
+=3D"dd" align=3D"left" style=3D"padding:0px 15px;text-align:left;word-break=
+:break-word;"><p style=3D"mso-line-height-alt:150.0%;"> About two weeks ago=
+, a cool $830 billion got wiped off the American stock market. Mainly SaaS =
+companies. Software stocks. </p></td></tr><tr><td class=3D"dd" align=3D"lef=
+t" style=3D"padding:0px 15px;text-align:left;word-break:break-word;"><p sty=
+le=3D"mso-line-height-alt:150.0%;"> The reason? It&#39;s becoming pretty cl=
+ear that we can now spin up our own software. We can get AI to do the work =
+for us. Not tell us what to do. <b>Actually do it.</b></p></td></tr><tr><td=
+ class=3D"dd" align=3D"left" style=3D"padding:0px 15px;text-align:left;word=
+-break:break-word;"><p style=3D"mso-line-height-alt:150.0%;"> This has been=
+ promised for years. But since December it=E2=80=99s becoming a reality. It=
+=E2=80=99s here. </p></td></tr><tr><td class=3D"dd" align=3D"left" style=3D=
+"padding:0px 15px;text-align:left;word-break:break-word;"><p style=3D"mso-l=
+ine-height-alt:150.0%;"> I want to walk you through what that means, becaus=
+e most people have not caught up to this shift yet. </p></td></tr><tr><td i=
+d=3D"the-four-big-shifts" class=3D"dd" align=3D"left" valign=3D"top" style=
+=3D"color:#2A2A2A;font-weight:600;padding:0px 15px;text-align:left;"><h2 st=
+yle=3D"color:#2A2A2A;font-weight:600;mso-line-height-alt:150.0%;">The Four =
+Big Shifts</h2></td></tr><tr><td class=3D"dd" align=3D"left" style=3D"paddi=
+ng:0px 15px;text-align:left;word-break:break-word;"><p style=3D"mso-line-he=
+ight-alt:150.0%;"> Ethan Mollick - professor at Wharton, smart guy - laid i=
+t out recently. From a user perspective, there have been four big moments i=
+n AI: </p></td></tr><tr><td align=3D"center" valign=3D"top" style=3D"paddin=
+g-bottom:20px;padding-left:15px;padding-right:15px;padding-top:20px;" class=
+=3D"dd"><table role=3D"none" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0" style=3D"margin:0 auto 0 auto;"><tr><td align=3D"center" valign=3D"top" =
+style=3D"width:100%;"><a href=3D"https://link.mail.beehiiv.com/ss/c/u001.9O=
+Zy_zYrOUOhsq_AVRulHuhE7OcpjMDKr-jq3TWkBTlF6JX1YfISfeWCON--lRzdK1Le90cKigDjA=
+in9lUPukUktaYJSD7j5nXp7LNFY1f8sbNtPm1d7xwt3bDxGf1fKYGlWYskJfCjXczL0CgA7RB2g=
+ezJ1cTOxNAlJcPtDLMSEI8HwjNwL49MWXhp4wlDPSh9aeSLIkYoAvr9cZ8nrFwPixZlZyiMMGOA=
+6i-Ya6vWrceT-xByYvVcuGWsA2WYBHs_qoxgUNZhk91X0s6ufp2ub_xk1ASJFvqdNd3uYOOk/4o=
+t/aGkjI8x8THCtzhNCdn1odw/h9/h001.WFoeUg-buW7pqF6UA6Hi5Fo6T7fQxYOSSXTN2VPFEe=
+8" style=3D"text-decoration:none !important;"><img src=3D"https://beehiiv-i=
+mages-production.s3.amazonaws.com/uploads/asset/file/85bd8d50-35b0-4f0c-85d=
+2-f0c9d6ac1616/twitter_screenshot_2028711087504326662_1773084892_c13848da.j=
+peg?t=3D1773084896" alt=3D"Tweet screenshot" height=3D"auto" width=3D"100%"=
+ style=3D"display: block; width: 100%;" border=3D"0"/></a></td></tr></table=
+></td></tr><tr><td class=3D"dd" align=3D"left" style=3D"padding:0px 15px;te=
+xt-align:left;word-break:break-word;"><p style=3D"mso-line-height-alt:150.0=
+%;"><b>GPT-3.5.</b> The first &quot;oh, what&#39;s this?&quot; moment. That=
+&#39;s when I shut down my digital marketing agency because I could see whe=
+re things were heading. It wasn&#39;t fully cooked though. It hallucinated,=
+ no web search, made stuff up. A lot of people tried it and bounced off. Th=
+ose who us who took the time though realised that this was something import=
+ant. </p></td></tr><tr><td class=3D"dd" align=3D"left" style=3D"padding:0px=
+ 15px;text-align:left;word-break:break-word;"><p style=3D"mso-line-height-a=
+lt:150.0%;"><b>GPT-4.</b> The first model you could actually <i>use</i> pro=
+fessionally. Should have been the first consumer release, honestly. But Ope=
+nAI wanted to get to market first so launched 3.5 anyway. </p></td></tr><tr=
+><td class=3D"dd" align=3D"left" style=3D"padding:0px 15px;text-align:left;=
+word-break:break-word;"><p style=3D"mso-line-height-alt:150.0%;"><b>The Rea=
+soners.</b> Spring 2025. Models that think step by step, prompt themselves,=
+ reason through problems. This is where deep think modes and research modes=
+ came from. Only a year ago(!). </p></td></tr><tr><td class=3D"dd" align=3D=
+"left" style=3D"padding:0px 15px;text-align:left;word-break:break-word;"><p=
+ style=3D"mso-line-height-alt:150.0%;"><b>Agents.</b> December 2025. AI tha=
+t doesn&#39;t just chat with you - it <b>does </b>the work. This is where w=
+e are right now. And Cowork is part of it. </p></td></tr><tr><td class=3D"d=
+d" align=3D"left" style=3D"padding:0px 15px;text-align:left;word-break:brea=
+k-word;"><p style=3D"mso-line-height-alt:150.0%;"> &quot;Agents&quot; was a=
+ buzzword all through 2025, but they were rubbish. Anyone remember Auto-GPT=
+? It just didn&#39;t work. It was in December that we got Open Claw, and th=
+en more refined versions since. Cowork, Perplexity Computer, Manus. Agents =
+that actually work. </p></td></tr><tr><td class=3D"dd" align=3D"left" style=
+=3D"padding:0px 15px;text-align:left;word-break:break-word;"><p style=3D"ms=
+o-line-height-alt:150.0%;"> 2026 is legitimately the year of the agents. </=
+p></td></tr><tr><td align=3D"center" valign=3D"top" style=3D"padding-bottom=
+:20px;padding-left:15px;padding-right:15px;padding-top:20px; " class=3D"dd"=
+><table role=3D"none" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" styl=
+e=3D"margin:0 auto 0 auto;"><tr><td align=3D"center" valign=3D"top" style=
+=3D"width:630px;"><img src=3D"https://media.beehiiv.com/cdn-cgi/image/fit=
+=3Dscale-down,format=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/f=
+ile/a2b9e3bd-e16b-4e82-bff5-4a3437525fb0/Screenshot_2026-03-09_at_7.37.12_p=
+m.png?t=3D1773085037" alt=3D"" height=3D"auto" width=3D"630" style=3D"displ=
+ay:block;width:100%;" border=3D"0"/></td></tr></table></td></tr><tr><td id=
+=3D"the-real-shift-from-chat-to-do" class=3D"dd" align=3D"left" valign=3D"t=
+op" style=3D"color:#2A2A2A;font-weight:600;padding:0px 15px;text-align:left=
+;"><h2 style=3D"color:#2A2A2A;font-weight:600;mso-line-height-alt:150.0%;">=
+The Real Shift: From Chat to Do</h2></td></tr><tr><td class=3D"dd" align=3D=
+"left" style=3D"padding:0px 15px;text-align:left;word-break:break-word;"><p=
+ style=3D"mso-line-height-alt:150.0%;"> For the last couple of years - sinc=
+e ChatGPT launched - we&#39;ve been chatting. We talk to AI. It tells us wh=
+at we should do. We go back and forth. </p></td></tr><tr><td class=3D"dd" a=
+lign=3D"left" style=3D"padding:0px 15px;text-align:left;word-break:break-wo=
+rd;"><p style=3D"mso-line-height-alt:150.0%;"> Totally fine. But limited. <=
+/p></td></tr><tr><td class=3D"dd" align=3D"left" style=3D"padding:0px 15px;=
+text-align:left;word-break:break-word;"><p style=3D"mso-line-height-alt:150=
+.0%;"> That&#39;s changed. And it&#39;s really changed in the last two or t=
+hree months. </p></td></tr><tr><td class=3D"dd" align=3D"left" style=3D"pad=
+ding:0px 15px;text-align:left;word-break:break-word;"><p style=3D"mso-line-=
+height-alt:150.0%;"> Now when I go to my AI and say &quot;I want to set up =
+DM giveaways on TikTok and Instagram, look at what competitors are doing, f=
+ind trending topics&quot; - it doesn&#39;t just give me a plan. It puts tog=
+ether the plan, and then it goes and does the plan. It says &quot;I need to=
+ connect to Twitter, I need this MCP connection, let me spin up Apify to sc=
+rape those TikTok videos, I&#39;ll use Playwright to automate your browser.=
+&quot; </p></td></tr><tr><td class=3D"dd" align=3D"left" style=3D"padding:0=
+px 15px;text-align:left;word-break:break-word;"><p style=3D"mso-line-height=
+-alt:150.0%;"> It is <i>doing </i>the task. We&#39;re not talking about the=
+ task with the AI anymore. It&#39;s getting on and doing the damn thing. </=
+p></td></tr><tr><td id=3D"what-cowork-actually-is" class=3D"dd" align=3D"le=
+ft" valign=3D"top" style=3D"color:#2A2A2A;font-weight:600;padding:0px 15px;=
+text-align:left;"><h2 style=3D"color:#2A2A2A;font-weight:600;mso-line-heigh=
+t-alt:150.0%;">What Cowork Actually Is</h2></td></tr><tr><td class=3D"dd" a=
+lign=3D"left" style=3D"padding:0px 15px;text-align:left;word-break:break-wo=
+rd;"><p style=3D"mso-line-height-alt:150.0%;"> With Claude Chat, you type a=
+ question and get an answer. Same as ChatGPT. Back and forth. </p></td></tr=
+><tr><td class=3D"dd" align=3D"left" style=3D"padding:0px 15px;text-align:l=
+eft;word-break:break-word;"><p style=3D"mso-line-height-alt:150.0%;"> With =
+Cowork, you point Claude at a folder on your computer. It reads everything =
+in it. Then you give it a task and it goes and does it. Creates documents. =
+Builds spreadsheets. Writes reports. Saves finished files directly to your =
+computer. </p></td></tr><tr><td class=3D"dd" align=3D"left" style=3D"paddin=
+g:0px 15px;text-align:left;word-break:break-word;"><p style=3D"mso-line-hei=
+ght-alt:150.0%;"> You&#39;re directing a worker, not prompting a chatbot. <=
+/p></td></tr><tr><td class=3D"dd" align=3D"left" style=3D"padding:0px 15px;=
+text-align:left;word-break:break-word;"><p style=3D"mso-line-height-alt:150=
+.0%;"> Here&#39;s a quick example. I said &quot;sort my invoices and send t=
+hem to my bookkeeper.&quot; One sentence. Cowork asked me a few questions -=
+ where do you want to drop invoices? What format? How should they be sorted=
+? Then it built the entire system. Folder structure, PDF reader, processing=
+ script, monthly scheduled task. Done. </p></td></tr><tr><td class=3D"dd" a=
+lign=3D"left" style=3D"padding:0px 15px;text-align:left;word-break:break-wo=
+rd;"><p style=3D"mso-line-height-alt:150.0%;"> Chat would have given me a p=
+lan. Cowork built the thing. </p></td></tr><tr><td align=3D"center" valign=
+=3D"top" style=3D"font-size:0px;line-height:0px;padding:30px 0px 30px;" cla=
+ss=3D"dd"><table class=3D"j" role=3D"none" width=3D"50%" border=3D"0" cells=
+pacing=3D"0" cellpadding=3D"0" align=3D"center"><tr><td> &nbsp; </td></tr><=
+/table></td></tr><tr><td id=3D"step-1-what-you-need" class=3D"dd" align=3D"=
+left" valign=3D"top" style=3D"color:#2A2A2A;font-weight:600;padding:0px 15p=
+x;text-align:left;"><h2 style=3D"color:#2A2A2A;font-weight:600;mso-line-hei=
+ght-alt:150.0%;">Step 1: What You Need</h2></td></tr><tr><td align=3D"cente=
+r" valign=3D"top" style=3D"padding-bottom:20px;padding-left:15px;padding-ri=
+ght:15px;padding-top:20px; " class=3D"dd"><table role=3D"none" border=3D"0"=
+ cellspacing=3D"0" cellpadding=3D"0" style=3D"margin:0 auto 0 auto;"><tr><t=
+d align=3D"center" valign=3D"top" style=3D"width:630px;"><img src=3D"https:=
+//media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,format=3Dauto,onerror=3D=
+redirect,quality=3D80/uploads/asset/file/32aa09b3-478d-47ac-be43-23f6ae971f=
+a5/Screenshot_2026-03-09_at_7.55.25_pm.png?t=3D1773086131" alt=3D"" height=
+=3D"auto" width=3D"630" style=3D"display:block;width:100%;" border=3D"0"/><=
+/td></tr></table></td></tr><tr><td class=3D"dd" align=3D"left" style=3D"pad=
+ding:0px 15px;text-align:left;word-break:break-word;"><p style=3D"mso-line-=
+height-alt:150.0%;"><b>The desktop app.</b> Cowork only runs in the Claude =
+desktop app. Not the website. Not your phone. Go to <a class=3D"link" href=
+=3D"https://link.mail.beehiiv.com/ss/c/u001.YhXLVZr7HXZNXwBXbKh8ScTLf1Io8a1=
+Z8oggfViU0Og7vkrfgo2fQdr4ZMkfkHci5iE4q14xgJCgYWtdsZB13B9l4aVJbHQGUPz56mn1rI=
+Qk_7jR6_14Td0ZFrIYeOARo4K_9mokCZoUdW3-y3o6dcLA_x1wIvTizmJYS4mXMcYBj0lMZl8pO=
+i8bF3JhpNZRbbRCCcbZL01ZwJ2lo41OinwBdhWEDrYZVNKuwXpG_6_RhuSIx4mfF-SlqXo956bP=
+/4ot/aGkjI8x8THCtzhNCdn1odw/h10/h001.87WG8Rsax-gnDSo3YVvjl9Ue_cVD8trviaY8bV=
+N0JQg" target=3D"_blank" rel=3D"noopener noreferrer nofollow"><span>claude.=
+ai/download</span></a>. Mac or Windows. </p></td></tr><tr><td class=3D"dd" =
+align=3D"left" style=3D"padding:0px 15px;text-align:left;word-break:break-w=
+ord;"><p style=3D"mso-line-height-alt:150.0%;"><b>A paid plan.</b> You need=
+ Claude Pro at minimum ($20/month). If Cowork becomes your main workflow, y=
+ou&#39;ll want Max ($100/month). It burns through usage faster than regular=
+ chat. </p></td></tr><tr><td class=3D"dd" align=3D"left" style=3D"padding:0=
+px 15px;text-align:left;word-break:break-word;"><p style=3D"mso-line-height=
+-alt:150.0%;"><b>Model settings.</b> Inside the app, set the model to Opus =
+4.6 with Extended Thinking ON. This is the smartest model. Don&#39;t use an=
+ything else for Cowork tasks. </p></td></tr><tr><td align=3D"center" valign=
+=3D"top" style=3D"font-size:0px;line-height:0px;padding:30px 0px 30px;" cla=
+ss=3D"dd"><table class=3D"j" role=3D"none" width=3D"50%" border=3D"0" cells=
+pacing=3D"0" cellpadding=3D"0" align=3D"center"><tr><td> &nbsp; </td></tr><=
+/table></td></tr><tr><td id=3D"step-2-build-your-folder" class=3D"dd" align=
+=3D"left" valign=3D"top" style=3D"color:#2A2A2A;font-weight:600;padding:0px=
+ 15px;text-align:left;"><h2 style=3D"color:#2A2A2A;font-weight:600;mso-line=
+-height-alt:150.0%;">Step 2: Build Your Folder</h2></td></tr><tr><td align=
+=3D"center" valign=3D"top" style=3D"padding-bottom:20px;padding-left:15px;p=
+adding-right:15px;padding-top:20px; " class=3D"dd"><table role=3D"none" bor=
+der=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"margin:0 auto 0 auto=
+;"><tr><td align=3D"center" valign=3D"top" style=3D"width:630px;"><img src=
+=3D"https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,format=3Dauto,=
+onerror=3Dredirect,quality=3D80/uploads/asset/file/0dd5f3ae-8287-46e7-be3b-=
+133f3774bafd/Screenshot_2026-03-09_at_7.55.40_pm.png?t=3D1773086144" alt=3D=
+"" height=3D"auto" width=3D"630" style=3D"display:block;width:100%;" border=
+=3D"0"/></td></tr></table></td></tr><tr><td class=3D"dd" align=3D"left" sty=
+le=3D"padding:0px 15px;text-align:left;word-break:break-word;"><p style=3D"=
+mso-line-height-alt:150.0%;"> Create a folder on your computer called &quot=
+;Claude Cowork&quot; or whatever makes sense. Inside, create four subfolder=
+s: </p></td></tr><tr><td class=3D"dd" align=3D"left" style=3D"padding:0px 1=
+5px;text-align:left;word-break:break-word;"><p style=3D"mso-line-height-alt=
+:150.0%;"><b>ABOUT ME</b> - Who you are and how you write. </p></td></tr><t=
+r><td class=3D"dd" align=3D"left" style=3D"padding:0px 15px;text-align:left=
+;word-break:break-word;"><p style=3D"mso-line-height-alt:150.0%;"><b>PROJEC=
+TS</b> - One subfolder per project. Briefs, references, drafts. </p></td></=
+tr><tr><td class=3D"dd" align=3D"left" style=3D"padding:0px 15px;text-align=
+:left;word-break:break-word;"><p style=3D"mso-line-height-alt:150.0%;"><b>T=
+EMPLATES</b> - Work that went well. Not the content - the structure. </p></=
+td></tr><tr><td class=3D"dd" align=3D"left" style=3D"padding:0px 15px;text-=
+align:left;word-break:break-word;"><p style=3D"mso-line-height-alt:150.0%;"=
+><b>CLAUDE OUTPUTS</b> - Where Cowork saves everything it creates. The only=
+ folder it writes to. </p></td></tr><tr><td style=3D"padding:0px 15px;"><pr=
+e style=3D"background:#282828;border-radius:10px;color:#FFFFFF;line-height:=
+1.5;overflow-wrap:break-word;padding:16px;white-space:pre-wrap;word-break:b=
+reak-word;"><code>CLAUDE COWORK/
+    ABOUT ME/
+        about-me.md
+        anti-ai-writing-style.md
+    PROJECTS/
+    TEMPLATES/
+    CLAUDE OUTPUTS/
+</code></pre></td></tr><tr><td class=3D"dd" align=3D"left" style=3D"padding=
+:0px 15px;text-align:left;word-break:break-word;"><p style=3D"mso-line-heig=
+ht-alt:150.0%;"> Why separate them? Cowork has real read/write access to yo=
+ur files. If something goes wrong, you want the damage contained. Read fold=
+ers stay clean. Write folder is the only place it delivers work. </p></td><=
+/tr><tr><td align=3D"center" valign=3D"top" style=3D"font-size:0px;line-hei=
+ght:0px;padding:30px 0px 30px;" class=3D"dd"><table class=3D"j" role=3D"non=
+e" width=3D"50%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"=
+center"><tr><td> &nbsp; </td></tr></table></td></tr><tr><td id=3D"step-3-cr=
+eate-your-core-files" class=3D"dd" align=3D"left" valign=3D"top" style=3D"c=
+olor:#2A2A2A;font-weight:600;padding:0px 15px;text-align:left;"><h2 style=
+=3D"color:#2A2A2A;font-weight:600;mso-line-height-alt:150.0%;">Step 3: Crea=
+te Your Core Files</h2></td></tr><tr><td align=3D"center" valign=3D"top" st=
+yle=3D"padding-bottom:20px;padding-left:15px;padding-right:15px;padding-top=
+:20px; " class=3D"dd"><table role=3D"none" border=3D"0" cellspacing=3D"0" c=
+ellpadding=3D"0" style=3D"margin:0 auto 0 auto;"><tr><td align=3D"center" v=
+align=3D"top" style=3D"width:630px;"><img src=3D"https://media.beehiiv.com/=
+cdn-cgi/image/fit=3Dscale-down,format=3Dauto,onerror=3Dredirect,quality=3D8=
+0/uploads/asset/file/6b940d50-3429-422b-94c2-225c3001377d/Screenshot_2026-0=
+3-09_at_7.56.00_pm.png?t=3D1773086163" alt=3D"" height=3D"auto" width=3D"63=
+0" style=3D"display:block;width:100%;" border=3D"0"/></td></tr></table></td=
+></tr><tr><td class=3D"dd" align=3D"left" style=3D"padding:0px 15px;text-al=
+ign:left;word-break:break-word;"><p style=3D"mso-line-height-alt:150.0%;"> =
+Two files. Both go in your ABOUT ME folder. These are the reason your outpu=
+t stops sounding like generic AI. </p></td></tr><tr><td class=3D"dd" align=
+=3D"left" style=3D"padding:0px 15px;text-align:left;word-break:break-word;"=
+><p style=3D"mso-line-height-alt:150.0%;"><b><a class=3D"link" href=3D"http=
+s://link.mail.beehiiv.com/ss/c/u001.YmdMFHQ9-hmClgAaL3osxwp25_HdRpGyhYVqiEF=
+Y8j30fHEoNGE5In5_ttDlQ6oAGrD25pJ2B6MF7h4oWDNiJawfFW73tJHLnSzw9CN4Z_mHKPb2sN=
+jMBBAMuw0LniWgNFg2p1xwiIACaWACur8JaOz4JGTjEFj7erHl2-923rnNc7QYrHS7_TD3Vooaw=
+hJ2MdCvLmWShVDf8iriQZVf3jjpynM0yM16w1H9Jg5_V8TjZ2nwZ58uXiXjFL7opleB/4ot/aGk=
+jI8x8THCtzhNCdn1odw/h11/h001.rLViy1YcMBSpuNGishtNPhaRggvyG0s5rhtRdWj6nw4" t=
+arget=3D"_blank" rel=3D"noopener noreferrer nofollow"><span>about-me.md</sp=
+an></a></b> - Who you are. Not a CV. Write it like you&#39;re explaining yo=
+urself to a new colleague. What you do, who your audience is, what you&#39;=
+re working on right now, how you like to communicate. </p></td></tr><tr><td=
+ class=3D"dd" align=3D"left" style=3D"padding:0px 15px;text-align:left;word=
+-break:break-word;"><p style=3D"mso-line-height-alt:150.0%;"><b><a class=3D=
+"link" href=3D"https://link.mail.beehiiv.com/ss/c/u001.YmdMFHQ9-hmClgAaL3os=
+x044I-4snO7IEczWk_lx9dAGPxd2PcHTj3uis2W6c18T7GQz90CLeZu6f9bPPSo6d1lyXi5LRM9=
+BVl_lLdQv5q-UXWxtWNmTLJNQ365MkQtOPpNwC_TgikHw544XNFM4qy93y457mYdqHplyWiNJU7=
+WZgHIpEF1Cvopavu56PshRmTXjjUIkFAbSsz_RkZryShtsf2XzrCDvCxHzk5GuH0GEya3lkhyFM=
+tznn2dwkeF0/4ot/aGkjI8x8THCtzhNCdn1odw/h12/h001.v39zIMW7tB0kCTW_Zts8uRebZxR=
+LsvM1txpeBpyfkMY" target=3D"_blank" rel=3D"noopener noreferrer nofollow"><s=
+pan>anti-ai-writing-style.md</span></a></b> - Tell Claude what NOT to do. N=
+o &quot;in today&#39;s fast-paced world.&quot; No corporate jargon. Contrac=
+tions always. Short paragraphs. Your specific pet peeves about AI writing. =
+</p></td></tr><tr><td class=3D"dd" align=3D"left" style=3D"padding:0px 15px=
+;text-align:left;word-break:break-word;"><p style=3D"mso-line-height-alt:15=
+0.0%;"> You don&#39;t even need to write these yourself. Open Cowork, point=
+ it at your folder, and use this prompt: </p></td></tr><tr><td class=3D"dd"=
+ align=3D"left" style=3D"padding:0px 15px;text-align:left;word-break:break-=
+word;"><p style=3D"mso-line-height-alt:150.0%;"><i>&quot;I need to create t=
+wo context files. Ask me questions about who I am and what I hate about AI =
+writing using the AskUserQuestion tool. Then write </i><i><a class=3D"link"=
+ href=3D"https://link.mail.beehiiv.com/ss/c/u001.YmdMFHQ9-hmClgAaL3osxwp25_=
+HdRpGyhYVqiEFY8j30fHEoNGE5In5_ttDlQ6oAGrD25pJ2B6MF7h4oWDNiJawfFW73tJHLnSzw9=
+CN4Z_mHKPb2sNjMBBAMuw0LniWgNFg2p1xwiIACaWACur8JaOz4JGTjEFj7erHl2-923rl640iV=
+ZIuzYThHIpv8muoyTEFAvVQ9XdJ6gQLzn2W4rYr-eEulZvdyWLWYFdvrtQYMQr26tfl90aeVvLA=
+HQQoQ/4ot/aGkjI8x8THCtzhNCdn1odw/h13/h001.HBVe-HGZM8Xp2wfRfImZZwk0FwPTPmxyA=
+5b7AHipHBk" target=3D"_blank" rel=3D"noopener noreferrer nofollow"><span>ab=
+out-me.md</span></a></i><i> and </i><i><a class=3D"link" href=3D"https://li=
+nk.mail.beehiiv.com/ss/c/u001.YmdMFHQ9-hmClgAaL3osx044I-4snO7IEczWk_lx9dAGP=
+xd2PcHTj3uis2W6c18T7GQz90CLeZu6f9bPPSo6d1lyXi5LRM9BVl_lLdQv5q-UXWxtWNmTLJNQ=
+365MkQtOPpNwC_TgikHw544XNFM4qy93y457mYdqHplyWiNJU7WZgHIpEF1Cvopavu56PshR5rV=
+CIwJq64QaBCRqKDiSwiSO-4PlJZUIx6DAPe5qavzMtnDu2Yy536zn3LnWe3l-/4ot/aGkjI8x8T=
+HCtzhNCdn1odw/h14/h001.VnVhJoMFYiF_OD28dslfkNfCJDqzXB_CLcJTj31zlG0" target=
+=3D"_blank" rel=3D"noopener noreferrer nofollow"><span>anti-ai-writing-styl=
+e.md</span></a></i><i> in my ABOUT ME folder.&quot;</i></p></td></tr><tr><t=
+d class=3D"dd" align=3D"left" style=3D"padding:0px 15px;text-align:left;wor=
+d-break:break-word;"><p style=3D"mso-line-height-alt:150.0%;"> Claude asks =
+you the right questions. You click answers. It writes the files. Done in 5 =
+minutes. Basically tell Claude what you are up to and ask it to interview y=
+ou. </p></td></tr><tr><td class=3D"dd" align=3D"left" style=3D"padding:0px =
+15px;text-align:left;word-break:break-word;"><p style=3D"mso-line-height-al=
+t:150.0%;"> For me I personally <i>also </i>gave mine 2.5million words of m=
+y =E2=80=9Cvoice=E2=80=9D to build tone of voice from. First around 400,000=
+ words from hand written newsletters. Plus 1.5m++ words from transcripts fr=
+om my livestreams. My language, very specifically. </p></td></tr><tr><td cl=
+ass=3D"dd" align=3D"left" style=3D"padding:0px 15px;text-align:left;word-br=
+eak:break-word;"><p style=3D"mso-line-height-alt:150.0%;"> I also gave it t=
+he excellent <a class=3D"link" href=3D"https://link.mail.beehiiv.com/ss/c/u=
+001.1HluNpINTlQM_O6wPEApWV0njcjzd8M-LruO0qgnKV3VGLBe8aAqNCN_zNvej7HO_1S77Vc=
+xYEuIPGlDBN6CqSP1CFcO8xVIdOm908zFrw8CTgBRaGgalp6i73xRcBRfuS3RvA1Gn4qOEgnvA8=
+OZSOzlVS7gUFgrobpg2RYqrzRe0DjUn5nU2UmeI6CSMPypWQObIdBp_Pp4hV3si__wQxJVm0h8s=
+BOS7oa2nkv_Fpw3gl_uDCw_NKtQsAqzIyatJ_sUqHMBgcDZdS6keIK_s5JCwOuEeoZHng4b7XVT=
+XkQ/4ot/aGkjI8x8THCtzhNCdn1odw/h15/h001.Nlbo1OBqfYkxbtmzW6I1N2j0hsbwjlzG2sE=
+JEkEirRw" target=3D"_blank" rel=3D"noopener noreferrer nofollow"><span>=E2=
+=80=9CSigns of AI writing=E2=80=9D guide from Wikipedia</span></a> as a do-=
+not-do-this guide. </p></td></tr><tr><td align=3D"center" valign=3D"top" st=
+yle=3D"font-size:0px;line-height:0px;padding:30px 0px 30px;" class=3D"dd"><=
+table class=3D"j" role=3D"none" width=3D"50%" border=3D"0" cellspacing=3D"0=
+" cellpadding=3D"0" align=3D"center"><tr><td> &nbsp; </td></tr></table></td=
+></tr><tr><td id=3D"step-4-set-global-instructions" class=3D"dd" align=3D"l=
+eft" valign=3D"top" style=3D"color:#2A2A2A;font-weight:600;padding:0px 15px=
+;text-align:left;"><h2 style=3D"color:#2A2A2A;font-weight:600;mso-line-heig=
+ht-alt:150.0%;">Step 4: Set Global Instructions</h2></td></tr><tr><td align=
+=3D"center" valign=3D"top" style=3D"padding-bottom:20px;padding-left:15px;p=
+adding-right:15px;padding-top:20px; " class=3D"dd"><table role=3D"none" bor=
+der=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"margin:0 auto 0 auto=
+;"><tr><td align=3D"center" valign=3D"top" style=3D"width:630px;"><img src=
+=3D"https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,format=3Dauto,=
+onerror=3Dredirect,quality=3D80/uploads/asset/file/60bc954d-1f1e-4e04-9dc3-=
+413525b602d3/Screenshot_2026-03-09_at_7.58.17_pm.png?t=3D1773086301" alt=3D=
+"" height=3D"auto" width=3D"630" style=3D"display:block;width:100%;" border=
+=3D"0"/></td></tr></table></td></tr><tr><td class=3D"dd" align=3D"left" sty=
+le=3D"padding:0px 15px;text-align:left;word-break:break-word;"><p style=3D"=
+mso-line-height-alt:150.0%;"> Go to <b>Settings &gt; Cowork &gt; Edit Globa=
+l Instructions</b>. </p></td></tr><tr><td class=3D"dd" align=3D"left" style=
+=3D"padding:0px 15px;text-align:left;word-break:break-word;"><p style=3D"ms=
+o-line-height-alt:150.0%;"> This is a persistent prompt Claude reads before=
+ every session. Set it once. Never type it again. Tell it to always read yo=
+ur ABOUT ME folder first, always check for relevant project files, always d=
+eliver to the CLAUDE OUTPUTS folder, and never delete anything. </p></td></=
+tr><tr><td class=3D"dd" align=3D"left" style=3D"padding:0px 15px;text-align=
+:left;word-break:break-word;"><p style=3D"mso-line-height-alt:150.0%;"> The=
+ full copy-paste template is in the PDF guide attached to this email. It&#3=
+9;s about 20 lines. Paste it in and forget about it. </p></td></tr><tr><td =
+align=3D"center" valign=3D"top" style=3D"font-size:0px;line-height:0px;padd=
+ing:30px 0px 30px;" class=3D"dd"><table class=3D"j" role=3D"none" width=3D"=
+50%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"><tr>=
+<td> &nbsp; </td></tr></table></td></tr><tr><td id=3D"step-5-the-one-prompt=
+-that-runs-eve" class=3D"dd" align=3D"left" valign=3D"top" style=3D"color:#=
+2A2A2A;font-weight:600;padding:0px 15px;text-align:left;"><h2 style=3D"colo=
+r:#2A2A2A;font-weight:600;mso-line-height-alt:150.0%;">Step 5: The One Prom=
+pt That Runs Everything</h2></td></tr><tr><td align=3D"center" valign=3D"to=
+p" style=3D"padding-bottom:20px;padding-left:15px;padding-right:15px;paddin=
+g-top:20px; " class=3D"dd"><table role=3D"none" border=3D"0" cellspacing=3D=
+"0" cellpadding=3D"0" style=3D"margin:0 auto 0 auto;"><tr><td align=3D"cent=
+er" valign=3D"top" style=3D"width:630px;"><img src=3D"https://media.beehiiv=
+.com/cdn-cgi/image/fit=3Dscale-down,format=3Dauto,onerror=3Dredirect,qualit=
+y=3D80/uploads/asset/file/cf111567-00ca-4ff2-8aa8-1049c7ea68d8/Screenshot_2=
+026-03-09_at_7.58.39_pm.png?t=3D1773086322" alt=3D"" height=3D"auto" width=
+=3D"630" style=3D"display:block;width:100%;" border=3D"0"/></td></tr></tabl=
+e></td></tr><tr><td class=3D"dd" align=3D"left" style=3D"padding:0px 15px;t=
+ext-align:left;word-break:break-word;"><p style=3D"mso-line-height-alt:150.=
+0%;"> 80% of my Cowork sessions now start with this: </p></td></tr><tr><td =
+class=3D"dd" align=3D"left" style=3D"padding:0px 15px;text-align:left;word-=
+break:break-word;"><p style=3D"mso-line-height-alt:150.0%;"><b><i>&quot;I w=
+ant to [TASK]. Explore my folder first. Ask me questions using the AskUserQ=
+uestion tool before you execute.&quot;</i></b></p></td></tr><tr><td class=
+=3D"dd" align=3D"left" style=3D"padding:0px 15px;text-align:left;word-break=
+:break-word;"><p style=3D"mso-line-height-alt:150.0%;"> That&#39;s it. Shor=
+t task. Point to the folder. <i>Ask me questions first.</i></p></td></tr><t=
+r><td class=3D"dd" align=3D"left" style=3D"padding:0px 15px;text-align:left=
+;word-break:break-word;"><p style=3D"mso-line-height-alt:150.0%;"> Claude g=
+enerates a proper form with clickable options. Instead of you writing the p=
+erfect prompt, it asks YOU the right questions first. What&#39;s the angle?=
+ Who&#39;s the audience? How long? What tone? </p></td></tr><tr><td class=
+=3D"dd" align=3D"left" style=3D"padding:0px 15px;text-align:left;word-break=
+:break-word;"><p style=3D"mso-line-height-alt:150.0%;"> You click through i=
+n under a minute. It shows you a plan. You approve. Then it builds the actu=
+al deliverable and saves it to your computer. </p></td></tr><tr><td align=
+=3D"center" valign=3D"top" style=3D"font-size:0px;line-height:0px;padding:3=
+0px 0px 30px;" class=3D"dd"><table class=3D"j" role=3D"none" width=3D"50%" =
+border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"><tr><td> =
+&nbsp; </td></tr></table></td></tr><tr><td id=3D"what-ive-actually-built-wi=
+th-it" class=3D"dd" align=3D"left" valign=3D"top" style=3D"color:#2A2A2A;fo=
+nt-weight:600;padding:0px 15px;text-align:left;"><h2 style=3D"color:#2A2A2A=
+;font-weight:600;mso-line-height-alt:150.0%;">What I&#39;ve Actually Built =
+With It</h2></td></tr><tr><td class=3D"dd" align=3D"left" style=3D"padding:=
+0px 15px;text-align:left;word-break:break-word;"><p style=3D"mso-line-heigh=
+t-alt:150.0%;"> These are literally some top of mind examples from the week=
+end. </p></td></tr><tr><td class=3D"dd" align=3D"left" style=3D"padding:0px=
+ 15px;text-align:left;word-break:break-word;"><p style=3D"mso-line-height-a=
+lt:150.0%;"><b>TikTok comment bot.</b> You know when I say &quot;comment GU=
+IDE for the PDF&quot;? Hundreds of people comment. Cowork goes into TikTok =
+Studio, finds the unanswered comments, sends rotating link messages. Max 40=
+ per run. Waits 20 seconds between each. Runs hourly on my Mac Mini. ManyCh=
+at can&#39;t do this on TikTok. Cowork can. </p></td></tr><tr><td class=3D"=
+dd" align=3D"left" style=3D"padding:0px 15px;text-align:left;word-break:bre=
+ak-word;"><p style=3D"mso-line-height-alt:150.0%;"><b>Newsletter writing.</=
+b> My folder has my writing style guide and past newsletters. I give it a t=
+opic and tell it to ask me questions first. What used to take 3 hours takes=
+ 45 minutes. Same quality. Because the folder does the heavy lifting, not t=
+he prompt. </p></td></tr><tr><td class=3D"dd" align=3D"left" style=3D"paddi=
+ng:0px 15px;text-align:left;word-break:break-word;"><p style=3D"mso-line-he=
+ight-alt:150.0%;"><b>Invoice processing.</b> One sentence prompt. It built =
+folders, a PDF reader, a processing script, and a monthly scheduled task. T=
+he whole system. </p></td></tr><tr><td class=3D"dd" align=3D"left" style=3D=
+"padding:0px 15px;text-align:left;word-break:break-word;"><p style=3D"mso-l=
+ine-height-alt:150.0%;"> Now=E2=80=A6should you do these automations? NO. Y=
+ou need to think about what <i>your</i> life and <i>your</i> business needs=
+. What I use Cowork for isn=E2=80=99t important! </p></td></tr><tr><td clas=
+s=3D"dd" align=3D"left" style=3D"padding:0px 15px;text-align:left;word-brea=
+k:break-word;"><p style=3D"mso-line-height-alt:150.0%;"> What you can do is=
+ ask Claude to help you work out potential tasks. Literally tell it that yo=
+u want to start using Cowork and for it to ask you about your usual workday=
+ and to look for opportunities. That=E2=80=99s it. </p></td></tr><tr><td al=
+ign=3D"center" valign=3D"top" style=3D"font-size:0px;line-height:0px;paddin=
+g:30px 0px 30px;" class=3D"dd"><table class=3D"j" role=3D"none" width=3D"50=
+%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"><tr><t=
+d> &nbsp; </td></tr></table></td></tr><tr><td id=3D"where-it-falls-short" c=
+lass=3D"dd" align=3D"left" valign=3D"top" style=3D"color:#2A2A2A;font-weigh=
+t:600;padding:0px 15px;text-align:left;"><h2 style=3D"color:#2A2A2A;font-we=
+ight:600;mso-line-height-alt:150.0%;">Where It Falls Short</h2></td></tr><t=
+r><td align=3D"center" valign=3D"top" style=3D"padding-bottom:20px;padding-=
+left:15px;padding-right:15px;padding-top:20px; " class=3D"dd"><table role=
+=3D"none" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"margin:=
+0 auto 0 auto;"><tr><td align=3D"center" valign=3D"top" style=3D"width:630p=
+x;"><img src=3D"https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,fo=
+rmat=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/73d20d2b-065=
+6-43ba-94ef-1f4c6782a604/Screenshot_2026-03-09_at_8.01.28_pm.png?t=3D177308=
+6490" alt=3D"" height=3D"auto" width=3D"630" style=3D"display:block;width:1=
+00%;" border=3D"0"/></td></tr></table></td></tr><tr><td class=3D"dd" align=
+=3D"left" style=3D"padding:0px 15px;text-align:left;word-break:break-word;"=
+><p style=3D"mso-line-height-alt:150.0%;"> Being honest. There are still te=
+ething issues. </p></td></tr><tr><td class=3D"dd" align=3D"left" style=3D"p=
+adding:0px 15px;text-align:left;word-break:break-word;"><p style=3D"mso-lin=
+e-height-alt:150.0%;"> It burns through your plan limits fast. Budget for t=
+he $100/month plan if you&#39;re using it daily. </p></td></tr><tr><td clas=
+s=3D"dd" align=3D"left" style=3D"padding:0px 15px;text-align:left;word-brea=
+k:break-word;"><p style=3D"mso-line-height-alt:150.0%;"> Desktop only. Clos=
+e the app, session dies. You need a computer that stays on. I have a MacMin=
+i that is always on. I also remote to it via Claude Code and /remote-contro=
+l. I=E2=80=99ll cover that another time though! </p></td></tr><tr><td class=
+=3D"dd" align=3D"left" style=3D"padding:0px 15px;text-align:left;word-break=
+:break-word;"><p style=3D"mso-line-height-alt:150.0%;"> Still a preview. It=
+ can misread files or take odd approaches. Always review the output before =
+sending anything to a client. Honestly this is sound advice for all AI usag=
+e. </p></td></tr><tr><td class=3D"dd" align=3D"left" style=3D"padding:0px 1=
+5px;text-align:left;word-break:break-word;"><p style=3D"mso-line-height-alt=
+:150.0%;"> Remember too that Cowork is about one month old. It=E2=80=99s go=
+t a LOT of room to grow. My bet is that it=E2=80=99ll be combined with Clau=
+de Chat (and/or Claude Code) as right now it=E2=80=99s sorta a weird in-bet=
+ween tool. </p></td></tr><tr><td align=3D"center" valign=3D"top" style=3D"f=
+ont-size:0px;line-height:0px;padding:30px 0px 30px;" class=3D"dd"><table cl=
+ass=3D"j" role=3D"none" width=3D"50%" border=3D"0" cellspacing=3D"0" cellpa=
+dding=3D"0" align=3D"center"><tr><td> &nbsp; </td></tr></table></td></tr><t=
+r><td id=3D"the-cheat-code" class=3D"dd" align=3D"left" valign=3D"top" styl=
+e=3D"color:#2A2A2A;font-weight:600;padding:0px 15px;text-align:left;"><h2 s=
+tyle=3D"color:#2A2A2A;font-weight:600;mso-line-height-alt:150.0%;">The Chea=
+t Code</h2></td></tr><tr><td class=3D"dd" align=3D"left" style=3D"padding:0=
+px 15px;text-align:left;word-break:break-word;"><p style=3D"mso-line-height=
+-alt:150.0%;"> Best bit. You can take the entire PDF guide below, paste it =
+into a Cowork session, and say &quot;set this up for me.&quot; </p></td></t=
+r><tr class=3D"btn_row"><td valign=3D"top" style=3D"padding-bottom:14px;pad=
+ding-left:15px;padding-right:15px;padding-top:14px;text-align:left;width:10=
+0%;word-break:break-word;" class=3D"dd"><table width=3D"100%" role=3D"none"=
+ border=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"margin:14px auto=
+ 14px auto;"><tr><td align=3D"left" valign=3D"middle"><table role=3D"none" =
+border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tr><td style=3D"backgroun=
+d-color:#5e18eb;border-radius:10px;mso-padding-alt:14px 14px;" class=3D"btn=
+"><a href=3D"https://link.mail.beehiiv.com/ss/c/u001.RFSVsc_v0iWcXwXh2Lw22k=
+zxTjxwfG-St4w42KXCUX_7yv0jH_6jfsvwtoJfhaOmd0tWvtkVNUUZPcXKDqpLCSDYRNSNi2pN7=
+eypLlI6fPa31PH67bswmV1ncw1B31H7bPL8f9jdyw6hAHyh-KODeZIQmX5O0Fa6KoYZSfHQNjme=
+YVKWmguV_zM5-r8Wndg7P6Rr2IA47YJkq1803VTDQ4GDPulAZq7lkOO14neNew8/4ot/aGkjI8x=
+8THCtzhNCdn1odw/h16/h001.Jddilhc0S9a1I6o9suUg3qq3zhn67EHPyoslEEowZko" targe=
+t=3D"_blank" rel=3D"noopener noreferrer nofollow" style=3D"background-color=
+:#5e18eb;border-radius:10px;color:#FFFFFF;display:inline-block;font-family:=
+'Open Sans','Segoe UI','Apple SD Gothic Neo','Lucida Grande','Lucida Sans U=
+nicode',sans-serif;font-size:16px;font-weight:400;line-height:18px;padding:=
+14px 14px;text-decoration:none;"> Get the PDF step by step </a></td></tr></=
+table></td></tr></table></td></tr><tr><td class=3D"dd" align=3D"left" style=
+=3D"padding:0px 15px;text-align:left;word-break:break-word;"><p style=3D"ms=
+o-line-height-alt:150.0%;"> Cowork reads the guide. Asks you questions abou=
+t who you are. Creates your files. Builds your folder structure. All you do=
+ is paste in the Global Instructions manually. AI setting up your AI. </p><=
+/td></tr><tr><td class=3D"dd" align=3D"left" style=3D"padding:0px 15px;text=
+-align:left;word-break:break-word;"><p style=3D"mso-line-height-alt:150.0%;=
+"> Pro-tip: <i>anytime</i> you see a guide on social media about =E2=80=9CG=
+et Claude to do this=E2=80=9D or =E2=80=9CWhy aren=E2=80=99t you using Clau=
+de for this=E2=80=9D=E2=80=A6.copy the guide and chuck it into Claude and s=
+ay =E2=80=9Chey, implement this=E2=80=9D. </p></td></tr><tr><td id=3D"there=
+s-a-lot-more" class=3D"dd" align=3D"left" valign=3D"top" style=3D"color:#2A=
+2A2A;font-weight:600;padding:0px 15px;text-align:left;"><h2 style=3D"color:=
+#2A2A2A;font-weight:600;mso-line-height-alt:150.0%;">There&#39;s a Lot More=
+</h2></td></tr><tr><td class=3D"dd" align=3D"left" style=3D"padding:0px 15p=
+x;text-align:left;word-break:break-word;"><p style=3D"mso-line-height-alt:1=
+50.0%;"> Cowork is one piece. There&#39;s Skills, Connectors, MCP, Claude C=
+ode - a whole ecosystem I&#39;ll be covering this week. </p></td></tr><tr><=
+td align=3D"center" valign=3D"top" style=3D"padding-bottom:20px;padding-lef=
+t:15px;padding-right:15px;padding-top:20px; " class=3D"dd"><table role=3D"n=
+one" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"margin:0 aut=
+o 0 auto;"><tr><td align=3D"center" valign=3D"top" style=3D"width:630px;"><=
+img src=3D"https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,format=
+=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/9e6aed71-7053-46=
+f3-8fbf-3d7333a0e8d0/Screenshot_2026-03-09_at_8.04.48_pm.png?t=3D1773086690=
+" alt=3D"" height=3D"auto" width=3D"630" style=3D"display:block;width:100%;=
+" border=3D"0"/></td></tr></table></td></tr><tr><td class=3D"dd" align=3D"l=
+eft" style=3D"padding:0px 15px;text-align:left;word-break:break-word;"><p s=
+tyle=3D"mso-line-height-alt:150.0%;"> Today I&#39;m at Google for an interv=
+iew at their YouTube studio, so no livestream. And it=E2=80=99s my birthday=
+. BUT Wednesday we&#39;re back and I&#39;ll be covering Skills in detail! <=
+/p></td></tr><tr><td class=3D"dd" align=3D"left" style=3D"padding:0px 15px;=
+text-align:left;word-break:break-word;"><p style=3D"mso-line-height-alt:150=
+.0%;"> For now, Cowork is where you start. 30 minutes to set up. </p></td><=
+/tr><tr><td class=3D"dd" align=3D"left" style=3D"padding:0px 15px;text-alig=
+n:left;word-break:break-word;"><p style=3D"mso-line-height-alt:150.0%;"> Us=
+e the guide + use the Youtube video as needed! </p></td></tr><tr><td class=
+=3D"dd" align=3D"left" style=3D"padding:0px 15px;text-align:left;word-break=
+:break-word;"><p style=3D"mso-line-height-alt:150.0%;"> Kyle </p></td></tr>=
+<tr><td align=3D"center" valign=3D"top" style=3D"font-size:0px;line-height:=
+0px;padding:30px 0px 30px;" class=3D"dd"><table class=3D"j" role=3D"none" w=
+idth=3D"50%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"cent=
+er"><tr><td> &nbsp; </td></tr></table></td></tr><tr><td class=3D"dd" align=
+=3D"left" style=3D"padding:0px 15px;text-align:left;word-break:break-word;"=
+><p style=3D"mso-line-height-alt:150.0%;"><b>Streaming on </b><b><a class=
+=3D"link" href=3D"https://link.mail.beehiiv.com/ss/c/u001.e_Hd8iLAVumFF3Uzq=
+KxvO_Fk6xjMcTOaiFNWTuT5z4lZkMx4A-JjnbR41gqy27HQTAgN2oEmmAO9mmi1f9gYlu88BBJt=
+hWpcPeBMmwXlZDiQsA9dP7GB5Q-XCZNv3JVGGH2w338ZsCPIpM7Myr_hGoijZ-eKJxlKEZTnans=
+f0ybqKhqJ1wFvh4GAGUc2fVq2K9Oqxp55dGS0QDovLH9IGlRbGpKG9MklciYrITjAz30NS1ltvz=
+E2JJlbO4o5pj6dJMbwXKS4_cirk7KYftCQecV5vOWWpCXziRsff8SJZzs/4ot/aGkjI8x8THCtz=
+hNCdn1odw/h17/h001.fNcAXSqbXiIMQYhSllryggPc4UQnjBCcZNPLFpogc9Q" target=3D"_=
+blank" rel=3D"noopener noreferrer nofollow"><span>YouTube</span></a></b><b>=
+ (with full 4k screen share) and </b><b><a class=3D"link" href=3D"https://l=
+ink.mail.beehiiv.com/ss/c/u001.e_Hd8iLAVumFF3UzqKxvO2Ub5Yjqm8fHnS_-wldOZkcw=
+sykMWVX7aV7dzo806Tr8ypORUCmh-M6IbMCxYlxZTKAl07lpaHB7cc6HqQ0VHV1hgimOTWAWpKn=
+Zr5ddSvbDrs7FvXuljP03tfxdXR4MceVcPYKfZdh9uudRoRA8A9muTvIjFcZODTGX8VudFD49Gp=
+s2H1G_OTF1LHOh3OMrpNc4Cx10r1GUbnCg4tLjSuip4JUolTp0wCcToXAdh5rj-_5Zvo8B-s6Kh=
+ZSrNfV2hg/4ot/aGkjI8x8THCtzhNCdn1odw/h18/h001.2_jUCzBsYiS6CO7Or4tcs7GyY7_tb=
+aG6ciASRvVUvN0" target=3D"_blank" rel=3D"noopener noreferrer nofollow"><spa=
+n>TikTok</span></a></b><b> (follow and turn on notifications for Live Notif=
+ication).</b></p></td></tr><tr><td class=3D"dd" align=3D"left" style=3D"pad=
+ding:0px 15px;text-align:left;word-break:break-word;"><p style=3D"mso-line-=
+height-alt:150.0%;"><b>Audio Podcast on </b><b><a class=3D"link" href=3D"ht=
+tps://link.mail.beehiiv.com/ss/c/u001.mHyuWBvR_WgdW7BYQQOr5pX2yXZjX8PjKxZPl=
+S7NRc5Kr_HIryGc0ZmiIh8hI_X2JeVN0ZQjnBD-cep9rCnhFkAdHxOKXpnfqE-NmdXV8qCSo8Cx=
+9KkSapcif1VZjmb3QlBWWv2T4P5uv33XnIF4L3azVgeTMcfNmAaKQKRlTchTVa6nLGITdcjxXs7=
+hqdlAQDFTYIM9Dse5q-gVdD-hdiP6RjLcyC1T30PUMMNsgixjkuQGCbLxyQ68LaNjlEm7xF8mLj=
+cK2pu3vGPWV6GIsOHJ6EaQrF-yi5QiBUzLjFk/4ot/aGkjI8x8THCtzhNCdn1odw/h19/h001.B=
+L9xoieTkgTnHlYCBpKtBxQDdl6rvnyLxm_9R4DcNoM" target=3D"_blank" rel=3D"noopen=
+er noreferrer nofollow"><span>iTunes</span></a></b><b> and </b><b><a class=
+=3D"link" href=3D"https://link.mail.beehiiv.com/ss/c/u001.EFtueO1_uAnet4LR4=
+UMTlwrtwq6R_So5z6Kuc3X0ixKfnUIPmtxEX-e3DhwQklLgmnKX6d7edPJzD0aaTNwg5CdxOY8D=
+lnBrHb_zwmxAtIl9UtKfeZMi4uIF7_SrKkz1nJU0TF5qC9ACvP_XsVFqwFaP4Uu4FW87KLhWbEb=
+vQAJtPI3Af1_C2AjjdHQXSNeo6GTqFzXOCfZ52BCt__88o9jCGoRzlFBfivzzItb6-L0L9nGdI4=
+YD7kuhzYoEVLk_L5P2uvnlH-cTgmBwhhAVheAtxyUO5naJmVjouDkWz-c/4ot/aGkjI8x8THCtz=
+hNCdn1odw/h20/h001.8WaqWGVHe2_66QdiGeDvpweolZRCIQ7HQMsOEJT1R9g" target=3D"_=
+blank" rel=3D"noopener noreferrer nofollow"><span>Spotify</span></a></b><b>=
+.</b></p></td></tr><tr><td align=3D"center" valign=3D"top" style=3D"font-si=
+ze:0px;line-height:0px;padding:30px 0px 30px;" class=3D"dd"><table class=3D=
+"j" role=3D"none" width=3D"50%" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" align=3D"center"><tr><td> &nbsp; </td></tr></table></td></tr><tr><td=
+><table role=3D"none" width=3D"100%" border=3D"0" cellspacing=3D"0" cellpad=
+ding=3D"0" style=3D""><tr><td bgcolor=3D"transparent" style=3D"background-c=
+olor:transparent;padding:0.0px 0.0px 0.0px 0.0px;"><table role=3D"none" wid=
+th=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tr><td class=
+=3D"dd" align=3D"left" style=3D"padding:0px 15px;text-align:left;word-break=
+:break-word;"><p style=3D"mso-line-height-alt:150.0%;"><b>When you=E2=80=99=
+re ready:</b>=C2=A0<a class=3D"link" href=3D"https://link.mail.beehiiv.com/=
+ss/c/u001.YmdMFHQ9-hmClgAaL3osxzD2U_duK7XX2-yr00IJKj1rLG_f7gBtBCikdFypgrkzV=
+piyyw7e-z7uTg_EtpRP3Du9lIUxYjIDqXEc14j2q9c_JeSxMOgvBf7HnLqqczDM1ASYLOoKhUiw=
+6eOOdJCPiF6dSUAgnBOP6CK8_7j2pfeoEqQ-pXep4yCE8SlK-7m_Gqh_rFoT8Z3c7ZG_je6d_zn=
+SxjFL7KPy7nqsYlAvQkCkiV1jj1j17ROn-Ak0Zuhc1M-rDFfz-rJu9nz3IcNIfQ/4ot/aGkjI8x=
+8THCtzhNCdn1odw/h21/h001.8HOhsJci3-eXxbuLUq3SXKbd9DFKSazGhdo6kTDLprQ" targe=
+t=3D"_blank" rel=3D"noopener noreferrer nofollow"><span>What AI business sh=
+ould you start?</span></a> | <a class=3D"link" href=3D"https://link.mail.be=
+ehiiv.com/ss/c/u001.YmdMFHQ9-hmClgAaL3osxxYYKIQ6bOm8GU4J1xe3RUSg0e-89q9jNKW=
+PBlvXFamDW-iJ7pvHuvcdOY3ckamAlObhvM3ET_iNwzkjvLACe2ZJNV1G62kb5y44MSlwiqx1FP=
+3nT1aeZm0RQEo5KWHNECKjU1g09ofJeMZgd6MCon-5VZPmMdMAFzSQJVh4iCUbvIYddwPfH3_Rx=
+xI9cUG01jA-qvEBpndw3S151A8XzRtLSjQsFatd-O9FE_jwKTlSG214-KwxVPb39H9zXS5U-w/4=
+ot/aGkjI8x8THCtzhNCdn1odw/h22/h001.1JZ5Ajznf61sjJnpXHGIkYL8p9PfpbjnPhKk8WfO=
+lMk" target=3D"_blank" rel=3D"noopener noreferrer nofollow"><span>The Whats=
+App group where smart people figure out AI together</span></a> | <a class=
+=3D"link" href=3D"https://link.mail.beehiiv.com/ss/c/u001.mHyuWBvR_WgdW7BYQ=
+QOr5kKrWaRf4KB_uwrSuNVTS9J8-j1tDf1I1OVqHDMNDnNnfU72g_iuDVlgEM5gBIN_ZrzWErtL=
+Pp8d0KEuhK8CaWfZ7knVcmCQ0XQmpFZIDBke8WUIk2jI9JVpgoPSEl5bwvH5wS7umIKqb6CiIFN=
+jeFUOifeZ8jsiqMpGsXSrrny1J2ZUvrBJXmC50-ud-TqvscCAy_MLy4EPK4GENBAati62A-E1C4=
+eCkqsDe62ah4STxQnyiJBGpx37q8BszdfbftEgyYD4PyR8z0NNu5xrB8THxzkz6IHlvfeuBLSt8=
+ltI/4ot/aGkjI8x8THCtzhNCdn1odw/h23/h001.b_IqmrIwpK9z1hShDqttbhIQWqAAX1i8u3r=
+vuA2PduA" target=3D"_blank" rel=3D"noopener noreferrer nofollow"><span>Beco=
+me the go-to AI Voice in your industry</span></a> | <a class=3D"link" href=
+=3D"https://link.mail.beehiiv.com/ss/c/u001.mHyuWBvR_WgdW7BYQQOr5kKrWaRf4KB=
+_uwrSuNVTS9J8-j1tDf1I1OVqHDMNDnNn4kBmiMVdDXkDIVM_h1w6qZddYT5LYvHX7qEZaxAaVt=
+e7_8PCqoQDyiTVUrRbdVFKFXqO3ZXCRN6BHYtatNavdrGB-277K8KautmwBgonqs-w52DEGKB7r=
+A6D38vGhCh9TKX6N4NsutsQ4cmrJydO2IoaM9v1UGr6t00Pid9rFBtigJtAJEaswS1OlHxhZvs_=
+9hZTCYTOZO60dOPVGff7qK2gpkijtFt7us-k4M2ypFsn13BPuK5zD8Tf7fXuiaZv/4ot/aGkjI8=
+x8THCtzhNCdn1odw/h24/h001.8R2neTpZVmOIU6KnYiUKuRD13V_tdsA7zJ9hGCkogpk" targ=
+et=3D"_blank" rel=3D"noopener noreferrer nofollow"><span>Build and Sell you=
+r first AI Automation</span></a> | <a class=3D"link" href=3D"https://link.m=
+ail.beehiiv.com/ss/c/u001.YmdMFHQ9-hmClgAaL3osxxYYKIQ6bOm8GU4J1xe3RUSEsUTRW=
+KcUKKLEkhQpp_x_2wuTk4vafWjKUUKkVgkdgC-WPkuPabMuZnNXO6wWH5cMutbANHbS32EnKRK4=
+i0HtfC2bfNiLs1AO_nc8auETPJDmeEIQumpNxJqF_gyurpzs4W0iZMkPc_sg4x8u5Y0SbN5rJpE=
+sfUiOdL5U-ZhbxqMx3O7PX0rSzmPXxvgb94xazdConLxOuQLS8g96_mx8nVH8paMoNxCQBvBQQc=
+cPSA/4ot/aGkjI8x8THCtzhNCdn1odw/h25/h001.9NUtLEHXEe205Yy7SqVERCED6h0wf1SJPi=
+DBvG84yQs" target=3D"_blank" rel=3D"noopener noreferrer nofollow"><span>Bec=
+ome an AI Trainer (License Kyle=E2=80=99s AI Training Material)</span></a>=
+=C2=A0 </p></td></tr></table></td></tr></table></td></tr></table></td></tr>=
+</table></td></tr><tr><td align=3D"center" valign=3D"top"><table role=3D"no=
+ne" width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=
+=3D"center"><tr><td><tr><td class=3D"b" align=3D"center" valign=3D"top" bgc=
+olor=3D"#F7F3F8" style=3D"padding:0px 0px 0px 0px;border-style:solid;border=
+-width: 0px 0px 0px 0px;border-color: #FFFFFF;border-bottom-left-radius:10p=
+x;border-bottom-right-radius:10px;"><table role=3D"none" width=3D"100%" bor=
+der=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"><tr><td alig=
+n=3D"center" valign=3D"top" bgcolor=3D"#5E18EB" style=3D"padding:12px"><tab=
+le role=3D"none" width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" align=3D"center"><tr><td><span style=3D"padding-left:1px;"></span></=
+td><td align=3D"center" valign=3D"middle" width=3D"75" style=3D"width:75px;=
+"><a href=3D"https://link.mail.beehiiv.com/ss/c/u001.e_Hd8iLAVumFF3UzqKxvOw=
+7gHRliO95ko8lJg-2mu6-EmKHS0XTqbT06r3JI4sMYZ9mUmxDufhwBbWnGAh3eqU9Z-8ZBhWThV=
+YHPKprTqO6g5WMK8rS16lHJ8IkRQcl6_X_4fJZ4k204kOAq5Az5Gd83-T9a3ji-7ZNboNwamNIn=
+o1wyyjE4qwB7Qo6OWAy2bg8OppHOPRzD_MZBDVWSK84_Dai9kr4NHDrU2RGec6-NqD0relGB4dS=
+nRmKaD3L7-DwoKfQjyT8Y1pj_LA8Bhg/4ot/aGkjI8x8THCtzhNCdn1odw/h26/h001.TcuP4Lf=
+pAWo4hJPngQ32t6DW7N8E3TI_OMe8MOJQs9U" style=3D"text-decoration:none;"><img =
+width=3D"22" height=3D"22" alt=3D"fb" border=3D"0" style=3D"display:block;m=
+ax-width:22px;color:light" src=3D"https://media.beehiiv.com/cdn-cgi/image/f=
+it=3Dscale-down,format=3Dauto,onerror=3Dredirect,quality=3D80/static_assets=
+/facebook_light.png"/></a></td><td align=3D"center" valign=3D"middle" width=
+=3D"75" style=3D"width:75px;"><a href=3D"https://link.mail.beehiiv.com/ss/c=
+/u001.9OZy_zYrOUOhsq_AVRulHhby2YavwxhoxeIANGqrGWJdoQL1bZbKUXGj4mRLjIecsqpRW=
+aLGUbqBxgvzFmi7jf4gch7hBG8OK9dtbsxgoG7etqdq2eDUyp4cKs6bNe7fwZ3qvK2qYP6N1ZZD=
+gTANsrKD8BIEQbgb1RBt6llNIRxkTq5Ccl_APWDUAN9GBFyOgLoUDpf8r81pjiiWdoxDjkb0UBM=
+y1Vvqsy1RtmycOabrb5Y-096lpDteCBEa5FS3/4ot/aGkjI8x8THCtzhNCdn1odw/h27/h001.B=
+ZYMa_CV7GvpRed6CK8M7raQiOfV3hq3GzeKiuYdhkA" style=3D"text-decoration:none;"=
+><img width=3D"22" height=3D"22" alt=3D"tw" border=3D"0" style=3D"display:b=
+lock;max-width:22px;color:light" src=3D"https://media.beehiiv.com/cdn-cgi/i=
+mage/fit=3Dscale-down,format=3Dauto,onerror=3Dredirect,quality=3D80/static_=
+assets/x_light.png"/></a></td><td align=3D"center" valign=3D"middle" width=
+=3D"75" style=3D"width:75px;"><a href=3D"https://link.mail.beehiiv.com/ss/c=
+/u001.e_Hd8iLAVumFF3UzqKxvO59MvGcXZfDsc0fkhkenEhe5J4VOaYh2JTxmgUn7EE4Zr6WNh=
+xhYMquUyJqPBDM_pE4XI7MYY5S0oxPNQ0vFoDeNyiaKx6lH8h33R0WePjIY5BOZRDbraJ_vM2VW=
+9tunHZ2k93paP-rxzw8oHfY18oSI9HCa-Hc1W41IbgVzfkQKQ8Y3skHdknui0SJTpfmf2mF9S7u=
+wEK8sMfyO3FwOQFZ__dPx5jYJIzx2sDJquhfJAWXNi_4URzLoXl_eQNS_HQ/4ot/aGkjI8x8THC=
+tzhNCdn1odw/h28/h001.r4NFNGAQGVmFFRIDG74Gmaqb7RMgSAUzU-14AgLPKqY" style=3D"=
+text-decoration:none;"><img width=3D"22" height=3D"22" alt=3D"ig" border=3D=
+"0" style=3D"display:block;max-width:22px;color:light" src=3D"https://media=
+.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,format=3Dauto,onerror=3Dredirec=
+t,quality=3D80/static_assets/instagram_light.png"/></a></td><td align=3D"ce=
+nter" valign=3D"middle" width=3D"75" style=3D"width:75px;"><a href=3D"https=
+://link.mail.beehiiv.com/ss/c/u001.JV1T-5zqmnN68v3oNaIdsqe4tzdpiJxvHh-UXLGT=
+1f6A2GosOiVGLZLKLYLNr_UY1ePkxmZ7w38fwrYVBMr5NQT-L4rQkX8mn9uZBab24TmIwgxB3Er=
+WYgdUJiB0ZCmoQ_RlL6tL8pwH8GiuKpZsTudrj8Tj8oiAeoaJkKogCF5VbRDwPUn08vHLuTxHnf=
+RcgrXg497JB6ZKVA1Pkl2SaJGA_ryQBa4Hu5LNuDEd3l8kwT_YsFaQJw4ujCjzZGomcWy8tKlQO=
+EfJCmYtaRcSKg/4ot/aGkjI8x8THCtzhNCdn1odw/h29/h001.SV1ojaZqdQ7FNBy2_NyII0aEQ=
+xwVkeQ4bZKKVrqZfVg" style=3D"text-decoration:none;"><img width=3D"22" heigh=
+t=3D"16" alt=3D"yt" border=3D"0" style=3D"display:block;max-width:22px;colo=
+r:light" src=3D"https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,fo=
+rmat=3Dauto,onerror=3Dredirect,quality=3D80/static_assets/youtube_light.png=
+"/></a></td><td align=3D"center" valign=3D"middle" width=3D"75" style=3D"wi=
+dth:75px;"><a href=3D"https://link.mail.beehiiv.com/ss/c/u001.e_Hd8iLAVumFF=
+3UzqKxvO2Ub5Yjqm8fHnS_-wldOZkcwsykMWVX7aV7dzo806Tr8ypORUCmh-M6IbMCxYlxZTKAl=
+07lpaHB7cc6HqQ0VHV1hgimOTWAWpKnZr5ddSvbDrs7FvXuljP03tfxdXR4MceVcPYKfZdh9uud=
+RoRA8A9muTvIjFcZODTGX8VudFD49OibArWU2qH6j9oFFt48cDph7_cJPOXuJL2MCMY99ETFgaY=
+4L1UWpFmBPFRnrA-sMeOAT2tUSGPDQIYaNmqwiVg/4ot/aGkjI8x8THCtzhNCdn1odw/h30/h00=
+1.GDKBeLfwH3C7Y9UxjRUPxrzG4yGCW4mRXcg7FROImRo" style=3D"text-decoration:non=
+e;"><img width=3D"22" height=3D"22" alt=3D"tk" border=3D"0" style=3D"displa=
+y:block;max-width:22px;color:light" src=3D"https://media.beehiiv.com/cdn-cg=
+i/image/fit=3Dscale-down,format=3Dauto,onerror=3Dredirect,quality=3D80/stat=
+ic_assets/tiktok_light.png"/></a></td><td align=3D"center" valign=3D"middle=
+" width=3D"75" style=3D"width:75px;"><a href=3D"https://link.mail.beehiiv.c=
+om/ss/c/u001.r_WlAa9jXWNyVf-ND2YmZCl3OFglCNpX86I8jho5gV0IcT6g6XLk8Jrt00vTz5=
+-X_pexwS8q7vb6zFflIywoKZIAxGjlpUGHcyHLx-7Lewe-wS6d9KwrF5vtmA-8K-Os5UYSU9G3n=
+eC7L5W07agMgCXc6rSUrDYZZ8x0PYMcsEN4JNx_YSup_3_x7kDRGBlQrxuU0eKAcwM_tk2Jwn-7=
+50GQFdIx1AoKiDqPDRuVCh8aBi1Cm__HhDQVqUN8oZKXdffc7p3YkdtWfVzaTEn6nQ/4ot/aGkj=
+I8x8THCtzhNCdn1odw/h31/h001.qDwkgJX9WdeMBPKJ_pfs-r9RtCDeuhS_5X8rZ4SS18Y" st=
+yle=3D"text-decoration:none;"><img width=3D"22" height=3D"22" alt=3D"in" bo=
+rder=3D"0" style=3D"display:block;max-width:22px;color:light" src=3D"https:=
+//media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,format=3Dauto,onerror=3D=
+redirect,quality=3D80/static_assets/linkedin_light.png"/></a></td><td><span=
+ style=3D"padding-left:1px;"></span></td></tr></table></td></tr><tr><td hei=
+ght=3D"10" style=3D"line-height:1px;font-size:1px;height:10px;"> &nbsp; </t=
+d></tr><tr><td class=3D"w" align=3D"center" valign=3D"top" style=3D"padding=
+:15px 15px 15px 15px;"><table role=3D"none" width=3D"100%" border=3D"0" cel=
+lspacing=3D"0" cellpadding=3D"0" align=3D"center"><tr><td align=3D"center" =
+valign=3D"top"><p style=3D"font-family:'Open Sans','Segoe UI','Apple SD Got=
+hic Neo','Lucida Grande','Lucida Sans Unicode',sans-serif;color:#000000FF!i=
+mportant;"> Update your email preferences or unsubscribe <a class=3D"link" =
+href=3D"https://link.mail.beehiiv.com/ss/c/u001.r5debm-xuu6FxWaHoW06GUq8mwV=
+KVfDDwB0l3xxf04lnm7rvafxrHJuyENW58Okkyds1MvdEtzIt8JvNP8RF6AZS34osIhrBNCVoS6=
+4vRNZcWfRAOH4M7yfMMowEtuCJulPMj1JJLmTglmaaGI9JKp9PDDRXfFi_oc3lZ0Wk9Pq7Vxo3i=
+06dbqapJ3ANIypu9R7FNbXLm2JOI9eZNYk_OANpB1OzZzj5t40BuJTW6mSdjQipPRL1_VuwZ_5T=
+RWgocYjYlFz0Q3vS5Zllk4EfPSmpr8jhM4im2lS4F0Lf6QtbKofXGvkNzuMSS6yJhV61NkANAwE=
+NnYDfzD7s318U9kGcqaOhVBtkjhgHclNYsJJJ2vcj_4d8RUxI4XlFaPIl-erc1sk7wnkIlKkK2Q=
+m_Rjf873xQjuPQmcv2PybERw8IUZxy90sZwdqG2fXyGKs_9b_mj--gptFIvlIMNhE0T5TE9m7oL=
+8_1jSFo6wniz3ALt_ZAfBEnkoOq97xzabMmV_J4fbgyG0MQiuVRdctdHfDWz8beDZ3dN1Z30epu=
+t3Ra9OPj_6xUnSiXIN3MDvOGRgzBd9-v7dFtzd0f00oWGDDV_ol-q2bDerIvx9Z1hYI-idzcOBG=
+EknhRHYnPa-NkfN6w-nqNje-4FGZEytzbU_HRRa0MwtRcJHuPpBnhzqUYmqEujcxSbPane5EL-4=
+hLPanY7UxoaUQrjTFtclOywrb0lLaD-gbANGH2U9xDpKy69hPKrSJkTznqY7-HY6A79JKT1vvp5=
+D_Q-WI55a9WX9it5Ynfv4_NVNL1OxEGgAaEnGhfnW9T659X2Rt2s8kHolldFX8nEYTs3bCsYA3b=
+OhYH7v-gIUNa8HPSXMfq5bpfESXWXh01kSJKGJ7Ha88naz97Ya1zgAPivTQVqzo0xROu0wM_GRp=
+R1RSmGa97HaNX4VnfsrqogWqNFPtFEcYha1dxOonAwsgAjrVia1mpKsKHMijb9s5YwEsLBUwuJH=
+lk1uj6hXw_3p3ZUa32UQtBCsFeLxxGQEyQiIxtiTa7IT15TYTt-4NMQkUft9wCTSs/4ot/aGkjI=
+8x8THCtzhNCdn1odw/h32/h001.ObQrtDSZYLy_94_0r-f1PL6KtO1tJCwoMbBw8cnO6SU" sty=
+le=3D"text-decoration:underline;text-decoration-color:#000000FF!important;c=
+olor:#000000FF!important;"> here</a></p><p class=3D"copyright" style=3D"fon=
+t-family:'Open Sans','Segoe UI','Apple SD Gothic Neo','Lucida Grande','Luci=
+da Sans Unicode',sans-serif;color:#000000FF!important;"> &copy; 2026 AI wit=
+h Kyle </p><p style=3D"font-family:'Open Sans','Segoe UI','Apple SD Gothic =
+Neo','Lucida Grande','Lucida Sans Unicode',sans-serif;color:#000000FF!impor=
+tant;"> 228 Park Ave S, #29976, New York, New York 10003, United States </p=
+></td></tr><tr style=3D"display: table-row !important;"><td align=3D"center=
+" valign=3D"top" style=3D"padding-top:20px;" style=3D"display:table-cell !i=
+mportant;"><table role=3D"none" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" align=3D"center" style=3D"display:table !important;"><tr style=3D"di=
+splay:table-row !important;"><td class=3D"u" align=3D"center" valign=3D"mid=
+dle" height=3D"32" style=3D"height:32px;display:table-cell !important; max-=
+height: 32px !important;margin:0px !important; background-color: #ffffff !i=
+mportant;"><a style=3D"line-height:32px !important;text-decoration:none;dis=
+play:block !important;" href=3D"https://link.mail.beehiiv.com/ss/c/u001.e_H=
+d8iLAVumFF3UzqKxvO0FrPLfCvJxyfsbJOPaMLA20IMZ7Z9NnNX4SMWtFABgmS-aMgr9DgSHnBq=
+wgrq_2nco5d4P91Em3b9MQrUhAurD3bIe69pbI5ZmvU8ZzwTG22Nc7iifbOD_MRtwqGhP7anexA=
+ezyqoc4aCfzQ6UgzgZ9llklfE3VmMczQVqF0Kxi1bjlDa5Xo8lTtvncaEsIxBODGfeTMLepjoKW=
+M4UK_Ws/4ot/aGkjI8x8THCtzhNCdn1odw/h33/h001.tmKr8LRqvsfEPDj4Xa6xEJNEPLpAEJw=
+eiOrruNe12ic"><img src=3D"https://media.beehiiv.com/output-onlinepngtools.p=
+ng" width=3D"16" alt=3D"beehiiv logo" style=3D"display:inline-block !import=
+ant;max-width:16px !important; vertical-align:-3px !important;width: 16px !=
+important;" border=3D"0"/><span style=3D"padding-left:11px !important;displ=
+ay: inline-block !important;">Powered by beehiiv</span></a></td></tr></tabl=
+e></td></tr><tr><td align=3D"left" valign=3D"top" height=3D"2" style=3D"hei=
+ght:2px;"><a href=3D'https://link.mail.beehiiv.com/ss/c/u001.SFuvGoT7isQNQ9=
+fmZ_SZV-lSvZ3gcOBVG26kIAzhycCqMoE78-BnOra3jlsXDrKFRs3XJBj7eNhU3fnq7Oe99oXD_=
+m8yqgY6UAK6pnwVUfk/4ot/aGkjI8x8THCtzhNCdn1odw/h34/h001.tn0D7en_NufV9k8PW8dt=
+ol2wPENlElRuhOS-MbGzExs' style=3D"color: #F7F3F8 !important; cursor: defaul=
+t; font-size: 1px; text-decoration: none;"> Terms of Service </a></td></tr>=
+<tr><td align=3D"left" valign=3D"top" height=3D"2" style=3D"height:2px;"><a=
+ href=3D'https://email.beehiivstatus.com/b1105355f22fb48e69853916c1156eaa68=
+beaf48/hclick' clicktracking=3D"off" style=3D"color: #F7F3F8 !important; cu=
+rsor: default; font-size: 1px; text-decoration: none;"></a></td></tr></tabl=
+e></td></tr></table></td></tr></td></tr></table></td></tr></table></td></tr=
+></table></td></tr></table></div></body></html>
+--6c06c59ea345504da3fd6decf4ae7dd355807fb7c0a550fe8d5a21f571b7--

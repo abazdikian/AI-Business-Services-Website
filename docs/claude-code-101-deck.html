@@ -1,0 +1,832 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Claude Code 101 · Small Business AI Coach</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="deck-stage.js"></script>
+<script type="application/json" id="speaker-notes">
+[]
+</script>
+<style>
+  :root {
+    --burgundy: #7A1530;
+    --burgundy-soft: #9B2440;
+    --burgundy-glow: #C13558;
+    --gold: #D4A84A;
+    --gold-warm: #E6C472;
+    --gold-deep: #A87B1F;
+    --white: #FFFFFF;
+    --offwhite: #FDFBF5;
+    --ink: #2B1A1F;
+    --ink-soft: #6B5A5F;
+    --ink-muted: #9A8A8F;
+    --grad-sunrise: linear-gradient(135deg, #7A1530 0%, #C13558 55%, #E6C472 100%);
+    --grad-burgundy: linear-gradient(135deg, #7A1530 0%, #C13558 100%);
+    --grad-gold: linear-gradient(135deg, #D4A84A 0%, #E6C472 100%);
+    --display: 'Fraunces', Georgia, serif;
+    --sans: 'Nunito', -apple-system, system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #1a0d10; font-family: var(--sans); color: var(--ink); }
+
+  deck-stage section {
+    width: 1920px; height: 1080px; position: relative; overflow: hidden;
+    background: var(--white); color: var(--ink);
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 170px 140px 110px;
+    font-family: var(--sans);
+  }
+
+  .chrome-tl { position: absolute; top: 54px; left: 140px; display: flex; align-items: center; gap: 18px; z-index: 10; }
+  .chrome-tl .mono { width: 52px; height: 52px; border-radius: 12px; background: var(--burgundy); color: var(--gold); font-family: var(--display); font-style: italic; font-weight: 700; font-size: 30px; display: flex; align-items: center; justify-content: center; letter-spacing: -1px; }
+  .chrome-tl .name { font-family: var(--sans); font-size: 16px; font-weight: 800; color: var(--burgundy); letter-spacing: 0.2px; }
+  .chrome-tl .name .sub { display: block; font-family: var(--sans); font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--gold-deep); margin-top: 4px; }
+  .chrome-br { position: absolute; bottom: 54px; right: 140px; font-family: var(--sans); font-size: 12px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; color: var(--gold-deep); z-index: 10; }
+  .chrome-bl { position: absolute; bottom: 54px; left: 140px; font-family: var(--sans); font-size: 12px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; color: var(--ink-muted); z-index: 10; }
+
+  .sl.burgundy { background: var(--burgundy); color: var(--white); }
+  .sl.burgundy .chrome-tl .mono { background: var(--gold); color: var(--burgundy); }
+  .sl.burgundy .chrome-tl .name { color: var(--white); }
+  .sl.burgundy .chrome-tl .name .sub { color: var(--gold-warm); }
+  .sl.burgundy .chrome-br { color: var(--gold-warm); }
+  .sl.burgundy .chrome-bl { color: rgba(255,255,255,0.5); }
+
+  .sl.gradient { background: var(--grad-sunrise); color: var(--white); }
+  .sl.gradient .chrome-tl .mono { background: var(--white); color: var(--burgundy); }
+  .sl.gradient .chrome-tl .name { color: var(--white); }
+  .sl.gradient .chrome-tl .name .sub { color: var(--gold-warm); }
+  .sl.gradient .chrome-br { color: var(--white); }
+  .sl.gradient .chrome-bl { color: rgba(255,255,255,0.6); }
+
+  .eyebrow { font-family: var(--sans); font-size: 14px; font-weight: 800; letter-spacing: 4px; text-transform: uppercase; color: var(--gold-deep); margin-bottom: 32px; }
+  .burgundy .eyebrow, .gradient .eyebrow { color: var(--gold-warm); }
+  .h-xl { font-family: var(--display); font-weight: 700; font-size: 132px; line-height: 0.96; letter-spacing: -5px; color: var(--burgundy); margin: 0; }
+  .h-xl em { font-style: italic; font-weight: 400; color: var(--burgundy-glow); }
+  .burgundy .h-xl, .gradient .h-xl { color: var(--white); }
+  .burgundy .h-xl em, .gradient .h-xl em { color: var(--gold-warm); }
+  .h-lg { font-family: var(--display); font-weight: 700; font-size: 92px; line-height: 1; letter-spacing: -3px; color: var(--ink); margin: 0; }
+  .h-lg em { font-style: italic; font-weight: 400; color: var(--burgundy); }
+  .burgundy .h-lg, .gradient .h-lg { color: var(--white); }
+  .burgundy .h-lg em, .gradient .h-lg em { color: var(--gold-warm); }
+  .h-md { font-family: var(--display); font-weight: 600; font-size: 58px; line-height: 1.05; letter-spacing: -1.5px; color: var(--ink); margin: 0; }
+  .h-md em { font-style: italic; font-weight: 400; color: var(--burgundy); }
+  .burgundy .h-md, .gradient .h-md { color: var(--white); }
+  .body-lg { font-family: var(--sans); font-size: 28px; line-height: 1.45; font-weight: 500; color: var(--ink-soft); max-width: 1100px; }
+  .burgundy .body-lg, .gradient .body-lg { color: rgba(255,255,255,0.88); }
+  .body-md { font-family: var(--sans); font-size: 22px; line-height: 1.5; font-weight: 500; color: var(--ink-soft); }
+  .burgundy .body-md, .gradient .body-md { color: rgba(255,255,255,0.86); }
+  .tag-pill { display: inline-flex; align-items: center; gap: 10px; font-family: var(--sans); font-size: 13px; font-weight: 800; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold-deep); padding: 10px 18px; border: 1px solid var(--gold); border-radius: 99px; background: var(--offwhite); }
+  .burgundy .tag-pill { color: var(--gold-warm); border-color: rgba(230,196,114,0.5); background: transparent; }
+
+  .gold-underline { width: 100px; height: 6px; background: var(--grad-gold); border-radius: 3px; margin: 32px 0 44px; }
+  .burgundy .gold-underline, .gradient .gold-underline { background: var(--gold-warm); }
+
+  .orb { position: absolute; border-radius: 50%; pointer-events: none; }
+
+  /* ============ 01 COVER ============ */
+  .cover { padding: 0; background: var(--burgundy); color: var(--white); justify-content: center; align-items: stretch; flex-direction: row; }
+  .cover .left { flex: 1.05; position: relative; padding: 110px 100px 110px 140px; display: flex; flex-direction: column; justify-content: center; overflow: hidden; }
+  .cover .left::before { content: ''; position: absolute; top: -25%; right: -15%; width: 60%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, var(--gold-warm) 0%, transparent 65%); opacity: 0.35; }
+  .cover .left::after { content: ''; position: absolute; bottom: -35%; left: 10%; width: 55%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, var(--burgundy-glow) 0%, transparent 65%); opacity: 0.55; }
+  .cover .left > * { position: relative; z-index: 2; }
+  .cover .brand { display: flex; align-items: center; gap: 18px; margin-bottom: 80px; }
+  .cover .brand .mono { width: 64px; height: 64px; border-radius: 14px; background: var(--gold); color: var(--burgundy); font-family: var(--display); font-style: italic; font-weight: 700; font-size: 38px; display: flex; align-items: center; justify-content: center; }
+  .cover .brand .name { font-family: var(--sans); font-size: 20px; font-weight: 800; color: var(--white); }
+  .cover .brand .name .sub { display: block; font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--gold-warm); margin-top: 5px; }
+  .cover .eyebrow { font-family: var(--sans); font-size: 16px; font-weight: 800; letter-spacing: 5px; text-transform: uppercase; color: var(--gold-warm); margin-bottom: 32px; }
+  .cover h1 { font-family: var(--display); font-weight: 700; font-size: 176px; line-height: 0.92; letter-spacing: -7px; color: var(--white); margin: 0 0 28px; }
+  .cover h1 em { font-style: italic; font-weight: 400; color: var(--gold-warm); }
+  .cover .kicker { font-family: var(--display); font-style: italic; font-weight: 400; font-size: 36px; line-height: 1.3; color: rgba(255,255,255,0.88); max-width: 700px; margin: 0 0 64px; }
+  .cover .meta { display: flex; align-items: center; gap: 40px; padding-top: 32px; border-top: 1px solid rgba(230,196,114,0.3); max-width: 780px; }
+  .cover .meta .k { font-family: var(--sans); font-size: 11px; font-weight: 800; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold-warm); margin-bottom: 8px; }
+  .cover .meta .v { font-family: var(--display); font-weight: 500; font-size: 22px; color: var(--white); line-height: 1.3; }
+  .cover .right { flex: 0.95; position: relative; background: var(--grad-sunrise); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .cover .right::before { content: ''; position: absolute; top: -20%; right: -25%; width: 80%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, var(--gold-warm) 0%, transparent 65%); opacity: 0.5; }
+  .cover .portrait-wrap { position: relative; width: 620px; height: 760px; border-radius: 16px; overflow: hidden; box-shadow: 0 24px 80px rgba(0,0,0,0.35); z-index: 2; }
+  .cover .portrait-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .cover .portrait-wrap::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(122,21,48,0.4) 100%); }
+
+  /* ============ 02 BIO ============ */
+  .host { display: grid; grid-template-columns: 560px 1fr; gap: 100px; padding: 140px; align-items: center; background: var(--offwhite); }
+  .host .portrait { width: 560px; height: 720px; border-radius: 16px; overflow: hidden; position: relative; box-shadow: 0 20px 60px rgba(122,21,48,0.18); }
+  .host .portrait img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .host .portrait .tag { position: absolute; bottom: 28px; left: 28px; display: flex; gap: 10px; }
+  .host .portrait .tag span { background: var(--burgundy); color: var(--gold-warm); font-family: var(--sans); font-size: 11px; font-weight: 800; letter-spacing: 2.5px; text-transform: uppercase; padding: 10px 14px; border-radius: 99px; }
+  .host .content .eyebrow { margin-bottom: 20px; }
+  .host .content h2 { font-family: var(--display); font-weight: 700; font-size: 96px; line-height: 0.98; letter-spacing: -3px; color: var(--burgundy); margin: 0 0 12px; }
+  .host .content h2 em { font-style: italic; font-weight: 400; color: var(--burgundy-glow); }
+  .host .content .role { font-family: var(--display); font-style: italic; font-weight: 400; font-size: 32px; color: var(--ink-soft); margin: 0 0 40px; }
+  .host .content .bio { font-family: var(--sans); font-size: 22px; line-height: 1.55; color: var(--ink); font-weight: 500; max-width: 820px; margin: 0 0 36px; }
+  .host .content .bio em { font-style: italic; color: var(--burgundy); font-weight: 600; }
+  .host .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; max-width: 780px; padding-top: 32px; border-top: 2px solid var(--gold); }
+  .host .stats .stat { padding-right: 24px; }
+  .host .stats .n { font-family: var(--display); font-weight: 700; font-size: 64px; line-height: 1; letter-spacing: -2px; color: var(--burgundy); }
+  .host .stats .n em { font-style: italic; font-weight: 400; color: var(--gold-deep); }
+  .host .stats .l { font-family: var(--sans); font-size: 13px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--ink-soft); margin-top: 8px; line-height: 1.4; }
+
+  /* ============ 03 WHATIS ============ */
+  .whatis { padding: 170px 140px 110px; }
+  .whatis .wrap { display: grid; grid-template-columns: 1.1fr 1fr; gap: 120px; align-items: center; }
+  .whatis .big { font-family: var(--display); font-weight: 700; font-size: 112px; line-height: 0.95; letter-spacing: -4px; color: var(--burgundy); margin: 0 0 36px; }
+  .whatis .big em { font-style: italic; font-weight: 400; color: var(--burgundy-glow); }
+  .whatis .quote { font-family: var(--display); font-style: italic; font-weight: 400; font-size: 34px; line-height: 1.3; color: var(--ink); max-width: 760px; }
+  .whatis .two { display: flex; flex-direction: column; gap: 40px; }
+  .whatis .card { padding: 56px; border-radius: 20px; background: var(--offwhite); border: 1px solid rgba(212,168,74,0.3); position: relative; overflow: hidden; }
+  .whatis .card.gold { background: var(--grad-gold); border: none; }
+  .whatis .card.burg { background: var(--burgundy); color: var(--white); border: none; }
+  .whatis .card .n { font-family: var(--display); font-style: italic; font-weight: 400; font-size: 22px; color: var(--burgundy); margin: 0 0 12px; }
+  .whatis .card.burg .n { color: var(--gold-warm); }
+  .whatis .card .t { font-family: var(--display); font-weight: 700; font-size: 48px; letter-spacing: -1.5px; margin: 0 0 16px; color: var(--burgundy); }
+  .whatis .card.burg .t { color: var(--white); }
+  .whatis .card .d { font-family: var(--sans); font-size: 20px; line-height: 1.5; color: var(--ink); font-weight: 500; }
+  .whatis .card.burg .d { color: rgba(255,255,255,0.88); }
+
+  /* ============ 04 PHASES ============ */
+  .phases { justify-content: flex-start; padding: 170px 140px 110px; }
+  .phases h2 { margin: 0 0 24px; }
+  .phases .lead { max-width: 1200px; margin: 0 0 80px; }
+  .phases .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; }
+  .phases .phase { padding: 56px 44px; border-radius: 22px; background: var(--offwhite); border-top: 8px solid var(--gold); position: relative; }
+  .phases .phase:nth-child(2) { background: var(--burgundy); color: var(--white); border-top-color: var(--gold-warm); }
+  .phases .phase:nth-child(3) { background: var(--offwhite); border-top-color: var(--burgundy); }
+  .phases .phase .n { font-family: var(--display); font-style: italic; font-weight: 400; font-size: 56px; line-height: 1; color: var(--gold-deep); margin: 0 0 28px; }
+  .phases .phase:nth-child(2) .n { color: var(--gold-warm); }
+  .phases .phase .t { font-family: var(--display); font-weight: 700; font-size: 52px; letter-spacing: -1.5px; color: var(--burgundy); margin: 0 0 20px; line-height: 1; }
+  .phases .phase:nth-child(2) .t { color: var(--white); }
+  .phases .phase .k { font-family: var(--display); font-style: italic; font-size: 22px; color: var(--ink-soft); margin: 0 0 32px; }
+  .phases .phase:nth-child(2) .k { color: var(--gold-warm); }
+  .phases .phase ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 14px; }
+  .phases .phase li { font-family: var(--sans); font-size: 20px; font-weight: 600; color: var(--ink); line-height: 1.4; display: flex; gap: 14px; align-items: flex-start; }
+  .phases .phase:nth-child(2) li { color: rgba(255,255,255,0.92); }
+  .phases .phase li::before { content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--burgundy); margin-top: 10px; flex-shrink: 0; }
+  .phases .phase:nth-child(2) li::before { background: var(--gold-warm); }
+
+  /* ============ 05 NEED ============ */
+  .need { justify-content: flex-start; padding: 170px 140px 110px; background: var(--offwhite); }
+  .need h2 { margin: 0 0 80px; max-width: 1400px; }
+  .need .row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; }
+  .need .item { padding: 64px 52px; background: var(--white); border-radius: 22px; box-shadow: 0 8px 32px rgba(122,21,48,0.08); border: 1px solid rgba(212,168,74,0.3); position: relative; }
+  .need .item .ico { width: 72px; height: 72px; border-radius: 18px; background: var(--grad-sunrise); display: flex; align-items: center; justify-content: center; font-family: var(--display); font-style: italic; font-weight: 700; font-size: 40px; color: var(--white); margin-bottom: 32px; }
+  .need .item .t { font-family: var(--display); font-weight: 700; font-size: 44px; letter-spacing: -1.5px; color: var(--burgundy); margin: 0 0 16px; line-height: 1; }
+  .need .item .d { font-family: var(--sans); font-size: 22px; line-height: 1.5; color: var(--ink-soft); font-weight: 500; }
+
+  /* ============ 06 SECTION HEADER ============ */
+  .section-header { padding: 140px 140px 140px; display: flex; flex-direction: column; justify-content: center; background: var(--burgundy); color: var(--white); position: relative; overflow: hidden; }
+  .section-header .orb1 { position: absolute; top: -30%; right: -10%; width: 55%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, var(--gold-warm) 0%, transparent 65%); opacity: 0.35; }
+  .section-header .orb2 { position: absolute; bottom: -40%; left: 20%; width: 45%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, var(--burgundy-glow) 0%, transparent 65%); opacity: 0.55; }
+  .section-header > * { position: relative; z-index: 2; }
+  .section-header .num { font-family: var(--display); font-style: italic; font-weight: 400; font-size: 52px; color: var(--gold-warm); letter-spacing: -1px; margin-bottom: 24px; }
+  .section-header .eyebrow { color: var(--gold-warm); }
+  .section-header h2 { font-family: var(--display); font-weight: 700; font-size: 192px; line-height: 0.92; letter-spacing: -7px; color: var(--white); margin: 0 0 32px; }
+  .section-header h2 em { font-style: italic; font-weight: 400; color: var(--gold-warm); }
+  .section-header .desc { font-family: var(--display); font-style: italic; font-weight: 400; font-size: 36px; line-height: 1.3; color: rgba(255,255,255,0.88); max-width: 1100px; }
+
+  /* ============ 07 OBS ============ */
+  .obs { padding: 170px 140px 110px; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 100px; align-items: center; }
+  .obs .lead .num { font-family: var(--display); font-style: italic; font-weight: 400; font-size: 120px; color: var(--gold); line-height: 1; margin: 0 0 12px; }
+  .obs .lead h3 { font-family: var(--display); font-weight: 700; font-size: 120px; letter-spacing: -4px; margin: 0 0 32px; color: var(--burgundy); line-height: 0.95; }
+  .obs .lead h3 em { font-style: italic; font-weight: 400; color: var(--burgundy-glow); }
+  .obs .lead .sub { font-family: var(--display); font-style: italic; font-size: 32px; line-height: 1.35; color: var(--ink); max-width: 700px; margin-bottom: 40px; }
+  .obs .lead .capture { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 640px; }
+  .obs .lead .capture .c { font-family: var(--sans); font-size: 18px; font-weight: 700; color: var(--burgundy); padding: 14px 20px; background: var(--offwhite); border-left: 4px solid var(--gold); border-radius: 4px; }
+  .obs .right { display: flex; flex-direction: column; gap: 28px; }
+  .obs .quote { background: var(--burgundy); color: var(--white); padding: 56px 56px 56px 72px; border-radius: 20px; position: relative; }
+  .obs .quote::before { content: '\201C'; position: absolute; top: -20px; left: 24px; font-family: var(--display); font-style: italic; font-weight: 400; font-size: 200px; color: var(--gold-warm); line-height: 1; }
+  .obs .quote .text { font-family: var(--display); font-style: italic; font-weight: 400; font-size: 30px; line-height: 1.35; margin: 0 0 24px; color: var(--white); }
+  .obs .quote .attr { font-family: var(--sans); font-size: 14px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-warm); }
+  .obs .pull { font-family: var(--display); font-weight: 500; font-size: 28px; line-height: 1.35; color: var(--ink-soft); font-style: italic; padding-left: 24px; border-left: 3px solid var(--gold); }
+
+  /* ============ 08 INTERVIEW ============ */
+  .interview { justify-content: flex-start; padding: 170px 140px 110px; background: var(--offwhite); }
+  .interview h2 { margin: 0 0 20px; }
+  .interview .sub { margin: 0 0 48px; max-width: 1200px; }
+  .interview .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .interview .card { padding: 44px 48px; border-radius: 20px; background: var(--white); border: 1px solid rgba(212,168,74,0.3); position: relative; }
+  .interview .card.accent { background: var(--grad-sunrise); color: var(--white); border: none; }
+  .interview .card .n { font-family: var(--display); font-style: italic; font-weight: 400; font-size: 28px; color: var(--gold-deep); margin: 0 0 12px; }
+  .interview .card.accent .n { color: var(--gold-warm); }
+  .interview .card .t { font-family: var(--display); font-weight: 700; font-size: 40px; letter-spacing: -1.2px; color: var(--burgundy); margin: 0 0 14px; line-height: 1.05; }
+  .interview .card.accent .t { color: var(--white); }
+  .interview .card .d { font-family: var(--sans); font-size: 19px; line-height: 1.5; color: var(--ink-soft); font-weight: 500; }
+  .interview .card.accent .d { color: rgba(255,255,255,0.92); }
+
+  /* ============ 09 DATA ============ */
+  .data { justify-content: flex-start; padding: 170px 140px 110px; }
+  .data h2 { margin: 0 0 24px; }
+  .data .lead { margin: 0 0 72px; }
+  .data .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+  .data .d { padding: 48px 36px; border-radius: 18px; background: var(--offwhite); border-top: 6px solid var(--gold); position: relative; }
+  .data .d:nth-child(even) { background: var(--burgundy); color: var(--white); border-top-color: var(--gold-warm); }
+  .data .d .n { font-family: var(--display); font-style: italic; font-weight: 400; font-size: 68px; line-height: 1; color: var(--gold-deep); margin: 0 0 24px; }
+  .data .d:nth-child(even) .n { color: var(--gold-warm); }
+  .data .d .t { font-family: var(--display); font-weight: 700; font-size: 30px; letter-spacing: -1px; color: var(--burgundy); margin: 0 0 14px; line-height: 1.1; }
+  .data .d:nth-child(even) .t { color: var(--white); }
+  .data .d .dd { font-family: var(--sans); font-size: 17px; line-height: 1.45; color: var(--ink-soft); font-weight: 500; }
+  .data .d:nth-child(even) .dd { color: rgba(255,255,255,0.85); }
+
+  /* ============ 10 PROTO DEF ============ */
+  .proto-def { padding: 0; background: var(--grad-sunrise); color: var(--white); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+  .proto-def::before { content: ''; position: absolute; top: -30%; right: -10%; width: 55%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, var(--gold-warm) 0%, transparent 65%); opacity: 0.45; }
+  .proto-def::after { content: ''; position: absolute; bottom: -40%; left: -10%; width: 55%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, var(--burgundy) 0%, transparent 65%); opacity: 0.55; }
+  .proto-def .wrap { position: relative; z-index: 2; max-width: 1400px; text-align: center; padding: 0 140px; }
+  .proto-def .eyebrow { color: var(--gold-warm); margin-bottom: 44px; text-align: center; }
+  .proto-def .quote {
+    font-family: var(--display); font-weight: 500; font-size: 84px; line-height: 1.1; letter-spacing: -2.2px;
+    color: var(--white); margin: 0 0 48px;
+  }
+  .proto-def .quote em { font-style: italic; font-weight: 400; color: var(--gold-warm); }
+  .proto-def .attr { font-family: var(--sans); font-size: 18px; font-weight: 800; letter-spacing: 4px; text-transform: uppercase; color: var(--gold-warm); }
+
+  /* ============ 11 BENEFITS ============ */
+  .benefits { justify-content: flex-start; padding: 170px 140px 110px; background: var(--offwhite); }
+  .benefits h2 { margin: 0 0 72px; }
+  .benefits .list { display: flex; flex-direction: column; gap: 28px; max-width: 1500px; }
+  .benefits .item { display: grid; grid-template-columns: 160px 1fr; gap: 48px; padding: 44px 56px; background: var(--white); border-radius: 20px; border-left: 8px solid var(--gold); align-items: center; }
+  .benefits .item:nth-child(2) { border-left-color: var(--burgundy); }
+  .benefits .item:nth-child(3) { border-left-color: var(--burgundy-glow); }
+  .benefits .item .n { font-family: var(--display); font-weight: 700; font-style: italic; font-size: 96px; line-height: 1; color: var(--burgundy); }
+  .benefits .item:nth-child(2) .n { color: var(--burgundy-glow); }
+  .benefits .item:nth-child(3) .n { color: var(--gold-deep); }
+  .benefits .item .t { font-family: var(--display); font-weight: 700; font-size: 38px; letter-spacing: -1px; color: var(--ink); margin: 0 0 10px; }
+  .benefits .item .d { font-family: var(--sans); font-size: 20px; line-height: 1.45; color: var(--ink-soft); font-weight: 500; }
+
+  /* ============ 12 LOOP ============ */
+  .loop { justify-content: flex-start; padding: 170px 140px 110px; }
+  .loop h2 { margin: 0 0 24px; }
+  .loop .lead { margin: 0 0 72px; }
+  .loop .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .loop .col { padding: 52px 44px; background: var(--burgundy); color: var(--white); border-radius: 20px; min-height: 460px; position: relative; }
+  .loop .col:nth-child(2) { background: var(--grad-gold); color: var(--burgundy); }
+  .loop .col:nth-child(3) { background: var(--offwhite); color: var(--ink); border: 1px solid rgba(212,168,74,0.3); }
+  .loop .col .n { font-family: var(--display); font-style: italic; font-weight: 400; font-size: 28px; color: var(--gold-warm); margin: 0 0 20px; }
+  .loop .col:nth-child(2) .n { color: var(--burgundy); }
+  .loop .col:nth-child(3) .n { color: var(--gold-deep); }
+  .loop .col .t { font-family: var(--display); font-weight: 700; font-size: 48px; letter-spacing: -1.5px; margin: 0 0 28px; color: var(--white); line-height: 1; }
+  .loop .col:nth-child(2) .t { color: var(--burgundy); }
+  .loop .col:nth-child(3) .t { color: var(--burgundy); }
+  .loop .col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 14px; }
+  .loop .col li { font-family: var(--sans); font-size: 20px; font-weight: 600; line-height: 1.4; display: flex; gap: 12px; align-items: flex-start; }
+  .loop .col li::before { content: '\2192'; color: var(--gold-warm); font-weight: 800; flex-shrink: 0; }
+  .loop .col:nth-child(2) li::before { color: var(--burgundy); }
+  .loop .col:nth-child(3) li::before { color: var(--gold-deep); }
+
+  /* ============ 13 ITER ============ */
+  .iter { padding: 170px 140px 110px; background: var(--offwhite); display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
+  .iter h2 { margin: 0 0 32px; }
+  .iter .body-lg { margin-bottom: 56px; }
+  .iter .principles { display: flex; flex-direction: column; gap: 28px; }
+  .iter .p { padding: 36px 44px; background: var(--white); border-radius: 16px; border-left: 6px solid var(--gold); }
+  .iter .p .t { font-family: var(--display); font-weight: 700; font-size: 32px; letter-spacing: -0.8px; color: var(--burgundy); margin: 0 0 8px; line-height: 1.1; }
+  .iter .p .d { font-family: var(--sans); font-size: 18px; line-height: 1.5; color: var(--ink-soft); font-weight: 500; }
+  .iter .diagram { position: relative; aspect-ratio: 1; max-width: 640px; margin: 0 auto; }
+  .iter .diagram svg { width: 100%; height: 100%; }
+
+  /* ============ 14 MINDSET ============ */
+  .mindset { justify-content: flex-start; padding: 170px 140px 110px; }
+  .mindset h2 { margin: 0 0 24px; }
+  .mindset .sub { margin: 0 0 72px; }
+  .mindset .grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
+  .mindset .m { padding: 40px 28px; background: var(--offwhite); border-radius: 18px; position: relative; border-top: 5px solid var(--gold); }
+  .mindset .m:nth-child(odd) { background: var(--burgundy); color: var(--white); border-top-color: var(--gold-warm); }
+  .mindset .m .ico { width: 56px; height: 56px; border-radius: 14px; background: var(--burgundy); color: var(--gold); display: flex; align-items: center; justify-content: center; font-family: var(--display); font-style: italic; font-weight: 700; font-size: 28px; margin-bottom: 28px; }
+  .mindset .m:nth-child(odd) .ico { background: var(--gold-warm); color: var(--burgundy); }
+  .mindset .m .t { font-family: var(--display); font-weight: 700; font-size: 26px; letter-spacing: -0.8px; line-height: 1.1; color: var(--burgundy); margin: 0 0 10px; }
+  .mindset .m:nth-child(odd) .t { color: var(--white); }
+  .mindset .m .d { font-family: var(--sans); font-size: 15px; line-height: 1.45; color: var(--ink-soft); font-weight: 500; }
+  .mindset .m:nth-child(odd) .d { color: rgba(255,255,255,0.85); }
+
+  /* ============ 15 TIPS ============ */
+  .tips { justify-content: flex-start; padding: 170px 140px 110px; background: var(--offwhite); }
+  .tips h2 { margin: 0 0 24px; }
+  .tips .sub { margin: 0 0 48px; }
+  .tips .table { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(212,168,74,0.3); border-radius: 18px; overflow: hidden; border: 1px solid rgba(212,168,74,0.3); }
+  .tips .head-l, .tips .head-r { padding: 22px 32px; font-family: var(--sans); font-size: 12px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; }
+  .tips .head-l { background: var(--ink); color: rgba(255,255,255,0.8); }
+  .tips .head-r { background: var(--burgundy); color: var(--gold-warm); }
+  .tips .cell-l, .tips .cell-r { padding: 22px 32px; font-family: var(--sans); font-size: 18px; font-weight: 500; line-height: 1.45; }
+  .tips .cell-l { background: var(--white); color: var(--ink-soft); }
+  .tips .cell-r { background: var(--offwhite); color: var(--ink); font-weight: 600; }
+  .tips .cell-r em { font-style: italic; color: var(--burgundy); font-weight: 700; }
+
+  /* ============ 16 CONCLUSION ============ */
+  .conclusion { justify-content: flex-start; padding: 170px 140px 110px; }
+  .conclusion h2 { margin: 0 0 72px; }
+  .conclusion .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .conclusion .c { padding: 52px 44px; border-radius: 20px; background: var(--offwhite); border: 1px solid rgba(212,168,74,0.3); }
+  .conclusion .c:nth-child(2), .conclusion .c:nth-child(5) { background: var(--burgundy); color: var(--white); border: none; }
+  .conclusion .c:nth-child(4) { background: var(--grad-gold); border: none; }
+  .conclusion .c .tag { font-family: var(--sans); font-size: 11px; font-weight: 800; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold-deep); margin-bottom: 16px; }
+  .conclusion .c:nth-child(2) .tag, .conclusion .c:nth-child(5) .tag { color: var(--gold-warm); }
+  .conclusion .c:nth-child(4) .tag { color: var(--burgundy); }
+  .conclusion .c .t { font-family: var(--display); font-weight: 700; font-size: 32px; line-height: 1.1; letter-spacing: -1px; color: var(--burgundy); margin: 0 0 14px; }
+  .conclusion .c:nth-child(2) .t, .conclusion .c:nth-child(5) .t { color: var(--white); }
+  .conclusion .c:nth-child(4) .t { color: var(--burgundy); }
+  .conclusion .c .d { font-family: var(--sans); font-size: 18px; line-height: 1.5; color: var(--ink-soft); font-weight: 500; }
+  .conclusion .c:nth-child(2) .d, .conclusion .c:nth-child(5) .d { color: rgba(255,255,255,0.88); }
+  .conclusion .c:nth-child(4) .d { color: var(--burgundy); font-weight: 600; }
+
+  /* ============ 17 QUOTE ============ */
+  .quote-slide { padding: 0; background: var(--burgundy); color: var(--white); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+  .quote-slide::before { content: ''; position: absolute; top: -30%; left: -10%; width: 55%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, var(--burgundy-glow) 0%, transparent 65%); opacity: 0.55; }
+  .quote-slide::after { content: ''; position: absolute; bottom: -40%; right: -10%; width: 55%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, var(--gold-warm) 0%, transparent 65%); opacity: 0.4; }
+  .quote-slide .wrap { position: relative; z-index: 2; max-width: 1500px; text-align: center; padding: 0 140px; }
+  .quote-slide .mark { font-family: var(--display); font-style: italic; font-weight: 400; font-size: 280px; color: var(--gold-warm); line-height: 0.8; margin: 0 0 8px; }
+  .quote-slide .q { font-family: var(--display); font-weight: 500; font-size: 80px; line-height: 1.1; letter-spacing: -2.2px; color: var(--white); margin: 0 0 56px; }
+  .quote-slide .q em { font-style: italic; font-weight: 400; color: var(--gold-warm); }
+  .quote-slide .attr { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .quote-slide .attr .line { width: 60px; height: 2px; background: var(--gold-warm); margin-bottom: 18px; }
+  .quote-slide .attr .n { font-family: var(--display); font-weight: 600; font-size: 28px; color: var(--white); }
+  .quote-slide .attr .r { font-family: var(--sans); font-size: 14px; font-weight: 800; letter-spacing: 4px; text-transform: uppercase; color: var(--gold-warm); margin-top: 8px; }
+
+  /* ============ 18 THANKS ============ */
+  .thanks { padding: 0; background: var(--burgundy); color: var(--white); display: grid; grid-template-columns: 1.1fr 0.9fr; position: relative; overflow: hidden; }
+  .thanks .left { padding: 140px 100px 140px 140px; position: relative; display: flex; flex-direction: column; justify-content: center; overflow: hidden; }
+  .thanks .left::before { content: ''; position: absolute; bottom: -40%; left: -10%; width: 60%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, var(--burgundy-glow) 0%, transparent 65%); opacity: 0.55; }
+  .thanks .left > * { position: relative; z-index: 2; }
+  .thanks .eyebrow { color: var(--gold-warm); margin-bottom: 32px; }
+  .thanks h2 { font-family: var(--display); font-weight: 700; font-size: 196px; line-height: 0.92; letter-spacing: -7px; color: var(--white); margin: 0 0 40px; }
+  .thanks h2 em { font-style: italic; font-weight: 400; color: var(--gold-warm); }
+  .thanks .ask { font-family: var(--display); font-style: italic; font-weight: 400; font-size: 44px; line-height: 1.3; color: rgba(255,255,255,0.88); max-width: 720px; margin: 0 0 80px; }
+  .thanks .contact { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; padding-top: 40px; border-top: 1px solid rgba(230,196,114,0.3); max-width: 780px; }
+  .thanks .contact .k { font-family: var(--sans); font-size: 11px; font-weight: 800; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold-warm); margin-bottom: 10px; }
+  .thanks .contact .v { font-family: var(--display); font-weight: 500; font-size: 24px; color: var(--white); }
+  .thanks .right { background: var(--grad-sunrise); position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .thanks .right::before { content: ''; position: absolute; top: -20%; right: -20%; width: 70%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, var(--gold-warm) 0%, transparent 65%); opacity: 0.5; }
+  .thanks .portrait { position: relative; z-index: 2; width: 580px; height: 720px; border-radius: 16px; overflow: hidden; box-shadow: 0 24px 80px rgba(0,0,0,0.35); }
+  .thanks .portrait img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .thanks .badge { position: absolute; bottom: 90px; right: 100px; z-index: 3; background: var(--white); color: var(--burgundy); padding: 28px 36px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.25); }
+  .thanks .badge .k { font-family: var(--sans); font-size: 10px; font-weight: 800; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold-deep); margin-bottom: 4px; }
+  .thanks .badge .v { font-family: var(--display); font-weight: 700; font-size: 22px; color: var(--burgundy); }
+</style>
+</head>
+<body>
+<deck-stage>
+
+<!-- 01 COVER -->
+<section class="sl cover" data-screen-label="01 Cover">
+  <div class="left">
+    <div class="brand">
+      <div class="mono">ab</div>
+      <div class="name">Alice Bazdikian<span class="sub">Small Business AI Coach</span></div>
+    </div>
+    <div class="eyebrow">A Workshop</div>
+    <h1>Claude<br/><em>Code 101.</em></h1>
+    <div class="kicker">From "AI that chats" to "AI that ships." A working primer on agentic coding for entrepreneurs and small teams.</div>
+    <div class="meta">
+      <div>
+        <div class="k">Facilitator</div>
+        <div class="v">Alice Bazdikian</div>
+      </div>
+      <div>
+        <div class="k">Focus</div>
+        <div class="v">Agentic coding<br/>workflows</div>
+      </div>
+      <div>
+        <div class="k">Duration</div>
+        <div class="v">60 minutes<br/>+ Q&amp;A</div>
+      </div>
+    </div>
+  </div>
+  <div class="right">
+    <div class="portrait-wrap"><img src="assets/alice-portrait.jpg" alt="Alice Bazdikian"/></div>
+  </div>
+</section>
+
+<!-- 02 BIO -->
+<section class="sl host" data-screen-label="02 Your Facilitator">
+  <div class="portrait">
+    <img src="assets/alice-portrait.jpg" alt="Alice Bazdikian"/>
+    <div class="tag"><span>AI Coach</span><span>Educator</span></div>
+  </div>
+  <div class="content">
+    <div class="eyebrow">Your Facilitator</div>
+    <h2>Alice<br/><em>Bazdikian.</em></h2>
+    <div class="role">Small Business AI Coach · Educator · Builder</div>
+    <p class="bio">Alice is the founder of <em>Small Business AI Coach</em>, a practice that helps entrepreneurs and small teams adopt AI in ways that are practical, ethical, and actually get shipped. She uses Claude Code daily â to draft web pages, automate her social pipeline, and run her own business. This deck distills what's worked into a 60-minute primer for operators, not just engineers.</p>
+    <div class="stats">
+      <div class="stat"><div class="n">200<em>+</em></div><div class="l">Operators<br/>trained on AI</div></div>
+      <div class="stat"><div class="n">8â10</div><div class="l">Hours/week<br/>saved on average</div></div>
+      <div class="stat"><div class="n">500<em>+</em></div><div class="l">Businesses<br/>in community</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 WHAT IS CLAUDE CODE -->
+<section class="sl whatis" data-screen-label="03 What is Claude Code">
+  <div class="chrome-tl"><div class="mono">ab</div><div class="name">Alice Bazdikian<span class="sub">Small Business AI Coach</span></div></div>
+  <div class="chrome-br">01 Â· The Basics</div>
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">What is it?</div>
+      <div class="big">Claude Code is an <em>agent</em> that ships code with you â not a chatbot that answers about it.</div>
+      <div class="quote">It lives in your terminal, IDE, or browser â reads your project, plans the work, takes the action, and asks before it does anything risky.</div>
+    </div>
+    <div class="two">
+      <div class="card gold">
+        <div class="n">it's an</div>
+        <div class="t">Agentic loop.</div>
+        <div class="d">Claude reads context, picks tools, edits files, runs commands, and verifies results â then loops again until the task is done.</div>
+      </div>
+      <div class="card burg">
+        <div class="n">it's also a</div>
+        <div class="t">Workflow shift.</div>
+        <div class="d">You move from typing every line to directing intent. The job becomes: be specific, set the constraints, review the diff.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 THREE PHASES -->
+<section class="sl phases" data-screen-label="04 The Course">
+  <div class="chrome-tl"><div class="mono">ab</div><div class="name">Alice Bazdikian<span class="sub">Small Business AI Coach</span></div></div>
+  <div class="chrome-br">02 Â· Course Map</div>
+  <div class="eyebrow">The Course</div>
+  <h2 class="h-lg">Three <em>arcs</em>, one outcome.</h2>
+  <div class="gold-underline"></div>
+  <p class="body-lg lead">Claude Code 101 covers a lot â but it's really three jobs in sequence. Get the foundations right, build a daily rhythm, then customize it to your stack.</p>
+  <div class="grid">
+    <div class="phase">
+      <div class="n">01</div>
+      <div class="t">Foundations.</div>
+      <div class="k">Install &amp; first prompt</div>
+      <ul>
+        <li>What an AI agent actually is</li>
+        <li>Install on terminal, VS Code, JetBrains, Desktop, web</li>
+        <li>Write a prompt that gets useful work back</li>
+      </ul>
+    </div>
+    <div class="phase">
+      <div class="n">02</div>
+      <div class="t">Daily workflow.</div>
+      <div class="k">Explore â Plan â Code â Commit</div>
+      <ul>
+        <li>Use Plan Mode before you let it touch files</li>
+        <li>Manage context with /compact, /clear, /context</li>
+        <li>Have Claude review its own diff</li>
+      </ul>
+    </div>
+    <div class="phase">
+      <div class="n">03</div>
+      <div class="t">Customization.</div>
+      <div class="k">Make it yours</div>
+      <ul>
+        <li>CLAUDE.md for persistent project memory</li>
+        <li>Subagents, Skills, MCP, Hooks</li>
+        <li>Wire in your own tools and rules</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 05 WHAT YOU NEED -->
+<section class="sl need" data-screen-label="05 What You Need">
+  <div class="chrome-tl"><div class="mono">ab</div><div class="name">Alice Bazdikian<span class="sub">Small Business AI Coach</span></div></div>
+  <div class="chrome-br">03 Â· Prerequisites</div>
+  <div class="eyebrow">Before you start</div>
+  <h2 class="h-lg">Three things you <em>need</em> first.</h2>
+  <div class="gold-underline"></div>
+  <div class="row">
+    <div class="item">
+      <div class="ico">1</div>
+      <div class="t">A Claude account.</div>
+      <div class="d">Pro, Max, or Enterprise â or an Anthropic API key. Pick the plan that matches how much you'll use it.</div>
+    </div>
+    <div class="item">
+      <div class="ico">2</div>
+      <div class="t">A code editor &amp; terminal.</div>
+      <div class="d">Basic comfort opening files and running commands. You don't need to be a developer â you need to not be afraid of the terminal.</div>
+    </div>
+    <div class="item">
+      <div class="ico">3</div>
+      <div class="t">A real project.</div>
+      <div class="d">Don't learn on a toy repo. Pick something you actually want shipped this week â a landing page, a script, a bug fix.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 SECTION HEADER MODULE 1 -->
+<section class="sl section-header" data-screen-label="06 Module 1">
+  <div class="orb1"></div>
+  <div class="orb2"></div>
+  <div class="num">Module 01</div>
+  <div class="eyebrow">Foundations</div>
+  <h2>How it <em>works.</em></h2>
+  <div class="desc">Before any keystrokes â understand the four moving parts that make agentic coding feel different from "AI that autocompletes."</div>
+</section>
+
+<!-- 07 OBSERVE / HOW IT WORKS -->
+<section class="sl obs" data-screen-label="07 The Agentic Loop">
+  <div class="chrome-tl"><div class="mono">ab</div><div class="name">Alice Bazdikian<span class="sub">Small Business AI Coach</span></div></div>
+  <div class="chrome-br">Foundations Â· Step 1</div>
+  <div class="lead">
+    <div class="num">01</div>
+    <h3>The loop.</h3>
+    <div class="sub">Claude doesn't just <em>answer</em>. It reads, plans, acts, and checks â then decides what to do next.</div>
+    <div class="capture">
+      <div class="c">Context window</div>
+      <div class="c">Tools (read/write/run)</div>
+      <div class="c">Permissions</div>
+      <div class="c">Verification step</div>
+    </div>
+  </div>
+  <div class="right">
+    <div class="quote">
+      <div class="text">Every turn, Claude looks at the goal, looks at what just happened, and picks the next move. Your job is to set the goal sharply â and stay in the loop while it runs.</div>
+      <div class="attr">The Agentic Loop</div>
+    </div>
+    <div class="pull">If a turn ever feels off-track, that's the moment to interrupt â don't wait for the wrong answer to finish.</div>
+  </div>
+</section>
+
+<!-- 08 INTERVIEW / FIRST PROMPT -->
+<section class="sl interview" data-screen-label="08 Your First Prompt">
+  <div class="chrome-tl"><div class="mono">ab</div><div class="name">Alice Bazdikian<span class="sub">Small Business AI Coach</span></div></div>
+  <div class="chrome-br">Foundations Â· Step 2</div>
+  <div class="eyebrow">Foundations Â· Step 2</div>
+  <h2 class="h-lg">Write a prompt that <em>actually gets work back.</em></h2>
+  <div class="gold-underline"></div>
+  <p class="body-lg sub">The first prompt sets the tone for the whole session. Spend 30 seconds being specific â you'll save 30 minutes of redirection later.</p>
+  <div class="grid">
+    <div class="card">
+      <div class="n">01</div>
+      <div class="t">Be specific about the outcome.</div>
+      <div class="d">"Add a hero image to blog.html using Brand Assets/Bloghero2.png as a left-text overlay" beats "make the blog page nicer."</div>
+    </div>
+    <div class="card accent">
+      <div class="n">02</div>
+      <div class="t">Use Plan Mode for anything new.</div>
+      <div class="d">Plan Mode shows you what Claude intends to do before touching a single file. Approve the plan, then let it run.</div>
+    </div>
+    <div class="card">
+      <div class="n">03</div>
+      <div class="t">Pick the right approval mode.</div>
+      <div class="d">Approval mode for new code paths. Auto-accept once you trust the loop. Read-only when you just want to investigate.</div>
+    </div>
+    <div class="card">
+      <div class="n">04</div>
+      <div class="t">Iterate, don't restart.</div>
+      <div class="d">When the result is close but not right, course-correct in the same conversation â the context you've built is your biggest asset.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 09 DATA / WHERE IT RUNS -->
+<section class="sl data" data-screen-label="09 Where It Runs">
+  <div class="chrome-tl"><div class="mono">ab</div><div class="name">Alice Bazdikian<span class="sub">Small Business AI Coach</span></div></div>
+  <div class="chrome-br">Foundations Â· Install</div>
+  <div class="eyebrow">Where it runs</div>
+  <h2 class="h-lg">Four places to <em>meet it.</em></h2>
+  <div class="gold-underline"></div>
+  <div class="grid">
+    <div class="d"><div class="n">01</div><div class="t">Terminal CLI.</div><div class="dd">The original. Fastest, most flexible â and where the power users live.</div></div>
+    <div class="d"><div class="n">02</div><div class="t">VS Code.</div><div class="dd">Native extension. See the diff in your editor before it lands.</div></div>
+    <div class="d"><div class="n">03</div><div class="t">JetBrains IDEs.</div><div class="dd">Plugin for IntelliJ, PyCharm, WebStorm â same loop, IDE-native.</div></div>
+    <div class="d"><div class="n">04</div><div class="t">Desktop &amp; Web.</div><div class="dd">Claude Code in the desktop app or claude.ai/code â great for triage on the go.</div></div>
+  </div>
+</section>
+
+<!-- 10 DEFINING QUOTE -->
+<section class="sl proto-def" data-screen-label="10 Explore Plan Code Commit">
+  <div class="wrap">
+    <div class="eyebrow">The Daily Workflow</div>
+    <div class="quote">Explore. Plan. Code. <em>Commit.</em></div>
+    <div class="attr">The whole loop in one sentence.</div>
+  </div>
+</section>
+
+<!-- 11 BENEFITS / WHY THIS WORKFLOW -->
+<section class="sl benefits" data-screen-label="11 Why this workflow">
+  <div class="chrome-tl"><div class="mono">ab</div><div class="name">Alice Bazdikian<span class="sub">Small Business AI Coach</span></div></div>
+  <div class="chrome-br">Daily Workflow</div>
+  <div class="eyebrow">Why these four steps</div>
+  <h2 class="h-lg">Three reasons it <em>always pays off.</em></h2>
+  <div class="gold-underline"></div>
+  <div class="list">
+    <div class="item">
+      <div class="n">01</div>
+      <div>
+        <div class="t">Explore makes the plan honest.</div>
+        <div class="d">Letting Claude read the actual code first â not just the description â kills 90% of "fixed something that didn't exist" moments.</div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="n">02</div>
+      <div>
+        <div class="t">Plan turns big asks into reviewable work.</div>
+        <div class="d">A plan is the cheapest checkpoint you'll ever get. Approve the steps, not just the result â you'll catch wrong directions in seconds, not hours.</div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="n">03</div>
+      <div>
+        <div class="t">Commit closes the loop.</div>
+        <div class="d">Small, atomic commits make every change reviewable, revertable, and explainable â even (especially) the ones the agent wrote.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 12 LOOP / CONTEXT MANAGEMENT -->
+<section class="sl loop" data-screen-label="12 Context Management">
+  <div class="chrome-tl"><div class="mono">ab</div><div class="name">Alice Bazdikian<span class="sub">Small Business AI Coach</span></div></div>
+  <div class="chrome-br">Daily Workflow</div>
+  <div class="eyebrow">Context Management</div>
+  <h2 class="h-lg">Three commands. <em>One habit.</em></h2>
+  <div class="gold-underline"></div>
+  <p class="body-lg lead">Context is the agent's memory of this session. Manage it deliberately and the loop stays sharp; ignore it and Claude starts forgetting â or burning tokens â on irrelevant noise.</p>
+  <div class="grid">
+    <div class="col">
+      <div class="n">/compact</div>
+      <div class="t">Summarize and continue.</div>
+      <ul>
+        <li>Keep the thread alive</li>
+        <li>Trim the long backstory</li>
+        <li>Hold on to the decisions, drop the trial-and-error</li>
+      </ul>
+    </div>
+    <div class="col">
+      <div class="n">/clear</div>
+      <div class="t">Wipe and restart.</div>
+      <ul>
+        <li>Switching to a new task</li>
+        <li>Old context is misleading the agent</li>
+        <li>You want a clean baseline</li>
+      </ul>
+    </div>
+    <div class="col">
+      <div class="n">/context</div>
+      <div class="t">See what it sees.</div>
+      <ul>
+        <li>Inspect the active context window</li>
+        <li>Spot what's eating tokens</li>
+        <li>Know when it's time to /compact</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 13 ITER / IT'S A LOOP -->
+<section class="sl iter" data-screen-label="13 Linear vs Loop">
+  <div>
+    <div class="eyebrow">It looks linear</div>
+    <h2 class="h-lg">But it's <em>a loop.</em></h2>
+    <div class="gold-underline"></div>
+    <p class="body-lg">Explore â Plan â Code â Commit looks like a checklist. In practice it's a spiral: every code step turns up something the plan missed, every commit raises a new question, every exploration sharpens the next prompt. That's the work.</p>
+    <div class="principles">
+      <div class="p">
+        <div class="t">Start anywhere.</div>
+        <div class="d">If you have a vague problem, explore. If you have a half-formed solution, plan. The right entry point is whatever unsticks you.</div>
+      </div>
+      <div class="p">
+        <div class="t">Let code rewrite the plan.</div>
+        <div class="d">When the implementation surfaces a constraint, update the plan â don't fight it.</div>
+      </div>
+      <div class="p">
+        <div class="t">Commit early, commit often.</div>
+        <div class="d">Tiny commits are your undo button. They also make the next prompt easier â the agent can read them.</div>
+      </div>
+    </div>
+  </div>
+  <div class="diagram">
+    <svg viewBox="0 0 400 400">
+      <defs>
+        <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#7A1530"/>
+          <stop offset="100%" stop-color="#C13558"/>
+        </linearGradient>
+        <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#D4A84A"/>
+          <stop offset="100%" stop-color="#E6C472"/>
+        </linearGradient>
+      </defs>
+      <circle cx="200" cy="200" r="180" fill="none" stroke="#E8D9B2" stroke-width="2" stroke-dasharray="4 8"/>
+      <circle cx="200" cy="80" r="80" fill="url(#g1)"/>
+      <circle cx="96" cy="260" r="80" fill="url(#g2)"/>
+      <circle cx="304" cy="260" r="80" fill="#7A1530"/>
+      <text x="200" y="70" text-anchor="middle" font-family="Fraunces, serif" font-weight="700" font-size="22" fill="#FFF">Explore</text>
+      <text x="200" y="96" text-anchor="middle" font-family="Nunito, sans-serif" font-weight="700" font-size="11" fill="#E6C472" letter-spacing="2">READ Â· UNDERSTAND</text>
+      <text x="96" y="252" text-anchor="middle" font-family="Fraunces, serif" font-weight="700" font-size="22" fill="#7A1530">Plan</text>
+      <text x="96" y="278" text-anchor="middle" font-family="Nunito, sans-serif" font-weight="700" font-size="11" fill="#7A1530" letter-spacing="2">SHAPE Â· APPROVE</text>
+      <text x="304" y="252" text-anchor="middle" font-family="Fraunces, serif" font-weight="700" font-size="22" fill="#FFF">Code</text>
+      <text x="304" y="278" text-anchor="middle" font-family="Nunito, sans-serif" font-weight="700" font-size="11" fill="#E6C472" letter-spacing="2">EDIT Â· VERIFY</text>
+      <path d="M 265 120 Q 330 180 290 210" fill="none" stroke="#7A1530" stroke-width="3"/>
+      <path d="M 180 290 Q 200 320 220 290" fill="none" stroke="#7A1530" stroke-width="3"/>
+      <path d="M 120 210 Q 80 180 145 120" fill="none" stroke="#7A1530" stroke-width="3"/>
+      <circle cx="200" cy="200" r="40" fill="#FFF" stroke="#D4A84A" stroke-width="2"/>
+      <text x="200" y="196" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-size="14" fill="#7A1530">commit</text>
+      <text x="200" y="214" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-size="14" fill="#7A1530">often</text>
+    </svg>
+  </div>
+</section>
+
+<!-- 14 MINDSET / CUSTOMIZATION -->
+<section class="sl mindset" data-screen-label="14 Customization">
+  <div class="chrome-tl"><div class="mono">ab</div><div class="name">Alice Bazdikian<span class="sub">Small Business AI Coach</span></div></div>
+  <div class="chrome-br">Module 04 Â· Customize</div>
+  <div class="eyebrow">Module 04 Â· Customization</div>
+  <h2 class="h-lg">Five ways to <em>make it yours.</em></h2>
+  <div class="gold-underline"></div>
+  <p class="body-lg sub">Out of the box, Claude Code is generic. These five primitives are how you teach it your project, your stack, and your standards â so every session starts already aligned.</p>
+  <div class="grid">
+    <div class="m"><div class="ico">M</div><div class="t">CLAUDE.md</div><div class="d">A persistent project memo. Conventions, do-nots, where to look first.</div></div>
+    <div class="m"><div class="ico">S</div><div class="t">Subagents</div><div class="d">Delegate specialized jobs â reviews, search, planning â to focused agents.</div></div>
+    <div class="m"><div class="ico">K</div><div class="t">Skills</div><div class="d">Reusable, packaged know-how Claude can invoke when the situation matches.</div></div>
+    <div class="m"><div class="ico">P</div><div class="t">MCP</div><div class="d">Connect external tools â GitHub, Linear, your DB â over a single open protocol.</div></div>
+    <div class="m"><div class="ico">H</div><div class="t">Hooks</div><div class="d">Run shell commands on events â auto-format on save, ping you when a long task ends.</div></div>
+  </div>
+</section>
+
+<!-- 15 TIPS -->
+<section class="sl tips" data-screen-label="15 Tips for Operators">
+  <div class="chrome-tl"><div class="mono">ab</div><div class="name">Alice Bazdikian<span class="sub">Small Business AI Coach</span></div></div>
+  <div class="chrome-br">For Small Teams</div>
+  <div class="eyebrow">For Small Teams</div>
+  <h2 class="h-lg">Five <em>shifts</em> that save weeks.</h2>
+  <div class="gold-underline"></div>
+  <p class="body-md sub">A cheat sheet for the patterns I see most often when entrepreneurs adopt Claude Code. Nothing on the left is fatal â it's just slower than it needs to be.</p>
+  <div class="table">
+    <div class="head-l">Instead of thisâ¦</div>
+    <div class="head-r">Try this.</div>
+    <div class="cell-l">Throwing a vague request and hoping the agent figures it out.</div>
+    <div class="cell-r">Name the file, the change, and the <em>done</em> condition.</div>
+    <div class="cell-l">Letting Claude touch your code on the first turn.</div>
+    <div class="cell-r">Use <em>Plan Mode</em> â approve the plan before any file is edited.</div>
+    <div class="cell-l">Hoping the agent remembers your project conventions.</div>
+    <div class="cell-r">Write them down once in <em>CLAUDE.md</em> â every session reads it.</div>
+    <div class="cell-l">Letting one giant chat hold the whole week of work.</div>
+    <div class="cell-r">Use <em>/compact</em> and <em>/clear</em> to keep context tight and cheap.</div>
+    <div class="cell-l">Eyeballing the diff and hitting accept.</div>
+    <div class="cell-r">Have Claude <em>review its own changes</em> â then commit small.</div>
+  </div>
+</section>
+
+<!-- 16 CONCLUSION / BENEFITS -->
+<section class="sl conclusion" data-screen-label="16 What You Walk Away With">
+  <div class="chrome-tl"><div class="mono">ab</div><div class="name">Alice Bazdikian<span class="sub">Small Business AI Coach</span></div></div>
+  <div class="chrome-br">Conclusion</div>
+  <div class="eyebrow">What you walk away with</div>
+  <h2 class="h-lg">Six <em>compounding</em> wins.</h2>
+  <div class="gold-underline"></div>
+  <div class="grid">
+    <div class="c"><div class="tag">Clarity</div><div class="t">Know what AI agents are.</div><div class="d">Tell agentic AI apart from chat â and pick the right tool for the job.</div></div>
+    <div class="c"><div class="tag">Speed</div><div class="t">Ship in one session.</div><div class="d">Go from idea to merged change in an afternoon, not a sprint.</div></div>
+    <div class="c"><div class="tag">Control</div><div class="t">Approve, don't gamble.</div><div class="d">Plan Mode + small commits = no surprise diffs in your repo.</div></div>
+    <div class="c"><div class="tag">Memory</div><div class="t">Agent that knows your project.</div><div class="d">CLAUDE.md and skills mean every session starts already aligned.</div></div>
+    <div class="c"><div class="tag">Reach</div><div class="t">Wired into your stack.</div><div class="d">MCP and hooks let Claude touch your real tools â GitHub, your DB, your calendar.</div></div>
+    <div class="c"><div class="tag">Edge</div><div class="t">A repeatable workflow.</div><div class="d">Explore â Plan â Code â Commit becomes muscle memory â and your moat.</div></div>
+  </div>
+</section>
+
+<!-- 17 QUOTE -->
+<section class="sl quote-slide" data-screen-label="17 Quote">
+  <div class="wrap">
+    <div class="mark">"</div>
+    <div class="q">The best AI tools don't replace your judgment â they <em>multiply it.</em></div>
+    <div class="attr">
+      <div class="line"></div>
+      <div class="n">Alice Bazdikian</div>
+      <div class="r">Small Business AI Coach</div>
+    </div>
+  </div>
+</section>
+
+<!-- 18 THANK YOU -->
+<section class="sl thanks" data-screen-label="18 Thank You">
+  <div class="left">
+    <div class="eyebrow">Let's Keep Going</div>
+    <h2>Thank<br/><em>you.</em></h2>
+    <div class="ask">What's the first thing you'll ship with Claude Code this week?</div>
+    <div class="contact">
+      <div>
+        <div class="k">Web</div>
+        <div class="v">smallbusinessaicoach.com</div>
+      </div>
+      <div>
+        <div class="k">Email</div>
+        <div class="v">hello@smallbusinessaicoach.com</div>
+      </div>
+      <div>
+        <div class="k">LinkedIn</div>
+        <div class="v">linkedin.com/in/alicebazdikian</div>
+      </div>
+      <div>
+        <div class="k">Source</div>
+        <div class="v">anthropic.skilljar.com<br/>/claude-code-101</div>
+      </div>
+    </div>
+  </div>
+  <div class="right">
+    <div class="portrait"><img src="assets/alice-portrait.jpg" alt="Alice Bazdikian"/></div>
+    <div class="badge">
+      <div class="k">Your Facilitator</div>
+      <div class="v">Alice Bazdikian</div>
+    </div>
+  </div>
+</section>
+
+</deck-stage>
+</body>
+</html>
