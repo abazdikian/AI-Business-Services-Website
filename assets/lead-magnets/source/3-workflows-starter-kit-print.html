@@ -12,15 +12,18 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --burgundy: #7A1530; --burgundy-soft: #9B2440; --burgundy-glow: #C13558;
-      --gold: #D4A84A; --gold-warm: #E6C472; --gold-deep: #A87B1F;
-      --white: #FFFFFF; --offwhite: #FDFBF5; --cream: #F7F3EE;
-      --ink: #2B1A1F; --ink-soft: #6B5A5F; --ink-light: #8B7D81; --rule: #EFE8E3;
-      --grad-sunrise: linear-gradient(135deg, #7A1530 0%, #C13558 60%, #E6C472 100%);
-      /* Editorial sage green — for "savings/positive" semantics, harmonizes with warm palette */
-      --sage: #4A6B4F;
-      --sage-mid: #6B8A6F;
-      --sage-light: #E5EFE7;
+      /* Lead-magnet palette: green primary (growth/savings/go), gold supporting accent.
+         Burgundy is forbidden in lead magnets — site stays burgundy/gold, magnets ship green-first. */
+      --green: #2F6F4F;       --green-soft: #4A8B6F;      --green-glow: #6BB28C;
+      --gold: #D4A84A;        --gold-warm: #E6C472;       --gold-deep: #A87B1F;
+      --white: #FFFFFF;       --offwhite: #FDFBF5;         --cream: #F7F3EE;
+      --ink: #2B1A1F;         --ink-soft: #6B5A5F;         --ink-light: #8B7D81;
+      --rule: #EFE8E3;
+      --sage: #4A6B4F;        --sage-mid: #6B8A6F;         --sage-light: #E5EFE7;
+      --coral: #E5634A;       /* alerts / caveats only */
+      --grad-growth: linear-gradient(135deg, #2F6F4F 0%, #4A8B6F 55%, #E6C472 100%);
+      /* Backwards-compat alias so existing rules using --grad-sunrise still resolve */
+      --grad-sunrise: linear-gradient(135deg, #2F6F4F 0%, #4A8B6F 55%, #E6C472 100%);
     }
 
     @page {
@@ -38,7 +41,7 @@
     html, body { background: var(--white); color: var(--ink); }
     body {
       font-family: 'Nunito', system-ui, sans-serif;
-      font-size: 12.5pt; line-height: 1.6; font-weight: 500;
+      font-size: 14pt; line-height: 1.6; font-weight: 500;
       -webkit-font-smoothing: antialiased;
       -webkit-print-color-adjust: exact; print-color-adjust: exact;
     }
@@ -73,15 +76,15 @@
       padding: 0; position: relative;
       background:
         radial-gradient(ellipse at 85% 5%, rgba(230,196,114,.55), transparent 50%),
-        radial-gradient(ellipse at 0% 100%, rgba(193,53,88,.38), transparent 50%),
+        radial-gradient(ellipse at 0% 100%, rgba(107,178,140,.38), transparent 50%),
         radial-gradient(ellipse at 55% 65%, rgba(212,168,74,.32), transparent 50%),
-        radial-gradient(ellipse at 100% 50%, rgba(122,21,48,.10), transparent 60%),
+        radial-gradient(ellipse at 100% 50%, rgba(47,111,79,.10), transparent 60%),
         var(--white);
     }
     .cover-inner { padding: 1.2in 0.85in 0.85in; height: 11in; display: flex; flex-direction: column; justify-content: space-between; }
     .cover-mark { font-family: 'Nunito', sans-serif; font-size: 9pt; font-weight: 800; letter-spacing: .26em; text-transform: uppercase; color: var(--gold-deep); }
     .cover-mark-row { display: flex; align-items: center; gap: 14px; }
-    .cover-mark-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--burgundy-glow); }
+    .cover-mark-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green-glow); }
     .cover-h1 {
       font-family: 'Fraunces', Georgia, serif; font-weight: 600;
       font-size: 56pt; line-height: 1.0; letter-spacing: -0.03em;
@@ -91,22 +94,47 @@
       font-style: italic;
       background: linear-gradient(135deg, #A87B1F 0%, #D4A84A 45%, #E6C472 100%);
       -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+      position: relative;
     }
+    /* Gold highlighter swoosh BEHIND "Save 10+ hours a week".
+       Painted as a translucent gradient on the bottom 32% of the line height,
+       like a yellow marker pen. Doesn't fight with the gold-clipped text. */
+    .cover-h1-swoosh {
+      display: inline;
+      background-image: linear-gradient(180deg,
+        transparent 0%,
+        transparent 64%,
+        rgba(212, 168, 74, 0.35) 64%,
+        rgba(212, 168, 74, 0.35) 94%,
+        transparent 94%);
+      padding: 0 0.04em;
+    }
+    /* Cover hero infographic — editorial, no boxes. Sits in the lower-right
+       white space between the meta row and the foot, sized small so it doesn't
+       fight the headline or overlap the deck text. */
+    .cover-hero-art {
+      position: absolute;
+      right: 0.55in; bottom: 1.4in;
+      width: 2.8in; height: 2.8in;
+      pointer-events: none;
+      opacity: 0.95;
+    }
+    .cover-hero-art svg { width: 100%; height: 100%; display: block; }
     .cover-deck {
       font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 400;
       font-size: 16pt; line-height: 1.35; color: var(--ink-soft); margin: 0 0 32px; max-width: 5.6in;
     }
     .cover-meta { display: flex; gap: 18px; flex-wrap: wrap; font-size: 9pt; color: var(--ink-soft); margin-top: 14px; }
-    .cover-meta strong { color: var(--burgundy); font-weight: 800; }
+    .cover-meta strong { color: var(--green); font-weight: 800; }
     .cover-foot { display: flex; align-items: center; gap: 14px; padding-top: 18px; border-top: 1px solid var(--rule); }
     .cover-foot-photo { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; }
     .cover-foot-name { font-family: 'Fraunces', Georgia, serif; font-size: 12pt; font-weight: 600; color: var(--ink); }
     .cover-foot-tag { font-size: 9pt; color: var(--ink-soft); }
-    .cover-foot-url { margin-left: auto; font-size: 9pt; color: var(--burgundy); font-weight: 700; letter-spacing: .04em; }
+    .cover-foot-url { margin-left: auto; font-size: 9pt; color: var(--green); font-weight: 700; letter-spacing: .04em; }
 
     /* INTRO */
     .intro-h2 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 28pt; line-height: 1.05; letter-spacing: -0.025em; margin: 0 0 18px; color: var(--ink); }
-    .intro-h2 em { font-style: italic; color: var(--burgundy); }
+    .intro-h2 em { font-style: italic; color: var(--green); }
     .intro-quotes { display: grid; gap: 14px; margin: 22px 0; }
     .intro-quote {
       position: relative;
@@ -132,27 +160,59 @@
     .intro-quote-src {
       display: block; font-family: 'Nunito', sans-serif;
       font-size: 8pt; font-weight: 800; letter-spacing: .18em; text-transform: uppercase;
-      color: var(--burgundy);
+      color: var(--green);
       padding: 0; margin: 0;
     }
     .intro-close { font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: 14pt; line-height: 1.4; color: var(--ink); margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--rule); }
-    .intro-close strong { font-style: normal; color: var(--burgundy); font-weight: 700; }
+    .intro-close strong { font-style: normal; color: var(--green); font-weight: 700; }
 
     /* SETUP page (between intro and WF1) — compact so all 4 cards + closing callout fit on one printed page */
     .setup-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 18px 0; }
     .setup-card { background: var(--white); border: 1px solid var(--rule); border-radius: 12px; padding: 16px 18px; break-inside: avoid; page-break-inside: avoid; }
     .setup-card-eyebrow { font-family: 'Nunito', sans-serif; font-size: 7.5pt; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; color: var(--gold-deep); margin-bottom: 4px; }
     .setup-card-title { font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 13pt; line-height: 1.2; letter-spacing: -0.01em; color: var(--ink); margin: 0 0 6px; }
-    .setup-card-text { font-size: 10pt; line-height: 1.45; color: var(--ink); margin: 0 0 4px; font-weight: 500; }
+    .setup-card-text { font-size: 12pt; line-height: 1.5; color: var(--ink); margin: 0 0 4px; font-weight: 500; }
     .setup-card-meta { font-size: 9pt; color: var(--ink-soft); margin: 6px 0 0; }
-    .setup-card-meta strong { color: var(--burgundy); font-weight: 800; }
+    .setup-card-meta strong { color: var(--green); font-weight: 800; }
     .setup-start { padding-top: 0; }
+
+    /* HOW TO USE CLAUDE DESKTOP page — numbered editorial steps with real screenshots */
+    .howto-step {
+      display: grid; grid-template-columns: 60px 1fr; gap: 18px;
+      margin: 22px 0;
+      break-inside: avoid; page-break-inside: avoid;
+    }
+    .howto-step-num {
+      font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 600;
+      font-size: 36pt; line-height: 1; letter-spacing: -0.02em;
+      background: var(--grad-growth);
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .howto-step-title {
+      font-family: 'Fraunces', Georgia, serif; font-weight: 600;
+      font-size: 16pt; line-height: 1.2; letter-spacing: -0.015em;
+      color: var(--ink); margin: 4px 0 8px;
+    }
+    .howto-step-title em { font-style: italic; color: var(--green); }
+    .howto-step-text { font-size: 11pt; line-height: 1.55; color: var(--ink); margin: 0 0 10px; }
+    .howto-shot {
+      background: var(--white); border: 1px solid var(--rule); border-radius: 12px;
+      padding: 10px; margin-top: 8px;
+    }
+    .howto-shot img {
+      max-width: 100%; height: auto; display: block;
+      border-radius: 6px;
+    }
+    .howto-shot-cap {
+      font-family: 'Nunito', sans-serif; font-size: 8.5pt; color: var(--ink-soft);
+      font-style: italic; margin: 8px 4px 2px;
+    }
 
     /* BONUS starburst badge for Workflow 04 chapter — large magazine-style splash */
     .chapter-header { position: relative; }
     .bonus-starburst {
-      position: absolute; top: -28px; right: -16px;
-      width: 220px; height: 220px;
+      position: absolute; top: -36px; right: -28px;
+      width: 270px; height: 270px;
       display: flex; align-items: center; justify-content: center;
       transform: rotate(12deg);
     }
@@ -161,15 +221,16 @@
       position: absolute; inset: 0;
       display: flex; flex-direction: column; align-items: center; justify-content: center;
       font-family: 'Nunito', sans-serif; font-weight: 800; color: var(--ink);
-      letter-spacing: .1em; text-transform: uppercase; line-height: 1; text-align: center;
-      font-size: 22pt;
+      letter-spacing: .08em; text-transform: uppercase; line-height: 1; text-align: center;
+      font-size: 24pt;
+      padding: 0 18px;
     }
-    .bonus-starburst-text small { font-size: 13pt; letter-spacing: .18em; margin-top: 8px; opacity: .9; font-weight: 800; display: block; }
+    .bonus-starburst-text small { font-size: 14pt; letter-spacing: .16em; margin-top: 9px; opacity: .9; font-weight: 800; display: block; }
 
     /* WORKFLOW CHAPTER */
     .chapter-header { padding-bottom: 14px; border-bottom: 1px solid var(--rule); margin-bottom: 18px; }
     /* WF04 chapter has the BONUS starburst pinned to the top-right; reserve space so subhead text doesn't run under it */
-    .workflow-start:has(.bonus-starburst) .chapter-header { padding-right: 200px; min-height: 200px; }
+    .workflow-start:has(.bonus-starburst) .chapter-header { padding-right: 250px; min-height: 250px; }
     .chapter-num {
       display: inline-block; font-family: 'Fraunces', Georgia, serif; font-style: italic;
       font-size: 38pt; font-weight: 400; line-height: 1;
@@ -189,25 +250,31 @@
 
     .section-h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 14pt; line-height: 1.2; color: var(--ink); margin: 14px 0 6px; }
     .check-list { list-style: none; padding: 0; margin: 8px 0 14px; }
-    .check-list li { padding-left: 22px; position: relative; margin: 5px 0; font-size: 10pt; line-height: 1.5; color: var(--ink-soft); }
+    .check-list li { padding-left: 22px; position: relative; margin: 5px 0; font-size: 11.5pt; line-height: 1.55; color: var(--ink-soft); }
     .check-list li::before {
       content: "✓"; position: absolute; left: 0; top: 0;
-      font-weight: 800; color: var(--burgundy);
+      font-weight: 800; color: var(--green);
     }
 
+    /* Light prompt box — copy-paste friendly. The text in the PDF is true near-black
+       so when readers select+copy and paste into a doc, they get readable dark text,
+       not white-on-white. Visual signature kept via cream surface + green accent rule. */
     .prompt-box {
-      background: #1F1A1B; color: #F2EBE0; border-radius: 12px;
+      background: #F5EFE3;                              /* warm cream */
+      color: #1A1A1A;                                   /* near-black text */
+      border-radius: 12px;
+      border-left: 4px solid var(--green);              /* green accent rule */
       padding: 18px 22px; margin: 14px 0;
       /* SYSTEM monospace only — Chrome's PDF engine embeds these as selectable text.
          Web fonts (e.g. JetBrains Mono) get rasterized to glyph paths and break copy-paste. */
       font-family: Menlo, Consolas, "Courier New", monospace;
-      font-size: 9.5pt; line-height: 1.55;
+      font-size: 10.5pt; line-height: 1.6;
       user-select: text; -webkit-user-select: text;
     }
     .prompt-box-label {
       display: block; font-family: 'Nunito', sans-serif;
-      font-size: 7.5pt; font-weight: 800; letter-spacing: .22em; text-transform: uppercase;
-      color: var(--gold-warm); margin-bottom: 10px;
+      font-size: 8pt; font-weight: 800; letter-spacing: .22em; text-transform: uppercase;
+      color: var(--green); margin-bottom: 10px;
     }
     .prompt-box pre { font-family: inherit; font-size: inherit; line-height: inherit; color: inherit; white-space: pre-wrap; word-wrap: break-word; margin: 0; }
 
@@ -219,24 +286,24 @@
     .screenshot-box-cap { font-size: 8pt; color: var(--ink-soft); margin-top: 10px; font-style: italic; }
 
     .callout {
-      background: linear-gradient(135deg, rgba(230,196,114,.28), rgba(193,53,88,.14));
+      background: linear-gradient(135deg, rgba(230,196,114,.28), rgba(107,178,140,.14));
       border: 1px solid var(--gold); border-radius: 12px;
       padding: 14px 18px; margin: 14px 0;
-      font-size: 10pt; line-height: 1.5; color: var(--ink);
+      font-size: 11.5pt; line-height: 1.55; color: var(--ink);
     }
     .callout-title {
       display: block; font-family: 'Nunito', sans-serif; font-size: 8pt;
       font-weight: 800; letter-spacing: .22em; text-transform: uppercase;
-      color: var(--burgundy); margin-bottom: 6px;
+      color: var(--green); margin-bottom: 6px;
     }
-    .callout-caveat { background: rgba(193,53,88,.06); border-color: var(--burgundy-glow); }
-    .callout-caveat .callout-title { color: var(--burgundy); }
+    .callout-caveat { background: rgba(107,178,140,.06); border-color: var(--green-glow); }
+    .callout-caveat .callout-title { color: var(--green); }
 
     /* CLOSER */
     .closer { background: var(--white); position: relative; }
-    .closer::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse at 80% 0%, rgba(230,196,114,.20), transparent 55%), radial-gradient(ellipse at 0% 100%, rgba(193,53,88,.10), transparent 50%); }
+    .closer::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse at 80% 0%, rgba(230,196,114,.20), transparent 55%), radial-gradient(ellipse at 0% 100%, rgba(107,178,140,.10), transparent 50%); }
     .closer > * { position: relative; }
-    .closer-h2 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 32pt; line-height: 1.1; letter-spacing: -0.025em; margin: 0 0 16px; color: var(--burgundy); }
+    .closer-h2 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 32pt; line-height: 1.1; letter-spacing: -0.025em; margin: 0 0 16px; color: var(--green); }
     .closer-cta-card {
       background: var(--white); border: 2px solid var(--gold); border-radius: 18px;
       padding: 26px 28px; margin: 18px 0;
@@ -252,7 +319,7 @@
     }
     .closer-secondary { font-size: 9pt; color: var(--ink-soft); text-align: center; margin-top: 18px; }
     .closer-ladder { font-size: 10pt; color: var(--ink-soft); line-height: 1.55; margin: 18px 0 0; padding: 14px 16px; border-left: 2px solid var(--rule); }
-    .closer-ladder a { color: var(--burgundy); font-weight: 700; text-decoration: underline; }
+    .closer-ladder a { color: var(--green); font-weight: 700; text-decoration: underline; }
 
     /* ── PRINT: keep ONLY large boxes intact; let small callouts flow so they don't orphan ── */
     .prompt-box,
@@ -261,7 +328,9 @@
       break-inside: avoid;
       page-break-inside: avoid;
     }
-    /* .callout is intentionally allowed to split; orphaning a 3-line callout on its own page wastes a whole sheet */
+    /* Caveats must NEVER be split — orphaning the warning text loses the safety signal */
+    .callout-caveat { break-inside: avoid; page-break-inside: avoid; }
+    /* .callout (default gold) is intentionally allowed to split; orphaning a 3-line callout on its own page wastes a whole sheet */
     /* Don't widow a section heading at the bottom of a page */
     .section-h3 {
       break-after: avoid-page;
@@ -279,7 +348,54 @@
           <span class="cover-mark-dot"></span>
           <span class="cover-mark">The Starter Kit · No. 01</span>
         </div>
-        <h1 class="cover-h1">3 AI Workflows for Small Business Owners. <em>Save 10+ hours a week.</em></h1>
+        <h1 class="cover-h1">3 AI Workflows for Small Business Owners. <em><span class="cover-h1-swoosh">Save 10+ hours a week.</span></em></h1>
+        <!-- Editorial hero infographic: stylized clock at center, 4 flowing arcs streaming in. -->
+        <div class="cover-hero-art" aria-hidden="true">
+          <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#E6C472" stop-opacity="0.30"/>
+                <stop offset="100%" stop-color="#E6C472" stop-opacity="0"/>
+              </radialGradient>
+              <linearGradient id="goldStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#A87B1F"/>
+                <stop offset="100%" stop-color="#E6C472"/>
+              </linearGradient>
+              <linearGradient id="greenStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#2F6F4F"/>
+                <stop offset="100%" stop-color="#6BB28C"/>
+              </linearGradient>
+            </defs>
+
+            <!-- Soft glow halo -->
+            <circle cx="200" cy="200" r="170" fill="url(#centerGlow)"/>
+
+            <!-- 4 flowing streams from each edge into center -->
+            <path d="M 60 60   C 120 120, 150 150, 195 195"   stroke="url(#greenStroke)" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.75"/>
+            <path d="M 340 60  C 280 120, 250 150, 205 195"  stroke="url(#goldStroke)"  stroke-width="4" fill="none" stroke-linecap="round" opacity="0.75"/>
+            <path d="M 60 340  C 120 280, 150 250, 195 205"  stroke="url(#goldStroke)"  stroke-width="4" fill="none" stroke-linecap="round" opacity="0.75"/>
+            <path d="M 340 340 C 280 280, 250 250, 205 205" stroke="url(#greenStroke)" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.75"/>
+
+            <!-- Small circles at the start of each stream — abstract "workflow source" -->
+            <circle cx="60"  cy="60"  r="9" fill="#2F6F4F" opacity="0.85"/>
+            <circle cx="340" cy="60"  r="9" fill="#A87B1F" opacity="0.85"/>
+            <circle cx="60"  cy="340" r="9" fill="#A87B1F" opacity="0.85"/>
+            <circle cx="340" cy="340" r="9" fill="#2F6F4F" opacity="0.85"/>
+
+            <!-- Center: editorial clock with 10+ hrs -->
+            <circle cx="200" cy="200" r="82" fill="#FDFBF5" stroke="#A87B1F" stroke-width="2.5"/>
+            <circle cx="200" cy="200" r="72" fill="none"     stroke="#D4A84A" stroke-width="0.8" opacity="0.6"/>
+            <!-- clock tick marks (12, 3, 6, 9) -->
+            <line x1="200" y1="132" x2="200" y2="144" stroke="#A87B1F" stroke-width="2" stroke-linecap="round"/>
+            <line x1="268" y1="200" x2="256" y2="200" stroke="#A87B1F" stroke-width="2" stroke-linecap="round"/>
+            <line x1="200" y1="268" x2="200" y2="256" stroke="#A87B1F" stroke-width="2" stroke-linecap="round"/>
+            <line x1="132" y1="200" x2="144" y2="200" stroke="#A87B1F" stroke-width="2" stroke-linecap="round"/>
+            <!-- "10+ / HRS / WEEK / SAVED" -->
+            <text x="200" y="196" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="44" font-weight="700" fill="#2F6F4F" font-style="italic">10+</text>
+            <text x="200" y="222" text-anchor="middle" font-family="Nunito, sans-serif" font-size="11" font-weight="800" letter-spacing="3" fill="#A87B1F">HRS / WEEK</text>
+            <text x="200" y="238" text-anchor="middle" font-family="Nunito, sans-serif" font-size="8.5" font-weight="700" letter-spacing="2.4" fill="#6B5A5F">SAVED</text>
+          </svg>
+        </div>
         <p class="cover-deck">A 14-page editorial guide. Real prompts, real screenshots, real outcomes. Plus one bonus workflow nobody else is teaching.</p>
         <div class="cover-meta">
           <span><strong>14 pages</strong></span>
@@ -349,8 +465,8 @@
 
       <div class="setup-card">
         <p class="setup-card-eyebrow">⏱ The time</p>
-        <h3 class="setup-card-title">≈ 30 minutes total · spread across a week</h3>
-        <p class="setup-card-text">10 min for the inbox triage prompt. 15 min to build your Claude Project. 5 min for the marketing loop. Don't try to set up all four in one sitting. Pick the workflow that matches your loudest current pain (most owners pick Workflow 01) and ship that one this week.</p>
+        <h3 class="setup-card-title">≈ 60 minutes total · spread across a week</h3>
+        <p class="setup-card-text">15 min for the inbox triage prompt. 30 min to build your Claude Project. 15 min for the marketing loop. Don't try to set up all four in one sitting. Pick the workflow that matches your loudest current pain (most owners pick Workflow 01) and ship that one this week.</p>
       </div>
 
       <div class="setup-card">
@@ -373,6 +489,45 @@
 
   </section>
 
+  <!-- ───────── HOW TO PAGE: Claude Desktop walkthrough ───────── -->
+  <section class="page setup-start">
+    <p class="eyebrow">How to use this kit</p>
+    <h2 class="intro-h2">Open Claude. Paste a prompt. <em>That's it.</em></h2>
+    <p style="margin-top: 8px;">Every workflow in this kit runs in one place: <strong>Claude Desktop</strong> (free download) or <strong>Claude.ai</strong> in your browser. No coding. No integrations. No extra tools to install. Two steps to your first hour back.</p>
+
+    <!-- Step 1 -->
+    <div class="howto-step">
+      <div class="howto-step-num">01</div>
+      <div class="howto-step-body">
+        <h3 class="howto-step-title">Download Claude Desktop (or use claude.ai in your browser).</h3>
+        <p class="howto-step-text">Go to <strong>claude.ai/download</strong>. One-click installer for Mac, Windows. The web app at claude.ai works the same if you'd rather skip installing. Both let you run every workflow in this kit.</p>
+        <div class="howto-shot">
+          <img src="../../../Brand Assets/lead-magnet-screenshots/claude-download-page.png" alt="Claude download page with macOS install button" />
+          <p class="howto-shot-cap">Anthropic's official download page · claude.ai/download</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="howto-step">
+      <div class="howto-step-num">02</div>
+      <div class="howto-step-body">
+        <h3 class="howto-step-title">Click <em>+ New chat</em>, paste a prompt from this kit, then paste your inputs below it.</h3>
+        <p class="howto-step-text">The "+ New chat" button lives top-left. Paste any prompt from this guide into the message box, then paste your real inputs (emails, OCR'd invoices, weekly topics) right under it. Hit send. The first reply lands in seconds.</p>
+        <div class="howto-shot">
+          <img src="../../../Brand Assets/lead-magnet-screenshots/claude-desktop-home.png" alt="Claude Desktop interface showing the chat sidebar, projects, and message input" />
+          <p class="howto-shot-cap">Claude Desktop · Chat sidebar (left), message input (center), recent threads pinned for reuse</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <span class="callout-title">📐 The pattern for every workflow</span>
+      <strong>Prompt on top, inputs below.</strong> The prompt teaches Claude how to think. Your inputs (emails, invoice text, weekly topic) are what it works on. Same shape every time, only the prompt changes.
+    </div>
+
+  </section>
+
   <!-- ───────── PAGES 4-5: WORKFLOW 01 ───────── -->
   <section class="page workflow-start">
     <header class="chapter-header">
@@ -382,7 +537,7 @@
       <p style="font-size: 11pt; color: var(--ink-soft); margin: 6px 0 0;">Turn 90 minutes a day on email into 15. One prompt classifies, drafts replies, and flags what's actually urgent.</p>
       <div class="chapter-pills">
         <span class="chapter-pill chapter-pill--time">Saves ≈ 5 hrs/week</span>
-        <span class="chapter-pill chapter-pill--setup">Setup: 2 min</span>
+        <span class="chapter-pill chapter-pill--setup">Setup: 15 min</span>
         <span class="chapter-pill chapter-pill--tool">Tool: Claude.ai (Chat) · Pro $20/mo</span>
       </div>
     </header>
@@ -426,8 +581,12 @@ EMAILS:
   <section class="page">
     <h3 class="section-h3">What it looks like running.</h3>
     <div class="screenshot-box">
-      <img src="../../../Brand Assets/lead-magnet-screenshots/wf1-inbox-triage.png" alt="Claude triaging an inbox into a clean table" />
-      <p class="screenshot-box-cap">What the output looks like. Claude returns a triaged table with classifications, urgencies, and draft replies. ≈ 30 seconds for 8 emails.</p>
+      <img src="../../../Brand Assets/lead-magnet-screenshots/wf1-prompt-pasted.png" alt="Pasting the Inbox Triage prompt into a fresh Claude chat" />
+      <p class="screenshot-box-cap">Step 1. Paste the prompt into a fresh Claude chat. Claude reads the rules and waits for your inputs.</p>
+    </div>
+    <div class="screenshot-box">
+      <img src="../../../Brand Assets/lead-magnet-screenshots/wf1-output-table.png" alt="Claude returning a triaged table of emails with classes, urgency, and suggested replies" />
+      <p class="screenshot-box-cap">Step 2. Claude triages your real emails into a clean table with class, urgency, and suggested replies. ≈ 60–90 seconds for 8 emails.</p>
     </div>
 
     <h3 class="section-h3">How to know it's working.</h3>
@@ -462,7 +621,7 @@ EMAILS:
       <p style="font-size: 11pt; color: var(--ink-soft); margin: 6px 0 0;">Stop re-explaining your business every time you talk to AI. Train it once, with a doc you already have. Reuse it forever.</p>
       <div class="chapter-pills">
         <span class="chapter-pill chapter-pill--time">Saves ≈ 3 hrs/week</span>
-        <span class="chapter-pill chapter-pill--setup">Setup: 15 min, once</span>
+        <span class="chapter-pill chapter-pill--setup">Setup: 30 min, once</span>
         <span class="chapter-pill chapter-pill--tool">Tool: Claude.ai (Projects) · Pro $20/mo</span>
       </div>
     </header>
@@ -475,7 +634,7 @@ EMAILS:
       <li>You think "if I could just clone my business knowledge into AI once", that's exactly what this does.</li>
     </ul>
 
-    <h3 class="section-h3">The exact setup (15 minutes, once).</h3>
+    <h3 class="section-h3">The exact setup (30 minutes, once).</h3>
     <ol style="margin: 8px 0 14px 18px; font-size: 10pt; line-height: 1.7;">
       <li><strong>Open Claude.ai.</strong> Click the "Projects" sidebar (Pro feature, $20/mo).</li>
       <li><strong>Create a project</strong> called "[Your Biz] Knowledge Base."</li>
@@ -517,8 +676,12 @@ Rules for every reply:
 
     <h3 class="section-h3">What it looks like running.</h3>
     <div class="screenshot-box">
-      <img src="../../../Brand Assets/lead-magnet-screenshots/wf2-claude-project.png" alt="Claude Project with uploaded SOP files visible in the sidebar" />
-      <p class="screenshot-box-cap">What the setup looks like. a Claude Project with your SOPs uploaded. Every chat in the project pulls from the docs automatically.</p>
+      <img src="../../../Brand Assets/lead-magnet-screenshots/wf2-system-prompt.png" alt="Pasting the SOP-to-AI-Trainer system prompt into a Claude Project" />
+      <p class="screenshot-box-cap">Step 1. Paste the system prompt into the Project's Custom Instructions. Claude now answers every chat in this project with your docs as the source of truth.</p>
+    </div>
+    <div class="screenshot-box">
+      <img src="../../../Brand Assets/lead-magnet-screenshots/wf2-rules-locked.png" alt="Claude confirming the 5 rules and asking what to work on" />
+      <p class="screenshot-box-cap">Step 2. Claude locks in your rules and asks what you want to work on. From now on, every reply uses your business as context — no re-pasting.</p>
     </div>
 
     <div class="page-footer">
@@ -560,7 +723,7 @@ Rules for every reply:
       <p style="font-size: 11pt; color: var(--ink-soft); margin: 6px 0 0;">5 reel scripts and a newsletter outline from one prompt. Built around your brand voice. Repeats every week with a single click.</p>
       <div class="chapter-pills">
         <span class="chapter-pill chapter-pill--time">Saves ≈ 4 hrs/week</span>
-        <span class="chapter-pill chapter-pill--setup">Setup: 5 min</span>
+        <span class="chapter-pill chapter-pill--setup">Setup: 15 min</span>
         <span class="chapter-pill chapter-pill--tool">Tool: Claude.ai (Chat) · Pro $20/mo</span>
       </div>
     </header>
@@ -612,8 +775,12 @@ copy.</pre>
   <section class="page">
     <h3 class="section-h3">What it looks like running.</h3>
     <div class="screenshot-box">
-      <img src="../../../Brand Assets/lead-magnet-screenshots/wf3-marketing-loop.png" alt="Claude generating 5 reel scripts and a newsletter outline in one response" />
-      <p class="screenshot-box-cap">What the output looks like. one prompt → 5 reel scripts + 1 newsletter outline + subject line, all in your brand voice. ≈ 90 seconds.</p>
+      <img src="../../../Brand Assets/lead-magnet-screenshots/wf3-prompt-filled.png" alt="Pasting the Weekly Marketing Loop prompt with this week's topic, pain, and offer filled in" />
+      <p class="screenshot-box-cap">Step 1. Paste the prompt with this week's TOPIC, PAIN, and OFFER filled in. The only thing that changes week to week is those 3 lines.</p>
+    </div>
+    <div class="screenshot-box">
+      <img src="../../../Brand Assets/lead-magnet-screenshots/wf3-reels-output.png" alt="Claude returning 5 reel scripts (Confessional, Contrarian, Checklist, Story) ready to record" />
+      <p class="screenshot-box-cap">Step 2. Claude returns 5 reel scripts (Confessional, Contrarian, Checklist, Story, Stat) plus a newsletter outline, all in your voice. ≈ 2–3 minutes the first run.</p>
     </div>
 
     <h3 class="section-h3">How to know it's working.</h3>
@@ -643,7 +810,7 @@ copy.</pre>
       <span class="callout-title">📐 The math</span>
       Old way: 1 reel idea → 30 min to write the script → 20 min to record → 15 min to edit. Roughly 90 min per reel × 5 reels = 7.5 hours/week on content alone.
       <br><br>
-      New way (this loop): 90 seconds to generate 5 scripts → 60 minutes to batch-record → 60 minutes to batch-edit. ≈ 2 hours/week. <strong>Saves ≈ 4–5 hours/week.</strong>
+      New way (this loop): 2–3 minutes to generate 5 scripts → 60 minutes to batch-record → 60 minutes to batch-edit. ≈ 2 hours/week. <strong>Saves ≈ 4–5 hours/week.</strong>
     </div>
 
     <p style="margin-top: 22px; font-size: 10pt; color: var(--ink-soft); font-style: italic;">· End of the 3 main workflows. Keep reading for the surprise bonus on the next page.</p>
@@ -669,12 +836,12 @@ copy.</pre>
       <p style="font-size: 11pt; color: var(--ink-soft); margin: 6px 0 0;">For the loudest pain on the internet: manual supplier invoices, manual VAT entry, manual everything. Stop re-typing.</p>
       <div class="chapter-pills">
         <span class="chapter-pill chapter-pill--time">Saves 3–6 hrs/week</span>
-        <span class="chapter-pill chapter-pill--setup">Setup: 10 min, once</span>
+        <span class="chapter-pill chapter-pill--setup">Setup: 20 min, once</span>
         <span class="chapter-pill chapter-pill--tool">Tool: Claude.ai (Chat) · Pro $20/mo · + phone scan app (free)</span>
       </div>
     </header>
 
-    <p style="margin-top: 6px;">This one's for the small business owner from  who said: <em>"I'm drowning in manual work. We manually enter every supplier invoice and then manually log into the bank to set up every single payment."</em> If that's you, this might be the most valuable 10 minutes you spend this month.</p>
+    <p style="margin-top: 6px;">This one's for the small business owner from  who said: <em>"I'm drowning in manual work. We manually enter every supplier invoice and then manually log into the bank to set up every single payment."</em> If that's you, this might be the most valuable 20 minutes you spend this month.</p>
 
     <h3 class="section-h3">You'll recognize this if…</h3>
     <ul class="check-list">
@@ -684,7 +851,7 @@ copy.</pre>
       <li>Your bookkeeper bills you for "data entry hours."</li>
     </ul>
 
-    <h3 class="section-h3">The 10-minute setup.</h3>
+    <h3 class="section-h3">The 20-minute setup.</h3>
     <ol style="margin: 8px 0 14px 18px; font-size: 10pt; line-height: 1.7;">
       <li><strong>OCR your invoices.</strong> No fancy tool needed. Apple Notes (iPhone scan) or Google Drive (mobile scan) both OCR for free. Bonus: Adobe Scan (free tier).</li>
       <li><strong>Open Claude</strong> (free or Pro). Paste the OCR'd text from up to 10 invoices in one go.</li>
@@ -737,7 +904,7 @@ INVOICE TEXT:
     <h3 class="section-h3">What it looks like running.</h3>
     <div class="screenshot-box">
       <img src="../../../Brand Assets/lead-magnet-screenshots/wf4-invoice-killer.png" alt="Claude returning a clean CSV row from messy OCR'd invoice text" />
-      <p class="screenshot-box-cap">What the output looks like. 10 invoices → 10 clean CSV rows, ready for QuickBooks / Xero / Wave. ≈ 90 seconds vs ≈ 30 minutes.</p>
+      <p class="screenshot-box-cap">What the output looks like. 10 invoices → 10 clean CSV rows, ready for QuickBooks / Xero / Wave. ≈ 3–4 minutes vs ≈ 30 minutes manual.</p>
     </div>
 
     <div class="callout callout-caveat">
@@ -773,7 +940,7 @@ INVOICE TEXT:
       <span class="callout-title">📐 The conservative math</span>
       Workflow 01 (5 hrs) + Workflow 02 (3 hrs) + Workflow 03 (4 hrs) = <strong>12 hours a week.</strong>
       <br>Add Workflow 04 if invoices are part of your day = <strong>15–18 hours a week.</strong>
-      <br>That's more than two full work-days reclaimed, every week, for a one-time setup of about 30 minutes total.
+      <br>That's more than two full work-days reclaimed, every week, for a one-time setup of about 60 minutes total spread across a week.
     </div>
 
     <h3 class="section-h3">The order I'd ship them in.</h3>
@@ -794,13 +961,13 @@ INVOICE TEXT:
   <section class="page closer closer-start">
     <p class="eyebrow">What's next</p>
     <h2 class="closer-h2">Want me to wire all four into YOUR business, live?</h2>
-    <p>Reading the workflows is one thing. Building them on your actual business, with your actual docs, with someone who's done it 200+ times sitting next to you on Zoom, that's a different speed.</p>
+    <p>Reading the workflows is one thing. Building them on your actual business, with your actual docs, with someone who's done it 200+ times sitting next to you on Google Meet, that's a different speed.</p>
 
     <div class="closer-cta-card">
       <p class="closer-cta-eyebrow">⭐ Recommended next step · Free</p>
       <h3 class="closer-cta-title">The 30-Day AI Reset for Small Business Owners.</h3>
-      <p class="closer-cta-text">A free 60-minute live workshop on <strong>Wed June 3 at 6pm ET</strong>. I run the audit on a real attendee's business and build 3 of these workflows in front of you. Live Q&amp;A at the end. Capped at 50 live seats. Replay only for live attendees.</p>
-      <a href="https://www.smallbusinessaicoach.com/webinar" class="closer-cta-link">Save my seat (free) →</a>
+      <p class="closer-cta-text">A free 90-minute live workshop on <strong>Wed June 3 at 7pm ET</strong>. I run the audit on a real attendee's business and install the full 4-Workflow Stack live in front of you. Live Q&amp;A at the end. Capped at 50 live seats. Replay only for live attendees. Live on Google Meet.</p>
+      <a href="https://www.smallbusinessaicoach.com/webinar#rsvp" class="closer-cta-link">Save my seat (free) →</a>
     </div>
 
     <p class="closer-ladder">If the workshop tells you "yes, I want this with hands-on coaching," the next step is the paid <a href="https://www.smallbusinessaicoach.com/accelerator">30-Day AI Accelerator</a> ($1,000, weekly group coaching, 4 weeks). Don't sign up cold. Come to the workshop first.</p>
