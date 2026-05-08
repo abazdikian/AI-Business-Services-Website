@@ -81,14 +81,24 @@
         radial-gradient(ellipse at 100% 50%, rgba(47,111,79,.10), transparent 60%),
         var(--white);
     }
-    .cover-inner { padding: 1.2in 0.85in 0.85in; height: 11in; display: flex; flex-direction: column; justify-content: space-between; }
-    .cover-mark { font-family: 'Nunito', sans-serif; font-size: 9pt; font-weight: 800; letter-spacing: .26em; text-transform: uppercase; color: var(--gold-deep); }
-    .cover-mark-row { display: flex; align-items: center; gap: 14px; }
-    .cover-mark-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green-glow); }
+    .cover-inner { padding: 0.7in 0.6in 0.55in; height: 11in; display: flex; flex-direction: column; justify-content: space-between; }
+    .cover-mark { font-family: 'Nunito', sans-serif; font-size: 10pt; font-weight: 800; letter-spacing: .26em; text-transform: uppercase; color: var(--green); }
+    .cover-mark-row { display: flex; align-items: center; gap: 12px; }
+    .cover-mark-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--green); }
+    .cover-bonus-ribbon {
+      margin-left: auto;
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'Nunito', sans-serif; font-size: 9pt; font-weight: 800;
+      letter-spacing: .22em; text-transform: uppercase; color: var(--ink);
+      background: linear-gradient(135deg, #E6C472 0%, #D4A84A 60%, #A87B1F 100%);
+      padding: 7px 14px; border-radius: 999px;
+      box-shadow: 0 0 0 3px rgba(212,168,74,0.18);
+    }
+    .cover-bonus-ribbon::before { content: "✦"; font-size: 11pt; line-height: 1; }
     .cover-h1 {
       font-family: 'Fraunces', Georgia, serif; font-weight: 600;
-      font-size: 56pt; line-height: 1.0; letter-spacing: -0.03em;
-      margin: 22px 0 18px; color: var(--ink);
+      font-size: 60pt; line-height: 0.98; letter-spacing: -0.035em;
+      margin: 28px 0 20px; color: var(--ink);
     }
     .cover-h1 em {
       font-style: italic;
@@ -96,41 +106,48 @@
       -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
       position: relative;
     }
-    /* Gold highlighter swoosh BEHIND "Save 10+ hours a week".
-       Painted as a translucent gradient on the bottom 32% of the line height,
-       like a yellow marker pen. Doesn't fight with the gold-clipped text. */
+    /* Hand-drawn gold swoosh UNDERLINE beneath the italic phrase.
+       Drawn as an inline SVG via background-image, tiled per-line via
+       box-decoration-break so multi-line phrases each get their own swoosh. */
     .cover-h1-swoosh {
       display: inline;
-      background-image: linear-gradient(180deg,
-        transparent 0%,
-        transparent 64%,
-        rgba(212, 168, 74, 0.35) 64%,
-        rgba(212, 168, 74, 0.35) 94%,
-        transparent 94%);
-      padding: 0 0.04em;
+      padding: 0 0.04em 0.18em;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 14' preserveAspectRatio='none'><path d='M2,9 C 40,2 90,12 130,6 C 160,2 185,8 198,5' stroke='%23D4A84A' stroke-width='5' stroke-linecap='round' fill='none' opacity='0.78'/></svg>");
+      background-repeat: no-repeat;
+      background-position: 0 100%;
+      background-size: 100% 0.22em;
+      -webkit-box-decoration-break: clone;
+              box-decoration-break: clone;
     }
-    /* Cover hero infographic — editorial, no boxes. Sits in the lower-right
-       white space between the meta row and the foot, sized small so it doesn't
-       fight the headline or overlap the deck text. */
-    .cover-hero-art {
-      position: absolute;
-      right: 0.55in; bottom: 1.4in;
-      width: 2.8in; height: 2.8in;
-      pointer-events: none;
-      opacity: 0.95;
-    }
-    .cover-hero-art svg { width: 100%; height: 100%; display: block; }
+    /* Cover deck — italic kicker under the headline. */
     .cover-deck {
       font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 400;
-      font-size: 16pt; line-height: 1.35; color: var(--ink-soft); margin: 0 0 32px; max-width: 5.6in;
+      font-size: 17pt; line-height: 1.4; color: var(--ink-soft); margin: 0 0 22px; max-width: 5.4in;
     }
-    .cover-meta { display: flex; gap: 18px; flex-wrap: wrap; font-size: 9pt; color: var(--ink-soft); margin-top: 14px; }
+    .cover-meta { display: flex; gap: 22px; flex-wrap: wrap; font-size: 11pt; color: var(--ink-soft); margin: 0; padding: 14px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+    .cover-meta span { display: inline-flex; align-items: center; gap: 6px; }
     .cover-meta strong { color: var(--green); font-weight: 800; }
-    .cover-foot { display: flex; align-items: center; gap: 14px; padding-top: 18px; border-top: 1px solid var(--rule); }
-    .cover-foot-photo { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; }
-    .cover-foot-name { font-family: 'Fraunces', Georgia, serif; font-size: 12pt; font-weight: 600; color: var(--ink); }
-    .cover-foot-tag { font-size: 9pt; color: var(--ink-soft); }
-    .cover-foot-url { margin-left: auto; font-size: 9pt; color: var(--green); font-weight: 700; letter-spacing: .04em; }
+    /* Workflow diagram — centered editorial illustration filling the mid-page. */
+    .cover-hero-art {
+      width: 100%; max-width: 6.6in; margin: 24px auto 0;
+      pointer-events: none;
+    }
+    .cover-hero-art svg { width: 100%; height: auto; display: block; }
+    /* Foot row: photo + identity block on the left, contact + socials on the right. */
+    .cover-foot {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 24px;
+      padding-top: 20px; border-top: 1px solid var(--rule);
+    }
+    .cover-foot-id { display: flex; align-items: center; gap: 16px; min-width: 0; }
+    .cover-foot-photo { width: 78px; height: 78px; border-radius: 50%; object-fit: cover; flex: none; box-shadow: 0 0 0 3px var(--white), 0 0 0 4px var(--green-glow); }
+    .cover-foot-name { font-family: 'Fraunces', Georgia, serif; font-size: 19pt; font-weight: 600; color: var(--ink); line-height: 1.05; white-space: nowrap; }
+    .cover-foot-tag { font-size: 10.5pt; color: var(--ink-soft); margin-top: 4px; line-height: 1.3; }
+    .cover-foot-right { text-align: right; flex: none; }
+    .cover-foot-url { font-family: 'Nunito', sans-serif; font-size: 13pt; color: var(--green); font-weight: 800; letter-spacing: .04em; }
+    .cover-foot-socials { display: flex; gap: 14px; justify-content: flex-end; margin-top: 8px; font-family: 'Nunito', sans-serif; font-size: 9.5pt; font-weight: 700; color: var(--ink-soft); letter-spacing: .02em; white-space: nowrap; }
+    .cover-foot-socials span { display: inline-flex; align-items: center; gap: 5px; }
+    .cover-foot-socials strong { color: var(--green); font-weight: 800; letter-spacing: .12em; text-transform: uppercase; font-size: 8.5pt; }
 
     /* INTRO */
     .intro-h2 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 28pt; line-height: 1.05; letter-spacing: -0.025em; margin: 0 0 18px; color: var(--ink); }
@@ -347,70 +364,93 @@
         <div class="cover-mark-row">
           <span class="cover-mark-dot"></span>
           <span class="cover-mark">The Starter Kit · No. 01</span>
+          <span class="cover-bonus-ribbon">Bonus Workflow Inside</span>
         </div>
         <h1 class="cover-h1">3 AI Workflows for Small Business Owners. <em><span class="cover-h1-swoosh">Save 10+ hours a week.</span></em></h1>
-        <!-- Editorial hero infographic: stylized clock at center, 4 flowing arcs streaming in. -->
+        <p class="cover-deck">Real prompts. Real screenshots. Real outcomes. Plus one bonus workflow nobody else is teaching.</p>
+        <div class="cover-meta">
+          <span><strong>14 pages</strong> · 10-min read</span>
+          <span><strong>$0</strong> tools to start</span>
+          <span><strong>Free forever</strong></span>
+          <span><strong>+ Bonus Workflow 04</strong></span>
+        </div>
+
+        <!-- Editorial workflow diagram: 4 small-business workflow tiles connecting into a center hub -->
         <div class="cover-hero-art" aria-hidden="true">
-          <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+          <svg viewBox="0 0 660 280" xmlns="http://www.w3.org/2000/svg">
             <defs>
-              <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#E6C472" stop-opacity="0.30"/>
-                <stop offset="100%" stop-color="#E6C472" stop-opacity="0"/>
-              </radialGradient>
-              <linearGradient id="goldStroke" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#A87B1F"/>
-                <stop offset="100%" stop-color="#E6C472"/>
+              <linearGradient id="goldFlow" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#E6C472"/>
+                <stop offset="100%" stop-color="#A87B1F"/>
               </linearGradient>
-              <linearGradient id="greenStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+              <linearGradient id="greenFlow" x1="0%" y1="0%" x2="100%" y2="0%">
                 <stop offset="0%" stop-color="#2F6F4F"/>
                 <stop offset="100%" stop-color="#6BB28C"/>
               </linearGradient>
+              <radialGradient id="hubGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#E6C472" stop-opacity="0.45"/>
+                <stop offset="100%" stop-color="#E6C472" stop-opacity="0"/>
+              </radialGradient>
             </defs>
 
-            <!-- Soft glow halo -->
-            <circle cx="200" cy="200" r="170" fill="url(#centerGlow)"/>
+            <!-- Soft hub halo -->
+            <circle cx="330" cy="140" r="92" fill="url(#hubGlow)"/>
 
-            <!-- 4 flowing streams from each edge into center -->
-            <path d="M 60 60   C 120 120, 150 150, 195 195"   stroke="url(#greenStroke)" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.75"/>
-            <path d="M 340 60  C 280 120, 250 150, 205 195"  stroke="url(#goldStroke)"  stroke-width="4" fill="none" stroke-linecap="round" opacity="0.75"/>
-            <path d="M 60 340  C 120 280, 150 250, 195 205"  stroke="url(#goldStroke)"  stroke-width="4" fill="none" stroke-linecap="round" opacity="0.75"/>
-            <path d="M 340 340 C 280 280, 250 250, 205 205" stroke="url(#greenStroke)" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.75"/>
+            <!-- Connecting curves: 4 tiles into the central hub -->
+            <path d="M 90 70  C 180 90, 240 110, 290 130"  stroke="url(#greenFlow)" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.7"/>
+            <path d="M 570 70 C 480 90, 420 110, 370 130"  stroke="url(#goldFlow)"  stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.7"/>
+            <path d="M 90 230  C 180 210, 240 170, 290 150" stroke="url(#goldFlow)"  stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.7"/>
+            <path d="M 570 230 C 480 210, 420 170, 370 150" stroke="url(#greenFlow)" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.7"/>
 
-            <!-- Small circles at the start of each stream — abstract "workflow source" -->
-            <circle cx="60"  cy="60"  r="9" fill="#2F6F4F" opacity="0.85"/>
-            <circle cx="340" cy="60"  r="9" fill="#A87B1F" opacity="0.85"/>
-            <circle cx="60"  cy="340" r="9" fill="#A87B1F" opacity="0.85"/>
-            <circle cx="340" cy="340" r="9" fill="#2F6F4F" opacity="0.85"/>
+            <!-- TILE 1: Inbox triage (top-left) -->
+            <rect x="20" y="36" width="140" height="72" rx="10" fill="#FDFBF5" stroke="#2F6F4F" stroke-width="1.4"/>
+            <text x="34"  y="62" font-family="Fraunces, Georgia, serif" font-style="italic" font-size="14" fill="#A87B1F">01</text>
+            <text x="34"  y="84" font-family="Nunito, sans-serif" font-size="11" font-weight="800" fill="#2B1A1F">Inbox triage</text>
+            <text x="34"  y="100" font-family="Nunito, sans-serif" font-size="8.5" font-weight="700" letter-spacing="1.5" fill="#6B5A5F">SAVES ≈ 5 HRS/WK</text>
 
-            <!-- Center: editorial clock with 10+ hrs -->
-            <circle cx="200" cy="200" r="82" fill="#FDFBF5" stroke="#A87B1F" stroke-width="2.5"/>
-            <circle cx="200" cy="200" r="72" fill="none"     stroke="#D4A84A" stroke-width="0.8" opacity="0.6"/>
-            <!-- clock tick marks (12, 3, 6, 9) -->
-            <line x1="200" y1="132" x2="200" y2="144" stroke="#A87B1F" stroke-width="2" stroke-linecap="round"/>
-            <line x1="268" y1="200" x2="256" y2="200" stroke="#A87B1F" stroke-width="2" stroke-linecap="round"/>
-            <line x1="200" y1="268" x2="200" y2="256" stroke="#A87B1F" stroke-width="2" stroke-linecap="round"/>
-            <line x1="132" y1="200" x2="144" y2="200" stroke="#A87B1F" stroke-width="2" stroke-linecap="round"/>
-            <!-- "10+ / HRS / WEEK / SAVED" -->
-            <text x="200" y="196" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="44" font-weight="700" fill="#2F6F4F" font-style="italic">10+</text>
-            <text x="200" y="222" text-anchor="middle" font-family="Nunito, sans-serif" font-size="11" font-weight="800" letter-spacing="3" fill="#A87B1F">HRS / WEEK</text>
-            <text x="200" y="238" text-anchor="middle" font-family="Nunito, sans-serif" font-size="8.5" font-weight="700" letter-spacing="2.4" fill="#6B5A5F">SAVED</text>
+            <!-- TILE 2: SOP-to-AI-Trainer (top-right) -->
+            <rect x="500" y="36" width="140" height="72" rx="10" fill="#FDFBF5" stroke="#A87B1F" stroke-width="1.4"/>
+            <text x="514" y="62" font-family="Fraunces, Georgia, serif" font-style="italic" font-size="14" fill="#A87B1F">02</text>
+            <text x="514" y="84" font-family="Nunito, sans-serif" font-size="11" font-weight="800" fill="#2B1A1F">SOPs in your voice</text>
+            <text x="514" y="100" font-family="Nunito, sans-serif" font-size="8.5" font-weight="700" letter-spacing="1.5" fill="#6B5A5F">SAVES ≈ 3 HRS/WK</text>
+
+            <!-- TILE 3: Marketing loop (bottom-left) -->
+            <rect x="20" y="194" width="140" height="72" rx="10" fill="#FDFBF5" stroke="#A87B1F" stroke-width="1.4"/>
+            <text x="34"  y="220" font-family="Fraunces, Georgia, serif" font-style="italic" font-size="14" fill="#A87B1F">03</text>
+            <text x="34"  y="242" font-family="Nunito, sans-serif" font-size="11" font-weight="800" fill="#2B1A1F">Weekly marketing</text>
+            <text x="34"  y="258" font-family="Nunito, sans-serif" font-size="8.5" font-weight="700" letter-spacing="1.5" fill="#6B5A5F">SAVES ≈ 4 HRS/WK</text>
+
+            <!-- TILE 4: Bonus invoice killer (bottom-right) -->
+            <rect x="500" y="194" width="140" height="72" rx="10" fill="#FDFBF5" stroke="#2F6F4F" stroke-width="1.4"/>
+            <text x="514" y="220" font-family="Fraunces, Georgia, serif" font-style="italic" font-size="14" fill="#A87B1F">+ Bonus</text>
+            <text x="514" y="242" font-family="Nunito, sans-serif" font-size="11" font-weight="800" fill="#2B1A1F">Invoice killer</text>
+            <text x="514" y="258" font-family="Nunito, sans-serif" font-size="8.5" font-weight="700" letter-spacing="1.5" fill="#6B5A5F">2–4 HRS/MO BACK</text>
+
+            <!-- CENTER HUB: 10+ hrs / week saved -->
+            <circle cx="330" cy="140" r="60" fill="#FDFBF5" stroke="#A87B1F" stroke-width="2"/>
+            <circle cx="330" cy="140" r="52" fill="none" stroke="#D4A84A" stroke-width="0.7" opacity="0.55"/>
+            <text x="330" y="138" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-style="italic" font-size="32" font-weight="700" fill="#2F6F4F">10+</text>
+            <text x="330" y="158" text-anchor="middle" font-family="Nunito, sans-serif" font-size="9" font-weight="800" letter-spacing="2.4" fill="#A87B1F">HRS / WEEK</text>
+            <text x="330" y="172" text-anchor="middle" font-family="Nunito, sans-serif" font-size="7.5" font-weight="700" letter-spacing="2" fill="#6B5A5F">SAVED</text>
           </svg>
         </div>
-        <p class="cover-deck">A 14-page editorial guide. Real prompts, real screenshots, real outcomes. Plus one bonus workflow nobody else is teaching.</p>
-        <div class="cover-meta">
-          <span><strong>14 pages</strong></span>
-          <span><strong>10-min read</strong></span>
-          <span><strong>$0</strong> tools required</span>
-          <span><strong>Free</strong> forever</span>
-        </div>
       </div>
+
       <div class="cover-foot">
-        <img src="../../../Brand Assets/_MCK3991.jpg" alt="Alice Bazdikian" class="cover-foot-photo" />
-        <div>
-          <div class="cover-foot-name">Alice Bazdikian</div>
-          <div class="cover-foot-tag">AI Strategist · 200+ entrepreneurs trained</div>
+        <div class="cover-foot-id">
+          <img src="../../../Brand Assets/_MCK3991.jpg" alt="Alice Bazdikian" class="cover-foot-photo" />
+          <div>
+            <div class="cover-foot-name">Alice Bazdikian</div>
+            <div class="cover-foot-tag">AI Strategist · 200+ small business owners trained</div>
+          </div>
         </div>
-        <span class="cover-foot-url">smallbusinessaicoach.com</span>
+        <div class="cover-foot-right">
+          <div class="cover-foot-url">smallbusinessaicoach.com</div>
+          <div class="cover-foot-socials">
+            <span><strong>LI</strong> alice-bazdikian</span>
+            <span><strong>IG · TT · YT</strong> @smallbusinessaicoach</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -826,7 +866,7 @@ copy.</pre>
     <header class="chapter-header">
       <div class="bonus-starburst" aria-label="Surprise bonus workflow">
         <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <path fill="#D4A84A" d="M50 0 L56.2 18.6 L69.1 3.8 L67.8 23.4 L85.4 14.6 L76.6 32.2 L96.2 30.9 L81.4 43.8 L100 50 L81.4 56.2 L96.2 69.1 L76.6 67.8 L85.4 85.4 L67.8 76.6 L69.1 96.2 L56.2 81.4 L50 100 L43.8 81.4 L30.9 96.2 L32.2 76.6 L14.6 85.4 L23.4 67.8 L3.8 69.1 L18.6 56.2 L0 50 L18.6 43.8 L3.8 30.9 L23.4 32.2 L14.6 14.6 L32.2 23.4 L30.9 3.8 L43.8 18.6 Z" />
+          <polygon fill="#D4A84A" points="50.000,0.000 56.633,16.653 69.134,3.806 68.889,21.730 85.355,14.645 78.270,31.111 96.194,30.866 83.347,43.367 100.000,50.000 83.347,56.633 96.194,69.134 78.270,68.889 85.355,85.355 68.889,78.270 69.134,96.194 56.633,83.347 50.000,100.000 43.367,83.347 30.866,96.194 31.111,78.270 14.645,85.355 21.730,68.889 3.806,69.134 16.653,56.633 0.000,50.000 16.653,43.367 3.806,30.866 21.730,31.111 14.645,14.645 31.111,21.730 30.866,3.806 43.367,16.653" />
         </svg>
         <div class="bonus-starburst-text">Bonus<small>Workflow</small></div>
       </div>
