@@ -17,10 +17,10 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Work With Me | Alice Bazdikian — AI Workshops, Accelerator &amp; Team Programs</title>
+  <title>Work With Me | Alice Bazdikian, AI Workshops, Accelerator &amp; Team Programs</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="apple-touch-icon" href="/favicon.svg">
-  <meta name="description" content="Work with Alice Bazdikian — AI workshops, the 30-Day Accelerator, team transformation programs, and VIP consulting. Practical AI training for small-business owners, teams, and leaders." />
+  <meta name="description" content="Work with Alice Bazdikian, AI workshops, the 30-Day Accelerator, team transformation programs, and VIP consulting. Practical AI training for small-business owners, teams, and leaders." />
   <link rel="canonical" href="https://www.smallbusinessaicoach.com/workshops" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Work With Me | Alice Bazdikian" />
@@ -48,6 +48,10 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
       --rule: #EFE8E3;
       --grad-sunrise: linear-gradient(135deg, var(--burgundy) 0%, var(--burgundy-glow) 60%, var(--gold-warm) 100%);
       --grad-burgundy: linear-gradient(135deg, var(--burgundy) 0%, var(--burgundy-soft) 55%, var(--burgundy-glow) 100%);
+      --green: #2F6F4F;
+      --green-soft: #4A8B6F;
+      --green-glow: #6BB28C;
+      --grad-green: linear-gradient(135deg, var(--green) 0%, var(--green-soft) 55%, var(--green-glow) 100%);
     }
 
     html { scroll-behavior: smooth; }
@@ -76,7 +80,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
       transition: background 0.2s ease, transform 0.2s cubic-bezier(.2,.8,.2,1), box-shadow 0.2s ease;
       letter-spacing: 0.02em;
     }
-    .btn--primary { background: var(--burgundy); color: var(--white); box-shadow: 0 4px 20px rgba(122,21,48,0.3); }
+    .btn--primary { background: linear-gradient(135deg, var(--green) 0%, var(--green-soft) 100%); color: var(--white); box-shadow: 0 4px 20px rgba(47,111,79,0.38); }
     .btn--primary:hover { background: var(--burgundy-soft); transform: translateY(-2px); }
     .btn--secondary { background: transparent; color: var(--burgundy); border: 1.5px solid var(--burgundy); }
     .btn--secondary:hover { background: var(--burgundy); color: var(--white); transform: translateY(-2px); }
@@ -101,7 +105,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     }
     .wwm-hero-title em {
       font-style: italic; font-weight: 400;
-      background: var(--grad-sunrise);
+      background: var(--grad-green);
       -webkit-background-clip: text; background-clip: text;
       -webkit-text-fill-color: transparent; color: transparent;
     }
@@ -142,10 +146,10 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     .wwm-hero-badge {
       position: absolute;
       top: -20px; left: -18px;
-      background: var(--grad-burgundy);
-      color: var(--white);
+      background: linear-gradient(135deg, #F6D77A 0%, #E6C472 55%, #D4A84A 100%);
+      color: #1F4A2E;
       padding: 14px 20px; border-radius: 14px;
-      box-shadow: 0 14px 40px rgba(122,21,48,0.3);
+      box-shadow: 0 14px 40px rgba(168,123,31,0.32);
       max-width: 230px;
       overflow: hidden;
     }
@@ -153,7 +157,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
       font-family: 'Nunito', sans-serif;
       font-size: 0.5625rem; font-weight: 800;
       letter-spacing: 0.25em; text-transform: uppercase;
-      color: var(--gold-warm);
+      color: var(--green);
     }
     .wwm-hero-badge-title {
       font-family: 'Fraunces', Georgia, serif;
@@ -266,7 +270,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     }
     .wwm-pricing-title em {
       font-style: italic; font-weight: 400;
-      background: var(--grad-sunrise);
+      background: var(--grad-green);
       -webkit-background-clip: text; background-clip: text;
       -webkit-text-fill-color: transparent; color: transparent;
     }
@@ -294,10 +298,12 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     }
     .wwm-price-card:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(122,21,48,0.08); border-color: rgba(122,21,48,0.25); }
     .wwm-price-card--featured {
-      background: var(--grad-burgundy);
+      background:
+        linear-gradient(135deg, rgba(31,74,46,0.92) 0%, rgba(20,55,32,0.86) 55%, rgba(47,111,79,0.92) 100%),
+        url('Brand Assets/claudehero.png') center/cover no-repeat;
       border: none;
       color: var(--white);
-      box-shadow: 0 18px 50px rgba(122,21,48,0.28);
+      box-shadow: 0 18px 50px rgba(31,74,46,0.32);
     }
     .wwm-price-card--featured::before {
       content: '';
@@ -493,34 +499,34 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     .wwm-price-bigguarantee {
       margin-top: 1rem;
       background: linear-gradient(135deg, var(--gold) 0%, var(--gold-warm) 100%);
-      color: var(--burgundy);
+      color: #1F4A2E;
       border-radius: 14px;
       padding: 18px 20px;
       position: relative; z-index: 1;
-      box-shadow: 0 14px 32px rgba(212,168,74,0.38);
+      box-shadow: 0 14px 32px rgba(31,74,46,0.32);
     }
     .wwm-price-bigguarantee-title {
       display: flex; align-items: center; gap: 10px;
       font-family: 'Fraunces', Georgia, serif;
       font-weight: 700; font-size: 1rem;
       letter-spacing: -0.015em;
-      color: var(--burgundy);
+      color: #1F4A2E;
       margin-bottom: 6px;
     }
-    .wwm-price-bigguarantee-title svg { color: var(--burgundy); }
+    .wwm-price-bigguarantee-title svg { color: var(--green); }
     .wwm-price-bigguarantee p {
       margin: 0;
       font-family: 'Nunito', sans-serif;
       font-size: 0.8125rem; font-weight: 600;
       line-height: 1.5;
-      color: #4A0E1F;
+      color: #1F4A2E;
     }
-    .wwm-price-bigguarantee p strong { color: var(--burgundy); font-weight: 800; }
+    .wwm-price-bigguarantee p strong { color: var(--green); font-weight: 800; }
 
     /* ── MINDSET SHIFT ── */
     .wwm-mindset {
       padding: 96px 56px;
-      background: var(--grad-burgundy);
+      background: var(--grad-green);
       color: var(--white);
       position: relative; overflow: hidden;
     }
@@ -707,23 +713,24 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     .wwm-outcomes {
       padding: 108px 56px;
       background:
-        linear-gradient(180deg, var(--white) 0%, var(--offwhite) 100%);
+        linear-gradient(100deg, rgba(255,253,250,0.94) 0%, rgba(255,253,250,0.78) 50%, rgba(255,253,250,0.58) 100%),
+        url('Brand Assets/Scorecardhero2.png') center/cover no-repeat;
       position: relative; overflow: hidden;
     }
     .wwm-outcomes::before {
       content: '';
       position: absolute;
       top: -140px; right: -160px;
-      width: 620px; height: 620px; border-radius: 50%;
+      width: 0; height: 0; border-radius: 50%;
       background: radial-gradient(circle, var(--gold-warm) 0%, transparent 65%);
-      opacity: 0.22; pointer-events: none;
+      opacity: 0; pointer-events: none;
     }
     .wwm-outcomes::after {
       content: '';
       position: absolute;
       bottom: -160px; left: -180px;
-      width: 560px; height: 560px; border-radius: 50%;
-      background: radial-gradient(circle, var(--burgundy) 0%, transparent 72%);
+      width: 0; height: 0; border-radius: 50%;
+      background: radial-gradient(circle, var(--green) 0%, transparent 72%);
       opacity: 0.10; pointer-events: none;
     }
     .wwm-outcomes-inner { position: relative; z-index: 1; max-width: 980px; margin: 0 auto; }
@@ -740,7 +747,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     }
     .wwm-outcomes-title em {
       font-style: italic; font-weight: 400;
-      background: var(--grad-sunrise);
+      background: var(--grad-green);
       -webkit-background-clip: text; background-clip: text;
       -webkit-text-fill-color: transparent; color: transparent;
     }
@@ -758,26 +765,26 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
       background: var(--white);
       border: 1px solid var(--rule);
       border-radius: 14px;
-      box-shadow: 0 4px 14px rgba(122,21,48,0.04);
+      box-shadow: 0 4px 14px rgba(47,111,79,0.05);
       transition: border-color 0.25s ease, box-shadow 0.3s cubic-bezier(.2,.8,.2,1), transform 0.25s ease, background 0.25s ease;
       overflow: hidden;
     }
     .wwm-outcome:hover:not([open]) {
       transform: translateX(3px);
-      border-color: rgba(212,168,74,0.45);
-      box-shadow: 0 10px 28px rgba(122,21,48,0.08);
+      border-color: rgba(47,111,79,0.45);
+      box-shadow: 0 10px 28px rgba(47,111,79,0.10);
     }
     .wwm-outcome[open] {
-      background: linear-gradient(180deg, var(--white) 0%, var(--offwhite) 100%);
-      border-color: rgba(122,21,48,0.25);
-      box-shadow: 0 22px 50px rgba(122,21,48,0.12);
+      background: linear-gradient(180deg, var(--white) 0%, #F4FBF7 100%);
+      border-color: rgba(47,111,79,0.32);
+      box-shadow: 0 22px 50px rgba(47,111,79,0.14);
     }
     .wwm-outcome[open]::before {
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0;
       height: 3px;
-      background: var(--grad-sunrise);
+      background: var(--grad-green);
     }
     .wwm-outcome { position: relative; }
     .wwm-outcome summary {
@@ -792,13 +799,13 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
       font-style: italic; font-weight: 600;
       font-size: 2.75rem; line-height: 1;
       letter-spacing: -0.035em;
-      background: linear-gradient(180deg, var(--gold-deep) 0%, var(--gold) 100%);
+      background: linear-gradient(180deg, var(--green) 0%, var(--green-soft) 100%);
       -webkit-background-clip: text; background-clip: text;
       -webkit-text-fill-color: transparent; color: transparent;
       transition: transform 0.3s cubic-bezier(.2,.8,.2,1);
     }
     .wwm-outcome[open] .wwm-outcome-num {
-      background: var(--grad-sunrise);
+      background: var(--grad-green);
       -webkit-background-clip: text; background-clip: text;
       -webkit-text-fill-color: transparent; color: transparent;
       transform: scale(1.08);
@@ -815,14 +822,14 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
       justify-self: end;
       width: 32px; height: 32px;
       display: inline-flex; align-items: center; justify-content: center;
-      color: var(--burgundy);
-      background: rgba(122,21,48,0.08);
+      color: var(--green);
+      background: rgba(47,111,79,0.10);
       border-radius: 50%;
       transition: transform 0.3s cubic-bezier(.2,.8,.2,1), background 0.3s ease, color 0.3s ease;
     }
     .wwm-outcome[open] .wwm-outcome-chev {
       transform: rotate(180deg);
-      background: var(--burgundy); color: var(--gold-warm);
+      background: var(--green); color: #F6D77A;
     }
     .wwm-outcome-body {
       padding: 0 28px 28px 126px;
@@ -831,11 +838,11 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
       line-height: 1.65;
       color: var(--ink);
       text-wrap: pretty;
-      border-top: 1px solid rgba(212,168,74,0.25);
+      border-top: 1px solid rgba(47,111,79,0.22);
       padding-top: 20px;
       margin-top: 4px;
     }
-    .wwm-outcome-body strong { color: var(--burgundy); font-weight: 700; }
+    .wwm-outcome-body strong { color: var(--green); font-weight: 700; }
 
     /* ── TESTIMONIALS (homepage parity) ── */
     .testimonials-section {
@@ -992,7 +999,9 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     /* ── NEWSLETTER (Hormozi-style redesign) ── */
     .wwm-news {
       padding: 108px 56px;
-      background: var(--offwhite);
+      background:
+        linear-gradient(100deg, rgba(255,253,250,0.94) 0%, rgba(255,253,250,0.78) 50%, rgba(255,253,250,0.58) 100%),
+        url('Brand Assets/Bloghero2.png') center/cover no-repeat;
       position: relative; overflow: hidden;
     }
     .wwm-news::before {
@@ -1040,7 +1049,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     }
     .wwm-news-title em {
       font-style: italic; font-weight: 400;
-      background: var(--grad-sunrise);
+      background: var(--grad-green);
       -webkit-background-clip: text; background-clip: text;
       -webkit-text-fill-color: transparent; color: transparent;
     }
@@ -1052,7 +1061,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
       margin: 0 0 1.75rem;
       text-wrap: pretty; max-width: 52ch;
     }
-    .wwm-news-sub strong { color: var(--burgundy); font-weight: 700; }
+    .wwm-news-sub strong { color: var(--green); font-weight: 700; }
     .wwm-news-bullets {
       list-style: none; margin: 0 0 1.75rem; padding: 0;
       display: grid; gap: 0.75rem;
@@ -1069,8 +1078,8 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
       position: absolute;
       left: 0; top: 0.45rem;
       width: 14px; height: 14px; border-radius: 4px;
-      background: var(--grad-sunrise);
-      box-shadow: 0 2px 6px rgba(122,21,48,0.2);
+      background: var(--grad-green);
+      box-shadow: 0 2px 6px rgba(47,111,79,0.25);
     }
     .wwm-news-bullets li::after {
       content: '';
@@ -1086,17 +1095,17 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
       font-family: 'Fraunces', Georgia, serif;
       font-style: italic; font-weight: 500;
       font-size: 1rem;
-      color: var(--burgundy);
+      color: var(--green);
       margin: 0;
     }
     .wwm-news-sig::before {
       content: '';
       width: 32px; height: 1px;
-      background: var(--burgundy);
+      background: var(--green);
       display: block;
     }
 
-    /* Right column — preview card + form */
+    /* Right column, preview card + form */
     .wwm-news-stack {
       display: flex; flex-direction: column; gap: 18px;
     }
@@ -1114,7 +1123,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
       position: absolute;
       top: 0; left: 0; right: 0;
       height: 3px;
-      background: var(--grad-sunrise);
+      background: var(--grad-green);
       border-radius: 16px 16px 0 0;
     }
     .wwm-news-preview-label {
@@ -1143,19 +1152,19 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
       position: relative;
     }
     .wwm-news-bonus {
-      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-warm) 100%);
-      color: var(--burgundy);
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-soft) 100%);
+      color: var(--white);
       border-radius: 12px;
       padding: 12px 16px;
       margin: -40px -2px 18px;
       display: flex; gap: 10px;
-      box-shadow: 0 10px 24px rgba(212,168,74,0.35);
+      box-shadow: 0 10px 24px rgba(47,111,79,0.35);
     }
     .wwm-news-bonus-tag {
       font-family: 'Nunito', sans-serif;
       font-size: 0.6875rem; font-weight: 800;
       letter-spacing: 0.14em; text-transform: uppercase;
-      background: var(--burgundy); color: var(--gold-warm);
+      background: var(--white); color: var(--green);
       padding: 6px 10px; border-radius: 100px;
       white-space: nowrap; align-self: flex-start;
       flex-shrink: 0;
@@ -1163,11 +1172,11 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     .wwm-news-bonus p {
       font-family: 'Nunito', sans-serif;
       font-size: 0.8125rem; font-weight: 600;
-      color: #4A0E1F;
+      color: rgba(255,255,255,0.95);
       line-height: 1.4;
       margin: 2px 0 0;
     }
-    .wwm-news-bonus p strong { color: var(--burgundy); font-weight: 800; }
+    .wwm-news-bonus p strong { color: #F6D77A; font-weight: 800; }
     .wwm-news-form { display: flex; flex-direction: column; gap: 10px; }
     .wwm-news-label {
       font-family: 'Nunito', sans-serif;
@@ -1181,26 +1190,26 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
       padding: 14px 16px;
       border-radius: 11px;
       background: var(--offwhite);
-      border: 1.5px solid rgba(122,21,48,0.15);
+      border: 1.5px solid rgba(47,111,79,0.18);
       color: var(--ink); outline: none;
       transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
     }
     .wwm-news-input::placeholder { color: var(--ink-soft); }
     .wwm-news-input:focus-visible {
-      border-color: var(--gold); background: var(--white);
-      box-shadow: 0 0 0 4px rgba(212,168,74,0.22);
+      border-color: var(--green); background: var(--white);
+      box-shadow: 0 0 0 4px rgba(47,111,79,0.18);
     }
     .wwm-news-btn {
       font-family: 'Nunito', sans-serif;
       font-weight: 800; font-size: 0.9375rem;
       padding: 14px 20px; border-radius: 11px;
-      background: var(--burgundy); color: var(--white);
+      background: var(--green); color: var(--white);
       border: none; cursor: pointer;
       letter-spacing: 0.02em;
-      box-shadow: 0 10px 24px rgba(122,21,48,0.28);
+      box-shadow: 0 10px 24px rgba(47,111,79,0.3);
       transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
     }
-    .wwm-news-btn:hover { background: var(--burgundy-soft); transform: translateY(-1px); box-shadow: 0 14px 30px rgba(122,21,48,0.36); }
+    .wwm-news-btn:hover { background: var(--green-soft); transform: translateY(-1px); box-shadow: 0 14px 30px rgba(47,111,79,0.4); }
     .wwm-news-meta {
       margin: 8px 0 0;
       font-family: 'Nunito', sans-serif;
@@ -1222,7 +1231,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     }
     .wwm-news-proof-dots span {
       width: 22px; height: 22px; border-radius: 50%;
-      background: var(--grad-sunrise);
+      background: var(--grad-green);
       border: 2px solid var(--white);
       margin-left: -7px;
     }
@@ -1332,18 +1341,42 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     /* ── CTA BAND ── */
     .wwm-ctaband {
       padding: 88px 56px;
-      background: var(--white);
+      background: var(--grad-green);
+      color: var(--white);
       text-align: center;
     }
+    .wwm-ctaband .wwm-ctaband-title { color: var(--white); }
+    .wwm-ctaband .wwm-ctaband-sub { color: rgba(255,255,255,0.88); }
+    .wwm-ctaband .btn--primary {
+      background: linear-gradient(135deg, #F6D77A 0%, #E6C472 60%, #D4A84A 100%) !important;
+      color: #1F4A2E !important;
+      box-shadow: 0 6px 22px rgba(31,74,46,0.32) !important;
+    }
+    .wwm-ctaband .btn--primary:hover {
+      background: linear-gradient(135deg, #F6D77A 0%, #D4A84A 100%) !important;
+      box-shadow: 0 10px 30px rgba(31,74,46,0.4) !important;
+    }
+    .wwm-ctaband .btn--secondary {
+      background: transparent !important;
+      color: var(--white) !important;
+      border: 1.5px solid rgba(255,255,255,0.6) !important;
+    }
+    .wwm-ctaband .btn--secondary:hover {
+      background: rgba(255,255,255,0.1) !important;
+      border-color: rgba(255,255,255,0.85) !important;
+    }
+
     .wwm-ctaband-eyebrow {
       display: inline-block;
       padding: 8px 18px;
       border-radius: 100px;
-      background: linear-gradient(135deg, rgba(122,21,48,0.08) 0%, rgba(212,168,74,0.14) 100%);
-      border: 1px solid rgba(122,21,48,0.22);
-      color: var(--burgundy) !important;
+      background: linear-gradient(135deg, #F6D77A 0%, #E6C472 55%, #D4A84A 100%);
+      border: none;
+      color: #1F4A2E !important;
+      font-weight: 800;
       margin: 0 auto 1.25rem;
       letter-spacing: 0.14em;
+      box-shadow: 0 6px 18px rgba(31,74,46,0.28);
     }
     .wwm-ctaband-title {
       font-family: 'Fraunces', Georgia, serif;
@@ -1356,7 +1389,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     }
     .wwm-ctaband-title em {
       font-style: italic; font-weight: 400;
-      background: var(--grad-sunrise);
+      background: linear-gradient(135deg, #F6D77A 0%, #E6C472 55%, #D4A84A 100%);
       -webkit-background-clip: text; background-clip: text;
       -webkit-text-fill-color: transparent; color: transparent;
     }
@@ -1390,9 +1423,15 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-53LWP97Z"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
+  <!-- WEBINAR BANNER -->
+  <div id="accel-banner" style="background:linear-gradient(135deg, #7D2240 0%, #3D1020 50%, #7D2240 100%);color:#fff;text-align:center;padding:0.6rem 1.5rem;font-size:0.8125rem;font-weight:500;letter-spacing:0.01em;display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;">
+    <span><strong>Free Live Workshop:</strong> Install the 4-Workflow AI Stack &nbsp;&middot;&nbsp; June 3, 7pm ET &nbsp;&middot;&nbsp; 50 seats only</span>
+    <a href="webinar.html" style="background:#D4A84A;color:#2B1A1F;border:none;padding:0.35rem 1.1rem;border-radius:100px;font-family:'Nunito',sans-serif;font-size:0.75rem;font-weight:700;cursor:pointer;letter-spacing:0.02em;white-space:nowrap;text-decoration:none;transition:background 0.2s;">Save My Spot Now &rarr;</a>
+    <button onclick="document.getElementById('accel-banner').style.display='none'" aria-label="Dismiss" style="background:none;border:none;color:rgba(255,255,255,0.5);font-size:1.1rem;cursor:pointer;padding:0;line-height:1;margin-left:0.25rem;">&times;</button>
+  </div>
   <!-- NAV -->
   <nav class="site-nav">
-    <a href="index.html" class="site-nav-brand" aria-label="Alice Bazdikian — home">
+    <a href="index.html" class="site-nav-brand" aria-label="Alice Bazdikian, home">
       <span class="site-nav-mono">ab</span>
       <span class="site-nav-brand-text">
         <span class="site-nav-brand-name">Alice Bazdikian</span>
@@ -1405,6 +1444,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <li><a href="speaking.html">Speaking</a></li>
       <li><a href="scorecard.html">Scorecard</a></li>
       <li><a href="claude-resources.html">Resources</a></li>
+      <li><a href="3-workflows-starter-kit.html" class="site-nav-kit">Free: Save 10-Hr/week AI Stack</a></li>
       <li><a href="blog.html">Blog</a></li>
       <li class="site-nav-social" aria-label="Social media">
         <a href="https://www.linkedin.com/in/alice-bazdikian" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.852 3.37-1.852 3.601 0 4.267 2.37 4.267 5.455v6.288zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
@@ -1432,17 +1472,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- ANNOUNCEMENT BAND -->
   <div class="announce-band">
     <span class="announce-band-dot"></span>
-    <span class="announce-band-text">AI without the Overwhelm</span>
+    <span class="announce-band-text">Free Workshop · Build your AI employee live, June 3</span>
     <span class="announce-band-dot"></span>
   </div>
 
   <!-- HERO -->
   <section class="wwm-hero">
     <div class="wwm-hero-copy">
-      <p class="eyebrow">30-Day AI Accelerator · Next cohort: May 5</p>
-      <h1 class="wwm-hero-title">Save 10+ hours a week with AI — <em>in 30 days, guaranteed.</em></h1>
+      <p class="eyebrow">30-Day AI Accelerator · Next cohort: June 10 · 6 seats left</p>
+      <h1 class="wwm-hero-title">Save 10+ hours a week with AI. <em>In 30 days, guaranteed.</em></h1>
       <p class="wwm-hero-sub">
-        The A.I.R. Method turns manual, 50-hour weeks into automated systems that run while you sleep. 200+ small-business owners trained. 3 working automations built with you — or your money back.
+        The A.I.R. Method helps you build your first AI employee, turning 50-hour weeks into automated workflows that run while you sleep. 200+ small-business owners trained. 3 working automations built with you.
       </p>
       <div class="wwm-hero-ctas">
         <a href="https://calendly.com/abazdikian/diagnostic" target="_blank" rel="noopener" class="btn btn--primary">Get My Free AI Diagnostic →</a>
@@ -1453,7 +1493,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <img src="Brand%20Assets/Workshops%20page%20hero.png" alt="AI workshops hero image" width="560" height="420" loading="eager" />
       <div class="wwm-hero-badge">
         <div class="wwm-hero-badge-eyebrow">Guarantee</div>
-        <div class="wwm-hero-badge-title">3 automations in 30 days, or it's free.</div>
+        <div class="wwm-hero-badge-title">Your AI employee, built in 30 days.</div>
       </div>
     </div>
   </section>
@@ -1504,7 +1544,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
             </span>
           </summary>
-          <div class="wwm-outcome-body">Identify the <strong>5+ hours a week</strong> of repetitive work quietly eating your calendar — emails, reports, content drafts, admin — and hand the first batch off to AI in week one. Not "someday." This week.</div>
+          <div class="wwm-outcome-body">Identify the <strong>5+ hours a week</strong> of repetitive work quietly eating your calendar, emails, reports, content drafts, admin, and hand the first batch off to AI in week one. Not "someday." This week.</div>
         </details>
 
         <details class="wwm-outcome" open>
@@ -1515,7 +1555,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
             </span>
           </summary>
-          <div class="wwm-outcome-body">Stop chasing the next shiny AI app. You'll leave with a <strong>lean, proven stack</strong> — usually 3 tools, not 30 — that actually fits how you run your business, your budget, and your brain.</div>
+          <div class="wwm-outcome-body">Stop chasing the next shiny AI app. You'll leave with a <strong>lean, proven stack</strong>, usually 3 tools, not 30, that actually fits how you run your business, your budget, and your brain.</div>
         </details>
 
         <details class="wwm-outcome" open>
@@ -1526,7 +1566,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
             </span>
           </summary>
-          <div class="wwm-outcome-body">Your voice. Your cadence. Your taste. <strong>Amplified, not erased.</strong> You'll learn how to brief AI so every output reads like you wrote it on your best day — not like another beige LinkedIn post.</div>
+          <div class="wwm-outcome-body">Your voice. Your cadence. Your taste. <strong>Amplified, not erased.</strong> You'll learn how to brief AI so every output reads like you wrote it on your best day, not like another beige LinkedIn post.</div>
         </details>
 
         <details class="wwm-outcome" open>
@@ -1537,18 +1577,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
             </span>
           </summary>
-          <div class="wwm-outcome-body">The point isn't a flashy demo. It's a system that still runs when you're sick, slammed, or on vacation — <strong>because your processes live outside your head now</strong>, documented and automated.</div>
+          <div class="wwm-outcome-body">The point isn't a flashy demo. It's a system that still runs when you're sick, slammed, or on vacation, <strong>because your processes live outside your head now</strong>, documented and automated.</div>
         </details>
 
         <details class="wwm-outcome" open>
           <summary>
             <span class="wwm-outcome-num">05</span>
-            <h3 class="wwm-outcome-title">Own your AI confidence — and prove it</h3>
+            <h3 class="wwm-outcome-title">Own your AI confidence, and prove it</h3>
             <span class="wwm-outcome-chev" aria-hidden="true">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
             </span>
           </summary>
-          <div class="wwm-outcome-body">Using AI isn't a personality trait — it's a <strong>skill you can prove</strong>. You'll leave with real wins, language to talk about what you built, and the quiet confidence of someone who stopped being intimidated by the tech.</div>
+          <div class="wwm-outcome-body">Using AI isn't a personality trait, it's a <strong>skill you can prove</strong>. You'll leave with real wins, language to talk about what you built, and the quiet confidence of someone who stopped being intimidated by the tech.</div>
         </details>
 
         <details class="wwm-outcome" open>
@@ -1559,7 +1599,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
             </span>
           </summary>
-          <div class="wwm-outcome-body">No more tabs of half-read AI articles. You leave with <strong>finished workflows, active automations, and a 90-day roadmap</strong> that's specific to your business — not a generic checklist from a Substack.</div>
+          <div class="wwm-outcome-body">No more tabs of half-read AI articles. You leave with <strong>finished workflows, active automations, and a 90-day roadmap</strong> that's specific to your business, not a generic checklist from a Substack.</div>
         </details>
 
         <details class="wwm-outcome" open>
@@ -1582,7 +1622,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="wwm-mindset-head">
         <p class="eyebrow" style="color:var(--gold-warm);">The Method · A.I.R.</p>
         <h2 class="wwm-mindset-title">The 3-step method 200+ owners used to go <em>AI-first.</em></h2>
-        <p class="wwm-mindset-sub">Most owners try to "add AI" on top of a broken workflow — and it flops. A.I.R. flips the order: brief AI first, let it do the work, then you finish. This is the same system we'll install in your business in 30 days.</p>
+        <p class="wwm-mindset-sub">Most owners try to "add AI" on top of a broken workflow, and it flops. A.I.R. flips the order: brief AI first, let it do the work, then you finish. This is the same system we'll install in your business in 30 days.</p>
       </div>
       <div class="wwm-mindset-grid">
         <div class="wwm-mindset-card">
@@ -1593,12 +1633,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="wwm-mindset-card">
           <div class="wwm-mindset-num">I</div>
           <h3 class="wwm-mindset-card-title">Implement with AI.</h3>
-          <p class="wwm-mindset-card-desc">AI handles the draft, the plan, the first pass. Your expertise shapes the result — AI accelerates it. You stop being the bottleneck.</p>
+          <p class="wwm-mindset-card-desc">AI handles the draft, the plan, the first pass. Your expertise shapes the result, AI accelerates it. You stop being the bottleneck.</p>
         </div>
         <div class="wwm-mindset-card">
           <div class="wwm-mindset-num">R</div>
           <h3 class="wwm-mindset-card-title">Run &amp; refine.</h3>
-          <p class="wwm-mindset-card-desc">Review, refine, apply your judgment. AI gives you the starting line — you bring the finish. The workflow lives outside your head now.</p>
+          <p class="wwm-mindset-card-desc">Review, refine, apply your judgment. AI gives you the starting line, you bring the finish. The workflow lives outside your head now.</p>
         </div>
       </div>
     </div>
@@ -1609,7 +1649,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="wwm-pricing-head">
       <p class="eyebrow">Pick your path</p>
       <h2 class="wwm-pricing-title">Pick your path. <em>All three come with the guarantee.</em></h2>
-      <p class="wwm-pricing-sub">Start small with a workshop, commit to the 30-day build, or transform your whole team. Every option is guaranteed — or you don't pay.</p>
+      <p class="wwm-pricing-sub">Start small with a workshop, commit to the 30-day build, or transform your whole team. Every option is guaranteed, or you don't pay.</p>
     </div>
     <div class="wwm-pricing-grid">
       <!-- Workshop -->
@@ -1635,29 +1675,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <!-- Individual Accelerator (Featured) -->
       <div class="wwm-price-card wwm-price-card--featured">
-        <div class="wwm-price-badge">★ Most Popular · Save $6,603</div>
-        <span class="wwm-price-tag">Individual · Next cohort May 5</span>
+        <div class="wwm-price-badge">★ Most Popular · Save $6,903</div>
+        <span class="wwm-price-tag">Individual · Next cohort June 10</span>
         <h3 class="wwm-price-title">30-Day AI Accelerator</h3>
-        <p class="wwm-price-desc">For entrepreneurs, solopreneurs, and founders who want to build AI into their own business. Only 4 spots left in the next cohort.</p>
+        <p class="wwm-price-desc">For entrepreneurs, solopreneurs, and founders who want to build AI into their own business. 4 live Wednesday nights (June 10 to July 1, 6 to 8pm ET). Only 6 seats per cohort.</p>
 
         <!-- Stacked value -->
         <ul class="wwm-price-stack">
-          <li><span>4 live coaching calls (90 min each)</span><span class="wwm-stack-value">$2,000</span></li>
+          <li><span>4 live coaching calls (2 hrs each)</span><span class="wwm-stack-value">$2,000</span></li>
           <li><span>A.I.R. Method implementation guide</span><span class="wwm-stack-value">$500</span></li>
           <li><span>3 custom AI workflows built with you in session</span><span class="wwm-stack-value">$3,000</span></li>
-          <li><span>Private cohort group chat (capped at 12)</span><span class="wwm-stack-value">$500</span></li>
+          <li><span>Private cohort community (6 to 8 owners)</span><span class="wwm-stack-value">$500</span></li>
           <li><span>60+ ready-to-use prompts &amp; templates</span><span class="wwm-stack-value">$400</span></li>
           <li><span>Personalized 90-day AI roadmap</span><span class="wwm-stack-value">$500</span></li>
           <li class="wwm-stack-bonus"><span><strong>🎁 Bonus:</strong> 1-on-1 AI audit (15 min)</span><span class="wwm-stack-value">$300</span></li>
-          <li class="wwm-stack-bonus"><span><strong>🎁 Bonus:</strong> Lifetime prompt-library updates</span><span class="wwm-stack-value">$400</span></li>
+          <li class="wwm-stack-bonus"><span><strong>🎁 Bonus:</strong> $100 completion rebate (finish all 4 nights)</span><span class="wwm-stack-value">$100</span></li>
         </ul>
         <div class="wwm-price-total">
-          <div class="wwm-price-total-line"><span>Total value:</span><span class="wwm-price-total-strike">$7,600</span></div>
-          <div class="wwm-price-amount">You pay $997</div>
-          <div class="wwm-price-meta">One-time · or 2 payments of $547</div>
+          <div class="wwm-price-total-line"><span>Total value:</span><span class="wwm-price-total-strike">$7,300</span></div>
+          <div class="wwm-price-amount">You pay $697</div>
+          <div class="wwm-price-meta">One-time · $100 back when you complete all 4 nights</div>
         </div>
 
-        <a href="https://calendly.com/abazdikian/diagnostic" target="_blank" rel="noopener" class="wwm-price-cta">Claim My Spot (4 Left) →</a>
+        <a href="accelerator.html" class="wwm-price-cta">Claim My Spot (6 Seats) →</a>
 
         <!-- Fat guarantee -->
         <div class="wwm-price-bigguarantee">
@@ -1665,7 +1705,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             The "3 Automations or It's Free" Guarantee
           </div>
-          <p>If we don't build at least 3 working AI automations into your business in 30 days, I refund every dollar <strong>and</strong> you keep everything we built. I take the risk — not you.</p>
+          <p>By day 30 you'll have your personal AI employee live in your business: 3 working automations, a 90-day roadmap, and the templates to keep going. Built with you on real workflows, not generic theory.</p>
         </div>
       </div>
 
@@ -1768,7 +1808,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
           <div class="ticker-card">
             <div class="ticker-card-stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg></div>
-            <p class="ticker-card-text">"Everything was valuable — learning all you can do about a business with AI."</p>
+            <p class="ticker-card-text">"Everything was valuable, learning all you can do about a business with AI."</p>
             <div class="ticker-card-footer"><div class="ticker-card-avatar">NK</div><div><div class="ticker-card-name">Nadia Kovacs</div><div class="ticker-card-role">Interior Design Studio Owner · AI for Business Teams</div></div></div>
           </div>
           <!-- Duplicate for seamless loop -->
@@ -1784,7 +1824,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
           <div class="ticker-card">
             <div class="ticker-card-stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.49L10 13.47 5.06 16.1 6 10.61l-4-3.9 5.61-.87z"/></svg></div>
-            <p class="ticker-card-text">"Everything was valuable — learning all you can do about a business with AI."</p>
+            <p class="ticker-card-text">"Everything was valuable, learning all you can do about a business with AI."</p>
             <div class="ticker-card-footer"><div class="ticker-card-avatar">NK</div><div><div class="ticker-card-name">Nadia Kovacs</div><div class="ticker-card-role">Interior Design Studio Owner · AI for Business Teams</div></div></div>
           </div>
         </div>
@@ -1802,17 +1842,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="wwm-faq-grid">
         <details class="wwm-faq-item">
           <summary>Will this work for my industry?<span class="wwm-faq-plus" aria-hidden="true">+</span></summary>
-          <p>Yes. The A.I.R. Method is applied on top of <em>your</em> workflows — not a generic industry template. We've trained 200+ owners across coaching, consulting, real estate, wellness, e-commerce, legal, design, and services. If your business sends emails, writes content, or has a repeatable process, this works.</p>
+          <p>Yes. The A.I.R. Method is applied on top of <em>your</em> workflows, not a generic industry template. We've trained 200+ owners across coaching, consulting, real estate, wellness, e-commerce, legal, design, and services. If your business sends emails, writes content, or has a repeatable process, this works.</p>
         </details>
 
         <details class="wwm-faq-item">
           <summary>What if I'm not tech-savvy?<span class="wwm-faq-plus" aria-hidden="true">+</span></summary>
-          <p>Perfect — this is built for you. If you can use email and a web browser, you can run everything we build. No code. No installs. I translate every technical term into plain English, and we build each workflow <em>with</em> you live in session.</p>
-        </details>
-
-        <details class="wwm-faq-item">
-          <summary>Is the "3 automations or it's free" guarantee really real?<span class="wwm-faq-plus" aria-hidden="true">+</span></summary>
-          <p>100%. If we don't ship at least 3 working AI automations into your business by day 30, you get every dollar back — and you keep the templates, prompts, and the A.I.R. playbook. I take the risk. You show up and do the work.</p>
+          <p>Perfect, this is built for you. If you can use email and a web browser, you can run everything we build. No code. No installs. I translate every technical term into plain English, and we build each workflow <em>with</em> you live in session.</p>
         </details>
 
         <details class="wwm-faq-item">
@@ -1822,7 +1857,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <details class="wwm-faq-item">
           <summary>How is this different from an AI course on YouTube?<span class="wwm-faq-plus" aria-hidden="true">+</span></summary>
-          <p>Courses teach. This <em>builds</em>. Courses hand you generic prompts. This builds workflows inside your business with your actual documents, voice, and clients. You leave with working systems — not more tabs to read "someday."</p>
+          <p>Courses teach. This <em>builds</em>. Courses hand you generic prompts. This builds workflows inside your business with your actual documents, voice, and clients. You leave with working systems, not more tabs to read "someday."</p>
         </details>
 
         <details class="wwm-faq-item">
@@ -1840,12 +1875,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- CTA BAND -->
   <section class="wwm-ctaband">
-    <p class="eyebrow wwm-ctaband-eyebrow">⚡ Next cohort: May 5 · 4 spots left</p>
-    <h2 class="wwm-ctaband-title">In 30 days you'll have 3 AI workflows running your business — <em>or a full refund.</em></h2>
-    <p class="wwm-ctaband-sub">Enrollment closes Friday at 11:59pm ET. Book the free 30-min Diagnostic and we'll map your 3 highest-ROI automations on the call.</p>
+    <p class="eyebrow wwm-ctaband-eyebrow">⚡ Next cohort: June 10 · 6 seats only</p>
+    <h2 class="wwm-ctaband-title">In 30 days you'll have <em>your personal AI employee</em> running your business.</h2>
+    <p class="wwm-ctaband-sub">Doors close June 9 at 11:59pm ET. $697 with a $100 completion rebate when you finish all 4 nights.</p>
     <div class="wwm-ctaband-ctas">
-      <a href="https://calendly.com/abazdikian/diagnostic" target="_blank" rel="noopener" class="btn btn--primary">Claim My Spot — Free Diagnostic →</a>
-      <a href="#pricing" class="btn btn--secondary">See the 3 programs</a>
+      <a href="accelerator.html" class="btn btn--primary">See the Accelerator →</a>
+      <a href="https://calendly.com/abazdikian/diagnostic" target="_blank" rel="noopener" class="btn btn--secondary">Book a free Diagnostic</a>
     </div>
   </section>
 
@@ -1853,34 +1888,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section class="wwm-news">
     <div class="wwm-news-inner">
       <div class="wwm-news-copy">
-        <p class="wwm-news-eyebrow">The Weekly Signal · Free Newsletter</p>
-        <h2 class="wwm-news-title">Save 1+ hour a week with <em>one email.</em></h2>
-        <p class="wwm-news-sub">Every Sunday, I send <strong>one</strong> prompt, tool, or workflow — the same ones I teach paying clients — so you can run it Monday morning. <strong>3-minute read. ~60-minute time-save.</strong></p>
+        <p class="wwm-news-eyebrow">The Anti-Overwhelm Journal · Free Newsletter</p>
+        <h2 class="wwm-news-title">Close one tab in your head. <em>Every Friday.</em></h2>
+        <p class="wwm-news-sub">One Friday email. One small piece of your business you'll never have to think about again. Not "quit your job" content. Not productivity bro hacks. The boring backend work, follow-ups, invoices, "did I respond to that?", <strong>handed off to an AI employee so your brain can actually close out by 6pm.</strong></p>
         <ul class="wwm-news-bullets">
-          <li>One tactic per week — prompt, tool, or workflow</li>
-          <li>Real examples from the 30-Day Accelerator cohort</li>
-          <li>3-minute read · Sunday delivery · Built for Monday</li>
-          <li>Written for non-technical owners, not engineers</li>
+          <li>One slice of your back-office, retired each Friday</li>
+          <li>Real workflows from the 30-Day Accelerator cohort</li>
+          <li>3-minute read · Friday delivery · Built for owners, not engineers</li>
+          <li>Written for solopreneurs and 1 to 25 person teams</li>
         </ul>
         <p class="wwm-news-sig">Alice Bazdikian · AI coach for small-business owners</p>
       </div>
 
       <div class="wwm-news-stack">
-        <div class="wwm-news-preview">
-          <p class="wwm-news-preview-label">📬 This Sunday's email</p>
-          <p class="wwm-news-preview-headline">"The 20-minute Brand File that makes every AI output sound like you — not a robot."</p>
-        </div>
-
         <div class="wwm-news-form-card">
           <div class="wwm-news-bonus">
             <span class="wwm-news-bonus-tag">🎁 Instant Bonus</span>
-            <p>Your <strong>first email</strong> includes the #1 prompt owners say saves them an hour in week one — free, the moment you subscribe.</p>
+            <p>Subscribe and the first email includes <strong>the free AI Stack template</strong>, the 4-workflow blueprint I install live in the workshop, so you can start handing off 40 tabs of decision fatigue this week.</p>
           </div>
 
           <form class="wwm-news-form" action="https://buttondown.email/api/emails/embed-subscribe/abazdikian" method="post" target="_blank" rel="noopener">
             <label for="wwm-news-email" class="wwm-news-label">Your email</label>
             <input id="wwm-news-email" name="email" type="email" required placeholder="you@work.com" class="wwm-news-input" autocomplete="email" />
-            <button type="submit" class="wwm-news-btn">Send me the first email →</button>
+            <button type="submit" class="wwm-news-btn">Send me Friday's email →</button>
             <p class="wwm-news-meta">No spam · 1 email/week · Unsubscribe in one click</p>
           </form>
 
@@ -1905,7 +1935,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <div class="site-footer-brand-tag">AI Strategist + Educator</div>
             </div>
           </div>
-          <p class="site-footer-brand-desc">Helping entrepreneurs and businesses navigate the AI revolution — without the overwhelm.</p>
+          <p class="site-footer-brand-desc">Helping entrepreneurs and businesses navigate the AI revolution, without the overwhelm.</p>
           <div class="site-footer-socials">
             <a href="https://www.linkedin.com/in/alice-bazdikian" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.852 3.37-1.852 3.601 0 4.267 2.37 4.267 5.455v6.288zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
             <a href="https://www.instagram.com/smallbusinessaicoach/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
@@ -1930,8 +1960,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="site-footer-col">
           <h4 class="site-footer-col-head">Contact</h4>
           <a href="https://calendly.com/abazdikian/diagnostic" target="_blank" rel="noopener">Book a Diagnostic</a>
-          <a href="mailto:alice@alicebazdikian.com">alice@alicebazdikian.com</a>
-          <a href="https://www.linkedin.com/in/alice-bazdikian" target="_blank" rel="noopener">LinkedIn</a>
+<a href="https://www.linkedin.com/in/alice-bazdikian" target="_blank" rel="noopener">LinkedIn</a>
           <a href="https://www.instagram.com/smallbusinessaicoach/" target="_blank" rel="noopener">Instagram</a>
         </div>
       </div>
@@ -1968,7 +1997,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </button>
       <div class="exit-modal-eyebrow">Before you go · Free Newsletter</div>
       <h3 id="exit-modal-title" class="exit-modal-title">Take <em>one practical AI move</em> with you.</h3>
-      <p class="exit-modal-sub">Join 500+ small-business owners on the free weekly newsletter — one usable AI prompt, tool, or workflow each week. No hype. Unsubscribe anytime.</p>
+      <p class="exit-modal-sub">Join 500+ small-business owners on the free weekly newsletter, one usable AI prompt, tool, or workflow each week. No hype. Unsubscribe anytime.</p>
       <form class="exit-modal-form" action="https://buttondown.email/api/emails/embed-subscribe/abazdikian" method="post" target="_blank" rel="noopener">
         <input name="email" type="email" required placeholder="you@work.com" autocomplete="email" class="exit-modal-input" aria-label="Your email" />
         <button type="submit" class="exit-modal-btn">Send me the newsletter →</button>
@@ -2124,7 +2153,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       var modal = document.getElementById('exit-modal');
       if (!modal) return;
 
-      // Suppress on small/touch viewports — exit-intent is unreliable on mobile.
+      // Suppress on small/touch viewports, exit-intent is unreliable on mobile.
       var isTouchOrSmall = window.matchMedia('(max-width: 820px), (pointer: coarse)').matches;
       if (isTouchOrSmall) return;
 
