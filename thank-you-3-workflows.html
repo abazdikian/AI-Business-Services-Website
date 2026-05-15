@@ -29,20 +29,23 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     *, *::before, *::after { box-sizing: border-box; }
     :root {
       --burgundy: #7A1530; --burgundy-soft: #9B2440; --burgundy-glow: #C13558;
+      --green: #2F6F4F; --green-soft: #4A8B6F; --green-glow: #6BB28C;
       --gold: #D4A84A; --gold-warm: #E6C472; --gold-deep: #A87B1F;
       --white: #FFFFFF; --offwhite: #FDFBF5; --cream: #F7F3EE;
       --ink: #2B1A1F; --ink-soft: #6B5A5F; --rule: #EFE8E3;
       --grad-sunrise: linear-gradient(135deg, #7A1530 0%, #C13558 60%, #E6C472 100%);
+      --grad-green: linear-gradient(135deg, var(--green) 0%, var(--green-soft) 55%, var(--green-glow) 100%);
+      --grad-gold: linear-gradient(135deg, var(--gold-warm) 0%, var(--gold) 50%, var(--gold-deep) 100%);
     }
     html { scroll-behavior: smooth; }
     body { margin: 0; background: var(--white); color: var(--ink); font-family: 'Nunito', system-ui, sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
 
     .eyebrow { font-family: 'Nunito', sans-serif; font-size: 0.6875rem; font-weight: 800; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold-deep); margin: 0 0 1rem; }
-    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.9375rem; padding: 16px 28px; border-radius: 999px; text-decoration: none; border: none; cursor: pointer; transition: transform .18s cubic-bezier(.2,.9,.3,1.2), box-shadow .18s ease; }
-    .btn--primary { background: linear-gradient(135deg, var(--green) 0%, var(--green-soft) 100%); color: var(--white); box-shadow: 0 14px 32px -14px rgba(122,21,48,.55), 0 4px 18px -8px rgba(212,168,74,.55), 0 2px 0 rgba(255,255,255,.3) inset; }
-    .btn--primary:hover { transform: translateY(-2px); }
-    .btn--ghost { background: var(--white); color: var(--burgundy); border: 2px solid var(--burgundy); }
-    .btn--ghost:hover { background: var(--burgundy); color: var(--white); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.9375rem; padding: 16px 28px; border-radius: 999px; text-decoration: none; border: none; cursor: pointer; transition: transform .18s cubic-bezier(.2,.9,.3,1.2), box-shadow .18s ease, filter .18s ease; }
+    .btn--primary { background: var(--green); color: var(--white); box-shadow: 0 14px 32px -14px rgba(47,111,79,.55), 0 4px 18px -8px rgba(47,111,79,.35), 0 2px 0 rgba(255,255,255,.3) inset; }
+    .btn--primary:hover { background: var(--green-soft); transform: translateY(-2px); box-shadow: 0 18px 40px -14px rgba(47,111,79,.65); }
+    .btn--ghost { background: var(--white); color: var(--green); border: 2px solid var(--green); }
+    .btn--ghost:hover { background: var(--green); color: var(--white); }
 
     .ty-shell { position: relative; padding: 88px 24px 96px; overflow: hidden; min-height: 78vh; }
     .ty-shell::before {
@@ -56,14 +59,14 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
 
     .ty-checkmark {
       width: 88px; height: 88px; border-radius: 50%; margin: 0 auto 28px;
-      background: var(--grad-sunrise); color: var(--white);
+      background: var(--grad-green); color: var(--white);
       display: inline-flex; align-items: center; justify-content: center;
       font-size: 2.5rem; font-weight: 800; line-height: 1;
-      box-shadow: 0 18px 40px -16px rgba(122,21,48,.6), 0 4px 14px -6px rgba(212,168,74,.5);
+      box-shadow: 0 18px 40px -16px rgba(47,111,79,.55), 0 4px 14px -6px rgba(212,168,74,.4);
     }
 
     .ty-title { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(2.25rem, 4vw, 3rem); line-height: 1.1; letter-spacing: -0.025em; margin: 0 0 14px; color: var(--ink); }
-    .ty-title em { font-style: italic; background: var(--grad-sunrise); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    .ty-title em { font-style: italic; background: var(--grad-green); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
     .ty-sub { font-size: 1.125rem; color: var(--ink-soft); line-height: 1.6; margin: 0 0 36px; }
     .ty-sub strong { color: var(--ink); font-weight: 700; }
 
@@ -77,13 +80,27 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     .ty-download-name { font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 1.0625rem; color: var(--ink); margin: 0; }
     .ty-download-meta { font-size: .8125rem; color: var(--ink-soft); }
 
-    .ty-pitch { background: var(--cream); border-radius: 22px; padding: 36px 32px; margin: 0 auto 24px; text-align: center; }
-    .ty-pitch-title { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 1.5rem; line-height: 1.2; letter-spacing: -0.015em; color: var(--burgundy); margin: 0 0 8px; }
+    .ty-pitch {
+      background: var(--cream);
+      border: 2px solid transparent;
+      background-clip: padding-box;
+      border-radius: 22px; padding: 36px 32px; margin: 0 auto 24px; text-align: center;
+      position: relative;
+    }
+    .ty-pitch::before {
+      content: ""; position: absolute; inset: 0; border-radius: 22px;
+      padding: 2px;
+      background: var(--grad-green);
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor; mask-composite: exclude;
+      pointer-events: none;
+    }
+    .ty-pitch-title { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 1.5rem; line-height: 1.2; letter-spacing: -0.015em; color: var(--green); margin: 0 0 8px; }
     .ty-pitch-sub { font-size: .9375rem; color: var(--ink-soft); margin: 0 0 22px; line-height: 1.6; }
     .ty-pitch .btn { margin: 0 6px 8px; }
     .ty-pitch-alt { margin: 14px 0 0; font-size: .8125rem; color: var(--ink-soft); }
-    .ty-pitch-alt a { color: var(--burgundy); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
-    .ty-pitch-alt a:hover { color: var(--burgundy-soft); }
+    .ty-pitch-alt a { color: var(--gold-deep); font-weight: 800; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--gold); text-decoration-thickness: 2px; }
+    .ty-pitch-alt a:hover { color: var(--gold); }
 
     .ty-meta { font-size: .8125rem; color: var(--ink-soft); margin-top: 22px; }
 
