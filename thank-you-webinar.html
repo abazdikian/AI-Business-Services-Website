@@ -39,7 +39,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
 
     .eyebrow { font-family: 'Nunito', sans-serif; font-size: 0.6875rem; font-weight: 800; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold-deep); margin: 0 0 1rem; }
     .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.9375rem; padding: 16px 28px; border-radius: 999px; text-decoration: none; border: none; cursor: pointer; transition: transform .18s cubic-bezier(.2,.9,.3,1.2), box-shadow .18s ease; }
-    .btn--primary { background: var(--grad-sunrise); color: var(--white); box-shadow: 0 14px 32px -14px rgba(47,111,79,.55), 0 4px 18px -8px rgba(212,168,74,.55), 0 2px 0 rgba(255,255,255,.3) inset; }
+    .btn--primary { background: linear-gradient(135deg, var(--green) 0%, var(--green-soft) 100%); color: var(--white); box-shadow: 0 14px 32px -14px rgba(47,111,79,.55), 0 4px 18px -8px rgba(212,168,74,.55), 0 2px 0 rgba(255,255,255,.3) inset; }
     .btn--primary:hover { transform: translateY(-2px); }
     .btn--ghost { background: var(--white); color: var(--green); border: 2px solid var(--green); }
     .btn--ghost:hover { background: var(--green); color: var(--white); }
@@ -171,14 +171,43 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
 
     .ty-meta { font-size: .8125rem; color: var(--ink-soft); margin-top: 22px; }
 
+    /* Share row */
+    .ty-share { display: inline-flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 4px auto 28px; padding: 10px 18px; background: rgba(255,255,255,.7); border: 1px solid var(--rule); border-radius: 999px; font-size: .8125rem; color: var(--ink-soft); }
+    .ty-share-label { font-weight: 700; color: var(--ink); }
+    .ty-share a { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px; background: var(--white); border: 1px solid var(--rule); color: var(--ink); text-decoration: none; font-weight: 700; transition: border-color .18s ease, color .18s ease, transform .18s ease; }
+    .ty-share a:hover { border-color: var(--green); color: var(--green); transform: translateY(-1px); }
+    .ty-share a svg { width: 14px; height: 14px; }
+
+    /* Doors-open Accelerator upsell */
+    .ty-doors { position: relative; max-width: 760px; margin: 36px auto 24px; padding: 40px 36px 36px; background: linear-gradient(var(--white), var(--white)) padding-box, linear-gradient(135deg, var(--green) 0%, var(--green-glow) 55%, var(--gold-warm) 100%) border-box; border: 2px solid transparent; border-radius: 22px; box-shadow: 0 22px 50px -22px rgba(47,111,79,.30), 0 6px 14px -6px rgba(168,123,31,.18); text-align: left; }
+    .ty-doors-eyebrow { font-family: 'Nunito', sans-serif; font-size: .6875rem; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; color: var(--gold-deep); margin: 0 0 12px; }
+    .ty-doors-title { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(1.5rem, 2.4vw, 1.875rem); line-height: 1.15; letter-spacing: -0.015em; color: var(--ink); margin: 0 0 14px; }
+    .ty-doors-title em { font-style: italic; color: var(--green); font-weight: 500; }
+    .ty-doors-sub { color: var(--ink-soft); font-size: 1rem; line-height: 1.6; margin: 0 0 20px; }
+    .ty-doors-sub strong { color: var(--ink); font-weight: 700; }
+    .ty-doors-bullets { list-style: none; padding: 0; margin: 0 0 22px; display: flex; flex-direction: column; gap: 10px; }
+    .ty-doors-bullets li { position: relative; padding-left: 28px; font-size: .9375rem; color: var(--ink); line-height: 1.5; }
+    .ty-doors-bullets li::before { content: ""; position: absolute; left: 0; top: 8px; width: 14px; height: 14px; border-radius: 50%; background: var(--grad-sunrise); }
+    .ty-doors-bullets strong { color: var(--green); font-weight: 700; }
+    .ty-doors-btn { background: var(--white) !important; color: var(--green) !important; border: 2px solid var(--green) !important; padding: 12px 22px; }
+    .ty-doors-btn:hover { background: var(--green) !important; color: var(--white) !important; }
+    .ty-doors-alt { margin: 14px 0 0; font-size: .8125rem; color: var(--ink-soft); font-style: italic; }
+
     @media (max-width: 720px) {
       .ty-card { grid-template-columns: 1fr; text-align: center; }
       .ty-card-icon { margin: 0 auto; }
+      .ty-doors { padding: 32px 24px; }
     }
   </style>
 </head>
 <body>
 
+  <!-- WEBINAR BANNER -->
+  <div id="accel-banner" style="background:linear-gradient(135deg, #7D2240 0%, #3D1020 50%, #7D2240 100%);color:#fff;text-align:center;padding:0.6rem 1.5rem;font-size:0.8125rem;font-weight:500;letter-spacing:0.01em;display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;">
+    <span><strong>Free Live Workshop:</strong> Install the 4-Workflow AI Stack &nbsp;&middot;&nbsp; June 3, 7pm ET &nbsp;&middot;&nbsp; 50 seats only</span>
+    <a href="webinar.html" style="background:#D4A84A;color:#2B1A1F;border:none;padding:0.35rem 1.1rem;border-radius:100px;font-family:'Nunito',sans-serif;font-size:0.75rem;font-weight:700;cursor:pointer;letter-spacing:0.02em;white-space:nowrap;text-decoration:none;transition:background 0.2s;">Save My Spot Now &rarr;</a>
+    <button onclick="document.getElementById('accel-banner').style.display='none'" aria-label="Dismiss" style="background:none;border:none;color:rgba(255,255,255,0.5);font-size:1.1rem;cursor:pointer;padding:0;line-height:1;margin-left:0.25rem;">&times;</button>
+  </div>
   <nav class="site-nav">
     <a href="index.html" class="site-nav-brand" aria-label="Alice Bazdikian, home">
       <span class="site-nav-mono">ab</span>
@@ -188,6 +217,12 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
       </span>
     </a>
   </nav>
+  <!-- BRAND TAGLINE BAND -->
+  <div style="background:linear-gradient(135deg, #7A1530 0%, #9B2440 55%, #C13558 100%);padding:0.5rem 2.5rem;display:flex;align-items:center;justify-content:center;gap:0.75rem;width:100%;">
+    <span style="width:4px;height:4px;border-radius:50%;background:#E6C472;flex-shrink:0;"></span>
+    <span style="font-family:'Nunito',sans-serif;font-size:0.8125rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.92);">Free Workshop · Build your AI employee live, June 3</span>
+    <span style="width:4px;height:4px;border-radius:50%;background:#E6C472;flex-shrink:0;"></span>
+  </div>
 
   <section class="ty-shell">
     <div class="ty-inner">
@@ -195,6 +230,11 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
       <p class="eyebrow">You're registered</p>
       <h1 class="ty-title">June 3 · <em>7:00pm ET.</em></h1>
       <p class="ty-sub">Lock the time on your calendar first. Then grab your starter kit (downloading below). I'll send you <strong>email reminders leading up to the event</strong> with the Google Meet link inside. You can unsubscribe from those reminders any time using the link at the bottom of every email.</p>
+      <div class="ty-share">
+        <span class="ty-share-label">Tell another owner who needs this &rarr;</span>
+        <a target="_blank" rel="noopener" href="https://twitter.com/intent/tweet?text=I%20just%20signed%20up%20for%20Alice%27s%20free%20June%203%20workshop%20%E2%80%94%20we%27re%20building%20an%20AI%20employee%20live.%20Free%20seat%3A%20https%3A%2F%2Fwww.smallbusinessaicoach.com%2Fwebinar">X</a>
+        <a target="_blank" rel="noopener" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.smallbusinessaicoach.com%2Fwebinar">LinkedIn</a>
+</div>
 
       <!-- Calendar invite (first, primary action) -->
       <div class="ty-card">
@@ -251,7 +291,22 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
         <p class="ty-while-alt">Want a 1:1 audit instead? <a href="https://calendly.com/abazdikian/diagnostic" target="_blank" rel="noopener">Book a free 30-min Diagnostic</a> (capped at 4 per month).</p>
       </div>
 
-      <p class="ty-meta">Check your inbox in the next 5 minutes for the confirmation. If it doesn't show up, peek in Promotions or Spam and add <strong>alice@smallbusinessaicoach.com</strong> to your contacts. The Google Meet reminder is the most important email, you don't want it filtered.</p>
+      
+      <!-- Accelerator soft-pitch (doors-open heads-up) -->
+      <section class="ty-doors" aria-labelledby="ty-doors-title">
+        <p class="ty-doors-eyebrow">A heads-up about June 3</p>
+        <h2 id="ty-doors-title" class="ty-doors-title">At minute 75, I'll mention the Accelerator. <em>Here's what it is, so it's not a surprise.</em></h2>
+        <p class="ty-doors-sub">After every workshop, owners ask the same question: "Can you just sit with me and build this into my actual business?" The 30-Day AI Accelerator is the answer. <strong>4 Wednesday nights. 6 to 8 seats only. You leave with 3 AI workflows running in your business and a 90-day plan to keep going.</strong></p>
+        <ul class="ty-doors-bullets">
+          <li>Next cohort: <strong>Wed June 10 to July 1</strong>, 6 to 8pm ET</li>
+          <li>$697 &middot; finish all 4 weeks, get $100 back</li>
+          <li>Workshop attendees get first dibs on the 6 to 8 seats</li>
+        </ul>
+        <a href="accelerator.html" class="btn btn--ghost ty-doors-btn">See the Accelerator page &rarr;</a>
+        <p class="ty-doors-alt">Nothing to do right now &mdash; this is just so the offer doesn't catch you off guard on June 3.</p>
+      </section>
+
+      <p class="ty-meta">Check your inbox in the next 5 minutes for the confirmation. If it doesn't show up, peek in Promotions or Spam and add the workshop sender address (in the confirmation email) to your contacts. The Google Meet reminder is the most important email, you don't want it filtered.</p>
     </div>
   </section>
 

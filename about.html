@@ -21,7 +21,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   <title>About Alice Bazdikian | Claude Cowork Educator & AI Strategist for Entrepreneurs</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="apple-touch-icon" href="/favicon.svg">
-  <meta name="description" content="Meet Alice Bazdikian — Claude Cowork educator and AI strategist helping entrepreneurs, solopreneurs & women business owners use AI to stop doing admin and start doing strategy. 15+ years in business transformation." />
+  <meta name="description" content="Meet Alice Bazdikian, Claude Cowork educator and AI strategist helping entrepreneurs, solopreneurs & women business owners use AI to stop doing admin and start doing strategy. 15+ years in business transformation." />
   <meta name="keywords" content="Alice Bazdikian, Claude Cowork educator, AI coach for entrepreneurs, AI strategist Toronto, AI for women entrepreneurs, solopreneur AI coach, Claude Cowork trainer" />
   <link rel="canonical" href="https://www.smallbusinessaicoach.com/about" />
   <meta property="og:type" content="profile" />
@@ -29,7 +29,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   <meta property="og:description" content="15+ years in business transformation. Now teaching entrepreneurs & solopreneurs how to use Claude Cowork as their personal AI business analyst." />
   <meta property="og:url" content="https://www.smallbusinessaicoach.com/about" />
   <meta property="og:image" content="https://www.smallbusinessaicoach.com/Brand%20Assets/_MCK3991.jpg" />
-  <meta property="og:site_name" content="Alice Bazdikian — Claude Cowork Educator" />
+  <meta property="og:site_name" content="Alice Bazdikian, Claude Cowork Educator" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="About Alice Bazdikian | Claude Cowork Educator for Entrepreneurs" />
   <meta name="twitter:description" content="15+ years in business transformation. Teaching entrepreneurs to use Claude Cowork as their personal AI business analyst." />
@@ -48,7 +48,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
         "@id": "https://www.smallbusinessaicoach.com/about",
         "url": "https://www.smallbusinessaicoach.com/about",
         "name": "About Alice Bazdikian | Claude Cowork Educator & AI Strategist",
-        "description": "Meet Alice Bazdikian — Claude Cowork educator and AI strategist helping entrepreneurs use AI to stop doing admin and start doing strategy.",
+        "description": "Meet Alice Bazdikian, Claude Cowork educator and AI strategist helping entrepreneurs use AI to stop doing admin and start doing strategy.",
         "isPartOf": { "@id": "https://www.smallbusinessaicoach.com/#website" },
         "mainEntity": { "@id": "https://www.smallbusinessaicoach.com/#alice" },
         "breadcrumb": { "@id": "https://www.smallbusinessaicoach.com/about#breadcrumb" }
@@ -93,6 +93,10 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
 
     :root {
       --burgundy: #7A1530;
+      --green: #2F6F4F;
+      --green-soft: #4A8B6F;
+      --green-glow: #6BB28C;
+      --grad-green: linear-gradient(135deg, var(--green) 0%, var(--green-soft) 55%, var(--green-glow) 100%);
       --burgundy-soft: #9B2440;
       --burgundy-glow: #C13558;
       --gold: #D4A84A;
@@ -119,7 +123,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
       margin: 0;
     }
 
-    /* ── NAVIGATION — Brand Refresh v2 ── */
+    /* ── NAVIGATION, Brand Refresh v2 ── */
     .nav {
       position: sticky; top: 0; z-index: 50;
       background: var(--white);
@@ -273,8 +277,11 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
       transition: background 0.2s ease, transform 0.2s cubic-bezier(.2,.8,.2,1), box-shadow 0.2s ease;
       letter-spacing: 0.02em;
     }
-    .btn--primary { background: var(--burgundy); color: var(--white); box-shadow: 0 4px 20px rgba(122,21,48,0.3); }
+    .btn--primary { background: linear-gradient(135deg, var(--green) 0%, var(--green-soft) 100%); color: var(--white); box-shadow: 0 4px 20px rgba(47,111,79,0.38); }
     .btn--primary:hover { background: var(--burgundy-soft); transform: translateY(-2px); }
+    /* About hero has burgundy accents, so its primary CTA is gold (avoid green+red clash) */
+    .ab-hero .btn--primary { background: var(--gold); color: var(--burgundy); box-shadow: 0 4px 20px rgba(212,168,74,0.4); }
+    .ab-hero .btn--primary:hover { background: var(--gold-warm); transform: translateY(-2px); box-shadow: 0 10px 28px rgba(212,168,74,0.5); }
     .btn--secondary { background: transparent; color: var(--burgundy); border: 1.5px solid var(--burgundy); }
     .btn--secondary:hover { background: var(--burgundy); color: var(--white); transform: translateY(-2px); }
     .btn--gold { background: var(--gold); color: var(--burgundy); box-shadow: 0 4px 20px rgba(212,168,74,0.4); }
@@ -691,9 +698,32 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     /* ── CTA BAND ── */
     .ab-ctaband {
       padding: 88px 56px;
-      background: var(--white);
+      background: var(--grad-green);
+      color: var(--white);
       text-align: center;
     }
+    .ab-ctaband .ab-ctaband-title { color: var(--white); }
+    .ab-ctaband .ab-ctaband-eyebrow,
+    .ab-ctaband .ab-ctaband-sub { color: rgba(255,255,255,0.88); }
+    .ab-ctaband .btn--primary {
+      background: linear-gradient(135deg, #F6D77A 0%, #E6C472 60%, #D4A84A 100%) !important;
+      color: #1F4A2E !important;
+      box-shadow: 0 6px 22px rgba(31,74,46,0.32) !important;
+    }
+    .ab-ctaband .btn--primary:hover {
+      background: linear-gradient(135deg, #F6D77A 0%, #D4A84A 100%) !important;
+      box-shadow: 0 10px 30px rgba(31,74,46,0.4) !important;
+    }
+    .ab-ctaband .btn--secondary {
+      background: transparent !important;
+      color: var(--white) !important;
+      border: 1.5px solid rgba(255,255,255,0.6) !important;
+    }
+    .ab-ctaband .btn--secondary:hover {
+      background: rgba(255,255,255,0.1) !important;
+      border-color: rgba(255,255,255,0.85) !important;
+    }
+
     .ab-ctaband-title {
       font-family: 'Fraunces', Georgia, serif;
       font-weight: 700;
@@ -705,7 +735,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     }
     .ab-ctaband-title em {
       font-style: italic; font-weight: 400;
-      background: var(--grad-sunrise);
+      background: linear-gradient(135deg, #F6D77A 0%, #E6C472 55%, #D4A84A 100%);
       -webkit-background-clip: text; background-clip: text;
       -webkit-text-fill-color: transparent; color: transparent;
     }
@@ -723,10 +753,12 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
       display: inline-flex; gap: 12px; flex-wrap: wrap; justify-content: center;
     }
 
-    /* ── NEWSLETTER (Hormozi-style — shared design) ── */
+    /* ── NEWSLETTER (Hormozi-style, shared design) ── */
     .wwm-news {
       padding: 108px 56px;
-      background: var(--offwhite);
+      background:
+        linear-gradient(100deg, rgba(255,253,250,0.94) 0%, rgba(255,253,250,0.78) 50%, rgba(255,253,250,0.58) 100%),
+        url('Brand Assets/Bloghero2.png') center/cover no-repeat;
       position: relative; overflow: hidden;
     }
     .wwm-news::before {
@@ -774,7 +806,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     }
     .wwm-news-title em {
       font-style: italic; font-weight: 400;
-      background: var(--grad-sunrise);
+      background: var(--grad-green);
       -webkit-background-clip: text; background-clip: text;
       -webkit-text-fill-color: transparent; color: transparent;
     }
@@ -786,7 +818,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
       margin: 0 0 1.75rem;
       text-wrap: pretty; max-width: 52ch;
     }
-    .wwm-news-sub strong { color: var(--burgundy); font-weight: 700; }
+    .wwm-news-sub strong { color: var(--green); font-weight: 700; }
     .wwm-news-bullets {
       list-style: none; margin: 0 0 1.75rem; padding: 0;
       display: grid; gap: 0.75rem;
@@ -803,8 +835,8 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
       position: absolute;
       left: 0; top: 0.45rem;
       width: 14px; height: 14px; border-radius: 4px;
-      background: var(--grad-sunrise);
-      box-shadow: 0 2px 6px rgba(122,21,48,0.2);
+      background: var(--grad-green);
+      box-shadow: 0 2px 6px rgba(47,111,79,0.25);
     }
     .wwm-news-bullets li::after {
       content: '';
@@ -820,13 +852,13 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
       font-family: 'Fraunces', Georgia, serif;
       font-style: italic; font-weight: 500;
       font-size: 1rem;
-      color: var(--burgundy);
+      color: var(--green);
       margin: 0;
     }
     .wwm-news-sig::before {
       content: '';
       width: 32px; height: 1px;
-      background: var(--burgundy);
+      background: var(--green);
       display: block;
     }
     .wwm-news-stack { display: flex; flex-direction: column; gap: 18px; }
@@ -844,7 +876,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
       position: absolute;
       top: 0; left: 0; right: 0;
       height: 3px;
-      background: var(--grad-sunrise);
+      background: var(--grad-green);
       border-radius: 16px 16px 0 0;
     }
     .wwm-news-preview-label {
@@ -873,19 +905,19 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
       position: relative;
     }
     .wwm-news-bonus {
-      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-warm) 100%);
-      color: var(--burgundy);
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-soft) 100%);
+      color: var(--white);
       border-radius: 12px;
       padding: 12px 16px;
       margin: -40px -2px 18px;
       display: flex; gap: 10px;
-      box-shadow: 0 10px 24px rgba(212,168,74,0.35);
+      box-shadow: 0 10px 24px rgba(47,111,79,0.35);
     }
     .wwm-news-bonus-tag {
       font-family: 'Nunito', sans-serif;
       font-size: 0.6875rem; font-weight: 800;
       letter-spacing: 0.14em; text-transform: uppercase;
-      background: var(--burgundy); color: var(--gold-warm);
+      background: var(--white); color: var(--green);
       padding: 6px 10px; border-radius: 100px;
       white-space: nowrap; align-self: flex-start;
       flex-shrink: 0;
@@ -893,11 +925,11 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     .wwm-news-bonus p {
       font-family: 'Nunito', sans-serif;
       font-size: 0.8125rem; font-weight: 600;
-      color: #4A0E1F;
+      color: rgba(255,255,255,0.95);
       line-height: 1.4;
       margin: 2px 0 0;
     }
-    .wwm-news-bonus p strong { color: var(--burgundy); font-weight: 800; }
+    .wwm-news-bonus p strong { color: #F6D77A; font-weight: 800; }
     .wwm-news-form { display: flex; flex-direction: column; gap: 10px; }
     .wwm-news-label {
       font-family: 'Nunito', sans-serif;
@@ -911,26 +943,26 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
       padding: 14px 16px;
       border-radius: 11px;
       background: var(--offwhite);
-      border: 1.5px solid rgba(122,21,48,0.15);
+      border: 1.5px solid rgba(47,111,79,0.18);
       color: var(--ink); outline: none;
       transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
     }
     .wwm-news-input::placeholder { color: var(--ink-soft); }
     .wwm-news-input:focus-visible {
-      border-color: var(--gold); background: var(--white);
-      box-shadow: 0 0 0 4px rgba(212,168,74,0.22);
+      border-color: var(--green); background: var(--white);
+      box-shadow: 0 0 0 4px rgba(47,111,79,0.18);
     }
     .wwm-news-btn {
       font-family: 'Nunito', sans-serif;
       font-weight: 800; font-size: 0.9375rem;
       padding: 14px 20px; border-radius: 11px;
-      background: var(--burgundy); color: var(--white);
+      background: var(--green); color: var(--white);
       border: none; cursor: pointer;
       letter-spacing: 0.02em;
-      box-shadow: 0 10px 24px rgba(122,21,48,0.28);
+      box-shadow: 0 10px 24px rgba(47,111,79,0.3);
       transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
     }
-    .wwm-news-btn:hover { background: var(--burgundy-soft); transform: translateY(-1px); box-shadow: 0 14px 30px rgba(122,21,48,0.36); }
+    .wwm-news-btn:hover { background: var(--green-soft); transform: translateY(-1px); box-shadow: 0 14px 30px rgba(47,111,79,0.4); }
     .wwm-news-meta {
       margin: 8px 0 0;
       font-family: 'Nunito', sans-serif;
@@ -950,7 +982,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     .wwm-news-proof-dots { display: flex; }
     .wwm-news-proof-dots span {
       width: 22px; height: 22px; border-radius: 50%;
-      background: var(--grad-sunrise);
+      background: var(--grad-green);
       border: 2px solid var(--white);
       margin-left: -7px;
     }
@@ -1075,6 +1107,12 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   </style>
 </head>
 <body>
+  <!-- WEBINAR BANNER -->
+  <div id="accel-banner" style="background:linear-gradient(135deg, #7D2240 0%, #3D1020 50%, #7D2240 100%);color:#fff;text-align:center;padding:0.6rem 1.5rem;font-size:0.8125rem;font-weight:500;letter-spacing:0.01em;display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;">
+    <span><strong>Free Live Workshop:</strong> Install the 4-Workflow AI Stack &nbsp;&middot;&nbsp; June 3, 7pm ET &nbsp;&middot;&nbsp; 50 seats only</span>
+    <a href="webinar.html" style="background:#D4A84A;color:#2B1A1F;border:none;padding:0.35rem 1.1rem;border-radius:100px;font-family:'Nunito',sans-serif;font-size:0.75rem;font-weight:700;cursor:pointer;letter-spacing:0.02em;white-space:nowrap;text-decoration:none;transition:background 0.2s;">Save My Spot Now &rarr;</a>
+    <button onclick="document.getElementById('accel-banner').style.display='none'" aria-label="Dismiss" style="background:none;border:none;color:rgba(255,255,255,0.5);font-size:1.1rem;cursor:pointer;padding:0;line-height:1;margin-left:0.25rem;">&times;</button>
+  </div>
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-53LWP97Z"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -1082,7 +1120,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- NAV -->
   <nav class="site-nav">
-    <a href="index.html" class="site-nav-brand" aria-label="Alice Bazdikian — home">
+    <a href="index.html" class="site-nav-brand" aria-label="Alice Bazdikian, home">
       <span class="site-nav-mono">ab</span>
       <span class="site-nav-brand-text">
         <span class="site-nav-brand-name">Alice Bazdikian</span>
@@ -1091,10 +1129,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </a>
     <ul class="site-nav-links">
       <li><a href="about.html" class="active">About</a></li>
-      <li><a href="workshops.html">Work With Me</a></li>
+      <li><a href="accelerator.html">Work With Me</a></li>
       <li><a href="speaking.html">Speaking</a></li>
       <li><a href="scorecard.html">Scorecard</a></li>
       <li><a href="claude-resources.html">Resources</a></li>
+      <li><a href="3-workflows-starter-kit.html" class="site-nav-kit">Free AI Stack</a></li>
       <li><a href="blog.html">Blog</a></li>
       <li class="site-nav-social" aria-label="Social media">
         <a href="https://www.linkedin.com/in/alice-bazdikian" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.852 3.37-1.852 3.601 0 4.267 2.37 4.267 5.455v6.288zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
@@ -1102,7 +1141,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a href="https://www.tiktok.com/@smallbusinessaicoach" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005.8 20.1a6.34 6.34 0 0010.86-4.43V8.21a8.15 8.15 0 004.77 1.52V6.31a4.77 4.77 0 01-1.84-.62z"/></svg></a>
       </li>
       <li>
-        <a href="https://calendly.com/abazdikian/diagnostic" target="_blank" rel="noopener" class="site-nav-cta">Book a Diagnostic</a>
+        <a href="webinar.html" class="site-nav-cta">Webinar &middot; June 3</a>
       </li>
     </ul>
     <button class="site-nav-hamburger" id="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false">
@@ -1113,7 +1152,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- MOBILE MENU -->
   <div class="site-mobile-menu" id="mobile-menu" aria-hidden="true">
     <a href="about.html">About</a>
-    <a href="workshops.html">Work With Me</a>
+    <a href="accelerator.html">Work With Me</a>
     <a href="speaking.html">Speaking</a>
     <a href="scorecard.html">Scorecard</a>
     <a href="claude-resources.html">Resources</a>
@@ -1121,13 +1160,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <a href="ai-roi-calculator.html">AI ROI Calculator</a>
     <a href="ai-stack.html">AI Stack Template</a>
     <a href="ai-challenge.html">5-Day AI Challenge</a>
-    <a href="https://calendly.com/abazdikian/diagnostic" target="_blank" rel="noopener" class="site-mobile-cta">Book a Diagnostic</a>
+    <a href="webinar.html" class="site-mobile-cta">Webinar &middot; June 3</a>
   </div>
 
   <!-- ANNOUNCEMENT BAND -->
   <div class="announce-band">
     <span class="announce-band-dot"></span>
-    <span class="announce-band-text">AI without the Overwhelm</span>
+    <span class="announce-band-text">Free Workshop · Build your AI employee live, June 3</span>
     <span class="announce-band-dot"></span>
   </div>
 
@@ -1139,7 +1178,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         I'm not a tech person. I'm a <em>business person</em> who <em id="about-typewriter">speaks AI.</em>
       </h1>
       <p class="ab-hero-sub">
-        For 15+ years I ran operations, product, and transformation projects inside small businesses and global brands. Then I learned AI the only way that actually sticks — by using it on my own "pain in the ass" tasks. Now I install the same systems into 200+ small businesses — and guarantee the results.
+        For 15+ years I ran operations, product, and transformation projects inside small businesses and global brands. Then I learned AI the only way that actually sticks, by using it on my own "pain in the ass" tasks. Now I install the same systems into 200+ small businesses, and guarantee the results.
       </p>
       <div class="ab-hero-ctas">
         <a href="https://calendly.com/abazdikian/diagnostic" target="_blank" rel="noopener" class="btn btn--primary">Get My Free AI Diagnostic →</a>
@@ -1150,7 +1189,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <img src="Brand Assets/_MCK3991.jpg" alt="Alice Bazdikian" width="600" height="750" />
       <div class="ab-hero-badge">
         <div class="ab-hero-badge-eyebrow">Guarantee</div>
-        <div class="ab-hero-badge-title">3 automations in 30 days — or it's free.</div>
+        <div class="ab-hero-badge-title">Your AI employee, built in 30 days.</div>
       </div>
     </div>
   </section>
@@ -1175,7 +1214,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div class="ab-stat">
         <div class="ab-stat-num">30 days</div>
-        <div class="ab-stat-label">Or your money back</div>
+        <div class="ab-stat-label">AI employee ready</div>
         <div class="ab-stat-sub">Every program. Every cohort.</div>
       </div>
     </div>
@@ -1186,25 +1225,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="ab-story-inner">
       <div class="ab-story-head">
         <p class="eyebrow">The Story</p>
-        <h2 class="ab-story-title">Why most AI training fails — and what I did <em>differently.</em></h2>
+        <h2 class="ab-story-title">Why most AI training fails, and what I did <em>differently.</em></h2>
       </div>
       <div class="ab-story-body">
         <p class="ab-story-lede">
-          Most "AI for Business" programs are taught by engineers. They dump 47 tools on you, pile on prompt theory, and leave you with a YouTube playlist. You finish feeling smarter — but your week still looks identical.
+          Most "AI for Business" programs are taught by engineers. They dump 47 tools on you, pile on prompt theory, and leave you with a YouTube playlist. You finish feeling smarter, but your week still looks identical.
         </p>
         <p>
-          I'm the opposite. For 15+ years I ran the roles that AI is now replacing — business analyst, project manager, product manager, operations lead, entrepreneur. I <strong>lived</strong> the 50-hour weeks, the admin drag, the spreadsheets that ate my Sundays.
+          I'm the opposite. For 15+ years I ran the roles that AI is now replacing, business analyst, project manager, product manager, operations lead, entrepreneur. I <strong>lived</strong> the 50-hour weeks, the admin drag, the spreadsheets that ate my Sundays.
         </p>
         <p>
-          So when I learned AI, I didn't learn it as a toy. I learned it the same way I'll teach you — by applying it to the exact "pain in the ass" tasks my own business was drowning in. Emails. Reports. Proposals. Content. Ops.
+          So when I learned AI, I didn't learn it as a toy. I learned it the same way I'll teach you, by applying it to the exact "pain in the ass" tasks my own business was drowning in. Emails. Reports. Proposals. Content. Ops.
         </p>
         <p>
-          <strong>The result:</strong> I cut 15+ hours a week off my own calendar in the first 30 days. Then I started teaching it. And 200+ small-business owners later, the pattern holds — <strong>3 AI automations, ~10 hours back per week, in 30 days</strong>. That's why every program I run comes with a money-back guarantee. I'm not betting on theory. I'm betting on a pattern I've now seen repeat 200 times.
+          <strong>The result:</strong> I cut 15+ hours a week off my own calendar in the first 30 days. Then I started teaching it. And 200+ small-business owners later, the pattern holds, <strong>3 AI automations, ~10 hours back per week, in 30 days</strong>. That's why every program I run is built with you on real workflows, not generic templates. I'm not betting on theory. I'm betting on a pattern I've now seen repeat 200 times.
         </p>
         <p>
           This isn't about becoming a techie. It's about becoming the owner who stopped being the bottleneck.
         </p>
-        <div class="ab-story-sig">— Alice</div>
+        <div class="ab-story-sig">,  Alice</div>
       </div>
     </div>
   </section>
@@ -1215,7 +1254,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="ab-mindset-head">
         <p class="eyebrow eyebrow--gold">The Method · A.I.R.</p>
         <h2 class="ab-mindset-title">The 3-step method 200+ owners used to go <em>AI-first.</em></h2>
-        <p class="ab-mindset-sub">Most owners try to "add AI" on top of a broken workflow — and it flops. A.I.R. flips the order: ask AI first, implement with AI, run &amp; refine. Same system I'll install in your business in 30 days.</p>
+        <p class="ab-mindset-sub">Most owners try to "add AI" on top of a broken workflow, and it flops. A.I.R. flips the order: ask AI first, implement with AI, run &amp; refine. Same system I'll install in your business in 30 days.</p>
       </div>
       <div class="ab-mindset-grid">
         <div class="ab-mindset-card">
@@ -1226,12 +1265,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="ab-mindset-card">
           <div class="ab-mindset-num">I</div>
           <h3 class="ab-mindset-card-title">Implement with AI.</h3>
-          <p class="ab-mindset-card-desc">AI handles the draft, the plan, the first pass. Your expertise shapes the result — AI accelerates it. You stop being the bottleneck.</p>
+          <p class="ab-mindset-card-desc">AI handles the draft, the plan, the first pass. Your expertise shapes the result, AI accelerates it. You stop being the bottleneck.</p>
         </div>
         <div class="ab-mindset-card">
           <div class="ab-mindset-num">R</div>
           <h3 class="ab-mindset-card-title">Run &amp; refine.</h3>
-          <p class="ab-mindset-card-desc">Review, refine, apply your judgment. AI gives you the starting line — you bring the finish. The workflow lives outside your head now.</p>
+          <p class="ab-mindset-card-desc">Review, refine, apply your judgment. AI gives you the starting line, you bring the finish. The workflow lives outside your head now.</p>
         </div>
       </div>
     </div>
@@ -1239,46 +1278,41 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- CTA BAND -->
   <section class="ab-ctaband">
-    <h2 class="ab-ctaband-title">Ready to stop being the bottleneck? <em>Let's map your 3 moves.</em></h2>
-    <p class="ab-ctaband-sub">⚡ Next 30-Day Accelerator cohort: May 5 · Only 4 spots left. Book a free 15-min Diagnostic and I'll name your 3 highest-ROI AI automations on the call.</p>
+    <h2 class="ab-ctaband-title">Ready to stop Googling and start using AI? <em>Come to the free workshop.</em></h2>
+    <p class="ab-ctaband-sub">⚡ Free Live Workshop: Install the 4-Workflow AI Stack on a real attendee's small business. Wednesday, June 3 at 7pm ET. 90 minutes. 50 seats only. No public replay.</p>
     <div class="ab-ctaband-ctas">
-      <a href="https://calendly.com/abazdikian/diagnostic" target="_blank" rel="noopener" class="btn btn--primary">Claim My Spot — Free Diagnostic →</a>
-      <a href="workshops.html#pricing" class="btn btn--secondary">See the 3 programs</a>
+      <a href="webinar.html" class="btn btn--primary">Save My Spot Now →</a>
+      <a href="accelerator.html" class="btn btn--secondary">See the Accelerator</a>
     </div>
   </section>
 
-  <!-- NEWSLETTER (soft capture — below final CTA for non-bookers) -->
+  <!-- NEWSLETTER (soft capture, below final CTA for non-bookers) -->
   <section class="wwm-news">
     <div class="wwm-news-inner">
       <div class="wwm-news-copy">
-        <p class="wwm-news-eyebrow">The Weekly Signal · Free Newsletter</p>
-        <h2 class="wwm-news-title">Save 1+ hour a week with <em>one email.</em></h2>
-        <p class="wwm-news-sub">Every Sunday, I send <strong>one</strong> prompt, tool, or workflow — the same ones I teach paying clients — so you can run it Monday morning. <strong>3-minute read. ~60-minute time-save.</strong></p>
+        <p class="wwm-news-eyebrow">The Anti-Overwhelm Journal · Free Newsletter</p>
+        <h2 class="wwm-news-title">Close one tab in your head. <em>Every Friday.</em></h2>
+        <p class="wwm-news-sub">One Friday email. One small piece of your business you'll never have to think about again. Not "quit your job" content. Not productivity bro hacks. The boring backend work, follow-ups, invoices, "did I respond to that?", <strong>handed off to an AI employee so your brain can actually close out by 6pm.</strong></p>
         <ul class="wwm-news-bullets">
-          <li>One tactic per week — prompt, tool, or workflow</li>
-          <li>Real examples from the 30-Day Accelerator cohort</li>
-          <li>3-minute read · Sunday delivery · Built for Monday</li>
-          <li>Written for non-technical owners, not engineers</li>
+          <li>One slice of your back-office, retired each Friday</li>
+          <li>Real workflows from the 30-Day Accelerator cohort</li>
+          <li>3-minute read · Friday delivery · Built for owners, not engineers</li>
+          <li>Written for solopreneurs and 1 to 25 person teams</li>
         </ul>
         <p class="wwm-news-sig">Alice Bazdikian · AI coach for small-business owners</p>
       </div>
 
       <div class="wwm-news-stack">
-        <div class="wwm-news-preview">
-          <p class="wwm-news-preview-label">📬 This Sunday's email</p>
-          <p class="wwm-news-preview-headline">"The 20-minute Brand File that makes every AI output sound like you — not a robot."</p>
-        </div>
-
         <div class="wwm-news-form-card">
           <div class="wwm-news-bonus">
             <span class="wwm-news-bonus-tag">🎁 Instant Bonus</span>
-            <p>Your <strong>first email</strong> includes the #1 prompt owners say saves them an hour in week one — free, the moment you subscribe.</p>
+            <p>Subscribe and the first email includes <strong>the free AI Stack template</strong>, the 4-workflow blueprint I install live in the workshop, so you can start handing off 40 tabs of decision fatigue this week.</p>
           </div>
 
           <form class="wwm-news-form" action="https://buttondown.email/api/emails/embed-subscribe/abazdikian" method="post" target="_blank" rel="noopener">
             <label for="ab-news-email" class="wwm-news-label">Your email</label>
             <input id="ab-news-email" name="email" type="email" required placeholder="you@work.com" class="wwm-news-input" autocomplete="email" />
-            <button type="submit" class="wwm-news-btn">Send me the first email →</button>
+            <button type="submit" class="wwm-news-btn">Send me Friday's email →</button>
             <p class="wwm-news-meta">No spam · 1 email/week · Unsubscribe in one click</p>
           </form>
 
@@ -1303,7 +1337,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <div class="site-footer-brand-tag">AI Strategist + Educator</div>
             </div>
           </div>
-          <p class="site-footer-brand-desc">Helping entrepreneurs and businesses navigate the AI revolution — without the overwhelm.</p>
+          <p class="site-footer-brand-desc">Helping entrepreneurs and businesses navigate the AI revolution, without the overwhelm.</p>
           <div class="site-footer-socials">
             <a href="https://www.linkedin.com/in/alice-bazdikian" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.852 3.37-1.852 3.601 0 4.267 2.37 4.267 5.455v6.288zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
             <a href="https://www.instagram.com/smallbusinessaicoach/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
@@ -1313,7 +1347,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="site-footer-col">
           <h4 class="site-footer-col-head">Explore</h4>
           <a href="about.html">About</a>
-          <a href="workshops.html">Work With Me</a>
+          <a href="accelerator.html">Work With Me</a>
           <a href="speaking.html">Speaking</a>
           <a href="scorecard.html">Scorecard</a>
           <a href="blog.html">Blog</a>
@@ -1328,8 +1362,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="site-footer-col">
           <h4 class="site-footer-col-head">Contact</h4>
           <a href="https://calendly.com/abazdikian/diagnostic" target="_blank" rel="noopener">Book a Diagnostic</a>
-          <a href="mailto:alice@alicebazdikian.com">alice@alicebazdikian.com</a>
-          <a href="https://www.linkedin.com/in/alice-bazdikian" target="_blank" rel="noopener">LinkedIn</a>
+<a href="https://www.linkedin.com/in/alice-bazdikian" target="_blank" rel="noopener">LinkedIn</a>
           <a href="https://www.instagram.com/smallbusinessaicoach/" target="_blank" rel="noopener">Instagram</a>
         </div>
       </div>
@@ -1393,5 +1426,61 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </script>
 
 <script defer src="/_vercel/insights/script.js"></script>
+<!-- EXIT-INTENT NEWSLETTER MODAL -->
+<div id="exit-modal" class="exit-modal" aria-hidden="true" role="dialog" aria-labelledby="exit-modal-title">
+  <div class="exit-modal-backdrop"></div>
+  <div class="exit-modal-card">
+    <button class="exit-modal-close" aria-label="Close">&times;</button>
+    <span class="exit-modal-eyebrow">&#127873; Before you close the tab</span>
+    <h2 id="exit-modal-title" class="exit-modal-title">Take the AI Stack <em>with you.</em></h2>
+    <p class="exit-modal-sub">One Friday email. One small piece of your business you'll never have to think about again. Plus the free <strong>4-Workflow AI Stack template</strong> the moment you subscribe, so you can start handing off 40 tabs of decision fatigue this week.</p>
+    <form class="exit-modal-form" action="https://buttondown.email/api/emails/embed-subscribe/abazdikian" method="post" target="_blank" rel="noopener">
+      <input type="email" name="email" required placeholder="you@work.com" class="exit-modal-input" autocomplete="email" aria-label="Email address" />
+      <button type="submit" class="exit-modal-btn">Send me the AI Stack &rarr;</button>
+    </form>
+    <p class="exit-modal-meta">No spam &middot; 1 email/week &middot; Unsubscribe in one click</p>
+  </div>
+</div>
+<style>
+.exit-modal { position: fixed; inset: 0; z-index: 9999; display: none; align-items: center; justify-content: center; padding: 24px; }
+.exit-modal.is-open { display: flex; }
+.exit-modal-backdrop { position: absolute; inset: 0; background: rgba(43,26,31,0.55); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); animation: exitFadeIn .25s ease; }
+.exit-modal-card { position: relative; max-width: 460px; width: 100%; background: #FFFFFF; border-radius: 18px; padding: 36px 32px 30px; box-shadow: 0 30px 70px -10px rgba(43,26,31,0.45); border: 1.5px solid rgba(212,168,74,0.35); animation: exitSlideUp .3s cubic-bezier(.2,.7,.3,1); font-family: 'Nunito', system-ui, -apple-system, sans-serif; }
+.exit-modal-close { position: absolute; top: 12px; right: 14px; background: none; border: none; color: #6B5A5F; font-size: 1.5rem; line-height: 1; cursor: pointer; padding: 6px 10px; border-radius: 999px; transition: background .2s ease; }
+.exit-modal-close:hover { background: rgba(43,26,31,0.06); color: #2B1A1F; }
+.exit-modal-eyebrow { display: inline-block; font-size: .6875rem; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; color: #A87B1F; background: rgba(212,168,74,0.14); padding: 6px 12px; border-radius: 999px; border: 1px solid rgba(212,168,74,0.32); margin-bottom: 14px; }
+.exit-modal-title { font-family: 'Fraunces', Georgia, serif; font-size: clamp(1.5rem, 3vw, 1.875rem); font-weight: 500; line-height: 1.1; letter-spacing: -0.02em; color: #2B1A1F; margin: 0 0 12px; }
+.exit-modal-title em { font-style: italic; font-weight: 500; background: linear-gradient(135deg,#2F6F4F 0%,#4A8B6F 55%,#6BB28C 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; }
+.exit-modal-sub { color: #6B5A5F; font-size: .9375rem; line-height: 1.55; margin: 0 0 18px; }
+.exit-modal-sub strong { color: #2F6F4F; font-weight: 700; }
+.exit-modal-form { display: flex; flex-direction: column; gap: 10px; }
+.exit-modal-input { width: 100%; font-family: inherit; font-size: 1rem; padding: 12px 14px; border-radius: 10px; border: 1.5px solid rgba(47,111,79,0.18); background: #FDFBF5; color: #2B1A1F; outline: none; transition: border-color .2s ease, box-shadow .2s ease; }
+.exit-modal-input:focus-visible { border-color: #2F6F4F; box-shadow: 0 0 0 3px rgba(47,111,79,0.12); }
+.exit-modal-btn { font-family: inherit; font-weight: 800; font-size: .875rem; letter-spacing: .02em; padding: 12px 18px; border-radius: 10px; background: #2F6F4F; color: #fff; border: none; cursor: pointer; box-shadow: 0 10px 24px rgba(47,111,79,0.3); transition: background .2s ease, transform .15s ease; }
+.exit-modal-btn:hover { background: #4A8B6F; transform: translateY(-1px); }
+.exit-modal-meta { font-size: .75rem; color: #6B5A5F; text-align: center; margin: 12px 0 0; }
+@keyframes exitFadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes exitSlideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) { .exit-modal-backdrop, .exit-modal-card { animation: none; } }
+</style>
+<script>
+(function(){
+  if (sessionStorage.getItem('exitModalShown')) return;
+  var modal = document.getElementById('exit-modal');
+  if (!modal) return;
+  var armed = false;
+  function show(){ if(modal.classList.contains('is-open')) return; modal.classList.add('is-open'); modal.setAttribute('aria-hidden','false'); sessionStorage.setItem('exitModalShown','1'); }
+  function hide(){ modal.classList.remove('is-open'); modal.setAttribute('aria-hidden','true'); }
+  // Arm after 8s so it doesn't fire instantly
+  setTimeout(function(){ armed = true; }, 8000);
+  document.addEventListener('mouseout', function(e){ if (armed && !e.relatedTarget && e.clientY <= 0) show(); });
+  // Mobile fallback: trigger after 60s
+  setTimeout(function(){ if (armed) show(); }, 60000);
+  modal.querySelector('.exit-modal-close').addEventListener('click', hide);
+  modal.querySelector('.exit-modal-backdrop').addEventListener('click', hide);
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') hide(); });
+})();
+</script>
+
 </body>
 </html>

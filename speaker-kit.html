@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Speaker Kit | Alice Bazdikian, AI Strategist + Educator</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="description" content="One-page speaker kit for event planners. Signature talks, formats, audience fit, 4.5+/5 guarantee, photos, and pricing bands." />
+<meta name="robots" content="noindex" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  :root {
+    --burgundy: #7A1530; --green: #2F6F4F; --green-soft: #4A8B6F; --green-glow: #6BB28C;
+    --gold: #D4A84A; --gold-warm: #E6C472; --gold-deep: #A87B1F;
+    --white: #FFFFFF; --cream: #F7F3EE;
+    --ink: #2B1A1F; --ink-soft: #6B5A5F; --rule: #EFE8E3;
+    --grad-green: linear-gradient(135deg, var(--green) 0%, var(--green-soft) 55%, var(--green-glow) 100%);
+  }
+  body { margin: 0; background: var(--white); color: var(--ink); font-family: 'Nunito', system-ui, sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+  /* Confirmation banner at top — disappears on print */
+  .sk-confirm {
+    background: linear-gradient(135deg, rgba(47,111,79,.10) 0%, rgba(107,178,140,.16) 100%);
+    border-bottom: 1px solid rgba(47,111,79,.18);
+    padding: 14px 24px; text-align: center;
+  }
+  .sk-confirm p { margin: 0; font-size: .9375rem; color: var(--green); font-weight: 700; }
+  .sk-confirm small { display: block; font-weight: 500; color: var(--ink-soft); font-size: .8125rem; margin-top: 4px; }
+  .sk-print-row { text-align: center; padding: 10px 24px 0; }
+  .sk-print-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--white); color: var(--green); border: 2px solid var(--green);
+    padding: 8px 16px; border-radius: 999px;
+    font-family: 'Nunito', sans-serif; font-size: .8125rem; font-weight: 700;
+    letter-spacing: .04em; text-transform: uppercase; cursor: pointer;
+    transition: background .18s, color .18s, transform .18s;
+  }
+  .sk-print-btn:hover { background: var(--green); color: var(--white); transform: translateY(-1px); }
+
+  /* The kit itself — one printable page */
+  .sk-page {
+    max-width: 920px; margin: 32px auto 64px;
+    padding: 56px 64px;
+    background: var(--white);
+    border: 1px solid var(--rule);
+    border-radius: 18px;
+    box-shadow: 0 30px 70px -28px rgba(43,26,31,.18);
+  }
+  .sk-header { display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: flex-end; padding-bottom: 28px; border-bottom: 2px solid var(--gold); margin-bottom: 36px; }
+  .sk-brand-tag { font-family: 'Nunito', sans-serif; font-size: .6875rem; font-weight: 800; letter-spacing: .25em; text-transform: uppercase; color: var(--gold-deep); margin: 0 0 8px; }
+  .sk-name { font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 2.5rem; line-height: 1; letter-spacing: -.02em; color: var(--ink); margin: 0; }
+  .sk-tag { font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 500; font-size: 1.125rem; color: var(--green); margin: 8px 0 0; }
+  .sk-photo { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; border: 3px solid var(--gold); box-shadow: 0 10px 24px -10px rgba(168,123,31,.5); }
+
+  .sk-intro { font-size: 1.0625rem; color: var(--ink); margin: 0 0 32px; max-width: 70ch; }
+  .sk-intro strong { color: var(--green); }
+
+  .sk-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin: 0 0 36px; }
+  .sk-stat { padding: 16px; background: var(--cream); border-radius: 12px; text-align: center; }
+  .sk-stat-num { font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 1.625rem; line-height: 1; color: var(--green); }
+  .sk-stat-lbl { font-size: .75rem; font-weight: 700; color: var(--ink-soft); margin-top: 6px; letter-spacing: .04em; text-transform: uppercase; }
+
+  .sk-section { margin: 0 0 32px; }
+  .sk-section h2 { font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 1.375rem; line-height: 1.2; color: var(--ink); margin: 0 0 14px; padding-bottom: 8px; border-bottom: 1px solid var(--rule); }
+  .sk-section h2 .accent { color: var(--green); font-style: italic; font-weight: 500; }
+
+  .sk-talks { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .sk-talk { padding: 18px 20px; background: var(--cream); border-radius: 12px; border-left: 4px solid var(--green); }
+  .sk-talk h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 1.0625rem; color: var(--ink); margin: 0 0 6px; }
+  .sk-talk p { font-size: .875rem; color: var(--ink-soft); margin: 0; line-height: 1.55; }
+  .sk-talk-meta { display: inline-block; margin-top: 8px; font-size: .6875rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; color: var(--gold-deep); }
+
+  .sk-formats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .sk-format { padding: 16px; border: 1.5px solid var(--rule); border-radius: 12px; }
+  .sk-format-name { font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 1rem; color: var(--ink); margin: 0 0 4px; }
+  .sk-format-duration { font-size: .8125rem; color: var(--green); font-weight: 700; margin: 0 0 8px; }
+  .sk-format-desc { font-size: .8125rem; color: var(--ink-soft); margin: 0; line-height: 1.5; }
+
+  .sk-guarantee {
+    background: linear-gradient(135deg, rgba(212,168,74,.14) 0%, rgba(230,196,114,.20) 100%);
+    border: 2px solid var(--gold);
+    border-radius: 14px; padding: 22px 24px;
+    display: grid; grid-template-columns: 56px 1fr; gap: 18px; align-items: center;
+  }
+  .sk-guarantee-seal { width: 56px; height: 56px; border-radius: 50%; background: var(--gold); color: var(--ink); display: inline-flex; align-items: center; justify-content: center; font-family: 'Fraunces', Georgia, serif; font-weight: 700; font-size: 1.5rem; }
+  .sk-guarantee-title { font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 1.125rem; color: var(--ink); margin: 0 0 4px; }
+  .sk-guarantee-body { font-size: .9375rem; color: var(--ink); margin: 0; line-height: 1.5; }
+
+  .sk-audiences { display: flex; flex-wrap: wrap; gap: 8px; }
+  .sk-audience-chip { padding: 6px 12px; background: var(--cream); border-radius: 999px; font-size: .8125rem; font-weight: 600; color: var(--ink); border: 1px solid var(--rule); }
+
+  .sk-pricing { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .sk-tier { padding: 18px; border: 1.5px solid var(--rule); border-radius: 12px; }
+  .sk-tier-name { font-size: .6875rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; color: var(--gold-deep); }
+  .sk-tier-price { font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 1.5rem; color: var(--ink); margin: 6px 0 4px; }
+  .sk-tier-desc { font-size: .8125rem; color: var(--ink-soft); margin: 0; }
+
+  .sk-contact { margin-top: 36px; padding-top: 24px; border-top: 2px solid var(--gold); display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center; }
+  .sk-contact-block p { margin: 0; }
+  .sk-contact-eye { font-size: .6875rem; font-weight: 800; letter-spacing: .25em; text-transform: uppercase; color: var(--gold-deep); }
+  .sk-contact-line { font-size: 1rem; color: var(--ink); margin-top: 6px !important; }
+  .sk-contact-line a { color: var(--green); font-weight: 700; text-decoration: none; }
+  .sk-contact-line a:hover { text-decoration: underline; }
+  .sk-back { display: inline-flex; padding: 10px 18px; border-radius: 999px; background: var(--green); color: var(--white); font-size: .8125rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; text-decoration: none; }
+  .sk-back:hover { background: var(--green-soft); }
+
+  /* Print styles */
+  @media print {
+    body { background: var(--white); }
+    .sk-confirm, .sk-print-row, .sk-back { display: none !important; }
+    .sk-page { box-shadow: none; border: none; margin: 0; padding: 24px; max-width: 100%; }
+  }
+
+  @media (max-width: 760px) {
+    .sk-page { padding: 36px 24px; margin: 16px; }
+    .sk-header { grid-template-columns: 1fr; gap: 18px; text-align: center; }
+    .sk-photo { margin: 0 auto; }
+    .sk-stats { grid-template-columns: repeat(2, 1fr); }
+    .sk-talks, .sk-formats, .sk-pricing { grid-template-columns: 1fr; }
+    .sk-contact { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="sk-confirm">
+  <p>&#10003; Your speaker kit request is in.</p>
+  <small>I&rsquo;ll personally reply within 24 hours (weekdays) with 2-3 date options that fit your timeline. The full kit is below.</small>
+</div>
+<div class="sk-print-row">
+  <button class="sk-print-btn" onclick="window.print()">&#128424;&#65039; Print or save as PDF</button>
+</div>
+
+<article class="sk-page">
+
+  <header class="sk-header">
+    <div>
+      <p class="sk-brand-tag">Speaker Kit &middot; 2026</p>
+      <h1 class="sk-name">Alice Bazdikian</h1>
+      <p class="sk-tag">AI keynotes that send your audience home with workflows, not just slides.</p>
+    </div>
+    <img class="sk-photo" src="Brand%20Assets/_MCK3991.jpg" alt="Alice Bazdikian headshot" />
+  </header>
+
+  <p class="sk-intro">I&rsquo;ve trained <strong>200+ small-business owners and corporate teams across 15+ industries</strong>. Every talk I give ends the same way: your audience leaves with at least one AI workflow they can run the next morning. No hype, no 47-tab tool roundups, no engineer-speak.</p>
+
+  <div class="sk-stats">
+    <div class="sk-stat"><div class="sk-stat-num">200+</div><div class="sk-stat-lbl">Audiences trained</div></div>
+    <div class="sk-stat"><div class="sk-stat-num">15+</div><div class="sk-stat-lbl">Industries served</div></div>
+    <div class="sk-stat"><div class="sk-stat-num">4.9/5</div><div class="sk-stat-lbl">Avg speaker rating</div></div>
+    <div class="sk-stat"><div class="sk-stat-num">10+</div><div class="sk-stat-lbl">Keynotes &amp; workshops</div></div>
+  </div>
+
+  <section class="sk-section">
+    <h2>Signature <span class="accent">talks</span></h2>
+    <div class="sk-talks">
+      <div class="sk-talk">
+        <h3>Build Your First AI Employee</h3>
+        <p>From "I&rsquo;ve heard of AI" to "AI runs part of my business" in 45 minutes. Live build on a real audience member&rsquo;s workflow.</p>
+        <span class="sk-talk-meta">Keynote &middot; 45 to 60 min</span>
+      </div>
+      <div class="sk-talk">
+        <h3>The 4-Workflow AI Stack</h3>
+        <p>Inbox triage, knowledge base, weekly marketing loop, invoice extraction. The four moves that pay back the same week.</p>
+        <span class="sk-talk-meta">Keynote or workshop &middot; 60 to 90 min</span>
+      </div>
+      <div class="sk-talk">
+        <h3>From 40 Open Tabs to 1 AI Brain</h3>
+        <p>The decision-fatigue problem nobody talks about, and how AI absorbs the 100 small choices that drain your operators.</p>
+        <span class="sk-talk-meta">Keynote &middot; 30 to 45 min</span>
+      </div>
+      <div class="sk-talk">
+        <h3>The A.I.R. Method: Audit, Implement, Run</h3>
+        <p>The three-phase framework I use to install AI into a small business in 30 days. Audience runs the Audit live.</p>
+        <span class="sk-talk-meta">Workshop &middot; 90 to 180 min</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="sk-section">
+    <h2>Formats &amp; <span class="accent">duration</span></h2>
+    <div class="sk-formats">
+      <div class="sk-format">
+        <p class="sk-format-name">Keynote</p>
+        <p class="sk-format-duration">45 to 60 min</p>
+        <p class="sk-format-desc">High-energy talk, live AI demo, audience leaves with one workflow and the slides.</p>
+      </div>
+      <div class="sk-format">
+        <p class="sk-format-name">Workshop</p>
+        <p class="sk-format-duration">90 to 180 min</p>
+        <p class="sk-format-desc">Hands-on. Attendees bring a laptop, run the A.I.R. Audit on their own business, build one workflow live.</p>
+      </div>
+      <div class="sk-format">
+        <p class="sk-format-name">Half-day intensive</p>
+        <p class="sk-format-duration">3 to 4 hours</p>
+        <p class="sk-format-desc">Team-level workflow installation. Every attendee leaves with at least one AI workflow running in their day-to-day.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sk-section">
+    <h2>The 4.5+/5 <span class="accent">Speaker Guarantee</span></h2>
+    <div class="sk-guarantee">
+      <div class="sk-guarantee-seal">&#9733;</div>
+      <div>
+        <p class="sk-guarantee-title">Your event rating averages 4.5+/5, or your event fee is refunded.</p>
+        <p class="sk-guarantee-body">Most speakers ask you to take their word for it. I&rsquo;ll put the fee on it. If post-event audience surveys come back under 4.5/5, the speaking fee is refunded in full.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sk-section">
+    <h2>Best-fit <span class="accent">audiences</span></h2>
+    <div class="sk-audiences">
+      <span class="sk-audience-chip">Small business associations</span>
+      <span class="sk-audience-chip">Chamber of Commerce events</span>
+      <span class="sk-audience-chip">Corporate L&amp;D / training days</span>
+      <span class="sk-audience-chip">Entrepreneurship conferences</span>
+      <span class="sk-audience-chip">Industry trade associations</span>
+      <span class="sk-audience-chip">Women-in-business events</span>
+      <span class="sk-audience-chip">Accelerator demo days</span>
+      <span class="sk-audience-chip">Internal company off-sites</span>
+    </div>
+  </section>
+
+  <section class="sk-section">
+    <h2>Pricing <span class="accent">bands</span></h2>
+    <div class="sk-pricing">
+      <div class="sk-tier">
+        <p class="sk-tier-name">Virtual keynote</p>
+        <p class="sk-tier-price">$1,500 to $3,500</p>
+        <p class="sk-tier-desc">45 to 60 min, depending on audience size. Includes audience workbook + 30-day post-event implementation kit.</p>
+      </div>
+      <div class="sk-tier">
+        <p class="sk-tier-name">In-person keynote</p>
+        <p class="sk-tier-price">$4,000 to $6,000</p>
+        <p class="sk-tier-desc">Travel from Toronto. 60 min keynote + 30-min meet &amp; greet. Audience workbook + post-event kit.</p>
+      </div>
+      <div class="sk-tier">
+        <p class="sk-tier-name">Workshop / Intensive</p>
+        <p class="sk-tier-price">$6,000 to $8,000</p>
+        <p class="sk-tier-desc">90 min to half-day hands-on, depending on participant count. Attendees leave with a working AI workflow.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="sk-contact">
+    <div class="sk-contact-block">
+      <p class="sk-contact-eye">Book a 30-min event call</p>
+      <p class="sk-contact-line"><a href="https://calendly.com/abazdikian/diagnostic" target="_blank" rel="noopener">calendly.com/abazdikian/diagnostic</a> &middot; <a href="https://www.linkedin.com/in/alice-bazdikian" target="_blank" rel="noopener">LinkedIn</a> &middot; <a href="https://www.smallbusinessaicoach.com/speaking">smallbusinessaicoach.com/speaking</a></p>
+    </div>
+    <a href="speaking.html" class="sk-back">&larr; Back to Speaking page</a>
+  </footer>
+</article>
+
+</body>
+</html>

@@ -63,7 +63,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     .eyebrow { font-family: 'Nunito', sans-serif; font-size: 0.6875rem; font-weight: 800; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold-deep); margin: 0 0 1rem; }
 
     .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.9375rem; padding: 16px 28px; border-radius: 999px; text-decoration: none; border: none; cursor: pointer; transition: transform .18s cubic-bezier(.2,.9,.3,1.2), box-shadow .18s ease; }
-    .btn--primary { background: var(--grad-sunrise); color: var(--white); box-shadow: 0 14px 32px -14px rgba(47,111,79,.55), 0 4px 18px -8px rgba(212,168,74,.55), 0 2px 0 rgba(255,255,255,.3) inset; }
+    .btn--primary { background: linear-gradient(135deg, var(--green) 0%, var(--green-soft) 100%); color: var(--white); box-shadow: 0 14px 32px -14px rgba(47,111,79,.55), 0 4px 18px -8px rgba(212,168,74,.55), 0 2px 0 rgba(255,255,255,.3) inset; }
     .btn--primary:hover { transform: translateY(-2px); box-shadow: 0 20px 40px -14px rgba(47,111,79,.65), 0 6px 22px -6px rgba(212,168,74,.7), 0 2px 0 rgba(255,255,255,.3) inset; }
 
     .site-nav-cta {
@@ -292,7 +292,13 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     .lm-wf-pill--setup { background: var(--gold); color: var(--ink); }
 
     /* ── HOW IT WORKS ── */
-    .lm-how { padding: 80px 24px; background: var(--cream); }
+    .lm-how {
+      padding: 80px 24px;
+      background:
+        linear-gradient(100deg, rgba(253,251,245,0.95) 0%, rgba(253,251,245,0.82) 50%, rgba(253,251,245,0.62) 100%),
+        url('Brand Assets/claudehero.png') center/cover no-repeat;
+      position: relative;
+    }
     .lm-how-inner { max-width: 980px; margin: 0 auto; }
     .lm-how-head { text-align: center; margin-bottom: 44px; }
     .lm-how-title { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(1.875rem, 3.4vw, 2.5rem); line-height: 1.1; letter-spacing: -0.02em; margin: 0; }
@@ -337,6 +343,12 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
 </head>
 <body>
 
+  <!-- WEBINAR BANNER -->
+  <div id="accel-banner" style="background:linear-gradient(135deg, #7D2240 0%, #3D1020 50%, #7D2240 100%);color:#fff;text-align:center;padding:0.6rem 1.5rem;font-size:0.8125rem;font-weight:500;letter-spacing:0.01em;display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;">
+    <span><strong>Free Live Workshop:</strong> Install the 4-Workflow AI Stack &nbsp;&middot;&nbsp; June 3, 7pm ET &nbsp;&middot;&nbsp; 50 seats only</span>
+    <a href="webinar.html" style="background:#D4A84A;color:#2B1A1F;border:none;padding:0.35rem 1.1rem;border-radius:100px;font-family:'Nunito',sans-serif;font-size:0.75rem;font-weight:700;cursor:pointer;letter-spacing:0.02em;white-space:nowrap;text-decoration:none;transition:background 0.2s;">Save My Spot Now &rarr;</a>
+    <button onclick="document.getElementById('accel-banner').style.display='none'" aria-label="Dismiss" style="background:none;border:none;color:rgba(255,255,255,0.5);font-size:1.1rem;cursor:pointer;padding:0;line-height:1;margin-left:0.25rem;">&times;</button>
+  </div>
   <!-- NAV -->
   <nav class="site-nav">
     <a href="index.html" class="site-nav-brand" aria-label="Alice Bazdikian, home">
@@ -348,17 +360,24 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     </a>
     <ul class="site-nav-links">
       <li><a href="about.html">About</a></li>
-      <li><a href="workshops.html">Work With Me</a></li>
+      <li><a href="accelerator.html">Work With Me</a></li>
       <li><a href="speaking.html">Speaking</a></li>
       <li><a href="scorecard.html">Scorecard</a></li>
+      <li><a href="3-workflows-starter-kit.html" class="site-nav-kit">Free: Save 10-Hr/week AI Stack</a></li>
       <li><a href="blog.html">Blog</a></li>
       <li><a href="#get-it" class="site-nav-cta">Get the Kit</a></li>
     </ul>
     <button class="site-nav-hamburger" id="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
   </nav>
+  <!-- BRAND TAGLINE BAND -->
+  <div style="background:linear-gradient(135deg, #7A1530 0%, #9B2440 55%, #C13558 100%);padding:0.5rem 2.5rem;display:flex;align-items:center;justify-content:center;gap:0.75rem;width:100%;">
+    <span style="width:4px;height:4px;border-radius:50%;background:#E6C472;flex-shrink:0;"></span>
+    <span style="font-family:'Nunito',sans-serif;font-size:0.8125rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.92);">Free Workshop · Build your AI employee live, June 3</span>
+    <span style="width:4px;height:4px;border-radius:50%;background:#E6C472;flex-shrink:0;"></span>
+  </div>
   <div class="site-mobile-menu" id="mobile-menu" aria-hidden="true">
     <a href="about.html">About</a>
-    <a href="workshops.html">Work With Me</a>
+    <a href="accelerator.html">Work With Me</a>
     <a href="speaking.html">Speaking</a>
     <a href="scorecard.html">Scorecard</a>
     <a href="blog.html">Blog</a>
@@ -376,7 +395,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
         </p>
         <p class="lm-hero-failure">Skip this and you're back to Sunday-night-catch-up by week 3. Same inbox, same admin, same scattered head.</p>
         <div class="lm-trust-row">
-          <span><strong>★ 4.9 / 5</strong> across 30+ live workshops</span>
+          <span><strong>★ 4.9 / 5</strong> across 10+ live workshops</span>
           <span><strong>200+</strong> entrepreneurs trained</span>
           <span><strong>0</strong> generic listicles</span>
         </div>
@@ -486,12 +505,12 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
           </div>
         </div>
         <div class="lm-showcase-pages" aria-label="Sample pages from the kit">
-          <div class="lm-showcase-page"><img src="Brand Assets/lead-magnet-showcase/p2.png"  alt="Why this exists — intro page with the 4 pains owners actually post about on Reddit" loading="lazy" /></div>
-          <div class="lm-showcase-page"><img src="Brand Assets/lead-magnet-showcase/p8.png"  alt="Workflow 01 — Inbox Triage chapter opener" loading="lazy" /></div>
-          <div class="lm-showcase-page"><img src="Brand Assets/lead-magnet-showcase/p13.png" alt="Workflow 02 — SOP-to-AI-Trainer chapter opener" loading="lazy" /></div>
-          <div class="lm-showcase-page"><img src="Brand Assets/lead-magnet-showcase/p18.png" alt="Workflow 03 — Weekly Marketing Loop chapter opener" loading="lazy" /></div>
-          <div class="lm-showcase-page"><img src="Brand Assets/lead-magnet-showcase/p24.png" alt="Bonus Workflow 04 — The Invoice Killer chapter opener" loading="lazy" /></div>
-          <div class="lm-showcase-page"><img src="Brand Assets/lead-magnet-showcase/p28.png" alt="Putting it all together — stack the four for 12+ hours a week back" loading="lazy" /></div>
+          <div class="lm-showcase-page"><img src="Brand Assets/lead-magnet-showcase/p2.png"  alt="Why this exists, intro page with the 4 pains owners actually post about on Reddit" loading="lazy" /></div>
+          <div class="lm-showcase-page"><img src="Brand Assets/lead-magnet-showcase/p8.png"  alt="Workflow 01, Inbox Triage chapter opener" loading="lazy" /></div>
+          <div class="lm-showcase-page"><img src="Brand Assets/lead-magnet-showcase/p13.png" alt="Workflow 02, SOP-to-AI-Trainer chapter opener" loading="lazy" /></div>
+          <div class="lm-showcase-page"><img src="Brand Assets/lead-magnet-showcase/p18.png" alt="Workflow 03, Weekly Marketing Loop chapter opener" loading="lazy" /></div>
+          <div class="lm-showcase-page"><img src="Brand Assets/lead-magnet-showcase/p24.png" alt="Bonus Workflow 04, The Invoice Killer chapter opener" loading="lazy" /></div>
+          <div class="lm-showcase-page"><img src="Brand Assets/lead-magnet-showcase/p28.png" alt="Putting it all together, stack the four for 12+ hours a week back" loading="lazy" /></div>
         </div>
       </div>
     </div>
@@ -613,7 +632,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
         <div class="site-footer-col">
           <p class="site-footer-col-head">Explore</p>
           <a href="about.html">About</a>
-          <a href="workshops.html">Work With Me</a>
+          <a href="accelerator.html">Work With Me</a>
           <a href="speaking.html">Speaking</a>
           <a href="blog.html">Blog</a>
         </div>
@@ -627,8 +646,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
         <div class="site-footer-col">
           <p class="site-footer-col-head">Contact</p>
           <a href="https://calendly.com/abazdikian/diagnostic">Book a Diagnostic</a>
-          <a href="mailto:alice@smallbusinessaicoach.com">alice@smallbusinessaicoach.com</a>
-          <a href="https://www.linkedin.com/in/alice-bazdikian" target="_blank" rel="noopener">LinkedIn</a>
+<a href="https://www.linkedin.com/in/alice-bazdikian" target="_blank" rel="noopener">LinkedIn</a>
           <a href="https://www.instagram.com/smallbusinessaicoach/" target="_blank" rel="noopener">Instagram</a>
         </div>
       </div>

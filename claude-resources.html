@@ -45,6 +45,10 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
       --surface:  #FFFFFF;
       --charcoal: #1C1C1C;
       --burgundy: #7D2240;
+      --green: #2F6F4F;
+      --green-soft: #4A8B6F;
+      --green-glow: #6BB28C;
+      --grad-green: linear-gradient(135deg, var(--green) 0%, var(--green-soft) 55%, var(--green-glow) 100%);
       --burg-dk:  #651B33;
       --burg-lt:  #9e2d52;
       --gold:     #C9A847;
@@ -744,6 +748,12 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   </style>
 </head>
 <body>
+  <!-- WEBINAR BANNER -->
+  <div id="accel-banner" style="background:linear-gradient(135deg, #7D2240 0%, #3D1020 50%, #7D2240 100%);color:#fff;text-align:center;padding:0.6rem 1.5rem;font-size:0.8125rem;font-weight:500;letter-spacing:0.01em;display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;">
+    <span><strong>Free Live Workshop:</strong> Install the 4-Workflow AI Stack &nbsp;&middot;&nbsp; June 3, 7pm ET &nbsp;&middot;&nbsp; 50 seats only</span>
+    <a href="webinar.html" style="background:#D4A84A;color:#2B1A1F;border:none;padding:0.35rem 1.1rem;border-radius:100px;font-family:'Nunito',sans-serif;font-size:0.75rem;font-weight:700;cursor:pointer;letter-spacing:0.02em;white-space:nowrap;text-decoration:none;transition:background 0.2s;">Save My Spot Now &rarr;</a>
+    <button onclick="document.getElementById('accel-banner').style.display='none'" aria-label="Dismiss" style="background:none;border:none;color:rgba(255,255,255,0.5);font-size:1.1rem;cursor:pointer;padding:0;line-height:1;margin-left:0.25rem;">&times;</button>
+  </div>
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-53LWP97Z"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -751,7 +761,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- ═══════════ NAVIGATION ═══════════ -->
   <nav class="site-nav">
-    <a href="index.html" class="site-nav-brand" aria-label="Alice Bazdikian — home">
+    <a href="index.html" class="site-nav-brand" aria-label="Alice Bazdikian, home">
       <span class="site-nav-mono">ab</span>
       <span class="site-nav-brand-text">
         <span class="site-nav-brand-name">Alice Bazdikian</span>
@@ -760,10 +770,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </a>
     <ul class="site-nav-links">
       <li><a href="about.html">About</a></li>
-      <li><a href="workshops.html">Work With Me</a></li>
+      <li><a href="accelerator.html">Work With Me</a></li>
       <li><a href="speaking.html">Speaking</a></li>
       <li><a href="scorecard.html">Scorecard</a></li>
       <li><a href="claude-resources.html" class="active">Resources</a></li>
+      <li><a href="3-workflows-starter-kit.html" class="site-nav-kit">Free: Save 10-Hr/week AI Stack</a></li>
       <li><a href="blog.html">Blog</a></li>
       <li class="site-nav-social" aria-label="Social media">
         <a href="https://www.linkedin.com/in/alice-bazdikian" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.852 3.37-1.852 3.601 0 4.267 2.37 4.267 5.455v6.288zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
@@ -778,11 +789,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span></span><span></span><span></span>
     </button>
   </nav>
+  <!-- BRAND TAGLINE BAND -->
+  <div style="background:linear-gradient(135deg, #7A1530 0%, #9B2440 55%, #C13558 100%);padding:0.5rem 2.5rem;display:flex;align-items:center;justify-content:center;gap:0.75rem;width:100%;">
+    <span style="width:4px;height:4px;border-radius:50%;background:#E6C472;flex-shrink:0;"></span>
+    <span style="font-family:'Nunito',sans-serif;font-size:0.8125rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.92);">Free Workshop · Build your AI employee live, June 3</span>
+    <span style="width:4px;height:4px;border-radius:50%;background:#E6C472;flex-shrink:0;"></span>
+  </div>
 
   <!-- MOBILE MENU -->
   <div class="site-mobile-menu" id="mobile-menu" aria-hidden="true">
     <a href="about.html">About</a>
-    <a href="workshops.html">Work With Me</a>
+    <a href="accelerator.html">Work With Me</a>
     <a href="speaking.html">Speaking</a>
     <a href="scorecard.html">Scorecard</a>
     <a href="claude-resources.html">Resources</a>
@@ -798,7 +815,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="hero-inner">
       <p class="hero-eyebrow">Free Resource Library</p>
       <h1>Master <em>Claude AI</em> for Your Business</h1>
-      <p class="hero-sub">Curated templates, guides, and prompts to help you get real work done with Claude — no tech background required.</p>
+      <p class="hero-sub">Curated templates, guides, and prompts to help you get real work done with Claude, no tech background required.</p>
     </div>
   </section>
 
@@ -860,7 +877,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <div class="eco-card-icon">💬</div>
               <h3>Claude Chat</h3>
               <p class="eco-card-subtitle">The conversation</p>
-              <p class="eco-card-desc">The AI assistant you know. Ask questions, get answers, create content — all in a chat window.</p>
+              <p class="eco-card-desc">The AI assistant you know. Ask questions, get answers, create content, all in a chat window.</p>
               <p class="eco-card-expand">Tap to expand</p>
               <div class="eco-card-details">
                 <div class="eco-analogy">"Like texting a really smart friend"</div>
@@ -881,7 +898,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <p class="eco-skill-label">Technical Skill Required</p>
                 <div class="eco-skill-bar"><span class="filled"></span><span class="filled"></span><span class="filled"></span><span></span><span></span></div>
                 <p class="eco-who-label">Who It's For</p>
-                <p class="eco-who">Non-technical business owners, creators, solopreneurs — anyone who wants AI to DO the work, not just talk about it.</p>
+                <p class="eco-who">Non-technical business owners, creators, solopreneurs, anyone who wants AI to DO the work, not just talk about it.</p>
               </div>
             </div>
             <div class="eco-card" onclick="toggleEcoCard(this)">
@@ -904,16 +921,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <table class="feature-table">
               <thead><tr><th>Feature</th><th>Chat</th><th>Cowork</th><th>Code</th></tr></thead>
               <tbody>
-                <tr><td>Access your files</td><td class="feature-dash">—</td><td class="feature-check">✓</td><td class="feature-check">✓</td></tr>
-                <tr><td>Works autonomously</td><td class="feature-dash">—</td><td class="feature-check">✓</td><td class="feature-check">✓</td></tr>
-                <tr><td>Parallel sub-tasks</td><td class="feature-dash">—</td><td class="feature-check">✓</td><td class="feature-check">✓</td></tr>
-                <tr><td>No technical skills needed</td><td class="feature-check">✓</td><td class="feature-check">✓</td><td class="feature-dash">—</td></tr>
-                <tr><td>Creates files in your folders</td><td class="feature-dash">—</td><td class="feature-check">✓</td><td class="feature-check">✓</td></tr>
+                <tr><td>Access your files</td><td class="feature-dash">, </td><td class="feature-check">✓</td><td class="feature-check">✓</td></tr>
+                <tr><td>Works autonomously</td><td class="feature-dash">, </td><td class="feature-check">✓</td><td class="feature-check">✓</td></tr>
+                <tr><td>Parallel sub-tasks</td><td class="feature-dash">, </td><td class="feature-check">✓</td><td class="feature-check">✓</td></tr>
+                <tr><td>No technical skills needed</td><td class="feature-check">✓</td><td class="feature-check">✓</td><td class="feature-dash">, </td></tr>
+                <tr><td>Creates files in your folders</td><td class="feature-dash">, </td><td class="feature-check">✓</td><td class="feature-check">✓</td></tr>
                 <tr><td>Browse the web</td><td class="feature-check">✓</td><td class="feature-check">✓</td><td class="feature-check">✓</td></tr>
-                <tr><td>Plugins / Skills</td><td class="feature-dash">—</td><td class="feature-check">✓</td><td class="feature-check">✓</td></tr>
-                <tr><td>Works on Windows</td><td class="feature-check">✓</td><td class="feature-dash">—</td><td class="feature-check">✓</td></tr>
-                <tr><td>Mobile access</td><td class="feature-check">✓</td><td class="feature-dash">—</td><td class="feature-dash">—</td></tr>
-                <tr><td>Sandboxed (safe by default)</td><td class="feature-check">✓</td><td class="feature-check">✓</td><td class="feature-dash">—</td></tr>
+                <tr><td>Plugins / Skills</td><td class="feature-dash">, </td><td class="feature-check">✓</td><td class="feature-check">✓</td></tr>
+                <tr><td>Works on Windows</td><td class="feature-check">✓</td><td class="feature-dash">, </td><td class="feature-check">✓</td></tr>
+                <tr><td>Mobile access</td><td class="feature-check">✓</td><td class="feature-dash">, </td><td class="feature-dash">, </td></tr>
+                <tr><td>Sandboxed (safe by default)</td><td class="feature-check">✓</td><td class="feature-check">✓</td><td class="feature-dash">, </td></tr>
               </tbody>
             </table>
           </div>
@@ -922,7 +939,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <h3>The Bottom Line</h3>
             <div class="bl-cards">
               <div class="bl-card"><div class="bl-card-icon">💬</div><p>Use <strong>Chat</strong> when you need answers, ideas, or content created inside a conversation.</p></div>
-              <div class="bl-card"><div class="bl-card-icon">🤝</div><p>Use <strong>Cowork</strong> when you want finished files delivered to your computer — without touching a terminal.</p></div>
+              <div class="bl-card"><div class="bl-card-icon">🤝</div><p>Use <strong>Cowork</strong> when you want finished files delivered to your computer, without touching a terminal.</p></div>
               <div class="bl-card"><div class="bl-card-icon">⚡</div><p>Use <strong>Code</strong> when you're a developer who wants full control and unlimited power.</p></div>
             </div>
             <p class="bl-footer">Same AI. Same brain. Three different levels of autonomy. Pick the one that matches how you work.</p>
@@ -934,7 +951,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section class="email-gate" id="email-gate">
     <div class="email-gate-inner">
       <h2>Unlock the Full Interactive Toolkit</h2>
-      <p>Get instant access to the starter guide and all interactive features — plus a PDF version delivered to your inbox.</p>
+      <p>Get instant access to the starter guide and all interactive features, plus a PDF version delivered to your inbox.</p>
       <form class="email-form" id="email-form" onsubmit="return handleEmailSubmit(event)">
         <input type="email" id="email-input" placeholder="your@email.com" required autocomplete="email" />
         <button type="submit" id="email-btn">Unlock Now</button>
@@ -968,11 +985,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="guide-step-icon">📋</div>
             <p class="guide-step-label">Step 01</p>
             <h3>What is Claude Code?</h3>
-            <p class="guide-step-subtitle">It's Claude — but on your computer</p>
+            <p class="guide-step-subtitle">It's Claude, but on your computer</p>
             <ol class="guide-points">
               <li><span class="guide-point-num">1</span>Instead of chatting in a browser, Claude works directly on your machine</li>
               <li><span class="guide-point-num">2</span>It creates real files, builds apps, and runs actual tasks</li>
-              <li><span class="guide-point-num">3</span>You don't write code — you describe what you want in plain English</li>
+              <li><span class="guide-point-num">3</span>You don't write code, you describe what you want in plain English</li>
             </ol>
           </div>
 
@@ -984,7 +1001,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <ol class="guide-points">
               <li><span class="guide-point-num">1</span>Type /plan before asking Claude to build anything</li>
               <li><span class="guide-point-num">2</span>It maps out the approach, steps, and files it'll create</li>
-              <li><span class="guide-point-num">3</span>You review and approve before it starts — no surprises</li>
+              <li><span class="guide-point-num">3</span>You review and approve before it starts, no surprises</li>
             </ol>
             <div class="terminal-demo">
               <div class="dots"><span></span><span></span><span></span></div>
@@ -1039,12 +1056,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p class="guide-step-subtitle">That's the process, not the problem</p>
             <ol class="guide-points">
               <li><span class="guide-point-num">1</span>Everyone breaks things. Every day. Including me.</li>
-              <li><span class="guide-point-num">2</span>Claude doesn't judge — it helps you fix it</li>
+              <li><span class="guide-point-num">2</span>Claude doesn't judge, it helps you fix it</li>
               <li><span class="guide-point-num">3</span>The only difference is willingness to try again</li>
             </ol>
           </div>
 
-          <p class="guide-footer">smallbusinessaicoach.com — AI implementation for women in business</p>
+          <p class="guide-footer">smallbusinessaicoach.com, AI implementation for women in business</p>
         </div>
       </div>
     </div>
@@ -1062,7 +1079,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <div class="site-footer-brand-tag">AI Strategist + Educator</div>
             </div>
           </div>
-          <p class="site-footer-brand-desc">Helping entrepreneurs and businesses navigate the AI revolution — without the overwhelm.</p>
+          <p class="site-footer-brand-desc">Helping entrepreneurs and businesses navigate the AI revolution, without the overwhelm.</p>
           <div class="site-footer-socials">
             <a href="https://www.linkedin.com/in/alice-bazdikian" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.852 3.37-1.852 3.601 0 4.267 2.37 4.267 5.455v6.288zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
             <a href="https://www.instagram.com/smallbusinessaicoach/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
@@ -1072,7 +1089,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="site-footer-col">
           <h4 class="site-footer-col-head">Explore</h4>
           <a href="about.html">About</a>
-          <a href="workshops.html">Work With Me</a>
+          <a href="accelerator.html">Work With Me</a>
           <a href="speaking.html">Speaking</a>
           <a href="scorecard.html">Scorecard</a>
           <a href="blog.html">Blog</a>
@@ -1087,8 +1104,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="site-footer-col">
           <h4 class="site-footer-col-head">Contact</h4>
           <a href="https://calendly.com/abazdikian/diagnostic" target="_blank" rel="noopener">Book a Diagnostic</a>
-          <a href="mailto:alice@alicebazdikian.com">alice@alicebazdikian.com</a>
-          <a href="https://www.linkedin.com/in/alice-bazdikian" target="_blank" rel="noopener">LinkedIn</a>
+<a href="https://www.linkedin.com/in/alice-bazdikian" target="_blank" rel="noopener">LinkedIn</a>
           <a href="https://www.instagram.com/smallbusinessaicoach/" target="_blank" rel="noopener">Instagram</a>
         </div>
       </div>
@@ -1192,10 +1208,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            from: 'Alice Bazdikian <alice@smallbusinessaicoach.com>',
+            from: 'Alice Bazdikian <abazdikian@gmail.com>',
             to: [email],
             subject: 'Your Claude AI Resource Guide',
-            html: '<p>Hi there!</p><p>Thanks for unlocking the Claude Resources toolkit. Here\'s your PDF guide:</p><p><a href="' + PDF_URL + '">Download Your Claude AI Guide (PDF)</a></p><p>If you have any questions about using Claude for your business, I\'d love to chat.</p><p>— Alice</p><p><a href="https://calendly.com/abazdikian/diagnostic">Book a Free AI Diagnostic</a></p>'
+            html: '<p>Hi there!</p><p>Thanks for unlocking the Claude Resources toolkit. Here\'s your PDF guide:</p><p><a href="' + PDF_URL + '">Download Your Claude AI Guide (PDF)</a></p><p>If you have any questions about using Claude for your business, I\'d love to chat.</p><p>Cheers,<br>Alice</p><p><a href="https://calendly.com/abazdikian/diagnostic">Book a Free AI Diagnostic</a></p>'
           })
         });
       } catch (err) { console.error('Resend error:', err); }

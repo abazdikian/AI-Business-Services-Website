@@ -39,7 +39,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
 
     .eyebrow { font-family: 'Nunito', sans-serif; font-size: 0.6875rem; font-weight: 800; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold-deep); margin: 0 0 1rem; }
     .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.9375rem; padding: 16px 28px; border-radius: 999px; text-decoration: none; border: none; cursor: pointer; transition: transform .18s cubic-bezier(.2,.9,.3,1.2), box-shadow .18s ease; }
-    .btn--primary { background: var(--grad-sunrise); color: var(--white); box-shadow: 0 14px 32px -14px rgba(122,21,48,.55), 0 4px 18px -8px rgba(212,168,74,.55), 0 2px 0 rgba(255,255,255,.3) inset; }
+    .btn--primary { background: linear-gradient(135deg, var(--green) 0%, var(--green-soft) 100%); color: var(--white); box-shadow: 0 14px 32px -14px rgba(122,21,48,.55), 0 4px 18px -8px rgba(212,168,74,.55), 0 2px 0 rgba(255,255,255,.3) inset; }
     .btn--primary:hover { transform: translateY(-2px); }
     .btn--ghost { background: var(--white); color: var(--burgundy); border: 2px solid var(--burgundy); }
     .btn--ghost:hover { background: var(--burgundy); color: var(--white); }
@@ -95,6 +95,12 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
 </head>
 <body>
 
+  <!-- WEBINAR BANNER -->
+  <div id="accel-banner" style="background:linear-gradient(135deg, #7D2240 0%, #3D1020 50%, #7D2240 100%);color:#fff;text-align:center;padding:0.6rem 1.5rem;font-size:0.8125rem;font-weight:500;letter-spacing:0.01em;display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;">
+    <span><strong>Free Live Workshop:</strong> Install the 4-Workflow AI Stack &nbsp;&middot;&nbsp; June 3, 7pm ET &nbsp;&middot;&nbsp; 50 seats only</span>
+    <a href="webinar.html" style="background:#D4A84A;color:#2B1A1F;border:none;padding:0.35rem 1.1rem;border-radius:100px;font-family:'Nunito',sans-serif;font-size:0.75rem;font-weight:700;cursor:pointer;letter-spacing:0.02em;white-space:nowrap;text-decoration:none;transition:background 0.2s;">Save My Spot Now &rarr;</a>
+    <button onclick="document.getElementById('accel-banner').style.display='none'" aria-label="Dismiss" style="background:none;border:none;color:rgba(255,255,255,0.5);font-size:1.1rem;cursor:pointer;padding:0;line-height:1;margin-left:0.25rem;">&times;</button>
+  </div>
   <nav class="site-nav">
     <a href="index.html" class="site-nav-brand" aria-label="Alice Bazdikian, home">
       <span class="site-nav-mono">ab</span>
@@ -104,6 +110,12 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
       </span>
     </a>
   </nav>
+  <!-- BRAND TAGLINE BAND -->
+  <div style="background:linear-gradient(135deg, #7A1530 0%, #9B2440 55%, #C13558 100%);padding:0.5rem 2.5rem;display:flex;align-items:center;justify-content:center;gap:0.75rem;width:100%;">
+    <span style="width:4px;height:4px;border-radius:50%;background:#E6C472;flex-shrink:0;"></span>
+    <span style="font-family:'Nunito',sans-serif;font-size:0.8125rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.92);">Free Workshop · Build your AI employee live, June 3</span>
+    <span style="width:4px;height:4px;border-radius:50%;background:#E6C472;flex-shrink:0;"></span>
+  </div>
 
   <section class="ty-shell">
     <div class="ty-inner">
@@ -129,7 +141,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
         <p class="ty-pitch-alt">Prefer 1:1? <a href="https://calendly.com/abazdikian/diagnostic" target="_blank" rel="noopener">Book a free 30-min Diagnostic</a> instead (capped at 4/month).</p>
       </div>
 
-      <p class="ty-meta">Check your inbox in the next 5 minutes for the welcome note. If it doesn't show up, peek in Promotions or Spam and add <strong>alice@smallbusinessaicoach.com</strong> to your contacts.</p>
+      <p class="ty-meta">Check your inbox in the next 5 minutes for the welcome note. If it doesn't show up, peek in Promotions or Spam and add the workshop sender address (in the confirmation email) to your contacts.</p>
     </div>
   </section>
 

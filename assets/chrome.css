@@ -7,6 +7,9 @@
   --chrome-burgundy: #7A1530;
   --chrome-burgundy-soft: #9B2440;
   --chrome-burgundy-glow: #C13558;
+  --chrome-green: #2F6F4F;
+  --chrome-green-soft: #4A8B6F;
+  --chrome-green-glow: #6BB28C;
   --chrome-gold: #D4A84A;
   --chrome-gold-warm: #E6C472;
   --chrome-gold-deep: #A87B1F;
@@ -16,6 +19,79 @@
   --chrome-rule: #EFE8E3;
   --chrome-grad-burgundy: linear-gradient(135deg, #7A1530 0%, #9B2440 55%, #C13558 100%);
   --chrome-grad-sunrise: linear-gradient(135deg, #7A1530 0%, #C13558 60%, #E6C472 100%);
+  --chrome-grad-green: linear-gradient(135deg, #2F6F4F 0%, #4A8B6F 55%, #6BB28C 100%);
+  --chrome-grad-gold: linear-gradient(135deg, #E6C472 0%, #D4A84A 50%, #A87B1F 100%);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CANONICAL CTA BUTTON SYSTEM
+   ───────────────────────────────────────────────────────────────
+   Use these classes for ANY new CTA. Color rule:
+
+   .btn-primary       Green pill on white/cream backgrounds.
+                      The default for every positive action site-wide.
+
+   .btn-on-red        Gold pill for use on burgundy/sunrise/red backgrounds
+                      (homepage hero, webinar hero, accelerator hero).
+                      Green clashes with red, gold reads cleanly.
+
+   .btn-on-dark       White outline pill for use on dark photographic
+                      backgrounds (e.g. dark hero overlays). Inverts on hover.
+
+   .btn-ghost         Green-outlined pill on white. Secondary action.
+
+   All four share the .btn-base look (44px min height, 12px 26px padding,
+   nowrap, focus-visible ring). Compose: <a class="btn-base btn-primary">
+   ─────────────────────────────────────────────────────────────── */
+
+.btn-base,
+a.btn-base,
+button.btn-base {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.9375rem;
+  letter-spacing: 0.01em;
+  padding: 12px 26px; min-height: 44px;
+  border-radius: 999px; border: 2px solid transparent;
+  text-decoration: none; cursor: pointer; white-space: nowrap;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.18s ease,
+              box-shadow 0.2s ease, border-color 0.2s ease, filter 0.2s ease;
+}
+.btn-base:focus-visible {
+  outline: 2px solid var(--chrome-gold-deep); outline-offset: 3px;
+}
+
+.btn-primary {
+  background: var(--chrome-green); color: var(--chrome-white);
+  box-shadow: 0 10px 24px -10px rgba(47,111,79,.55), 0 2px 0 rgba(255,255,255,.18) inset;
+}
+.btn-primary:hover {
+  background: var(--chrome-green-soft);
+  transform: translateY(-1px);
+  box-shadow: 0 14px 32px -10px rgba(47,111,79,.65);
+}
+
+.btn-on-red {
+  background: var(--chrome-grad-gold); color: var(--chrome-ink);
+  font-weight: 800;
+  box-shadow: 0 10px 24px -8px rgba(168,123,31,.55);
+}
+.btn-on-red:hover { filter: brightness(1.06); transform: translateY(-1px); }
+
+.btn-on-dark {
+  background: transparent; color: var(--chrome-white);
+  border-color: rgba(255,255,255,.55);
+}
+.btn-on-dark:hover {
+  background: var(--chrome-white); color: var(--chrome-ink);
+  border-color: var(--chrome-white); transform: translateY(-1px);
+}
+
+.btn-ghost {
+  background: var(--chrome-white); color: var(--chrome-green);
+  border-color: var(--chrome-green);
+}
+.btn-ghost:hover {
+  background: var(--chrome-green); color: var(--chrome-white); transform: translateY(-1px);
 }
 
 /* ── NAV ── */
@@ -61,6 +137,7 @@
   color: var(--chrome-ink); text-decoration: none;
   letter-spacing: 0.01em; padding-bottom: 4px;
   transition: color 0.2s ease;
+  white-space: nowrap;
 }
 .site-nav-links a:hover { color: var(--chrome-burgundy); }
 .site-nav-links a.active { color: var(--chrome-burgundy); border-bottom: 2px solid var(--chrome-gold); }
@@ -85,25 +162,55 @@
 .site-nav-links a.site-nav-cta,
 a.site-nav-cta {
   display: inline-flex; align-items: center; gap: 0.5rem;
-  background: var(--chrome-burgundy); color: var(--chrome-white);
+  background: linear-gradient(135deg, #E6C472 0%, #D4A84A 50%, #A87B1F 100%);
+  color: #2B1A1F;
   font-family: 'Nunito', sans-serif;
-  font-size: 0.75rem; font-weight: 700;
+  font-size: 0.75rem; font-weight: 800;
   letter-spacing: 0.04em; text-transform: uppercase;
-  padding: 0.625rem 1.25rem; border-radius: 999px;
+  padding: 0.75rem 1.25rem; border-radius: 999px;
+  min-height: 44px;
   border: none; cursor: pointer; text-decoration: none;
-  transition: background 0.2s ease, transform 0.15s ease;
+  white-space: nowrap;
+  box-shadow: 0 6px 18px -8px rgba(168,123,31,0.55);
+  transition: filter 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
 }
 .site-nav-links a.site-nav-cta::after,
-a.site-nav-cta::after { content: '→'; font-size: 0.9rem; color: var(--chrome-white); }
+a.site-nav-cta::after { content: '→'; font-size: 0.9rem; color: #2B1A1F; }
 .site-nav-links a.site-nav-cta:hover,
-a.site-nav-cta:hover { background: var(--chrome-burgundy-soft); color: var(--chrome-white); transform: translateY(-1px); }
+a.site-nav-cta:hover { filter: brightness(1.06); color: #2B1A1F; transform: translateY(-1px); box-shadow: 0 10px 24px -8px rgba(168,123,31,0.7); }
 .site-nav-links a.site-nav-cta:focus-visible,
-a.site-nav-cta:focus-visible { outline: 2px solid var(--chrome-burgundy); outline-offset: 3px; }
+a.site-nav-cta:focus-visible { outline: 2px solid #A87B1F; outline-offset: 3px; }
 
-/* Hormozi: kit nav link — gold star marker, burgundy weight to flag the free thing */
-.site-nav-links a.site-nav-kit { color: var(--chrome-burgundy); font-weight: 700; }
-.site-nav-links a.site-nav-kit::before { content: '★ '; color: var(--chrome-gold); font-size: .85em; }
-.site-nav-links a.site-nav-kit:hover { color: var(--chrome-burgundy-soft); }
+/* AI Stack nav link, de-emphasized: small gold star + ink text, no pill.
+   Webinar CTA owns the prominent nav slot until June 3. */
+.site-nav-links a.site-nav-kit {
+  color: var(--chrome-ink, #2B1A1F);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  letter-spacing: 0.005em;
+  background: none;
+  border: none;
+  padding: 0;
+  border-radius: 0;
+  white-space: nowrap;
+  box-shadow: none;
+  opacity: 0.78;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+.site-nav-links a.site-nav-kit::before {
+  content: '★ ';
+  color: #D4A84A;
+  font-size: .85em;
+  margin-right: 2px;
+}
+.site-nav-links a.site-nav-kit:hover {
+  color: #A87B1F;
+  opacity: 1;
+}
+.site-nav-links a.site-nav-kit:focus-visible {
+  outline: 2px solid #A87B1F;
+  outline-offset: 3px;
+}
 
 .site-nav-hamburger {
   display: none; flex-direction: column; gap: 5px;

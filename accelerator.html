@@ -25,7 +25,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   <link rel="canonical" href="https://www.smallbusinessaicoach.com/accelerator" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="30-Day AI Accelerator | 4 Live Nights · Starts June 10" />
-  <meta property="og:description" content="6-8 seats. 4 Wednesday nights. Build 3 AI workflows into your business. $697 — and $100 back when you finish." />
+  <meta property="og:description" content="6-8 seats. 4 Wednesday nights. Build 3 AI workflows into your business. $697, and $100 back when you finish." />
   <meta property="og:url" content="https://www.smallbusinessaicoach.com/accelerator" />
   <meta property="og:image" content="https://www.smallbusinessaicoach.com/Brand%20Assets/_MCK3991.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -74,6 +74,10 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
       --ink: #2B1A1F;
       --ink-soft: #6B5A5F;
       --burgundy: #7A1530;
+      --green: #2F6F4F;
+      --green-soft: #4A8B6F;
+      --green-glow: #6BB28C;
+      --grad-green: linear-gradient(135deg, var(--green) 0%, var(--green-soft) 55%, var(--green-glow) 100%);
       --burgundy-dark: #651025;
       --burgundy-deeper: #3D1020;
       --burgundy-soft: #9B2440;
@@ -96,10 +100,18 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     img { max-width: 100%; height: auto; }
     /* Switch all serif headings + numerics from Playfair Display to Fraunces (matches webinar) */
     h1, h2, h3, h4, .week-num, .countdown-num, .pricing-card-amount, .value-row-amount, .value-total-amount, .value-today-amount, .host-stat-num, .guarantee-amount, .hero-accel-price-amount, .footer-brand-name, .nav-brand-name { font-family: 'Fraunces', Georgia, serif !important; }
-    /* Sunrise gradient on emphasized <em> in main headlines (matches webinar wb-hero-title em) */
-    .hero-accel h1 em, .pain-scenes-header h2 em, .promise-strip h2 em, .host h2 em, .guarantee h2 em, .final-cta h2 em, .air-weeks-header h2 em, .value-stack-header h2 em {
+    /* Sunrise gradient on emphasized <em> in main headlines (pain + urgency framing) */
+    .pain-scenes-header h2 em, .guarantee h2 em, .final-cta h2 em {
       font-style: italic; font-weight: 500;
       background: var(--grad-sunrise);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+    /* Green gradient on emphasized <em> in positive/conversion headlines */
+    .hero-accel h1 em, .promise-strip h2 em, .host h2 em, .air-weeks-header h2 em, .value-stack-header h2 em {
+      font-style: italic; font-weight: 500;
+      background: linear-gradient(135deg, #2F6F4F 0%, #4A8B6F 55%, #6BB28C 100%);
       -webkit-background-clip: text; background-clip: text;
       -webkit-text-fill-color: transparent;
       color: transparent;
@@ -220,16 +232,16 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     .hero-accel-ctas { display: flex; flex-direction: column; align-items: flex-start; gap: 0.875rem; }
     .btn-hero {
       display: inline-flex; align-items: center; gap: 0.5rem;
-      background: var(--grad-sunrise); color: #fff;
-      font-family: 'Nunito', sans-serif; font-size: 0.9375rem; font-weight: 700;
+      background: linear-gradient(135deg, #E6C472 0%, #D4A84A 50%, #A87B1F 100%); color: #2B1A1F;
+      font-family: 'Nunito', sans-serif; font-size: 0.9375rem; font-weight: 800;
       padding: 1rem 1.75rem; border-radius: 999px;
       text-decoration: none; border: none; cursor: pointer;
-      transition: transform .18s cubic-bezier(.2,.9,.3,1.2), box-shadow .18s ease;
-      box-shadow: 0 14px 32px -14px rgba(122,21,48,.55), 0 4px 18px -8px rgba(212,168,74,.55), 0 2px 0 rgba(255,255,255,.3) inset;
+      transition: transform .18s cubic-bezier(.2,.9,.3,1.2), filter .18s ease, box-shadow .18s ease;
+      box-shadow: 0 14px 32px -14px rgba(168,123,31,.55), 0 4px 18px -8px rgba(212,168,74,.4), 0 2px 0 rgba(255,255,255,.3) inset;
     }
-    .btn-hero:hover { transform: translateY(-2px); box-shadow: 0 20px 40px -14px rgba(122,21,48,.65), 0 6px 22px -6px rgba(212,168,74,.7), 0 2px 0 rgba(255,255,255,.3) inset; }
+    .btn-hero:hover { transform: translateY(-2px); filter: brightness(1.06); box-shadow: 0 20px 40px -14px rgba(168,123,31,.65), 0 6px 22px -6px rgba(212,168,74,.55), 0 2px 0 rgba(255,255,255,.3) inset; }
     .btn-hero:active { transform: translateY(0); }
-    .btn-hero:focus-visible { outline: 3px solid var(--gold-warm); outline-offset: 3px; }
+    .btn-hero:focus-visible { outline: 3px solid var(--gold-deep); outline-offset: 3px; }
     .hero-accel-note { font-size: 1rem; color: var(--ink); font-weight: 600; }
 
     /* ── PROBLEM ── */
@@ -446,11 +458,11 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
       background: var(--gold);
     }
     .pricing-card--featured {
-      border: 2px solid var(--burgundy);
-      box-shadow: 0 8px 32px rgba(125,34,64,0.12);
+      border: 2px solid var(--green);
+      box-shadow: 0 8px 32px rgba(47,111,79,0.18);
     }
     .pricing-card--featured::before {
-      background: linear-gradient(90deg, var(--burgundy), var(--gold));
+      background: linear-gradient(90deg, var(--green), var(--gold));
     }
     .pricing-card-badge {
       position: absolute; top: 16px; right: 16px;
@@ -508,10 +520,10 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
       transition: background 0.2s, transform 0.15s, box-shadow 0.2s, color 0.2s;
     }
     .pricing-card-cta--primary {
-      background: var(--grad-sunrise); color: #fff;
-      box-shadow: 0 14px 32px -14px rgba(122,21,48,.55), 0 4px 18px -8px rgba(212,168,74,.55), 0 2px 0 rgba(255,255,255,.3) inset;
+      background: var(--grad-green); color: #fff;
+      box-shadow: 0 14px 32px -14px rgba(47,111,79,.55), 0 4px 18px -8px rgba(107,178,140,.45), 0 2px 0 rgba(255,255,255,.3) inset;
     }
-    .pricing-card-cta--primary:hover { transform: translateY(-2px); box-shadow: 0 20px 40px -14px rgba(122,21,48,.65), 0 6px 22px -6px rgba(212,168,74,.7), 0 2px 0 rgba(255,255,255,.3) inset; }
+    .pricing-card-cta--primary:hover { transform: translateY(-2px); box-shadow: 0 20px 40px -14px rgba(47,111,79,.65), 0 6px 22px -6px rgba(107,178,140,.55), 0 2px 0 rgba(255,255,255,.3) inset; }
     .pricing-card-cta--gold {
       background: var(--gold); color: var(--charcoal);
       box-shadow: 0 4px 16px rgba(201,168,71,0.3);
@@ -604,14 +616,14 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     }
     .btn-final {
       display: inline-flex; align-items: center;
-      background: var(--grad-sunrise); color: #fff;
-      font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 700;
+      background: linear-gradient(135deg, #E6C472 0%, #D4A84A 50%, #A87B1F 100%); color: #2B1A1F;
+      font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 800;
       padding: 1rem 2rem; border-radius: 999px;
       text-decoration: none; border: none; cursor: pointer;
-      transition: transform .18s cubic-bezier(.2,.9,.3,1.2), box-shadow .18s ease;
-      box-shadow: 0 14px 32px -14px rgba(122,21,48,.55), 0 4px 18px -8px rgba(212,168,74,.55);
+      transition: transform .18s cubic-bezier(.2,.9,.3,1.2), filter .18s ease, box-shadow .18s ease;
+      box-shadow: 0 14px 32px -14px rgba(168,123,31,.55), 0 4px 18px -8px rgba(212,168,74,.4);
     }
-    .btn-final:hover { transform: translateY(-2px); box-shadow: 0 20px 40px -14px rgba(122,21,48,.65), 0 6px 22px -6px rgba(212,168,74,.7); }
+    .btn-final:hover { transform: translateY(-2px); filter: brightness(1.06); box-shadow: 0 20px 40px -14px rgba(168,123,31,.65), 0 6px 22px -6px rgba(212,168,74,.55); }
     .btn-final:active { transform: translateY(0); }
     .final-cta-note { font-size: 0.9375rem; color: var(--ink-soft); margin-top: 1rem; }
 
@@ -884,7 +896,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     /* ── GUARANTEE ── */
     .guarantee {
       padding: 6rem 4rem;
-      background: linear-gradient(135deg, #1F6358 0%, #2A7B6F 45%, #A87B1F 100%);
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-soft) 50%, var(--green-glow) 100%);
       position: relative; overflow: hidden;
     }
     .guarantee::after { content: ""; position: absolute; inset: 0; filter: url(#noise); opacity: .05; pointer-events: none; }
@@ -898,10 +910,10 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     }
     .guarantee-seal {
       width: 64px; height: 64px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--teal), #1f6358);
+      background: linear-gradient(135deg, var(--green-soft), var(--green));
       display: flex; align-items: center; justify-content: center;
       margin: 0 auto 1.5rem;
-      box-shadow: 0 8px 22px rgba(42,123,111,0.28);
+      box-shadow: 0 8px 22px rgba(47,111,79,0.32);
     }
     .guarantee h2 {
       font-family: 'Playfair Display', serif;
@@ -913,11 +925,11 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     .guarantee-amount {
       display: inline-flex; align-items: baseline; gap: 0.65rem; flex-wrap: wrap; justify-content: center;
       margin-top: 2rem; padding: 1.1rem 1.75rem;
-      background: linear-gradient(135deg, #1F6358 0%, #2A7B6F 50%, #A87B1F 100%);
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-soft) 50%, var(--gold-deep) 100%);
       color: #fff; border-radius: 14px;
       font-family: 'Fraunces', Georgia, serif; font-weight: 600;
       font-size: 1.625rem; letter-spacing: -0.015em;
-      box-shadow: 0 16px 36px -16px rgba(31,99,88,0.55), 0 6px 18px -8px rgba(168,123,31,0.4);
+      box-shadow: 0 16px 36px -16px rgba(47,111,79,0.55), 0 6px 18px -8px rgba(168,123,31,0.4);
     }
     .guarantee-amount .gua-from { color: rgba(255,255,255,0.7); text-decoration: line-through; font-size: 1.25rem; }
     .guarantee-amount .gua-arrow { color: var(--gold-warm); font-weight: 800; }
@@ -965,9 +977,15 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
 <body>
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-53LWP97Z" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
+  <!-- WEBINAR BANNER -->
+  <div id="accel-banner" style="background:linear-gradient(135deg, #7D2240 0%, #3D1020 50%, #7D2240 100%);color:#fff;text-align:center;padding:0.6rem 1.5rem;font-size:0.8125rem;font-weight:500;letter-spacing:0.01em;display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;">
+    <span><strong>Free Live Workshop:</strong> Install the 4-Workflow AI Stack &nbsp;&middot;&nbsp; June 3, 7pm ET &nbsp;&middot;&nbsp; 50 seats only</span>
+    <a href="webinar.html" style="background:#D4A84A;color:#2B1A1F;border:none;padding:0.35rem 1.1rem;border-radius:100px;font-family:'Nunito',sans-serif;font-size:0.75rem;font-weight:700;cursor:pointer;letter-spacing:0.02em;white-space:nowrap;text-decoration:none;transition:background 0.2s;">Save My Spot Now &rarr;</a>
+    <button onclick="document.getElementById('accel-banner').style.display='none'" aria-label="Dismiss" style="background:none;border:none;color:rgba(255,255,255,0.5);font-size:1.1rem;cursor:pointer;padding:0;line-height:1;margin-left:0.25rem;">&times;</button>
+  </div>
   <!-- ═══ NAV ═══ -->
   <nav class="site-nav">
-    <a href="index.html" class="site-nav-brand" aria-label="Alice Bazdikian — home">
+    <a href="index.html" class="site-nav-brand" aria-label="Alice Bazdikian, home">
       <span class="site-nav-mono">ab</span>
       <span class="site-nav-brand-text">
         <span class="site-nav-brand-name">Alice Bazdikian</span>
@@ -976,10 +994,11 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     </a>
     <ul class="site-nav-links">
       <li><a href="about.html">About</a></li>
-      <li><a href="workshops.html" class="active">Work With Me</a></li>
+      <li><a href="accelerator.html" class="active">Work With Me</a></li>
       <li><a href="speaking.html">Speaking</a></li>
       <li><a href="scorecard.html">Scorecard</a></li>
       <li><a href="claude-resources.html">Resources</a></li>
+      <li><a href="3-workflows-starter-kit.html" class="site-nav-kit">Free AI Stack</a></li>
       <li><a href="blog.html">Blog</a></li>
       <li class="site-nav-social" aria-label="Social media">
         <a href="https://www.linkedin.com/in/alice-bazdikian" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.852 3.37-1.852 3.601 0 4.267 2.37 4.267 5.455v6.288zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
@@ -987,7 +1006,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
         <a href="https://www.tiktok.com/@smallbusinessaicoach" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005.8 20.1a6.34 6.34 0 0010.86-4.43V8.21a8.15 8.15 0 004.77 1.52V6.31a4.77 4.77 0 01-1.84-.62z"/></svg></a>
       </li>
       <li>
-        <a href="https://calendly.com/abazdikian/diagnostic" target="_blank" rel="noopener" class="site-nav-cta">Book a Diagnostic</a>
+        <a href="webinar.html" class="site-nav-cta">Webinar &middot; June 3</a>
       </li>
     </ul>
     <button class="site-nav-hamburger" id="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false">
@@ -998,7 +1017,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   <!-- MOBILE MENU -->
   <div class="site-mobile-menu" id="mobile-menu" aria-hidden="true">
     <a href="about.html">About</a>
-    <a href="workshops.html">Work With Me</a>
+    <a href="accelerator.html">Work With Me</a>
     <a href="speaking.html">Speaking</a>
     <a href="scorecard.html">Scorecard</a>
     <a href="claude-resources.html">Resources</a>
@@ -1006,7 +1025,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     <a href="ai-roi-calculator.html">AI ROI Calculator</a>
     <a href="ai-stack.html">AI Stack Template</a>
     <a href="ai-challenge.html">5-Day AI Challenge</a>
-    <a href="https://calendly.com/abazdikian/diagnostic" target="_blank" rel="noopener" class="site-mobile-cta">Book a Diagnostic</a>
+    <a href="webinar.html" class="site-mobile-cta">Webinar &middot; June 3</a>
   </div>
 
   <!-- ═══ ANNOUNCE BAND ═══ -->
@@ -1033,7 +1052,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
           <span class="hero-accel-badge-dot"></span>
           Live cohort &middot; 6&ndash;8 seats &middot; Starts Wed, June 10
         </div>
-        <h1>Stop watching AI tutorials. <em>Build your workflows in 4 live nights.</em></h1>
+        <h1>Stop watching AI tutorials. <em>Build your first AI employee in 4 live nights.</em></h1>
         <p class="hero-accel-sub">
           A small-cohort accelerator on Zoom for small business owners who are done collecting tabs and ready to install AI into the work they actually do. <strong>Four Wednesday nights. Six to eight people.</strong> You leave with three workflows running in your business and a 90-day plan to keep going.
         </p>
@@ -1100,6 +1119,77 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
       <p>You stop reading about AI. You start using it. The systems live outside your head. Your week opens up by 5&ndash;10 hours. And you have a 90-day plan for what to build next.</p>
     </div>
   </section>
+
+  <!-- ═══ VALUE STACK ═══ -->
+  <section class="value-stack">
+    <div class="value-stack-inner">
+      <div class="value-stack-header">
+        <p class="section-eyebrow" style="justify-content:center;margin:0 auto 1rem;width:fit-content;">What you get</p>
+        <h2>Here is everything inside the cohort.</h2>
+        <p>Stacked at fair-market values, then priced for a small business owner who needs to see ROI by week two.</p>
+      </div>
+      <div class="value-stack-card">
+        <div class="value-row">
+          <span class="value-row-name">4 live coaching sessions (8 hrs total, 6&ndash;8 seat cohort)</span>
+          <span class="value-row-amount">$1,600</span>
+        </div>
+        <div class="value-row">
+          <span class="value-row-name">The full A.I.R. Method framework</span>
+          <span class="value-row-amount">$400</span>
+        </div>
+        <div class="value-row">
+          <span class="value-row-name">3 working AI workflows built into your business</span>
+          <span class="value-row-amount">$1,500</span>
+        </div>
+        <div class="value-row">
+          <span class="value-row-name">Prompt library, templates &amp; AI Playbook</span>
+          <span class="value-row-amount">$300</span>
+        </div>
+        <div class="value-row">
+          <span class="value-row-name">Private cohort community (6&ndash;8 owners)</span>
+          <span class="value-row-amount">$400</span>
+        </div>
+        <div class="value-row">
+          <span class="value-row-name">90-day post-program roadmap</span>
+          <span class="value-row-amount">$200</span>
+        </div>
+        <div class="value-total">
+          <span class="value-total-name">Total real value</span>
+          <span class="value-total-amount">$4,400</span>
+        </div>
+        <div class="value-today">
+          <span class="value-today-label">Your seat today</span>
+          <span><span class="value-strike">$4,400</span><span class="value-today-amount">$697</span></span>
+        </div>
+        <div class="value-rebate">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Finish all 4 weeks &rarr; you get $100 back. Net cost: $597.
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ═══ GUARANTEE ═══ -->
+  <section class="guarantee">
+    <div class="guarantee-inner">
+      <div class="guarantee-seal">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+      </div>
+      <p class="section-eyebrow" style="justify-content:center;margin:0 auto 0.75rem;width:fit-content;color:var(--teal);">The Finish-Line Guarantee</p>
+      <h2>Show up. Finish the work. <em>Get $100 back.</em></h2>
+      <p>Attend all 4 live sessions and complete the implementation work between them. When week 4 is done, I send $100 back to the card you paid with. No catch, no fine print, no hoops. I want you to finish, and I am willing to put my own money on it.</p>
+      <div class="guarantee-amount">
+        <span class="gua-from">$697</span>
+        <span class="gua-arrow">&rarr;</span>
+        <span class="gua-to">$597</span>
+        <span class="gua-tag">$100 back</span>
+      </div>
+    </div>
+  </section>
+
+  
 
   <!-- ═══ A.I.R. METHOD WEEK-BY-WEEK ═══ -->
   <section class="air-weeks">
@@ -1212,55 +1302,6 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     </div>
   </section>
 
-  <!-- ═══ VALUE STACK ═══ -->
-  <section class="value-stack">
-    <div class="value-stack-inner">
-      <div class="value-stack-header">
-        <p class="section-eyebrow" style="justify-content:center;margin:0 auto 1rem;width:fit-content;">What you get</p>
-        <h2>Here is everything inside the cohort.</h2>
-        <p>Stacked at fair-market values, then priced for a small business owner who needs to see ROI by week two.</p>
-      </div>
-      <div class="value-stack-card">
-        <div class="value-row">
-          <span class="value-row-name">4 live coaching sessions (8 hrs total, 6&ndash;8 seat cohort)</span>
-          <span class="value-row-amount">$1,600</span>
-        </div>
-        <div class="value-row">
-          <span class="value-row-name">The full A.I.R. Method framework</span>
-          <span class="value-row-amount">$400</span>
-        </div>
-        <div class="value-row">
-          <span class="value-row-name">3 working AI workflows built into your business</span>
-          <span class="value-row-amount">$1,500</span>
-        </div>
-        <div class="value-row">
-          <span class="value-row-name">Prompt library, templates &amp; AI Playbook</span>
-          <span class="value-row-amount">$300</span>
-        </div>
-        <div class="value-row">
-          <span class="value-row-name">Private cohort community (6&ndash;8 owners)</span>
-          <span class="value-row-amount">$400</span>
-        </div>
-        <div class="value-row">
-          <span class="value-row-name">90-day post-program roadmap</span>
-          <span class="value-row-amount">$200</span>
-        </div>
-        <div class="value-total">
-          <span class="value-total-name">Total real value</span>
-          <span class="value-total-amount">$4,400</span>
-        </div>
-        <div class="value-today">
-          <span class="value-today-label">Your seat today</span>
-          <span><span class="value-strike">$4,400</span><span class="value-today-amount">$697</span></span>
-        </div>
-        <div class="value-rebate">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          Finish all 4 weeks &rarr; you get $100 back. Net cost: $597.
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ═══ FIT ═══ -->
   <section class="fit">
     <div class="fit-inner">
@@ -1289,24 +1330,6 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
             <li><span class="fit-mark">&times;</span>You are looking for a magic bullet rather than a system you operate</li>
           </ul>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ GUARANTEE ═══ -->
-  <section class="guarantee">
-    <div class="guarantee-inner">
-      <div class="guarantee-seal">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
-      </div>
-      <p class="section-eyebrow" style="justify-content:center;margin:0 auto 0.75rem;width:fit-content;color:var(--teal);">The Finish-Line Guarantee</p>
-      <h2>Show up. Finish the work. <em>Get $100 back.</em></h2>
-      <p>Attend all 4 live sessions and complete the implementation work between them. When week 4 is done, I send $100 back to the card you paid with. No catch, no fine print, no hoops. I want you to finish, and I am willing to put my own money on it.</p>
-      <div class="guarantee-amount">
-        <span class="gua-from">$697</span>
-        <span class="gua-arrow">&rarr;</span>
-        <span class="gua-to">$597</span>
-        <span class="gua-tag">$100 back</span>
       </div>
     </div>
   </section>
@@ -1627,7 +1650,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
               <div class="site-footer-brand-tag">AI Strategist + Educator</div>
             </div>
           </div>
-          <p class="site-footer-brand-desc">Helping entrepreneurs and businesses navigate the AI revolution — without the overwhelm.</p>
+          <p class="site-footer-brand-desc">Helping entrepreneurs and businesses navigate the AI revolution, without the overwhelm.</p>
           <div class="site-footer-socials">
             <a href="https://www.linkedin.com/in/alice-bazdikian" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.852 3.37-1.852 3.601 0 4.267 2.37 4.267 5.455v6.288zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
             <a href="https://www.instagram.com/smallbusinessaicoach/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
@@ -1637,7 +1660,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
         <div class="site-footer-col">
           <h4 class="site-footer-col-head">Explore</h4>
           <a href="about.html">About</a>
-          <a href="workshops.html">Work With Me</a>
+          <a href="accelerator.html">Work With Me</a>
           <a href="speaking.html">Speaking</a>
           <a href="scorecard.html">Scorecard</a>
           <a href="blog.html">Blog</a>
@@ -1652,8 +1675,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
         <div class="site-footer-col">
           <h4 class="site-footer-col-head">Contact</h4>
           <a href="https://calendly.com/abazdikian/diagnostic" target="_blank" rel="noopener">Book a Diagnostic</a>
-          <a href="mailto:alice@alicebazdikian.com">alice@alicebazdikian.com</a>
-          <a href="https://www.linkedin.com/in/alice-bazdikian" target="_blank" rel="noopener">LinkedIn</a>
+<a href="https://www.linkedin.com/in/alice-bazdikian" target="_blank" rel="noopener">LinkedIn</a>
           <a href="https://www.instagram.com/smallbusinessaicoach/" target="_blank" rel="noopener">Instagram</a>
         </div>
       </div>
@@ -1715,5 +1737,61 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
       });
     })();
   </script>
+<!-- EXIT-INTENT NEWSLETTER MODAL -->
+<div id="exit-modal" class="exit-modal" aria-hidden="true" role="dialog" aria-labelledby="exit-modal-title">
+  <div class="exit-modal-backdrop"></div>
+  <div class="exit-modal-card">
+    <button class="exit-modal-close" aria-label="Close">&times;</button>
+    <span class="exit-modal-eyebrow">&#127873; Before you close the tab</span>
+    <h2 id="exit-modal-title" class="exit-modal-title">Take the AI Stack <em>with you.</em></h2>
+    <p class="exit-modal-sub">One Friday email. One small piece of your business you'll never have to think about again. Plus the free <strong>4-Workflow AI Stack template</strong> the moment you subscribe, so you can start handing off 40 tabs of decision fatigue this week.</p>
+    <form class="exit-modal-form" action="https://buttondown.email/api/emails/embed-subscribe/abazdikian" method="post" target="_blank" rel="noopener">
+      <input type="email" name="email" required placeholder="you@work.com" class="exit-modal-input" autocomplete="email" aria-label="Email address" />
+      <button type="submit" class="exit-modal-btn">Send me the AI Stack &rarr;</button>
+    </form>
+    <p class="exit-modal-meta">No spam &middot; 1 email/week &middot; Unsubscribe in one click</p>
+  </div>
+</div>
+<style>
+.exit-modal { position: fixed; inset: 0; z-index: 9999; display: none; align-items: center; justify-content: center; padding: 24px; }
+.exit-modal.is-open { display: flex; }
+.exit-modal-backdrop { position: absolute; inset: 0; background: rgba(43,26,31,0.55); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); animation: exitFadeIn .25s ease; }
+.exit-modal-card { position: relative; max-width: 460px; width: 100%; background: #FFFFFF; border-radius: 18px; padding: 36px 32px 30px; box-shadow: 0 30px 70px -10px rgba(43,26,31,0.45); border: 1.5px solid rgba(212,168,74,0.35); animation: exitSlideUp .3s cubic-bezier(.2,.7,.3,1); font-family: 'Nunito', system-ui, -apple-system, sans-serif; }
+.exit-modal-close { position: absolute; top: 12px; right: 14px; background: none; border: none; color: #6B5A5F; font-size: 1.5rem; line-height: 1; cursor: pointer; padding: 6px 10px; border-radius: 999px; transition: background .2s ease; }
+.exit-modal-close:hover { background: rgba(43,26,31,0.06); color: #2B1A1F; }
+.exit-modal-eyebrow { display: inline-block; font-size: .6875rem; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; color: #A87B1F; background: rgba(212,168,74,0.14); padding: 6px 12px; border-radius: 999px; border: 1px solid rgba(212,168,74,0.32); margin-bottom: 14px; }
+.exit-modal-title { font-family: 'Fraunces', Georgia, serif; font-size: clamp(1.5rem, 3vw, 1.875rem); font-weight: 500; line-height: 1.1; letter-spacing: -0.02em; color: #2B1A1F; margin: 0 0 12px; }
+.exit-modal-title em { font-style: italic; font-weight: 500; background: linear-gradient(135deg,#2F6F4F 0%,#4A8B6F 55%,#6BB28C 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; }
+.exit-modal-sub { color: #6B5A5F; font-size: .9375rem; line-height: 1.55; margin: 0 0 18px; }
+.exit-modal-sub strong { color: #2F6F4F; font-weight: 700; }
+.exit-modal-form { display: flex; flex-direction: column; gap: 10px; }
+.exit-modal-input { width: 100%; font-family: inherit; font-size: 1rem; padding: 12px 14px; border-radius: 10px; border: 1.5px solid rgba(47,111,79,0.18); background: #FDFBF5; color: #2B1A1F; outline: none; transition: border-color .2s ease, box-shadow .2s ease; }
+.exit-modal-input:focus-visible { border-color: #2F6F4F; box-shadow: 0 0 0 3px rgba(47,111,79,0.12); }
+.exit-modal-btn { font-family: inherit; font-weight: 800; font-size: .875rem; letter-spacing: .02em; padding: 12px 18px; border-radius: 10px; background: #2F6F4F; color: #fff; border: none; cursor: pointer; box-shadow: 0 10px 24px rgba(47,111,79,0.3); transition: background .2s ease, transform .15s ease; }
+.exit-modal-btn:hover { background: #4A8B6F; transform: translateY(-1px); }
+.exit-modal-meta { font-size: .75rem; color: #6B5A5F; text-align: center; margin: 12px 0 0; }
+@keyframes exitFadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes exitSlideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) { .exit-modal-backdrop, .exit-modal-card { animation: none; } }
+</style>
+<script>
+(function(){
+  if (sessionStorage.getItem('exitModalShown')) return;
+  var modal = document.getElementById('exit-modal');
+  if (!modal) return;
+  var armed = false;
+  function show(){ if(modal.classList.contains('is-open')) return; modal.classList.add('is-open'); modal.setAttribute('aria-hidden','false'); sessionStorage.setItem('exitModalShown','1'); }
+  function hide(){ modal.classList.remove('is-open'); modal.setAttribute('aria-hidden','true'); }
+  // Arm after 8s so it doesn't fire instantly
+  setTimeout(function(){ armed = true; }, 8000);
+  document.addEventListener('mouseout', function(e){ if (armed && !e.relatedTarget && e.clientY <= 0) show(); });
+  // Mobile fallback: trigger after 60s
+  setTimeout(function(){ if (armed) show(); }, 60000);
+  modal.querySelector('.exit-modal-close').addEventListener('click', hide);
+  modal.querySelector('.exit-modal-backdrop').addEventListener('click', hide);
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') hide(); });
+})();
+</script>
+
 </body>
 </html>

@@ -1,5 +1,14 @@
 [
   {
+    "slug": "why-your-ai-feels-limited",
+    "title": "Why Your AI Feels Limited (And It's Not the AI's Fault)",
+    "tag": "AI Foundations",
+    "excerpt": "When AI feels limited, the model is usually fine. It's the harness that needs attention. A plain-English map of the first four rungs, from prompts to plugins, and how to spot which one your work needs next.",
+    "date": "May 14, 2026",
+    "readTime": "7 min read",
+    "featured": true
+  },
+  {
     "slug": "messy-sops-to-10-hours-saved-a-week",
     "title": "Why Your Messy SOPs Are Costing You 10 Hours a Week (And the 15-Minute Fix)",
     "tag": "AI Workflows",
