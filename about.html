@@ -1469,7 +1469,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   var modal = document.getElementById('exit-modal');
   if (!modal) return;
   var armed = false;
-  function show(){ if(modal.classList.contains('is-open')) return; modal.classList.add('is-open'); modal.setAttribute('aria-hidden','false'); sessionStorage.setItem('exitModalShown','1'); }
+  function show(){
+    // Hard-stop: never re-show in same session, even after close
+    if (sessionStorage.getItem('exitModalShown')) return;
+    if (modal.classList.contains('is-open')) return;
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden','false');
+    sessionStorage.setItem('exitModalShown','1');
+  }
   function hide(){ modal.classList.remove('is-open'); modal.setAttribute('aria-hidden','true'); }
   // Arm after 8s so it doesn't fire instantly
   setTimeout(function(){ armed = true; }, 8000);
@@ -1479,6 +1486,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   modal.querySelector('.exit-modal-close').addEventListener('click', hide);
   modal.querySelector('.exit-modal-backdrop').addEventListener('click', hide);
   document.addEventListener('keydown', function(e){ if(e.key==='Escape') hide(); });
+  // Kill modal permanently when subscriber submits the form
+  var form = modal.querySelector('form');
+  if (form) form.addEventListener('submit', function(){
+    sessionStorage.setItem('exitModalShown','1');
+    hide();
+  });
 })();
 </script>
 
